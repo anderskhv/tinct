@@ -1,0 +1,5059 @@
+{
+  "complete": true,
+  "signature": "5f0151e94ac379e31220bf51944704f4a4ba179637689db46d83e1f4d7c9e793",
+  "attempts": [
+    {
+      "asr_seconds": 4.771863074999999,
+      "alignment_seconds": 0.0027313089999836393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Wasn't it enough to think of going to the Chênière and waking you up?\" she laughed. \"Do I have to think of everything?—as Léonce says when he's in a bad humor. I don't blame him; he'd never be in a bad humor if it weren't for me.\"",
+        "hotwords": "Wasn't, Chênière, Do, I, Léonce"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Wasn't it enough to think of going to the Chênière and waking you up? she laughed.",
+          "start": 0.02,
+          "end": 4.28,
+          "words": [
+            {
+              "text": " Wasn't",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.70712977151076
+            },
+            {
+              "text": " it",
+              "start": 0.7,
+              "end": 0.78,
+              "probability": 0.9718173742294312
+            },
+            {
+              "text": " enough",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.9988182187080383
+            },
+            {
+              "text": " to",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.9986264705657959
+            },
+            {
+              "text": " think",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.9982376098632812
+            },
+            {
+              "text": " of",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9945427179336548
+            },
+            {
+              "text": " going",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.9962738752365112
+            },
+            {
+              "text": " to",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9954792261123657
+            },
+            {
+              "text": " the",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.9919724464416504
+            },
+            {
+              "text": " Chênière",
+              "start": 1.96,
+              "end": 2.48,
+              "probability": 0.22411400354394573
+            },
+            {
+              "text": " and",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.9865719079971313
+            },
+            {
+              "text": " waking",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.999142050743103
+            },
+            {
+              "text": " you",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.9970800280570984
+            },
+            {
+              "text": " up?",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 0.9992119073867798
+            },
+            {
+              "text": " she",
+              "start": 3.82,
+              "end": 3.92,
+              "probability": 0.3207613527774811
+            },
+            {
+              "text": " laughed.",
+              "start": 3.92,
+              "end": 4.28,
+              "probability": 0.9961225390434265
+            }
+          ]
+        },
+        {
+          "text": " Do I have to think of everything?—as Léonce says when he's in a bad humor.",
+          "start": 4.9,
+          "end": 9.26,
+          "words": [
+            {
+              "text": " Do",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.8476149439811707
+            },
+            {
+              "text": " I",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.9904109239578247
+            },
+            {
+              "text": " have",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.9960622191429138
+            },
+            {
+              "text": " to",
+              "start": 5.34,
+              "end": 5.54,
+              "probability": 0.9992387294769287
+            },
+            {
+              "text": " think",
+              "start": 5.54,
+              "end": 5.72,
+              "probability": 0.9984989166259766
+            },
+            {
+              "text": " of",
+              "start": 5.72,
+              "end": 5.86,
+              "probability": 0.998228132724762
+            },
+            {
+              "text": " everything",
+              "start": 5.86,
+              "end": 6.3,
+              "probability": 0.9971852898597717
+            },
+            {
+              "text": "?—as",
+              "start": 6.3,
+              "end": 7.12,
+              "probability": 0.40074408112802
+            },
+            {
+              "text": " Léonce",
+              "start": 7.12,
+              "end": 7.58,
+              "probability": 0.4617210328578949
+            },
+            {
+              "text": " says",
+              "start": 7.58,
+              "end": 7.92,
+              "probability": 0.9907488226890564
+            },
+            {
+              "text": " when",
+              "start": 7.92,
+              "end": 8.18,
+              "probability": 0.6694343686103821
+            },
+            {
+              "text": " he's",
+              "start": 8.18,
+              "end": 8.48,
+              "probability": 0.9801198542118073
+            },
+            {
+              "text": " in",
+              "start": 8.48,
+              "end": 8.56,
+              "probability": 0.9684236645698547
+            },
+            {
+              "text": " a",
+              "start": 8.56,
+              "end": 8.68,
+              "probability": 0.9849024415016174
+            },
+            {
+              "text": " bad",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.9907824397087097
+            },
+            {
+              "text": " humor.",
+              "start": 8.88,
+              "end": 9.26,
+              "probability": 0.859038770198822
+            }
+          ]
+        },
+        {
+          "text": " I don't blame him. He'd never be in a bad humor if it weren't for me.",
+          "start": 9.76,
+          "end": 13.22,
+          "words": [
+            {
+              "text": " I",
+              "start": 9.76,
+              "end": 9.86,
+              "probability": 0.9668867588043213
+            },
+            {
+              "text": " don't",
+              "start": 9.86,
+              "end": 10.14,
+              "probability": 0.9986669421195984
+            },
+            {
+              "text": " blame",
+              "start": 10.14,
+              "end": 10.28,
+              "probability": 0.9994283318519592
+            },
+            {
+              "text": " him.",
+              "start": 10.28,
+              "end": 10.56,
+              "probability": 0.9992102384567261
+            },
+            {
+              "text": " He'd",
+              "start": 10.92,
+              "end": 11.08,
+              "probability": 0.9921790063381195
+            },
+            {
+              "text": " never",
+              "start": 11.08,
+              "end": 11.28,
+              "probability": 0.9987642765045166
+            },
+            {
+              "text": " be",
+              "start": 11.28,
+              "end": 11.46,
+              "probability": 0.9968807697296143
+            },
+            {
+              "text": " in",
+              "start": 11.46,
+              "end": 11.56,
+              "probability": 0.9980898499488831
+            },
+            {
+              "text": " a",
+              "start": 11.56,
+              "end": 11.68,
+              "probability": 0.9958064556121826
+            },
+            {
+              "text": " bad",
+              "start": 11.68,
+              "end": 11.9,
+              "probability": 0.999470055103302
+            },
+            {
+              "text": " humor",
+              "start": 11.9,
+              "end": 12.26,
+              "probability": 0.9944419264793396
+            },
+            {
+              "text": " if",
+              "start": 12.26,
+              "end": 12.48,
+              "probability": 0.9410211443901062
+            },
+            {
+              "text": " it",
+              "start": 12.48,
+              "end": 12.58,
+              "probability": 0.9987930059432983
+            },
+            {
+              "text": " weren't",
+              "start": 12.58,
+              "end": 12.88,
+              "probability": 0.9988312423229218
+            },
+            {
+              "text": " for",
+              "start": 12.88,
+              "end": 13.02,
+              "probability": 0.9995515942573547
+            },
+            {
+              "text": " me.",
+              "start": 13.02,
+              "end": 13.22,
+              "probability": 0.9995014667510986
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wasn't",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "raw": "enough",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "think",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "of",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "going",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "Chênière",
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "raw": "and",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "waking",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "up?",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "she",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "raw": "laughed.",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "raw": "Do",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "have",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "raw": "think",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "raw": "everything",
+          "start": 5.86,
+          "end": 6.3
+        },
+        {
+          "raw": "?—as",
+          "start": 6.3,
+          "end": 7.12
+        },
+        {
+          "raw": "Léonce",
+          "start": 7.12,
+          "end": 7.58
+        },
+        {
+          "raw": "says",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "raw": "when",
+          "start": 7.92,
+          "end": 8.18
+        },
+        {
+          "raw": "he's",
+          "start": 8.18,
+          "end": 8.48
+        },
+        {
+          "raw": "in",
+          "start": 8.48,
+          "end": 8.56
+        },
+        {
+          "raw": "a",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "raw": "bad",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "humor.",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "raw": "I",
+          "start": 9.76,
+          "end": 9.86
+        },
+        {
+          "raw": "don't",
+          "start": 9.86,
+          "end": 10.14
+        },
+        {
+          "raw": "blame",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "raw": "him.",
+          "start": 10.28,
+          "end": 10.56
+        },
+        {
+          "raw": "He'd",
+          "start": 10.92,
+          "end": 11.08
+        },
+        {
+          "raw": "never",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.46
+        },
+        {
+          "raw": "in",
+          "start": 11.46,
+          "end": 11.56
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.68
+        },
+        {
+          "raw": "bad",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "raw": "humor",
+          "start": 11.9,
+          "end": 12.26
+        },
+        {
+          "raw": "if",
+          "start": 12.26,
+          "end": 12.48
+        },
+        {
+          "raw": "it",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "raw": "weren't",
+          "start": 12.58,
+          "end": 12.88
+        },
+        {
+          "raw": "for",
+          "start": 12.88,
+          "end": 13.02
+        },
+        {
+          "raw": "me.",
+          "start": 13.02,
+          "end": 13.22
+        }
+      ],
+      "expected_tokens": [
+        "“Wasn’t",
+        "it",
+        "enough",
+        "to",
+        "think",
+        "of",
+        "going",
+        "to",
+        "the",
+        "Chênière",
+        "and",
+        "waking",
+        "you",
+        "up?”",
+        "she",
+        "laughed.",
+        "“Do",
+        "I",
+        "have",
+        "to",
+        "think",
+        "of",
+        "everything?—as",
+        "Léonce",
+        "says",
+        "when",
+        "he’s",
+        "in",
+        "a",
+        "bad",
+        "humor.",
+        "I",
+        "don’t",
+        "blame",
+        "him;",
+        "he’d",
+        "never",
+        "be",
+        "in",
+        "a",
+        "bad",
+        "humor",
+        "if",
+        "it",
+        "weren’t",
+        "for",
+        "me.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Wasn't",
+        "it",
+        "enough",
+        "to",
+        "think",
+        "of",
+        "going",
+        "to",
+        "the",
+        "Chênière",
+        "and",
+        "waking",
+        "you",
+        "up?\"",
+        "she",
+        "laughed.",
+        "\"Do",
+        "I",
+        "have",
+        "to",
+        "think",
+        "of",
+        "everything?—as",
+        "Léonce",
+        "says",
+        "when",
+        "he's",
+        "in",
+        "a",
+        "bad",
+        "humor.",
+        "I",
+        "don't",
+        "blame",
+        "him;",
+        "he'd",
+        "never",
+        "be",
+        "in",
+        "a",
+        "bad",
+        "humor",
+        "if",
+        "it",
+        "weren't",
+        "for",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          35,
+          0,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "equal",
+          36,
+          47,
+          36,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wasn't",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "wasnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.78,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "enough",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "going",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Chênière",
+          "start": 1.96,
+          "end": 2.48,
+          "key": "chênière",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "waking",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "waking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "up?",
+          "start": 3.18,
+          "end": 3.46,
+          "key": "up",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.82,
+          "end": 3.92,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laughed.",
+          "start": 3.92,
+          "end": 4.28,
+          "key": "laughed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.54,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 5.54,
+          "end": 5.72,
+          "key": "think",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.86,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "everything ?—as",
+          "start": 5.86,
+          "end": 7.12,
+          "key": "everythingas",
+          "pieces": [
+            22,
+            23
+          ]
+        },
+        {
+          "raw": "Léonce",
+          "start": 7.12,
+          "end": 7.58,
+          "key": "léonce",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 7.58,
+          "end": 7.92,
+          "key": "says",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 7.92,
+          "end": 8.18,
+          "key": "when",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 8.18,
+          "end": 8.48,
+          "key": "hes",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.48,
+          "end": 8.56,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.56,
+          "end": 8.68,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 8.68,
+          "end": 8.88,
+          "key": "bad",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "humor.",
+          "start": 8.88,
+          "end": 9.26,
+          "key": "humor",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.76,
+          "end": 9.86,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 9.86,
+          "end": 10.14,
+          "key": "dont",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "blame",
+          "start": 10.14,
+          "end": 10.28,
+          "key": "blame",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 10.28,
+          "end": 10.56,
+          "key": "him",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "He'd",
+          "start": 10.92,
+          "end": 11.08,
+          "key": "hed",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 11.08,
+          "end": 11.28,
+          "key": "never",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.46,
+          "key": "be",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.46,
+          "end": 11.56,
+          "key": "in",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.68,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 11.68,
+          "end": 11.9,
+          "key": "bad",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "humor",
+          "start": 11.9,
+          "end": 12.26,
+          "key": "humor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 12.26,
+          "end": 12.48,
+          "key": "if",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.48,
+          "end": 12.58,
+          "key": "it",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "weren't",
+          "start": 12.58,
+          "end": 12.88,
+          "key": "werent",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 12.88,
+          "end": 13.02,
+          "key": "for",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 13.02,
+          "end": 13.22,
+          "key": "me",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "everything?—as",
+          "heard": "everything ?—as",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 5.86,
+          "end": 7.12
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Wasn’t",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "it",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "text": "enough",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "to",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "think",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "of",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "going",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "to",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "the",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "Chênière",
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "text": "and",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "waking",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "you",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "up?”",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "text": "she",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "text": "laughed.",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "text": "“Do",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "I",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "have",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "text": "think",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "text": "of",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "text": "everything?—as",
+          "start": 5.86,
+          "end": 7.12
+        },
+        {
+          "text": "Léonce",
+          "start": 7.12,
+          "end": 7.58
+        },
+        {
+          "text": "says",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "text": "when",
+          "start": 7.92,
+          "end": 8.18
+        },
+        {
+          "text": "he’s",
+          "start": 8.18,
+          "end": 8.48
+        },
+        {
+          "text": "in",
+          "start": 8.48,
+          "end": 8.56
+        },
+        {
+          "text": "a",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "text": "bad",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "humor.",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "text": "I",
+          "start": 9.76,
+          "end": 9.86
+        },
+        {
+          "text": "don’t",
+          "start": 9.86,
+          "end": 10.14
+        },
+        {
+          "text": "blame",
+          "start": 10.14,
+          "end": 10.28
+        },
+        {
+          "text": "him;",
+          "start": 10.28,
+          "end": 10.56
+        },
+        {
+          "text": "he’d",
+          "start": 10.56,
+          "end": 10.82
+        },
+        {
+          "text": "never",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "text": "be",
+          "start": 11.28,
+          "end": 11.46
+        },
+        {
+          "text": "in",
+          "start": 11.46,
+          "end": 11.56
+        },
+        {
+          "text": "a",
+          "start": 11.56,
+          "end": 11.68
+        },
+        {
+          "text": "bad",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "text": "humor",
+          "start": 11.9,
+          "end": 12.26
+        },
+        {
+          "text": "if",
+          "start": 12.26,
+          "end": 12.48
+        },
+        {
+          "text": "it",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "text": "weren’t",
+          "start": 12.58,
+          "end": 12.88
+        },
+        {
+          "text": "for",
+          "start": 12.88,
+          "end": 13.02
+        },
+        {
+          "text": "me.”",
+          "start": 13.02,
+          "end": 13.22
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 46
+      },
+      "match_ratio": 0.9787234042553191,
+      "rejection_reasons": [],
+      "seconds": 4.774678109999996
+    },
+    {
+      "asr_seconds": 4.388147379999992,
+      "alignment_seconds": 0.002755290000010291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Wasn't, Chênière, Do, I, Léonce"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Wasn't it enough to think of going to the Chênière and waking you up? She laughed. Do I have to think of everything?",
+          "start": 0.02,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Wasn't",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.70712977151076
+            },
+            {
+              "text": " it",
+              "start": 0.7,
+              "end": 0.78,
+              "probability": 0.9718173742294312
+            },
+            {
+              "text": " enough",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.9988182187080383
+            },
+            {
+              "text": " to",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.9986264705657959
+            },
+            {
+              "text": " think",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.9982376098632812
+            },
+            {
+              "text": " of",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9945427179336548
+            },
+            {
+              "text": " going",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.9962738752365112
+            },
+            {
+              "text": " to",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9954792261123657
+            },
+            {
+              "text": " the",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.9919724464416504
+            },
+            {
+              "text": " Chênière",
+              "start": 1.96,
+              "end": 2.48,
+              "probability": 0.22411400354394573
+            },
+            {
+              "text": " and",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.9865719079971313
+            },
+            {
+              "text": " waking",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.999142050743103
+            },
+            {
+              "text": " you",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.9970800280570984
+            },
+            {
+              "text": " up?",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 0.9992119073867798
+            },
+            {
+              "text": " She",
+              "start": 3.82,
+              "end": 3.92,
+              "probability": 0.6258797645568848
+            },
+            {
+              "text": " laughed.",
+              "start": 3.92,
+              "end": 4.24,
+              "probability": 0.9986209869384766
+            },
+            {
+              "text": " Do",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.8200687766075134
+            },
+            {
+              "text": " I",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.9966642260551453
+            },
+            {
+              "text": " have",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.9971362352371216
+            },
+            {
+              "text": " to",
+              "start": 5.34,
+              "end": 5.54,
+              "probability": 0.9991575479507446
+            },
+            {
+              "text": " think",
+              "start": 5.54,
+              "end": 5.72,
+              "probability": 0.9987885355949402
+            },
+            {
+              "text": " of",
+              "start": 5.72,
+              "end": 5.86,
+              "probability": 0.9984373450279236
+            },
+            {
+              "text": " everything?",
+              "start": 5.86,
+              "end": 6.3,
+              "probability": 0.9979276657104492
+            }
+          ]
+        },
+        {
+          "text": " As Léonce says when he's in a bad humor, I don't blame him. He'd never be in a bad humor if it weren't for me.",
+          "start": 7.02,
+          "end": 13.22,
+          "words": [
+            {
+              "text": " As",
+              "start": 7.02,
+              "end": 7.12,
+              "probability": 0.977709174156189
+            },
+            {
+              "text": " Léonce",
+              "start": 7.12,
+              "end": 7.58,
+              "probability": 0.4428506518403689
+            },
+            {
+              "text": " says",
+              "start": 7.58,
+              "end": 7.92,
+              "probability": 0.9923362135887146
+            },
+            {
+              "text": " when",
+              "start": 7.92,
+              "end": 8.18,
+              "probability": 0.5709088444709778
+            },
+            {
+              "text": " he's",
+              "start": 8.18,
+              "end": 8.48,
+              "probability": 0.9864177703857422
+            },
+            {
+              "text": " in",
+              "start": 8.48,
+              "end": 8.58,
+              "probability": 0.9811908602714539
+            },
+            {
+              "text": " a",
+              "start": 8.58,
+              "end": 8.68,
+              "probability": 0.9886143207550049
+            },
+            {
+              "text": " bad",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.9919520020484924
+            },
+            {
+              "text": " humor,",
+              "start": 8.88,
+              "end": 9.26,
+              "probability": 0.8624999523162842
+            },
+            {
+              "text": " I",
+              "start": 9.78,
+              "end": 9.86,
+              "probability": 0.8478820323944092
+            },
+            {
+              "text": " don't",
+              "start": 9.86,
+              "end": 10.12,
+              "probability": 0.9987655282020569
+            },
+            {
+              "text": " blame",
+              "start": 10.12,
+              "end": 10.28,
+              "probability": 0.9994601607322693
+            },
+            {
+              "text": " him.",
+              "start": 10.28,
+              "end": 10.58,
+              "probability": 0.9993545413017273
+            },
+            {
+              "text": " He'd",
+              "start": 10.94,
+              "end": 11.08,
+              "probability": 0.9941987693309784
+            },
+            {
+              "text": " never",
+              "start": 11.08,
+              "end": 11.28,
+              "probability": 0.9991039633750916
+            },
+            {
+              "text": " be",
+              "start": 11.28,
+              "end": 11.46,
+              "probability": 0.996304988861084
+            },
+            {
+              "text": " in",
+              "start": 11.46,
+              "end": 11.56,
+              "probability": 0.9978160858154297
+            },
+            {
+              "text": " a",
+              "start": 11.56,
+              "end": 11.68,
+              "probability": 0.9962155222892761
+            },
+            {
+              "text": " bad",
+              "start": 11.68,
+              "end": 11.9,
+              "probability": 0.9997190833091736
+            },
+            {
+              "text": " humor",
+              "start": 11.9,
+              "end": 12.28,
+              "probability": 0.9959530830383301
+            },
+            {
+              "text": " if",
+              "start": 12.28,
+              "end": 12.48,
+              "probability": 0.9533911943435669
+            },
+            {
+              "text": " it",
+              "start": 12.48,
+              "end": 12.58,
+              "probability": 0.9988356232643127
+            },
+            {
+              "text": " weren't",
+              "start": 12.58,
+              "end": 12.88,
+              "probability": 0.9990173280239105
+            },
+            {
+              "text": " for",
+              "start": 12.88,
+              "end": 13.02,
+              "probability": 0.9994547963142395
+            },
+            {
+              "text": " me.",
+              "start": 13.02,
+              "end": 13.22,
+              "probability": 0.9994462132453918
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wasn't",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "raw": "enough",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "think",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "of",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "going",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "Chênière",
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "raw": "and",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "waking",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "up?",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "She",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "raw": "laughed.",
+          "start": 3.92,
+          "end": 4.24
+        },
+        {
+          "raw": "Do",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "have",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "raw": "think",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "raw": "everything?",
+          "start": 5.86,
+          "end": 6.3
+        },
+        {
+          "raw": "As",
+          "start": 7.02,
+          "end": 7.12
+        },
+        {
+          "raw": "Léonce",
+          "start": 7.12,
+          "end": 7.58
+        },
+        {
+          "raw": "says",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "raw": "when",
+          "start": 7.92,
+          "end": 8.18
+        },
+        {
+          "raw": "he's",
+          "start": 8.18,
+          "end": 8.48
+        },
+        {
+          "raw": "in",
+          "start": 8.48,
+          "end": 8.58
+        },
+        {
+          "raw": "a",
+          "start": 8.58,
+          "end": 8.68
+        },
+        {
+          "raw": "bad",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "humor,",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "raw": "I",
+          "start": 9.78,
+          "end": 9.86
+        },
+        {
+          "raw": "don't",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "raw": "blame",
+          "start": 10.12,
+          "end": 10.28
+        },
+        {
+          "raw": "him.",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "raw": "He'd",
+          "start": 10.94,
+          "end": 11.08
+        },
+        {
+          "raw": "never",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.46
+        },
+        {
+          "raw": "in",
+          "start": 11.46,
+          "end": 11.56
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.68
+        },
+        {
+          "raw": "bad",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "raw": "humor",
+          "start": 11.9,
+          "end": 12.28
+        },
+        {
+          "raw": "if",
+          "start": 12.28,
+          "end": 12.48
+        },
+        {
+          "raw": "it",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "raw": "weren't",
+          "start": 12.58,
+          "end": 12.88
+        },
+        {
+          "raw": "for",
+          "start": 12.88,
+          "end": 13.02
+        },
+        {
+          "raw": "me.",
+          "start": 13.02,
+          "end": 13.22
+        }
+      ],
+      "expected_tokens": [
+        "“Wasn’t",
+        "it",
+        "enough",
+        "to",
+        "think",
+        "of",
+        "going",
+        "to",
+        "the",
+        "Chênière",
+        "and",
+        "waking",
+        "you",
+        "up?”",
+        "she",
+        "laughed.",
+        "“Do",
+        "I",
+        "have",
+        "to",
+        "think",
+        "of",
+        "everything?—as",
+        "Léonce",
+        "says",
+        "when",
+        "he’s",
+        "in",
+        "a",
+        "bad",
+        "humor.",
+        "I",
+        "don’t",
+        "blame",
+        "him;",
+        "he’d",
+        "never",
+        "be",
+        "in",
+        "a",
+        "bad",
+        "humor",
+        "if",
+        "it",
+        "weren’t",
+        "for",
+        "me.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Wasn't",
+        "it",
+        "enough",
+        "to",
+        "think",
+        "of",
+        "going",
+        "to",
+        "the",
+        "Chênière",
+        "and",
+        "waking",
+        "you",
+        "up?\"",
+        "she",
+        "laughed.",
+        "\"Do",
+        "I",
+        "have",
+        "to",
+        "think",
+        "of",
+        "everything?—as",
+        "Léonce",
+        "says",
+        "when",
+        "he's",
+        "in",
+        "a",
+        "bad",
+        "humor.",
+        "I",
+        "don't",
+        "blame",
+        "him;",
+        "he'd",
+        "never",
+        "be",
+        "in",
+        "a",
+        "bad",
+        "humor",
+        "if",
+        "it",
+        "weren't",
+        "for",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          35,
+          0,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "equal",
+          36,
+          47,
+          36,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wasn't",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "wasnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.78,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "enough",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "going",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Chênière",
+          "start": 1.96,
+          "end": 2.48,
+          "key": "chênière",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "waking",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "waking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "up?",
+          "start": 3.18,
+          "end": 3.46,
+          "key": "up",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.82,
+          "end": 3.92,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laughed.",
+          "start": 3.92,
+          "end": 4.24,
+          "key": "laughed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.54,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 5.54,
+          "end": 5.72,
+          "key": "think",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.86,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "everything? As",
+          "start": 5.86,
+          "end": 7.12,
+          "key": "everythingas",
+          "pieces": [
+            22,
+            23
+          ]
+        },
+        {
+          "raw": "Léonce",
+          "start": 7.12,
+          "end": 7.58,
+          "key": "léonce",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 7.58,
+          "end": 7.92,
+          "key": "says",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 7.92,
+          "end": 8.18,
+          "key": "when",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 8.18,
+          "end": 8.48,
+          "key": "hes",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.48,
+          "end": 8.58,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.58,
+          "end": 8.68,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 8.68,
+          "end": 8.88,
+          "key": "bad",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "humor,",
+          "start": 8.88,
+          "end": 9.26,
+          "key": "humor",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.78,
+          "end": 9.86,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 9.86,
+          "end": 10.12,
+          "key": "dont",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "blame",
+          "start": 10.12,
+          "end": 10.28,
+          "key": "blame",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 10.28,
+          "end": 10.58,
+          "key": "him",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "He'd",
+          "start": 10.94,
+          "end": 11.08,
+          "key": "hed",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 11.08,
+          "end": 11.28,
+          "key": "never",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.46,
+          "key": "be",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.46,
+          "end": 11.56,
+          "key": "in",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.68,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 11.68,
+          "end": 11.9,
+          "key": "bad",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "humor",
+          "start": 11.9,
+          "end": 12.28,
+          "key": "humor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 12.28,
+          "end": 12.48,
+          "key": "if",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.48,
+          "end": 12.58,
+          "key": "it",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "weren't",
+          "start": 12.58,
+          "end": 12.88,
+          "key": "werent",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 12.88,
+          "end": 13.02,
+          "key": "for",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 13.02,
+          "end": 13.22,
+          "key": "me",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "everything?—as",
+          "heard": "everything? As",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 5.86,
+          "end": 7.12
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Wasn’t",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "it",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "text": "enough",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "to",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "think",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "of",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "going",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "to",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "the",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "Chênière",
+          "start": 1.96,
+          "end": 2.48
+        },
+        {
+          "text": "and",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "waking",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "you",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "up?”",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "text": "she",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "text": "laughed.",
+          "start": 3.92,
+          "end": 4.24
+        },
+        {
+          "text": "“Do",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "I",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "have",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "text": "think",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "text": "of",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "text": "everything?—as",
+          "start": 5.86,
+          "end": 7.12
+        },
+        {
+          "text": "Léonce",
+          "start": 7.12,
+          "end": 7.58
+        },
+        {
+          "text": "says",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "text": "when",
+          "start": 7.92,
+          "end": 8.18
+        },
+        {
+          "text": "he’s",
+          "start": 8.18,
+          "end": 8.48
+        },
+        {
+          "text": "in",
+          "start": 8.48,
+          "end": 8.58
+        },
+        {
+          "text": "a",
+          "start": 8.58,
+          "end": 8.68
+        },
+        {
+          "text": "bad",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "humor.",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "text": "I",
+          "start": 9.78,
+          "end": 9.86
+        },
+        {
+          "text": "don’t",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "text": "blame",
+          "start": 10.12,
+          "end": 10.28
+        },
+        {
+          "text": "him;",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "text": "he’d",
+          "start": 10.58,
+          "end": 10.83
+        },
+        {
+          "text": "never",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "text": "be",
+          "start": 11.28,
+          "end": 11.46
+        },
+        {
+          "text": "in",
+          "start": 11.46,
+          "end": 11.56
+        },
+        {
+          "text": "a",
+          "start": 11.56,
+          "end": 11.68
+        },
+        {
+          "text": "bad",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "text": "humor",
+          "start": 11.9,
+          "end": 12.28
+        },
+        {
+          "text": "if",
+          "start": 12.28,
+          "end": 12.48
+        },
+        {
+          "text": "it",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "text": "weren’t",
+          "start": 12.58,
+          "end": 12.88
+        },
+        {
+          "text": "for",
+          "start": 12.88,
+          "end": 13.02
+        },
+        {
+          "text": "me.”",
+          "start": 13.02,
+          "end": 13.22
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 46
+      },
+      "match_ratio": 0.9787234042553191,
+      "rejection_reasons": [],
+      "seconds": 4.390989112
+    },
+    {
+      "asr_seconds": 4.5196962720000045,
+      "alignment_seconds": 0.0027746389999947496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Wasn't it enough to think of going to the Charnier and waking you up?",
+          "start": 0.02,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Wasn't",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.70712977151076
+            },
+            {
+              "text": " it",
+              "start": 0.7,
+              "end": 0.78,
+              "probability": 0.9718173742294312
+            },
+            {
+              "text": " enough",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.9988182187080383
+            },
+            {
+              "text": " to",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.9986264705657959
+            },
+            {
+              "text": " think",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.9982376098632812
+            },
+            {
+              "text": " of",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9945427179336548
+            },
+            {
+              "text": " going",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.9962738752365112
+            },
+            {
+              "text": " to",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9954792261123657
+            },
+            {
+              "text": " the",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.9919724464416504
+            },
+            {
+              "text": " Charnier",
+              "start": 1.96,
+              "end": 2.38,
+              "probability": 0.4495716268817584
+            },
+            {
+              "text": " and",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.9747506976127625
+            },
+            {
+              "text": " waking",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.9990373849868774
+            },
+            {
+              "text": " you",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.9966838955879211
+            },
+            {
+              "text": " up?",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 0.9990992546081543
+            }
+          ]
+        },
+        {
+          "text": " She laughed.",
+          "start": 3.86,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " She",
+              "start": 3.86,
+              "end": 3.92,
+              "probability": 0.6442025303840637
+            },
+            {
+              "text": " laughed.",
+              "start": 3.92,
+              "end": 4.26,
+              "probability": 0.9979881048202515
+            }
+          ]
+        },
+        {
+          "text": " Do I have to think of everything?",
+          "start": 4.88,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Do",
+              "start": 4.88,
+              "end": 5.0,
+              "probability": 0.8631278872489929
+            },
+            {
+              "text": " I",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.9964864253997803
+            },
+            {
+              "text": " have",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.9972023963928223
+            },
+            {
+              "text": " to",
+              "start": 5.34,
+              "end": 5.54,
+              "probability": 0.9992720484733582
+            },
+            {
+              "text": " think",
+              "start": 5.54,
+              "end": 5.72,
+              "probability": 0.998890221118927
+            },
+            {
+              "text": " of",
+              "start": 5.72,
+              "end": 5.86,
+              "probability": 0.9984464049339294
+            },
+            {
+              "text": " everything?",
+              "start": 5.86,
+              "end": 6.3,
+              "probability": 0.9978340268135071
+            }
+          ]
+        },
+        {
+          "text": " As Layance says, when he's in a bad humor, I don't blame him.",
+          "start": 7.04,
+          "end": 10.58,
+          "words": [
+            {
+              "text": " As",
+              "start": 7.04,
+              "end": 7.12,
+              "probability": 0.9657964110374451
+            },
+            {
+              "text": " Layance",
+              "start": 7.12,
+              "end": 7.6,
+              "probability": 0.4452842175960541
+            },
+            {
+              "text": " says,",
+              "start": 7.6,
+              "end": 7.92,
+              "probability": 0.9934960603713989
+            },
+            {
+              "text": " when",
+              "start": 8.02,
+              "end": 8.18,
+              "probability": 0.8008812665939331
+            },
+            {
+              "text": " he's",
+              "start": 8.18,
+              "end": 8.48,
+              "probability": 0.985041618347168
+            },
+            {
+              "text": " in",
+              "start": 8.48,
+              "end": 8.58,
+              "probability": 0.9871498346328735
+            },
+            {
+              "text": " a",
+              "start": 8.58,
+              "end": 8.68,
+              "probability": 0.9904868006706238
+            },
+            {
+              "text": " bad",
+              "start": 8.68,
+              "end": 8.88,
+              "probability": 0.994080126285553
+            },
+            {
+              "text": " humor,",
+              "start": 8.88,
+              "end": 9.26,
+              "probability": 0.9267270565032959
+            },
+            {
+              "text": " I",
+              "start": 9.78,
+              "end": 9.86,
+              "probability": 0.9358187317848206
+            },
+            {
+              "text": " don't",
+              "start": 9.86,
+              "end": 10.12,
+              "probability": 0.9987528324127197
+            },
+            {
+              "text": " blame",
+              "start": 10.12,
+              "end": 10.28,
+              "probability": 0.999384880065918
+            },
+            {
+              "text": " him.",
+              "start": 10.28,
+              "end": 10.58,
+              "probability": 0.9992901086807251
+            }
+          ]
+        },
+        {
+          "text": " He'd never be in a bad humor if it weren't for me.",
+          "start": 10.94,
+          "end": 13.22,
+          "words": [
+            {
+              "text": " He'd",
+              "start": 10.94,
+              "end": 11.08,
+              "probability": 0.9946750104427338
+            },
+            {
+              "text": " never",
+              "start": 11.08,
+              "end": 11.28,
+              "probability": 0.9991918206214905
+            },
+            {
+              "text": " be",
+              "start": 11.28,
+              "end": 11.46,
+              "probability": 0.9958510398864746
+            },
+            {
+              "text": " in",
+              "start": 11.46,
+              "end": 11.56,
+              "probability": 0.9978989362716675
+            },
+            {
+              "text": " a",
+              "start": 11.56,
+              "end": 11.68,
+              "probability": 0.9971922039985657
+            },
+            {
+              "text": " bad",
+              "start": 11.68,
+              "end": 11.9,
+              "probability": 0.9996973276138306
+            },
+            {
+              "text": " humor",
+              "start": 11.9,
+              "end": 12.26,
+              "probability": 0.9969620108604431
+            },
+            {
+              "text": " if",
+              "start": 12.26,
+              "end": 12.48,
+              "probability": 0.926659882068634
+            },
+            {
+              "text": " it",
+              "start": 12.48,
+              "end": 12.58,
+              "probability": 0.9987632036209106
+            },
+            {
+              "text": " weren't",
+              "start": 12.58,
+              "end": 12.88,
+              "probability": 0.9990088939666748
+            },
+            {
+              "text": " for",
+              "start": 12.88,
+              "end": 13.02,
+              "probability": 0.9993628859519958
+            },
+            {
+              "text": " me.",
+              "start": 13.02,
+              "end": 13.22,
+              "probability": 0.9994339346885681
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wasn't",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "raw": "enough",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "think",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "of",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "going",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "Charnier",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "raw": "waking",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "raw": "up?",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "She",
+          "start": 3.86,
+          "end": 3.92
+        },
+        {
+          "raw": "laughed.",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "raw": "Do",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "have",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "raw": "think",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "raw": "everything?",
+          "start": 5.86,
+          "end": 6.3
+        },
+        {
+          "raw": "As",
+          "start": 7.04,
+          "end": 7.12
+        },
+        {
+          "raw": "Layance",
+          "start": 7.12,
+          "end": 7.6
+        },
+        {
+          "raw": "says,",
+          "start": 7.6,
+          "end": 7.92
+        },
+        {
+          "raw": "when",
+          "start": 8.02,
+          "end": 8.18
+        },
+        {
+          "raw": "he's",
+          "start": 8.18,
+          "end": 8.48
+        },
+        {
+          "raw": "in",
+          "start": 8.48,
+          "end": 8.58
+        },
+        {
+          "raw": "a",
+          "start": 8.58,
+          "end": 8.68
+        },
+        {
+          "raw": "bad",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "raw": "humor,",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "raw": "I",
+          "start": 9.78,
+          "end": 9.86
+        },
+        {
+          "raw": "don't",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "raw": "blame",
+          "start": 10.12,
+          "end": 10.28
+        },
+        {
+          "raw": "him.",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "raw": "He'd",
+          "start": 10.94,
+          "end": 11.08
+        },
+        {
+          "raw": "never",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.46
+        },
+        {
+          "raw": "in",
+          "start": 11.46,
+          "end": 11.56
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.68
+        },
+        {
+          "raw": "bad",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "raw": "humor",
+          "start": 11.9,
+          "end": 12.26
+        },
+        {
+          "raw": "if",
+          "start": 12.26,
+          "end": 12.48
+        },
+        {
+          "raw": "it",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "raw": "weren't",
+          "start": 12.58,
+          "end": 12.88
+        },
+        {
+          "raw": "for",
+          "start": 12.88,
+          "end": 13.02
+        },
+        {
+          "raw": "me.",
+          "start": 13.02,
+          "end": 13.22
+        }
+      ],
+      "expected_tokens": [
+        "“Wasn’t",
+        "it",
+        "enough",
+        "to",
+        "think",
+        "of",
+        "going",
+        "to",
+        "the",
+        "Chênière",
+        "and",
+        "waking",
+        "you",
+        "up?”",
+        "she",
+        "laughed.",
+        "“Do",
+        "I",
+        "have",
+        "to",
+        "think",
+        "of",
+        "everything?—as",
+        "Léonce",
+        "says",
+        "when",
+        "he’s",
+        "in",
+        "a",
+        "bad",
+        "humor.",
+        "I",
+        "don’t",
+        "blame",
+        "him;",
+        "he’d",
+        "never",
+        "be",
+        "in",
+        "a",
+        "bad",
+        "humor",
+        "if",
+        "it",
+        "weren’t",
+        "for",
+        "me.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Wasn't",
+        "it",
+        "enough",
+        "to",
+        "think",
+        "of",
+        "going",
+        "to",
+        "the",
+        "Chênière",
+        "and",
+        "waking",
+        "you",
+        "up?\"",
+        "she",
+        "laughed.",
+        "\"Do",
+        "I",
+        "have",
+        "to",
+        "think",
+        "of",
+        "everything?—as",
+        "Léonce",
+        "says",
+        "when",
+        "he's",
+        "in",
+        "a",
+        "bad",
+        "humor.",
+        "I",
+        "don't",
+        "blame",
+        "him;",
+        "he'd",
+        "never",
+        "be",
+        "in",
+        "a",
+        "bad",
+        "humor",
+        "if",
+        "it",
+        "weren't",
+        "for",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          23,
+          10,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          35,
+          24,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "equal",
+          36,
+          47,
+          36,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wasn't",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "wasnt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.7,
+          "end": 0.78,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "enough",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "going",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Charnier",
+          "start": 1.96,
+          "end": 2.38,
+          "key": "charnier",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.66,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "waking",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "waking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "up?",
+          "start": 3.18,
+          "end": 3.46,
+          "key": "up",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.86,
+          "end": 3.92,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laughed.",
+          "start": 3.92,
+          "end": 4.26,
+          "key": "laughed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 4.88,
+          "end": 5.0,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.54,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 5.54,
+          "end": 5.72,
+          "key": "think",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.86,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "everything? As",
+          "start": 5.86,
+          "end": 7.12,
+          "key": "everythingas",
+          "pieces": [
+            22,
+            23
+          ]
+        },
+        {
+          "raw": "Layance",
+          "start": 7.12,
+          "end": 7.6,
+          "key": "layance",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "says,",
+          "start": 7.6,
+          "end": 7.92,
+          "key": "says",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 8.02,
+          "end": 8.18,
+          "key": "when",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 8.18,
+          "end": 8.48,
+          "key": "hes",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.48,
+          "end": 8.58,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.58,
+          "end": 8.68,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 8.68,
+          "end": 8.88,
+          "key": "bad",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "humor,",
+          "start": 8.88,
+          "end": 9.26,
+          "key": "humor",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.78,
+          "end": 9.86,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 9.86,
+          "end": 10.12,
+          "key": "dont",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "blame",
+          "start": 10.12,
+          "end": 10.28,
+          "key": "blame",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 10.28,
+          "end": 10.58,
+          "key": "him",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "He'd",
+          "start": 10.94,
+          "end": 11.08,
+          "key": "hed",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 11.08,
+          "end": 11.28,
+          "key": "never",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.28,
+          "end": 11.46,
+          "key": "be",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.46,
+          "end": 11.56,
+          "key": "in",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.68,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 11.68,
+          "end": 11.9,
+          "key": "bad",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "humor",
+          "start": 11.9,
+          "end": 12.26,
+          "key": "humor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 12.26,
+          "end": 12.48,
+          "key": "if",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.48,
+          "end": 12.58,
+          "key": "it",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "weren't",
+          "start": 12.58,
+          "end": 12.88,
+          "key": "werent",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 12.88,
+          "end": 13.02,
+          "key": "for",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 13.02,
+          "end": 13.22,
+          "key": "me",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "everything?—as",
+          "heard": "everything? As",
+          "heard_indexes": [
+            22,
+            23
+          ],
+          "start": 5.86,
+          "end": 7.12
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Wasn’t",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "it",
+          "start": 0.7,
+          "end": 0.78
+        },
+        {
+          "text": "enough",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "to",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "think",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "of",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "going",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "to",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "the",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "Chênière",
+          "start": 1.96,
+          "end": 2.17
+        },
+        {
+          "text": "and",
+          "start": 2.38,
+          "end": 2.66
+        },
+        {
+          "text": "waking",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "you",
+          "start": 2.88,
+          "end": 3.18
+        },
+        {
+          "text": "up?”",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "text": "she",
+          "start": 3.86,
+          "end": 3.92
+        },
+        {
+          "text": "laughed.",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "text": "“Do",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "text": "I",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "have",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "text": "think",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "text": "of",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "text": "everything?—as",
+          "start": 5.86,
+          "end": 7.12
+        },
+        {
+          "text": "Léonce",
+          "start": 7.12,
+          "end": 7.36
+        },
+        {
+          "text": "says",
+          "start": 7.6,
+          "end": 7.92
+        },
+        {
+          "text": "when",
+          "start": 8.02,
+          "end": 8.18
+        },
+        {
+          "text": "he’s",
+          "start": 8.18,
+          "end": 8.48
+        },
+        {
+          "text": "in",
+          "start": 8.48,
+          "end": 8.58
+        },
+        {
+          "text": "a",
+          "start": 8.58,
+          "end": 8.68
+        },
+        {
+          "text": "bad",
+          "start": 8.68,
+          "end": 8.88
+        },
+        {
+          "text": "humor.",
+          "start": 8.88,
+          "end": 9.26
+        },
+        {
+          "text": "I",
+          "start": 9.78,
+          "end": 9.86
+        },
+        {
+          "text": "don’t",
+          "start": 9.86,
+          "end": 10.12
+        },
+        {
+          "text": "blame",
+          "start": 10.12,
+          "end": 10.28
+        },
+        {
+          "text": "him;",
+          "start": 10.28,
+          "end": 10.58
+        },
+        {
+          "text": "he’d",
+          "start": 10.58,
+          "end": 10.83
+        },
+        {
+          "text": "never",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "text": "be",
+          "start": 11.28,
+          "end": 11.46
+        },
+        {
+          "text": "in",
+          "start": 11.46,
+          "end": 11.56
+        },
+        {
+          "text": "a",
+          "start": 11.56,
+          "end": 11.68
+        },
+        {
+          "text": "bad",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "text": "humor",
+          "start": 11.9,
+          "end": 12.26
+        },
+        {
+          "text": "if",
+          "start": 12.26,
+          "end": 12.48
+        },
+        {
+          "text": "it",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "text": "weren’t",
+          "start": 12.58,
+          "end": 12.88
+        },
+        {
+          "text": "for",
+          "start": 12.88,
+          "end": 13.02
+        },
+        {
+          "text": "me.”",
+          "start": 13.02,
+          "end": 13.22
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 44
+      },
+      "match_ratio": 0.9361702127659575,
+      "rejection_reasons": [],
+      "seconds": 4.52255435699999
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6cda51f803d7b19e8b8b493a4774d4bc4c954a0aa45bfc160e7a8b6e6b2d247",
+  "selected_reasons": []
+}

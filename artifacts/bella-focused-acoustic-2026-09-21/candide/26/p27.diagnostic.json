@@ -1,0 +1,1881 @@
+{
+  "complete": true,
+  "signature": "cff4d2921d98a0edb12764a9ac7a2fc4ac922b77bb90013a29e51561b798f001",
+  "attempts": [
+    {
+      "asr_seconds": 3.2832614540000122,
+      "alignment_seconds": 0.002319118000002618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I am the King of Poland; the fortune of war has stripped me of my hereditary dominions; my father underwent the same vicissitudes; I resign myself to Providence in the same manner as Sultan Achmet, the Emperor Ivan, and King Charles Edward, whom God long preserve; and I am come to the Carnival at Venice.\"",
+        "hotwords": "I, King, Poland, Providence, Sultan, Achmet, Emperor, Ivan, Charles, Edward, God, Carnival, Venice"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am the King of Poland. The fortune of war has stripped me of my hereditary dominions. My father underwent the same vicissitudes. I resign myself to Providence in the same manner as Sultan Achmet, the Emperor Ivan, and King Charles Edward, whom God long preserve, and I am come to the Carnival at Venice.",
+          "start": 0.08,
+          "end": 19.16,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6761065125465393
+            },
+            {
+              "text": " am",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9779311418533325
+            },
+            {
+              "text": " the",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.9686174988746643
+            },
+            {
+              "text": " King",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.4211209714412689
+            },
+            {
+              "text": " of",
+              "start": 0.94,
+              "end": 1.12,
+              "probability": 0.9987300038337708
+            },
+            {
+              "text": " Poland.",
+              "start": 1.12,
+              "end": 1.52,
+              "probability": 0.9946901798248291
+            },
+            {
+              "text": " The",
+              "start": 2.16,
+              "end": 2.24,
+              "probability": 0.9890111684799194
+            },
+            {
+              "text": " fortune",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.7576437592506409
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.72,
+              "probability": 0.9984487295150757
+            },
+            {
+              "text": " war",
+              "start": 2.72,
+              "end": 3.0,
+              "probability": 0.9853184223175049
+            },
+            {
+              "text": " has",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.9952442049980164
+            },
+            {
+              "text": " stripped",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.990024209022522
+            },
+            {
+              "text": " me",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.9961366057395935
+            },
+            {
+              "text": " of",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.9949453473091125
+            },
+            {
+              "text": " my",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.9982807636260986
+            },
+            {
+              "text": " hereditary",
+              "start": 4.1,
+              "end": 4.56,
+              "probability": 0.9624465107917786
+            },
+            {
+              "text": " dominions.",
+              "start": 4.56,
+              "end": 5.38,
+              "probability": 0.9773595035076141
+            },
+            {
+              "text": " My",
+              "start": 5.88,
+              "end": 6.0,
+              "probability": 0.9971691966056824
+            },
+            {
+              "text": " father",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.9775334000587463
+            },
+            {
+              "text": " underwent",
+              "start": 6.3,
+              "end": 6.74,
+              "probability": 0.9937108755111694
+            },
+            {
+              "text": " the",
+              "start": 6.74,
+              "end": 6.96,
+              "probability": 0.9992151260375977
+            },
+            {
+              "text": " same",
+              "start": 6.96,
+              "end": 7.22,
+              "probability": 0.9995701909065247
+            },
+            {
+              "text": " vicissitudes.",
+              "start": 7.22,
+              "end": 7.9,
+              "probability": 0.9912392497062683
+            },
+            {
+              "text": " I",
+              "start": 8.56,
+              "end": 8.66,
+              "probability": 0.9963787198066711
+            },
+            {
+              "text": " resign",
+              "start": 8.66,
+              "end": 8.98,
+              "probability": 0.6239413619041443
+            },
+            {
+              "text": " myself",
+              "start": 8.98,
+              "end": 9.4,
+              "probability": 0.9984221458435059
+            },
+            {
+              "text": " to",
+              "start": 9.4,
+              "end": 9.64,
+              "probability": 0.9993475079536438
+            },
+            {
+              "text": " Providence",
+              "start": 9.64,
+              "end": 9.98,
+              "probability": 0.7482604384422302
+            },
+            {
+              "text": " in",
+              "start": 9.98,
+              "end": 10.28,
+              "probability": 0.9930805563926697
+            },
+            {
+              "text": " the",
+              "start": 10.28,
+              "end": 10.4,
+              "probability": 0.999176561832428
+            },
+            {
+              "text": " same",
+              "start": 10.4,
+              "end": 10.64,
+              "probability": 0.9993981122970581
+            },
+            {
+              "text": " manner",
+              "start": 10.64,
+              "end": 11.0,
+              "probability": 0.9980388283729553
+            },
+            {
+              "text": " as",
+              "start": 11.0,
+              "end": 11.24,
+              "probability": 0.9963380098342896
+            },
+            {
+              "text": " Sultan",
+              "start": 11.24,
+              "end": 11.64,
+              "probability": 0.38886988162994385
+            },
+            {
+              "text": " Achmet,",
+              "start": 11.64,
+              "end": 12.1,
+              "probability": 0.4162520557292737
+            },
+            {
+              "text": " the",
+              "start": 12.56,
+              "end": 12.68,
+              "probability": 0.9583827257156372
+            },
+            {
+              "text": " Emperor",
+              "start": 12.68,
+              "end": 13.04,
+              "probability": 0.9635174870491028
+            },
+            {
+              "text": " Ivan,",
+              "start": 13.04,
+              "end": 13.4,
+              "probability": 0.9908987283706665
+            },
+            {
+              "text": " and",
+              "start": 13.86,
+              "end": 13.98,
+              "probability": 0.9981807470321655
+            },
+            {
+              "text": " King",
+              "start": 13.98,
+              "end": 14.2,
+              "probability": 0.9937955141067505
+            },
+            {
+              "text": " Charles",
+              "start": 14.2,
+              "end": 14.68,
+              "probability": 0.999652624130249
+            },
+            {
+              "text": " Edward,",
+              "start": 14.68,
+              "end": 15.08,
+              "probability": 0.9802180528640747
+            },
+            {
+              "text": " whom",
+              "start": 15.46,
+              "end": 15.58,
+              "probability": 0.989316999912262
+            },
+            {
+              "text": " God",
+              "start": 15.58,
+              "end": 15.94,
+              "probability": 0.9572584629058838
+            },
+            {
+              "text": " long",
+              "start": 15.94,
+              "end": 16.32,
+              "probability": 0.998103141784668
+            },
+            {
+              "text": " preserve,",
+              "start": 16.32,
+              "end": 16.76,
+              "probability": 0.6010987162590027
+            },
+            {
+              "text": " and",
+              "start": 17.36,
+              "end": 17.58,
+              "probability": 0.9956135749816895
+            },
+            {
+              "text": " I",
+              "start": 17.58,
+              "end": 17.68,
+              "probability": 0.997389018535614
+            },
+            {
+              "text": " am",
+              "start": 17.68,
+              "end": 17.8,
+              "probability": 0.9862192273139954
+            },
+            {
+              "text": " come",
+              "start": 17.8,
+              "end": 18.0,
+              "probability": 0.981736421585083
+            },
+            {
+              "text": " to",
+              "start": 18.0,
+              "end": 18.18,
+              "probability": 0.9989426732063293
+            },
+            {
+              "text": " the",
+              "start": 18.18,
+              "end": 18.34,
+              "probability": 0.996057391166687
+            },
+            {
+              "text": " Carnival",
+              "start": 18.34,
+              "end": 18.56,
+              "probability": 0.5158241987228394
+            },
+            {
+              "text": " at",
+              "start": 18.56,
+              "end": 18.86,
+              "probability": 0.9952303171157837
+            },
+            {
+              "text": " Venice.",
+              "start": 18.86,
+              "end": 19.16,
+              "probability": 0.9985030889511108
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "King",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "raw": "Poland.",
+          "start": 1.12,
+          "end": 1.52
+        },
+        {
+          "raw": "The",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "raw": "fortune",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "raw": "war",
+          "start": 2.72,
+          "end": 3.0
+        },
+        {
+          "raw": "has",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "stripped",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "me",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "of",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "my",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "hereditary",
+          "start": 4.1,
+          "end": 4.56
+        },
+        {
+          "raw": "dominions.",
+          "start": 4.56,
+          "end": 5.38
+        },
+        {
+          "raw": "My",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "raw": "father",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "raw": "underwent",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "raw": "the",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "raw": "same",
+          "start": 6.96,
+          "end": 7.22
+        },
+        {
+          "raw": "vicissitudes.",
+          "start": 7.22,
+          "end": 7.9
+        },
+        {
+          "raw": "I",
+          "start": 8.56,
+          "end": 8.66
+        },
+        {
+          "raw": "resign",
+          "start": 8.66,
+          "end": 8.98
+        },
+        {
+          "raw": "myself",
+          "start": 8.98,
+          "end": 9.4
+        },
+        {
+          "raw": "to",
+          "start": 9.4,
+          "end": 9.64
+        },
+        {
+          "raw": "Providence",
+          "start": 9.64,
+          "end": 9.98
+        },
+        {
+          "raw": "in",
+          "start": 9.98,
+          "end": 10.28
+        },
+        {
+          "raw": "the",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "raw": "same",
+          "start": 10.4,
+          "end": 10.64
+        },
+        {
+          "raw": "manner",
+          "start": 10.64,
+          "end": 11.0
+        },
+        {
+          "raw": "as",
+          "start": 11.0,
+          "end": 11.24
+        },
+        {
+          "raw": "Sultan",
+          "start": 11.24,
+          "end": 11.64
+        },
+        {
+          "raw": "Achmet,",
+          "start": 11.64,
+          "end": 12.1
+        },
+        {
+          "raw": "the",
+          "start": 12.56,
+          "end": 12.68
+        },
+        {
+          "raw": "Emperor",
+          "start": 12.68,
+          "end": 13.04
+        },
+        {
+          "raw": "Ivan,",
+          "start": 13.04,
+          "end": 13.4
+        },
+        {
+          "raw": "and",
+          "start": 13.86,
+          "end": 13.98
+        },
+        {
+          "raw": "King",
+          "start": 13.98,
+          "end": 14.2
+        },
+        {
+          "raw": "Charles",
+          "start": 14.2,
+          "end": 14.68
+        },
+        {
+          "raw": "Edward,",
+          "start": 14.68,
+          "end": 15.08
+        },
+        {
+          "raw": "whom",
+          "start": 15.46,
+          "end": 15.58
+        },
+        {
+          "raw": "God",
+          "start": 15.58,
+          "end": 15.94
+        },
+        {
+          "raw": "long",
+          "start": 15.94,
+          "end": 16.32
+        },
+        {
+          "raw": "preserve,",
+          "start": 16.32,
+          "end": 16.76
+        },
+        {
+          "raw": "and",
+          "start": 17.36,
+          "end": 17.58
+        },
+        {
+          "raw": "I",
+          "start": 17.58,
+          "end": 17.68
+        },
+        {
+          "raw": "am",
+          "start": 17.68,
+          "end": 17.8
+        },
+        {
+          "raw": "come",
+          "start": 17.8,
+          "end": 18.0
+        },
+        {
+          "raw": "to",
+          "start": 18.0,
+          "end": 18.18
+        },
+        {
+          "raw": "the",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "raw": "Carnival",
+          "start": 18.34,
+          "end": 18.56
+        },
+        {
+          "raw": "at",
+          "start": 18.56,
+          "end": 18.86
+        },
+        {
+          "raw": "Venice.",
+          "start": 18.86,
+          "end": 19.16
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "the",
+        "King",
+        "of",
+        "Poland;",
+        "the",
+        "fortune",
+        "of",
+        "war",
+        "has",
+        "stripped",
+        "me",
+        "of",
+        "my",
+        "hereditary",
+        "dominions;",
+        "my",
+        "father",
+        "underwent",
+        "the",
+        "same",
+        "vicissitudes;",
+        "I",
+        "resign",
+        "myself",
+        "to",
+        "Providence",
+        "in",
+        "the",
+        "same",
+        "manner",
+        "as",
+        "Sultan",
+        "Achmet,",
+        "the",
+        "Emperor",
+        "Ivan,",
+        "and",
+        "King",
+        "Charles",
+        "Edward,",
+        "whom",
+        "God",
+        "long",
+        "preserve;",
+        "and",
+        "I",
+        "am",
+        "come",
+        "to",
+        "the",
+        "Carnival",
+        "at",
+        "Venice.\""
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "am",
+        "the",
+        "King",
+        "of",
+        "Poland;",
+        "the",
+        "fortune",
+        "of",
+        "war",
+        "has",
+        "stripped",
+        "me",
+        "of",
+        "my",
+        "hereditary",
+        "dominions;",
+        "my",
+        "father",
+        "underwent",
+        "the",
+        "same",
+        "vicissitudes;",
+        "I",
+        "resign",
+        "myself",
+        "to",
+        "Providence",
+        "in",
+        "the",
+        "same",
+        "manner",
+        "as",
+        "Sultan",
+        "Achmet,",
+        "the",
+        "Emperor",
+        "Ivan,",
+        "and",
+        "King",
+        "Charles",
+        "Edward,",
+        "whom",
+        "God",
+        "long",
+        "preserve;",
+        "and",
+        "I",
+        "am",
+        "come",
+        "to",
+        "the",
+        "Carnival",
+        "at",
+        "Venice.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          55,
+          0,
+          55
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "king",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.12,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Poland.",
+          "start": 1.12,
+          "end": 1.52,
+          "key": "poland",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.16,
+          "end": 2.24,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "fortune",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.72,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 2.72,
+          "end": 3.0,
+          "key": "war",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "has",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "stripped",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "stripped",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.78,
+          "end": 3.92,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hereditary",
+          "start": 4.1,
+          "end": 4.56,
+          "key": "hereditary",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dominions.",
+          "start": 4.56,
+          "end": 5.38,
+          "key": "dominions",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 5.88,
+          "end": 6.0,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 6.0,
+          "end": 6.3,
+          "key": "father",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "underwent",
+          "start": 6.3,
+          "end": 6.74,
+          "key": "underwent",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.74,
+          "end": 6.96,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 6.96,
+          "end": 7.22,
+          "key": "same",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "vicissitudes.",
+          "start": 7.22,
+          "end": 7.9,
+          "key": "vicissitudes",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.56,
+          "end": 8.66,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "resign",
+          "start": 8.66,
+          "end": 8.98,
+          "key": "resign",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 8.98,
+          "end": 9.4,
+          "key": "myself",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.4,
+          "end": 9.64,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Providence",
+          "start": 9.64,
+          "end": 9.98,
+          "key": "providence",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.98,
+          "end": 10.28,
+          "key": "in",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.28,
+          "end": 10.4,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 10.4,
+          "end": 10.64,
+          "key": "same",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 10.64,
+          "end": 11.0,
+          "key": "manner",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.0,
+          "end": 11.24,
+          "key": "as",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Sultan",
+          "start": 11.24,
+          "end": 11.64,
+          "key": "sultan",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Achmet,",
+          "start": 11.64,
+          "end": 12.1,
+          "key": "achmet",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.56,
+          "end": 12.68,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Emperor",
+          "start": 12.68,
+          "end": 13.04,
+          "key": "emperor",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Ivan,",
+          "start": 13.04,
+          "end": 13.4,
+          "key": "ivan",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.86,
+          "end": 13.98,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 13.98,
+          "end": 14.2,
+          "key": "king",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Charles",
+          "start": 14.2,
+          "end": 14.68,
+          "key": "charles",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Edward,",
+          "start": 14.68,
+          "end": 15.08,
+          "key": "edward",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 15.46,
+          "end": 15.58,
+          "key": "whom",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 15.58,
+          "end": 15.94,
+          "key": "god",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 15.94,
+          "end": 16.32,
+          "key": "long",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "preserve,",
+          "start": 16.32,
+          "end": 16.76,
+          "key": "preserve",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.36,
+          "end": 17.58,
+          "key": "and",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.58,
+          "end": 17.68,
+          "key": "i",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 17.68,
+          "end": 17.8,
+          "key": "am",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 17.8,
+          "end": 18.0,
+          "key": "come",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.0,
+          "end": 18.18,
+          "key": "to",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.18,
+          "end": 18.34,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Carnival",
+          "start": 18.34,
+          "end": 18.56,
+          "key": "carnival",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.56,
+          "end": 18.86,
+          "key": "at",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Venice.",
+          "start": 18.86,
+          "end": 19.16,
+          "key": "venice",
+          "pieces": [
+            54
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "am",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "the",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "King",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "of",
+          "start": 0.94,
+          "end": 1.12
+        },
+        {
+          "text": "Poland;",
+          "start": 1.12,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "text": "fortune",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "text": "war",
+          "start": 2.72,
+          "end": 3.0
+        },
+        {
+          "text": "has",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "stripped",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "text": "me",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "of",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "text": "my",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "hereditary",
+          "start": 4.1,
+          "end": 4.56
+        },
+        {
+          "text": "dominions;",
+          "start": 4.56,
+          "end": 5.38
+        },
+        {
+          "text": "my",
+          "start": 5.88,
+          "end": 6.0
+        },
+        {
+          "text": "father",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "text": "underwent",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "text": "the",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "text": "same",
+          "start": 6.96,
+          "end": 7.22
+        },
+        {
+          "text": "vicissitudes;",
+          "start": 7.22,
+          "end": 7.9
+        },
+        {
+          "text": "I",
+          "start": 8.56,
+          "end": 8.66
+        },
+        {
+          "text": "resign",
+          "start": 8.66,
+          "end": 8.98
+        },
+        {
+          "text": "myself",
+          "start": 8.98,
+          "end": 9.4
+        },
+        {
+          "text": "to",
+          "start": 9.4,
+          "end": 9.64
+        },
+        {
+          "text": "Providence",
+          "start": 9.64,
+          "end": 9.98
+        },
+        {
+          "text": "in",
+          "start": 9.98,
+          "end": 10.28
+        },
+        {
+          "text": "the",
+          "start": 10.28,
+          "end": 10.4
+        },
+        {
+          "text": "same",
+          "start": 10.4,
+          "end": 10.64
+        },
+        {
+          "text": "manner",
+          "start": 10.64,
+          "end": 11.0
+        },
+        {
+          "text": "as",
+          "start": 11.0,
+          "end": 11.24
+        },
+        {
+          "text": "Sultan",
+          "start": 11.24,
+          "end": 11.64
+        },
+        {
+          "text": "Achmet,",
+          "start": 11.64,
+          "end": 12.1
+        },
+        {
+          "text": "the",
+          "start": 12.56,
+          "end": 12.68
+        },
+        {
+          "text": "Emperor",
+          "start": 12.68,
+          "end": 13.04
+        },
+        {
+          "text": "Ivan,",
+          "start": 13.04,
+          "end": 13.4
+        },
+        {
+          "text": "and",
+          "start": 13.86,
+          "end": 13.98
+        },
+        {
+          "text": "King",
+          "start": 13.98,
+          "end": 14.2
+        },
+        {
+          "text": "Charles",
+          "start": 14.2,
+          "end": 14.68
+        },
+        {
+          "text": "Edward,",
+          "start": 14.68,
+          "end": 15.08
+        },
+        {
+          "text": "whom",
+          "start": 15.46,
+          "end": 15.58
+        },
+        {
+          "text": "God",
+          "start": 15.58,
+          "end": 15.94
+        },
+        {
+          "text": "long",
+          "start": 15.94,
+          "end": 16.32
+        },
+        {
+          "text": "preserve;",
+          "start": 16.32,
+          "end": 16.76
+        },
+        {
+          "text": "and",
+          "start": 17.36,
+          "end": 17.58
+        },
+        {
+          "text": "I",
+          "start": 17.58,
+          "end": 17.68
+        },
+        {
+          "text": "am",
+          "start": 17.68,
+          "end": 17.8
+        },
+        {
+          "text": "come",
+          "start": 17.8,
+          "end": 18.0
+        },
+        {
+          "text": "to",
+          "start": 18.0,
+          "end": 18.18
+        },
+        {
+          "text": "the",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "text": "Carnival",
+          "start": 18.34,
+          "end": 18.56
+        },
+        {
+          "text": "at",
+          "start": 18.56,
+          "end": 18.86
+        },
+        {
+          "text": "Venice.\"",
+          "start": 18.86,
+          "end": 19.16
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 55,
+        "matched_words": 55
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.285656675000041
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1a8017874b7e72ea3aab9de32699761e8a85e4625876cbfff89bcf2fdfe50ef",
+  "selected_reasons": []
+}

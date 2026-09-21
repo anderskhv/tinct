@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "18f8a2af246fe31a89141c164b66e183d3bc704788a418cc83c8e352718ac514",
+  "attempts": [
+    {
+      "asr_seconds": 8.250216619999946,
+      "alignment_seconds": 0.0004893119998996553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Cyprus-born Goddess, _weaver of deceits_\"",
+        "hotwords": "Cyprus-born, Goddess"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cyprus-born Goddess, Weaver of Deceits-",
+          "start": 0.11,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Cyprus",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.14012165367603302
+            },
+            {
+              "text": "-born",
+              "start": 0.69,
+              "end": 0.97,
+              "probability": 0.802284300327301
+            },
+            {
+              "text": " Goddess,",
+              "start": 0.97,
+              "end": 1.41,
+              "probability": 0.29189273715019226
+            },
+            {
+              "text": " Weaver",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.5321180522441864
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.987631618976593
+            },
+            {
+              "text": " Deceits",
+              "start": 2.15,
+              "end": 2.65,
+              "probability": 0.9278292258580526
+            },
+            {
+              "text": "-",
+              "start": 2.65,
+              "end": 2.69,
+              "probability": 0.00032961234683170915
+            }
+          ]
+        },
+        {
+          "text": " Cyprus-born Goddess, Weaver of Deceits-",
+          "start": 2.69,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Cyprus",
+              "start": 2.69,
+              "end": 3.21,
+              "probability": 1.5314121810661163e-06
+            },
+            {
+              "text": "-born",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.0034017904836218804
+            },
+            {
+              "text": " Goddess,",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 3.1453971587325213e-06
+            },
+            {
+              "text": " Weaver",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 8.248466474469751e-05
+            },
+            {
+              "text": " of",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.001871766522526741
+            },
+            {
+              "text": " Deceits",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.0023376872995868325
+            },
+            {
+              "text": "-",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.0042760008946061134
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cyprus",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "-born",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "raw": "Goddess,",
+          "start": 0.97,
+          "end": 1.41
+        },
+        {
+          "raw": "Weaver",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "Deceits",
+          "start": 2.15,
+          "end": 2.65
+        },
+        {
+          "raw": "-",
+          "start": 2.65,
+          "end": 2.69
+        },
+        {
+          "raw": "Cyprus",
+          "start": 2.69,
+          "end": 3.21
+        },
+        {
+          "raw": "-born",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "Goddess,",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "Weaver",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "of",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "Deceits",
+          "start": 3.21,
+          "end": 3.21
+        },
+        {
+          "raw": "-",
+          "start": 3.21,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "“Cyprus-born",
+        "Goddess,",
+        "_weaver",
+        "of",
+        "deceits_”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Cyprus-born",
+        "Goddess,",
+        "_weaver",
+        "of",
+        "deceits_\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cyprus -born",
+          "start": 0.11,
+          "end": 0.97,
+          "key": "cyprusborn",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Goddess,",
+          "start": 0.97,
+          "end": 1.41,
+          "key": "goddess",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Weaver",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "weaver",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Deceits",
+          "start": 2.15,
+          "end": 2.65,
+          "key": "deceits",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "-",
+          "start": 2.65,
+          "end": 2.69,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Cyprus",
+          "start": 2.69,
+          "end": 3.21,
+          "key": "cyprus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "-born",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "born",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Goddess,",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "goddess",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Weaver",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "weaver",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Deceits",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "deceits",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "-",
+          "start": 3.21,
+          "end": 3.21,
+          "key": "",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Cyprus-born",
+          "heard": "Cyprus -born",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.11,
+          "end": 0.97
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Cyprus-born",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "text": "Goddess,",
+          "start": 0.97,
+          "end": 1.41
+        },
+        {
+          "text": "_weaver",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "deceits_”",
+          "start": 2.15,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 13,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 8.250735996999992
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5ff1abecae3d8a48e8d248bc659a9c55f45bce4d53e2564198a1862eef539fb",
+  "selected_reasons": []
+}

@@ -1,0 +1,144 @@
+{
+ "bookId": "the-awakening",
+ "edition": "original-en",
+ "chapter": 12,
+ "editionContentHash": "4519dd9e2334bcaf0462eb487d46d3c055f9f607e091b409be477fe843b7db78",
+ "voice": "unknown",
+ "checkedAt": "2026-09-21T10:55:08.952916+00:00",
+ "manifestStatus": 200,
+ "manifestContentHash": "d2196cebdedfdbde1f48852154ad54d57f98bc8a9babc06efca837a1460903ef",
+ "manifestMetadata": {
+  "chapter": 12,
+  "title": "Chapter 12"
+ },
+ "durationSeconds": 443.125,
+ "wordsStatus": 404,
+ "wordsBytes": 0,
+ "readiness": {
+  "bookId": "the-awakening",
+  "edition": "original-en",
+  "chapter": 12,
+  "textParagraphs": 38,
+  "textParagraphsWithWords": 38,
+  "manifestSpokenParagraphs": 38,
+  "durationSeconds": 441.32,
+  "sampled": [
+   {
+    "file": "p0.mp3",
+    "status": 206,
+    "bytes": 563757
+   },
+   {
+    "file": "p18.mp3",
+    "status": 206,
+    "bytes": 31533
+   },
+   {
+    "file": "p37.mp3",
+    "status": 206,
+    "bytes": 205485
+   }
+  ],
+  "outcome": "ready",
+  "detail": "manifest matches the edition paragraph count"
+ },
+ "state": "timings-missing",
+ "priorAttempts": [
+  {
+   "path": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/collect-report.json",
+   "record": {
+    "key": "the-awakening/original-en/ch12",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9984697781178271,
+      "reasons": [
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/the-awakening/original-en/ch12/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9693955623565417,
+      "reasons": [
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 24,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/the-awakening/original-en/ch12/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  },
+  {
+   "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-57/collect-report.json",
+   "record": {
+    "key": "the-awakening/original-en/ch12",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9977046671767407,
+      "reasons": [
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-57/out/the-awakening/original-en/ch12/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.96327467482785,
+      "reasons": [
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 24,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 30,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-57/out/the-awakening/original-en/ch12/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  }
+ ],
+ "contentHold": null,
+ "nextAction": "stronger-recognition"
+}

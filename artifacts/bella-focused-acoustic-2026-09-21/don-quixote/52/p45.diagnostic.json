@@ -1,0 +1,2110 @@
+{
+  "complete": true,
+  "signature": "f075c1a49a13da0fcdc6af7cd05dac8d8cde0d5c382246f79e3a8a4b7681cfba",
+  "attempts": [
+    {
+      "asr_seconds": 5.258312105000073,
+      "alignment_seconds": 0.0035571580000350878,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "These were all the verses that could be deciphered; the rest, the writing being worm-eaten, were handed over to one of the Academicians to make out their meaning conjecturally. We have been informed that at the cost of many sleepless nights and much toil he has succeeded, and that he means to publish them in hopes of Don Quixote's third sally.",
+        "hotwords": "These, Academicians, We, Don, Quixote's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " These were all the verses that could be deciphered. The rest, the writing being worm-eaten, were handed over to one of the Academicians to make out their meaning conjecturally.",
+          "start": 0.05,
+          "end": 9.79,
+          "words": [
+            {
+              "text": " These",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.8983129262924194
+            },
+            {
+              "text": " were",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.9959459900856018
+            },
+            {
+              "text": " all",
+              "start": 0.83,
+              "end": 1.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.9983021020889282
+            },
+            {
+              "text": " verses",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.9040873646736145
+            },
+            {
+              "text": " that",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.9977438449859619
+            },
+            {
+              "text": " could",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.998529314994812
+            },
+            {
+              "text": " be",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.9996119141578674
+            },
+            {
+              "text": " deciphered.",
+              "start": 2.15,
+              "end": 2.75,
+              "probability": 0.9759782950083414
+            },
+            {
+              "text": " The",
+              "start": 3.21,
+              "end": 3.41,
+              "probability": 0.9846308827400208
+            },
+            {
+              "text": " rest,",
+              "start": 3.41,
+              "end": 3.75,
+              "probability": 0.9792391657829285
+            },
+            {
+              "text": " the",
+              "start": 4.17,
+              "end": 4.31,
+              "probability": 0.9755479693412781
+            },
+            {
+              "text": " writing",
+              "start": 4.31,
+              "end": 4.63,
+              "probability": 0.9828786849975586
+            },
+            {
+              "text": " being",
+              "start": 4.63,
+              "end": 4.97,
+              "probability": 0.9939011335372925
+            },
+            {
+              "text": " worm",
+              "start": 4.97,
+              "end": 5.23,
+              "probability": 0.2372291386127472
+            },
+            {
+              "text": "-eaten,",
+              "start": 5.23,
+              "end": 5.65,
+              "probability": 0.7279389450947443
+            },
+            {
+              "text": " were",
+              "start": 5.85,
+              "end": 6.03,
+              "probability": 0.9902425408363342
+            },
+            {
+              "text": " handed",
+              "start": 6.03,
+              "end": 6.33,
+              "probability": 0.9976823329925537
+            },
+            {
+              "text": " over",
+              "start": 6.33,
+              "end": 6.69,
+              "probability": 0.9963383674621582
+            },
+            {
+              "text": " to",
+              "start": 6.69,
+              "end": 6.89,
+              "probability": 0.9986544847488403
+            },
+            {
+              "text": " one",
+              "start": 6.89,
+              "end": 7.03,
+              "probability": 0.9978039860725403
+            },
+            {
+              "text": " of",
+              "start": 7.03,
+              "end": 7.13,
+              "probability": 0.9967808723449707
+            },
+            {
+              "text": " the",
+              "start": 7.13,
+              "end": 7.25,
+              "probability": 0.997784435749054
+            },
+            {
+              "text": " Academicians",
+              "start": 7.25,
+              "end": 7.85,
+              "probability": 0.6421558583776156
+            },
+            {
+              "text": " to",
+              "start": 7.85,
+              "end": 8.15,
+              "probability": 0.9945571422576904
+            },
+            {
+              "text": " make",
+              "start": 8.15,
+              "end": 8.33,
+              "probability": 0.999342143535614
+            },
+            {
+              "text": " out",
+              "start": 8.33,
+              "end": 8.53,
+              "probability": 0.996356725692749
+            },
+            {
+              "text": " their",
+              "start": 8.53,
+              "end": 8.71,
+              "probability": 0.9980688691139221
+            },
+            {
+              "text": " meaning",
+              "start": 8.71,
+              "end": 9.03,
+              "probability": 0.9975205063819885
+            },
+            {
+              "text": " conjecturally.",
+              "start": 9.03,
+              "end": 9.79,
+              "probability": 0.9178353846073151
+            }
+          ]
+        },
+        {
+          "text": " We have been informed that at the cost of many sleepless nights and much toil he has succeeded, and that he means to publish them in hopes of Don Quixote's third sally.",
+          "start": 10.61,
+          "end": 19.53,
+          "words": [
+            {
+              "text": " We",
+              "start": 10.61,
+              "end": 10.71,
+              "probability": 0.9831868410110474
+            },
+            {
+              "text": " have",
+              "start": 10.71,
+              "end": 10.79,
+              "probability": 0.9927579164505005
+            },
+            {
+              "text": " been",
+              "start": 10.79,
+              "end": 10.91,
+              "probability": 0.9981524348258972
+            },
+            {
+              "text": " informed",
+              "start": 10.91,
+              "end": 11.39,
+              "probability": 0.9993849992752075
+            },
+            {
+              "text": " that",
+              "start": 11.39,
+              "end": 11.67,
+              "probability": 0.990145742893219
+            },
+            {
+              "text": " at",
+              "start": 11.67,
+              "end": 11.75,
+              "probability": 0.9495157599449158
+            },
+            {
+              "text": " the",
+              "start": 11.75,
+              "end": 11.87,
+              "probability": 0.999238133430481
+            },
+            {
+              "text": " cost",
+              "start": 11.87,
+              "end": 12.15,
+              "probability": 0.999503493309021
+            },
+            {
+              "text": " of",
+              "start": 12.15,
+              "end": 12.33,
+              "probability": 0.9987371563911438
+            },
+            {
+              "text": " many",
+              "start": 12.33,
+              "end": 12.57,
+              "probability": 0.9982801675796509
+            },
+            {
+              "text": " sleepless",
+              "start": 12.57,
+              "end": 13.13,
+              "probability": 0.9977725148200989
+            },
+            {
+              "text": " nights",
+              "start": 13.13,
+              "end": 13.55,
+              "probability": 0.9810099005699158
+            },
+            {
+              "text": " and",
+              "start": 13.55,
+              "end": 13.87,
+              "probability": 0.937351405620575
+            },
+            {
+              "text": " much",
+              "start": 13.87,
+              "end": 14.11,
+              "probability": 0.9970454573631287
+            },
+            {
+              "text": " toil",
+              "start": 14.11,
+              "end": 14.49,
+              "probability": 0.9931381344795227
+            },
+            {
+              "text": " he",
+              "start": 14.49,
+              "end": 14.71,
+              "probability": 0.8813108205795288
+            },
+            {
+              "text": " has",
+              "start": 14.71,
+              "end": 14.83,
+              "probability": 0.9838776588439941
+            },
+            {
+              "text": " succeeded,",
+              "start": 14.83,
+              "end": 15.25,
+              "probability": 0.9983275532722473
+            },
+            {
+              "text": " and",
+              "start": 15.79,
+              "end": 15.95,
+              "probability": 0.9902629852294922
+            },
+            {
+              "text": " that",
+              "start": 15.95,
+              "end": 16.05,
+              "probability": 0.9981180429458618
+            },
+            {
+              "text": " he",
+              "start": 16.05,
+              "end": 16.15,
+              "probability": 0.9990894794464111
+            },
+            {
+              "text": " means",
+              "start": 16.15,
+              "end": 16.37,
+              "probability": 0.998505711555481
+            },
+            {
+              "text": " to",
+              "start": 16.37,
+              "end": 16.59,
+              "probability": 0.9992656111717224
+            },
+            {
+              "text": " publish",
+              "start": 16.59,
+              "end": 16.91,
+              "probability": 0.9982898831367493
+            },
+            {
+              "text": " them",
+              "start": 16.91,
+              "end": 17.19,
+              "probability": 0.9991022348403931
+            },
+            {
+              "text": " in",
+              "start": 17.19,
+              "end": 17.41,
+              "probability": 0.9958797693252563
+            },
+            {
+              "text": " hopes",
+              "start": 17.41,
+              "end": 17.65,
+              "probability": 0.9932244420051575
+            },
+            {
+              "text": " of",
+              "start": 17.65,
+              "end": 17.89,
+              "probability": 0.9973764419555664
+            },
+            {
+              "text": " Don",
+              "start": 17.89,
+              "end": 18.19,
+              "probability": 0.9809108376502991
+            },
+            {
+              "text": " Quixote's",
+              "start": 18.19,
+              "end": 18.89,
+              "probability": 0.9326652884483337
+            },
+            {
+              "text": " third",
+              "start": 18.89,
+              "end": 19.11,
+              "probability": 0.47603651881217957
+            },
+            {
+              "text": " sally.",
+              "start": 19.11,
+              "end": 19.53,
+              "probability": 0.7438311576843262
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "These",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "were",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "raw": "the",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "verses",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "raw": "could",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "be",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "deciphered.",
+          "start": 2.15,
+          "end": 2.75
+        },
+        {
+          "raw": "The",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "raw": "rest,",
+          "start": 3.41,
+          "end": 3.75
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "raw": "writing",
+          "start": 4.31,
+          "end": 4.63
+        },
+        {
+          "raw": "being",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "raw": "worm",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "raw": "-eaten,",
+          "start": 5.23,
+          "end": 5.65
+        },
+        {
+          "raw": "were",
+          "start": 5.85,
+          "end": 6.03
+        },
+        {
+          "raw": "handed",
+          "start": 6.03,
+          "end": 6.33
+        },
+        {
+          "raw": "over",
+          "start": 6.33,
+          "end": 6.69
+        },
+        {
+          "raw": "to",
+          "start": 6.69,
+          "end": 6.89
+        },
+        {
+          "raw": "one",
+          "start": 6.89,
+          "end": 7.03
+        },
+        {
+          "raw": "of",
+          "start": 7.03,
+          "end": 7.13
+        },
+        {
+          "raw": "the",
+          "start": 7.13,
+          "end": 7.25
+        },
+        {
+          "raw": "Academicians",
+          "start": 7.25,
+          "end": 7.85
+        },
+        {
+          "raw": "to",
+          "start": 7.85,
+          "end": 8.15
+        },
+        {
+          "raw": "make",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "raw": "out",
+          "start": 8.33,
+          "end": 8.53
+        },
+        {
+          "raw": "their",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "raw": "meaning",
+          "start": 8.71,
+          "end": 9.03
+        },
+        {
+          "raw": "conjecturally.",
+          "start": 9.03,
+          "end": 9.79
+        },
+        {
+          "raw": "We",
+          "start": 10.61,
+          "end": 10.71
+        },
+        {
+          "raw": "have",
+          "start": 10.71,
+          "end": 10.79
+        },
+        {
+          "raw": "been",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "raw": "informed",
+          "start": 10.91,
+          "end": 11.39
+        },
+        {
+          "raw": "that",
+          "start": 11.39,
+          "end": 11.67
+        },
+        {
+          "raw": "at",
+          "start": 11.67,
+          "end": 11.75
+        },
+        {
+          "raw": "the",
+          "start": 11.75,
+          "end": 11.87
+        },
+        {
+          "raw": "cost",
+          "start": 11.87,
+          "end": 12.15
+        },
+        {
+          "raw": "of",
+          "start": 12.15,
+          "end": 12.33
+        },
+        {
+          "raw": "many",
+          "start": 12.33,
+          "end": 12.57
+        },
+        {
+          "raw": "sleepless",
+          "start": 12.57,
+          "end": 13.13
+        },
+        {
+          "raw": "nights",
+          "start": 13.13,
+          "end": 13.55
+        },
+        {
+          "raw": "and",
+          "start": 13.55,
+          "end": 13.87
+        },
+        {
+          "raw": "much",
+          "start": 13.87,
+          "end": 14.11
+        },
+        {
+          "raw": "toil",
+          "start": 14.11,
+          "end": 14.49
+        },
+        {
+          "raw": "he",
+          "start": 14.49,
+          "end": 14.71
+        },
+        {
+          "raw": "has",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "raw": "succeeded,",
+          "start": 14.83,
+          "end": 15.25
+        },
+        {
+          "raw": "and",
+          "start": 15.79,
+          "end": 15.95
+        },
+        {
+          "raw": "that",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "raw": "he",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "raw": "means",
+          "start": 16.15,
+          "end": 16.37
+        },
+        {
+          "raw": "to",
+          "start": 16.37,
+          "end": 16.59
+        },
+        {
+          "raw": "publish",
+          "start": 16.59,
+          "end": 16.91
+        },
+        {
+          "raw": "them",
+          "start": 16.91,
+          "end": 17.19
+        },
+        {
+          "raw": "in",
+          "start": 17.19,
+          "end": 17.41
+        },
+        {
+          "raw": "hopes",
+          "start": 17.41,
+          "end": 17.65
+        },
+        {
+          "raw": "of",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "raw": "Don",
+          "start": 17.89,
+          "end": 18.19
+        },
+        {
+          "raw": "Quixote's",
+          "start": 18.19,
+          "end": 18.89
+        },
+        {
+          "raw": "third",
+          "start": 18.89,
+          "end": 19.11
+        },
+        {
+          "raw": "sally.",
+          "start": 19.11,
+          "end": 19.53
+        }
+      ],
+      "expected_tokens": [
+        "These",
+        "were",
+        "all",
+        "the",
+        "verses",
+        "that",
+        "could",
+        "be",
+        "deciphered;",
+        "the",
+        "rest,",
+        "the",
+        "writing",
+        "being",
+        "worm-eaten,",
+        "were",
+        "handed",
+        "over",
+        "to",
+        "one",
+        "of",
+        "the",
+        "Academicians",
+        "to",
+        "make",
+        "out",
+        "their",
+        "meaning",
+        "conjecturally.",
+        "We",
+        "have",
+        "been",
+        "informed",
+        "that",
+        "at",
+        "the",
+        "cost",
+        "of",
+        "many",
+        "sleepless",
+        "nights",
+        "and",
+        "much",
+        "toil",
+        "he",
+        "has",
+        "succeeded,",
+        "and",
+        "that",
+        "he",
+        "means",
+        "to",
+        "publish",
+        "them",
+        "in",
+        "hopes",
+        "of",
+        "Don",
+        "Quixote’s",
+        "third",
+        "sally."
+      ],
+      "acoustic_expected_tokens": [
+        "These",
+        "were",
+        "all",
+        "the",
+        "verses",
+        "that",
+        "could",
+        "be",
+        "deciphered;",
+        "the",
+        "rest,",
+        "the",
+        "writing",
+        "being",
+        "worm-eaten,",
+        "were",
+        "handed",
+        "over",
+        "to",
+        "one",
+        "of",
+        "the",
+        "Academicians",
+        "to",
+        "make",
+        "out",
+        "their",
+        "meaning",
+        "conjecturally.",
+        "We",
+        "have",
+        "been",
+        "informed",
+        "that",
+        "at",
+        "the",
+        "cost",
+        "of",
+        "many",
+        "sleepless",
+        "nights",
+        "and",
+        "much",
+        "toil",
+        "he",
+        "has",
+        "succeeded,",
+        "and",
+        "that",
+        "he",
+        "means",
+        "to",
+        "publish",
+        "them",
+        "in",
+        "hopes",
+        "of",
+        "Don",
+        "Quixote's",
+        "third",
+        "sally."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          61,
+          0,
+          61
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "These",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "these",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 1.11,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "verses",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "verses",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.59,
+          "end": 1.89,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "could",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "deciphered.",
+          "start": 2.15,
+          "end": 2.75,
+          "key": "deciphered",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.21,
+          "end": 3.41,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rest,",
+          "start": 3.41,
+          "end": 3.75,
+          "key": "rest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.17,
+          "end": 4.31,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "writing",
+          "start": 4.31,
+          "end": 4.63,
+          "key": "writing",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 4.63,
+          "end": 4.97,
+          "key": "being",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "worm -eaten,",
+          "start": 4.97,
+          "end": 5.65,
+          "key": "wormeaten",
+          "pieces": [
+            14,
+            15
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 5.85,
+          "end": 6.03,
+          "key": "were",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "handed",
+          "start": 6.03,
+          "end": 6.33,
+          "key": "handed",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 6.33,
+          "end": 6.69,
+          "key": "over",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.69,
+          "end": 6.89,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.89,
+          "end": 7.03,
+          "key": "one",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.03,
+          "end": 7.13,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.13,
+          "end": 7.25,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Academicians",
+          "start": 7.25,
+          "end": 7.85,
+          "key": "academicians",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.85,
+          "end": 8.15,
+          "key": "to",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 8.15,
+          "end": 8.33,
+          "key": "make",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 8.33,
+          "end": 8.53,
+          "key": "out",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 8.53,
+          "end": 8.71,
+          "key": "their",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "meaning",
+          "start": 8.71,
+          "end": 9.03,
+          "key": "meaning",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "conjecturally.",
+          "start": 9.03,
+          "end": 9.79,
+          "key": "conjecturally",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 10.61,
+          "end": 10.71,
+          "key": "we",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 10.71,
+          "end": 10.79,
+          "key": "have",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 10.79,
+          "end": 10.91,
+          "key": "been",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "informed",
+          "start": 10.91,
+          "end": 11.39,
+          "key": "informed",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.39,
+          "end": 11.67,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 11.67,
+          "end": 11.75,
+          "key": "at",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.75,
+          "end": 11.87,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "cost",
+          "start": 11.87,
+          "end": 12.15,
+          "key": "cost",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.15,
+          "end": 12.33,
+          "key": "of",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 12.33,
+          "end": 12.57,
+          "key": "many",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "sleepless",
+          "start": 12.57,
+          "end": 13.13,
+          "key": "sleepless",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "nights",
+          "start": 13.13,
+          "end": 13.55,
+          "key": "nights",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.55,
+          "end": 13.87,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 13.87,
+          "end": 14.11,
+          "key": "much",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "toil",
+          "start": 14.11,
+          "end": 14.49,
+          "key": "toil",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.49,
+          "end": 14.71,
+          "key": "he",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 14.71,
+          "end": 14.83,
+          "key": "has",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "succeeded,",
+          "start": 14.83,
+          "end": 15.25,
+          "key": "succeeded",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.79,
+          "end": 15.95,
+          "key": "and",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.95,
+          "end": 16.05,
+          "key": "that",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 16.05,
+          "end": 16.15,
+          "key": "he",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 16.15,
+          "end": 16.37,
+          "key": "means",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.37,
+          "end": 16.59,
+          "key": "to",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "publish",
+          "start": 16.59,
+          "end": 16.91,
+          "key": "publish",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 16.91,
+          "end": 17.19,
+          "key": "them",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 17.19,
+          "end": 17.41,
+          "key": "in",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "hopes",
+          "start": 17.41,
+          "end": 17.65,
+          "key": "hopes",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.65,
+          "end": 17.89,
+          "key": "of",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 17.89,
+          "end": 18.19,
+          "key": "don",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Quixote's",
+          "start": 18.19,
+          "end": 18.89,
+          "key": "quixotes",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "third",
+          "start": 18.89,
+          "end": 19.11,
+          "key": "third",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "sally.",
+          "start": 19.11,
+          "end": 19.53,
+          "key": "sally",
+          "pieces": [
+            61
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "worm-eaten,",
+          "heard": "worm -eaten,",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 4.97,
+          "end": 5.65
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "These",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "were",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "all",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "the",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "verses",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "text": "that",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "text": "could",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "be",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "deciphered;",
+          "start": 2.15,
+          "end": 2.75
+        },
+        {
+          "text": "the",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "text": "rest,",
+          "start": 3.41,
+          "end": 3.75
+        },
+        {
+          "text": "the",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "text": "writing",
+          "start": 4.31,
+          "end": 4.63
+        },
+        {
+          "text": "being",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "text": "worm-eaten,",
+          "start": 4.97,
+          "end": 5.65
+        },
+        {
+          "text": "were",
+          "start": 5.85,
+          "end": 6.03
+        },
+        {
+          "text": "handed",
+          "start": 6.03,
+          "end": 6.33
+        },
+        {
+          "text": "over",
+          "start": 6.33,
+          "end": 6.69
+        },
+        {
+          "text": "to",
+          "start": 6.69,
+          "end": 6.89
+        },
+        {
+          "text": "one",
+          "start": 6.89,
+          "end": 7.03
+        },
+        {
+          "text": "of",
+          "start": 7.03,
+          "end": 7.13
+        },
+        {
+          "text": "the",
+          "start": 7.13,
+          "end": 7.25
+        },
+        {
+          "text": "Academicians",
+          "start": 7.25,
+          "end": 7.85
+        },
+        {
+          "text": "to",
+          "start": 7.85,
+          "end": 8.15
+        },
+        {
+          "text": "make",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "text": "out",
+          "start": 8.33,
+          "end": 8.53
+        },
+        {
+          "text": "their",
+          "start": 8.53,
+          "end": 8.71
+        },
+        {
+          "text": "meaning",
+          "start": 8.71,
+          "end": 9.03
+        },
+        {
+          "text": "conjecturally.",
+          "start": 9.03,
+          "end": 9.79
+        },
+        {
+          "text": "We",
+          "start": 10.61,
+          "end": 10.71
+        },
+        {
+          "text": "have",
+          "start": 10.71,
+          "end": 10.79
+        },
+        {
+          "text": "been",
+          "start": 10.79,
+          "end": 10.91
+        },
+        {
+          "text": "informed",
+          "start": 10.91,
+          "end": 11.39
+        },
+        {
+          "text": "that",
+          "start": 11.39,
+          "end": 11.67
+        },
+        {
+          "text": "at",
+          "start": 11.67,
+          "end": 11.75
+        },
+        {
+          "text": "the",
+          "start": 11.75,
+          "end": 11.87
+        },
+        {
+          "text": "cost",
+          "start": 11.87,
+          "end": 12.15
+        },
+        {
+          "text": "of",
+          "start": 12.15,
+          "end": 12.33
+        },
+        {
+          "text": "many",
+          "start": 12.33,
+          "end": 12.57
+        },
+        {
+          "text": "sleepless",
+          "start": 12.57,
+          "end": 13.13
+        },
+        {
+          "text": "nights",
+          "start": 13.13,
+          "end": 13.55
+        },
+        {
+          "text": "and",
+          "start": 13.55,
+          "end": 13.87
+        },
+        {
+          "text": "much",
+          "start": 13.87,
+          "end": 14.11
+        },
+        {
+          "text": "toil",
+          "start": 14.11,
+          "end": 14.49
+        },
+        {
+          "text": "he",
+          "start": 14.49,
+          "end": 14.71
+        },
+        {
+          "text": "has",
+          "start": 14.71,
+          "end": 14.83
+        },
+        {
+          "text": "succeeded,",
+          "start": 14.83,
+          "end": 15.25
+        },
+        {
+          "text": "and",
+          "start": 15.79,
+          "end": 15.95
+        },
+        {
+          "text": "that",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "text": "he",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "text": "means",
+          "start": 16.15,
+          "end": 16.37
+        },
+        {
+          "text": "to",
+          "start": 16.37,
+          "end": 16.59
+        },
+        {
+          "text": "publish",
+          "start": 16.59,
+          "end": 16.91
+        },
+        {
+          "text": "them",
+          "start": 16.91,
+          "end": 17.19
+        },
+        {
+          "text": "in",
+          "start": 17.19,
+          "end": 17.41
+        },
+        {
+          "text": "hopes",
+          "start": 17.41,
+          "end": 17.65
+        },
+        {
+          "text": "of",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "text": "Don",
+          "start": 17.89,
+          "end": 18.19
+        },
+        {
+          "text": "Quixote’s",
+          "start": 18.19,
+          "end": 18.89
+        },
+        {
+          "text": "third",
+          "start": 18.89,
+          "end": 19.11
+        },
+        {
+          "text": "sally.",
+          "start": 19.11,
+          "end": 19.53
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 61,
+        "matched_words": 61
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 5.261974320000036
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "179c88de07fb0887ead07e2fe35349d8cf6aceafcfecb326e070dae856e36815",
+  "selected_reasons": []
+}

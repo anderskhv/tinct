@@ -1,0 +1,1878 @@
+{
+  "complete": true,
+  "signature": "0cfd78ca69ab71b92b2cf75fc7be5bf5a142e8441212f3fba4daf89b0b5156bf",
+  "attempts": [
+    {
+      "asr_seconds": 3.1528559989999394,
+      "alignment_seconds": 0.000835520999999062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Owenites in England, and the Fourierists in France, respectively, oppose the Chartists and the \"Réformistes.\"",
+        "hotwords": "Owenites, England, Fourierists, France, Chartists, Réformistes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Owenites in England, and the Fourierists in France, respectively, oppose the Chartists and the Réformists.",
+          "start": 0.02,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8651153445243835
+            },
+            {
+              "text": " Owenites",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.7499541342258453
+            },
+            {
+              "text": " in",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9887359738349915
+            },
+            {
+              "text": " England,",
+              "start": 1.2,
+              "end": 1.58,
+              "probability": 0.9984050393104553
+            },
+            {
+              "text": " and",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.9901819825172424
+            },
+            {
+              "text": " the",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.9971242547035217
+            },
+            {
+              "text": " Fourierists",
+              "start": 2.34,
+              "end": 2.84,
+              "probability": 0.42430514593919116
+            },
+            {
+              "text": " in",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9972199201583862
+            },
+            {
+              "text": " France,",
+              "start": 3.04,
+              "end": 3.46,
+              "probability": 0.9996378421783447
+            },
+            {
+              "text": " respectively,",
+              "start": 3.68,
+              "end": 4.14,
+              "probability": 0.98843914270401
+            },
+            {
+              "text": " oppose",
+              "start": 4.96,
+              "end": 5.02,
+              "probability": 0.7394667267799377
+            },
+            {
+              "text": " the",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.9989646673202515
+            },
+            {
+              "text": " Chartists",
+              "start": 5.26,
+              "end": 5.78,
+              "probability": 0.8240795731544495
+            },
+            {
+              "text": " and",
+              "start": 5.78,
+              "end": 6.0,
+              "probability": 0.9895786643028259
+            },
+            {
+              "text": " the",
+              "start": 6.0,
+              "end": 6.12,
+              "probability": 0.9709616899490356
+            },
+            {
+              "text": " Réformists.",
+              "start": 6.12,
+              "end": 6.88,
+              "probability": 0.6013701537934443
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "Owenites",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "England,",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "Fourierists",
+          "start": 2.34,
+          "end": 2.84
+        },
+        {
+          "raw": "in",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "France,",
+          "start": 3.04,
+          "end": 3.46
+        },
+        {
+          "raw": "respectively,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "raw": "oppose",
+          "start": 4.96,
+          "end": 5.02
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "Chartists",
+          "start": 5.26,
+          "end": 5.78
+        },
+        {
+          "raw": "and",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "raw": "the",
+          "start": 6.0,
+          "end": 6.12
+        },
+        {
+          "raw": "Réformists.",
+          "start": 6.12,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Owenites",
+        "in",
+        "England,",
+        "and",
+        "the",
+        "Fourierists",
+        "in",
+        "France,",
+        "respectively,",
+        "oppose",
+        "the",
+        "Chartists",
+        "and",
+        "the",
+        "“Réformistes.”"
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "Owenites",
+        "in",
+        "England,",
+        "and",
+        "the",
+        "Fourierists",
+        "in",
+        "France,",
+        "respectively,",
+        "oppose",
+        "the",
+        "Chartists",
+        "and",
+        "the",
+        "\"Réformistes.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Owenites",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "owenites",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "England,",
+          "start": 1.2,
+          "end": 1.58,
+          "key": "england",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.34,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fourierists",
+          "start": 2.34,
+          "end": 2.84,
+          "key": "fourierists",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "France,",
+          "start": 3.04,
+          "end": 3.46,
+          "key": "france",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "respectively,",
+          "start": 3.68,
+          "end": 4.14,
+          "key": "respectively",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "oppose",
+          "start": 4.96,
+          "end": 5.02,
+          "key": "oppose",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Chartists",
+          "start": 5.26,
+          "end": 5.78,
+          "key": "chartists",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.78,
+          "end": 6.0,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.0,
+          "end": 6.12,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Réformists.",
+          "start": 6.12,
+          "end": 6.88,
+          "key": "réformists",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Owenites",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "text": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "England,",
+          "start": 1.2,
+          "end": 1.58
+        },
+        {
+          "text": "and",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "Fourierists",
+          "start": 2.34,
+          "end": 2.84
+        },
+        {
+          "text": "in",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "France,",
+          "start": 3.04,
+          "end": 3.46
+        },
+        {
+          "text": "respectively,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "text": "oppose",
+          "start": 4.96,
+          "end": 5.02
+        },
+        {
+          "text": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "Chartists",
+          "start": 5.26,
+          "end": 5.78
+        },
+        {
+          "text": "and",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "text": "the",
+          "start": 6.0,
+          "end": 6.12
+        },
+        {
+          "text": "“Réformistes.”",
+          "start": 6.12,
+          "end": 6.5
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 3.153743525999971
+    },
+    {
+      "asr_seconds": 3.0182273030000033,
+      "alignment_seconds": 0.0008550399999194269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Owenites, England, Fourierists, France, Chartists, Réformistes"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The Owenites in England and the Fourierists in France, respectively, opposed the Chartists and the Réformists.",
+          "start": 0.02,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8651153445243835
+            },
+            {
+              "text": " Owenites",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.7499541342258453
+            },
+            {
+              "text": " in",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9887359738349915
+            },
+            {
+              "text": " England",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.9984050393104553
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 2.2,
+              "probability": 0.6511228084564209
+            },
+            {
+              "text": " the",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.9967328310012817
+            },
+            {
+              "text": " Fourierists",
+              "start": 2.32,
+              "end": 2.84,
+              "probability": 0.4083685552080472
+            },
+            {
+              "text": " in",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.996675968170166
+            },
+            {
+              "text": " France,",
+              "start": 3.02,
+              "end": 3.5,
+              "probability": 0.9995030164718628
+            },
+            {
+              "text": " respectively,",
+              "start": 3.68,
+              "end": 4.14,
+              "probability": 0.9909341335296631
+            },
+            {
+              "text": " opposed",
+              "start": 4.94,
+              "end": 5.02,
+              "probability": 0.320270299911499
+            },
+            {
+              "text": " the",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.9984809756278992
+            },
+            {
+              "text": " Chartists",
+              "start": 5.26,
+              "end": 5.78,
+              "probability": 0.8048442304134369
+            },
+            {
+              "text": " and",
+              "start": 5.78,
+              "end": 6.0,
+              "probability": 0.9927142262458801
+            },
+            {
+              "text": " the",
+              "start": 6.0,
+              "end": 6.12,
+              "probability": 0.9754862189292908
+            },
+            {
+              "text": " Réformists.",
+              "start": 6.12,
+              "end": 6.88,
+              "probability": 0.6039678996118406
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "Owenites",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "England",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 2.2
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "Fourierists",
+          "start": 2.32,
+          "end": 2.84
+        },
+        {
+          "raw": "in",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "France,",
+          "start": 3.02,
+          "end": 3.5
+        },
+        {
+          "raw": "respectively,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "raw": "opposed",
+          "start": 4.94,
+          "end": 5.02
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "Chartists",
+          "start": 5.26,
+          "end": 5.78
+        },
+        {
+          "raw": "and",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "raw": "the",
+          "start": 6.0,
+          "end": 6.12
+        },
+        {
+          "raw": "Réformists.",
+          "start": 6.12,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Owenites",
+        "in",
+        "England,",
+        "and",
+        "the",
+        "Fourierists",
+        "in",
+        "France,",
+        "respectively,",
+        "oppose",
+        "the",
+        "Chartists",
+        "and",
+        "the",
+        "“Réformistes.”"
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "Owenites",
+        "in",
+        "England,",
+        "and",
+        "the",
+        "Fourierists",
+        "in",
+        "France,",
+        "respectively,",
+        "oppose",
+        "the",
+        "Chartists",
+        "and",
+        "the",
+        "\"Réformistes.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          15,
+          11,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Owenites",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "owenites",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "England",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "england",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fourierists",
+          "start": 2.32,
+          "end": 2.84,
+          "key": "fourierists",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "France,",
+          "start": 3.02,
+          "end": 3.5,
+          "key": "france",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "respectively,",
+          "start": 3.68,
+          "end": 4.14,
+          "key": "respectively",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "opposed",
+          "start": 4.94,
+          "end": 5.02,
+          "key": "opposed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Chartists",
+          "start": 5.26,
+          "end": 5.78,
+          "key": "chartists",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.78,
+          "end": 6.0,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.0,
+          "end": 6.12,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Réformists.",
+          "start": 6.12,
+          "end": 6.88,
+          "key": "réformists",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Owenites",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "text": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "England,",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "and",
+          "start": 1.56,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "Fourierists",
+          "start": 2.32,
+          "end": 2.84
+        },
+        {
+          "text": "in",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "France,",
+          "start": 3.02,
+          "end": 3.5
+        },
+        {
+          "text": "respectively,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "text": "oppose",
+          "start": 4.14,
+          "end": 4.58
+        },
+        {
+          "text": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "Chartists",
+          "start": 5.26,
+          "end": 5.78
+        },
+        {
+          "text": "and",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "text": "the",
+          "start": 6.0,
+          "end": 6.12
+        },
+        {
+          "text": "“Réformistes.”",
+          "start": 6.12,
+          "end": 6.5
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 3.0191376139999875
+    },
+    {
+      "asr_seconds": 3.0590053070000067,
+      "alignment_seconds": 0.0008597670000654034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The Owenites in England and the Forerests in France, respectively, opposed the Chartists",
+          "start": 0.02,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8651153445243835
+            },
+            {
+              "text": " Owenites",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.7499541342258453
+            },
+            {
+              "text": " in",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9887359738349915
+            },
+            {
+              "text": " England",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.9984050393104553
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 2.2,
+              "probability": 0.6511228084564209
+            },
+            {
+              "text": " the",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.9967328310012817
+            },
+            {
+              "text": " Forerests",
+              "start": 2.32,
+              "end": 2.92,
+              "probability": 0.7049274643262228
+            },
+            {
+              "text": " in",
+              "start": 2.92,
+              "end": 3.02,
+              "probability": 0.9964264035224915
+            },
+            {
+              "text": " France,",
+              "start": 3.02,
+              "end": 3.48,
+              "probability": 0.9993721842765808
+            },
+            {
+              "text": " respectively,",
+              "start": 3.68,
+              "end": 4.14,
+              "probability": 0.9868443012237549
+            },
+            {
+              "text": " opposed",
+              "start": 4.94,
+              "end": 5.02,
+              "probability": 0.26204681396484375
+            },
+            {
+              "text": " the",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.9978876709938049
+            },
+            {
+              "text": " Chartists",
+              "start": 5.26,
+              "end": 5.78,
+              "probability": 0.8306145668029785
+            }
+          ]
+        },
+        {
+          "text": " and the Reiformeists.",
+          "start": 5.78,
+          "end": 6.94,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.78,
+              "end": 6.0,
+              "probability": 0.990622341632843
+            },
+            {
+              "text": " the",
+              "start": 6.0,
+              "end": 6.12,
+              "probability": 0.9717736840248108
+            },
+            {
+              "text": " Reiformeists.",
+              "start": 6.12,
+              "end": 6.94,
+              "probability": 0.49839653819799423
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "Owenites",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "England",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 2.2
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "Forerests",
+          "start": 2.32,
+          "end": 2.92
+        },
+        {
+          "raw": "in",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "raw": "France,",
+          "start": 3.02,
+          "end": 3.48
+        },
+        {
+          "raw": "respectively,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "raw": "opposed",
+          "start": 4.94,
+          "end": 5.02
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "Chartists",
+          "start": 5.26,
+          "end": 5.78
+        },
+        {
+          "raw": "and",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "raw": "the",
+          "start": 6.0,
+          "end": 6.12
+        },
+        {
+          "raw": "Reiformeists.",
+          "start": 6.12,
+          "end": 6.94
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Owenites",
+        "in",
+        "England,",
+        "and",
+        "the",
+        "Fourierists",
+        "in",
+        "France,",
+        "respectively,",
+        "oppose",
+        "the",
+        "Chartists",
+        "and",
+        "the",
+        "“Réformistes.”"
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "Owenites",
+        "in",
+        "England,",
+        "and",
+        "the",
+        "Fourierists",
+        "in",
+        "France,",
+        "respectively,",
+        "oppose",
+        "the",
+        "Chartists",
+        "and",
+        "the",
+        "\"Réformistes.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          15,
+          11,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Owenites",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "owenites",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "England",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "england",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Forerests",
+          "start": 2.32,
+          "end": 2.92,
+          "key": "forerests",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.92,
+          "end": 3.02,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "France,",
+          "start": 3.02,
+          "end": 3.48,
+          "key": "france",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "respectively,",
+          "start": 3.68,
+          "end": 4.14,
+          "key": "respectively",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "opposed",
+          "start": 4.94,
+          "end": 5.02,
+          "key": "opposed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Chartists",
+          "start": 5.26,
+          "end": 5.78,
+          "key": "chartists",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.78,
+          "end": 6.0,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.0,
+          "end": 6.12,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Reiformeists.",
+          "start": 6.12,
+          "end": 6.94,
+          "key": "reiformeists",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Owenites",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "text": "in",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "England,",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "and",
+          "start": 1.56,
+          "end": 2.2
+        },
+        {
+          "text": "the",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "Fourierists",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "text": "in",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "text": "France,",
+          "start": 3.02,
+          "end": 3.48
+        },
+        {
+          "text": "respectively,",
+          "start": 3.68,
+          "end": 4.14
+        },
+        {
+          "text": "oppose",
+          "start": 4.14,
+          "end": 4.58
+        },
+        {
+          "text": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "Chartists",
+          "start": 5.26,
+          "end": 5.78
+        },
+        {
+          "text": "and",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "text": "the",
+          "start": 6.0,
+          "end": 6.12
+        },
+        {
+          "text": "“Réformistes.”",
+          "start": 6.12,
+          "end": 6.53
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.0599172510000017
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d97169551e4a323625dce550227836e61cb5ab4af70fd62b31be7a34c89f1636",
+  "selected_reasons": []
+}

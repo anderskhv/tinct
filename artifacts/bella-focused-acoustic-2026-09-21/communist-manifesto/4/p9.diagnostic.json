@@ -1,0 +1,792 @@
+{
+  "complete": true,
+  "signature": "8494c2c01e9676bf1ec104fb1269f8f5082be791492ffce6c393f4212af9edaf",
+  "attempts": [
+    {
+      "asr_seconds": 3.08823080800002,
+      "alignment_seconds": 0.001051391000004287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What they upbraid the bourgeoisie with is not so much that it creates a proletariat, as that it creates a _revolutionary_ proletariat.",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What they upbraid the bourgeoisie with is not so much that it creates a proletariat, as that it creates a revolutionary proletariat.",
+          "start": 0.02,
+          "end": 7.8,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8795264959335327
+            },
+            {
+              "text": " they",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.9956206679344177
+            },
+            {
+              "text": " upbraid",
+              "start": 0.68,
+              "end": 1.1,
+              "probability": 0.7435829043388367
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.9948099851608276
+            },
+            {
+              "text": " bourgeoisie",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.9637220501899719
+            },
+            {
+              "text": " with",
+              "start": 1.6,
+              "end": 2.1,
+              "probability": 0.9914736747741699
+            },
+            {
+              "text": " is",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.9859532117843628
+            },
+            {
+              "text": " not",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.9954448938369751
+            },
+            {
+              "text": " so",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.9978718757629395
+            },
+            {
+              "text": " much",
+              "start": 2.76,
+              "end": 3.1,
+              "probability": 0.9993131160736084
+            },
+            {
+              "text": " that",
+              "start": 3.1,
+              "end": 3.52,
+              "probability": 0.812563419342041
+            },
+            {
+              "text": " it",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.9965993762016296
+            },
+            {
+              "text": " creates",
+              "start": 3.64,
+              "end": 3.96,
+              "probability": 0.9986955523490906
+            },
+            {
+              "text": " a",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.9987823367118835
+            },
+            {
+              "text": " proletariat,",
+              "start": 4.12,
+              "end": 4.6,
+              "probability": 0.9853700399398804
+            },
+            {
+              "text": " as",
+              "start": 5.06,
+              "end": 5.54,
+              "probability": 0.992356538772583
+            },
+            {
+              "text": " that",
+              "start": 5.54,
+              "end": 5.74,
+              "probability": 0.9966586828231812
+            },
+            {
+              "text": " it",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.987995445728302
+            },
+            {
+              "text": " creates",
+              "start": 5.88,
+              "end": 6.18,
+              "probability": 0.9988403916358948
+            },
+            {
+              "text": " a",
+              "start": 6.18,
+              "end": 6.42,
+              "probability": 0.9976351261138916
+            },
+            {
+              "text": " revolutionary",
+              "start": 6.42,
+              "end": 7.08,
+              "probability": 0.9749283194541931
+            },
+            {
+              "text": " proletariat.",
+              "start": 7.08,
+              "end": 7.8,
+              "probability": 0.979223370552063
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "they",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "upbraid",
+          "start": 0.68,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "bourgeoisie",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 2.1
+        },
+        {
+          "raw": "is",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "not",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "so",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "much",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "raw": "that",
+          "start": 3.1,
+          "end": 3.52
+        },
+        {
+          "raw": "it",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "creates",
+          "start": 3.64,
+          "end": 3.96
+        },
+        {
+          "raw": "a",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "proletariat,",
+          "start": 4.12,
+          "end": 4.6
+        },
+        {
+          "raw": "as",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "raw": "that",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "raw": "it",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "creates",
+          "start": 5.88,
+          "end": 6.18
+        },
+        {
+          "raw": "a",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "raw": "revolutionary",
+          "start": 6.42,
+          "end": 7.08
+        },
+        {
+          "raw": "proletariat.",
+          "start": 7.08,
+          "end": 7.8
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "they",
+        "upbraid",
+        "the",
+        "bourgeoisie",
+        "with",
+        "is",
+        "not",
+        "so",
+        "much",
+        "that",
+        "it",
+        "creates",
+        "a",
+        "proletariat,",
+        "as",
+        "that",
+        "it",
+        "creates",
+        "a",
+        "_revolutionary_",
+        "proletariat."
+      ],
+      "acoustic_expected_tokens": [
+        "What",
+        "they",
+        "upbraid",
+        "the",
+        "bourgeoisie",
+        "with",
+        "is",
+        "not",
+        "so",
+        "much",
+        "that",
+        "it",
+        "creates",
+        "a",
+        "proletariat,",
+        "as",
+        "that",
+        "it",
+        "creates",
+        "a",
+        "_revolutionary_",
+        "proletariat."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "upbraid",
+          "start": 0.68,
+          "end": 1.1,
+          "key": "upbraid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bourgeoisie",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "bourgeoisie",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 2.1,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.76,
+          "end": 3.1,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.1,
+          "end": 3.52,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "creates",
+          "start": 3.64,
+          "end": 3.96,
+          "key": "creates",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "proletariat,",
+          "start": 4.12,
+          "end": 4.6,
+          "key": "proletariat",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.06,
+          "end": 5.54,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.54,
+          "end": 5.74,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "creates",
+          "start": 5.88,
+          "end": 6.18,
+          "key": "creates",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.18,
+          "end": 6.42,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "revolutionary",
+          "start": 6.42,
+          "end": 7.08,
+          "key": "revolutionary",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "proletariat.",
+          "start": 7.08,
+          "end": 7.8,
+          "key": "proletariat",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "they",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "upbraid",
+          "start": 0.68,
+          "end": 1.1
+        },
+        {
+          "text": "the",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "bourgeoisie",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "with",
+          "start": 1.6,
+          "end": 2.1
+        },
+        {
+          "text": "is",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "not",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "so",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "much",
+          "start": 2.76,
+          "end": 3.1
+        },
+        {
+          "text": "that",
+          "start": 3.1,
+          "end": 3.52
+        },
+        {
+          "text": "it",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "creates",
+          "start": 3.64,
+          "end": 3.96
+        },
+        {
+          "text": "a",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "proletariat,",
+          "start": 4.12,
+          "end": 4.6
+        },
+        {
+          "text": "as",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "text": "that",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "text": "it",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "creates",
+          "start": 5.88,
+          "end": 6.18
+        },
+        {
+          "text": "a",
+          "start": 6.18,
+          "end": 6.42
+        },
+        {
+          "text": "_revolutionary_",
+          "start": 6.42,
+          "end": 7.08
+        },
+        {
+          "text": "proletariat.",
+          "start": 7.08,
+          "end": 7.8
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.0893243419999976
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0efec6eba866b92e5329edcebe043f79d226cc8cc7a756bd0b8996212e100eac",
+  "selected_reasons": []
+}

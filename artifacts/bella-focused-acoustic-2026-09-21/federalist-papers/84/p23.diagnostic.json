@@ -1,0 +1,2666 @@
+{
+  "complete": true,
+  "signature": "6db73c727be92240b30cd9d18c981069c797fe0f490ff4f87ae7d7756861679c",
+  "attempts": [
+    {
+      "asr_seconds": 7.964138142000024,
+      "alignment_seconds": 0.003898168999967311,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The result from these observations is that the sources of additional expense from the establishment of the proposed Constitution are much fewer than may have been imagined; that they are counterbalanced by considerable objects of saving; and that while it is questionable on which side the scale will preponderate, it is certain that a government less expensive would be incompetent to the purposes of the Union.",
+        "hotwords": "Constitution, Union"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The result from these observations is that the sources of additional expense from the establishment of the proposed Constitution are much fewer than may have been imagined, that they are counterbalanced by considerable objects of saving, and that while it is questionable on which side the scale will preponderate, it is certain that a government less expensive would be incompetent to the purposes of the Union.",
+          "start": 0.08,
+          "end": 22.4,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.7619651556015015
+            },
+            {
+              "text": " result",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.9959028363227844
+            },
+            {
+              "text": " from",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.9927313923835754
+            },
+            {
+              "text": " these",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.9965337514877319
+            },
+            {
+              "text": " observations",
+              "start": 1.28,
+              "end": 1.94,
+              "probability": 0.9978030323982239
+            },
+            {
+              "text": " is",
+              "start": 1.94,
+              "end": 2.3,
+              "probability": 0.9939159750938416
+            },
+            {
+              "text": " that",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.9965080618858337
+            },
+            {
+              "text": " the",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.9849359393119812
+            },
+            {
+              "text": " sources",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.9951536655426025
+            },
+            {
+              "text": " of",
+              "start": 2.98,
+              "end": 3.3,
+              "probability": 0.9984909296035767
+            },
+            {
+              "text": " additional",
+              "start": 3.3,
+              "end": 3.76,
+              "probability": 0.9978963136672974
+            },
+            {
+              "text": " expense",
+              "start": 3.76,
+              "end": 4.26,
+              "probability": 0.9938050508499146
+            },
+            {
+              "text": " from",
+              "start": 4.26,
+              "end": 4.56,
+              "probability": 0.9959057569503784
+            },
+            {
+              "text": " the",
+              "start": 4.56,
+              "end": 4.68,
+              "probability": 0.9987010955810547
+            },
+            {
+              "text": " establishment",
+              "start": 4.68,
+              "end": 5.2,
+              "probability": 0.9972338080406189
+            },
+            {
+              "text": " of",
+              "start": 5.2,
+              "end": 5.52,
+              "probability": 0.9979538917541504
+            },
+            {
+              "text": " the",
+              "start": 5.52,
+              "end": 5.64,
+              "probability": 0.9972152709960938
+            },
+            {
+              "text": " proposed",
+              "start": 5.64,
+              "end": 6.08,
+              "probability": 0.9967777132987976
+            },
+            {
+              "text": " Constitution",
+              "start": 6.08,
+              "end": 6.76,
+              "probability": 0.5264768004417419
+            },
+            {
+              "text": " are",
+              "start": 6.76,
+              "end": 7.5,
+              "probability": 0.9681333303451538
+            },
+            {
+              "text": " much",
+              "start": 7.5,
+              "end": 7.7,
+              "probability": 0.999516487121582
+            },
+            {
+              "text": " fewer",
+              "start": 7.7,
+              "end": 8.0,
+              "probability": 0.9969214200973511
+            },
+            {
+              "text": " than",
+              "start": 8.0,
+              "end": 8.24,
+              "probability": 0.9957581162452698
+            },
+            {
+              "text": " may",
+              "start": 8.24,
+              "end": 8.42,
+              "probability": 0.9925959706306458
+            },
+            {
+              "text": " have",
+              "start": 8.42,
+              "end": 8.54,
+              "probability": 0.9947397112846375
+            },
+            {
+              "text": " been",
+              "start": 8.54,
+              "end": 8.68,
+              "probability": 0.9986122846603394
+            },
+            {
+              "text": " imagined,",
+              "start": 8.68,
+              "end": 9.24,
+              "probability": 0.9978366494178772
+            },
+            {
+              "text": " that",
+              "start": 9.8,
+              "end": 9.98,
+              "probability": 0.9858690500259399
+            },
+            {
+              "text": " they",
+              "start": 9.98,
+              "end": 10.16,
+              "probability": 0.9991625547409058
+            },
+            {
+              "text": " are",
+              "start": 10.16,
+              "end": 10.3,
+              "probability": 0.9983318448066711
+            },
+            {
+              "text": " counterbalanced",
+              "start": 10.3,
+              "end": 11.12,
+              "probability": 0.9071182608604431
+            },
+            {
+              "text": " by",
+              "start": 11.12,
+              "end": 11.42,
+              "probability": 0.9990178346633911
+            },
+            {
+              "text": " considerable",
+              "start": 11.42,
+              "end": 11.88,
+              "probability": 0.9981634020805359
+            },
+            {
+              "text": " objects",
+              "start": 11.88,
+              "end": 12.44,
+              "probability": 0.9964040517807007
+            },
+            {
+              "text": " of",
+              "start": 12.44,
+              "end": 12.66,
+              "probability": 0.9987209439277649
+            },
+            {
+              "text": " saving,",
+              "start": 12.66,
+              "end": 13.06,
+              "probability": 0.9936866164207458
+            },
+            {
+              "text": " and",
+              "start": 13.68,
+              "end": 13.84,
+              "probability": 0.9973024129867554
+            },
+            {
+              "text": " that",
+              "start": 13.84,
+              "end": 13.98,
+              "probability": 0.9988896250724792
+            },
+            {
+              "text": " while",
+              "start": 13.98,
+              "end": 14.18,
+              "probability": 0.9160743355751038
+            },
+            {
+              "text": " it",
+              "start": 14.18,
+              "end": 14.3,
+              "probability": 0.9981714487075806
+            },
+            {
+              "text": " is",
+              "start": 14.3,
+              "end": 14.48,
+              "probability": 0.9970864653587341
+            },
+            {
+              "text": " questionable",
+              "start": 14.48,
+              "end": 14.98,
+              "probability": 0.9986392855644226
+            },
+            {
+              "text": " on",
+              "start": 14.98,
+              "end": 15.34,
+              "probability": 0.9854161143302917
+            },
+            {
+              "text": " which",
+              "start": 15.34,
+              "end": 15.5,
+              "probability": 0.9994897842407227
+            },
+            {
+              "text": " side",
+              "start": 15.5,
+              "end": 15.82,
+              "probability": 0.9994764924049377
+            },
+            {
+              "text": " the",
+              "start": 15.82,
+              "end": 16.0,
+              "probability": 0.9962316155433655
+            },
+            {
+              "text": " scale",
+              "start": 16.0,
+              "end": 16.32,
+              "probability": 0.9982921481132507
+            },
+            {
+              "text": " will",
+              "start": 16.32,
+              "end": 16.52,
+              "probability": 0.9983575940132141
+            },
+            {
+              "text": " preponderate,",
+              "start": 16.52,
+              "end": 17.3,
+              "probability": 0.9402987559636434
+            },
+            {
+              "text": " it",
+              "start": 17.68,
+              "end": 17.88,
+              "probability": 0.9974249601364136
+            },
+            {
+              "text": " is",
+              "start": 17.88,
+              "end": 18.0,
+              "probability": 0.998153030872345
+            },
+            {
+              "text": " certain",
+              "start": 18.0,
+              "end": 18.26,
+              "probability": 0.9989063739776611
+            },
+            {
+              "text": " that",
+              "start": 18.26,
+              "end": 18.5,
+              "probability": 0.9983788728713989
+            },
+            {
+              "text": " a",
+              "start": 18.5,
+              "end": 18.64,
+              "probability": 0.9982548356056213
+            },
+            {
+              "text": " government",
+              "start": 18.64,
+              "end": 18.88,
+              "probability": 0.9845950603485107
+            },
+            {
+              "text": " less",
+              "start": 18.88,
+              "end": 19.28,
+              "probability": 0.9981028437614441
+            },
+            {
+              "text": " expensive",
+              "start": 19.28,
+              "end": 19.9,
+              "probability": 0.9986594915390015
+            },
+            {
+              "text": " would",
+              "start": 19.9,
+              "end": 20.26,
+              "probability": 0.9971940517425537
+            },
+            {
+              "text": " be",
+              "start": 20.26,
+              "end": 20.38,
+              "probability": 0.9998477697372437
+            },
+            {
+              "text": " incompetent",
+              "start": 20.38,
+              "end": 20.88,
+              "probability": 0.9943893551826477
+            },
+            {
+              "text": " to",
+              "start": 20.88,
+              "end": 21.22,
+              "probability": 0.998339056968689
+            },
+            {
+              "text": " the",
+              "start": 21.22,
+              "end": 21.36,
+              "probability": 0.9996813535690308
+            },
+            {
+              "text": " purposes",
+              "start": 21.36,
+              "end": 21.66,
+              "probability": 0.9921984076499939
+            },
+            {
+              "text": " of",
+              "start": 21.66,
+              "end": 22.02,
+              "probability": 0.9991993308067322
+            },
+            {
+              "text": " the",
+              "start": 22.02,
+              "end": 22.14,
+              "probability": 0.9986447691917419
+            },
+            {
+              "text": " Union.",
+              "start": 22.14,
+              "end": 22.4,
+              "probability": 0.7104427814483643
+            }
+          ]
+        },
+        {
+          "text": " The result from these observations is that a government less expensive would be incompetent to the purposes of the Union.",
+          "start": 22.4,
+          "end": 22.52,
+          "words": [
+            {
+              "text": " The",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.004765516147017479
+            },
+            {
+              "text": " result",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.0010813274420797825
+            },
+            {
+              "text": " from",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.005492257419973612
+            },
+            {
+              "text": " these",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.0031967780087143183
+            },
+            {
+              "text": " observations",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.0002166178310289979
+            },
+            {
+              "text": " is",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.4349874258041382
+            },
+            {
+              "text": " that",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.07582855224609375
+            },
+            {
+              "text": " a",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.011742856353521347
+            },
+            {
+              "text": " government",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.0008873836486600339
+            },
+            {
+              "text": " less",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 3.590193955460563e-05
+            },
+            {
+              "text": " expensive",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.00019738472474273294
+            },
+            {
+              "text": " would",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.006676085293292999
+            },
+            {
+              "text": " be",
+              "start": 22.4,
+              "end": 22.4,
+              "probability": 0.28664714097976685
+            },
+            {
+              "text": " incompetent",
+              "start": 22.4,
+              "end": 22.42,
+              "probability": 3.2134278171724873e-06
+            },
+            {
+              "text": " to",
+              "start": 22.42,
+              "end": 22.42,
+              "probability": 0.07889863848686218
+            },
+            {
+              "text": " the",
+              "start": 22.42,
+              "end": 22.42,
+              "probability": 0.004619127605110407
+            },
+            {
+              "text": " purposes",
+              "start": 22.42,
+              "end": 22.42,
+              "probability": 3.460991501924582e-05
+            },
+            {
+              "text": " of",
+              "start": 22.42,
+              "end": 22.42,
+              "probability": 0.8956031799316406
+            },
+            {
+              "text": " the",
+              "start": 22.42,
+              "end": 22.42,
+              "probability": 0.18127606809139252
+            },
+            {
+              "text": " Union.",
+              "start": 22.42,
+              "end": 22.52,
+              "probability": 0.0004018849867861718
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "result",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "from",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "raw": "these",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "observations",
+          "start": 1.28,
+          "end": 1.94
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "raw": "that",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "the",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "sources",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "of",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "raw": "additional",
+          "start": 3.3,
+          "end": 3.76
+        },
+        {
+          "raw": "expense",
+          "start": 3.76,
+          "end": 4.26
+        },
+        {
+          "raw": "from",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "raw": "the",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "raw": "establishment",
+          "start": 4.68,
+          "end": 5.2
+        },
+        {
+          "raw": "of",
+          "start": 5.2,
+          "end": 5.52
+        },
+        {
+          "raw": "the",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "raw": "proposed",
+          "start": 5.64,
+          "end": 6.08
+        },
+        {
+          "raw": "Constitution",
+          "start": 6.08,
+          "end": 6.76
+        },
+        {
+          "raw": "are",
+          "start": 6.76,
+          "end": 7.5
+        },
+        {
+          "raw": "much",
+          "start": 7.5,
+          "end": 7.7
+        },
+        {
+          "raw": "fewer",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "raw": "than",
+          "start": 8.0,
+          "end": 8.24
+        },
+        {
+          "raw": "may",
+          "start": 8.24,
+          "end": 8.42
+        },
+        {
+          "raw": "have",
+          "start": 8.42,
+          "end": 8.54
+        },
+        {
+          "raw": "been",
+          "start": 8.54,
+          "end": 8.68
+        },
+        {
+          "raw": "imagined,",
+          "start": 8.68,
+          "end": 9.24
+        },
+        {
+          "raw": "that",
+          "start": 9.8,
+          "end": 9.98
+        },
+        {
+          "raw": "they",
+          "start": 9.98,
+          "end": 10.16
+        },
+        {
+          "raw": "are",
+          "start": 10.16,
+          "end": 10.3
+        },
+        {
+          "raw": "counterbalanced",
+          "start": 10.3,
+          "end": 11.12
+        },
+        {
+          "raw": "by",
+          "start": 11.12,
+          "end": 11.42
+        },
+        {
+          "raw": "considerable",
+          "start": 11.42,
+          "end": 11.88
+        },
+        {
+          "raw": "objects",
+          "start": 11.88,
+          "end": 12.44
+        },
+        {
+          "raw": "of",
+          "start": 12.44,
+          "end": 12.66
+        },
+        {
+          "raw": "saving,",
+          "start": 12.66,
+          "end": 13.06
+        },
+        {
+          "raw": "and",
+          "start": 13.68,
+          "end": 13.84
+        },
+        {
+          "raw": "that",
+          "start": 13.84,
+          "end": 13.98
+        },
+        {
+          "raw": "while",
+          "start": 13.98,
+          "end": 14.18
+        },
+        {
+          "raw": "it",
+          "start": 14.18,
+          "end": 14.3
+        },
+        {
+          "raw": "is",
+          "start": 14.3,
+          "end": 14.48
+        },
+        {
+          "raw": "questionable",
+          "start": 14.48,
+          "end": 14.98
+        },
+        {
+          "raw": "on",
+          "start": 14.98,
+          "end": 15.34
+        },
+        {
+          "raw": "which",
+          "start": 15.34,
+          "end": 15.5
+        },
+        {
+          "raw": "side",
+          "start": 15.5,
+          "end": 15.82
+        },
+        {
+          "raw": "the",
+          "start": 15.82,
+          "end": 16.0
+        },
+        {
+          "raw": "scale",
+          "start": 16.0,
+          "end": 16.32
+        },
+        {
+          "raw": "will",
+          "start": 16.32,
+          "end": 16.52
+        },
+        {
+          "raw": "preponderate,",
+          "start": 16.52,
+          "end": 17.3
+        },
+        {
+          "raw": "it",
+          "start": 17.68,
+          "end": 17.88
+        },
+        {
+          "raw": "is",
+          "start": 17.88,
+          "end": 18.0
+        },
+        {
+          "raw": "certain",
+          "start": 18.0,
+          "end": 18.26
+        },
+        {
+          "raw": "that",
+          "start": 18.26,
+          "end": 18.5
+        },
+        {
+          "raw": "a",
+          "start": 18.5,
+          "end": 18.64
+        },
+        {
+          "raw": "government",
+          "start": 18.64,
+          "end": 18.88
+        },
+        {
+          "raw": "less",
+          "start": 18.88,
+          "end": 19.28
+        },
+        {
+          "raw": "expensive",
+          "start": 19.28,
+          "end": 19.9
+        },
+        {
+          "raw": "would",
+          "start": 19.9,
+          "end": 20.26
+        },
+        {
+          "raw": "be",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "raw": "incompetent",
+          "start": 20.38,
+          "end": 20.88
+        },
+        {
+          "raw": "to",
+          "start": 20.88,
+          "end": 21.22
+        },
+        {
+          "raw": "the",
+          "start": 21.22,
+          "end": 21.36
+        },
+        {
+          "raw": "purposes",
+          "start": 21.36,
+          "end": 21.66
+        },
+        {
+          "raw": "of",
+          "start": 21.66,
+          "end": 22.02
+        },
+        {
+          "raw": "the",
+          "start": 22.02,
+          "end": 22.14
+        },
+        {
+          "raw": "Union.",
+          "start": 22.14,
+          "end": 22.4
+        },
+        {
+          "raw": "The",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "result",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "from",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "these",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "observations",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "is",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "that",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "a",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "government",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "less",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "expensive",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "would",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "be",
+          "start": 22.4,
+          "end": 22.4
+        },
+        {
+          "raw": "incompetent",
+          "start": 22.4,
+          "end": 22.42
+        },
+        {
+          "raw": "to",
+          "start": 22.42,
+          "end": 22.42
+        },
+        {
+          "raw": "the",
+          "start": 22.42,
+          "end": 22.42
+        },
+        {
+          "raw": "purposes",
+          "start": 22.42,
+          "end": 22.42
+        },
+        {
+          "raw": "of",
+          "start": 22.42,
+          "end": 22.42
+        },
+        {
+          "raw": "the",
+          "start": 22.42,
+          "end": 22.42
+        },
+        {
+          "raw": "Union.",
+          "start": 22.42,
+          "end": 22.52
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "result",
+        "from",
+        "these",
+        "observations",
+        "is",
+        "that",
+        "the",
+        "sources",
+        "of",
+        "additional",
+        "expense",
+        "from",
+        "the",
+        "establishment",
+        "of",
+        "the",
+        "proposed",
+        "Constitution",
+        "are",
+        "much",
+        "fewer",
+        "than",
+        "may",
+        "have",
+        "been",
+        "imagined;",
+        "that",
+        "they",
+        "are",
+        "counterbalanced",
+        "by",
+        "considerable",
+        "objects",
+        "of",
+        "saving;",
+        "and",
+        "that",
+        "while",
+        "it",
+        "is",
+        "questionable",
+        "on",
+        "which",
+        "side",
+        "the",
+        "scale",
+        "will",
+        "preponderate,",
+        "it",
+        "is",
+        "certain",
+        "that",
+        "a",
+        "government",
+        "less",
+        "expensive",
+        "would",
+        "be",
+        "incompetent",
+        "to",
+        "the",
+        "purposes",
+        "of",
+        "the",
+        "Union."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "result",
+        "from",
+        "these",
+        "observations",
+        "is",
+        "that",
+        "the",
+        "sources",
+        "of",
+        "additional",
+        "expense",
+        "from",
+        "the",
+        "establishment",
+        "of",
+        "the",
+        "proposed",
+        "Constitution",
+        "are",
+        "much",
+        "fewer",
+        "than",
+        "may",
+        "have",
+        "been",
+        "imagined;",
+        "that",
+        "they",
+        "are",
+        "counterbalanced",
+        "by",
+        "considerable",
+        "objects",
+        "of",
+        "saving;",
+        "and",
+        "that",
+        "while",
+        "it",
+        "is",
+        "questionable",
+        "on",
+        "which",
+        "side",
+        "the",
+        "scale",
+        "will",
+        "preponderate,",
+        "it",
+        "is",
+        "certain",
+        "that",
+        "a",
+        "government",
+        "less",
+        "expensive",
+        "would",
+        "be",
+        "incompetent",
+        "to",
+        "the",
+        "purposes",
+        "of",
+        "the",
+        "Union."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          66,
+          0,
+          66
+        ],
+        [
+          "insert",
+          66,
+          66,
+          66,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          66,
+          66,
+          66,
+          86
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "result",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "result",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "these",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "observations",
+          "start": 1.28,
+          "end": 1.94,
+          "key": "observations",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.3,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sources",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "sources",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.98,
+          "end": 3.3,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "additional",
+          "start": 3.3,
+          "end": 3.76,
+          "key": "additional",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "expense",
+          "start": 3.76,
+          "end": 4.26,
+          "key": "expense",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.26,
+          "end": 4.56,
+          "key": "from",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.56,
+          "end": 4.68,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "establishment",
+          "start": 4.68,
+          "end": 5.2,
+          "key": "establishment",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.2,
+          "end": 5.52,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.52,
+          "end": 5.64,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "proposed",
+          "start": 5.64,
+          "end": 6.08,
+          "key": "proposed",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Constitution",
+          "start": 6.08,
+          "end": 6.76,
+          "key": "constitution",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.76,
+          "end": 7.5,
+          "key": "are",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 7.5,
+          "end": 7.7,
+          "key": "much",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fewer",
+          "start": 7.7,
+          "end": 8.0,
+          "key": "fewer",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 8.0,
+          "end": 8.24,
+          "key": "than",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 8.24,
+          "end": 8.42,
+          "key": "may",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 8.42,
+          "end": 8.54,
+          "key": "have",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.54,
+          "end": 8.68,
+          "key": "been",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "imagined,",
+          "start": 8.68,
+          "end": 9.24,
+          "key": "imagined",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.8,
+          "end": 9.98,
+          "key": "that",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 9.98,
+          "end": 10.16,
+          "key": "they",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 10.16,
+          "end": 10.3,
+          "key": "are",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "counterbalanced",
+          "start": 10.3,
+          "end": 11.12,
+          "key": "counterbalanced",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 11.12,
+          "end": 11.42,
+          "key": "by",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "considerable",
+          "start": 11.42,
+          "end": 11.88,
+          "key": "considerable",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "objects",
+          "start": 11.88,
+          "end": 12.44,
+          "key": "objects",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.44,
+          "end": 12.66,
+          "key": "of",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "saving,",
+          "start": 12.66,
+          "end": 13.06,
+          "key": "saving",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.68,
+          "end": 13.84,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.84,
+          "end": 13.98,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 13.98,
+          "end": 14.18,
+          "key": "while",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 14.18,
+          "end": 14.3,
+          "key": "it",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.3,
+          "end": 14.48,
+          "key": "is",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "questionable",
+          "start": 14.48,
+          "end": 14.98,
+          "key": "questionable",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 14.98,
+          "end": 15.34,
+          "key": "on",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 15.34,
+          "end": 15.5,
+          "key": "which",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 15.5,
+          "end": 15.82,
+          "key": "side",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.82,
+          "end": 16.0,
+          "key": "the",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "scale",
+          "start": 16.0,
+          "end": 16.32,
+          "key": "scale",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 16.32,
+          "end": 16.52,
+          "key": "will",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "preponderate,",
+          "start": 16.52,
+          "end": 17.3,
+          "key": "preponderate",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 17.68,
+          "end": 17.88,
+          "key": "it",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.88,
+          "end": 18.0,
+          "key": "is",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 18.0,
+          "end": 18.26,
+          "key": "certain",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 18.26,
+          "end": 18.5,
+          "key": "that",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.5,
+          "end": 18.64,
+          "key": "a",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "government",
+          "start": 18.64,
+          "end": 18.88,
+          "key": "government",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 18.88,
+          "end": 19.28,
+          "key": "less",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "expensive",
+          "start": 19.28,
+          "end": 19.9,
+          "key": "expensive",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 19.9,
+          "end": 20.26,
+          "key": "would",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.26,
+          "end": 20.38,
+          "key": "be",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "incompetent",
+          "start": 20.38,
+          "end": 20.88,
+          "key": "incompetent",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.88,
+          "end": 21.22,
+          "key": "to",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.22,
+          "end": 21.36,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "purposes",
+          "start": 21.36,
+          "end": 21.66,
+          "key": "purposes",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.66,
+          "end": 22.02,
+          "key": "of",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.02,
+          "end": 22.14,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Union.",
+          "start": 22.14,
+          "end": 22.4,
+          "key": "union",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "the",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "result",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "result",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "from",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "these",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "observations",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "observations",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "is",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "that",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "a",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "government",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "government",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "less",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "less",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "expensive",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "expensive",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "would",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 22.4,
+          "end": 22.4,
+          "key": "be",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "incompetent",
+          "start": 22.4,
+          "end": 22.42,
+          "key": "incompetent",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.42,
+          "end": 22.42,
+          "key": "to",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.42,
+          "end": 22.42,
+          "key": "the",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "purposes",
+          "start": 22.42,
+          "end": 22.42,
+          "key": "purposes",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.42,
+          "end": 22.42,
+          "key": "of",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.42,
+          "end": 22.42,
+          "key": "the",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "Union.",
+          "start": 22.42,
+          "end": 22.52,
+          "key": "union",
+          "pieces": [
+            85
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "result",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "from",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "text": "these",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "observations",
+          "start": 1.28,
+          "end": 1.94
+        },
+        {
+          "text": "is",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "text": "that",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "the",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "sources",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "of",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "text": "additional",
+          "start": 3.3,
+          "end": 3.76
+        },
+        {
+          "text": "expense",
+          "start": 3.76,
+          "end": 4.26
+        },
+        {
+          "text": "from",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "text": "the",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "text": "establishment",
+          "start": 4.68,
+          "end": 5.2
+        },
+        {
+          "text": "of",
+          "start": 5.2,
+          "end": 5.52
+        },
+        {
+          "text": "the",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "text": "proposed",
+          "start": 5.64,
+          "end": 6.08
+        },
+        {
+          "text": "Constitution",
+          "start": 6.08,
+          "end": 6.76
+        },
+        {
+          "text": "are",
+          "start": 6.76,
+          "end": 7.5
+        },
+        {
+          "text": "much",
+          "start": 7.5,
+          "end": 7.7
+        },
+        {
+          "text": "fewer",
+          "start": 7.7,
+          "end": 8.0
+        },
+        {
+          "text": "than",
+          "start": 8.0,
+          "end": 8.24
+        },
+        {
+          "text": "may",
+          "start": 8.24,
+          "end": 8.42
+        },
+        {
+          "text": "have",
+          "start": 8.42,
+          "end": 8.54
+        },
+        {
+          "text": "been",
+          "start": 8.54,
+          "end": 8.68
+        },
+        {
+          "text": "imagined;",
+          "start": 8.68,
+          "end": 9.24
+        },
+        {
+          "text": "that",
+          "start": 9.8,
+          "end": 9.98
+        },
+        {
+          "text": "they",
+          "start": 9.98,
+          "end": 10.16
+        },
+        {
+          "text": "are",
+          "start": 10.16,
+          "end": 10.3
+        },
+        {
+          "text": "counterbalanced",
+          "start": 10.3,
+          "end": 11.12
+        },
+        {
+          "text": "by",
+          "start": 11.12,
+          "end": 11.42
+        },
+        {
+          "text": "considerable",
+          "start": 11.42,
+          "end": 11.88
+        },
+        {
+          "text": "objects",
+          "start": 11.88,
+          "end": 12.44
+        },
+        {
+          "text": "of",
+          "start": 12.44,
+          "end": 12.66
+        },
+        {
+          "text": "saving;",
+          "start": 12.66,
+          "end": 13.06
+        },
+        {
+          "text": "and",
+          "start": 13.68,
+          "end": 13.84
+        },
+        {
+          "text": "that",
+          "start": 13.84,
+          "end": 13.98
+        },
+        {
+          "text": "while",
+          "start": 13.98,
+          "end": 14.18
+        },
+        {
+          "text": "it",
+          "start": 14.18,
+          "end": 14.3
+        },
+        {
+          "text": "is",
+          "start": 14.3,
+          "end": 14.48
+        },
+        {
+          "text": "questionable",
+          "start": 14.48,
+          "end": 14.98
+        },
+        {
+          "text": "on",
+          "start": 14.98,
+          "end": 15.34
+        },
+        {
+          "text": "which",
+          "start": 15.34,
+          "end": 15.5
+        },
+        {
+          "text": "side",
+          "start": 15.5,
+          "end": 15.82
+        },
+        {
+          "text": "the",
+          "start": 15.82,
+          "end": 16.0
+        },
+        {
+          "text": "scale",
+          "start": 16.0,
+          "end": 16.32
+        },
+        {
+          "text": "will",
+          "start": 16.32,
+          "end": 16.52
+        },
+        {
+          "text": "preponderate,",
+          "start": 16.52,
+          "end": 17.3
+        },
+        {
+          "text": "it",
+          "start": 17.68,
+          "end": 17.88
+        },
+        {
+          "text": "is",
+          "start": 17.88,
+          "end": 18.0
+        },
+        {
+          "text": "certain",
+          "start": 18.0,
+          "end": 18.26
+        },
+        {
+          "text": "that",
+          "start": 18.26,
+          "end": 18.5
+        },
+        {
+          "text": "a",
+          "start": 18.5,
+          "end": 18.64
+        },
+        {
+          "text": "government",
+          "start": 18.64,
+          "end": 18.88
+        },
+        {
+          "text": "less",
+          "start": 18.88,
+          "end": 19.28
+        },
+        {
+          "text": "expensive",
+          "start": 19.28,
+          "end": 19.9
+        },
+        {
+          "text": "would",
+          "start": 19.9,
+          "end": 20.26
+        },
+        {
+          "text": "be",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "text": "incompetent",
+          "start": 20.38,
+          "end": 20.88
+        },
+        {
+          "text": "to",
+          "start": 20.88,
+          "end": 21.22
+        },
+        {
+          "text": "the",
+          "start": 21.22,
+          "end": 21.36
+        },
+        {
+          "text": "purposes",
+          "start": 21.36,
+          "end": 21.66
+        },
+        {
+          "text": "of",
+          "start": 21.66,
+          "end": 22.02
+        },
+        {
+          "text": "the",
+          "start": 22.02,
+          "end": 22.14
+        },
+        {
+          "text": "Union.",
+          "start": 22.14,
+          "end": 22.4
+        }
+      ],
+      "stats": {
+        "expected_words": 66,
+        "heard_words": 86,
+        "matched_words": 66
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 7.968177303000061
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c82550211ecc250f378dc77741ce06595d94a62a967dde0d050c17546c04428",
+  "selected_reasons": []
+}

@@ -1,0 +1,667 @@
+{
+  "complete": true,
+  "signature": "c84d3c8b3e469a5853455d491237fce28dc5b65a3c1eb7a3d4eea703e25a0ebd",
+  "attempts": [
+    {
+      "asr_seconds": 2.9707480879999935,
+      "alignment_seconds": 0.0008984339999642543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It is summed up in the phrase: the bourgeois is a bourgeois—for the benefit of the working class.",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is summed up in the phrase, the bourgeois is a bourgeois—for the benefit of the working",
+          "start": 0.02,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8878185749053955
+            },
+            {
+              "text": " is",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9874237179756165
+            },
+            {
+              "text": " summed",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.9967935681343079
+            },
+            {
+              "text": " up",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.9951416254043579
+            },
+            {
+              "text": " in",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.9959611296653748
+            },
+            {
+              "text": " the",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.9949285984039307
+            },
+            {
+              "text": " phrase,",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.9958776235580444
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.254994660615921
+            },
+            {
+              "text": " bourgeois",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.963629424571991
+            },
+            {
+              "text": " is",
+              "start": 2.72,
+              "end": 3.04,
+              "probability": 0.9924517273902893
+            },
+            {
+              "text": " a",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.9816551208496094
+            },
+            {
+              "text": " bourgeois—for",
+              "start": 3.16,
+              "end": 4.1,
+              "probability": 0.6164599943731446
+            },
+            {
+              "text": " the",
+              "start": 4.1,
+              "end": 4.24,
+              "probability": 0.9942528605461121
+            },
+            {
+              "text": " benefit",
+              "start": 4.24,
+              "end": 4.5,
+              "probability": 0.995276927947998
+            },
+            {
+              "text": " of",
+              "start": 4.5,
+              "end": 4.78,
+              "probability": 0.9982807636260986
+            },
+            {
+              "text": " the",
+              "start": 4.78,
+              "end": 4.88,
+              "probability": 0.9902814626693726
+            },
+            {
+              "text": " working",
+              "start": 4.88,
+              "end": 5.1,
+              "probability": 0.9927321076393127
+            }
+          ]
+        },
+        {
+          "text": " class.",
+          "start": 5.1,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " class.",
+              "start": 5.1,
+              "end": 5.52,
+              "probability": 0.9785862565040588
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "summed",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "up",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "in",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "phrase,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "bourgeois",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "raw": "is",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "raw": "a",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "bourgeois—for",
+          "start": 3.16,
+          "end": 4.1
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "raw": "benefit",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "raw": "of",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "raw": "the",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "raw": "working",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "raw": "class.",
+          "start": 5.1,
+          "end": 5.52
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "is",
+        "summed",
+        "up",
+        "in",
+        "the",
+        "phrase:",
+        "the",
+        "bourgeois",
+        "is",
+        "a",
+        "bourgeois—for",
+        "the",
+        "benefit",
+        "of",
+        "the",
+        "working",
+        "class."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "is",
+        "summed",
+        "up",
+        "in",
+        "the",
+        "phrase:",
+        "the",
+        "bourgeois",
+        "is",
+        "a",
+        "bourgeois—for",
+        "the",
+        "benefit",
+        "of",
+        "the",
+        "working",
+        "class."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "summed",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "summed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.3,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "phrase,",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "phrase",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bourgeois",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "bourgeois",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.72,
+          "end": 3.04,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bourgeois—for",
+          "start": 3.16,
+          "end": 4.1,
+          "key": "bourgeoisfor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.24,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "benefit",
+          "start": 4.24,
+          "end": 4.5,
+          "key": "benefit",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.5,
+          "end": 4.78,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.78,
+          "end": 4.88,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "working",
+          "start": 4.88,
+          "end": 5.1,
+          "key": "working",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "class.",
+          "start": 5.1,
+          "end": 5.52,
+          "key": "class",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "summed",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "up",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "in",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "the",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "phrase:",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "bourgeois",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "text": "is",
+          "start": 2.72,
+          "end": 3.04
+        },
+        {
+          "text": "a",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "bourgeois—for",
+          "start": 3.16,
+          "end": 4.1
+        },
+        {
+          "text": "the",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "text": "benefit",
+          "start": 4.24,
+          "end": 4.5
+        },
+        {
+          "text": "of",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "text": "the",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "text": "working",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "text": "class.",
+          "start": 5.1,
+          "end": 5.52
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.9716840569999476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f46e83779baf5b558a898dde3a5240f083c028e228f9a158ad472970c8f59465",
+  "selected_reasons": []
+}

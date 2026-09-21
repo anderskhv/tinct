@@ -1,0 +1,235 @@
+{
+  "complete": true,
+  "signature": "55f5285eb3d726b14d6a4ca3162bdd535aba548d4ac4cfa3ebfe9a67bf34e58e",
+  "attempts": [
+    {
+      "asr_seconds": 2.6206651779999675,
+      "alignment_seconds": 0.00013886099998217105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Berlador, Academission of Argamacilla, on Sancho, Panza.",
+          "start": 0.08,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Berlador,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.46624306341012317
+            },
+            {
+              "text": " Academission",
+              "start": 1.44,
+              "end": 1.82,
+              "probability": 0.6254841188589731
+            },
+            {
+              "text": " of",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.9949114918708801
+            },
+            {
+              "text": " Argamacilla,",
+              "start": 1.98,
+              "end": 2.54,
+              "probability": 0.5672714933753014
+            },
+            {
+              "text": " on",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.962352991104126
+            },
+            {
+              "text": " Sancho,",
+              "start": 2.92,
+              "end": 3.36,
+              "probability": 0.8192691802978516
+            },
+            {
+              "text": " Panza.",
+              "start": 3.4,
+              "end": 3.8,
+              "probability": 0.7744425237178802
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Berlador,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Academission",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "Argamacilla,",
+          "start": 1.98,
+          "end": 2.54
+        },
+        {
+          "raw": "on",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "Sancho,",
+          "start": 2.92,
+          "end": 3.36
+        },
+        {
+          "raw": "Panza.",
+          "start": 3.4,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "BURLADOR,",
+        "ACADEMICIAN",
+        "OF",
+        "ARGAMASILLA,",
+        "ON",
+        "SANCHO",
+        "PANZA"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Berlador,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "berlador",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Academission",
+          "start": 1.44,
+          "end": 1.82,
+          "key": "academission",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Argamacilla,",
+          "start": 1.98,
+          "end": 2.54,
+          "key": "argamacilla",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sancho,",
+          "start": 2.92,
+          "end": 3.36,
+          "key": "sancho",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Panza.",
+          "start": 3.4,
+          "end": 3.8,
+          "key": "panza",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "BURLADOR,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ACADEMICIAN",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ARGAMASILLA,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ON",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "SANCHO",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "PANZA",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 7,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.620824017000018
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8651f44b5d4b692492aa8615d017704f46de7b8190e41577b12d4f1716d40c64",
+  "selected_reasons": []
+}

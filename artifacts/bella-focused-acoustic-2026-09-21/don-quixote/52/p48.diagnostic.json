@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "a148cfa5a69392e42d74c76ff1873f224fe7a44296f0305aa183c4fafbc99cb6",
+  "attempts": [
+    {
+      "asr_seconds": 2.151462654999932,
+      "alignment_seconds": 0.00010561900000993774,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dedication of volume F.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Dedication",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.8847544193267822
+            },
+            {
+              "text": " of",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.9898512363433838
+            },
+            {
+              "text": " volume",
+              "start": 1.13,
+              "end": 1.51,
+              "probability": 0.46179473400115967
+            },
+            {
+              "text": " F.",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.8633591532707214
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dedication",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "of",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "volume",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "raw": "F.",
+          "start": 1.51,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "DEDICATION",
+        "OF",
+        "VOLUME",
+        "II."
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dedication",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "dedication",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "volume",
+          "start": 1.13,
+          "end": 1.51,
+          "key": "volume",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "F.",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "f",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "DEDICATION",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "VOLUME",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "II.",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.151582951999899
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a29a46ff3a6167f81312babcdb1f0f00d6b191a487b37f8e4e0af1ebf381fb3f",
+  "selected_reasons": []
+}

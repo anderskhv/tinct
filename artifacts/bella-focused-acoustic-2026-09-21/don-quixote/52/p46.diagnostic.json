@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "0c5d280de3ad8a2380a8253a0df338d7ae6bbd006645f99e123b6dcffd5b8f7c",
+  "attempts": [
+    {
+      "asr_seconds": 2.4487657989999434,
+      "alignment_seconds": 0.0004295700000511715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_\"Forse altro cantera con miglior plettro.\"_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Forse altro cantera con miglior plettro.",
+          "start": 0.08,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Forse",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.39495922630885616
+            },
+            {
+              "text": " altro",
+              "start": 0.78,
+              "end": 1.14,
+              "probability": 0.3086842205375433
+            },
+            {
+              "text": " cantera",
+              "start": 1.14,
+              "end": 1.56,
+              "probability": 0.258365873247385
+            },
+            {
+              "text": " con",
+              "start": 1.56,
+              "end": 1.92,
+              "probability": 0.5757495164871216
+            },
+            {
+              "text": " miglior",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.10103816430394848
+            },
+            {
+              "text": " plettro.",
+              "start": 2.24,
+              "end": 2.72,
+              "probability": 0.577476899450024
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Forse",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "altro",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "raw": "cantera",
+          "start": 1.14,
+          "end": 1.56
+        },
+        {
+          "raw": "con",
+          "start": 1.56,
+          "end": 1.92
+        },
+        {
+          "raw": "miglior",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "raw": "plettro.",
+          "start": 2.24,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "_“Forse",
+        "altro",
+        "cantera",
+        "con",
+        "miglior",
+        "plettro.”_"
+      ],
+      "acoustic_expected_tokens": [
+        "_\"Forse",
+        "altro",
+        "cantera",
+        "con",
+        "miglior",
+        "plettro.\"_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Forse",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "forse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "altro",
+          "start": 0.78,
+          "end": 1.14,
+          "key": "altro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cantera",
+          "start": 1.14,
+          "end": 1.56,
+          "key": "cantera",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "con",
+          "start": 1.56,
+          "end": 1.92,
+          "key": "con",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "miglior",
+          "start": 1.92,
+          "end": 2.24,
+          "key": "miglior",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "plettro.",
+          "start": 2.24,
+          "end": 2.72,
+          "key": "plettro",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_“Forse",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "altro",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "text": "cantera",
+          "start": 1.14,
+          "end": 1.56
+        },
+        {
+          "text": "con",
+          "start": 1.56,
+          "end": 1.92
+        },
+        {
+          "text": "miglior",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "text": "plettro.”_",
+          "start": 2.24,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.4492141340000444
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "821d67a2bdbf3cbbc46ffa223ffd1abd2d658927411233a0d59fed91f72c9b1e",
+  "selected_reasons": []
+}

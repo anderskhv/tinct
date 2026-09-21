@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "12e33f3e8af968c35cd40fe3a080a0c24a935af5a46d41e989a7e4c74c4960be",
+  "attempts": [
+    {
+      "asr_seconds": 1.585281939999959,
+      "alignment_seconds": 0.0004227139999670726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It was now the sixth monarch's turn to speak:",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It was now the sixth monarch's turn to speak.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.9253405332565308
+            },
+            {
+              "text": " was",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.9969634413719177
+            },
+            {
+              "text": " now",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.9926391839981079
+            },
+            {
+              "text": " the",
+              "start": 0.85,
+              "end": 0.99,
+              "probability": 0.9813967943191528
+            },
+            {
+              "text": " sixth",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.7868992686271667
+            },
+            {
+              "text": " monarch's",
+              "start": 1.25,
+              "end": 1.77,
+              "probability": 0.9660721719264984
+            },
+            {
+              "text": " turn",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.9990554451942444
+            },
+            {
+              "text": " to",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.9994470477104187
+            },
+            {
+              "text": " speak.",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.9980148077011108
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "now",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "raw": "sixth",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "monarch's",
+          "start": 1.25,
+          "end": 1.77
+        },
+        {
+          "raw": "turn",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "to",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "speak.",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "the",
+        "sixth",
+        "monarch's",
+        "turn",
+        "to",
+        "speak:"
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "was",
+        "now",
+        "the",
+        "sixth",
+        "monarch's",
+        "turn",
+        "to",
+        "speak:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.99,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sixth",
+          "start": 0.99,
+          "end": 1.25,
+          "key": "sixth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "monarch's",
+          "start": 1.25,
+          "end": 1.77,
+          "key": "monarchs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "turn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "speak.",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "speak",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "was",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "now",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "text": "sixth",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "monarch's",
+          "start": 1.25,
+          "end": 1.77
+        },
+        {
+          "text": "turn",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "to",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "speak:",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.585723502999997
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a23adb6df206330caadba8657e5db02711ed20bda2f40437cb2d59fe9ec1a3bf",
+  "selected_reasons": []
+}

@@ -1,0 +1,660 @@
+{
+  "complete": true,
+  "signature": "267503c6058164947e42dbff3aad9701a8991fe817eb7644e4f439f4564ade43",
+  "attempts": [
+    {
+      "asr_seconds": 3.3754277900000034,
+      "alignment_seconds": 0.0010385670000232494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caprichoso, A Most Acute Academician Of Argamasilla, In Praise Of Rocinante, Steed Of Don Quixote Of La Mancha",
+        "hotwords": "Caprichoso, A, Most, Acute, Academician, Of, Argamasilla, In, Praise, Rocinante, Steed, Don, Quixote, La, Mancha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caprichoso, A Most Acute Academician Of Argamasilla, In Praise Of Rocinante, Steed Of Don Quixote Of La Mancha",
+          "start": 0.02,
+          "end": 8.02,
+          "words": [
+            {
+              "text": " Caprichoso,",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.3959498554468155
+            },
+            {
+              "text": " A",
+              "start": 1.54,
+              "end": 1.6,
+              "probability": 0.007015833165496588
+            },
+            {
+              "text": " Most",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.42270031571388245
+            },
+            {
+              "text": " Acute",
+              "start": 1.8,
+              "end": 2.18,
+              "probability": 0.9846537411212921
+            },
+            {
+              "text": " Academician",
+              "start": 2.18,
+              "end": 2.86,
+              "probability": 0.7871460020542145
+            },
+            {
+              "text": " Of",
+              "start": 2.86,
+              "end": 3.0,
+              "probability": 0.046049028635025024
+            },
+            {
+              "text": " Argamasilla,",
+              "start": 3.0,
+              "end": 3.68,
+              "probability": 0.47867978115876514
+            },
+            {
+              "text": " In",
+              "start": 4.12,
+              "end": 4.22,
+              "probability": 0.8699144721031189
+            },
+            {
+              "text": " Praise",
+              "start": 4.22,
+              "end": 4.6,
+              "probability": 0.9716847538948059
+            },
+            {
+              "text": " Of",
+              "start": 4.6,
+              "end": 4.72,
+              "probability": 0.7080021500587463
+            },
+            {
+              "text": " Rocinante,",
+              "start": 4.72,
+              "end": 5.38,
+              "probability": 0.5894619865963856
+            },
+            {
+              "text": " Steed",
+              "start": 6.14,
+              "end": 6.24,
+              "probability": 0.8827611804008484
+            },
+            {
+              "text": " Of",
+              "start": 6.24,
+              "end": 6.4,
+              "probability": 0.7706597447395325
+            },
+            {
+              "text": " Don",
+              "start": 6.4,
+              "end": 6.68,
+              "probability": 0.9710491299629211
+            },
+            {
+              "text": " Quixote",
+              "start": 6.68,
+              "end": 7.16,
+              "probability": 0.9032017588615417
+            },
+            {
+              "text": " Of",
+              "start": 7.16,
+              "end": 7.46,
+              "probability": 0.9327272772789001
+            },
+            {
+              "text": " La",
+              "start": 7.46,
+              "end": 7.6,
+              "probability": 0.9212456941604614
+            },
+            {
+              "text": " Mancha",
+              "start": 7.6,
+              "end": 8.02,
+              "probability": 0.8552711606025696
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caprichoso,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "A",
+          "start": 1.54,
+          "end": 1.6
+        },
+        {
+          "raw": "Most",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "Acute",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "raw": "Academician",
+          "start": 2.18,
+          "end": 2.86
+        },
+        {
+          "raw": "Of",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "raw": "Argamasilla,",
+          "start": 3.0,
+          "end": 3.68
+        },
+        {
+          "raw": "In",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "raw": "Praise",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "raw": "Of",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "raw": "Rocinante,",
+          "start": 4.72,
+          "end": 5.38
+        },
+        {
+          "raw": "Steed",
+          "start": 6.14,
+          "end": 6.24
+        },
+        {
+          "raw": "Of",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "raw": "Don",
+          "start": 6.4,
+          "end": 6.68
+        },
+        {
+          "raw": "Quixote",
+          "start": 6.68,
+          "end": 7.16
+        },
+        {
+          "raw": "Of",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "raw": "La",
+          "start": 7.46,
+          "end": 7.6
+        },
+        {
+          "raw": "Mancha",
+          "start": 7.6,
+          "end": 8.02
+        }
+      ],
+      "expected_tokens": [
+        "CAPRICHOSO,",
+        "A",
+        "MOST",
+        "ACUTE",
+        "ACADEMICIAN",
+        "OF",
+        "ARGAMASILLA,",
+        "IN",
+        "PRAISE",
+        "OF",
+        "ROCINANTE,",
+        "STEED",
+        "OF",
+        "DON",
+        "QUIXOTE",
+        "OF",
+        "LA",
+        "MANCHA"
+      ],
+      "acoustic_expected_tokens": [
+        "Caprichoso,",
+        "A",
+        "Most",
+        "Acute",
+        "Academician",
+        "Of",
+        "Argamasilla,",
+        "In",
+        "Praise",
+        "Of",
+        "Rocinante,",
+        "Steed",
+        "Of",
+        "Don",
+        "Quixote",
+        "Of",
+        "La",
+        "Mancha"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caprichoso,",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "caprichoso",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.54,
+          "end": 1.6,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Most",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Acute",
+          "start": 1.8,
+          "end": 2.18,
+          "key": "acute",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Academician",
+          "start": 2.18,
+          "end": 2.86,
+          "key": "academician",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 2.86,
+          "end": 3.0,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Argamasilla,",
+          "start": 3.0,
+          "end": 3.68,
+          "key": "argamasilla",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.12,
+          "end": 4.22,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Praise",
+          "start": 4.22,
+          "end": 4.6,
+          "key": "praise",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 4.6,
+          "end": 4.72,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Rocinante,",
+          "start": 4.72,
+          "end": 5.38,
+          "key": "rocinante",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Steed",
+          "start": 6.14,
+          "end": 6.24,
+          "key": "steed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 6.24,
+          "end": 6.4,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 6.4,
+          "end": 6.68,
+          "key": "don",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Quixote",
+          "start": 6.68,
+          "end": 7.16,
+          "key": "quixote",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 7.16,
+          "end": 7.46,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "La",
+          "start": 7.46,
+          "end": 7.6,
+          "key": "la",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Mancha",
+          "start": 7.6,
+          "end": 8.02,
+          "key": "mancha",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "CAPRICHOSO,",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "text": "A",
+          "start": 1.54,
+          "end": 1.6
+        },
+        {
+          "text": "MOST",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "ACUTE",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "text": "ACADEMICIAN",
+          "start": 2.18,
+          "end": 2.86
+        },
+        {
+          "text": "OF",
+          "start": 2.86,
+          "end": 3.0
+        },
+        {
+          "text": "ARGAMASILLA,",
+          "start": 3.0,
+          "end": 3.68
+        },
+        {
+          "text": "IN",
+          "start": 4.12,
+          "end": 4.22
+        },
+        {
+          "text": "PRAISE",
+          "start": 4.22,
+          "end": 4.6
+        },
+        {
+          "text": "OF",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "text": "ROCINANTE,",
+          "start": 4.72,
+          "end": 5.38
+        },
+        {
+          "text": "STEED",
+          "start": 6.14,
+          "end": 6.24
+        },
+        {
+          "text": "OF",
+          "start": 6.24,
+          "end": 6.4
+        },
+        {
+          "text": "DON",
+          "start": 6.4,
+          "end": 6.68
+        },
+        {
+          "text": "QUIXOTE",
+          "start": 6.68,
+          "end": 7.16
+        },
+        {
+          "text": "OF",
+          "start": 7.16,
+          "end": 7.46
+        },
+        {
+          "text": "LA",
+          "start": 7.46,
+          "end": 7.6
+        },
+        {
+          "text": "MANCHA",
+          "start": 7.6,
+          "end": 8.02
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.376503678000063
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff67230df97714f010dbe8beffffe08c5ce60e57b689b3156e2dfe462cac19ad",
+  "selected_reasons": []
+}
