@@ -1,0 +1,28 @@
+name: bella-pause-queued-repair
+on:
+  push:
+    branches: ['codex/bella-pause-queue-20260921']
+    paths: ['.github/workflows/bella-pause-queue.yml']
+permissions:
+  actions: write
+  contents: read
+jobs:
+  pause:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Cancel only the still-pending paid repair batch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,json,urllib.request
+          url="https://api.github.com/repos/anderskhv/tinct/actions/runs/35600332819"
+          headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json","User-Agent":"tinct-audit"}
+          data=json.load(urllib.request.urlopen(urllib.request.Request(url,headers=headers)))
+          print("Before",data["status"],data["conclusion"])
+          if data["status"] in ("pending","queued","waiting","requested"):
+              with urllib.request.urlopen(urllib.request.Request(url+"/cancel",headers=headers,method="POST")) as response:print("Cancel accepted",response.status)
+          elif data["status"]=="in_progress":
+              print("Already running: preserve its independent GPU cleanup and bounded completion")
+          PY
