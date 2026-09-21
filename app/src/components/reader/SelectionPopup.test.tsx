@@ -59,6 +59,8 @@ describe('compact selection popup', () => {
     const input = props({ defineLoading: false, defineResult: { word: 'selfishness', definitions: ['Concern for oneself.'] } })
     render(<SelectionPopup {...input} />)
     expect(screen.getByText('Concern for oneself.')).toBeTruthy()
+    expect(screen.queryByText('Define', { exact: true })).toBeNull()
+    expect(screen.getAllByText('selfishness', { exact: true })).toHaveLength(1)
     expect(screen.queryByRole('button', { name: 'Highlight' })).toBeNull()
     expect(screen.queryByTitle('Highlight Gold')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'More actions' }))

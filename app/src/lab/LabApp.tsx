@@ -1555,7 +1555,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // unused second book alongside the chapter when Compare is disabled.
   const compareCharacters = useCharacterCards(prefs.compareOpen ? book.bookId : undefined, prefs.compareEdition)
   const define = useDefine()
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; defineText?: string }) | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string }) | null>(null)
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
@@ -2814,7 +2814,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       ? buildHighlightRange(
           paragraphs,
           { paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord },
-          { paragraphIndex: highlight.endParagraphIndex, wordIndex: Math.max(highlight.fromWord, highlight.toWord - 1) },
+          { paragraphIndex: highlight.endParagraphIndex, wordIndex: Math.max(0, highlight.toWord - 1) },
         )
       : null) ?? range
     // A saved highlight is an explicit reader object. Its own controls take
@@ -2853,6 +2853,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       homeMode: character ? 'main' : defaultPopupMode(subject.text, existing?.id),
       character: character ?? undefined,
       editionKey,
+      side,
       range: subject,
     })
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
@@ -4091,6 +4092,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onClose={() => setBookSwitcherOpen(false)}
         onSelect={switchQuickBook}
         onLibrary={() => { setBookSwitcherOpen(false); handleSuperMenuSelect('library') }}
+        onOpenCover={approvedPreface ? () => { listen.pause(); setBookSwitcherOpen(false); setPrefaceCoverBook(book.bookId || 'bible') } : undefined}
       />}
       {chromeV2 && !frontispieceVisible && (
         <LabSuperMenu
@@ -4132,6 +4134,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           data-testid="lab-page-wrap"
           aria-busy={initialResolving || undefined}
         >
+          {chromeV2 && desktopCompareActive && <div className="lab-compare-divider" aria-hidden="true"><span>Compare</span></div>}
           {/* The version just swapped to, named for about a second and then
               gone. It sits on the page the reader landed on, every swap, and
               never stays: the page carries no running head. */}
@@ -4214,7 +4217,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             compareHighlights={highlightsApi.compareHighlights}
             chapterNumber={book.chapterNumber}
             selectingRange={selectionPopup?.range ?? null}
-            selectingComparison={!mobileCompareActive && selectionPopup?.editionKey === prefs.compareEdition}
+            selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             pageTurn={chromeV2 ? undefined : pageTurn}
             tapZones={pageTurnAffordance.tapZones}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
@@ -4777,17 +4780,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         currentChapter={book.chapterNumber}
         currentPage={chapterProgress.currentPage}
         totalPages={chapterProgress.totalPages}
+        currentPercent={chapterProgress.percent}
         statuses={pickerStatuses}
         conversations={ask.conversations}
         historyStatus={ask.historyStatus}
         highlights={highlightsApi.highlights}
         unassignedHighlights={highlightsApi.unassignedHighlights}
-        onOpenCover={approvedPreface ? () => {
-          // Browsing this document must not navigate or save a new location.
-          listen.pause()
-          setTocOpen(false)
-          setPrefaceCoverBook(book.bookId || 'bible')
-        } : undefined}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}

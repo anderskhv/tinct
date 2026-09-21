@@ -4771,3 +4771,29 @@ it.each([[120, true], [50, false]])('distinguishes slow selection movement at %i
   expect(select).toHaveBeenCalledTimes(expected?1:0)
   vi.useRealTimers()
 })
+
+it('keeps mobile selection painted after its menu opens when both edition keys match', () => {
+  localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition:'kjv-en',compareEdition:'kjv-en' }))
+  render(<LabApp pathname="/lab/phone" search="?chrome=v2" source={{...fallbackLabSource(),bookId:'bible'}} />)
+  const words=screen.getAllByTestId('lab-word')
+  fireEvent.pointerDown(words[1],{pointerType:'mouse',clientX:150,clientY:200})
+  fireEvent.pointerMove(words[3],{pointerType:'mouse',clientX:230,clientY:200})
+  fireEvent.pointerUp(words[3],{pointerType:'mouse',clientX:230,clientY:200})
+  expect(screen.getByRole('button',{name:'Explain',exact:true})).toBeTruthy()
+  for(const word of words.slice(1,4))expect(word.classList.contains('is-selecting')).toBe(true)
+})
+
+it('opens and copies the complete saved mark when it ends early in a later paragraph', async () => {
+  const source=fallbackLabSource()
+  const mark={id:'multi-paragraph',chapterNumber:source.chapterNumber,paragraphIndex:0,fromWord:5,endParagraphIndex:1,toWord:2,color:'sage',kept:true}
+  localStorage.setItem('tinct-lab-highlights',JSON.stringify([mark]))
+  const copied=vi.fn().mockResolvedValue(undefined)
+  Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:copied}})
+  render(<LabApp pathname="/lab/desktop" source={source} />)
+  const word=document.querySelector('[data-testid="lab-word"][data-paragraph-index="0"][data-word-index="6"]')!
+  fireEvent.pointerDown(word,{pointerType:'mouse',clientX:190,clientY:200})
+  fireEvent.pointerUp(word,{pointerType:'mouse',clientX:190,clientY:200})
+  fireEvent.click(screen.getByRole('button',{name:/copy/i}))
+  const expected=[source.paragraphs[0].split(/\s+/).slice(5).join(' '),source.paragraphs[1].split(/\s+/).slice(0,2).join(' ')].join(' ')
+  await waitFor(()=>expect(copied).toHaveBeenCalledWith(expected))
+})
