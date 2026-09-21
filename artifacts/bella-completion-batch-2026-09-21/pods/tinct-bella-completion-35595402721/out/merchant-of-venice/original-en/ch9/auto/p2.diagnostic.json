@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "a543fc40414dbcaddb1ddbc15703055c7f26edbbc06f6e200c91aed74a928c91",
+  "attempts": [
+    {
+      "asr_seconds": 0.13886652700603008,
+      "alignment_seconds": 0.0003862455487251282,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "His hour is almost past.",
+        "hotwords": "His"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Salarino. His hour is almost past.",
+          "start": 0.08,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Salarino.",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.8458658854166666
+            },
+            {
+              "text": " His",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hour",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " is",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " almost",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " past.",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.42822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Salarino.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "His",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "hour",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "is",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "almost",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "past.",
+          "start": 2.1,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "SALARINO.",
+        "His",
+        "hour",
+        "is",
+        "almost",
+        "past."
+      ],
+      "acoustic_expected_tokens": [
+        "His",
+        "hour",
+        "is",
+        "almost",
+        "past."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          5,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Salarino.",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "salarino",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hour",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "hour",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "almost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "past.",
+          "start": 2.1,
+          "end": 2.5,
+          "key": "past",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SALARINO.",
+          "start": 1.42,
+          "end": 1.42
+        },
+        {
+          "text": "His",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "hour",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "is",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "almost",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "past.",
+          "start": 2.1,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1393115632236004
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8b317fe7d8de21f8878166acc65db74f25a6225ee52a16d6a3e5a7edfef387f",
+  "selected_reasons": []
+}

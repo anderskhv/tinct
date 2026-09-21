@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "927175e66dce3d906f09d81460751f75aa18f9646801c4ecde6340a0dc8076a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14895283803343773,
+      "alignment_seconds": 0.0003807283937931061,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dear gentlewoman, How fares our gracious lady?",
+        "hotwords": "Dear, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dear gentlewoman, How fares our gracious lady?",
+          "start": 0.08,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Dear",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " gentlewoman,",
+              "start": 0.62,
+              "end": 1.26,
+              "probability": 0.6212158203125
+            },
+            {
+              "text": " How",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.2410888671875
+            },
+            {
+              "text": " fares",
+              "start": 1.8,
+              "end": 2.08,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " our",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " gracious",
+              "start": 2.28,
+              "end": 2.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " lady?",
+              "start": 2.64,
+              "end": 3.0,
+              "probability": 0.9150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dear",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "gentlewoman,",
+          "start": 0.62,
+          "end": 1.26
+        },
+        {
+          "raw": "How",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "fares",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "raw": "our",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "gracious",
+          "start": 2.28,
+          "end": 2.64
+        },
+        {
+          "raw": "lady?",
+          "start": 2.64,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "Dear",
+        "gentlewoman,",
+        "How",
+        "fares",
+        "our",
+        "gracious",
+        "lady?"
+      ],
+      "acoustic_expected_tokens": [
+        "Dear",
+        "gentlewoman,",
+        "How",
+        "fares",
+        "our",
+        "gracious",
+        "lady?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dear",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "dear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentlewoman,",
+          "start": 0.62,
+          "end": 1.26,
+          "key": "gentlewoman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fares",
+          "start": 1.8,
+          "end": 2.08,
+          "key": "fares",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 2.28,
+          "end": 2.64,
+          "key": "gracious",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lady?",
+          "start": 2.64,
+          "end": 3.0,
+          "key": "lady",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Dear",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "gentlewoman,",
+          "start": 0.62,
+          "end": 1.26
+        },
+        {
+          "text": "How",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "fares",
+          "start": 1.8,
+          "end": 2.08
+        },
+        {
+          "text": "our",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "gracious",
+          "start": 2.28,
+          "end": 2.64
+        },
+        {
+          "text": "lady?",
+          "start": 2.64,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14938717521727085
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "480f365fcf547eef323cc1e5a1c1934522a3908a3a95cddd0a0ae06ab2e3dcf1",
+  "selected_reasons": []
+}

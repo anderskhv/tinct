@@ -1,0 +1,1245 @@
+{
+  "complete": true,
+  "signature": "9b46c681a2cb7afbf276d4ceaf4411d430770b4cfd82d3429c510461566d7de8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2219702173024416,
+      "alignment_seconds": 0.0007376428693532944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The villain Jew with outcries rais'd the Duke, Who went with him to search Bassanio's ship.",
+        "hotwords": "Jew, Duke, Who, Bassanio's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The villain Jew with outcries rais'd the Duke, Who went with him to search Bassanio's ship.",
+          "start": 0.08,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.0188446044921875
+            },
+            {
+              "text": " villain",
+              "start": 0.94,
+              "end": 1.88,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " Jew",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " with",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " outcries",
+              "start": 2.38,
+              "end": 2.96,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " rais'd",
+              "start": 2.96,
+              "end": 3.46,
+              "probability": 0.056477884451548256
+            },
+            {
+              "text": " the",
+              "start": 3.46,
+              "end": 3.54,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Duke,",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.484375
+            },
+            {
+              "text": " Who",
+              "start": 4.2,
+              "end": 4.28,
+              "probability": 0.00569915771484375
+            },
+            {
+              "text": " went",
+              "start": 4.28,
+              "end": 4.42,
+              "probability": 0.9453125
+            },
+            {
+              "text": " with",
+              "start": 4.42,
+              "end": 4.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " him",
+              "start": 4.58,
+              "end": 4.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 4.7,
+              "end": 4.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " search",
+              "start": 4.86,
+              "end": 5.12,
+              "probability": 0.984375
+            },
+            {
+              "text": " Bassanio's",
+              "start": 5.12,
+              "end": 5.96,
+              "probability": 0.837646484375
+            },
+            {
+              "text": " ship.",
+              "start": 5.96,
+              "end": 6.2,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "villain",
+          "start": 0.94,
+          "end": 1.88
+        },
+        {
+          "raw": "Jew",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "raw": "with",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "outcries",
+          "start": 2.38,
+          "end": 2.96
+        },
+        {
+          "raw": "rais'd",
+          "start": 2.96,
+          "end": 3.46
+        },
+        {
+          "raw": "the",
+          "start": 3.46,
+          "end": 3.54
+        },
+        {
+          "raw": "Duke,",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": "Who",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "raw": "went",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "raw": "with",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "raw": "him",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "raw": "to",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "raw": "search",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "raw": "Bassanio's",
+          "start": 5.12,
+          "end": 5.96
+        },
+        {
+          "raw": "ship.",
+          "start": 5.96,
+          "end": 6.2
+        }
+      ],
+      "expected_tokens": [
+        "SOLANIO.",
+        "The",
+        "villain",
+        "Jew",
+        "with",
+        "outcries",
+        "rais’d",
+        "the",
+        "Duke,",
+        "Who",
+        "went",
+        "with",
+        "him",
+        "to",
+        "search",
+        "Bassanio’s",
+        "ship."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "villain",
+        "Jew",
+        "with",
+        "outcries",
+        "rais'd",
+        "the",
+        "Duke,",
+        "Who",
+        "went",
+        "with",
+        "him",
+        "to",
+        "search",
+        "Bassanio's",
+        "ship."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          16,
+          6,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 0.94,
+          "end": 1.88,
+          "key": "villain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jew",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "jew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "outcries",
+          "start": 2.38,
+          "end": 2.96,
+          "key": "outcries",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rais'd",
+          "start": 2.96,
+          "end": 3.46,
+          "key": "raisd",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.46,
+          "end": 3.54,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Duke,",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "duke",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 4.2,
+          "end": 4.28,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 4.28,
+          "end": 4.42,
+          "key": "went",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.42,
+          "end": 4.58,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.58,
+          "end": 4.7,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.7,
+          "end": 4.86,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "search",
+          "start": 4.86,
+          "end": 5.12,
+          "key": "search",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Bassanio's",
+          "start": 5.12,
+          "end": 5.96,
+          "key": "bassanios",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ship.",
+          "start": 5.96,
+          "end": 6.2,
+          "key": "ship",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SOLANIO.",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "The",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "villain",
+          "start": 0.94,
+          "end": 1.88
+        },
+        {
+          "text": "Jew",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "text": "with",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "outcries",
+          "start": 2.38,
+          "end": 2.96
+        },
+        {
+          "text": "rais’d",
+          "start": 2.96,
+          "end": 3.21
+        },
+        {
+          "text": "the",
+          "start": 3.46,
+          "end": 3.54
+        },
+        {
+          "text": "Duke,",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "text": "Who",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "text": "went",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "text": "with",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "text": "him",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "text": "to",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "text": "search",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "text": "Bassanio’s",
+          "start": 5.12,
+          "end": 5.96
+        },
+        {
+          "text": "ship.",
+          "start": 5.96,
+          "end": 6.2
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.22279435954988003
+    },
+    {
+      "asr_seconds": 0.21996485628187656,
+      "alignment_seconds": 0.0014436859637498856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Jew, Duke, Who, Bassanio's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Solanio, the villain Jew with outcries raised the Duke, who went with him to search Bassanio's ship.",
+          "start": 0.08,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " Solanio,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.5441080729166666
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " villain",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Jew",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " with",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " outcries",
+              "start": 2.38,
+              "end": 2.94,
+              "probability": 0.9366861979166666
+            },
+            {
+              "text": " raised",
+              "start": 2.94,
+              "end": 3.28,
+              "probability": 0.341552734375
+            },
+            {
+              "text": " the",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Duke,",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " who",
+              "start": 4.22,
+              "end": 4.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " went",
+              "start": 4.28,
+              "end": 4.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 4.42,
+              "end": 4.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 4.56,
+              "end": 4.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.7,
+              "end": 4.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " search",
+              "start": 4.86,
+              "end": 5.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Bassanio's",
+              "start": 5.12,
+              "end": 5.96,
+              "probability": 0.8753662109375
+            },
+            {
+              "text": " ship.",
+              "start": 5.96,
+              "end": 6.2,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Solanio,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "villain",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "Jew",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "with",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "outcries",
+          "start": 2.38,
+          "end": 2.94
+        },
+        {
+          "raw": "raised",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "Duke,",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "who",
+          "start": 4.22,
+          "end": 4.28
+        },
+        {
+          "raw": "went",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "raw": "with",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "raw": "him",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "raw": "to",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "raw": "search",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "raw": "Bassanio's",
+          "start": 5.12,
+          "end": 5.96
+        },
+        {
+          "raw": "ship.",
+          "start": 5.96,
+          "end": 6.2
+        }
+      ],
+      "expected_tokens": [
+        "SOLANIO.",
+        "The",
+        "villain",
+        "Jew",
+        "with",
+        "outcries",
+        "rais’d",
+        "the",
+        "Duke,",
+        "Who",
+        "went",
+        "with",
+        "him",
+        "to",
+        "search",
+        "Bassanio’s",
+        "ship."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "villain",
+        "Jew",
+        "with",
+        "outcries",
+        "rais'd",
+        "the",
+        "Duke,",
+        "Who",
+        "went",
+        "with",
+        "him",
+        "to",
+        "search",
+        "Bassanio's",
+        "ship."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          16,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Solanio,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "solanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "villain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jew",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "jew",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "outcries",
+          "start": 2.38,
+          "end": 2.94,
+          "key": "outcries",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 2.94,
+          "end": 3.28,
+          "key": "raised",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.54,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Duke,",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "duke",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.22,
+          "end": 4.28,
+          "key": "who",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 4.28,
+          "end": 4.42,
+          "key": "went",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.42,
+          "end": 4.56,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.56,
+          "end": 4.7,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.7,
+          "end": 4.86,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "search",
+          "start": 4.86,
+          "end": 5.12,
+          "key": "search",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Bassanio's",
+          "start": 5.12,
+          "end": 5.96,
+          "key": "bassanios",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ship.",
+          "start": 5.96,
+          "end": 6.2,
+          "key": "ship",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SOLANIO.",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": "The",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "villain",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "Jew",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "text": "with",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "outcries",
+          "start": 2.38,
+          "end": 2.94
+        },
+        {
+          "text": "rais’d",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "text": "the",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "Duke,",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "Who",
+          "start": 4.22,
+          "end": 4.28
+        },
+        {
+          "text": "went",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "text": "with",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "text": "him",
+          "start": 4.56,
+          "end": 4.7
+        },
+        {
+          "text": "to",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "text": "search",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "text": "Bassanio’s",
+          "start": 5.12,
+          "end": 5.96
+        },
+        {
+          "text": "ship.",
+          "start": 5.96,
+          "end": 6.2
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22158981300890446
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "3f758e7eb8e3ffbf9aef8e5d7484665cdacf021e27fd987e590cb4928389393d",
+  "selected_reasons": []
+}

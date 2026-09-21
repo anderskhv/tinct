@@ -1,0 +1,20 @@
+{
+  "key": "merchant-of-venice/original-en/ch4",
+  "group": "alignment",
+  "mode": "auto",
+  "status": "rejected",
+  "reasons": [
+    {
+      "paragraph": 1,
+      "reasons": [
+        "processing_invariant_error"
+      ]
+    }
+  ],
+  "paragraphs": [],
+  "processing_error": {
+    "paragraph": 1,
+    "type": "ValueError",
+    "message": "source/acoustic token mapping changed at index 0: source='PRINCE' acoustic='Mislike'"
+  }
+}

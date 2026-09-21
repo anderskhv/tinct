@@ -1,0 +1,664 @@
+{
+  "complete": true,
+  "signature": "f279621426e4caf3013fac0f69ffc64704898cd5c3c5e1a14e6e63c622a4c050",
+  "attempts": [
+    {
+      "asr_seconds": 0.14011148735880852,
+      "alignment_seconds": 0.0005532968789339066,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What's that 'ducdame'?",
+        "hotwords": "What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Amian, what's that duck dame?",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Amian,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.281463623046875
+            },
+            {
+              "text": " what's",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " that",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " duck",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " dame?",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.85888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amian,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "what's",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "that",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "duck",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "dame?",
+          "start": 1.63,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "AMIENS.",
+        "What's",
+        "that",
+        "'ducdame'?"
+      ],
+      "acoustic_expected_tokens": [
+        "What's",
+        "that",
+        "'ducdame'?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amian,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "amian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "duck",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "duck",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dame?",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "dame",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "AMIENS.",
+          "start": 1.11,
+          "end": 1.11
+        },
+        {
+          "text": "What's",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "that",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "'ducdame'?",
+          "start": 1.43,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14076812006533146
+    },
+    {
+      "asr_seconds": 0.12986274808645248,
+      "alignment_seconds": 0.0005533937364816666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " that duck dame?",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " that",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 1.3768672943115234e-05
+            },
+            {
+              "text": " duck",
+              "start": 0.99,
+              "end": 1.59,
+              "probability": 0.408203125
+            },
+            {
+              "text": " dame?",
+              "start": 1.59,
+              "end": 1.97,
+              "probability": 0.84912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "that",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "duck",
+          "start": 0.99,
+          "end": 1.59
+        },
+        {
+          "raw": "dame?",
+          "start": 1.59,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "AMIENS.",
+        "What's",
+        "that",
+        "'ducdame'?"
+      ],
+      "acoustic_expected_tokens": [
+        "What's",
+        "that",
+        "'ducdame'?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          2,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "that",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "duck",
+          "start": 0.99,
+          "end": 1.59,
+          "key": "duck",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dame?",
+          "start": 1.59,
+          "end": 1.97,
+          "key": "dame",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "AMIENS.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "What's",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "that",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "'ducdame'?",
+          "start": 0.99,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13048520125448704
+    },
+    {
+      "asr_seconds": 0.1360711120069027,
+      "alignment_seconds": 0.00030549801886081696,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amien, what's that duck dame?",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Amien,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " what's",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " that",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " duck",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.662109375
+            },
+            {
+              "text": " dame?",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amien,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "what's",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "that",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "duck",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "dame?",
+          "start": 1.63,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "AMIENS.",
+        "What's",
+        "that",
+        "'ducdame'?"
+      ],
+      "acoustic_expected_tokens": [
+        "What's",
+        "that",
+        "'ducdame'?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amien,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "amien",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "duck",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "duck",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dame?",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "dame",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "AMIENS.",
+          "start": 1.13,
+          "end": 1.13
+        },
+        {
+          "text": "What's",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "that",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "'ducdame'?",
+          "start": 1.43,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13642141968011856
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a39f4e105d6bb7d3d5b0d77033d1c2cc8338d79f87e872bf5ef03233cd975b80",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

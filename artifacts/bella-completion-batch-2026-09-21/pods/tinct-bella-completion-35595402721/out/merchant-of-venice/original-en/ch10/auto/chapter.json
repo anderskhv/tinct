@@ -1,0 +1,20 @@
+{
+  "key": "merchant-of-venice/original-en/ch10",
+  "group": "alignment",
+  "mode": "auto",
+  "status": "rejected",
+  "reasons": [
+    {
+      "paragraph": 2,
+      "reasons": [
+        "processing_invariant_error"
+      ]
+    }
+  ],
+  "paragraphs": [],
+  "processing_error": {
+    "paragraph": 2,
+    "type": "ValueError",
+    "message": "source/acoustic token mapping changed at index 0: source='PRINCE' acoustic='The'"
+  }
+}

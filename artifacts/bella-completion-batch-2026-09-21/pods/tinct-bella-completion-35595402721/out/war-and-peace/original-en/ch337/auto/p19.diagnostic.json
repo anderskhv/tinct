@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "54161024563dafe62269a9518cdcc3209c7014529b1dfd8119a3bb372b895f04",
+  "attempts": [
+    {
+      "asr_seconds": 0.09758288413286209,
+      "alignment_seconds": 0.0002703983336687088,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They were silent awhile.",
+        "hotwords": "They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They were silent awhile.",
+          "start": 0.0,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " were",
+              "start": 0.34,
+              "end": 0.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " silent",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " awhile.",
+              "start": 0.86,
+              "end": 1.26,
+              "probability": 0.092529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "were",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "raw": "silent",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "awhile.",
+          "start": 0.86,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "were",
+        "silent",
+        "awhile."
+      ],
+      "acoustic_expected_tokens": [
+        "They",
+        "were",
+        "silent",
+        "awhile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.34,
+          "end": 0.48,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "silent",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "silent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "awhile.",
+          "start": 0.86,
+          "end": 1.26,
+          "key": "awhile",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "were",
+          "start": 0.34,
+          "end": 0.48
+        },
+        {
+          "text": "silent",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "awhile.",
+          "start": 0.86,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09789317287504673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba1c62b406b69ad7fcec7454ec52dcf17fbf8a137973437e1bb724f5ba7f7584",
+  "selected_reasons": []
+}

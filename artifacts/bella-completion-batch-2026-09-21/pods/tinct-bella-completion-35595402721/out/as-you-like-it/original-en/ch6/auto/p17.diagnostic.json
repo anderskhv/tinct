@@ -1,0 +1,4169 @@
+{
+  "complete": true,
+  "signature": "1da94941f76e53a21472367dd2684ca389991e2c6edcd5fa65688bfc667bc66b",
+  "attempts": [
+    {
+      "asr_seconds": 0.5818417314440012,
+      "alignment_seconds": 0.0015681646764278412,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Who doth ambition shun, And loves to live i' th' sun, Seeking the food he eats, And pleas'd with what he gets, Come hither, come hither, come hither. Here shall he see No enemy But winter and rough weather.",
+        "hotwords": "Who, Seeking, Here, No, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who doth ambition shun, And loves to live i' th' sun,",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.23486328125
+            },
+            {
+              "text": " doth",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " ambition",
+              "start": 0.77,
+              "end": 1.25,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " shun,",
+              "start": 1.25,
+              "end": 1.65,
+              "probability": 0.59765625
+            },
+            {
+              "text": " And",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " loves",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " live",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " i'",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.1893310546875
+            },
+            {
+              "text": " th'",
+              "start": 3.23,
+              "end": 3.51,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " sun,",
+              "start": 3.51,
+              "end": 4.05,
+              "probability": 0.79638671875
+            }
+          ]
+        },
+        {
+          "text": " Seeking the food he eats, And pleas'd with what he gets,",
+          "start": 4.05,
+          "end": 7.11,
+          "words": [
+            {
+              "text": " Seeking",
+              "start": 4.05,
+              "end": 4.65,
+              "probability": 0.059600830078125
+            },
+            {
+              "text": " the",
+              "start": 4.65,
+              "end": 4.91,
+              "probability": 0.990234375
+            },
+            {
+              "text": " food",
+              "start": 4.91,
+              "end": 5.11,
+              "probability": 0.98828125
+            },
+            {
+              "text": " he",
+              "start": 5.11,
+              "end": 5.29,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " eats,",
+              "start": 5.29,
+              "end": 5.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " And",
+              "start": 5.99,
+              "end": 6.05,
+              "probability": 0.3818359375
+            },
+            {
+              "text": " pleas'd",
+              "start": 6.05,
+              "end": 6.49,
+              "probability": 0.4675121307373047
+            },
+            {
+              "text": " with",
+              "start": 6.49,
+              "end": 6.57,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " what",
+              "start": 6.57,
+              "end": 6.71,
+              "probability": 0.9609375
+            },
+            {
+              "text": " he",
+              "start": 6.71,
+              "end": 6.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " gets,",
+              "start": 6.83,
+              "end": 7.11,
+              "probability": 0.74853515625
+            }
+          ]
+        },
+        {
+          "text": " Come hither, come hither, come hither. Here shall he see No enemy But winter and rough weather.",
+          "start": 7.11,
+          "end": 12.67,
+          "words": [
+            {
+              "text": " Come",
+              "start": 7.11,
+              "end": 7.57,
+              "probability": 0.476318359375
+            },
+            {
+              "text": " hither,",
+              "start": 7.57,
+              "end": 7.85,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " come",
+              "start": 8.19,
+              "end": 8.27,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " hither,",
+              "start": 8.27,
+              "end": 8.59,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " come",
+              "start": 8.87,
+              "end": 8.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hither.",
+              "start": 8.91,
+              "end": 9.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Here",
+              "start": 9.97,
+              "end": 10.13,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " shall",
+              "start": 10.13,
+              "end": 10.31,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " he",
+              "start": 10.31,
+              "end": 10.45,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " see",
+              "start": 10.45,
+              "end": 10.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " No",
+              "start": 10.63,
+              "end": 10.83,
+              "probability": 0.004520416259765625
+            },
+            {
+              "text": " enemy",
+              "start": 10.83,
+              "end": 11.17,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " But",
+              "start": 11.17,
+              "end": 11.45,
+              "probability": 0.0028629302978515625
+            },
+            {
+              "text": " winter",
+              "start": 11.45,
+              "end": 11.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 11.83,
+              "end": 12.13,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " rough",
+              "start": 12.13,
+              "end": 12.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " weather.",
+              "start": 12.37,
+              "end": 12.67,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "doth",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "ambition",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "raw": "shun,",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "raw": "And",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "loves",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "live",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "i'",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "th'",
+          "start": 3.23,
+          "end": 3.51
+        },
+        {
+          "raw": "sun,",
+          "start": 3.51,
+          "end": 4.05
+        },
+        {
+          "raw": "Seeking",
+          "start": 4.05,
+          "end": 4.65
+        },
+        {
+          "raw": "the",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "raw": "food",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "raw": "he",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "raw": "eats,",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "raw": "And",
+          "start": 5.99,
+          "end": 6.05
+        },
+        {
+          "raw": "pleas'd",
+          "start": 6.05,
+          "end": 6.49
+        },
+        {
+          "raw": "with",
+          "start": 6.49,
+          "end": 6.57
+        },
+        {
+          "raw": "what",
+          "start": 6.57,
+          "end": 6.71
+        },
+        {
+          "raw": "he",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "raw": "gets,",
+          "start": 6.83,
+          "end": 7.11
+        },
+        {
+          "raw": "Come",
+          "start": 7.11,
+          "end": 7.57
+        },
+        {
+          "raw": "hither,",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "raw": "come",
+          "start": 8.19,
+          "end": 8.27
+        },
+        {
+          "raw": "hither,",
+          "start": 8.27,
+          "end": 8.59
+        },
+        {
+          "raw": "come",
+          "start": 8.87,
+          "end": 8.91
+        },
+        {
+          "raw": "hither.",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "raw": "Here",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "raw": "shall",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "raw": "he",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "raw": "see",
+          "start": 10.45,
+          "end": 10.63
+        },
+        {
+          "raw": "No",
+          "start": 10.63,
+          "end": 10.83
+        },
+        {
+          "raw": "enemy",
+          "start": 10.83,
+          "end": 11.17
+        },
+        {
+          "raw": "But",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "raw": "winter",
+          "start": 11.45,
+          "end": 11.83
+        },
+        {
+          "raw": "and",
+          "start": 11.83,
+          "end": 12.13
+        },
+        {
+          "raw": "rough",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "raw": "weather.",
+          "start": 12.37,
+          "end": 12.67
+        }
+      ],
+      "expected_tokens": [
+        "Who",
+        "doth",
+        "ambition",
+        "shun,",
+        "And",
+        "loves",
+        "to",
+        "live",
+        "i'",
+        "th'",
+        "sun,",
+        "Seeking",
+        "the",
+        "food",
+        "he",
+        "eats,",
+        "And",
+        "pleas'd",
+        "with",
+        "what",
+        "he",
+        "gets,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "acoustic_expected_tokens": [
+        "Who",
+        "doth",
+        "ambition",
+        "shun,",
+        "And",
+        "loves",
+        "to",
+        "live",
+        "i'",
+        "th'",
+        "sun,",
+        "Seeking",
+        "the",
+        "food",
+        "he",
+        "eats,",
+        "And",
+        "pleas'd",
+        "with",
+        "what",
+        "he",
+        "gets,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          39,
+          18,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "doth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ambition",
+          "start": 0.77,
+          "end": 1.25,
+          "key": "ambition",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shun,",
+          "start": 1.25,
+          "end": 1.65,
+          "key": "shun",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "loves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.69,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "live",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 3.23,
+          "end": 3.51,
+          "key": "th",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sun,",
+          "start": 3.51,
+          "end": 4.05,
+          "key": "sun",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Seeking",
+          "start": 4.05,
+          "end": 4.65,
+          "key": "seeking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.65,
+          "end": 4.91,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "food",
+          "start": 4.91,
+          "end": 5.11,
+          "key": "food",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.11,
+          "end": 5.29,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "eats,",
+          "start": 5.29,
+          "end": 5.61,
+          "key": "eats",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.99,
+          "end": 6.05,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pleas'd",
+          "start": 6.05,
+          "end": 6.49,
+          "key": "pleasd",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.49,
+          "end": 6.57,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 6.57,
+          "end": 6.71,
+          "key": "what",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.71,
+          "end": 6.83,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "gets,",
+          "start": 6.83,
+          "end": 7.11,
+          "key": "gets",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 7.11,
+          "end": 7.57,
+          "key": "come",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 7.57,
+          "end": 7.85,
+          "key": "hither",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.19,
+          "end": 8.27,
+          "key": "come",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 8.27,
+          "end": 8.59,
+          "key": "hither",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.87,
+          "end": 8.91,
+          "key": "come",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 8.91,
+          "end": 9.25,
+          "key": "hither",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 9.97,
+          "end": 10.13,
+          "key": "here",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 10.13,
+          "end": 10.31,
+          "key": "shall",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.31,
+          "end": 10.45,
+          "key": "he",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 10.45,
+          "end": 10.63,
+          "key": "see",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 10.63,
+          "end": 10.83,
+          "key": "no",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 10.83,
+          "end": 11.17,
+          "key": "enemy",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 11.17,
+          "end": 11.45,
+          "key": "but",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "winter",
+          "start": 11.45,
+          "end": 11.83,
+          "key": "winter",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.83,
+          "end": 12.13,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "rough",
+          "start": 12.13,
+          "end": 12.37,
+          "key": "rough",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "weather.",
+          "start": 12.37,
+          "end": 12.67,
+          "key": "weather",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "doth",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "ambition",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "text": "shun,",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "text": "And",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "loves",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "live",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "i'",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "th'",
+          "start": 3.23,
+          "end": 3.51
+        },
+        {
+          "text": "sun,",
+          "start": 3.51,
+          "end": 4.05
+        },
+        {
+          "text": "Seeking",
+          "start": 4.05,
+          "end": 4.65
+        },
+        {
+          "text": "the",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "text": "food",
+          "start": 4.91,
+          "end": 5.11
+        },
+        {
+          "text": "he",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "text": "eats,",
+          "start": 5.29,
+          "end": 5.61
+        },
+        {
+          "text": "And",
+          "start": 5.99,
+          "end": 6.05
+        },
+        {
+          "text": "pleas'd",
+          "start": 6.05,
+          "end": 6.27
+        },
+        {
+          "text": "with",
+          "start": 6.49,
+          "end": 6.57
+        },
+        {
+          "text": "what",
+          "start": 6.57,
+          "end": 6.71
+        },
+        {
+          "text": "he",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "text": "gets,",
+          "start": 6.83,
+          "end": 7.11
+        },
+        {
+          "text": "Come",
+          "start": 7.11,
+          "end": 7.57
+        },
+        {
+          "text": "hither,",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "text": "come",
+          "start": 8.19,
+          "end": 8.27
+        },
+        {
+          "text": "hither,",
+          "start": 8.27,
+          "end": 8.59
+        },
+        {
+          "text": "come",
+          "start": 8.87,
+          "end": 8.91
+        },
+        {
+          "text": "hither.",
+          "start": 8.91,
+          "end": 9.25
+        },
+        {
+          "text": "Here",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "text": "shall",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "text": "he",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "text": "see",
+          "start": 10.45,
+          "end": 10.63
+        },
+        {
+          "text": "No",
+          "start": 10.63,
+          "end": 10.83
+        },
+        {
+          "text": "enemy",
+          "start": 10.83,
+          "end": 11.17
+        },
+        {
+          "text": "But",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "text": "winter",
+          "start": 11.45,
+          "end": 11.83
+        },
+        {
+          "text": "and",
+          "start": 11.83,
+          "end": 12.13
+        },
+        {
+          "text": "rough",
+          "start": 12.13,
+          "end": 12.37
+        },
+        {
+          "text": "weather.",
+          "start": 12.37,
+          "end": 12.67
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 38
+      },
+      "match_ratio": 0.9743589743589743,
+      "rejection_reasons": [],
+      "seconds": 0.5835858564823866
+    },
+    {
+      "asr_seconds": 0.4155319482088089,
+      "alignment_seconds": 0.0016349758952856064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Who, Seeking, Here, No, But"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Who doth ambition shun, And loves to live I.T.H. son, Seeking the food he eats, And pleased with what he gets, Come hither, come hither, come hither. Here shall he see no enemy but winter and rough weather.",
+          "start": 0.05,
+          "end": 12.73,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.2354736328125
+            },
+            {
+              "text": " doth",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ambition",
+              "start": 0.77,
+              "end": 1.25,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " shun,",
+              "start": 1.25,
+              "end": 1.65,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " And",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " loves",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " live",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " I",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.64453125
+            },
+            {
+              "text": ".T",
+              "start": 3.13,
+              "end": 3.35,
+              "probability": 0.4879150390625
+            },
+            {
+              "text": ".H.",
+              "start": 3.35,
+              "end": 3.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " son,",
+              "start": 3.67,
+              "end": 4.03,
+              "probability": 0.286376953125
+            },
+            {
+              "text": " Seeking",
+              "start": 4.53,
+              "end": 4.65,
+              "probability": 0.9140625
+            },
+            {
+              "text": " the",
+              "start": 4.65,
+              "end": 4.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " food",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 5.11,
+              "end": 5.29,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " eats,",
+              "start": 5.29,
+              "end": 5.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " And",
+              "start": 5.93,
+              "end": 6.07,
+              "probability": 0.75
+            },
+            {
+              "text": " pleased",
+              "start": 6.07,
+              "end": 6.37,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " with",
+              "start": 6.37,
+              "end": 6.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " what",
+              "start": 6.57,
+              "end": 6.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 6.71,
+              "end": 6.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gets,",
+              "start": 6.83,
+              "end": 7.11,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Come",
+              "start": 7.45,
+              "end": 7.59,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " hither,",
+              "start": 7.59,
+              "end": 7.79,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " come",
+              "start": 8.15,
+              "end": 8.27,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " hither,",
+              "start": 8.27,
+              "end": 8.55,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " come",
+              "start": 8.87,
+              "end": 8.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hither.",
+              "start": 8.91,
+              "end": 9.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Here",
+              "start": 9.97,
+              "end": 10.13,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " shall",
+              "start": 10.13,
+              "end": 10.31,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " he",
+              "start": 10.31,
+              "end": 10.45,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " see",
+              "start": 10.45,
+              "end": 10.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " no",
+              "start": 10.63,
+              "end": 10.83,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " enemy",
+              "start": 10.83,
+              "end": 11.17,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " but",
+              "start": 11.17,
+              "end": 11.45,
+              "probability": 0.329833984375
+            },
+            {
+              "text": " winter",
+              "start": 11.45,
+              "end": 11.85,
+              "probability": 0.94140625
+            },
+            {
+              "text": " and",
+              "start": 11.85,
+              "end": 12.13,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " rough",
+              "start": 12.13,
+              "end": 12.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " weather.",
+              "start": 12.39,
+              "end": 12.73,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "doth",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "ambition",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "raw": "shun,",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "raw": "And",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "loves",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "live",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "I",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": ".T",
+          "start": 3.13,
+          "end": 3.35
+        },
+        {
+          "raw": ".H.",
+          "start": 3.35,
+          "end": 3.67
+        },
+        {
+          "raw": "son,",
+          "start": 3.67,
+          "end": 4.03
+        },
+        {
+          "raw": "Seeking",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "raw": "the",
+          "start": 4.65,
+          "end": 4.93
+        },
+        {
+          "raw": "food",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "he",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "raw": "eats,",
+          "start": 5.29,
+          "end": 5.55
+        },
+        {
+          "raw": "And",
+          "start": 5.93,
+          "end": 6.07
+        },
+        {
+          "raw": "pleased",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "raw": "with",
+          "start": 6.37,
+          "end": 6.57
+        },
+        {
+          "raw": "what",
+          "start": 6.57,
+          "end": 6.71
+        },
+        {
+          "raw": "he",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "raw": "gets,",
+          "start": 6.83,
+          "end": 7.11
+        },
+        {
+          "raw": "Come",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "raw": "hither,",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "raw": "come",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "raw": "hither,",
+          "start": 8.27,
+          "end": 8.55
+        },
+        {
+          "raw": "come",
+          "start": 8.87,
+          "end": 8.91
+        },
+        {
+          "raw": "hither.",
+          "start": 8.91,
+          "end": 9.21
+        },
+        {
+          "raw": "Here",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "raw": "shall",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "raw": "he",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "raw": "see",
+          "start": 10.45,
+          "end": 10.63
+        },
+        {
+          "raw": "no",
+          "start": 10.63,
+          "end": 10.83
+        },
+        {
+          "raw": "enemy",
+          "start": 10.83,
+          "end": 11.17
+        },
+        {
+          "raw": "but",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "raw": "winter",
+          "start": 11.45,
+          "end": 11.85
+        },
+        {
+          "raw": "and",
+          "start": 11.85,
+          "end": 12.13
+        },
+        {
+          "raw": "rough",
+          "start": 12.13,
+          "end": 12.39
+        },
+        {
+          "raw": "weather.",
+          "start": 12.39,
+          "end": 12.73
+        }
+      ],
+      "expected_tokens": [
+        "Who",
+        "doth",
+        "ambition",
+        "shun,",
+        "And",
+        "loves",
+        "to",
+        "live",
+        "i'",
+        "th'",
+        "sun,",
+        "Seeking",
+        "the",
+        "food",
+        "he",
+        "eats,",
+        "And",
+        "pleas'd",
+        "with",
+        "what",
+        "he",
+        "gets,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "acoustic_expected_tokens": [
+        "Who",
+        "doth",
+        "ambition",
+        "shun,",
+        "And",
+        "loves",
+        "to",
+        "live",
+        "i'",
+        "th'",
+        "sun,",
+        "Seeking",
+        "the",
+        "food",
+        "he",
+        "eats,",
+        "And",
+        "pleas'd",
+        "with",
+        "what",
+        "he",
+        "gets,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          12
+        ],
+        [
+          "equal",
+          11,
+          39,
+          12,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          11,
+          9,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "doth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ambition",
+          "start": 0.77,
+          "end": 1.25,
+          "key": "ambition",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shun,",
+          "start": 1.25,
+          "end": 1.65,
+          "key": "shun",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "loves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.69,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "live",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ".T",
+          "start": 3.13,
+          "end": 3.35,
+          "key": "t",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 3.35,
+          "end": 3.67,
+          "key": "h",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "son,",
+          "start": 3.67,
+          "end": 4.03,
+          "key": "son",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Seeking",
+          "start": 4.53,
+          "end": 4.65,
+          "key": "seeking",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.65,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "food",
+          "start": 4.93,
+          "end": 5.11,
+          "key": "food",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.11,
+          "end": 5.29,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "eats,",
+          "start": 5.29,
+          "end": 5.55,
+          "key": "eats",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.93,
+          "end": 6.07,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pleased",
+          "start": 6.07,
+          "end": 6.37,
+          "key": "pleased",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.37,
+          "end": 6.57,
+          "key": "with",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 6.57,
+          "end": 6.71,
+          "key": "what",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.71,
+          "end": 6.83,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "gets,",
+          "start": 6.83,
+          "end": 7.11,
+          "key": "gets",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 7.45,
+          "end": 7.59,
+          "key": "come",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 7.59,
+          "end": 7.79,
+          "key": "hither",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.15,
+          "end": 8.27,
+          "key": "come",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 8.27,
+          "end": 8.55,
+          "key": "hither",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.87,
+          "end": 8.91,
+          "key": "come",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 8.91,
+          "end": 9.21,
+          "key": "hither",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 9.97,
+          "end": 10.13,
+          "key": "here",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 10.13,
+          "end": 10.31,
+          "key": "shall",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.31,
+          "end": 10.45,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 10.45,
+          "end": 10.63,
+          "key": "see",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 10.63,
+          "end": 10.83,
+          "key": "no",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 10.83,
+          "end": 11.17,
+          "key": "enemy",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 11.17,
+          "end": 11.45,
+          "key": "but",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "winter",
+          "start": 11.45,
+          "end": 11.85,
+          "key": "winter",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.85,
+          "end": 12.13,
+          "key": "and",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "rough",
+          "start": 12.13,
+          "end": 12.39,
+          "key": "rough",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "weather.",
+          "start": 12.39,
+          "end": 12.73,
+          "key": "weather",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "doth",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "ambition",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "text": "shun,",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "text": "And",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "loves",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "live",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "i'",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "th'",
+          "start": 3.13,
+          "end": 3.83
+        },
+        {
+          "text": "sun,",
+          "start": 3.83,
+          "end": 4.18
+        },
+        {
+          "text": "Seeking",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "text": "the",
+          "start": 4.65,
+          "end": 4.93
+        },
+        {
+          "text": "food",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "he",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "text": "eats,",
+          "start": 5.29,
+          "end": 5.55
+        },
+        {
+          "text": "And",
+          "start": 5.93,
+          "end": 6.07
+        },
+        {
+          "text": "pleas'd",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "text": "with",
+          "start": 6.37,
+          "end": 6.57
+        },
+        {
+          "text": "what",
+          "start": 6.57,
+          "end": 6.71
+        },
+        {
+          "text": "he",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "text": "gets,",
+          "start": 6.83,
+          "end": 7.11
+        },
+        {
+          "text": "Come",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "text": "hither,",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "text": "come",
+          "start": 8.15,
+          "end": 8.27
+        },
+        {
+          "text": "hither,",
+          "start": 8.27,
+          "end": 8.55
+        },
+        {
+          "text": "come",
+          "start": 8.87,
+          "end": 8.91
+        },
+        {
+          "text": "hither.",
+          "start": 8.91,
+          "end": 9.21
+        },
+        {
+          "text": "Here",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "text": "shall",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "text": "he",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "text": "see",
+          "start": 10.45,
+          "end": 10.63
+        },
+        {
+          "text": "No",
+          "start": 10.63,
+          "end": 10.83
+        },
+        {
+          "text": "enemy",
+          "start": 10.83,
+          "end": 11.17
+        },
+        {
+          "text": "But",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "text": "winter",
+          "start": 11.45,
+          "end": 11.85
+        },
+        {
+          "text": "and",
+          "start": 11.85,
+          "end": 12.13
+        },
+        {
+          "text": "rough",
+          "start": 12.13,
+          "end": 12.39
+        },
+        {
+          "text": "weather.",
+          "start": 12.39,
+          "end": 12.73
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 40,
+        "matched_words": 37
+      },
+      "match_ratio": 0.9487179487179487,
+      "rejection_reasons": [],
+      "seconds": 0.417343333363533
+    },
+    {
+      "asr_seconds": 0.4413426499813795,
+      "alignment_seconds": 0.003200272098183632,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who doth ambition shun, and loves to live I T H sun, seeking the food he eats, and pleased",
+          "start": 0.05,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.2354736328125
+            },
+            {
+              "text": " doth",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ambition",
+              "start": 0.77,
+              "end": 1.25,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " shun,",
+              "start": 1.25,
+              "end": 1.65,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " and",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.48486328125
+            },
+            {
+              "text": " loves",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " live",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.978515625
+            },
+            {
+              "text": " I",
+              "start": 2.85,
+              "end": 3.11,
+              "probability": 0.6552734375
+            },
+            {
+              "text": " T",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.1033935546875
+            },
+            {
+              "text": " H",
+              "start": 3.35,
+              "end": 3.67,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " sun,",
+              "start": 3.67,
+              "end": 4.03,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " seeking",
+              "start": 4.57,
+              "end": 4.67,
+              "probability": 0.45654296875
+            },
+            {
+              "text": " the",
+              "start": 4.67,
+              "end": 4.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " food",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 5.11,
+              "end": 5.29,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " eats,",
+              "start": 5.29,
+              "end": 5.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 5.97,
+              "end": 6.05,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " pleased",
+              "start": 6.05,
+              "end": 6.37,
+              "probability": 0.94091796875
+            }
+          ]
+        },
+        {
+          "text": " with what he gets, Come hither, come hither, come hither.",
+          "start": 6.37,
+          "end": 9.21,
+          "words": [
+            {
+              "text": " with",
+              "start": 6.37,
+              "end": 6.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " what",
+              "start": 6.57,
+              "end": 6.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 6.71,
+              "end": 6.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gets,",
+              "start": 6.83,
+              "end": 7.13,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Come",
+              "start": 7.49,
+              "end": 7.59,
+              "probability": 0.448486328125
+            },
+            {
+              "text": " hither,",
+              "start": 7.59,
+              "end": 7.79,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " come",
+              "start": 8.17,
+              "end": 8.27,
+              "probability": 0.982421875
+            },
+            {
+              "text": " hither,",
+              "start": 8.27,
+              "end": 8.55,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " come",
+              "start": 8.87,
+              "end": 8.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hither.",
+              "start": 8.91,
+              "end": 9.21,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " Here shall he see no enemy but winter and rough weather.",
+          "start": 9.97,
+          "end": 12.73,
+          "words": [
+            {
+              "text": " Here",
+              "start": 9.97,
+              "end": 10.13,
+              "probability": 0.97265625
+            },
+            {
+              "text": " shall",
+              "start": 10.13,
+              "end": 10.31,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " he",
+              "start": 10.31,
+              "end": 10.45,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " see",
+              "start": 10.45,
+              "end": 10.63,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " no",
+              "start": 10.63,
+              "end": 10.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " enemy",
+              "start": 10.83,
+              "end": 11.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " but",
+              "start": 11.17,
+              "end": 11.45,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " winter",
+              "start": 11.45,
+              "end": 11.83,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 11.83,
+              "end": 12.13,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " rough",
+              "start": 12.13,
+              "end": 12.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " weather.",
+              "start": 12.39,
+              "end": 12.73,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "doth",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "ambition",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "raw": "shun,",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "loves",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "live",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "I",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "raw": "T",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "H",
+          "start": 3.35,
+          "end": 3.67
+        },
+        {
+          "raw": "sun,",
+          "start": 3.67,
+          "end": 4.03
+        },
+        {
+          "raw": "seeking",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "raw": "food",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "he",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "raw": "eats,",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "raw": "and",
+          "start": 5.97,
+          "end": 6.05
+        },
+        {
+          "raw": "pleased",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "raw": "with",
+          "start": 6.37,
+          "end": 6.57
+        },
+        {
+          "raw": "what",
+          "start": 6.57,
+          "end": 6.71
+        },
+        {
+          "raw": "he",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "raw": "gets,",
+          "start": 6.83,
+          "end": 7.13
+        },
+        {
+          "raw": "Come",
+          "start": 7.49,
+          "end": 7.59
+        },
+        {
+          "raw": "hither,",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "raw": "come",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "raw": "hither,",
+          "start": 8.27,
+          "end": 8.55
+        },
+        {
+          "raw": "come",
+          "start": 8.87,
+          "end": 8.91
+        },
+        {
+          "raw": "hither.",
+          "start": 8.91,
+          "end": 9.21
+        },
+        {
+          "raw": "Here",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "raw": "shall",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "raw": "he",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "raw": "see",
+          "start": 10.45,
+          "end": 10.63
+        },
+        {
+          "raw": "no",
+          "start": 10.63,
+          "end": 10.83
+        },
+        {
+          "raw": "enemy",
+          "start": 10.83,
+          "end": 11.17
+        },
+        {
+          "raw": "but",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "raw": "winter",
+          "start": 11.45,
+          "end": 11.83
+        },
+        {
+          "raw": "and",
+          "start": 11.83,
+          "end": 12.13
+        },
+        {
+          "raw": "rough",
+          "start": 12.13,
+          "end": 12.39
+        },
+        {
+          "raw": "weather.",
+          "start": 12.39,
+          "end": 12.73
+        }
+      ],
+      "expected_tokens": [
+        "Who",
+        "doth",
+        "ambition",
+        "shun,",
+        "And",
+        "loves",
+        "to",
+        "live",
+        "i'",
+        "th'",
+        "sun,",
+        "Seeking",
+        "the",
+        "food",
+        "he",
+        "eats,",
+        "And",
+        "pleas'd",
+        "with",
+        "what",
+        "he",
+        "gets,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "acoustic_expected_tokens": [
+        "Who",
+        "doth",
+        "ambition",
+        "shun,",
+        "And",
+        "loves",
+        "to",
+        "live",
+        "i'",
+        "th'",
+        "sun,",
+        "Seeking",
+        "the",
+        "food",
+        "he",
+        "eats,",
+        "And",
+        "pleas'd",
+        "with",
+        "what",
+        "he",
+        "gets,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          39,
+          11,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "doth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ambition",
+          "start": 0.77,
+          "end": 1.25,
+          "key": "ambition",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shun,",
+          "start": 1.25,
+          "end": 1.65,
+          "key": "shun",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "loves",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.69,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "live",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.85,
+          "end": 3.11,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "t",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "H",
+          "start": 3.35,
+          "end": 3.67,
+          "key": "h",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sun,",
+          "start": 3.67,
+          "end": 4.03,
+          "key": "sun",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "seeking",
+          "start": 4.57,
+          "end": 4.67,
+          "key": "seeking",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.67,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "food",
+          "start": 4.93,
+          "end": 5.11,
+          "key": "food",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.11,
+          "end": 5.29,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "eats,",
+          "start": 5.29,
+          "end": 5.59,
+          "key": "eats",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.97,
+          "end": 6.05,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pleased",
+          "start": 6.05,
+          "end": 6.37,
+          "key": "pleased",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.37,
+          "end": 6.57,
+          "key": "with",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 6.57,
+          "end": 6.71,
+          "key": "what",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.71,
+          "end": 6.83,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "gets,",
+          "start": 6.83,
+          "end": 7.13,
+          "key": "gets",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 7.49,
+          "end": 7.59,
+          "key": "come",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 7.59,
+          "end": 7.79,
+          "key": "hither",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.17,
+          "end": 8.27,
+          "key": "come",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 8.27,
+          "end": 8.55,
+          "key": "hither",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.87,
+          "end": 8.91,
+          "key": "come",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 8.91,
+          "end": 9.21,
+          "key": "hither",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 9.97,
+          "end": 10.13,
+          "key": "here",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 10.13,
+          "end": 10.31,
+          "key": "shall",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.31,
+          "end": 10.45,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 10.45,
+          "end": 10.63,
+          "key": "see",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 10.63,
+          "end": 10.83,
+          "key": "no",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 10.83,
+          "end": 11.17,
+          "key": "enemy",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 11.17,
+          "end": 11.45,
+          "key": "but",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "winter",
+          "start": 11.45,
+          "end": 11.83,
+          "key": "winter",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.83,
+          "end": 12.13,
+          "key": "and",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "rough",
+          "start": 12.13,
+          "end": 12.39,
+          "key": "rough",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "weather.",
+          "start": 12.39,
+          "end": 12.73,
+          "key": "weather",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "doth",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "ambition",
+          "start": 0.77,
+          "end": 1.25
+        },
+        {
+          "text": "shun,",
+          "start": 1.25,
+          "end": 1.65
+        },
+        {
+          "text": "And",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "loves",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "live",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "i'",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "text": "th'",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "sun,",
+          "start": 3.67,
+          "end": 4.03
+        },
+        {
+          "text": "Seeking",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "text": "the",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "text": "food",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "he",
+          "start": 5.11,
+          "end": 5.29
+        },
+        {
+          "text": "eats,",
+          "start": 5.29,
+          "end": 5.59
+        },
+        {
+          "text": "And",
+          "start": 5.97,
+          "end": 6.05
+        },
+        {
+          "text": "pleas'd",
+          "start": 6.05,
+          "end": 6.37
+        },
+        {
+          "text": "with",
+          "start": 6.37,
+          "end": 6.57
+        },
+        {
+          "text": "what",
+          "start": 6.57,
+          "end": 6.71
+        },
+        {
+          "text": "he",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "text": "gets,",
+          "start": 6.83,
+          "end": 7.13
+        },
+        {
+          "text": "Come",
+          "start": 7.49,
+          "end": 7.59
+        },
+        {
+          "text": "hither,",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "text": "come",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "text": "hither,",
+          "start": 8.27,
+          "end": 8.55
+        },
+        {
+          "text": "come",
+          "start": 8.87,
+          "end": 8.91
+        },
+        {
+          "text": "hither.",
+          "start": 8.91,
+          "end": 9.21
+        },
+        {
+          "text": "Here",
+          "start": 9.97,
+          "end": 10.13
+        },
+        {
+          "text": "shall",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "text": "he",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "text": "see",
+          "start": 10.45,
+          "end": 10.63
+        },
+        {
+          "text": "No",
+          "start": 10.63,
+          "end": 10.83
+        },
+        {
+          "text": "enemy",
+          "start": 10.83,
+          "end": 11.17
+        },
+        {
+          "text": "But",
+          "start": 11.17,
+          "end": 11.45
+        },
+        {
+          "text": "winter",
+          "start": 11.45,
+          "end": 11.83
+        },
+        {
+          "text": "and",
+          "start": 11.83,
+          "end": 12.13
+        },
+        {
+          "text": "rough",
+          "start": 12.13,
+          "end": 12.39
+        },
+        {
+          "text": "weather.",
+          "start": 12.39,
+          "end": 12.73
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 40,
+        "matched_words": 38
+      },
+      "match_ratio": 0.9743589743589743,
+      "rejection_reasons": [],
+      "seconds": 0.4448283277451992
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a8e2299a7e0128c17fe2e48263d396c13ee0714da5d1231e927f2c800085181",
+  "selected_reasons": []
+}

@@ -1,0 +1,280 @@
+{
+  "complete": true,
+  "signature": "73fe3e953b04fb9c2ac84f906d93417f6e2ae8938264a2ca2ff0a7dc5b0611a1",
+  "attempts": [
+    {
+      "asr_seconds": 2.225395180284977,
+      "alignment_seconds": 0.0003242362290620804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Napoleon",
+        "hotwords": "Napoleon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Napoleon Napoleon Napoleon Napoleon",
+          "start": 0.0,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Napoleon",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " Napoleon",
+              "start": 0.8,
+              "end": 1.68,
+              "probability": 6.139278411865234e-06
+            },
+            {
+              "text": " Napoleon",
+              "start": 1.68,
+              "end": 1.68,
+              "probability": 0.07720947265625
+            },
+            {
+              "text": " Napoleon",
+              "start": 1.68,
+              "end": 1.7,
+              "probability": 0.24462890625
+            }
+          ]
+        },
+        {
+          "text": " Napoleon Napoleon Napoleon Napoleon campaign",
+          "start": 1.7,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Napoleon",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 1.7881393432617188e-07
+            },
+            {
+              "text": " Napoleon",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.0003218650817871094
+            },
+            {
+              "text": " Napoleon",
+              "start": 1.7,
+              "end": 1.72,
+              "probability": 0.276611328125
+            },
+            {
+              "text": " Napoleon",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " campaign",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.00018537044525146484
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Napoleon",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "Napoleon",
+          "start": 0.8,
+          "end": 1.68
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.68,
+          "end": 1.68
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.68,
+          "end": 1.7
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.7,
+          "end": 1.72
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "campaign",
+          "start": 1.72,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "NAPOLEON"
+      ],
+      "acoustic_expected_tokens": [
+        "Napoleon"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Napoleon",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "napoleon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 0.8,
+          "end": 1.68,
+          "key": "napoleon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.68,
+          "end": 1.68,
+          "key": "napoleon",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.68,
+          "end": 1.7,
+          "key": "napoleon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "napoleon",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "napoleon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.7,
+          "end": 1.72,
+          "key": "napoleon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "napoleon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "campaign",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "campaign",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "NAPOLEON",
+          "start": 0.0,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 9,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.225834997370839
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0eba053dd126dfc012963f295b89a1ec45c5b75b9281936ecc4f281148041cf6",
+  "selected_reasons": []
+}

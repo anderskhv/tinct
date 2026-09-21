@@ -1,0 +1,3146 @@
+{
+  "complete": true,
+  "signature": "9630554da184d05bbe2acbf3c16dca45a5c70797f3f60434155607a97295f98c",
+  "attempts": [
+    {
+      "asr_seconds": 0.31797698698937893,
+      "alignment_seconds": 0.001309400424361229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A daughter; and a goodly babe, Lusty, and like to live: the queen receives Much comfort in 't; says \"My poor prisoner, I am as innocent as you.\"",
+        "hotwords": "Lusty, Much, My, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, a daughter, and a goodly babe, Lusty, and like to live. The queen receives Much comfort in tea, says My poor prisoner, I am as innocent as you.",
+          "start": 0.08,
+          "end": 10.06,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.596923828125
+            },
+            {
+              "text": " a",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " daughter,",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " and",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " a",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " goodly",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " babe,",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.611328125
+            },
+            {
+              "text": " Lusty,",
+              "start": 3.22,
+              "end": 3.56,
+              "probability": 0.518096923828125
+            },
+            {
+              "text": " and",
+              "start": 3.66,
+              "end": 3.76,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " like",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.927734375
+            },
+            {
+              "text": " to",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " live.",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 4.98,
+              "end": 5.08,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " queen",
+              "start": 5.08,
+              "end": 5.28,
+              "probability": 0.4365234375
+            },
+            {
+              "text": " receives",
+              "start": 5.28,
+              "end": 5.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Much",
+              "start": 5.74,
+              "end": 6.02,
+              "probability": 5.131959915161133e-05
+            },
+            {
+              "text": " comfort",
+              "start": 6.02,
+              "end": 6.46,
+              "probability": 0.923828125
+            },
+            {
+              "text": " in",
+              "start": 6.46,
+              "end": 6.72,
+              "probability": 0.98046875
+            },
+            {
+              "text": " tea,",
+              "start": 6.72,
+              "end": 7.06,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " says",
+              "start": 7.54,
+              "end": 7.72,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " My",
+              "start": 7.72,
+              "end": 7.96,
+              "probability": 0.1290283203125
+            },
+            {
+              "text": " poor",
+              "start": 7.96,
+              "end": 8.16,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " prisoner,",
+              "start": 8.16,
+              "end": 8.56,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 8.8,
+              "end": 8.94,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " am",
+              "start": 8.94,
+              "end": 9.06,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " as",
+              "start": 9.06,
+              "end": 9.18,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " innocent",
+              "start": 9.18,
+              "end": 9.46,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " as",
+              "start": 9.46,
+              "end": 9.78,
+              "probability": 0.962890625
+            },
+            {
+              "text": " you.",
+              "start": 9.78,
+              "end": 10.06,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "goodly",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "babe,",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "Lusty,",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "raw": "and",
+          "start": 3.66,
+          "end": 3.76
+        },
+        {
+          "raw": "like",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "live.",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "The",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "raw": "queen",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "raw": "receives",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "raw": "Much",
+          "start": 5.74,
+          "end": 6.02
+        },
+        {
+          "raw": "comfort",
+          "start": 6.02,
+          "end": 6.46
+        },
+        {
+          "raw": "in",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "raw": "tea,",
+          "start": 6.72,
+          "end": 7.06
+        },
+        {
+          "raw": "says",
+          "start": 7.54,
+          "end": 7.72
+        },
+        {
+          "raw": "My",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "raw": "poor",
+          "start": 7.96,
+          "end": 8.16
+        },
+        {
+          "raw": "prisoner,",
+          "start": 8.16,
+          "end": 8.56
+        },
+        {
+          "raw": "I",
+          "start": 8.8,
+          "end": 8.94
+        },
+        {
+          "raw": "am",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "raw": "as",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "raw": "innocent",
+          "start": 9.18,
+          "end": 9.46
+        },
+        {
+          "raw": "as",
+          "start": 9.46,
+          "end": 9.78
+        },
+        {
+          "raw": "you.",
+          "start": 9.78,
+          "end": 10.06
+        }
+      ],
+      "expected_tokens": [
+        "EMILIA.",
+        "A",
+        "daughter;",
+        "and",
+        "a",
+        "goodly",
+        "babe,",
+        "Lusty,",
+        "and",
+        "like",
+        "to",
+        "live:",
+        "the",
+        "queen",
+        "receives",
+        "Much",
+        "comfort",
+        "in",
+        "’t;",
+        "says",
+        "“My",
+        "poor",
+        "prisoner,",
+        "I",
+        "am",
+        "as",
+        "innocent",
+        "as",
+        "you.”"
+      ],
+      "acoustic_expected_tokens": [
+        "A",
+        "daughter;",
+        "and",
+        "a",
+        "goodly",
+        "babe,",
+        "Lusty,",
+        "and",
+        "like",
+        "to",
+        "live:",
+        "the",
+        "queen",
+        "receives",
+        "Much",
+        "comfort",
+        "in",
+        "'t;",
+        "says",
+        "\"My",
+        "poor",
+        "prisoner,",
+        "I",
+        "am",
+        "as",
+        "innocent",
+        "as",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          17,
+          1,
+          18
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ],
+        [
+          "equal",
+          18,
+          28,
+          19,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "daughter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "goodly",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "goodly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "babe,",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "babe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lusty,",
+          "start": 3.22,
+          "end": 3.56,
+          "key": "lusty",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.66,
+          "end": 3.76,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "live.",
+          "start": 4.1,
+          "end": 4.36,
+          "key": "live",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.98,
+          "end": 5.08,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "queen",
+          "start": 5.08,
+          "end": 5.28,
+          "key": "queen",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "receives",
+          "start": 5.28,
+          "end": 5.74,
+          "key": "receives",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Much",
+          "start": 5.74,
+          "end": 6.02,
+          "key": "much",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 6.02,
+          "end": 6.46,
+          "key": "comfort",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.46,
+          "end": 6.72,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "tea,",
+          "start": 6.72,
+          "end": 7.06,
+          "key": "tea",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 7.54,
+          "end": 7.72,
+          "key": "says",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 7.72,
+          "end": 7.96,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 7.96,
+          "end": 8.16,
+          "key": "poor",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "prisoner,",
+          "start": 8.16,
+          "end": 8.56,
+          "key": "prisoner",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.8,
+          "end": 8.94,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 8.94,
+          "end": 9.06,
+          "key": "am",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.06,
+          "end": 9.18,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 9.18,
+          "end": 9.46,
+          "key": "innocent",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.46,
+          "end": 9.78,
+          "key": "as",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 9.78,
+          "end": 10.06,
+          "key": "you",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "EMILIA.",
+          "start": 1.22,
+          "end": 1.22
+        },
+        {
+          "text": "A",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "daughter;",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "goodly",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "babe,",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "Lusty,",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "text": "and",
+          "start": 3.66,
+          "end": 3.76
+        },
+        {
+          "text": "like",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "live:",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "text": "the",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "text": "queen",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "text": "receives",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "text": "Much",
+          "start": 5.74,
+          "end": 6.02
+        },
+        {
+          "text": "comfort",
+          "start": 6.02,
+          "end": 6.46
+        },
+        {
+          "text": "in",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "text": "’t;",
+          "start": 6.72,
+          "end": 7.13
+        },
+        {
+          "text": "says",
+          "start": 7.54,
+          "end": 7.72
+        },
+        {
+          "text": "“My",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "text": "poor",
+          "start": 7.96,
+          "end": 8.16
+        },
+        {
+          "text": "prisoner,",
+          "start": 8.16,
+          "end": 8.56
+        },
+        {
+          "text": "I",
+          "start": 8.8,
+          "end": 8.94
+        },
+        {
+          "text": "am",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "text": "as",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "text": "innocent",
+          "start": 9.18,
+          "end": 9.46
+        },
+        {
+          "text": "as",
+          "start": 9.46,
+          "end": 9.78
+        },
+        {
+          "text": "you.”",
+          "start": 9.78,
+          "end": 10.06
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 29,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.31943102553486824
+    },
+    {
+      "asr_seconds": 0.33812935650348663,
+      "alignment_seconds": 0.0012369770556688309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lusty, Much, My, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Emilia, a daughter, and a goodly babe lusty and like to live. The Queen receives much",
+          "start": 0.08,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.596923828125
+            },
+            {
+              "text": " a",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " daughter,",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " and",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " a",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " goodly",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " babe",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.611328125
+            },
+            {
+              "text": " lusty",
+              "start": 2.96,
+              "end": 3.58,
+              "probability": 0.885986328125
+            },
+            {
+              "text": " and",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " like",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " live.",
+              "start": 4.1,
+              "end": 4.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " The",
+              "start": 4.98,
+              "end": 5.08,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Queen",
+              "start": 5.08,
+              "end": 5.28,
+              "probability": 0.483154296875
+            },
+            {
+              "text": " receives",
+              "start": 5.28,
+              "end": 5.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 5.74,
+              "end": 6.04,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " comfort in tea, says my poor prisoner, I am as innocent as you.",
+          "start": 6.04,
+          "end": 10.04,
+          "words": [
+            {
+              "text": " comfort",
+              "start": 6.04,
+              "end": 6.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 6.48,
+              "end": 6.72,
+              "probability": 0.990234375
+            },
+            {
+              "text": " tea,",
+              "start": 6.72,
+              "end": 7.06,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " says",
+              "start": 7.48,
+              "end": 7.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " my",
+              "start": 7.72,
+              "end": 7.96,
+              "probability": 0.958984375
+            },
+            {
+              "text": " poor",
+              "start": 7.96,
+              "end": 8.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " prisoner,",
+              "start": 8.18,
+              "end": 8.58,
+              "probability": 0.98046875
+            },
+            {
+              "text": " I",
+              "start": 8.82,
+              "end": 8.94,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " am",
+              "start": 8.94,
+              "end": 9.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 9.06,
+              "end": 9.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " innocent",
+              "start": 9.18,
+              "end": 9.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 9.46,
+              "end": 9.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 9.8,
+              "end": 10.04,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "goodly",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "babe",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "lusty",
+          "start": 2.96,
+          "end": 3.58
+        },
+        {
+          "raw": "and",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "like",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "live.",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "raw": "The",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "raw": "Queen",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "raw": "receives",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "raw": "much",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "raw": "comfort",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "raw": "in",
+          "start": 6.48,
+          "end": 6.72
+        },
+        {
+          "raw": "tea,",
+          "start": 6.72,
+          "end": 7.06
+        },
+        {
+          "raw": "says",
+          "start": 7.48,
+          "end": 7.72
+        },
+        {
+          "raw": "my",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "raw": "poor",
+          "start": 7.96,
+          "end": 8.18
+        },
+        {
+          "raw": "prisoner,",
+          "start": 8.18,
+          "end": 8.58
+        },
+        {
+          "raw": "I",
+          "start": 8.82,
+          "end": 8.94
+        },
+        {
+          "raw": "am",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "raw": "as",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "raw": "innocent",
+          "start": 9.18,
+          "end": 9.46
+        },
+        {
+          "raw": "as",
+          "start": 9.46,
+          "end": 9.8
+        },
+        {
+          "raw": "you.",
+          "start": 9.8,
+          "end": 10.04
+        }
+      ],
+      "expected_tokens": [
+        "EMILIA.",
+        "A",
+        "daughter;",
+        "and",
+        "a",
+        "goodly",
+        "babe,",
+        "Lusty,",
+        "and",
+        "like",
+        "to",
+        "live:",
+        "the",
+        "queen",
+        "receives",
+        "Much",
+        "comfort",
+        "in",
+        "’t;",
+        "says",
+        "“My",
+        "poor",
+        "prisoner,",
+        "I",
+        "am",
+        "as",
+        "innocent",
+        "as",
+        "you.”"
+      ],
+      "acoustic_expected_tokens": [
+        "A",
+        "daughter;",
+        "and",
+        "a",
+        "goodly",
+        "babe,",
+        "Lusty,",
+        "and",
+        "like",
+        "to",
+        "live:",
+        "the",
+        "queen",
+        "receives",
+        "Much",
+        "comfort",
+        "in",
+        "'t;",
+        "says",
+        "\"My",
+        "poor",
+        "prisoner,",
+        "I",
+        "am",
+        "as",
+        "innocent",
+        "as",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          17,
+          1,
+          18
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ],
+        [
+          "equal",
+          18,
+          28,
+          19,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "daughter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "goodly",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "goodly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "babe",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "babe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lusty",
+          "start": 2.96,
+          "end": 3.58,
+          "key": "lusty",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "live.",
+          "start": 4.1,
+          "end": 4.38,
+          "key": "live",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.98,
+          "end": 5.08,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 5.08,
+          "end": 5.28,
+          "key": "queen",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "receives",
+          "start": 5.28,
+          "end": 5.74,
+          "key": "receives",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 5.74,
+          "end": 6.04,
+          "key": "much",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 6.04,
+          "end": 6.48,
+          "key": "comfort",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.48,
+          "end": 6.72,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "tea,",
+          "start": 6.72,
+          "end": 7.06,
+          "key": "tea",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 7.48,
+          "end": 7.72,
+          "key": "says",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.72,
+          "end": 7.96,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 7.96,
+          "end": 8.18,
+          "key": "poor",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "prisoner,",
+          "start": 8.18,
+          "end": 8.58,
+          "key": "prisoner",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.82,
+          "end": 8.94,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 8.94,
+          "end": 9.06,
+          "key": "am",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.06,
+          "end": 9.18,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 9.18,
+          "end": 9.46,
+          "key": "innocent",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.46,
+          "end": 9.8,
+          "key": "as",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 9.8,
+          "end": 10.04,
+          "key": "you",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "EMILIA.",
+          "start": 1.22,
+          "end": 1.22
+        },
+        {
+          "text": "A",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "daughter;",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "goodly",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "babe,",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "Lusty,",
+          "start": 2.96,
+          "end": 3.58
+        },
+        {
+          "text": "and",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "like",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "live:",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "text": "queen",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "text": "receives",
+          "start": 5.28,
+          "end": 5.74
+        },
+        {
+          "text": "Much",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "text": "comfort",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "text": "in",
+          "start": 6.48,
+          "end": 6.72
+        },
+        {
+          "text": "’t;",
+          "start": 6.72,
+          "end": 7.1
+        },
+        {
+          "text": "says",
+          "start": 7.48,
+          "end": 7.72
+        },
+        {
+          "text": "“My",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "text": "poor",
+          "start": 7.96,
+          "end": 8.18
+        },
+        {
+          "text": "prisoner,",
+          "start": 8.18,
+          "end": 8.58
+        },
+        {
+          "text": "I",
+          "start": 8.82,
+          "end": 8.94
+        },
+        {
+          "text": "am",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "text": "as",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "text": "innocent",
+          "start": 9.18,
+          "end": 9.46
+        },
+        {
+          "text": "as",
+          "start": 9.46,
+          "end": 9.8
+        },
+        {
+          "text": "you.”",
+          "start": 9.8,
+          "end": 10.04
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 29,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.3395086321979761
+    },
+    {
+      "asr_seconds": 0.3523338511586189,
+      "alignment_seconds": 0.0027428362518548965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Emilia, a daughter, and a goodly babe lusty and like to live.",
+          "start": 0.08,
+          "end": 4.38,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.596923828125
+            },
+            {
+              "text": " a",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " daughter,",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " and",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " a",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " goodly",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " babe",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.611328125
+            },
+            {
+              "text": " lusty",
+              "start": 2.96,
+              "end": 3.58,
+              "probability": 0.885986328125
+            },
+            {
+              "text": " and",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " like",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " live.",
+              "start": 4.1,
+              "end": 4.38,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " The queen receives much comfort in tea, says my poor prisoner, I am as innocent as you.",
+          "start": 4.98,
+          "end": 10.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 4.98,
+              "end": 5.08,
+              "probability": 0.943359375
+            },
+            {
+              "text": " queen",
+              "start": 5.08,
+              "end": 5.3,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " receives",
+              "start": 5.3,
+              "end": 5.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " much",
+              "start": 5.74,
+              "end": 6.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " comfort",
+              "start": 6.04,
+              "end": 6.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 6.48,
+              "end": 6.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " tea,",
+              "start": 6.72,
+              "end": 7.06,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " says",
+              "start": 7.48,
+              "end": 7.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " my",
+              "start": 7.72,
+              "end": 7.96,
+              "probability": 0.9609375
+            },
+            {
+              "text": " poor",
+              "start": 7.96,
+              "end": 8.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " prisoner,",
+              "start": 8.16,
+              "end": 8.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 8.82,
+              "end": 8.94,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " am",
+              "start": 8.94,
+              "end": 9.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 9.06,
+              "end": 9.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " innocent",
+              "start": 9.18,
+              "end": 9.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 9.46,
+              "end": 9.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 9.8,
+              "end": 10.04,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "goodly",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "babe",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "lusty",
+          "start": 2.96,
+          "end": 3.58
+        },
+        {
+          "raw": "and",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "like",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "live.",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "raw": "The",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "raw": "queen",
+          "start": 5.08,
+          "end": 5.3
+        },
+        {
+          "raw": "receives",
+          "start": 5.3,
+          "end": 5.74
+        },
+        {
+          "raw": "much",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "raw": "comfort",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "raw": "in",
+          "start": 6.48,
+          "end": 6.72
+        },
+        {
+          "raw": "tea,",
+          "start": 6.72,
+          "end": 7.06
+        },
+        {
+          "raw": "says",
+          "start": 7.48,
+          "end": 7.72
+        },
+        {
+          "raw": "my",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "raw": "poor",
+          "start": 7.96,
+          "end": 8.16
+        },
+        {
+          "raw": "prisoner,",
+          "start": 8.16,
+          "end": 8.58
+        },
+        {
+          "raw": "I",
+          "start": 8.82,
+          "end": 8.94
+        },
+        {
+          "raw": "am",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "raw": "as",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "raw": "innocent",
+          "start": 9.18,
+          "end": 9.46
+        },
+        {
+          "raw": "as",
+          "start": 9.46,
+          "end": 9.8
+        },
+        {
+          "raw": "you.",
+          "start": 9.8,
+          "end": 10.04
+        }
+      ],
+      "expected_tokens": [
+        "EMILIA.",
+        "A",
+        "daughter;",
+        "and",
+        "a",
+        "goodly",
+        "babe,",
+        "Lusty,",
+        "and",
+        "like",
+        "to",
+        "live:",
+        "the",
+        "queen",
+        "receives",
+        "Much",
+        "comfort",
+        "in",
+        "’t;",
+        "says",
+        "“My",
+        "poor",
+        "prisoner,",
+        "I",
+        "am",
+        "as",
+        "innocent",
+        "as",
+        "you.”"
+      ],
+      "acoustic_expected_tokens": [
+        "A",
+        "daughter;",
+        "and",
+        "a",
+        "goodly",
+        "babe,",
+        "Lusty,",
+        "and",
+        "like",
+        "to",
+        "live:",
+        "the",
+        "queen",
+        "receives",
+        "Much",
+        "comfort",
+        "in",
+        "'t;",
+        "says",
+        "\"My",
+        "poor",
+        "prisoner,",
+        "I",
+        "am",
+        "as",
+        "innocent",
+        "as",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          17,
+          1,
+          18
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ],
+        [
+          "equal",
+          18,
+          28,
+          19,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "daughter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "goodly",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "goodly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "babe",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "babe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lusty",
+          "start": 2.96,
+          "end": 3.58,
+          "key": "lusty",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "live.",
+          "start": 4.1,
+          "end": 4.38,
+          "key": "live",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.98,
+          "end": 5.08,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "queen",
+          "start": 5.08,
+          "end": 5.3,
+          "key": "queen",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "receives",
+          "start": 5.3,
+          "end": 5.74,
+          "key": "receives",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 5.74,
+          "end": 6.04,
+          "key": "much",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "comfort",
+          "start": 6.04,
+          "end": 6.48,
+          "key": "comfort",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.48,
+          "end": 6.72,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "tea,",
+          "start": 6.72,
+          "end": 7.06,
+          "key": "tea",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 7.48,
+          "end": 7.72,
+          "key": "says",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.72,
+          "end": 7.96,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 7.96,
+          "end": 8.16,
+          "key": "poor",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "prisoner,",
+          "start": 8.16,
+          "end": 8.58,
+          "key": "prisoner",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.82,
+          "end": 8.94,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 8.94,
+          "end": 9.06,
+          "key": "am",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.06,
+          "end": 9.18,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 9.18,
+          "end": 9.46,
+          "key": "innocent",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.46,
+          "end": 9.8,
+          "key": "as",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 9.8,
+          "end": 10.04,
+          "key": "you",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "EMILIA.",
+          "start": 1.22,
+          "end": 1.22
+        },
+        {
+          "text": "A",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "daughter;",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "a",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "goodly",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "babe,",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "Lusty,",
+          "start": 2.96,
+          "end": 3.58
+        },
+        {
+          "text": "and",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "like",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "live:",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "text": "the",
+          "start": 4.98,
+          "end": 5.08
+        },
+        {
+          "text": "queen",
+          "start": 5.08,
+          "end": 5.3
+        },
+        {
+          "text": "receives",
+          "start": 5.3,
+          "end": 5.74
+        },
+        {
+          "text": "Much",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "text": "comfort",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "text": "in",
+          "start": 6.48,
+          "end": 6.72
+        },
+        {
+          "text": "’t;",
+          "start": 6.72,
+          "end": 7.1
+        },
+        {
+          "text": "says",
+          "start": 7.48,
+          "end": 7.72
+        },
+        {
+          "text": "“My",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "text": "poor",
+          "start": 7.96,
+          "end": 8.16
+        },
+        {
+          "text": "prisoner,",
+          "start": 8.16,
+          "end": 8.58
+        },
+        {
+          "text": "I",
+          "start": 8.82,
+          "end": 8.94
+        },
+        {
+          "text": "am",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "text": "as",
+          "start": 9.06,
+          "end": 9.18
+        },
+        {
+          "text": "innocent",
+          "start": 9.18,
+          "end": 9.46
+        },
+        {
+          "text": "as",
+          "start": 9.46,
+          "end": 9.8
+        },
+        {
+          "text": "you.”",
+          "start": 9.8,
+          "end": 10.04
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 29,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.3553605265915394
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a29c7d310df5d68259c3485ddc7cd549e70f3f2ea593be5b3b24f5a85fe3ef9",
+  "selected_reasons": []
+}

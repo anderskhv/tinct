@@ -1,0 +1,3414 @@
+{
+  "complete": true,
+  "signature": "ccefa6ede399c62ffa4a7662e19df3b87d470a4177388fb5cb61e5ba699ba0e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.43385104462504387,
+      "alignment_seconds": 0.003084171563386917,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What! must I hold a candle to my shames? They in themselves, good sooth, are too too light. Why, 'tis an office of discovery, love, And I should be obscur'd.",
+        "hotwords": "What, I, They, Why, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jessica, what must I hold a candle to my shames? They in themselves, good sooth, are too too",
+          "start": 0.05,
+          "end": 5.81,
+          "words": [
+            {
+              "text": " Jessica,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.2161865234375
+            },
+            {
+              "text": " what",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " must",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hold",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " candle",
+              "start": 1.93,
+              "end": 2.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " my",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shames?",
+              "start": 2.57,
+              "end": 3.11,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " They",
+              "start": 3.71,
+              "end": 3.81,
+              "probability": 0.966796875
+            },
+            {
+              "text": " in",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " themselves,",
+              "start": 3.93,
+              "end": 4.43,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " good",
+              "start": 4.79,
+              "end": 4.87,
+              "probability": 0.4814453125
+            },
+            {
+              "text": " sooth,",
+              "start": 4.87,
+              "end": 5.25,
+              "probability": 0.6732177734375
+            },
+            {
+              "text": " are",
+              "start": 5.29,
+              "end": 5.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " too",
+              "start": 5.43,
+              "end": 5.59,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " too",
+              "start": 5.59,
+              "end": 5.81,
+              "probability": 0.468994140625
+            }
+          ]
+        },
+        {
+          "text": " light. Why, tease an office of discovery, love, And I should be obscur'd.",
+          "start": 5.81,
+          "end": 10.57,
+          "words": [
+            {
+              "text": " light.",
+              "start": 5.81,
+              "end": 6.09,
+              "probability": 0.297119140625
+            },
+            {
+              "text": " Why,",
+              "start": 6.59,
+              "end": 6.93,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " tease",
+              "start": 7.41,
+              "end": 7.41,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " an",
+              "start": 7.41,
+              "end": 7.57,
+              "probability": 0.939453125
+            },
+            {
+              "text": " office",
+              "start": 7.57,
+              "end": 7.85,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " of",
+              "start": 7.85,
+              "end": 8.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " discovery,",
+              "start": 8.03,
+              "end": 8.55,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " love,",
+              "start": 8.87,
+              "end": 9.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " And",
+              "start": 9.49,
+              "end": 9.53,
+              "probability": 0.0012416839599609375
+            },
+            {
+              "text": " I",
+              "start": 9.53,
+              "end": 9.67,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " should",
+              "start": 9.67,
+              "end": 9.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " be",
+              "start": 9.81,
+              "end": 9.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " obscur'd.",
+              "start": 9.95,
+              "end": 10.57,
+              "probability": 0.1182848612467448
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jessica,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "must",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "hold",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "candle",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "shames?",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "raw": "They",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "raw": "in",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.93,
+          "end": 4.43
+        },
+        {
+          "raw": "good",
+          "start": 4.79,
+          "end": 4.87
+        },
+        {
+          "raw": "sooth,",
+          "start": 4.87,
+          "end": 5.25
+        },
+        {
+          "raw": "are",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "raw": "too",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "raw": "too",
+          "start": 5.59,
+          "end": 5.81
+        },
+        {
+          "raw": "light.",
+          "start": 5.81,
+          "end": 6.09
+        },
+        {
+          "raw": "Why,",
+          "start": 6.59,
+          "end": 6.93
+        },
+        {
+          "raw": "tease",
+          "start": 7.41,
+          "end": 7.41
+        },
+        {
+          "raw": "an",
+          "start": 7.41,
+          "end": 7.57
+        },
+        {
+          "raw": "office",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "raw": "of",
+          "start": 7.85,
+          "end": 8.03
+        },
+        {
+          "raw": "discovery,",
+          "start": 8.03,
+          "end": 8.55
+        },
+        {
+          "raw": "love,",
+          "start": 8.87,
+          "end": 9.09
+        },
+        {
+          "raw": "And",
+          "start": 9.49,
+          "end": 9.53
+        },
+        {
+          "raw": "I",
+          "start": 9.53,
+          "end": 9.67
+        },
+        {
+          "raw": "should",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "raw": "be",
+          "start": 9.81,
+          "end": 9.95
+        },
+        {
+          "raw": "obscur'd.",
+          "start": 9.95,
+          "end": 10.57
+        }
+      ],
+      "expected_tokens": [
+        "JESSICA.",
+        "What!",
+        "must",
+        "I",
+        "hold",
+        "a",
+        "candle",
+        "to",
+        "my",
+        "shames?",
+        "They",
+        "in",
+        "themselves,",
+        "good",
+        "sooth,",
+        "are",
+        "too",
+        "too",
+        "light.",
+        "Why,",
+        "’tis",
+        "an",
+        "office",
+        "of",
+        "discovery,",
+        "love,",
+        "And",
+        "I",
+        "should",
+        "be",
+        "obscur’d."
+      ],
+      "acoustic_expected_tokens": [
+        "What!",
+        "must",
+        "I",
+        "hold",
+        "a",
+        "candle",
+        "to",
+        "my",
+        "shames?",
+        "They",
+        "in",
+        "themselves,",
+        "good",
+        "sooth,",
+        "are",
+        "too",
+        "too",
+        "light.",
+        "Why,",
+        "'tis",
+        "an",
+        "office",
+        "of",
+        "discovery,",
+        "love,",
+        "And",
+        "I",
+        "should",
+        "be",
+        "obscur'd."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          19,
+          1,
+          20
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ],
+        [
+          "equal",
+          20,
+          29,
+          21,
+          30
+        ],
+        [
+          "replace",
+          29,
+          30,
+          30,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ],
+        [
+          "replace",
+          29,
+          30,
+          30,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jessica,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "jessica",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.17,
+          "end": 1.45,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "candle",
+          "start": 1.93,
+          "end": 2.19,
+          "key": "candle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shames?",
+          "start": 2.57,
+          "end": 3.11,
+          "key": "shames",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 3.71,
+          "end": 3.81,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.81,
+          "end": 3.93,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.93,
+          "end": 4.43,
+          "key": "themselves",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.79,
+          "end": 4.87,
+          "key": "good",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sooth,",
+          "start": 4.87,
+          "end": 5.25,
+          "key": "sooth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.29,
+          "end": 5.43,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 5.43,
+          "end": 5.59,
+          "key": "too",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 5.59,
+          "end": 5.81,
+          "key": "too",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "light.",
+          "start": 5.81,
+          "end": 6.09,
+          "key": "light",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 6.59,
+          "end": 6.93,
+          "key": "why",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 7.41,
+          "end": 7.41,
+          "key": "tease",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.41,
+          "end": 7.57,
+          "key": "an",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "office",
+          "start": 7.57,
+          "end": 7.85,
+          "key": "office",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.85,
+          "end": 8.03,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "discovery,",
+          "start": 8.03,
+          "end": 8.55,
+          "key": "discovery",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 8.87,
+          "end": 9.09,
+          "key": "love",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.49,
+          "end": 9.53,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.53,
+          "end": 9.67,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 9.67,
+          "end": 9.81,
+          "key": "should",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.81,
+          "end": 9.95,
+          "key": "be",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "obscur'd.",
+          "start": 9.95,
+          "end": 10.57,
+          "key": "obscurd",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "JESSICA.",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "text": "What!",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "must",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "hold",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "a",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "candle",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "my",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "shames?",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "text": "They",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "text": "in",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "themselves,",
+          "start": 3.93,
+          "end": 4.43
+        },
+        {
+          "text": "good",
+          "start": 4.79,
+          "end": 4.87
+        },
+        {
+          "text": "sooth,",
+          "start": 4.87,
+          "end": 5.25
+        },
+        {
+          "text": "are",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "text": "too",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "text": "too",
+          "start": 5.59,
+          "end": 5.81
+        },
+        {
+          "text": "light.",
+          "start": 5.81,
+          "end": 6.09
+        },
+        {
+          "text": "Why,",
+          "start": 6.59,
+          "end": 6.93
+        },
+        {
+          "text": "’tis",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "text": "an",
+          "start": 7.41,
+          "end": 7.57
+        },
+        {
+          "text": "office",
+          "start": 7.57,
+          "end": 7.85
+        },
+        {
+          "text": "of",
+          "start": 7.85,
+          "end": 8.03
+        },
+        {
+          "text": "discovery,",
+          "start": 8.03,
+          "end": 8.55
+        },
+        {
+          "text": "love,",
+          "start": 8.87,
+          "end": 9.09
+        },
+        {
+          "text": "And",
+          "start": 9.49,
+          "end": 9.53
+        },
+        {
+          "text": "I",
+          "start": 9.53,
+          "end": 9.67
+        },
+        {
+          "text": "should",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "text": "be",
+          "start": 9.81,
+          "end": 9.95
+        },
+        {
+          "text": "obscur’d.",
+          "start": 9.95,
+          "end": 10.26
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 31,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.4372849352657795
+    },
+    {
+      "asr_seconds": 0.35523782670497894,
+      "alignment_seconds": 0.0013096686452627182,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What, I, They, Why, And"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Jessica, What must I hold a candle to my shames? They in themselves, good soothe,",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Jessica,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.21630859375
+            },
+            {
+              "text": " What",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.00893402099609375
+            },
+            {
+              "text": " must",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.9296875
+            },
+            {
+              "text": " I",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " hold",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " a",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " candle",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.17,
+              "end": 2.41,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " my",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " shames?",
+              "start": 2.57,
+              "end": 3.11,
+              "probability": 0.943115234375
+            },
+            {
+              "text": " They",
+              "start": 3.69,
+              "end": 3.81,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " in",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " themselves,",
+              "start": 3.93,
+              "end": 4.43,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " good",
+              "start": 4.79,
+              "end": 4.85,
+              "probability": 0.4638671875
+            },
+            {
+              "text": " soothe,",
+              "start": 4.85,
+              "end": 5.25,
+              "probability": 0.725341796875
+            }
+          ]
+        },
+        {
+          "text": " are too, too light. Why, tease an office of discovery, love, and I should be obscured.",
+          "start": 5.31,
+          "end": 10.35,
+          "words": [
+            {
+              "text": " are",
+              "start": 5.31,
+              "end": 5.43,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " too,",
+              "start": 5.43,
+              "end": 5.59,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " too",
+              "start": 5.81,
+              "end": 5.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " light.",
+              "start": 5.81,
+              "end": 6.07,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Why,",
+              "start": 6.67,
+              "end": 6.93,
+              "probability": 0.982421875
+            },
+            {
+              "text": " tease",
+              "start": 7.27,
+              "end": 7.39,
+              "probability": 0.849609375
+            },
+            {
+              "text": " an",
+              "start": 7.39,
+              "end": 7.57,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " office",
+              "start": 7.57,
+              "end": 7.83,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " of",
+              "start": 7.83,
+              "end": 8.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " discovery,",
+              "start": 8.05,
+              "end": 8.45,
+              "probability": 0.947265625
+            },
+            {
+              "text": " love,",
+              "start": 8.91,
+              "end": 9.07,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " and",
+              "start": 9.45,
+              "end": 9.53,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " I",
+              "start": 9.53,
+              "end": 9.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " should",
+              "start": 9.67,
+              "end": 9.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 9.81,
+              "end": 9.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " obscured.",
+              "start": 9.95,
+              "end": 10.35,
+              "probability": 0.91748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jessica,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "What",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "must",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "hold",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "candle",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "to",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "shames?",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "raw": "They",
+          "start": 3.69,
+          "end": 3.81
+        },
+        {
+          "raw": "in",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.93,
+          "end": 4.43
+        },
+        {
+          "raw": "good",
+          "start": 4.79,
+          "end": 4.85
+        },
+        {
+          "raw": "soothe,",
+          "start": 4.85,
+          "end": 5.25
+        },
+        {
+          "raw": "are",
+          "start": 5.31,
+          "end": 5.43
+        },
+        {
+          "raw": "too,",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "raw": "too",
+          "start": 5.81,
+          "end": 5.81
+        },
+        {
+          "raw": "light.",
+          "start": 5.81,
+          "end": 6.07
+        },
+        {
+          "raw": "Why,",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "raw": "tease",
+          "start": 7.27,
+          "end": 7.39
+        },
+        {
+          "raw": "an",
+          "start": 7.39,
+          "end": 7.57
+        },
+        {
+          "raw": "office",
+          "start": 7.57,
+          "end": 7.83
+        },
+        {
+          "raw": "of",
+          "start": 7.83,
+          "end": 8.05
+        },
+        {
+          "raw": "discovery,",
+          "start": 8.05,
+          "end": 8.45
+        },
+        {
+          "raw": "love,",
+          "start": 8.91,
+          "end": 9.07
+        },
+        {
+          "raw": "and",
+          "start": 9.45,
+          "end": 9.53
+        },
+        {
+          "raw": "I",
+          "start": 9.53,
+          "end": 9.67
+        },
+        {
+          "raw": "should",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "raw": "be",
+          "start": 9.81,
+          "end": 9.95
+        },
+        {
+          "raw": "obscured.",
+          "start": 9.95,
+          "end": 10.35
+        }
+      ],
+      "expected_tokens": [
+        "JESSICA.",
+        "What!",
+        "must",
+        "I",
+        "hold",
+        "a",
+        "candle",
+        "to",
+        "my",
+        "shames?",
+        "They",
+        "in",
+        "themselves,",
+        "good",
+        "sooth,",
+        "are",
+        "too",
+        "too",
+        "light.",
+        "Why,",
+        "’tis",
+        "an",
+        "office",
+        "of",
+        "discovery,",
+        "love,",
+        "And",
+        "I",
+        "should",
+        "be",
+        "obscur’d."
+      ],
+      "acoustic_expected_tokens": [
+        "What!",
+        "must",
+        "I",
+        "hold",
+        "a",
+        "candle",
+        "to",
+        "my",
+        "shames?",
+        "They",
+        "in",
+        "themselves,",
+        "good",
+        "sooth,",
+        "are",
+        "too",
+        "too",
+        "light.",
+        "Why,",
+        "'tis",
+        "an",
+        "office",
+        "of",
+        "discovery,",
+        "love,",
+        "And",
+        "I",
+        "should",
+        "be",
+        "obscur'd."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          13,
+          1,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "equal",
+          14,
+          19,
+          15,
+          20
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ],
+        [
+          "equal",
+          20,
+          30,
+          21,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jessica,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "jessica",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "candle",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "candle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.17,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shames?",
+          "start": 2.57,
+          "end": 3.11,
+          "key": "shames",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 3.69,
+          "end": 3.81,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.81,
+          "end": 3.93,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.93,
+          "end": 4.43,
+          "key": "themselves",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.79,
+          "end": 4.85,
+          "key": "good",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soothe,",
+          "start": 4.85,
+          "end": 5.25,
+          "key": "soothe",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.31,
+          "end": 5.43,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 5.43,
+          "end": 5.59,
+          "key": "too",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 5.81,
+          "end": 5.81,
+          "key": "too",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "light.",
+          "start": 5.81,
+          "end": 6.07,
+          "key": "light",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 6.67,
+          "end": 6.93,
+          "key": "why",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 7.27,
+          "end": 7.39,
+          "key": "tease",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.39,
+          "end": 7.57,
+          "key": "an",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "office",
+          "start": 7.57,
+          "end": 7.83,
+          "key": "office",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.83,
+          "end": 8.05,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "discovery,",
+          "start": 8.05,
+          "end": 8.45,
+          "key": "discovery",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 8.91,
+          "end": 9.07,
+          "key": "love",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.45,
+          "end": 9.53,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.53,
+          "end": 9.67,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 9.67,
+          "end": 9.81,
+          "key": "should",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.81,
+          "end": 9.95,
+          "key": "be",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "obscured.",
+          "start": 9.95,
+          "end": 10.35,
+          "key": "obscured",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "JESSICA.",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "text": "What!",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "must",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "I",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "hold",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "a",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "candle",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "to",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "text": "my",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "shames?",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "text": "They",
+          "start": 3.69,
+          "end": 3.81
+        },
+        {
+          "text": "in",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "themselves,",
+          "start": 3.93,
+          "end": 4.43
+        },
+        {
+          "text": "good",
+          "start": 4.79,
+          "end": 4.85
+        },
+        {
+          "text": "sooth,",
+          "start": 4.85,
+          "end": 5.08
+        },
+        {
+          "text": "are",
+          "start": 5.31,
+          "end": 5.43
+        },
+        {
+          "text": "too",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "text": "too",
+          "start": 5.81,
+          "end": 5.81
+        },
+        {
+          "text": "light.",
+          "start": 5.81,
+          "end": 6.07
+        },
+        {
+          "text": "Why,",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "text": "’tis",
+          "start": 6.93,
+          "end": 7.16
+        },
+        {
+          "text": "an",
+          "start": 7.39,
+          "end": 7.57
+        },
+        {
+          "text": "office",
+          "start": 7.57,
+          "end": 7.83
+        },
+        {
+          "text": "of",
+          "start": 7.83,
+          "end": 8.05
+        },
+        {
+          "text": "discovery,",
+          "start": 8.05,
+          "end": 8.45
+        },
+        {
+          "text": "love,",
+          "start": 8.91,
+          "end": 9.07
+        },
+        {
+          "text": "And",
+          "start": 9.45,
+          "end": 9.53
+        },
+        {
+          "text": "I",
+          "start": 9.53,
+          "end": 9.67
+        },
+        {
+          "text": "should",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "text": "be",
+          "start": 9.81,
+          "end": 9.95
+        },
+        {
+          "text": "obscur’d.",
+          "start": 9.95,
+          "end": 10.35
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 31,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.35669124498963356
+    },
+    {
+      "asr_seconds": 0.38717636838555336,
+      "alignment_seconds": 0.001298738643527031,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jessica, what must I hold a candle to my shames?",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Jessica,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.21630859375
+            },
+            {
+              "text": " what",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " must",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hold",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " candle",
+              "start": 1.93,
+              "end": 2.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " my",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shames?",
+              "start": 2.57,
+              "end": 3.11,
+              "probability": 0.96630859375
+            }
+          ]
+        },
+        {
+          "text": " They in themselves, good soothe, are too, too light.",
+          "start": 3.71,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " They",
+              "start": 3.71,
+              "end": 3.81,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " in",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " themselves,",
+              "start": 3.93,
+              "end": 4.43,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " good",
+              "start": 4.79,
+              "end": 4.87,
+              "probability": 0.4833984375
+            },
+            {
+              "text": " soothe,",
+              "start": 4.87,
+              "end": 5.25,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " are",
+              "start": 5.29,
+              "end": 5.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " too,",
+              "start": 5.43,
+              "end": 5.59,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " too",
+              "start": 5.81,
+              "end": 5.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " light.",
+              "start": 5.81,
+              "end": 6.07,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " Why, tease an office of discovery, love, and I should be obscured.",
+          "start": 6.67,
+          "end": 10.35,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 6.67,
+              "end": 6.93,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " tease",
+              "start": 7.41,
+              "end": 7.41,
+              "probability": 0.90234375
+            },
+            {
+              "text": " an",
+              "start": 7.41,
+              "end": 7.57,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " office",
+              "start": 7.57,
+              "end": 7.83,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 7.83,
+              "end": 8.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " discovery,",
+              "start": 8.03,
+              "end": 8.51,
+              "probability": 0.9765625
+            },
+            {
+              "text": " love,",
+              "start": 8.93,
+              "end": 9.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 9.45,
+              "end": 9.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 9.53,
+              "end": 9.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " should",
+              "start": 9.67,
+              "end": 9.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 9.81,
+              "end": 9.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " obscured.",
+              "start": 9.95,
+              "end": 10.35,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jessica,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "must",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "hold",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "candle",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "shames?",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "raw": "They",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "raw": "in",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.93,
+          "end": 4.43
+        },
+        {
+          "raw": "good",
+          "start": 4.79,
+          "end": 4.87
+        },
+        {
+          "raw": "soothe,",
+          "start": 4.87,
+          "end": 5.25
+        },
+        {
+          "raw": "are",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "raw": "too,",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "raw": "too",
+          "start": 5.81,
+          "end": 5.81
+        },
+        {
+          "raw": "light.",
+          "start": 5.81,
+          "end": 6.07
+        },
+        {
+          "raw": "Why,",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "raw": "tease",
+          "start": 7.41,
+          "end": 7.41
+        },
+        {
+          "raw": "an",
+          "start": 7.41,
+          "end": 7.57
+        },
+        {
+          "raw": "office",
+          "start": 7.57,
+          "end": 7.83
+        },
+        {
+          "raw": "of",
+          "start": 7.83,
+          "end": 8.03
+        },
+        {
+          "raw": "discovery,",
+          "start": 8.03,
+          "end": 8.51
+        },
+        {
+          "raw": "love,",
+          "start": 8.93,
+          "end": 9.07
+        },
+        {
+          "raw": "and",
+          "start": 9.45,
+          "end": 9.53
+        },
+        {
+          "raw": "I",
+          "start": 9.53,
+          "end": 9.67
+        },
+        {
+          "raw": "should",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "raw": "be",
+          "start": 9.81,
+          "end": 9.95
+        },
+        {
+          "raw": "obscured.",
+          "start": 9.95,
+          "end": 10.35
+        }
+      ],
+      "expected_tokens": [
+        "JESSICA.",
+        "What!",
+        "must",
+        "I",
+        "hold",
+        "a",
+        "candle",
+        "to",
+        "my",
+        "shames?",
+        "They",
+        "in",
+        "themselves,",
+        "good",
+        "sooth,",
+        "are",
+        "too",
+        "too",
+        "light.",
+        "Why,",
+        "’tis",
+        "an",
+        "office",
+        "of",
+        "discovery,",
+        "love,",
+        "And",
+        "I",
+        "should",
+        "be",
+        "obscur’d."
+      ],
+      "acoustic_expected_tokens": [
+        "What!",
+        "must",
+        "I",
+        "hold",
+        "a",
+        "candle",
+        "to",
+        "my",
+        "shames?",
+        "They",
+        "in",
+        "themselves,",
+        "good",
+        "sooth,",
+        "are",
+        "too",
+        "too",
+        "light.",
+        "Why,",
+        "'tis",
+        "an",
+        "office",
+        "of",
+        "discovery,",
+        "love,",
+        "And",
+        "I",
+        "should",
+        "be",
+        "obscur'd."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          13,
+          1,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "equal",
+          14,
+          19,
+          15,
+          20
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ],
+        [
+          "equal",
+          20,
+          30,
+          21,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "replace",
+          19,
+          20,
+          20,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jessica,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "jessica",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.17,
+          "end": 1.45,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "candle",
+          "start": 1.93,
+          "end": 2.19,
+          "key": "candle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shames?",
+          "start": 2.57,
+          "end": 3.11,
+          "key": "shames",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 3.71,
+          "end": 3.81,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.81,
+          "end": 3.93,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.93,
+          "end": 4.43,
+          "key": "themselves",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.79,
+          "end": 4.87,
+          "key": "good",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soothe,",
+          "start": 4.87,
+          "end": 5.25,
+          "key": "soothe",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.29,
+          "end": 5.43,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 5.43,
+          "end": 5.59,
+          "key": "too",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 5.81,
+          "end": 5.81,
+          "key": "too",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "light.",
+          "start": 5.81,
+          "end": 6.07,
+          "key": "light",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 6.67,
+          "end": 6.93,
+          "key": "why",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 7.41,
+          "end": 7.41,
+          "key": "tease",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.41,
+          "end": 7.57,
+          "key": "an",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "office",
+          "start": 7.57,
+          "end": 7.83,
+          "key": "office",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.83,
+          "end": 8.03,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "discovery,",
+          "start": 8.03,
+          "end": 8.51,
+          "key": "discovery",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 8.93,
+          "end": 9.07,
+          "key": "love",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.45,
+          "end": 9.53,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.53,
+          "end": 9.67,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 9.67,
+          "end": 9.81,
+          "key": "should",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.81,
+          "end": 9.95,
+          "key": "be",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "obscured.",
+          "start": 9.95,
+          "end": 10.35,
+          "key": "obscured",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "JESSICA.",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "text": "What!",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "must",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "hold",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "a",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "candle",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "my",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "shames?",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "text": "They",
+          "start": 3.71,
+          "end": 3.81
+        },
+        {
+          "text": "in",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "themselves,",
+          "start": 3.93,
+          "end": 4.43
+        },
+        {
+          "text": "good",
+          "start": 4.79,
+          "end": 4.87
+        },
+        {
+          "text": "sooth,",
+          "start": 4.87,
+          "end": 5.08
+        },
+        {
+          "text": "are",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "text": "too",
+          "start": 5.43,
+          "end": 5.59
+        },
+        {
+          "text": "too",
+          "start": 5.81,
+          "end": 5.81
+        },
+        {
+          "text": "light.",
+          "start": 5.81,
+          "end": 6.07
+        },
+        {
+          "text": "Why,",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "text": "’tis",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "text": "an",
+          "start": 7.41,
+          "end": 7.57
+        },
+        {
+          "text": "office",
+          "start": 7.57,
+          "end": 7.83
+        },
+        {
+          "text": "of",
+          "start": 7.83,
+          "end": 8.03
+        },
+        {
+          "text": "discovery,",
+          "start": 8.03,
+          "end": 8.51
+        },
+        {
+          "text": "love,",
+          "start": 8.93,
+          "end": 9.07
+        },
+        {
+          "text": "And",
+          "start": 9.45,
+          "end": 9.53
+        },
+        {
+          "text": "I",
+          "start": 9.53,
+          "end": 9.67
+        },
+        {
+          "text": "should",
+          "start": 9.67,
+          "end": 9.81
+        },
+        {
+          "text": "be",
+          "start": 9.81,
+          "end": 9.95
+        },
+        {
+          "text": "obscur’d.",
+          "start": 9.95,
+          "end": 10.35
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 31,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.38861176557838917
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ee925189691ca87e28c8eeb3958e7700188a9d3d5b34d9f6a9d1f7683e03672c",
+  "selected_reasons": []
+}

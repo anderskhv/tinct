@@ -1,0 +1,560 @@
+{
+  "complete": true,
+  "signature": "0d541812ac8b49ff3a56cc25dbcded0f181e0a886c114cb1af902bd2c1f0839f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1895860731601715,
+      "alignment_seconds": 0.0007255729287862778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Natásha, I have asked you not to speak of that. Let us talk about you.\"",
+        "hotwords": "Natásha, I, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Natásha, I have asked you not to speak of that. Let us talk about you.",
+          "start": 0.0,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Natásha,",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.011255900065104166
+            },
+            {
+              "text": " I",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " have",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " asked",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " speak",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that.",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Let",
+              "start": 3.48,
+              "end": 3.66,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " us",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " talk",
+              "start": 3.8,
+              "end": 4.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 4.0,
+              "end": 4.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you.",
+              "start": 4.28,
+              "end": 4.56,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Natásha,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "have",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "asked",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "not",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "speak",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "of",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "that.",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "Let",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "raw": "us",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "talk",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "raw": "about",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "raw": "you.",
+          "start": 4.28,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "“Natásha,",
+        "I",
+        "have",
+        "asked",
+        "you",
+        "not",
+        "to",
+        "speak",
+        "of",
+        "that.",
+        "Let",
+        "us",
+        "talk",
+        "about",
+        "you.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Natásha,",
+        "I",
+        "have",
+        "asked",
+        "you",
+        "not",
+        "to",
+        "speak",
+        "of",
+        "that.",
+        "Let",
+        "us",
+        "talk",
+        "about",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Natásha,",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "natásha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "speak",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.48,
+          "end": 3.66,
+          "key": "let",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "us",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 3.8,
+          "end": 4.0,
+          "key": "talk",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.0,
+          "end": 4.28,
+          "key": "about",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.28,
+          "end": 4.56,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Natásha,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "have",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "text": "asked",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "you",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "not",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "speak",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "of",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "that.",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "Let",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "text": "us",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "talk",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "text": "about",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "text": "you.”",
+          "start": 4.28,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19040681794285774
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8fb61562c7eca2d0018c3a86a4d099c0dd79acd58d90af3afebd00ae618e72a3",
+  "selected_reasons": []
+}

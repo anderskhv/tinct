@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "6cac500c35aa54ab4319038f0ddfa24be7074edc53a7cfdff37759f7305ec08c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1925946269184351,
+      "alignment_seconds": 0.000659506767988205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The keeper of the prison, call to him; Let him have knowledge who I am.",
+        "hotwords": "Let, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paulina, The keeper of the prison, call to him. Let him have knowledge who I am.",
+          "start": 0.05,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " Paulina,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " The",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.033050537109375
+            },
+            {
+              "text": " keeper",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " of",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 1.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " prison,",
+              "start": 1.93,
+              "end": 2.21,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " call",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " to",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him.",
+              "start": 2.79,
+              "end": 3.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Let",
+              "start": 3.41,
+              "end": 3.51,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " him",
+              "start": 3.51,
+              "end": 3.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 3.63,
+              "end": 3.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " knowledge",
+              "start": 3.81,
+              "end": 4.09,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " who",
+              "start": 4.09,
+              "end": 4.41,
+              "probability": 0.923828125
+            },
+            {
+              "text": " I",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " am.",
+              "start": 4.57,
+              "end": 4.87,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "keeper",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "of",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "raw": "prison,",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "raw": "call",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "him.",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "raw": "Let",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "raw": "him",
+          "start": 3.51,
+          "end": 3.63
+        },
+        {
+          "raw": "have",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "raw": "knowledge",
+          "start": 3.81,
+          "end": 4.09
+        },
+        {
+          "raw": "who",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "raw": "I",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "am.",
+          "start": 4.57,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "PAULINA.",
+        "The",
+        "keeper",
+        "of",
+        "the",
+        "prison,",
+        "call",
+        "to",
+        "him;",
+        "Let",
+        "him",
+        "have",
+        "knowledge",
+        "who",
+        "I",
+        "am."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "keeper",
+        "of",
+        "the",
+        "prison,",
+        "call",
+        "to",
+        "him;",
+        "Let",
+        "him",
+        "have",
+        "knowledge",
+        "who",
+        "I",
+        "am."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          15,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "keeper",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "keeper",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.93,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prison,",
+          "start": 1.93,
+          "end": 2.21,
+          "key": "prison",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 2.45,
+          "end": 2.57,
+          "key": "call",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.57,
+          "end": 2.79,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.79,
+          "end": 3.05,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.41,
+          "end": 3.51,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.51,
+          "end": 3.63,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.63,
+          "end": 3.81,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "knowledge",
+          "start": 3.81,
+          "end": 4.09,
+          "key": "knowledge",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.09,
+          "end": 4.41,
+          "key": "who",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.41,
+          "end": 4.57,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 4.57,
+          "end": 4.87,
+          "key": "am",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PAULINA.",
+          "start": 1.29,
+          "end": 1.29
+        },
+        {
+          "text": "The",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "keeper",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "of",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "text": "prison,",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "text": "call",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "to",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "him;",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "text": "Let",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "text": "him",
+          "start": 3.51,
+          "end": 3.63
+        },
+        {
+          "text": "have",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "text": "knowledge",
+          "start": 3.81,
+          "end": 4.09
+        },
+        {
+          "text": "who",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "text": "I",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "am.",
+          "start": 4.57,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19334209151566029
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9fa46db73afaf2da0b0a98c5b2a31054d1596fa301c83cfced4288cb3230a2e0",
+  "selected_reasons": []
+}

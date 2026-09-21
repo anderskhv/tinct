@@ -1,0 +1,1161 @@
+{
+  "complete": true,
+  "signature": "589424cae28d66eaa5d8c5faaf008a1c2e6b239132d2bc0a5917f94643a0e0ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.31085933931171894,
+      "alignment_seconds": 0.0013360679149627686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "When everybody rose to go, Hélène who had spoken very little all the evening again turned to Borís, asking him in a tone of caressing significant command to come to her on Tuesday.",
+        "hotwords": "When, Hélène, Borís, Tuesday"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " When everybody rose to go, Hélène who had spoken very little all the evening again turned",
+          "start": 0.0,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " everybody",
+              "start": 0.36,
+              "end": 0.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " rose",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go,",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Hélène",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.733673095703125
+            },
+            {
+              "text": " who",
+              "start": 1.98,
+              "end": 2.12,
+              "probability": 0.3525390625
+            },
+            {
+              "text": " had",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " spoken",
+              "start": 2.28,
+              "end": 2.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " very",
+              "start": 2.56,
+              "end": 2.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " little",
+              "start": 2.98,
+              "end": 3.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " evening",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again",
+              "start": 3.94,
+              "end": 4.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " turned",
+              "start": 4.26,
+              "end": 4.52,
+              "probability": 0.9443359375
+            }
+          ]
+        },
+        {
+          "text": " to Borís, asking him in a tone of caressing significant command to come to her on Tuesday.",
+          "start": 4.52,
+          "end": 8.92,
+          "words": [
+            {
+              "text": " to",
+              "start": 4.52,
+              "end": 4.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Borís,",
+              "start": 4.74,
+              "end": 5.14,
+              "probability": 0.0005376338958740234
+            },
+            {
+              "text": " asking",
+              "start": 5.44,
+              "end": 5.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 5.64,
+              "end": 5.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 5.9,
+              "end": 6.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 6.02,
+              "end": 6.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tone",
+              "start": 6.12,
+              "end": 6.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 6.34,
+              "end": 6.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caressing",
+              "start": 6.48,
+              "end": 6.8,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " significant",
+              "start": 6.8,
+              "end": 7.34,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " command",
+              "start": 7.34,
+              "end": 7.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 7.76,
+              "end": 7.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come",
+              "start": 7.94,
+              "end": 8.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 8.08,
+              "end": 8.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 8.22,
+              "end": 8.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 8.42,
+              "end": 8.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Tuesday.",
+              "start": 8.58,
+              "end": 8.92,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "everybody",
+          "start": 0.36,
+          "end": 0.72
+        },
+        {
+          "raw": "rose",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "go,",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "Hélène",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "who",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "raw": "had",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "spoken",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "raw": "very",
+          "start": 2.56,
+          "end": 2.98
+        },
+        {
+          "raw": "little",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "raw": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "evening",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "again",
+          "start": 3.94,
+          "end": 4.26
+        },
+        {
+          "raw": "turned",
+          "start": 4.26,
+          "end": 4.52
+        },
+        {
+          "raw": "to",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "raw": "Borís,",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "raw": "asking",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "raw": "him",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "raw": "in",
+          "start": 5.9,
+          "end": 6.02
+        },
+        {
+          "raw": "a",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "raw": "tone",
+          "start": 6.12,
+          "end": 6.34
+        },
+        {
+          "raw": "of",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "raw": "caressing",
+          "start": 6.48,
+          "end": 6.8
+        },
+        {
+          "raw": "significant",
+          "start": 6.8,
+          "end": 7.34
+        },
+        {
+          "raw": "command",
+          "start": 7.34,
+          "end": 7.76
+        },
+        {
+          "raw": "to",
+          "start": 7.76,
+          "end": 7.94
+        },
+        {
+          "raw": "come",
+          "start": 7.94,
+          "end": 8.08
+        },
+        {
+          "raw": "to",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "raw": "her",
+          "start": 8.22,
+          "end": 8.42
+        },
+        {
+          "raw": "on",
+          "start": 8.42,
+          "end": 8.58
+        },
+        {
+          "raw": "Tuesday.",
+          "start": 8.58,
+          "end": 8.92
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "everybody",
+        "rose",
+        "to",
+        "go,",
+        "Hélène",
+        "who",
+        "had",
+        "spoken",
+        "very",
+        "little",
+        "all",
+        "the",
+        "evening",
+        "again",
+        "turned",
+        "to",
+        "Borís,",
+        "asking",
+        "him",
+        "in",
+        "a",
+        "tone",
+        "of",
+        "caressing",
+        "significant",
+        "command",
+        "to",
+        "come",
+        "to",
+        "her",
+        "on",
+        "Tuesday."
+      ],
+      "acoustic_expected_tokens": [
+        "When",
+        "everybody",
+        "rose",
+        "to",
+        "go,",
+        "Hélène",
+        "who",
+        "had",
+        "spoken",
+        "very",
+        "little",
+        "all",
+        "the",
+        "evening",
+        "again",
+        "turned",
+        "to",
+        "Borís,",
+        "asking",
+        "him",
+        "in",
+        "a",
+        "tone",
+        "of",
+        "caressing",
+        "significant",
+        "command",
+        "to",
+        "come",
+        "to",
+        "her",
+        "on",
+        "Tuesday."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "everybody",
+          "start": 0.36,
+          "end": 0.72,
+          "key": "everybody",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 0.72,
+          "end": 1.04,
+          "key": "rose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Hélène",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "hélène",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.98,
+          "end": 2.12,
+          "key": "who",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "had",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "spoken",
+          "start": 2.28,
+          "end": 2.56,
+          "key": "spoken",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.56,
+          "end": 2.98,
+          "key": "very",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.98,
+          "end": 3.28,
+          "key": "little",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.28,
+          "end": 3.54,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "evening",
+          "start": 3.68,
+          "end": 3.94,
+          "key": "evening",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 3.94,
+          "end": 4.26,
+          "key": "again",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.26,
+          "end": 4.52,
+          "key": "turned",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.52,
+          "end": 4.74,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Borís,",
+          "start": 4.74,
+          "end": 5.14,
+          "key": "borís",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "asking",
+          "start": 5.44,
+          "end": 5.64,
+          "key": "asking",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.64,
+          "end": 5.9,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.9,
+          "end": 6.02,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.02,
+          "end": 6.12,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "tone",
+          "start": 6.12,
+          "end": 6.34,
+          "key": "tone",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.34,
+          "end": 6.48,
+          "key": "of",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "caressing",
+          "start": 6.48,
+          "end": 6.8,
+          "key": "caressing",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "significant",
+          "start": 6.8,
+          "end": 7.34,
+          "key": "significant",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "command",
+          "start": 7.34,
+          "end": 7.76,
+          "key": "command",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.76,
+          "end": 7.94,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 7.94,
+          "end": 8.08,
+          "key": "come",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.08,
+          "end": 8.22,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.22,
+          "end": 8.42,
+          "key": "her",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 8.42,
+          "end": 8.58,
+          "key": "on",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Tuesday.",
+          "start": 8.58,
+          "end": 8.92,
+          "key": "tuesday",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "everybody",
+          "start": 0.36,
+          "end": 0.72
+        },
+        {
+          "text": "rose",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "to",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "go,",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "Hélène",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "who",
+          "start": 1.98,
+          "end": 2.12
+        },
+        {
+          "text": "had",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "spoken",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "text": "very",
+          "start": 2.56,
+          "end": 2.98
+        },
+        {
+          "text": "little",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "text": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "evening",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "text": "again",
+          "start": 3.94,
+          "end": 4.26
+        },
+        {
+          "text": "turned",
+          "start": 4.26,
+          "end": 4.52
+        },
+        {
+          "text": "to",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "text": "Borís,",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "text": "asking",
+          "start": 5.44,
+          "end": 5.64
+        },
+        {
+          "text": "him",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "text": "in",
+          "start": 5.9,
+          "end": 6.02
+        },
+        {
+          "text": "a",
+          "start": 6.02,
+          "end": 6.12
+        },
+        {
+          "text": "tone",
+          "start": 6.12,
+          "end": 6.34
+        },
+        {
+          "text": "of",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "text": "caressing",
+          "start": 6.48,
+          "end": 6.8
+        },
+        {
+          "text": "significant",
+          "start": 6.8,
+          "end": 7.34
+        },
+        {
+          "text": "command",
+          "start": 7.34,
+          "end": 7.76
+        },
+        {
+          "text": "to",
+          "start": 7.76,
+          "end": 7.94
+        },
+        {
+          "text": "come",
+          "start": 7.94,
+          "end": 8.08
+        },
+        {
+          "text": "to",
+          "start": 8.08,
+          "end": 8.22
+        },
+        {
+          "text": "her",
+          "start": 8.22,
+          "end": 8.42
+        },
+        {
+          "text": "on",
+          "start": 8.42,
+          "end": 8.58
+        },
+        {
+          "text": "Tuesday.",
+          "start": 8.58,
+          "end": 8.92
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3123457785695791
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7efb88e661934e986796aa62982031076a5cea301131df09ce6e8e09d21e4ed7",
+  "selected_reasons": []
+}

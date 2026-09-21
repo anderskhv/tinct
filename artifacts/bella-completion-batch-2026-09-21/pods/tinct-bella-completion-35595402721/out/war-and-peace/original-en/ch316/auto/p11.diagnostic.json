@@ -1,0 +1,1876 @@
+{
+  "complete": true,
+  "signature": "59ec50952ac0beed61cc674f367713c3161551180b43d116fbbdbcc288ff30ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.42796879447996616,
+      "alignment_seconds": 0.001056041568517685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* \"From the sublime to the ridiculous is but a step.\"",
+        "hotwords": "From"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " asterisk from the sublime to the ridiculous is but a step",
+          "start": 0.0,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.57281494140625
+            },
+            {
+              "text": " from",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.841796875
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " sublime",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ridiculous",
+              "start": 1.6,
+              "end": 2.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " but",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " step",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " asterisk from the sublime to the ridiculous is but a step",
+          "start": 2.86,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 2.86,
+              "end": 2.94,
+              "probability": 0.43530339002609253
+            },
+            {
+              "text": " from",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.0014295578002929688
+            },
+            {
+              "text": " the",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.347900390625
+            },
+            {
+              "text": " sublime",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 7.748603820800781e-07
+            },
+            {
+              "text": " to",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.00580596923828125
+            },
+            {
+              "text": " the",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " ridiculous",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 1.043081283569336e-05
+            },
+            {
+              "text": " is",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.0011444091796875
+            },
+            {
+              "text": " but",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.00019633769989013672
+            },
+            {
+              "text": " a",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.0169677734375
+            },
+            {
+              "text": " step",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.001148223876953125
+            }
+          ]
+        },
+        {
+          "text": " asterisk from the sublime to the ridiculous is but a step asterisk from the sublime to",
+          "start": 2.94,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 2.94,
+              "end": 3.78,
+              "probability": 0.39038321375846863
+            },
+            {
+              "text": " from",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.0009341239929199219
+            },
+            {
+              "text": " the",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.298583984375
+            },
+            {
+              "text": " sublime",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 1.8477439880371094e-06
+            },
+            {
+              "text": " to",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.005550384521484375
+            },
+            {
+              "text": " the",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.52001953125
+            },
+            {
+              "text": " ridiculous",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 1.4901161193847656e-05
+            },
+            {
+              "text": " is",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.0013294219970703125
+            },
+            {
+              "text": " but",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.00020647048950195312
+            },
+            {
+              "text": " a",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.0251922607421875
+            },
+            {
+              "text": " step",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.0007262229919433594
+            },
+            {
+              "text": " asterisk",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.4980481266975403
+            },
+            {
+              "text": " from",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.289794921875
+            },
+            {
+              "text": " the",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " sublime",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.056671142578125
+            },
+            {
+              "text": " to",
+              "start": 3.78,
+              "end": 3.78,
+              "probability": 0.2939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "from",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "sublime",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "ridiculous",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "step",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "asterisk",
+          "start": 2.86,
+          "end": 2.94
+        },
+        {
+          "raw": "from",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "the",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "sublime",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "the",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "ridiculous",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "is",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "but",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "a",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "step",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "asterisk",
+          "start": 2.94,
+          "end": 3.78
+        },
+        {
+          "raw": "from",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "sublime",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "to",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "ridiculous",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "is",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "but",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "a",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "step",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "asterisk",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "from",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "sublime",
+          "start": 3.78,
+          "end": 3.78
+        },
+        {
+          "raw": "to",
+          "start": 3.78,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“From",
+        "the",
+        "sublime",
+        "to",
+        "the",
+        "ridiculous",
+        "is",
+        "but",
+        "a",
+        "step.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"From",
+        "the",
+        "sublime",
+        "to",
+        "the",
+        "ridiculous",
+        "is",
+        "but",
+        "a",
+        "step.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ],
+        [
+          "insert",
+          11,
+          11,
+          11,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          11,
+          11,
+          11,
+          38
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sublime",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "sublime",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ridiculous",
+          "start": 1.6,
+          "end": 2.02,
+          "key": "ridiculous",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "step",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "asterisk",
+          "start": 2.86,
+          "end": 2.94,
+          "key": "asterisk",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "from",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sublime",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "sublime",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ridiculous",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "ridiculous",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "step",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "asterisk",
+          "start": 2.94,
+          "end": 3.78,
+          "key": "asterisk",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "from",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "sublime",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "sublime",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "ridiculous",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "ridiculous",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "is",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "but",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "a",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "step",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "asterisk",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "asterisk",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "from",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "sublime",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "sublime",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.78,
+          "end": 3.78,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "“From",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "sublime",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "ridiculous",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "text": "is",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "a",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "step.”",
+          "start": 2.58,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 38,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.4293451625853777
+    },
+    {
+      "asr_seconds": 0.14526886865496635,
+      "alignment_seconds": 0.0008062124252319336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "From"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Asterisk from the sublime to the ridiculous is but a step",
+          "start": 0.0,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.62274169921875
+            },
+            {
+              "text": " from",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " sublime",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " to",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ridiculous",
+              "start": 1.6,
+              "end": 2.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.986328125
+            },
+            {
+              "text": " but",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " step",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "from",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "sublime",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "ridiculous",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "step",
+          "start": 2.6,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“From",
+        "the",
+        "sublime",
+        "to",
+        "the",
+        "ridiculous",
+        "is",
+        "but",
+        "a",
+        "step.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"From",
+        "the",
+        "sublime",
+        "to",
+        "the",
+        "ridiculous",
+        "is",
+        "but",
+        "a",
+        "step.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sublime",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "sublime",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ridiculous",
+          "start": 1.6,
+          "end": 2.02,
+          "key": "ridiculous",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 2.6,
+          "end": 2.84,
+          "key": "step",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "“From",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "sublime",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "ridiculous",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "text": "is",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "a",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "step.”",
+          "start": 2.6,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.14617912098765373
+    },
+    {
+      "asr_seconds": 0.15566980093717575,
+      "alignment_seconds": 0.0009980425238609314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk from the sublime to the ridiculous is but a step.",
+          "start": 0.0,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.62274169921875
+            },
+            {
+              "text": " from",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " sublime",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " to",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ridiculous",
+              "start": 1.6,
+              "end": 2.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.986328125
+            },
+            {
+              "text": " but",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " step.",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "from",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "sublime",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "ridiculous",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "raw": "is",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "step.",
+          "start": 2.6,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“From",
+        "the",
+        "sublime",
+        "to",
+        "the",
+        "ridiculous",
+        "is",
+        "but",
+        "a",
+        "step.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"From",
+        "the",
+        "sublime",
+        "to",
+        "the",
+        "ridiculous",
+        "is",
+        "but",
+        "a",
+        "step.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sublime",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "sublime",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ridiculous",
+          "start": 1.6,
+          "end": 2.0,
+          "key": "ridiculous",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.0,
+          "end": 2.32,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "step.",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "step",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "“From",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "sublime",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "ridiculous",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "text": "is",
+          "start": 2.0,
+          "end": 2.32
+        },
+        {
+          "text": "but",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "a",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "step.”",
+          "start": 2.6,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.15679940022528172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5d87d247e4976bf5e9484a4aeb13a32489fd3af7b02f98ec25a1df5c965f09b",
+  "selected_reasons": []
+}

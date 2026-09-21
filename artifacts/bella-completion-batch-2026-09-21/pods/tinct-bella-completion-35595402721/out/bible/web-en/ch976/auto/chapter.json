@@ -1,0 +1,20 @@
+{
+  "key": "bible/web-en/ch976",
+  "group": "alignment",
+  "mode": "auto",
+  "status": "rejected",
+  "reasons": [
+    {
+      "paragraph": 5,
+      "reasons": [
+        "processing_invariant_error"
+      ]
+    }
+  ],
+  "paragraphs": [],
+  "processing_error": {
+    "paragraph": 5,
+    "type": "ValueError",
+    "message": "source/acoustic token mapping changed: source=105 acoustic=100 aligned=0"
+  }
+}

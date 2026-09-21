@@ -1,0 +1,368 @@
+{
+  "complete": true,
+  "signature": "6aaa129f29715e80f435d85361a621a93427663c8a3ae51e11ade7002a76c814",
+  "attempts": [
+    {
+      "asr_seconds": 0.1715799793601036,
+      "alignment_seconds": 0.0008591450750827789,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And, madam, I must be present at your conference.",
+        "hotwords": "And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And, madam, I must be present at your conference.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " And,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.009857177734375
+            },
+            {
+              "text": " madam,",
+              "start": 0.71,
+              "end": 1.81,
+              "probability": 0.6539306640625
+            },
+            {
+              "text": " I",
+              "start": 2.01,
+              "end": 2.07,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " must",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " present",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " your",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " conference.",
+              "start": 2.97,
+              "end": 3.43,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "madam,",
+          "start": 0.71,
+          "end": 1.81
+        },
+        {
+          "raw": "I",
+          "start": 2.01,
+          "end": 2.07
+        },
+        {
+          "raw": "must",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "be",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "present",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "at",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "your",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "conference.",
+          "start": 2.97,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "GAOLER.",
+        "And,",
+        "madam,",
+        "I",
+        "must",
+        "be",
+        "present",
+        "at",
+        "your",
+        "conference."
+      ],
+      "acoustic_expected_tokens": [
+        "And,",
+        "madam,",
+        "I",
+        "must",
+        "be",
+        "present",
+        "at",
+        "your",
+        "conference."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 0.71,
+          "end": 1.81,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.01,
+          "end": 2.07,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 2.45,
+          "end": 2.69,
+          "key": "present",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "conference.",
+          "start": 2.97,
+          "end": 3.43,
+          "key": "conference",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "GAOLER.",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "And,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "madam,",
+          "start": 0.71,
+          "end": 1.81
+        },
+        {
+          "text": "I",
+          "start": 2.01,
+          "end": 2.07
+        },
+        {
+          "text": "must",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "be",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "present",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "at",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "your",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "conference.",
+          "start": 2.97,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1725500524044037
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b388a8db259c95a7189fba412c0fc939f908f9de9104c8ba2234b440b16b435b",
+  "selected_reasons": []
+}

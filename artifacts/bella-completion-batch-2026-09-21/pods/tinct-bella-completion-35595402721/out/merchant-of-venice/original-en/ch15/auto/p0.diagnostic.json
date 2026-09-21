@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "e12242f1f987eb6a91b1de98d84428a31abecd6c2040b5f64b2aed86d57fa9a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13974059000611305,
+      "alignment_seconds": 0.00032965652644634247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Shylock, Salarino, Antonio and Gaoler.",
+        "hotwords": "Enter, Shylock, Salarino, Antonio, Gaoler"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Shylock, Salarino, Antonio and Gaoler.",
+          "start": 0.11,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Shylock,",
+              "start": 0.65,
+              "end": 1.21,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " Salarino,",
+              "start": 1.63,
+              "end": 2.07,
+              "probability": 0.6310221354166666
+            },
+            {
+              "text": " Antonio",
+              "start": 2.21,
+              "end": 2.53,
+              "probability": 0.92578125
+            },
+            {
+              "text": " and",
+              "start": 2.53,
+              "end": 2.93,
+              "probability": 0.386474609375
+            },
+            {
+              "text": " Gaoler.",
+              "start": 2.93,
+              "end": 3.29,
+              "probability": 0.031707763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Shylock,",
+          "start": 0.65,
+          "end": 1.21
+        },
+        {
+          "raw": "Salarino,",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "raw": "Antonio",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "raw": "and",
+          "start": 2.53,
+          "end": 2.93
+        },
+        {
+          "raw": "Gaoler.",
+          "start": 2.93,
+          "end": 3.29
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Shylock,",
+        "Salarino,",
+        "Antonio",
+        "and",
+        "Gaoler."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Shylock,",
+        "Salarino,",
+        "Antonio",
+        "and",
+        "Gaoler."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shylock,",
+          "start": 0.65,
+          "end": 1.21,
+          "key": "shylock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Salarino,",
+          "start": 1.63,
+          "end": 2.07,
+          "key": "salarino",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 2.21,
+          "end": 2.53,
+          "key": "antonio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.53,
+          "end": 2.93,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Gaoler.",
+          "start": 2.93,
+          "end": 3.29,
+          "key": "gaoler",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Shylock,",
+          "start": 0.65,
+          "end": 1.21
+        },
+        {
+          "text": "Salarino,",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "text": "Antonio",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "text": "and",
+          "start": 2.53,
+          "end": 2.93
+        },
+        {
+          "text": "Gaoler.",
+          "start": 2.93,
+          "end": 3.29
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14011714607477188
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "14e3942fb9b2da301c13f3d0c7926f29e5ffcff946fa22cf9be958e1356c1aa2",
+  "selected_reasons": []
+}

@@ -1,0 +1,1399 @@
+{
+  "complete": true,
+  "signature": "d891d37e8a7bdc7aa41856d5847d2b647dc0c5b958a16ce1f2428b2cf94622b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.41836066730320454,
+      "alignment_seconds": 0.0016773566603660583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The general in charge of the stores galloped after the carriage with a red and frightened face, whipping up his skinny horse. Several officers formed a group and some soldiers crowded round them. Their faces all looked excited and worried.",
+        "hotwords": "Several, Their"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The general in charge of the stores galloped after the carriage with a red and frightened face,",
+          "start": 0.0,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " general",
+              "start": 0.32,
+              "end": 0.64,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " in",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " charge",
+              "start": 0.92,
+              "end": 1.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " stores",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " galloped",
+              "start": 1.72,
+              "end": 2.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " after",
+              "start": 2.08,
+              "end": 2.34,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " carriage",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.0,
+              "end": 3.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " red",
+              "start": 3.12,
+              "end": 3.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.34,
+              "end": 3.52,
+              "probability": 0.978515625
+            },
+            {
+              "text": " frightened",
+              "start": 3.52,
+              "end": 3.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " face,",
+              "start": 3.88,
+              "end": 4.3,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " whipping up his skinny horse. Several officers formed a group and some",
+          "start": 4.6,
+          "end": 8.8,
+          "words": [
+            {
+              "text": " whipping",
+              "start": 4.6,
+              "end": 4.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " up",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 5.02,
+              "end": 5.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " skinny",
+              "start": 5.2,
+              "end": 5.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " horse.",
+              "start": 5.46,
+              "end": 5.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Several",
+              "start": 7.06,
+              "end": 7.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " officers",
+              "start": 7.3,
+              "end": 7.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " formed",
+              "start": 7.68,
+              "end": 8.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 8.02,
+              "end": 8.16,
+              "probability": 1.0
+            },
+            {
+              "text": " group",
+              "start": 8.16,
+              "end": 8.38,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 8.38,
+              "end": 8.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " some",
+              "start": 8.58,
+              "end": 8.8,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " soldiers crowded round them. Their faces all looked excited and worried.",
+          "start": 8.8,
+          "end": 13.28,
+          "words": [
+            {
+              "text": " soldiers",
+              "start": 8.8,
+              "end": 9.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " crowded",
+              "start": 9.18,
+              "end": 9.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " round",
+              "start": 9.58,
+              "end": 9.94,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " them.",
+              "start": 9.94,
+              "end": 10.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Their",
+              "start": 11.26,
+              "end": 11.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " faces",
+              "start": 11.4,
+              "end": 11.7,
+              "probability": 1.0
+            },
+            {
+              "text": " all",
+              "start": 11.7,
+              "end": 12.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " looked",
+              "start": 12.04,
+              "end": 12.2,
+              "probability": 1.0
+            },
+            {
+              "text": " excited",
+              "start": 12.2,
+              "end": 12.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 12.7,
+              "end": 12.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " worried.",
+              "start": 12.96,
+              "end": 13.28,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "general",
+          "start": 0.32,
+          "end": 0.64
+        },
+        {
+          "raw": "in",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "charge",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "raw": "of",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "stores",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "raw": "galloped",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "raw": "after",
+          "start": 2.08,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "carriage",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "with",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "a",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "raw": "red",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "raw": "frightened",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "raw": "face,",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "raw": "whipping",
+          "start": 4.6,
+          "end": 4.82
+        },
+        {
+          "raw": "up",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "his",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "raw": "skinny",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "raw": "horse.",
+          "start": 5.46,
+          "end": 5.84
+        },
+        {
+          "raw": "Several",
+          "start": 7.06,
+          "end": 7.3
+        },
+        {
+          "raw": "officers",
+          "start": 7.3,
+          "end": 7.68
+        },
+        {
+          "raw": "formed",
+          "start": 7.68,
+          "end": 8.02
+        },
+        {
+          "raw": "a",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "raw": "group",
+          "start": 8.16,
+          "end": 8.38
+        },
+        {
+          "raw": "and",
+          "start": 8.38,
+          "end": 8.58
+        },
+        {
+          "raw": "some",
+          "start": 8.58,
+          "end": 8.8
+        },
+        {
+          "raw": "soldiers",
+          "start": 8.8,
+          "end": 9.18
+        },
+        {
+          "raw": "crowded",
+          "start": 9.18,
+          "end": 9.58
+        },
+        {
+          "raw": "round",
+          "start": 9.58,
+          "end": 9.94
+        },
+        {
+          "raw": "them.",
+          "start": 9.94,
+          "end": 10.2
+        },
+        {
+          "raw": "Their",
+          "start": 11.26,
+          "end": 11.4
+        },
+        {
+          "raw": "faces",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "raw": "all",
+          "start": 11.7,
+          "end": 12.04
+        },
+        {
+          "raw": "looked",
+          "start": 12.04,
+          "end": 12.2
+        },
+        {
+          "raw": "excited",
+          "start": 12.2,
+          "end": 12.7
+        },
+        {
+          "raw": "and",
+          "start": 12.7,
+          "end": 12.96
+        },
+        {
+          "raw": "worried.",
+          "start": 12.96,
+          "end": 13.28
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "general",
+        "in",
+        "charge",
+        "of",
+        "the",
+        "stores",
+        "galloped",
+        "after",
+        "the",
+        "carriage",
+        "with",
+        "a",
+        "red",
+        "and",
+        "frightened",
+        "face,",
+        "whipping",
+        "up",
+        "his",
+        "skinny",
+        "horse.",
+        "Several",
+        "officers",
+        "formed",
+        "a",
+        "group",
+        "and",
+        "some",
+        "soldiers",
+        "crowded",
+        "round",
+        "them.",
+        "Their",
+        "faces",
+        "all",
+        "looked",
+        "excited",
+        "and",
+        "worried."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "general",
+        "in",
+        "charge",
+        "of",
+        "the",
+        "stores",
+        "galloped",
+        "after",
+        "the",
+        "carriage",
+        "with",
+        "a",
+        "red",
+        "and",
+        "frightened",
+        "face,",
+        "whipping",
+        "up",
+        "his",
+        "skinny",
+        "horse.",
+        "Several",
+        "officers",
+        "formed",
+        "a",
+        "group",
+        "and",
+        "some",
+        "soldiers",
+        "crowded",
+        "round",
+        "them.",
+        "Their",
+        "faces",
+        "all",
+        "looked",
+        "excited",
+        "and",
+        "worried."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 0.32,
+          "end": 0.64,
+          "key": "general",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "charge",
+          "start": 0.92,
+          "end": 1.14,
+          "key": "charge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "stores",
+          "start": 1.4,
+          "end": 1.72,
+          "key": "stores",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "galloped",
+          "start": 1.72,
+          "end": 2.08,
+          "key": "galloped",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 2.08,
+          "end": 2.34,
+          "key": "after",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 2.54,
+          "end": 2.8,
+          "key": "carriage",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.0,
+          "end": 3.12,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "red",
+          "start": 3.12,
+          "end": 3.34,
+          "key": "red",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.34,
+          "end": 3.52,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "frightened",
+          "start": 3.52,
+          "end": 3.88,
+          "key": "frightened",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 3.88,
+          "end": 4.3,
+          "key": "face",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whipping",
+          "start": 4.6,
+          "end": 4.82,
+          "key": "whipping",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 4.82,
+          "end": 5.02,
+          "key": "up",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.02,
+          "end": 5.2,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "skinny",
+          "start": 5.2,
+          "end": 5.46,
+          "key": "skinny",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "horse.",
+          "start": 5.46,
+          "end": 5.84,
+          "key": "horse",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Several",
+          "start": 7.06,
+          "end": 7.3,
+          "key": "several",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "officers",
+          "start": 7.3,
+          "end": 7.68,
+          "key": "officers",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "formed",
+          "start": 7.68,
+          "end": 8.02,
+          "key": "formed",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.02,
+          "end": 8.16,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "group",
+          "start": 8.16,
+          "end": 8.38,
+          "key": "group",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.38,
+          "end": 8.58,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 8.58,
+          "end": 8.8,
+          "key": "some",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "soldiers",
+          "start": 8.8,
+          "end": 9.18,
+          "key": "soldiers",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "crowded",
+          "start": 9.18,
+          "end": 9.58,
+          "key": "crowded",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 9.58,
+          "end": 9.94,
+          "key": "round",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 9.94,
+          "end": 10.2,
+          "key": "them",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 11.26,
+          "end": 11.4,
+          "key": "their",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "faces",
+          "start": 11.4,
+          "end": 11.7,
+          "key": "faces",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 11.7,
+          "end": 12.04,
+          "key": "all",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 12.04,
+          "end": 12.2,
+          "key": "looked",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "excited",
+          "start": 12.2,
+          "end": 12.7,
+          "key": "excited",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.7,
+          "end": 12.96,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "worried.",
+          "start": 12.96,
+          "end": 13.28,
+          "key": "worried",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "general",
+          "start": 0.32,
+          "end": 0.64
+        },
+        {
+          "text": "in",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "charge",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "text": "of",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "stores",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "text": "galloped",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "text": "after",
+          "start": 2.08,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "carriage",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "text": "with",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "a",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "text": "red",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "text": "and",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "text": "frightened",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "text": "face,",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "text": "whipping",
+          "start": 4.6,
+          "end": 4.82
+        },
+        {
+          "text": "up",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "his",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "text": "skinny",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "text": "horse.",
+          "start": 5.46,
+          "end": 5.84
+        },
+        {
+          "text": "Several",
+          "start": 7.06,
+          "end": 7.3
+        },
+        {
+          "text": "officers",
+          "start": 7.3,
+          "end": 7.68
+        },
+        {
+          "text": "formed",
+          "start": 7.68,
+          "end": 8.02
+        },
+        {
+          "text": "a",
+          "start": 8.02,
+          "end": 8.16
+        },
+        {
+          "text": "group",
+          "start": 8.16,
+          "end": 8.38
+        },
+        {
+          "text": "and",
+          "start": 8.38,
+          "end": 8.58
+        },
+        {
+          "text": "some",
+          "start": 8.58,
+          "end": 8.8
+        },
+        {
+          "text": "soldiers",
+          "start": 8.8,
+          "end": 9.18
+        },
+        {
+          "text": "crowded",
+          "start": 9.18,
+          "end": 9.58
+        },
+        {
+          "text": "round",
+          "start": 9.58,
+          "end": 9.94
+        },
+        {
+          "text": "them.",
+          "start": 9.94,
+          "end": 10.2
+        },
+        {
+          "text": "Their",
+          "start": 11.26,
+          "end": 11.4
+        },
+        {
+          "text": "faces",
+          "start": 11.4,
+          "end": 11.7
+        },
+        {
+          "text": "all",
+          "start": 11.7,
+          "end": 12.04
+        },
+        {
+          "text": "looked",
+          "start": 12.04,
+          "end": 12.2
+        },
+        {
+          "text": "excited",
+          "start": 12.2,
+          "end": 12.7
+        },
+        {
+          "text": "and",
+          "start": 12.7,
+          "end": 12.96
+        },
+        {
+          "text": "worried.",
+          "start": 12.96,
+          "end": 13.28
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 40,
+        "matched_words": 40
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42022332176566124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "174f9d32a9ea2d7d69194a4da5b1b7d8e41f711c67e693d175aa0441f6093319",
+  "selected_reasons": []
+}

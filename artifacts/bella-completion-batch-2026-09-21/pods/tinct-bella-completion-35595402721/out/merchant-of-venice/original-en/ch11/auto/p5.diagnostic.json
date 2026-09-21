@@ -1,0 +1,634 @@
+{
+  "complete": true,
+  "signature": "f43a374b1a3622af3c8c51033333e66b65cd1e766005e3f2abbe9d3fd49166c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.21147434040904045,
+      "alignment_seconds": 0.0013589691370725632,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Why, all the boys in Venice follow him, Crying, his stones, his daughter, and his ducats.",
+        "hotwords": "Why, Venice, Crying"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Salarino Why, all the boys in Venice follow him, Crying, his stones, his daughter, and his ducats.",
+          "start": 0.08,
+          "end": 6.56,
+          "words": [
+            {
+              "text": " Salarino",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Why,",
+              "start": 1.04,
+              "end": 1.84,
+              "probability": 0.0264434814453125
+            },
+            {
+              "text": " all",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " boys",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " in",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Venice",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.4853515625
+            },
+            {
+              "text": " follow",
+              "start": 2.9,
+              "end": 3.22,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " him,",
+              "start": 3.22,
+              "end": 3.56,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Crying,",
+              "start": 3.86,
+              "end": 4.3,
+              "probability": 0.5139923095703125
+            },
+            {
+              "text": " his",
+              "start": 4.42,
+              "end": 4.54,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " stones,",
+              "start": 4.54,
+              "end": 4.9,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " his",
+              "start": 5.3,
+              "end": 5.4,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " daughter,",
+              "start": 5.4,
+              "end": 5.68,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " and",
+              "start": 5.88,
+              "end": 5.92,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " his",
+              "start": 5.92,
+              "end": 6.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ducats.",
+              "start": 6.06,
+              "end": 6.56,
+              "probability": 0.9122721354166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Salarino",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "Why,",
+          "start": 1.04,
+          "end": 1.84
+        },
+        {
+          "raw": "all",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "raw": "boys",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "in",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "Venice",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "follow",
+          "start": 2.9,
+          "end": 3.22
+        },
+        {
+          "raw": "him,",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "raw": "Crying,",
+          "start": 3.86,
+          "end": 4.3
+        },
+        {
+          "raw": "his",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "raw": "stones,",
+          "start": 4.54,
+          "end": 4.9
+        },
+        {
+          "raw": "his",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "raw": "daughter,",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 5.92
+        },
+        {
+          "raw": "his",
+          "start": 5.92,
+          "end": 6.06
+        },
+        {
+          "raw": "ducats.",
+          "start": 6.06,
+          "end": 6.56
+        }
+      ],
+      "expected_tokens": [
+        "SALARINO.",
+        "Why,",
+        "all",
+        "the",
+        "boys",
+        "in",
+        "Venice",
+        "follow",
+        "him,",
+        "Crying,",
+        "his",
+        "stones,",
+        "his",
+        "daughter,",
+        "and",
+        "his",
+        "ducats."
+      ],
+      "acoustic_expected_tokens": [
+        "Why,",
+        "all",
+        "the",
+        "boys",
+        "in",
+        "Venice",
+        "follow",
+        "him,",
+        "Crying,",
+        "his",
+        "stones,",
+        "his",
+        "daughter,",
+        "and",
+        "his",
+        "ducats."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          16,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Salarino",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "salarino",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.04,
+          "end": 1.84,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.2,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "boys",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.42,
+          "end": 2.68,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Venice",
+          "start": 2.68,
+          "end": 2.9,
+          "key": "venice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 2.9,
+          "end": 3.22,
+          "key": "follow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 3.22,
+          "end": 3.56,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Crying,",
+          "start": 3.86,
+          "end": 4.3,
+          "key": "crying",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.42,
+          "end": 4.54,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "stones,",
+          "start": 4.54,
+          "end": 4.9,
+          "key": "stones",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.3,
+          "end": 5.4,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "daughter,",
+          "start": 5.4,
+          "end": 5.68,
+          "key": "daughter",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 5.92,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.92,
+          "end": 6.06,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ducats.",
+          "start": 6.06,
+          "end": 6.56,
+          "key": "ducats",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SALARINO.",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "text": "Why,",
+          "start": 1.04,
+          "end": 1.84
+        },
+        {
+          "text": "all",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "boys",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "in",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "Venice",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "follow",
+          "start": 2.9,
+          "end": 3.22
+        },
+        {
+          "text": "him,",
+          "start": 3.22,
+          "end": 3.56
+        },
+        {
+          "text": "Crying,",
+          "start": 3.86,
+          "end": 4.3
+        },
+        {
+          "text": "his",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "text": "stones,",
+          "start": 4.54,
+          "end": 4.9
+        },
+        {
+          "text": "his",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "text": "daughter,",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "text": "and",
+          "start": 5.88,
+          "end": 5.92
+        },
+        {
+          "text": "his",
+          "start": 5.92,
+          "end": 6.06
+        },
+        {
+          "text": "ducats.",
+          "start": 6.06,
+          "end": 6.56
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2130428161472082
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f5fb967da5350ba68af2683009758fe565d9385b35fedefd28cecaf2c946d22",
+  "selected_reasons": []
+}

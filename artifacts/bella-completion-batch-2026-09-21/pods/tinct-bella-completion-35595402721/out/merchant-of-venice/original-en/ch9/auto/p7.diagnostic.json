@@ -1,0 +1,337 @@
+{
+  "complete": true,
+  "signature": "6672ec7af7ad7191173ce7cf8408992fb8a31fb6e06a5805dc596bb3da62f51d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16405833512544632,
+      "alignment_seconds": 0.0007332637906074524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Here comes Lorenzo, more of this hereafter.",
+        "hotwords": "Here, Lorenzo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Salorino Here comes Lorenzo, more of this hereafter.",
+          "start": 0.08,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " Salorino",
+              "start": 0.08,
+              "end": 1.06,
+              "probability": 0.7879231770833334
+            },
+            {
+              "text": " Here",
+              "start": 1.06,
+              "end": 1.72,
+              "probability": 0.0340576171875
+            },
+            {
+              "text": " comes",
+              "start": 1.72,
+              "end": 2.02,
+              "probability": 0.9375
+            },
+            {
+              "text": " Lorenzo,",
+              "start": 2.02,
+              "end": 2.5,
+              "probability": 0.943359375
+            },
+            {
+              "text": " more",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " of",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hereafter.",
+              "start": 3.2,
+              "end": 3.6,
+              "probability": 0.57763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Salorino",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "raw": "Here",
+          "start": 1.06,
+          "end": 1.72
+        },
+        {
+          "raw": "comes",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "raw": "Lorenzo,",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "raw": "more",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "of",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "raw": "this",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "hereafter.",
+          "start": 3.2,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "SALARINO.",
+        "Here",
+        "comes",
+        "Lorenzo,",
+        "more",
+        "of",
+        "this",
+        "hereafter."
+      ],
+      "acoustic_expected_tokens": [
+        "Here",
+        "comes",
+        "Lorenzo,",
+        "more",
+        "of",
+        "this",
+        "hereafter."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Salorino",
+          "start": 0.08,
+          "end": 1.06,
+          "key": "salorino",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 1.06,
+          "end": 1.72,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.72,
+          "end": 2.02,
+          "key": "comes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lorenzo,",
+          "start": 2.02,
+          "end": 2.5,
+          "key": "lorenzo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.94,
+          "end": 3.04,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hereafter.",
+          "start": 3.2,
+          "end": 3.6,
+          "key": "hereafter",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SALARINO.",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "Here",
+          "start": 1.06,
+          "end": 1.72
+        },
+        {
+          "text": "comes",
+          "start": 1.72,
+          "end": 2.02
+        },
+        {
+          "text": "Lorenzo,",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "text": "more",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "of",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "this",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "hereafter.",
+          "start": 3.2,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16489652916789055
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "83993f370d70f1ab31f2b91a1bb7fb5b29b50d274eb8ec1a6bb20c95fafdf142",
+  "selected_reasons": []
+}

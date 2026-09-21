@@ -1,0 +1,623 @@
+{
+  "complete": true,
+  "signature": "62b95c1ecdd1059539db7b63b5ae989bc703984e39eb9edb80e71a95343cfc50",
+  "attempts": [
+    {
+      "asr_seconds": 0.11909408867359161,
+      "alignment_seconds": 0.0004761628806591034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "* \"To your places.\"",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " asterisk to your places.",
+          "start": 0.0,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 0.0,
+              "end": 0.74,
+              "probability": 0.5745849609375
+            },
+            {
+              "text": " to",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.978515625
+            },
+            {
+              "text": " your",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " places.",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "your",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "places.",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“To",
+        "your",
+        "places.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"To",
+        "your",
+        "places.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.74,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "places.",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "places",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "“To",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "your",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "places.”",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1196407824754715
+    },
+    {
+      "asr_seconds": 0.12125110812485218,
+      "alignment_seconds": 0.0004849061369895935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "To"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Asterisk to your places",
+          "start": 0.0,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Asterisk",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.554534912109375
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 0.96,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " your",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " places",
+              "start": 1.14,
+              "end": 1.48,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "raw": "your",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "places",
+          "start": 1.14,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“To",
+        "your",
+        "places.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"To",
+        "your",
+        "places.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 1.14,
+          "end": 1.48,
+          "key": "places",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "“To",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "text": "your",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "places.”",
+          "start": 1.14,
+          "end": 1.48
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12180745415389538
+    },
+    {
+      "asr_seconds": 0.11663034558296204,
+      "alignment_seconds": 0.00041878409683704376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " asterisk to your places",
+          "start": 0.0,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " asterisk",
+              "start": 0.0,
+              "end": 0.74,
+              "probability": 0.5745849609375
+            },
+            {
+              "text": " to",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.978515625
+            },
+            {
+              "text": " your",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " places",
+              "start": 1.14,
+              "end": 1.5,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "your",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "places",
+          "start": 1.14,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "*",
+        "“To",
+        "your",
+        "places.”"
+      ],
+      "acoustic_expected_tokens": [
+        "*",
+        "\"To",
+        "your",
+        "places.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "asterisk",
+          "start": 0.0,
+          "end": 0.74,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "places",
+          "start": 1.14,
+          "end": 1.5,
+          "key": "places",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "*",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "“To",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "your",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "places.”",
+          "start": 1.14,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11710902117192745
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be9a4c5eba212a3c69a76d668cf02f6639b7ef048a19753a63fbbd5c3c030c60",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

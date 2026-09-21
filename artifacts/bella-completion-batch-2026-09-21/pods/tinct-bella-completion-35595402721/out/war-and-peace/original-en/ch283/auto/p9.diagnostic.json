@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "1f4d240901fe033ed4687f017a1fd31e2a9939a9456d2502644f9209a8d355e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1418513786047697,
+      "alignment_seconds": 0.0009999293833971024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The officer, mounting his horse, rode off to someone else.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The officer, mounting his horse, rode off to someone else.",
+          "start": 0.0,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " officer,",
+              "start": 0.32,
+              "end": 0.72,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " mounting",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " horse,",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rode",
+              "start": 2.3,
+              "end": 2.32,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " off",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " someone",
+              "start": 2.7,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " else.",
+              "start": 3.0,
+              "end": 3.3,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "officer,",
+          "start": 0.32,
+          "end": 0.72
+        },
+        {
+          "raw": "mounting",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "his",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "horse,",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "raw": "rode",
+          "start": 2.3,
+          "end": 2.32
+        },
+        {
+          "raw": "off",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "raw": "to",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "someone",
+          "start": 2.7,
+          "end": 3.0
+        },
+        {
+          "raw": "else.",
+          "start": 3.0,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "officer,",
+        "mounting",
+        "his",
+        "horse,",
+        "rode",
+        "off",
+        "to",
+        "someone",
+        "else."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "officer,",
+        "mounting",
+        "his",
+        "horse,",
+        "rode",
+        "off",
+        "to",
+        "someone",
+        "else."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "officer,",
+          "start": 0.32,
+          "end": 0.72,
+          "key": "officer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mounting",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "mounting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "horse,",
+          "start": 1.54,
+          "end": 1.86,
+          "key": "horse",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rode",
+          "start": 2.3,
+          "end": 2.32,
+          "key": "rode",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "off",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "someone",
+          "start": 2.7,
+          "end": 3.0,
+          "key": "someone",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "else.",
+          "start": 3.0,
+          "end": 3.3,
+          "key": "else",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "officer,",
+          "start": 0.32,
+          "end": 0.72
+        },
+        {
+          "text": "mounting",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "his",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "text": "horse,",
+          "start": 1.54,
+          "end": 1.86
+        },
+        {
+          "text": "rode",
+          "start": 2.3,
+          "end": 2.32
+        },
+        {
+          "text": "off",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "text": "to",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "someone",
+          "start": 2.7,
+          "end": 3.0
+        },
+        {
+          "text": "else.",
+          "start": 3.0,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14297323860228062
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9ba88f8a516e62e32bf1b6fdf43c58fe463210e69c5d5396ef010a99e93a3ccf",
+  "selected_reasons": []
+}

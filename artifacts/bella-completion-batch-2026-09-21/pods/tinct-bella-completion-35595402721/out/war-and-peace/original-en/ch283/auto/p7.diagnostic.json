@@ -1,0 +1,659 @@
+{
+  "complete": true,
+  "signature": "de2df7cdd49ebf5d898af8114fc064169e9e11237d9c6095ad1f03b8f19aa175",
+  "attempts": [
+    {
+      "asr_seconds": 0.18112863786518574,
+      "alignment_seconds": 0.000730494037270546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The officer of the Horse Guards went to a general with whom Ermólov was often to be found.",
+        "hotwords": "Horse, Guards, Ermólov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The officer of the Horse Guards went to a general with whom Ermólov was often to be found.",
+          "start": 0.0,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " officer",
+              "start": 0.32,
+              "end": 0.56,
+              "probability": 0.892578125
+            },
+            {
+              "text": " of",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 0.82,
+              "end": 0.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Horse",
+              "start": 0.92,
+              "end": 1.18,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " Guards",
+              "start": 1.18,
+              "end": 1.48,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " went",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " general",
+              "start": 2.02,
+              "end": 2.3,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " with",
+              "start": 2.3,
+              "end": 2.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " whom",
+              "start": 2.5,
+              "end": 2.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Ermólov",
+              "start": 2.76,
+              "end": 3.2,
+              "probability": 0.4268915355205536
+            },
+            {
+              "text": " was",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " often",
+              "start": 3.4,
+              "end": 3.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 3.68,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 3.88,
+              "end": 4.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found.",
+              "start": 4.0,
+              "end": 4.34,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "officer",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "raw": "of",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "raw": "the",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "raw": "Horse",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "raw": "Guards",
+          "start": 1.18,
+          "end": 1.48
+        },
+        {
+          "raw": "went",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "a",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "general",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "raw": "with",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "raw": "whom",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "raw": "Ermólov",
+          "start": 2.76,
+          "end": 3.2
+        },
+        {
+          "raw": "was",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "often",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "raw": "to",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "raw": "be",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "raw": "found.",
+          "start": 4.0,
+          "end": 4.34
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "officer",
+        "of",
+        "the",
+        "Horse",
+        "Guards",
+        "went",
+        "to",
+        "a",
+        "general",
+        "with",
+        "whom",
+        "Ermólov",
+        "was",
+        "often",
+        "to",
+        "be",
+        "found."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "officer",
+        "of",
+        "the",
+        "Horse",
+        "Guards",
+        "went",
+        "to",
+        "a",
+        "general",
+        "with",
+        "whom",
+        "Ermólov",
+        "was",
+        "often",
+        "to",
+        "be",
+        "found."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "officer",
+          "start": 0.32,
+          "end": 0.56,
+          "key": "officer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.82,
+          "end": 0.92,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Horse",
+          "start": 0.92,
+          "end": 1.18,
+          "key": "horse",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Guards",
+          "start": 1.18,
+          "end": 1.48,
+          "key": "guards",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "went",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 2.02,
+          "end": 2.3,
+          "key": "general",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.3,
+          "end": 2.5,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 2.5,
+          "end": 2.76,
+          "key": "whom",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ermólov",
+          "start": 2.76,
+          "end": 3.2,
+          "key": "ermólov",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 3.4,
+          "end": 3.68,
+          "key": "often",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.68,
+          "end": 3.88,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.88,
+          "end": 4.0,
+          "key": "be",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "found.",
+          "start": 4.0,
+          "end": 4.34,
+          "key": "found",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "officer",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "text": "of",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "text": "the",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "text": "Horse",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "text": "Guards",
+          "start": 1.18,
+          "end": 1.48
+        },
+        {
+          "text": "went",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "to",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "a",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "general",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "text": "with",
+          "start": 2.3,
+          "end": 2.5
+        },
+        {
+          "text": "whom",
+          "start": 2.5,
+          "end": 2.76
+        },
+        {
+          "text": "Ermólov",
+          "start": 2.76,
+          "end": 3.2
+        },
+        {
+          "text": "was",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "often",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "text": "to",
+          "start": 3.68,
+          "end": 3.88
+        },
+        {
+          "text": "be",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "text": "found.",
+          "start": 4.0,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18195501901209354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e084d68e80dd6da33a4b002715b4f0fbad9d566dae36f4ffad214dadc0766caa",
+  "selected_reasons": []
+}

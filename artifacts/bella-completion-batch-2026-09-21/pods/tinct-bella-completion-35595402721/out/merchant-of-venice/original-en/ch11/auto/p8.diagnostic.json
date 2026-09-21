@@ -1,0 +1,700 @@
+{
+  "complete": true,
+  "signature": "d35698059ddffff31586f830e1246ec6195667ac49baab7bb09ceb0d39fc985d",
+  "attempts": [
+    {
+      "asr_seconds": 0.20433478616178036,
+      "alignment_seconds": 0.0015253853052854538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You were best to tell Antonio what you hear, Yet do not suddenly, for it may grieve him.",
+        "hotwords": "Antonio, Yet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Celanio, You were best to tell Antonio what you hear, Yet do not suddenly, for it may grieve him.",
+          "start": 0.08,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Celanio,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.572235107421875
+            },
+            {
+              "text": " You",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.03240966796875
+            },
+            {
+              "text": " were",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.55712890625
+            },
+            {
+              "text": " best",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " tell",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Antonio",
+              "start": 2.32,
+              "end": 2.76,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " what",
+              "start": 2.76,
+              "end": 3.08,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " you",
+              "start": 3.08,
+              "end": 3.24,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hear,",
+              "start": 3.24,
+              "end": 3.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Yet",
+              "start": 3.94,
+              "end": 4.04,
+              "probability": 0.363525390625
+            },
+            {
+              "text": " do",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.958984375
+            },
+            {
+              "text": " not",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suddenly,",
+              "start": 4.4,
+              "end": 4.86,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " for",
+              "start": 5.24,
+              "end": 5.3,
+              "probability": 0.86328125
+            },
+            {
+              "text": " it",
+              "start": 5.3,
+              "end": 5.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " may",
+              "start": 5.44,
+              "end": 5.58,
+              "probability": 0.9921875
+            },
+            {
+              "text": " grieve",
+              "start": 5.58,
+              "end": 5.88,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " him.",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Celanio,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "You",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "were",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "best",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "tell",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "Antonio",
+          "start": 2.32,
+          "end": 2.76
+        },
+        {
+          "raw": "what",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "raw": "you",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "raw": "hear,",
+          "start": 3.24,
+          "end": 3.62
+        },
+        {
+          "raw": "Yet",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "raw": "do",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "not",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "suddenly,",
+          "start": 4.4,
+          "end": 4.86
+        },
+        {
+          "raw": "for",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "raw": "it",
+          "start": 5.3,
+          "end": 5.44
+        },
+        {
+          "raw": "may",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "raw": "grieve",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "raw": "him.",
+          "start": 5.88,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "SOLANIO.",
+        "You",
+        "were",
+        "best",
+        "to",
+        "tell",
+        "Antonio",
+        "what",
+        "you",
+        "hear,",
+        "Yet",
+        "do",
+        "not",
+        "suddenly,",
+        "for",
+        "it",
+        "may",
+        "grieve",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "You",
+        "were",
+        "best",
+        "to",
+        "tell",
+        "Antonio",
+        "what",
+        "you",
+        "hear,",
+        "Yet",
+        "do",
+        "not",
+        "suddenly,",
+        "for",
+        "it",
+        "may",
+        "grieve",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          18,
+          1,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Celanio,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "celanio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "were",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "best",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 2.32,
+          "end": 2.76,
+          "key": "antonio",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.76,
+          "end": 3.08,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.08,
+          "end": 3.24,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hear,",
+          "start": 3.24,
+          "end": 3.62,
+          "key": "hear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Yet",
+          "start": 3.94,
+          "end": 4.04,
+          "key": "yet",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "suddenly,",
+          "start": 4.4,
+          "end": 4.86,
+          "key": "suddenly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.24,
+          "end": 5.3,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.3,
+          "end": 5.44,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 5.44,
+          "end": 5.58,
+          "key": "may",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "grieve",
+          "start": 5.58,
+          "end": 5.88,
+          "key": "grieve",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SOLANIO.",
+          "start": 1.38,
+          "end": 1.38
+        },
+        {
+          "text": "You",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "were",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "best",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "to",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "tell",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "Antonio",
+          "start": 2.32,
+          "end": 2.76
+        },
+        {
+          "text": "what",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "text": "you",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "text": "hear,",
+          "start": 3.24,
+          "end": 3.62
+        },
+        {
+          "text": "Yet",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "text": "do",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "not",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "suddenly,",
+          "start": 4.4,
+          "end": 4.86
+        },
+        {
+          "text": "for",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "text": "it",
+          "start": 5.3,
+          "end": 5.44
+        },
+        {
+          "text": "may",
+          "start": 5.44,
+          "end": 5.58
+        },
+        {
+          "text": "grieve",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "text": "him.",
+          "start": 5.88,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20608977042138577
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c0e799055921a177bd7b096368a2f0b1e8c854f94a452410d70c76d6724db82",
+  "selected_reasons": []
+}

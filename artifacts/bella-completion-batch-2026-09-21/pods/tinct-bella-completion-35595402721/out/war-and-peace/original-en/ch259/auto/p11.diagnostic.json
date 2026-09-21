@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "4832f4b4feb07047fe36d2ac94346ba5062982723430e869ef8cfd60c1d4e9a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12734619714319706,
+      "alignment_seconds": 0.0005850270390510559,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Several men joined the first two.",
+        "hotwords": "Several"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Several men joined the first two.",
+          "start": 0.0,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Several",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.87109375
+            },
+            {
+              "text": " men",
+              "start": 0.58,
+              "end": 0.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " joined",
+              "start": 0.82,
+              "end": 1.18,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " first",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " two.",
+              "start": 1.58,
+              "end": 1.92,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Several",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "men",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "raw": "joined",
+          "start": 0.82,
+          "end": 1.18
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "first",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "two.",
+          "start": 1.58,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Several",
+        "men",
+        "joined",
+        "the",
+        "first",
+        "two."
+      ],
+      "acoustic_expected_tokens": [
+        "Several",
+        "men",
+        "joined",
+        "the",
+        "first",
+        "two."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Several",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "several",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 0.58,
+          "end": 0.82,
+          "key": "men",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "joined",
+          "start": 0.82,
+          "end": 1.18,
+          "key": "joined",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.34,
+          "end": 1.58,
+          "key": "first",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "two.",
+          "start": 1.58,
+          "end": 1.92,
+          "key": "two",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Several",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "men",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "text": "joined",
+          "start": 0.82,
+          "end": 1.18
+        },
+        {
+          "text": "the",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "first",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "two.",
+          "start": 1.58,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12801768071949482
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2e4a121f662fbbd8b62b7074f2ef11c6a7adfceed5fe1b937ff7902a252dcd0",
+  "selected_reasons": []
+}

@@ -1,0 +1,263 @@
+{
+  "complete": true,
+  "signature": "22bc408b464f9635f851c33011a73488ff0bd545b29b3cb8e5162e839b2b537d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12440717034041882,
+      "alignment_seconds": 0.0003051571547985077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Jessica above, in boy's clothes.",
+        "hotwords": "Enter, Jessica"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Jessica above, in boy's clothes.",
+          "start": 0.08,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Jessica",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.642578125
+            },
+            {
+              "text": " above,",
+              "start": 1.04,
+              "end": 1.4,
+              "probability": 0.410888671875
+            },
+            {
+              "text": " in",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " boy's",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.5550537109375
+            },
+            {
+              "text": " clothes.",
+              "start": 2.22,
+              "end": 2.52,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Jessica",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "above,",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "raw": "in",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "boy's",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "clothes.",
+          "start": 2.22,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Jessica",
+        "above,",
+        "in",
+        "boy’s",
+        "clothes."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Jessica",
+        "above,",
+        "in",
+        "boy's",
+        "clothes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jessica",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "jessica",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "above,",
+          "start": 1.04,
+          "end": 1.4,
+          "key": "above",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "boy's",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "boys",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "clothes.",
+          "start": 2.22,
+          "end": 2.52,
+          "key": "clothes",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Jessica",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "above,",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "text": "in",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "boy’s",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "clothes.",
+          "start": 2.22,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12475559860467911
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3df540e51117899e57b81c9dc93f3ec6f49e88dcd704e1f885b740134f7343d",
+  "selected_reasons": []
+}

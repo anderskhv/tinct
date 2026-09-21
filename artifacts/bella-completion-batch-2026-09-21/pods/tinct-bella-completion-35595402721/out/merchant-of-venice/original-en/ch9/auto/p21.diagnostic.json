@@ -1,0 +1,3642 @@
+{
+  "complete": true,
+  "signature": "fdf7e372ae710d740ed2894f2222b7116c412db41e0adf755d6ef7397f56343a",
+  "attempts": [
+    {
+      "asr_seconds": 0.4821378830820322,
+      "alignment_seconds": 0.005222966894507408,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beshrew me but I love her heartily, For she is wise, if I can judge of her, And fair she is, if that mine eyes be true, And true she is, as she hath prov'd herself. And therefore, like herself, wise, fair, and true, Shall she be placed in my constant soul.",
+        "hotwords": "Beshrew, I, For, Shall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beshrew me but I love her heartily, For she is wise, if I can judge of her, And fair she is, if that mine eyes be true, And true she is, as she hath prov'd herself.",
+          "start": 0.05,
+          "end": 10.81,
+          "words": [
+            {
+              "text": " Beshrew",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6046987771987915
+            },
+            {
+              "text": " me",
+              "start": 0.77,
+              "end": 2.01,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " but",
+              "start": 2.01,
+              "end": 2.17,
+              "probability": 0.2239990234375
+            },
+            {
+              "text": " I",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " love",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " her",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " heartily,",
+              "start": 2.71,
+              "end": 3.17,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " For",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.34228515625
+            },
+            {
+              "text": " she",
+              "start": 3.49,
+              "end": 3.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " wise,",
+              "start": 3.83,
+              "end": 4.13,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " if",
+              "start": 4.39,
+              "end": 4.49,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " I",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " can",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " judge",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " her,",
+              "start": 5.09,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " And",
+              "start": 5.61,
+              "end": 5.85,
+              "probability": 0.91796875
+            },
+            {
+              "text": " fair",
+              "start": 5.85,
+              "end": 6.05,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " she",
+              "start": 6.05,
+              "end": 6.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is,",
+              "start": 6.31,
+              "end": 6.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " if",
+              "start": 6.77,
+              "end": 6.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that",
+              "start": 6.89,
+              "end": 7.09,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " mine",
+              "start": 7.09,
+              "end": 7.33,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " eyes",
+              "start": 7.33,
+              "end": 7.69,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " be",
+              "start": 7.69,
+              "end": 7.87,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " true,",
+              "start": 7.87,
+              "end": 8.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " And",
+              "start": 8.55,
+              "end": 8.63,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " true",
+              "start": 8.63,
+              "end": 8.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " she",
+              "start": 8.89,
+              "end": 9.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is,",
+              "start": 9.13,
+              "end": 9.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 9.73,
+              "end": 9.85,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " she",
+              "start": 9.85,
+              "end": 10.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hath",
+              "start": 10.01,
+              "end": 10.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " prov'd",
+              "start": 10.13,
+              "end": 10.47,
+              "probability": 0.4228057861328125
+            },
+            {
+              "text": " herself.",
+              "start": 10.47,
+              "end": 10.81,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " And therefore, like herself, wise, fair, and true, Shall she be placed in my constant soul.",
+          "start": 11.53,
+          "end": 16.85,
+          "words": [
+            {
+              "text": " And",
+              "start": 11.53,
+              "end": 11.67,
+              "probability": 0.970703125
+            },
+            {
+              "text": " therefore,",
+              "start": 11.67,
+              "end": 12.03,
+              "probability": 0.96484375
+            },
+            {
+              "text": " like",
+              "start": 12.27,
+              "end": 12.39,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " herself,",
+              "start": 12.39,
+              "end": 12.77,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " wise,",
+              "start": 13.37,
+              "end": 13.37,
+              "probability": 0.70703125
+            },
+            {
+              "text": " fair,",
+              "start": 13.73,
+              "end": 13.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 14.03,
+              "end": 14.13,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " true,",
+              "start": 14.13,
+              "end": 14.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Shall",
+              "start": 14.97,
+              "end": 15.03,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " she",
+              "start": 15.03,
+              "end": 15.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 15.19,
+              "end": 15.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " placed",
+              "start": 15.33,
+              "end": 15.57,
+              "probability": 0.96484375
+            },
+            {
+              "text": " in",
+              "start": 15.57,
+              "end": 15.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 15.83,
+              "end": 15.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " constant",
+              "start": 15.99,
+              "end": 16.43,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " soul.",
+              "start": 16.43,
+              "end": 16.85,
+              "probability": 0.9560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beshrew",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "me",
+          "start": 0.77,
+          "end": 2.01
+        },
+        {
+          "raw": "but",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "love",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "heartily,",
+          "start": 2.71,
+          "end": 3.17
+        },
+        {
+          "raw": "For",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "she",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "raw": "is",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "wise,",
+          "start": 3.83,
+          "end": 4.13
+        },
+        {
+          "raw": "if",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "raw": "I",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "can",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "judge",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "her,",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "raw": "And",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "raw": "fair",
+          "start": 5.85,
+          "end": 6.05
+        },
+        {
+          "raw": "she",
+          "start": 6.05,
+          "end": 6.31
+        },
+        {
+          "raw": "is,",
+          "start": 6.31,
+          "end": 6.67
+        },
+        {
+          "raw": "if",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "raw": "that",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "raw": "mine",
+          "start": 7.09,
+          "end": 7.33
+        },
+        {
+          "raw": "eyes",
+          "start": 7.33,
+          "end": 7.69
+        },
+        {
+          "raw": "be",
+          "start": 7.69,
+          "end": 7.87
+        },
+        {
+          "raw": "true,",
+          "start": 7.87,
+          "end": 8.25
+        },
+        {
+          "raw": "And",
+          "start": 8.55,
+          "end": 8.63
+        },
+        {
+          "raw": "true",
+          "start": 8.63,
+          "end": 8.89
+        },
+        {
+          "raw": "she",
+          "start": 8.89,
+          "end": 9.13
+        },
+        {
+          "raw": "is,",
+          "start": 9.13,
+          "end": 9.49
+        },
+        {
+          "raw": "as",
+          "start": 9.73,
+          "end": 9.85
+        },
+        {
+          "raw": "she",
+          "start": 9.85,
+          "end": 10.01
+        },
+        {
+          "raw": "hath",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "raw": "prov'd",
+          "start": 10.13,
+          "end": 10.47
+        },
+        {
+          "raw": "herself.",
+          "start": 10.47,
+          "end": 10.81
+        },
+        {
+          "raw": "And",
+          "start": 11.53,
+          "end": 11.67
+        },
+        {
+          "raw": "therefore,",
+          "start": 11.67,
+          "end": 12.03
+        },
+        {
+          "raw": "like",
+          "start": 12.27,
+          "end": 12.39
+        },
+        {
+          "raw": "herself,",
+          "start": 12.39,
+          "end": 12.77
+        },
+        {
+          "raw": "wise,",
+          "start": 13.37,
+          "end": 13.37
+        },
+        {
+          "raw": "fair,",
+          "start": 13.73,
+          "end": 13.89
+        },
+        {
+          "raw": "and",
+          "start": 14.03,
+          "end": 14.13
+        },
+        {
+          "raw": "true,",
+          "start": 14.13,
+          "end": 14.47
+        },
+        {
+          "raw": "Shall",
+          "start": 14.97,
+          "end": 15.03
+        },
+        {
+          "raw": "she",
+          "start": 15.03,
+          "end": 15.19
+        },
+        {
+          "raw": "be",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "raw": "placed",
+          "start": 15.33,
+          "end": 15.57
+        },
+        {
+          "raw": "in",
+          "start": 15.57,
+          "end": 15.83
+        },
+        {
+          "raw": "my",
+          "start": 15.83,
+          "end": 15.99
+        },
+        {
+          "raw": "constant",
+          "start": 15.99,
+          "end": 16.43
+        },
+        {
+          "raw": "soul.",
+          "start": 16.43,
+          "end": 16.85
+        }
+      ],
+      "expected_tokens": [
+        "LORENZO.",
+        "Beshrew",
+        "me",
+        "but",
+        "I",
+        "love",
+        "her",
+        "heartily,",
+        "For",
+        "she",
+        "is",
+        "wise,",
+        "if",
+        "I",
+        "can",
+        "judge",
+        "of",
+        "her,",
+        "And",
+        "fair",
+        "she",
+        "is,",
+        "if",
+        "that",
+        "mine",
+        "eyes",
+        "be",
+        "true,",
+        "And",
+        "true",
+        "she",
+        "is,",
+        "as",
+        "she",
+        "hath",
+        "prov’d",
+        "herself.",
+        "And",
+        "therefore,",
+        "like",
+        "herself,",
+        "wise,",
+        "fair,",
+        "and",
+        "true,",
+        "Shall",
+        "she",
+        "be",
+        "placed",
+        "in",
+        "my",
+        "constant",
+        "soul."
+      ],
+      "acoustic_expected_tokens": [
+        "Beshrew",
+        "me",
+        "but",
+        "I",
+        "love",
+        "her",
+        "heartily,",
+        "For",
+        "she",
+        "is",
+        "wise,",
+        "if",
+        "I",
+        "can",
+        "judge",
+        "of",
+        "her,",
+        "And",
+        "fair",
+        "she",
+        "is,",
+        "if",
+        "that",
+        "mine",
+        "eyes",
+        "be",
+        "true,",
+        "And",
+        "true",
+        "she",
+        "is,",
+        "as",
+        "she",
+        "hath",
+        "prov'd",
+        "herself.",
+        "And",
+        "therefore,",
+        "like",
+        "herself,",
+        "wise,",
+        "fair,",
+        "and",
+        "true,",
+        "Shall",
+        "she",
+        "be",
+        "placed",
+        "in",
+        "my",
+        "constant",
+        "soul."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ],
+        [
+          "replace",
+          34,
+          35,
+          34,
+          35
+        ],
+        [
+          "equal",
+          35,
+          52,
+          35,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          34,
+          35,
+          34,
+          35
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beshrew",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "beshrew",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.77,
+          "end": 2.01,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.01,
+          "end": 2.17,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "love",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heartily,",
+          "start": 2.71,
+          "end": 3.17,
+          "key": "heartily",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.49,
+          "end": 3.67,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 3.83,
+          "end": 4.13,
+          "key": "wise",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.39,
+          "end": 4.49,
+          "key": "if",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 4.63,
+          "end": 4.77,
+          "key": "can",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "judge",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "judge",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.09,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 5.09,
+          "end": 5.33,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.61,
+          "end": 5.85,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 5.85,
+          "end": 6.05,
+          "key": "fair",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 6.05,
+          "end": 6.31,
+          "key": "she",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 6.31,
+          "end": 6.67,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.77,
+          "end": 6.89,
+          "key": "if",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.89,
+          "end": 7.09,
+          "key": "that",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 7.09,
+          "end": 7.33,
+          "key": "mine",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 7.33,
+          "end": 7.69,
+          "key": "eyes",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.69,
+          "end": 7.87,
+          "key": "be",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 7.87,
+          "end": 8.25,
+          "key": "true",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.55,
+          "end": 8.63,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 8.63,
+          "end": 8.89,
+          "key": "true",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 8.89,
+          "end": 9.13,
+          "key": "she",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 9.13,
+          "end": 9.49,
+          "key": "is",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.73,
+          "end": 9.85,
+          "key": "as",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 9.85,
+          "end": 10.01,
+          "key": "she",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 10.01,
+          "end": 10.13,
+          "key": "hath",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "prov'd",
+          "start": 10.13,
+          "end": 10.47,
+          "key": "provd",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "herself.",
+          "start": 10.47,
+          "end": 10.81,
+          "key": "herself",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 11.53,
+          "end": 11.67,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "therefore,",
+          "start": 11.67,
+          "end": 12.03,
+          "key": "therefore",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 12.27,
+          "end": 12.39,
+          "key": "like",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "herself,",
+          "start": 12.39,
+          "end": 12.77,
+          "key": "herself",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 13.37,
+          "end": 13.37,
+          "key": "wise",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "fair,",
+          "start": 13.73,
+          "end": 13.89,
+          "key": "fair",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.03,
+          "end": 14.13,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 14.13,
+          "end": 14.47,
+          "key": "true",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 14.97,
+          "end": 15.03,
+          "key": "shall",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 15.03,
+          "end": 15.19,
+          "key": "she",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.19,
+          "end": 15.33,
+          "key": "be",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "placed",
+          "start": 15.33,
+          "end": 15.57,
+          "key": "placed",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.57,
+          "end": 15.83,
+          "key": "in",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.83,
+          "end": 15.99,
+          "key": "my",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "constant",
+          "start": 15.99,
+          "end": 16.43,
+          "key": "constant",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 16.43,
+          "end": 16.85,
+          "key": "soul",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LORENZO.",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "Beshrew",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "me",
+          "start": 0.77,
+          "end": 2.01
+        },
+        {
+          "text": "but",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "text": "I",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "love",
+          "start": 2.33,
+          "end": 2.51
+        },
+        {
+          "text": "her",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "heartily,",
+          "start": 2.71,
+          "end": 3.17
+        },
+        {
+          "text": "For",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "text": "she",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "text": "is",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "wise,",
+          "start": 3.83,
+          "end": 4.13
+        },
+        {
+          "text": "if",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "text": "I",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "text": "can",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "judge",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "of",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "her,",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "text": "And",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "text": "fair",
+          "start": 5.85,
+          "end": 6.05
+        },
+        {
+          "text": "she",
+          "start": 6.05,
+          "end": 6.31
+        },
+        {
+          "text": "is,",
+          "start": 6.31,
+          "end": 6.67
+        },
+        {
+          "text": "if",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "text": "that",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "text": "mine",
+          "start": 7.09,
+          "end": 7.33
+        },
+        {
+          "text": "eyes",
+          "start": 7.33,
+          "end": 7.69
+        },
+        {
+          "text": "be",
+          "start": 7.69,
+          "end": 7.87
+        },
+        {
+          "text": "true,",
+          "start": 7.87,
+          "end": 8.25
+        },
+        {
+          "text": "And",
+          "start": 8.55,
+          "end": 8.63
+        },
+        {
+          "text": "true",
+          "start": 8.63,
+          "end": 8.89
+        },
+        {
+          "text": "she",
+          "start": 8.89,
+          "end": 9.13
+        },
+        {
+          "text": "is,",
+          "start": 9.13,
+          "end": 9.49
+        },
+        {
+          "text": "as",
+          "start": 9.73,
+          "end": 9.85
+        },
+        {
+          "text": "she",
+          "start": 9.85,
+          "end": 10.01
+        },
+        {
+          "text": "hath",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "text": "prov’d",
+          "start": 10.13,
+          "end": 10.3
+        },
+        {
+          "text": "herself.",
+          "start": 10.47,
+          "end": 10.81
+        },
+        {
+          "text": "And",
+          "start": 11.53,
+          "end": 11.67
+        },
+        {
+          "text": "therefore,",
+          "start": 11.67,
+          "end": 12.03
+        },
+        {
+          "text": "like",
+          "start": 12.27,
+          "end": 12.39
+        },
+        {
+          "text": "herself,",
+          "start": 12.39,
+          "end": 12.77
+        },
+        {
+          "text": "wise,",
+          "start": 13.37,
+          "end": 13.37
+        },
+        {
+          "text": "fair,",
+          "start": 13.73,
+          "end": 13.89
+        },
+        {
+          "text": "and",
+          "start": 14.03,
+          "end": 14.13
+        },
+        {
+          "text": "true,",
+          "start": 14.13,
+          "end": 14.47
+        },
+        {
+          "text": "Shall",
+          "start": 14.97,
+          "end": 15.03
+        },
+        {
+          "text": "she",
+          "start": 15.03,
+          "end": 15.19
+        },
+        {
+          "text": "be",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "text": "placed",
+          "start": 15.33,
+          "end": 15.57
+        },
+        {
+          "text": "in",
+          "start": 15.57,
+          "end": 15.83
+        },
+        {
+          "text": "my",
+          "start": 15.83,
+          "end": 15.99
+        },
+        {
+          "text": "constant",
+          "start": 15.99,
+          "end": 16.43
+        },
+        {
+          "text": "soul.",
+          "start": 16.43,
+          "end": 16.85
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 51
+      },
+      "match_ratio": 0.9807692307692307,
+      "rejection_reasons": [],
+      "seconds": 0.487849036231637
+    },
+    {
+      "asr_seconds": 0.5130559150129557,
+      "alignment_seconds": 0.003992263227701187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Beshrew, I, For, Shall"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lorenzo, Beshrew me, but I love her heartily, for she is wise, if I can judge of her, and",
+          "start": 0.05,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " Lorenzo,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.33349609375
+            },
+            {
+              "text": " Beshrew",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.6113739013671875
+            },
+            {
+              "text": " me,",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " but",
+              "start": 2.13,
+              "end": 2.19,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " I",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.982421875
+            },
+            {
+              "text": " love",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " her",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " heartily,",
+              "start": 2.71,
+              "end": 3.17,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " for",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.469482421875
+            },
+            {
+              "text": " she",
+              "start": 3.49,
+              "end": 3.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " is",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.9765625
+            },
+            {
+              "text": " wise,",
+              "start": 3.83,
+              "end": 4.13,
+              "probability": 0.849609375
+            },
+            {
+              "text": " if",
+              "start": 4.41,
+              "end": 4.49,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " I",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " can",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " judge",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " her,",
+              "start": 5.09,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.61,
+              "end": 5.85,
+              "probability": 0.74560546875
+            }
+          ]
+        },
+        {
+          "text": " fair she is, if that mine eyes be true, and true she is, as she hath proved herself.",
+          "start": 5.85,
+          "end": 10.81,
+          "words": [
+            {
+              "text": " fair",
+              "start": 5.85,
+              "end": 6.05,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " she",
+              "start": 6.05,
+              "end": 6.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is,",
+              "start": 6.33,
+              "end": 6.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 6.77,
+              "end": 6.89,
+              "probability": 0.96875
+            },
+            {
+              "text": " that",
+              "start": 6.89,
+              "end": 7.09,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " mine",
+              "start": 7.09,
+              "end": 7.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " eyes",
+              "start": 7.33,
+              "end": 7.67,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " be",
+              "start": 7.67,
+              "end": 7.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " true,",
+              "start": 7.89,
+              "end": 8.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 8.55,
+              "end": 8.63,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " true",
+              "start": 8.63,
+              "end": 8.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " she",
+              "start": 8.87,
+              "end": 9.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is,",
+              "start": 9.13,
+              "end": 9.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 9.73,
+              "end": 9.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " she",
+              "start": 9.83,
+              "end": 10.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hath",
+              "start": 10.01,
+              "end": 10.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " proved",
+              "start": 10.13,
+              "end": 10.47,
+              "probability": 0.5955810546875
+            },
+            {
+              "text": " herself.",
+              "start": 10.47,
+              "end": 10.81,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " And therefore, like herself, wise, fair, and true, shall she be placed in my constant soul.",
+          "start": 11.55,
+          "end": 16.85,
+          "words": [
+            {
+              "text": " And",
+              "start": 11.55,
+              "end": 11.67,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " therefore,",
+              "start": 11.67,
+              "end": 12.01,
+              "probability": 0.955078125
+            },
+            {
+              "text": " like",
+              "start": 12.25,
+              "end": 12.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " herself,",
+              "start": 12.39,
+              "end": 12.75,
+              "probability": 0.974609375
+            },
+            {
+              "text": " wise,",
+              "start": 13.39,
+              "end": 13.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fair,",
+              "start": 13.73,
+              "end": 13.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 14.01,
+              "end": 14.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " true,",
+              "start": 14.13,
+              "end": 14.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shall",
+              "start": 14.97,
+              "end": 15.03,
+              "probability": 0.927734375
+            },
+            {
+              "text": " she",
+              "start": 15.03,
+              "end": 15.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 15.19,
+              "end": 15.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " placed",
+              "start": 15.33,
+              "end": 15.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 15.59,
+              "end": 15.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 15.83,
+              "end": 15.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " constant",
+              "start": 15.99,
+              "end": 16.45,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " soul.",
+              "start": 16.45,
+              "end": 16.85,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Beshrew",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "raw": "me,",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "but",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "love",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "heartily,",
+          "start": 2.71,
+          "end": 3.17
+        },
+        {
+          "raw": "for",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "she",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "raw": "is",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "wise,",
+          "start": 3.83,
+          "end": 4.13
+        },
+        {
+          "raw": "if",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "raw": "I",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "can",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "judge",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "her,",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "raw": "fair",
+          "start": 5.85,
+          "end": 6.05
+        },
+        {
+          "raw": "she",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "raw": "is,",
+          "start": 6.33,
+          "end": 6.67
+        },
+        {
+          "raw": "if",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "raw": "that",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "raw": "mine",
+          "start": 7.09,
+          "end": 7.33
+        },
+        {
+          "raw": "eyes",
+          "start": 7.33,
+          "end": 7.67
+        },
+        {
+          "raw": "be",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "raw": "true,",
+          "start": 7.89,
+          "end": 8.23
+        },
+        {
+          "raw": "and",
+          "start": 8.55,
+          "end": 8.63
+        },
+        {
+          "raw": "true",
+          "start": 8.63,
+          "end": 8.87
+        },
+        {
+          "raw": "she",
+          "start": 8.87,
+          "end": 9.13
+        },
+        {
+          "raw": "is,",
+          "start": 9.13,
+          "end": 9.49
+        },
+        {
+          "raw": "as",
+          "start": 9.73,
+          "end": 9.83
+        },
+        {
+          "raw": "she",
+          "start": 9.83,
+          "end": 10.01
+        },
+        {
+          "raw": "hath",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "raw": "proved",
+          "start": 10.13,
+          "end": 10.47
+        },
+        {
+          "raw": "herself.",
+          "start": 10.47,
+          "end": 10.81
+        },
+        {
+          "raw": "And",
+          "start": 11.55,
+          "end": 11.67
+        },
+        {
+          "raw": "therefore,",
+          "start": 11.67,
+          "end": 12.01
+        },
+        {
+          "raw": "like",
+          "start": 12.25,
+          "end": 12.39
+        },
+        {
+          "raw": "herself,",
+          "start": 12.39,
+          "end": 12.75
+        },
+        {
+          "raw": "wise,",
+          "start": 13.39,
+          "end": 13.39
+        },
+        {
+          "raw": "fair,",
+          "start": 13.73,
+          "end": 13.89
+        },
+        {
+          "raw": "and",
+          "start": 14.01,
+          "end": 14.13
+        },
+        {
+          "raw": "true,",
+          "start": 14.13,
+          "end": 14.45
+        },
+        {
+          "raw": "shall",
+          "start": 14.97,
+          "end": 15.03
+        },
+        {
+          "raw": "she",
+          "start": 15.03,
+          "end": 15.19
+        },
+        {
+          "raw": "be",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "raw": "placed",
+          "start": 15.33,
+          "end": 15.59
+        },
+        {
+          "raw": "in",
+          "start": 15.59,
+          "end": 15.83
+        },
+        {
+          "raw": "my",
+          "start": 15.83,
+          "end": 15.99
+        },
+        {
+          "raw": "constant",
+          "start": 15.99,
+          "end": 16.45
+        },
+        {
+          "raw": "soul.",
+          "start": 16.45,
+          "end": 16.85
+        }
+      ],
+      "expected_tokens": [
+        "LORENZO.",
+        "Beshrew",
+        "me",
+        "but",
+        "I",
+        "love",
+        "her",
+        "heartily,",
+        "For",
+        "she",
+        "is",
+        "wise,",
+        "if",
+        "I",
+        "can",
+        "judge",
+        "of",
+        "her,",
+        "And",
+        "fair",
+        "she",
+        "is,",
+        "if",
+        "that",
+        "mine",
+        "eyes",
+        "be",
+        "true,",
+        "And",
+        "true",
+        "she",
+        "is,",
+        "as",
+        "she",
+        "hath",
+        "prov’d",
+        "herself.",
+        "And",
+        "therefore,",
+        "like",
+        "herself,",
+        "wise,",
+        "fair,",
+        "and",
+        "true,",
+        "Shall",
+        "she",
+        "be",
+        "placed",
+        "in",
+        "my",
+        "constant",
+        "soul."
+      ],
+      "acoustic_expected_tokens": [
+        "Beshrew",
+        "me",
+        "but",
+        "I",
+        "love",
+        "her",
+        "heartily,",
+        "For",
+        "she",
+        "is",
+        "wise,",
+        "if",
+        "I",
+        "can",
+        "judge",
+        "of",
+        "her,",
+        "And",
+        "fair",
+        "she",
+        "is,",
+        "if",
+        "that",
+        "mine",
+        "eyes",
+        "be",
+        "true,",
+        "And",
+        "true",
+        "she",
+        "is,",
+        "as",
+        "she",
+        "hath",
+        "prov'd",
+        "herself.",
+        "And",
+        "therefore,",
+        "like",
+        "herself,",
+        "wise,",
+        "fair,",
+        "and",
+        "true,",
+        "Shall",
+        "she",
+        "be",
+        "placed",
+        "in",
+        "my",
+        "constant",
+        "soul."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          52,
+          1,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "lorenzo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Beshrew",
+          "start": 1.55,
+          "end": 1.85,
+          "key": "beshrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.13,
+          "end": 2.19,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.35,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "love",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heartily,",
+          "start": 2.71,
+          "end": 3.17,
+          "key": "heartily",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.49,
+          "end": 3.67,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 3.83,
+          "end": 4.13,
+          "key": "wise",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.41,
+          "end": 4.49,
+          "key": "if",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 4.63,
+          "end": 4.77,
+          "key": "can",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "judge",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "judge",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.09,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 5.09,
+          "end": 5.33,
+          "key": "her",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.85,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 5.85,
+          "end": 6.05,
+          "key": "fair",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 6.05,
+          "end": 6.33,
+          "key": "she",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 6.33,
+          "end": 6.67,
+          "key": "is",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.77,
+          "end": 6.89,
+          "key": "if",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.89,
+          "end": 7.09,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 7.09,
+          "end": 7.33,
+          "key": "mine",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 7.33,
+          "end": 7.67,
+          "key": "eyes",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.67,
+          "end": 7.89,
+          "key": "be",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 7.89,
+          "end": 8.23,
+          "key": "true",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.55,
+          "end": 8.63,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 8.63,
+          "end": 8.87,
+          "key": "true",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 8.87,
+          "end": 9.13,
+          "key": "she",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 9.13,
+          "end": 9.49,
+          "key": "is",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.73,
+          "end": 9.83,
+          "key": "as",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 9.83,
+          "end": 10.01,
+          "key": "she",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 10.01,
+          "end": 10.13,
+          "key": "hath",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "proved",
+          "start": 10.13,
+          "end": 10.47,
+          "key": "proved",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "herself.",
+          "start": 10.47,
+          "end": 10.81,
+          "key": "herself",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 11.55,
+          "end": 11.67,
+          "key": "and",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "therefore,",
+          "start": 11.67,
+          "end": 12.01,
+          "key": "therefore",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 12.25,
+          "end": 12.39,
+          "key": "like",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "herself,",
+          "start": 12.39,
+          "end": 12.75,
+          "key": "herself",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 13.39,
+          "end": 13.39,
+          "key": "wise",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "fair,",
+          "start": 13.73,
+          "end": 13.89,
+          "key": "fair",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.01,
+          "end": 14.13,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 14.13,
+          "end": 14.45,
+          "key": "true",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 14.97,
+          "end": 15.03,
+          "key": "shall",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 15.03,
+          "end": 15.19,
+          "key": "she",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.19,
+          "end": 15.33,
+          "key": "be",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "placed",
+          "start": 15.33,
+          "end": 15.59,
+          "key": "placed",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.59,
+          "end": 15.83,
+          "key": "in",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.83,
+          "end": 15.99,
+          "key": "my",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "constant",
+          "start": 15.99,
+          "end": 16.45,
+          "key": "constant",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 16.45,
+          "end": 16.85,
+          "key": "soul",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "LORENZO.",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "text": "Beshrew",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "me",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "but",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "text": "I",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "love",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "her",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "heartily,",
+          "start": 2.71,
+          "end": 3.17
+        },
+        {
+          "text": "For",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "text": "she",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "text": "is",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "wise,",
+          "start": 3.83,
+          "end": 4.13
+        },
+        {
+          "text": "if",
+          "start": 4.41,
+          "end": 4.49
+        },
+        {
+          "text": "I",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "text": "can",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "judge",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "of",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "her,",
+          "start": 5.09,
+          "end": 5.33
+        },
+        {
+          "text": "And",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "text": "fair",
+          "start": 5.85,
+          "end": 6.05
+        },
+        {
+          "text": "she",
+          "start": 6.05,
+          "end": 6.33
+        },
+        {
+          "text": "is,",
+          "start": 6.33,
+          "end": 6.67
+        },
+        {
+          "text": "if",
+          "start": 6.77,
+          "end": 6.89
+        },
+        {
+          "text": "that",
+          "start": 6.89,
+          "end": 7.09
+        },
+        {
+          "text": "mine",
+          "start": 7.09,
+          "end": 7.33
+        },
+        {
+          "text": "eyes",
+          "start": 7.33,
+          "end": 7.67
+        },
+        {
+          "text": "be",
+          "start": 7.67,
+          "end": 7.89
+        },
+        {
+          "text": "true,",
+          "start": 7.89,
+          "end": 8.23
+        },
+        {
+          "text": "And",
+          "start": 8.55,
+          "end": 8.63
+        },
+        {
+          "text": "true",
+          "start": 8.63,
+          "end": 8.87
+        },
+        {
+          "text": "she",
+          "start": 8.87,
+          "end": 9.13
+        },
+        {
+          "text": "is,",
+          "start": 9.13,
+          "end": 9.49
+        },
+        {
+          "text": "as",
+          "start": 9.73,
+          "end": 9.83
+        },
+        {
+          "text": "she",
+          "start": 9.83,
+          "end": 10.01
+        },
+        {
+          "text": "hath",
+          "start": 10.01,
+          "end": 10.13
+        },
+        {
+          "text": "prov’d",
+          "start": 10.13,
+          "end": 10.47
+        },
+        {
+          "text": "herself.",
+          "start": 10.47,
+          "end": 10.81
+        },
+        {
+          "text": "And",
+          "start": 11.55,
+          "end": 11.67
+        },
+        {
+          "text": "therefore,",
+          "start": 11.67,
+          "end": 12.01
+        },
+        {
+          "text": "like",
+          "start": 12.25,
+          "end": 12.39
+        },
+        {
+          "text": "herself,",
+          "start": 12.39,
+          "end": 12.75
+        },
+        {
+          "text": "wise,",
+          "start": 13.39,
+          "end": 13.39
+        },
+        {
+          "text": "fair,",
+          "start": 13.73,
+          "end": 13.89
+        },
+        {
+          "text": "and",
+          "start": 14.01,
+          "end": 14.13
+        },
+        {
+          "text": "true,",
+          "start": 14.13,
+          "end": 14.45
+        },
+        {
+          "text": "Shall",
+          "start": 14.97,
+          "end": 15.03
+        },
+        {
+          "text": "she",
+          "start": 15.03,
+          "end": 15.19
+        },
+        {
+          "text": "be",
+          "start": 15.19,
+          "end": 15.33
+        },
+        {
+          "text": "placed",
+          "start": 15.33,
+          "end": 15.59
+        },
+        {
+          "text": "in",
+          "start": 15.59,
+          "end": 15.83
+        },
+        {
+          "text": "my",
+          "start": 15.83,
+          "end": 15.99
+        },
+        {
+          "text": "constant",
+          "start": 15.99,
+          "end": 16.45
+        },
+        {
+          "text": "soul.",
+          "start": 16.45,
+          "end": 16.85
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 53,
+        "matched_words": 52
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5174328479915857
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "78bf4fa121bbb8deac72c3d0d941eb298f355c29444471ba33142c7e91369998",
+  "selected_reasons": []
+}

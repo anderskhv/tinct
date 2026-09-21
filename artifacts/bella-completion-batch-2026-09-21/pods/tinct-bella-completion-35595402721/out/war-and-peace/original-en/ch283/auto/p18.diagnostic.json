@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "5823ca67c6ff7544aceee137fe397a4eba8d84c00c893a6c5b91304104d96915",
+  "attempts": [
+    {
+      "asr_seconds": 0.21289804205298424,
+      "alignment_seconds": 0.00042675621807575226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ha, ha, ha! Bravo, Nicholas Iványch! Ha, ha, ha!\"",
+        "hotwords": "Bravo, Nicholas, Iványch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bravo, Nicholas Iványch! Ha, ha, ha! Bravo, Nicholas Iványch! Ha, ha, ha!",
+          "start": 0.0,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " Bravo,",
+              "start": 0.0,
+              "end": 1.04,
+              "probability": 0.0016679763793945312
+            },
+            {
+              "text": " Nicholas",
+              "start": 1.04,
+              "end": 1.04,
+              "probability": 0.9375
+            },
+            {
+              "text": " Iványch!",
+              "start": 1.04,
+              "end": 1.04,
+              "probability": 0.23613370954990387
+            },
+            {
+              "text": " Ha,",
+              "start": 1.04,
+              "end": 1.04,
+              "probability": 0.178955078125
+            },
+            {
+              "text": " ha,",
+              "start": 1.04,
+              "end": 1.04,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " ha!",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Bravo,",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.00342559814453125
+            },
+            {
+              "text": " Nicholas",
+              "start": 3.46,
+              "end": 3.76,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Iványch!",
+              "start": 3.76,
+              "end": 4.6,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " Ha,",
+              "start": 5.54,
+              "end": 5.82,
+              "probability": 0.55712890625
+            },
+            {
+              "text": " ha,",
+              "start": 6.08,
+              "end": 6.38,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ha!",
+              "start": 6.64,
+              "end": 7.02,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bravo,",
+          "start": 0.0,
+          "end": 1.04
+        },
+        {
+          "raw": "Nicholas",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "raw": "Iványch!",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "raw": "Ha,",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "raw": "ha,",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "raw": "ha!",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "Bravo,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Nicholas",
+          "start": 3.46,
+          "end": 3.76
+        },
+        {
+          "raw": "Iványch!",
+          "start": 3.76,
+          "end": 4.6
+        },
+        {
+          "raw": "Ha,",
+          "start": 5.54,
+          "end": 5.82
+        },
+        {
+          "raw": "ha,",
+          "start": 6.08,
+          "end": 6.38
+        },
+        {
+          "raw": "ha!",
+          "start": 6.64,
+          "end": 7.02
+        }
+      ],
+      "expected_tokens": [
+        "“Ha,",
+        "ha,",
+        "ha!",
+        "Bravo,",
+        "Nicholas",
+        "Iványch!",
+        "Ha,",
+        "ha,",
+        "ha!”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ha,",
+        "ha,",
+        "ha!",
+        "Bravo,",
+        "Nicholas",
+        "Iványch!",
+        "Ha,",
+        "ha,",
+        "ha!\""
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          9,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bravo,",
+          "start": 0.0,
+          "end": 1.04,
+          "key": "bravo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nicholas",
+          "start": 1.04,
+          "end": 1.04,
+          "key": "nicholas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iványch!",
+          "start": 1.04,
+          "end": 1.04,
+          "key": "iványch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ha,",
+          "start": 1.04,
+          "end": 1.04,
+          "key": "ha",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 1.04,
+          "end": 1.04,
+          "key": "ha",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ha!",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "ha",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Bravo,",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "bravo",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Nicholas",
+          "start": 3.46,
+          "end": 3.76,
+          "key": "nicholas",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Iványch!",
+          "start": 3.76,
+          "end": 4.6,
+          "key": "iványch",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ha,",
+          "start": 5.54,
+          "end": 5.82,
+          "key": "ha",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 6.08,
+          "end": 6.38,
+          "key": "ha",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ha!",
+          "start": 6.64,
+          "end": 7.02,
+          "key": "ha",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Ha,",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "text": "ha,",
+          "start": 1.04,
+          "end": 1.04
+        },
+        {
+          "text": "ha!",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "Bravo,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "text": "Nicholas",
+          "start": 3.46,
+          "end": 3.76
+        },
+        {
+          "text": "Iványch!",
+          "start": 3.76,
+          "end": 4.6
+        },
+        {
+          "text": "Ha,",
+          "start": 5.54,
+          "end": 5.82
+        },
+        {
+          "text": "ha,",
+          "start": 6.08,
+          "end": 6.38
+        },
+        {
+          "text": "ha!”",
+          "start": 6.64,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21339101903140545
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "33aea62dcdb78c0256bec006d9a1c83f0157c46075eba148a6bf41cb2a571ee6",
+  "selected_reasons": []
+}

@@ -1,0 +1,312 @@
+{
+  "complete": true,
+  "signature": "284befc7bc0c1133e23511fb58c3a2ebc0118e49c016de810a907120403ff082",
+  "attempts": [
+    {
+      "asr_seconds": 6.214691422879696,
+      "alignment_seconds": 0.0005544237792491913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Gentleman with the Gaoler.",
+        "hotwords": "Enter, Gentleman, Gaoler"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Gentleman, Gaoler",
+          "start": 0.08,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Gentleman,",
+              "start": 0.78,
+              "end": 1.14,
+              "probability": 0.020721435546875
+            },
+            {
+              "text": " Gaoler",
+              "start": 1.4,
+              "end": 2.22,
+              "probability": 0.10314968228340149
+            }
+          ]
+        },
+        {
+          "text": " Enter, Gentleman with the Gaoler",
+          "start": 2.22,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 2.22,
+              "end": 2.62,
+              "probability": 6.67572021484375e-06
+            },
+            {
+              "text": " Gentleman",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 3.159046173095703e-06
+            },
+            {
+              "text": " with",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.00443267822265625
+            },
+            {
+              "text": " the",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 0.1495361328125
+            },
+            {
+              "text": " Gaoler",
+              "start": 2.62,
+              "end": 2.62,
+              "probability": 4.628300666809082e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "raw": "Gaoler",
+          "start": 1.4,
+          "end": 2.22
+        },
+        {
+          "raw": "Enter,",
+          "start": 2.22,
+          "end": 2.62
+        },
+        {
+          "raw": "Gentleman",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "with",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "raw": "Gaoler",
+          "start": 2.62,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Gentleman",
+        "with",
+        "the",
+        "Gaoler."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Gentleman",
+        "with",
+        "the",
+        "Gaoler."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          5,
+          3,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gentleman,",
+          "start": 0.78,
+          "end": 1.14,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gaoler",
+          "start": 1.4,
+          "end": 2.22,
+          "key": "gaoler",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 2.22,
+          "end": 2.62,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Gentleman",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "gentleman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gaoler",
+          "start": 2.62,
+          "end": 2.62,
+          "key": "gaoler",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 2.22,
+          "end": 2.62
+        },
+        {
+          "text": "Gentleman",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "text": "with",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "text": "the",
+          "start": 2.62,
+          "end": 2.62
+        },
+        {
+          "text": "Gaoler.",
+          "start": 2.62,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.215351706370711
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "675b4ff849a8b337148a45a97b20284302d400631258a6e26cd6909d08e2ab8c",
+  "selected_reasons": []
+}

@@ -1,0 +1,238 @@
+{
+  "complete": true,
+  "signature": "f5b947c91141db4e1e8939a6c478a4fa99c618fa5384e2133ddaa9c3f8601288",
+  "attempts": [
+    {
+      "asr_seconds": 0.15189511142671108,
+      "alignment_seconds": 0.0005471762269735336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Well, be't so, prithee.",
+        "hotwords": "Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paulina, well be't so, prithee.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Paulina,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " well",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " be't",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.008462905883789062
+            },
+            {
+              "text": " so,",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " prithee.",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.4122721354166667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "well",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "be't",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "so,",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "prithee.",
+          "start": 1.87,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "PAULINA.",
+        "Well,",
+        "be’t",
+        "so,",
+        "prithee."
+      ],
+      "acoustic_expected_tokens": [
+        "Well,",
+        "be't",
+        "so,",
+        "prithee."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          4,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be't",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "bet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prithee.",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "prithee",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PAULINA.",
+          "start": 1.13,
+          "end": 1.13
+        },
+        {
+          "text": "Well,",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "text": "be’t",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "so,",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "prithee.",
+          "start": 1.87,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15254270657896996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c60eb65f5bf9b9fb96cc891aefbb5f165c1d02448a1cab6b4a63d29855d2d6e8",
+  "selected_reasons": []
+}

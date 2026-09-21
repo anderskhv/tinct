@@ -1,1 +1,356 @@
-[]
+[
+ {
+  "key": "as-you-like-it/original-en/ch6",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9925925925925926,
+    "reasons": [
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/as-you-like-it/original-en/ch6/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "bible/web-en/ch976",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": null,
+    "reasons": [
+     {
+      "paragraph": 5,
+      "reasons": [
+       "processing_invariant_error"
+      ]
+     }
+    ],
+    "validationErrors": null,
+    "sidecar": null
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": null,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "processing_invariant_error"
+      ]
+     }
+    ],
+    "validationErrors": null,
+    "sidecar": null
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch11",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.992822966507177,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/merchant-of-venice/original-en/ch11/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.992822966507177
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9933774834437086,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/merchant-of-venice/original-en/ch15/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9933774834437086
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": null,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "processing_invariant_error"
+      ]
+     }
+    ],
+    "validationErrors": null,
+    "sidecar": null
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch6",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9764705882352941,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/merchant-of-venice/original-en/ch6/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9764705882352941
+ },
+ {
+  "key": "merchant-of-venice/original-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9873873873873874,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/merchant-of-venice/original-en/ch9/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9873873873873874
+ },
+ {
+  "key": "war-and-peace/original-en/ch213",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9985734664764622,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch213/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch259",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch259/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch281",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch281/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch283",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9973082099596231,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch283/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9973082099596231
+ },
+ {
+  "key": "war-and-peace/original-en/ch297",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9759036144578314,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch297/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch312",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9965337954939342,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch312/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch314",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9888,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch314/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9888
+ },
+ {
+  "key": "war-and-peace/original-en/ch316",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9797191887675507,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 9,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch316/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "war-and-peace/original-en/ch337",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch337/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "war-and-peace/original-en/ch91",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/war-and-peace/original-en/ch91/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "winters-tale/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.975925925925926,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/winters-tale/original-en/ch4/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.975925925925926
+ },
+ {
+  "key": "winters-tale/original-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.959409594095941,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-completion-batch-2026-09-21/pods/tinct-bella-completion-35595402721/out/winters-tale/original-en/ch9/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.959409594095941
+ }
+]

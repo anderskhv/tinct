@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "7e57495ae435b88a0c4b4b850941225f3aeca21cc1f45793859f570a47d2087b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12933341600000858,
+      "alignment_seconds": 0.0004751160740852356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All turned their attention to the glow.",
+        "hotwords": "All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All turned their attention to the glow.",
+          "start": 0.0,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.26806640625
+            },
+            {
+              "text": " turned",
+              "start": 0.38,
+              "end": 0.62,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " their",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " attention",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " glow.",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "turned",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "raw": "their",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "attention",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "glow.",
+          "start": 1.52,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "turned",
+        "their",
+        "attention",
+        "to",
+        "the",
+        "glow."
+      ],
+      "acoustic_expected_tokens": [
+        "All",
+        "turned",
+        "their",
+        "attention",
+        "to",
+        "the",
+        "glow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.38,
+          "end": 0.62,
+          "key": "turned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "their",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attention",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "attention",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "glow.",
+          "start": 1.52,
+          "end": 1.78,
+          "key": "glow",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "turned",
+          "start": 0.38,
+          "end": 0.62
+        },
+        {
+          "text": "their",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "attention",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "text": "to",
+          "start": 1.14,
+          "end": 1.4
+        },
+        {
+          "text": "the",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "glow.",
+          "start": 1.52,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12987902201712132
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b925312d1ec35823fbddcf87be2458b641de340c461012dd0c689419ff13948",
+  "selected_reasons": []
+}

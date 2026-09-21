@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "85058d1906f4983182b6817a60e2d74546717bef8d46659d0132b473f809dbde",
+  "attempts": [
+    {
+      "asr_seconds": 0.1493249237537384,
+      "alignment_seconds": 0.000315176323056221,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What you will, Monsieur Jaques.",
+        "hotwords": "What, Monsieur, Jaques"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Améon, what you will, Monsieur Jaques.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Améon,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.34186681111653644
+            },
+            {
+              "text": " what",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " will,",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Monsieur",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " Jaques.",
+              "start": 2.02,
+              "end": 2.42,
+              "probability": 0.4446372985839844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Améon,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "what",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "will,",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "Monsieur",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "raw": "Jaques.",
+          "start": 2.02,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "AMIENS.",
+        "What",
+        "you",
+        "will,",
+        "Monsieur",
+        "Jaques."
+      ],
+      "acoustic_expected_tokens": [
+        "What",
+        "you",
+        "will,",
+        "Monsieur",
+        "Jaques."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          5,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Améon,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "améon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "monsieur",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Jaques.",
+          "start": 2.02,
+          "end": 2.42,
+          "key": "jaques",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "AMIENS.",
+          "start": 1.1,
+          "end": 1.1
+        },
+        {
+          "text": "What",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "you",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "will,",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "Monsieur",
+          "start": 1.78,
+          "end": 2.02
+        },
+        {
+          "text": "Jaques.",
+          "start": 2.02,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14970017969608307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8ebfe62bb4a228a1a171cfec31842eab4f9e783944cef813d755fb893617c815",
+  "selected_reasons": []
+}

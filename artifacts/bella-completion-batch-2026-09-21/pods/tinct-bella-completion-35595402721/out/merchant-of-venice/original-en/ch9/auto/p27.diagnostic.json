@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "signature": "fecf2030fc5cdf7d1f9856cb4cfc2c3b1558b50247d32e80f77b5946cbc3eb5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13844292797148228,
+      "alignment_seconds": 0.00035694800317287445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Signior Antonio!",
+        "hotwords": "Signior, Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Graciano, Signior Antonio!",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Graciano,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.595947265625
+            },
+            {
+              "text": " Signior",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.39444541931152344
+            },
+            {
+              "text": " Antonio!",
+              "start": 1.67,
+              "end": 2.05,
+              "probability": 0.93359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Graciano,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Signior",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "Antonio!",
+          "start": 1.67,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "GRATIANO.",
+        "Signior",
+        "Antonio!"
+      ],
+      "acoustic_expected_tokens": [
+        "Signior",
+        "Antonio!"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Graciano,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "graciano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Signior",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "signior",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antonio!",
+          "start": 1.67,
+          "end": 2.05,
+          "key": "antonio",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "GRATIANO.",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "Signior",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "Antonio!",
+          "start": 1.67,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13886200450360775
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f50dcad52463a690a1ab303082151aab4d0940657c3520f9204654ce9265aef3",
+  "selected_reasons": []
+}

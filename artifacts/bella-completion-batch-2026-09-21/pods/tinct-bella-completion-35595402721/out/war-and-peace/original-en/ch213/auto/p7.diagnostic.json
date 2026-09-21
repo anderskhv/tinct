@@ -1,0 +1,3860 @@
+{
+  "complete": true,
+  "signature": "528b763201c864103c80e9b47e806e8b9dab31e119437b87156fd1d2df4aa55a",
+  "attempts": [
+    {
+      "asr_seconds": 1.0019118711352348,
+      "alignment_seconds": 0.015322716906666756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "From the flèches they rode still farther to the left, along a road winding through a thick, low-growing birch wood. In the middle of the wood a brown hare with white feet sprang out and, scared by the tramp of the many horses, grew so confused that it leaped along the road in front of them for some time, arousing general attention and laughter, and only when several voices shouted at it did it dart to one side and disappear in the thicket. After going through the wood for about a mile and a half they came out on a glade where troops of Túchkov's corps were stationed to defend the left flank.",
+        "hotwords": "From, After, Túchkov's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " From the flèches they rode still farther to the left, along a road winding through a thick,",
+          "start": 0.0,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " the",
+              "start": 0.36,
+              "end": 0.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " flèches",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.5393039782842001
+            },
+            {
+              "text": " they",
+              "start": 0.8,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " rode",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " still",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " farther",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " left,",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " along",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.94,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " road",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " winding",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " through",
+              "start": 3.64,
+              "end": 3.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thick,",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " low-growing birch wood. In the middle of the wood a brown hare with white feet sprang out and,",
+          "start": 4.62,
+          "end": 9.8,
+          "words": [
+            {
+              "text": " low",
+              "start": 4.62,
+              "end": 4.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": "-growing",
+              "start": 4.78,
+              "end": 5.1,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " birch",
+              "start": 5.1,
+              "end": 5.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wood.",
+              "start": 5.52,
+              "end": 5.72,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " In",
+              "start": 6.62,
+              "end": 6.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 6.88,
+              "end": 6.98,
+              "probability": 1.0
+            },
+            {
+              "text": " middle",
+              "start": 6.98,
+              "end": 7.16,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 7.16,
+              "end": 7.32,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 7.32,
+              "end": 7.42,
+              "probability": 1.0
+            },
+            {
+              "text": " wood",
+              "start": 7.42,
+              "end": 7.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 7.52,
+              "end": 7.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " brown",
+              "start": 7.66,
+              "end": 7.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hare",
+              "start": 7.9,
+              "end": 8.22,
+              "probability": 0.531951904296875
+            },
+            {
+              "text": " with",
+              "start": 8.22,
+              "end": 8.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " white",
+              "start": 8.38,
+              "end": 8.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " feet",
+              "start": 8.64,
+              "end": 8.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sprang",
+              "start": 8.94,
+              "end": 9.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " out",
+              "start": 9.28,
+              "end": 9.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and,",
+              "start": 9.56,
+              "end": 9.8,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " scared by the tramp of the many horses, grew so confused that it leaped along the road in",
+          "start": 10.0,
+          "end": 14.5,
+          "words": [
+            {
+              "text": " scared",
+              "start": 10.0,
+              "end": 10.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 10.28,
+              "end": 10.52,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 10.52,
+              "end": 10.66,
+              "probability": 1.0
+            },
+            {
+              "text": " tramp",
+              "start": 10.66,
+              "end": 10.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 10.88,
+              "end": 11.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 11.04,
+              "end": 11.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " many",
+              "start": 11.14,
+              "end": 11.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " horses,",
+              "start": 11.34,
+              "end": 11.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " grew",
+              "start": 12.16,
+              "end": 12.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 12.28,
+              "end": 12.56,
+              "probability": 1.0
+            },
+            {
+              "text": " confused",
+              "start": 12.56,
+              "end": 12.98,
+              "probability": 1.0
+            },
+            {
+              "text": " that",
+              "start": 12.98,
+              "end": 13.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 13.28,
+              "end": 13.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " leaped",
+              "start": 13.4,
+              "end": 13.64,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " along",
+              "start": 13.64,
+              "end": 13.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 13.86,
+              "end": 14.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " road",
+              "start": 14.06,
+              "end": 14.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 14.3,
+              "end": 14.5,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " front of them for some time, arousing general attention and laughter, and only when several",
+          "start": 14.5,
+          "end": 19.16,
+          "words": [
+            {
+              "text": " front",
+              "start": 14.5,
+              "end": 14.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 14.7,
+              "end": 14.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 14.88,
+              "end": 15.0,
+              "probability": 1.0
+            },
+            {
+              "text": " for",
+              "start": 15.0,
+              "end": 15.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " some",
+              "start": 15.18,
+              "end": 15.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " time,",
+              "start": 15.42,
+              "end": 15.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " arousing",
+              "start": 16.1,
+              "end": 16.54,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " general",
+              "start": 16.54,
+              "end": 16.94,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " attention",
+              "start": 16.94,
+              "end": 17.3,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 17.3,
+              "end": 17.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " laughter,",
+              "start": 17.58,
+              "end": 17.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 18.22,
+              "end": 18.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " only",
+              "start": 18.36,
+              "end": 18.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " when",
+              "start": 18.58,
+              "end": 18.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " several",
+              "start": 18.82,
+              "end": 19.16,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " voices shouted at it did it dart to one side and disappear in the thicket. After going through the",
+          "start": 19.16,
+          "end": 24.72,
+          "words": [
+            {
+              "text": " voices",
+              "start": 19.16,
+              "end": 19.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " shouted",
+              "start": 19.58,
+              "end": 19.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 19.88,
+              "end": 20.14,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " it",
+              "start": 20.14,
+              "end": 20.26,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " did",
+              "start": 20.26,
+              "end": 20.38,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " it",
+              "start": 20.38,
+              "end": 20.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dart",
+              "start": 20.56,
+              "end": 20.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 20.72,
+              "end": 20.9,
+              "probability": 1.0
+            },
+            {
+              "text": " one",
+              "start": 20.9,
+              "end": 21.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " side",
+              "start": 21.12,
+              "end": 21.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 21.5,
+              "end": 21.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " disappear",
+              "start": 21.76,
+              "end": 22.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 22.16,
+              "end": 22.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 22.36,
+              "end": 22.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thicket.",
+              "start": 22.46,
+              "end": 22.8,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " After",
+              "start": 23.78,
+              "end": 24.02,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " going",
+              "start": 24.02,
+              "end": 24.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " through",
+              "start": 24.28,
+              "end": 24.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 24.54,
+              "end": 24.72,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " wood for about a mile and a half they came out on a glade where troops of Túchkov's corps were",
+          "start": 24.72,
+          "end": 28.86,
+          "words": [
+            {
+              "text": " wood",
+              "start": 24.72,
+              "end": 24.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 24.84,
+              "end": 24.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " about",
+              "start": 24.98,
+              "end": 25.22,
+              "probability": 1.0
+            },
+            {
+              "text": " a",
+              "start": 25.22,
+              "end": 25.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mile",
+              "start": 25.4,
+              "end": 25.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 25.62,
+              "end": 25.78,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " a",
+              "start": 25.78,
+              "end": 25.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " half",
+              "start": 25.86,
+              "end": 26.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 26.08,
+              "end": 26.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " came",
+              "start": 26.26,
+              "end": 26.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out",
+              "start": 26.44,
+              "end": 26.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 26.66,
+              "end": 26.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 26.82,
+              "end": 27.08,
+              "probability": 1.0
+            },
+            {
+              "text": " glade",
+              "start": 27.08,
+              "end": 27.24,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " where",
+              "start": 27.24,
+              "end": 27.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " troops",
+              "start": 27.44,
+              "end": 27.68,
+              "probability": 0.97265625
+            },
+            {
+              "text": " of",
+              "start": 27.68,
+              "end": 27.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Túchkov's",
+              "start": 27.92,
+              "end": 28.56,
+              "probability": 0.2752676010131836
+            },
+            {
+              "text": " corps",
+              "start": 28.56,
+              "end": 28.66,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " were",
+              "start": 28.66,
+              "end": 28.86,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " stationed to defend the left flank.",
+          "start": 28.86,
+          "end": 30.4,
+          "words": [
+            {
+              "text": " stationed",
+              "start": 28.86,
+              "end": 29.2,
+              "probability": 0.0096435546875
+            },
+            {
+              "text": " to",
+              "start": 29.2,
+              "end": 29.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " defend",
+              "start": 29.44,
+              "end": 29.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 29.72,
+              "end": 29.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " left",
+              "start": 29.9,
+              "end": 30.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " flank.",
+              "start": 30.1,
+              "end": 30.4,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "the",
+          "start": 0.36,
+          "end": 0.54
+        },
+        {
+          "raw": "flèches",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "they",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "raw": "rode",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "still",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "farther",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "to",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "the",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "left,",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "along",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "a",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "raw": "road",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "winding",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "raw": "through",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "raw": "a",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "thick,",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "low",
+          "start": 4.62,
+          "end": 4.78
+        },
+        {
+          "raw": "-growing",
+          "start": 4.78,
+          "end": 5.1
+        },
+        {
+          "raw": "birch",
+          "start": 5.1,
+          "end": 5.52
+        },
+        {
+          "raw": "wood.",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "raw": "In",
+          "start": 6.62,
+          "end": 6.88
+        },
+        {
+          "raw": "the",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "raw": "middle",
+          "start": 6.98,
+          "end": 7.16
+        },
+        {
+          "raw": "of",
+          "start": 7.16,
+          "end": 7.32
+        },
+        {
+          "raw": "the",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "raw": "wood",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "raw": "a",
+          "start": 7.52,
+          "end": 7.66
+        },
+        {
+          "raw": "brown",
+          "start": 7.66,
+          "end": 7.9
+        },
+        {
+          "raw": "hare",
+          "start": 7.9,
+          "end": 8.22
+        },
+        {
+          "raw": "with",
+          "start": 8.22,
+          "end": 8.38
+        },
+        {
+          "raw": "white",
+          "start": 8.38,
+          "end": 8.64
+        },
+        {
+          "raw": "feet",
+          "start": 8.64,
+          "end": 8.94
+        },
+        {
+          "raw": "sprang",
+          "start": 8.94,
+          "end": 9.28
+        },
+        {
+          "raw": "out",
+          "start": 9.28,
+          "end": 9.56
+        },
+        {
+          "raw": "and,",
+          "start": 9.56,
+          "end": 9.8
+        },
+        {
+          "raw": "scared",
+          "start": 10.0,
+          "end": 10.28
+        },
+        {
+          "raw": "by",
+          "start": 10.28,
+          "end": 10.52
+        },
+        {
+          "raw": "the",
+          "start": 10.52,
+          "end": 10.66
+        },
+        {
+          "raw": "tramp",
+          "start": 10.66,
+          "end": 10.88
+        },
+        {
+          "raw": "of",
+          "start": 10.88,
+          "end": 11.04
+        },
+        {
+          "raw": "the",
+          "start": 11.04,
+          "end": 11.14
+        },
+        {
+          "raw": "many",
+          "start": 11.14,
+          "end": 11.34
+        },
+        {
+          "raw": "horses,",
+          "start": 11.34,
+          "end": 11.68
+        },
+        {
+          "raw": "grew",
+          "start": 12.16,
+          "end": 12.28
+        },
+        {
+          "raw": "so",
+          "start": 12.28,
+          "end": 12.56
+        },
+        {
+          "raw": "confused",
+          "start": 12.56,
+          "end": 12.98
+        },
+        {
+          "raw": "that",
+          "start": 12.98,
+          "end": 13.28
+        },
+        {
+          "raw": "it",
+          "start": 13.28,
+          "end": 13.4
+        },
+        {
+          "raw": "leaped",
+          "start": 13.4,
+          "end": 13.64
+        },
+        {
+          "raw": "along",
+          "start": 13.64,
+          "end": 13.86
+        },
+        {
+          "raw": "the",
+          "start": 13.86,
+          "end": 14.06
+        },
+        {
+          "raw": "road",
+          "start": 14.06,
+          "end": 14.3
+        },
+        {
+          "raw": "in",
+          "start": 14.3,
+          "end": 14.5
+        },
+        {
+          "raw": "front",
+          "start": 14.5,
+          "end": 14.7
+        },
+        {
+          "raw": "of",
+          "start": 14.7,
+          "end": 14.88
+        },
+        {
+          "raw": "them",
+          "start": 14.88,
+          "end": 15.0
+        },
+        {
+          "raw": "for",
+          "start": 15.0,
+          "end": 15.18
+        },
+        {
+          "raw": "some",
+          "start": 15.18,
+          "end": 15.42
+        },
+        {
+          "raw": "time,",
+          "start": 15.42,
+          "end": 15.76
+        },
+        {
+          "raw": "arousing",
+          "start": 16.1,
+          "end": 16.54
+        },
+        {
+          "raw": "general",
+          "start": 16.54,
+          "end": 16.94
+        },
+        {
+          "raw": "attention",
+          "start": 16.94,
+          "end": 17.3
+        },
+        {
+          "raw": "and",
+          "start": 17.3,
+          "end": 17.58
+        },
+        {
+          "raw": "laughter,",
+          "start": 17.58,
+          "end": 17.92
+        },
+        {
+          "raw": "and",
+          "start": 18.22,
+          "end": 18.36
+        },
+        {
+          "raw": "only",
+          "start": 18.36,
+          "end": 18.58
+        },
+        {
+          "raw": "when",
+          "start": 18.58,
+          "end": 18.82
+        },
+        {
+          "raw": "several",
+          "start": 18.82,
+          "end": 19.16
+        },
+        {
+          "raw": "voices",
+          "start": 19.16,
+          "end": 19.58
+        },
+        {
+          "raw": "shouted",
+          "start": 19.58,
+          "end": 19.88
+        },
+        {
+          "raw": "at",
+          "start": 19.88,
+          "end": 20.14
+        },
+        {
+          "raw": "it",
+          "start": 20.14,
+          "end": 20.26
+        },
+        {
+          "raw": "did",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "raw": "it",
+          "start": 20.38,
+          "end": 20.56
+        },
+        {
+          "raw": "dart",
+          "start": 20.56,
+          "end": 20.72
+        },
+        {
+          "raw": "to",
+          "start": 20.72,
+          "end": 20.9
+        },
+        {
+          "raw": "one",
+          "start": 20.9,
+          "end": 21.12
+        },
+        {
+          "raw": "side",
+          "start": 21.12,
+          "end": 21.5
+        },
+        {
+          "raw": "and",
+          "start": 21.5,
+          "end": 21.76
+        },
+        {
+          "raw": "disappear",
+          "start": 21.76,
+          "end": 22.16
+        },
+        {
+          "raw": "in",
+          "start": 22.16,
+          "end": 22.36
+        },
+        {
+          "raw": "the",
+          "start": 22.36,
+          "end": 22.46
+        },
+        {
+          "raw": "thicket.",
+          "start": 22.46,
+          "end": 22.8
+        },
+        {
+          "raw": "After",
+          "start": 23.78,
+          "end": 24.02
+        },
+        {
+          "raw": "going",
+          "start": 24.02,
+          "end": 24.28
+        },
+        {
+          "raw": "through",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "raw": "the",
+          "start": 24.54,
+          "end": 24.72
+        },
+        {
+          "raw": "wood",
+          "start": 24.72,
+          "end": 24.84
+        },
+        {
+          "raw": "for",
+          "start": 24.84,
+          "end": 24.98
+        },
+        {
+          "raw": "about",
+          "start": 24.98,
+          "end": 25.22
+        },
+        {
+          "raw": "a",
+          "start": 25.22,
+          "end": 25.4
+        },
+        {
+          "raw": "mile",
+          "start": 25.4,
+          "end": 25.62
+        },
+        {
+          "raw": "and",
+          "start": 25.62,
+          "end": 25.78
+        },
+        {
+          "raw": "a",
+          "start": 25.78,
+          "end": 25.86
+        },
+        {
+          "raw": "half",
+          "start": 25.86,
+          "end": 26.08
+        },
+        {
+          "raw": "they",
+          "start": 26.08,
+          "end": 26.26
+        },
+        {
+          "raw": "came",
+          "start": 26.26,
+          "end": 26.44
+        },
+        {
+          "raw": "out",
+          "start": 26.44,
+          "end": 26.66
+        },
+        {
+          "raw": "on",
+          "start": 26.66,
+          "end": 26.82
+        },
+        {
+          "raw": "a",
+          "start": 26.82,
+          "end": 27.08
+        },
+        {
+          "raw": "glade",
+          "start": 27.08,
+          "end": 27.24
+        },
+        {
+          "raw": "where",
+          "start": 27.24,
+          "end": 27.44
+        },
+        {
+          "raw": "troops",
+          "start": 27.44,
+          "end": 27.68
+        },
+        {
+          "raw": "of",
+          "start": 27.68,
+          "end": 27.92
+        },
+        {
+          "raw": "Túchkov's",
+          "start": 27.92,
+          "end": 28.56
+        },
+        {
+          "raw": "corps",
+          "start": 28.56,
+          "end": 28.66
+        },
+        {
+          "raw": "were",
+          "start": 28.66,
+          "end": 28.86
+        },
+        {
+          "raw": "stationed",
+          "start": 28.86,
+          "end": 29.2
+        },
+        {
+          "raw": "to",
+          "start": 29.2,
+          "end": 29.44
+        },
+        {
+          "raw": "defend",
+          "start": 29.44,
+          "end": 29.72
+        },
+        {
+          "raw": "the",
+          "start": 29.72,
+          "end": 29.9
+        },
+        {
+          "raw": "left",
+          "start": 29.9,
+          "end": 30.1
+        },
+        {
+          "raw": "flank.",
+          "start": 30.1,
+          "end": 30.4
+        }
+      ],
+      "expected_tokens": [
+        "From",
+        "the",
+        "flèches",
+        "they",
+        "rode",
+        "still",
+        "farther",
+        "to",
+        "the",
+        "left,",
+        "along",
+        "a",
+        "road",
+        "winding",
+        "through",
+        "a",
+        "thick,",
+        "low-growing",
+        "birch",
+        "wood.",
+        "In",
+        "the",
+        "middle",
+        "of",
+        "the",
+        "wood",
+        "a",
+        "brown",
+        "hare",
+        "with",
+        "white",
+        "feet",
+        "sprang",
+        "out",
+        "and,",
+        "scared",
+        "by",
+        "the",
+        "tramp",
+        "of",
+        "the",
+        "many",
+        "horses,",
+        "grew",
+        "so",
+        "confused",
+        "that",
+        "it",
+        "leaped",
+        "along",
+        "the",
+        "road",
+        "in",
+        "front",
+        "of",
+        "them",
+        "for",
+        "some",
+        "time,",
+        "arousing",
+        "general",
+        "attention",
+        "and",
+        "laughter,",
+        "and",
+        "only",
+        "when",
+        "several",
+        "voices",
+        "shouted",
+        "at",
+        "it",
+        "did",
+        "it",
+        "dart",
+        "to",
+        "one",
+        "side",
+        "and",
+        "disappear",
+        "in",
+        "the",
+        "thicket.",
+        "After",
+        "going",
+        "through",
+        "the",
+        "wood",
+        "for",
+        "about",
+        "a",
+        "mile",
+        "and",
+        "a",
+        "half",
+        "they",
+        "came",
+        "out",
+        "on",
+        "a",
+        "glade",
+        "where",
+        "troops",
+        "of",
+        "Túchkov’s",
+        "corps",
+        "were",
+        "stationed",
+        "to",
+        "defend",
+        "the",
+        "left",
+        "flank."
+      ],
+      "acoustic_expected_tokens": [
+        "From",
+        "the",
+        "flèches",
+        "they",
+        "rode",
+        "still",
+        "farther",
+        "to",
+        "the",
+        "left,",
+        "along",
+        "a",
+        "road",
+        "winding",
+        "through",
+        "a",
+        "thick,",
+        "low-growing",
+        "birch",
+        "wood.",
+        "In",
+        "the",
+        "middle",
+        "of",
+        "the",
+        "wood",
+        "a",
+        "brown",
+        "hare",
+        "with",
+        "white",
+        "feet",
+        "sprang",
+        "out",
+        "and,",
+        "scared",
+        "by",
+        "the",
+        "tramp",
+        "of",
+        "the",
+        "many",
+        "horses,",
+        "grew",
+        "so",
+        "confused",
+        "that",
+        "it",
+        "leaped",
+        "along",
+        "the",
+        "road",
+        "in",
+        "front",
+        "of",
+        "them",
+        "for",
+        "some",
+        "time,",
+        "arousing",
+        "general",
+        "attention",
+        "and",
+        "laughter,",
+        "and",
+        "only",
+        "when",
+        "several",
+        "voices",
+        "shouted",
+        "at",
+        "it",
+        "did",
+        "it",
+        "dart",
+        "to",
+        "one",
+        "side",
+        "and",
+        "disappear",
+        "in",
+        "the",
+        "thicket.",
+        "After",
+        "going",
+        "through",
+        "the",
+        "wood",
+        "for",
+        "about",
+        "a",
+        "mile",
+        "and",
+        "a",
+        "half",
+        "they",
+        "came",
+        "out",
+        "on",
+        "a",
+        "glade",
+        "where",
+        "troops",
+        "of",
+        "Túchkov's",
+        "corps",
+        "were",
+        "stationed",
+        "to",
+        "defend",
+        "the",
+        "left",
+        "flank."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          113,
+          0,
+          113
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "From",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.36,
+          "end": 0.54,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flèches",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "flèches",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.8,
+          "end": 1.04,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rode",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "rode",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "still",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "farther",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "farther",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "left,",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "left",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "along",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.94,
+          "end": 3.1,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "road",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "road",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "winding",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "winding",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 3.64,
+          "end": 3.9,
+          "key": "through",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thick,",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "thick",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "low -growing",
+          "start": 4.62,
+          "end": 5.1,
+          "key": "lowgrowing",
+          "pieces": [
+            17,
+            18
+          ]
+        },
+        {
+          "raw": "birch",
+          "start": 5.1,
+          "end": 5.52,
+          "key": "birch",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "wood.",
+          "start": 5.52,
+          "end": 5.72,
+          "key": "wood",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 6.62,
+          "end": 6.88,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.88,
+          "end": 6.98,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "middle",
+          "start": 6.98,
+          "end": 7.16,
+          "key": "middle",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.16,
+          "end": 7.32,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.32,
+          "end": 7.42,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "wood",
+          "start": 7.42,
+          "end": 7.52,
+          "key": "wood",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.52,
+          "end": 7.66,
+          "key": "a",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "brown",
+          "start": 7.66,
+          "end": 7.9,
+          "key": "brown",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "hare",
+          "start": 7.9,
+          "end": 8.22,
+          "key": "hare",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.22,
+          "end": 8.38,
+          "key": "with",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 8.38,
+          "end": 8.64,
+          "key": "white",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "feet",
+          "start": 8.64,
+          "end": 8.94,
+          "key": "feet",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "sprang",
+          "start": 8.94,
+          "end": 9.28,
+          "key": "sprang",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 9.28,
+          "end": 9.56,
+          "key": "out",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 9.56,
+          "end": 9.8,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "scared",
+          "start": 10.0,
+          "end": 10.28,
+          "key": "scared",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 10.28,
+          "end": 10.52,
+          "key": "by",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.52,
+          "end": 10.66,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "tramp",
+          "start": 10.66,
+          "end": 10.88,
+          "key": "tramp",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.88,
+          "end": 11.04,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.04,
+          "end": 11.14,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 11.14,
+          "end": 11.34,
+          "key": "many",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "horses,",
+          "start": 11.34,
+          "end": 11.68,
+          "key": "horses",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "grew",
+          "start": 12.16,
+          "end": 12.28,
+          "key": "grew",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 12.28,
+          "end": 12.56,
+          "key": "so",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "confused",
+          "start": 12.56,
+          "end": 12.98,
+          "key": "confused",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.98,
+          "end": 13.28,
+          "key": "that",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 13.28,
+          "end": 13.4,
+          "key": "it",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "leaped",
+          "start": 13.4,
+          "end": 13.64,
+          "key": "leaped",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 13.64,
+          "end": 13.86,
+          "key": "along",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.86,
+          "end": 14.06,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "road",
+          "start": 14.06,
+          "end": 14.3,
+          "key": "road",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.3,
+          "end": 14.5,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "front",
+          "start": 14.5,
+          "end": 14.7,
+          "key": "front",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.7,
+          "end": 14.88,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 14.88,
+          "end": 15.0,
+          "key": "them",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 15.0,
+          "end": 15.18,
+          "key": "for",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 15.18,
+          "end": 15.42,
+          "key": "some",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 15.42,
+          "end": 15.76,
+          "key": "time",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "arousing",
+          "start": 16.1,
+          "end": 16.54,
+          "key": "arousing",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "general",
+          "start": 16.54,
+          "end": 16.94,
+          "key": "general",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "attention",
+          "start": 16.94,
+          "end": 17.3,
+          "key": "attention",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.3,
+          "end": 17.58,
+          "key": "and",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "laughter,",
+          "start": 17.58,
+          "end": 17.92,
+          "key": "laughter",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.22,
+          "end": 18.36,
+          "key": "and",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 18.36,
+          "end": 18.58,
+          "key": "only",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 18.58,
+          "end": 18.82,
+          "key": "when",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 18.82,
+          "end": 19.16,
+          "key": "several",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "voices",
+          "start": 19.16,
+          "end": 19.58,
+          "key": "voices",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 19.58,
+          "end": 19.88,
+          "key": "shouted",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 19.88,
+          "end": 20.14,
+          "key": "at",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 20.14,
+          "end": 20.26,
+          "key": "it",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 20.26,
+          "end": 20.38,
+          "key": "did",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 20.38,
+          "end": 20.56,
+          "key": "it",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "dart",
+          "start": 20.56,
+          "end": 20.72,
+          "key": "dart",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.72,
+          "end": 20.9,
+          "key": "to",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 20.9,
+          "end": 21.12,
+          "key": "one",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 21.12,
+          "end": 21.5,
+          "key": "side",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.5,
+          "end": 21.76,
+          "key": "and",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "disappear",
+          "start": 21.76,
+          "end": 22.16,
+          "key": "disappear",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 22.16,
+          "end": 22.36,
+          "key": "in",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.36,
+          "end": 22.46,
+          "key": "the",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "thicket.",
+          "start": 22.46,
+          "end": 22.8,
+          "key": "thicket",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "After",
+          "start": 23.78,
+          "end": 24.02,
+          "key": "after",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 24.02,
+          "end": 24.28,
+          "key": "going",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 24.28,
+          "end": 24.54,
+          "key": "through",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.54,
+          "end": 24.72,
+          "key": "the",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "wood",
+          "start": 24.72,
+          "end": 24.84,
+          "key": "wood",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 24.84,
+          "end": 24.98,
+          "key": "for",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 24.98,
+          "end": 25.22,
+          "key": "about",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 25.22,
+          "end": 25.4,
+          "key": "a",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "mile",
+          "start": 25.4,
+          "end": 25.62,
+          "key": "mile",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 25.62,
+          "end": 25.78,
+          "key": "and",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 25.78,
+          "end": 25.86,
+          "key": "a",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 25.86,
+          "end": 26.08,
+          "key": "half",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 26.08,
+          "end": 26.26,
+          "key": "they",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 26.26,
+          "end": 26.44,
+          "key": "came",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 26.44,
+          "end": 26.66,
+          "key": "out",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 26.66,
+          "end": 26.82,
+          "key": "on",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 26.82,
+          "end": 27.08,
+          "key": "a",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "glade",
+          "start": 27.08,
+          "end": 27.24,
+          "key": "glade",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 27.24,
+          "end": 27.44,
+          "key": "where",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "troops",
+          "start": 27.44,
+          "end": 27.68,
+          "key": "troops",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 27.68,
+          "end": 27.92,
+          "key": "of",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "Túchkov's",
+          "start": 27.92,
+          "end": 28.56,
+          "key": "túchkovs",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "corps",
+          "start": 28.56,
+          "end": 28.66,
+          "key": "corps",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 28.66,
+          "end": 28.86,
+          "key": "were",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "stationed",
+          "start": 28.86,
+          "end": 29.2,
+          "key": "stationed",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 29.2,
+          "end": 29.44,
+          "key": "to",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "defend",
+          "start": 29.44,
+          "end": 29.72,
+          "key": "defend",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 29.72,
+          "end": 29.9,
+          "key": "the",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 29.9,
+          "end": 30.1,
+          "key": "left",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "flank.",
+          "start": 30.1,
+          "end": 30.4,
+          "key": "flank",
+          "pieces": [
+            113
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 17,
+          "text": "low-growing",
+          "heard": "low -growing",
+          "heard_indexes": [
+            17,
+            18
+          ],
+          "start": 4.62,
+          "end": 5.1
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "From",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "the",
+          "start": 0.36,
+          "end": 0.54
+        },
+        {
+          "text": "flèches",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "they",
+          "start": 0.8,
+          "end": 1.04
+        },
+        {
+          "text": "rode",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "still",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "text": "farther",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "to",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "the",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "left,",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "along",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "a",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "text": "road",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "winding",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "through",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "text": "a",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "thick,",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "low-growing",
+          "start": 4.62,
+          "end": 5.1
+        },
+        {
+          "text": "birch",
+          "start": 5.1,
+          "end": 5.52
+        },
+        {
+          "text": "wood.",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "text": "In",
+          "start": 6.62,
+          "end": 6.88
+        },
+        {
+          "text": "the",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "text": "middle",
+          "start": 6.98,
+          "end": 7.16
+        },
+        {
+          "text": "of",
+          "start": 7.16,
+          "end": 7.32
+        },
+        {
+          "text": "the",
+          "start": 7.32,
+          "end": 7.42
+        },
+        {
+          "text": "wood",
+          "start": 7.42,
+          "end": 7.52
+        },
+        {
+          "text": "a",
+          "start": 7.52,
+          "end": 7.66
+        },
+        {
+          "text": "brown",
+          "start": 7.66,
+          "end": 7.9
+        },
+        {
+          "text": "hare",
+          "start": 7.9,
+          "end": 8.22
+        },
+        {
+          "text": "with",
+          "start": 8.22,
+          "end": 8.38
+        },
+        {
+          "text": "white",
+          "start": 8.38,
+          "end": 8.64
+        },
+        {
+          "text": "feet",
+          "start": 8.64,
+          "end": 8.94
+        },
+        {
+          "text": "sprang",
+          "start": 8.94,
+          "end": 9.28
+        },
+        {
+          "text": "out",
+          "start": 9.28,
+          "end": 9.56
+        },
+        {
+          "text": "and,",
+          "start": 9.56,
+          "end": 9.8
+        },
+        {
+          "text": "scared",
+          "start": 10.0,
+          "end": 10.28
+        },
+        {
+          "text": "by",
+          "start": 10.28,
+          "end": 10.52
+        },
+        {
+          "text": "the",
+          "start": 10.52,
+          "end": 10.66
+        },
+        {
+          "text": "tramp",
+          "start": 10.66,
+          "end": 10.88
+        },
+        {
+          "text": "of",
+          "start": 10.88,
+          "end": 11.04
+        },
+        {
+          "text": "the",
+          "start": 11.04,
+          "end": 11.14
+        },
+        {
+          "text": "many",
+          "start": 11.14,
+          "end": 11.34
+        },
+        {
+          "text": "horses,",
+          "start": 11.34,
+          "end": 11.68
+        },
+        {
+          "text": "grew",
+          "start": 12.16,
+          "end": 12.28
+        },
+        {
+          "text": "so",
+          "start": 12.28,
+          "end": 12.56
+        },
+        {
+          "text": "confused",
+          "start": 12.56,
+          "end": 12.98
+        },
+        {
+          "text": "that",
+          "start": 12.98,
+          "end": 13.28
+        },
+        {
+          "text": "it",
+          "start": 13.28,
+          "end": 13.4
+        },
+        {
+          "text": "leaped",
+          "start": 13.4,
+          "end": 13.64
+        },
+        {
+          "text": "along",
+          "start": 13.64,
+          "end": 13.86
+        },
+        {
+          "text": "the",
+          "start": 13.86,
+          "end": 14.06
+        },
+        {
+          "text": "road",
+          "start": 14.06,
+          "end": 14.3
+        },
+        {
+          "text": "in",
+          "start": 14.3,
+          "end": 14.5
+        },
+        {
+          "text": "front",
+          "start": 14.5,
+          "end": 14.7
+        },
+        {
+          "text": "of",
+          "start": 14.7,
+          "end": 14.88
+        },
+        {
+          "text": "them",
+          "start": 14.88,
+          "end": 15.0
+        },
+        {
+          "text": "for",
+          "start": 15.0,
+          "end": 15.18
+        },
+        {
+          "text": "some",
+          "start": 15.18,
+          "end": 15.42
+        },
+        {
+          "text": "time,",
+          "start": 15.42,
+          "end": 15.76
+        },
+        {
+          "text": "arousing",
+          "start": 16.1,
+          "end": 16.54
+        },
+        {
+          "text": "general",
+          "start": 16.54,
+          "end": 16.94
+        },
+        {
+          "text": "attention",
+          "start": 16.94,
+          "end": 17.3
+        },
+        {
+          "text": "and",
+          "start": 17.3,
+          "end": 17.58
+        },
+        {
+          "text": "laughter,",
+          "start": 17.58,
+          "end": 17.92
+        },
+        {
+          "text": "and",
+          "start": 18.22,
+          "end": 18.36
+        },
+        {
+          "text": "only",
+          "start": 18.36,
+          "end": 18.58
+        },
+        {
+          "text": "when",
+          "start": 18.58,
+          "end": 18.82
+        },
+        {
+          "text": "several",
+          "start": 18.82,
+          "end": 19.16
+        },
+        {
+          "text": "voices",
+          "start": 19.16,
+          "end": 19.58
+        },
+        {
+          "text": "shouted",
+          "start": 19.58,
+          "end": 19.88
+        },
+        {
+          "text": "at",
+          "start": 19.88,
+          "end": 20.14
+        },
+        {
+          "text": "it",
+          "start": 20.14,
+          "end": 20.26
+        },
+        {
+          "text": "did",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "text": "it",
+          "start": 20.38,
+          "end": 20.56
+        },
+        {
+          "text": "dart",
+          "start": 20.56,
+          "end": 20.72
+        },
+        {
+          "text": "to",
+          "start": 20.72,
+          "end": 20.9
+        },
+        {
+          "text": "one",
+          "start": 20.9,
+          "end": 21.12
+        },
+        {
+          "text": "side",
+          "start": 21.12,
+          "end": 21.5
+        },
+        {
+          "text": "and",
+          "start": 21.5,
+          "end": 21.76
+        },
+        {
+          "text": "disappear",
+          "start": 21.76,
+          "end": 22.16
+        },
+        {
+          "text": "in",
+          "start": 22.16,
+          "end": 22.36
+        },
+        {
+          "text": "the",
+          "start": 22.36,
+          "end": 22.46
+        },
+        {
+          "text": "thicket.",
+          "start": 22.46,
+          "end": 22.8
+        },
+        {
+          "text": "After",
+          "start": 23.78,
+          "end": 24.02
+        },
+        {
+          "text": "going",
+          "start": 24.02,
+          "end": 24.28
+        },
+        {
+          "text": "through",
+          "start": 24.28,
+          "end": 24.54
+        },
+        {
+          "text": "the",
+          "start": 24.54,
+          "end": 24.72
+        },
+        {
+          "text": "wood",
+          "start": 24.72,
+          "end": 24.84
+        },
+        {
+          "text": "for",
+          "start": 24.84,
+          "end": 24.98
+        },
+        {
+          "text": "about",
+          "start": 24.98,
+          "end": 25.22
+        },
+        {
+          "text": "a",
+          "start": 25.22,
+          "end": 25.4
+        },
+        {
+          "text": "mile",
+          "start": 25.4,
+          "end": 25.62
+        },
+        {
+          "text": "and",
+          "start": 25.62,
+          "end": 25.78
+        },
+        {
+          "text": "a",
+          "start": 25.78,
+          "end": 25.86
+        },
+        {
+          "text": "half",
+          "start": 25.86,
+          "end": 26.08
+        },
+        {
+          "text": "they",
+          "start": 26.08,
+          "end": 26.26
+        },
+        {
+          "text": "came",
+          "start": 26.26,
+          "end": 26.44
+        },
+        {
+          "text": "out",
+          "start": 26.44,
+          "end": 26.66
+        },
+        {
+          "text": "on",
+          "start": 26.66,
+          "end": 26.82
+        },
+        {
+          "text": "a",
+          "start": 26.82,
+          "end": 27.08
+        },
+        {
+          "text": "glade",
+          "start": 27.08,
+          "end": 27.24
+        },
+        {
+          "text": "where",
+          "start": 27.24,
+          "end": 27.44
+        },
+        {
+          "text": "troops",
+          "start": 27.44,
+          "end": 27.68
+        },
+        {
+          "text": "of",
+          "start": 27.68,
+          "end": 27.92
+        },
+        {
+          "text": "Túchkov’s",
+          "start": 27.92,
+          "end": 28.56
+        },
+        {
+          "text": "corps",
+          "start": 28.56,
+          "end": 28.66
+        },
+        {
+          "text": "were",
+          "start": 28.66,
+          "end": 28.86
+        },
+        {
+          "text": "stationed",
+          "start": 28.86,
+          "end": 29.2
+        },
+        {
+          "text": "to",
+          "start": 29.2,
+          "end": 29.44
+        },
+        {
+          "text": "defend",
+          "start": 29.44,
+          "end": 29.72
+        },
+        {
+          "text": "the",
+          "start": 29.72,
+          "end": 29.9
+        },
+        {
+          "text": "left",
+          "start": 29.9,
+          "end": 30.1
+        },
+        {
+          "text": "flank.",
+          "start": 30.1,
+          "end": 30.4
+        }
+      ],
+      "stats": {
+        "expected_words": 113,
+        "heard_words": 113,
+        "matched_words": 113
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0181869827210903
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d27b1f6ed3405c12e5230c3e522e1c0e7a6b8dbfedd4130807bb5222272cbff",
+  "selected_reasons": []
+}

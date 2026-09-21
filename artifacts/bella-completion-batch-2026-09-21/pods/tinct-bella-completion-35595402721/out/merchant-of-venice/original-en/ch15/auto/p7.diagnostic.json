@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "f00ce3f454ec2ce7c184724386fdfe8dfb560204c8cecb79210c55a769ebd4ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.1922687515616417,
+      "alignment_seconds": 0.000502346083521843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It is the most impenetrable cur That ever kept with men.",
+        "hotwords": "It, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Salarino. It is the most impenetrable cur That ever kept with men.",
+          "start": 0.08,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " Salarino.",
+              "start": 0.08,
+              "end": 1.06,
+              "probability": 0.8059895833333334
+            },
+            {
+              "text": " It",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.96875
+            },
+            {
+              "text": " is",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " most",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impenetrable",
+              "start": 2.14,
+              "end": 2.86,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " cur",
+              "start": 2.86,
+              "end": 3.18,
+              "probability": 0.4365234375
+            },
+            {
+              "text": " That",
+              "start": 3.18,
+              "end": 3.42,
+              "probability": 0.0008392333984375
+            },
+            {
+              "text": " ever",
+              "start": 3.42,
+              "end": 3.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " kept",
+              "start": 3.7,
+              "end": 3.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " with",
+              "start": 3.98,
+              "end": 4.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " men.",
+              "start": 4.16,
+              "end": 4.44,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Salarino.",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "raw": "It",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "most",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "impenetrable",
+          "start": 2.14,
+          "end": 2.86
+        },
+        {
+          "raw": "cur",
+          "start": 2.86,
+          "end": 3.18
+        },
+        {
+          "raw": "That",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "raw": "ever",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "raw": "kept",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "raw": "with",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "raw": "men.",
+          "start": 4.16,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "SALARINO.",
+        "It",
+        "is",
+        "the",
+        "most",
+        "impenetrable",
+        "cur",
+        "That",
+        "ever",
+        "kept",
+        "with",
+        "men."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "is",
+        "the",
+        "most",
+        "impenetrable",
+        "cur",
+        "That",
+        "ever",
+        "kept",
+        "with",
+        "men."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          11,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Salarino.",
+          "start": 0.08,
+          "end": 1.06,
+          "key": "salarino",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.84,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "most",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "impenetrable",
+          "start": 2.14,
+          "end": 2.86,
+          "key": "impenetrable",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cur",
+          "start": 2.86,
+          "end": 3.18,
+          "key": "cur",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.18,
+          "end": 3.42,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 3.42,
+          "end": 3.7,
+          "key": "ever",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 3.7,
+          "end": 3.98,
+          "key": "kept",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.98,
+          "end": 4.16,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 4.16,
+          "end": 4.44,
+          "key": "men",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SALARINO.",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "text": "It",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "is",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "the",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "most",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "impenetrable",
+          "start": 2.14,
+          "end": 2.86
+        },
+        {
+          "text": "cur",
+          "start": 2.86,
+          "end": 3.18
+        },
+        {
+          "text": "That",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "text": "ever",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "text": "kept",
+          "start": 3.7,
+          "end": 3.98
+        },
+        {
+          "text": "with",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "text": "men.",
+          "start": 4.16,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19284219481050968
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "280696601190eaa3c0c75b0cced15c888a55e7b3feee3be28857fbc21f4f3bfa",
+  "selected_reasons": []
+}

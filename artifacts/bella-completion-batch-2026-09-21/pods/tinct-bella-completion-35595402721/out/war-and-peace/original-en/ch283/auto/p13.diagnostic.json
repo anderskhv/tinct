@@ -1,0 +1,659 @@
+{
+  "complete": true,
+  "signature": "93ee09c46596590863d93e65f97119fbfcd16cbf8358884a278bd122a67b8401",
+  "attempts": [
+    {
+      "asr_seconds": 0.2331800740212202,
+      "alignment_seconds": 0.0007814150303602219,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why, there, over at Échkino,\" said a Cossack officer, pointing to a country house in the far distance.",
+        "hotwords": "Why, Échkino, Cossack"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, there, over at Échkino,\" said a Cossack officer, pointing to a country house in the far distance.",
+          "start": 0.0,
+          "end": 6.06,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.020355224609375
+            },
+            {
+              "text": " there,",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " over",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " at",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Échkino,\"",
+              "start": 1.66,
+              "end": 2.48,
+              "probability": 0.3565561294555664
+            },
+            {
+              "text": " said",
+              "start": 2.48,
+              "end": 2.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Cossack",
+              "start": 2.74,
+              "end": 3.22,
+              "probability": 0.3486887613932292
+            },
+            {
+              "text": " officer,",
+              "start": 3.22,
+              "end": 3.6,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " pointing",
+              "start": 3.9,
+              "end": 4.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.14,
+              "end": 4.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.38,
+              "end": 4.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " country",
+              "start": 4.5,
+              "end": 4.74,
+              "probability": 0.984375
+            },
+            {
+              "text": " house",
+              "start": 4.74,
+              "end": 5.08,
+              "probability": 0.982421875
+            },
+            {
+              "text": " in",
+              "start": 5.08,
+              "end": 5.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.26,
+              "end": 5.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " far",
+              "start": 5.38,
+              "end": 5.6,
+              "probability": 0.970703125
+            },
+            {
+              "text": " distance.",
+              "start": 5.6,
+              "end": 6.06,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "there,",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "raw": "over",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "at",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "raw": "Échkino,\"",
+          "start": 1.66,
+          "end": 2.48
+        },
+        {
+          "raw": "said",
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "raw": "a",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "Cossack",
+          "start": 2.74,
+          "end": 3.22
+        },
+        {
+          "raw": "officer,",
+          "start": 3.22,
+          "end": 3.6
+        },
+        {
+          "raw": "pointing",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "raw": "to",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "raw": "a",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "raw": "country",
+          "start": 4.5,
+          "end": 4.74
+        },
+        {
+          "raw": "house",
+          "start": 4.74,
+          "end": 5.08
+        },
+        {
+          "raw": "in",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "raw": "the",
+          "start": 5.26,
+          "end": 5.38
+        },
+        {
+          "raw": "far",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "raw": "distance.",
+          "start": 5.6,
+          "end": 6.06
+        }
+      ],
+      "expected_tokens": [
+        "“Why,",
+        "there,",
+        "over",
+        "at",
+        "Échkino,”",
+        "said",
+        "a",
+        "Cossack",
+        "officer,",
+        "pointing",
+        "to",
+        "a",
+        "country",
+        "house",
+        "in",
+        "the",
+        "far",
+        "distance."
+      ],
+      "acoustic_expected_tokens": [
+        "\"Why,",
+        "there,",
+        "over",
+        "at",
+        "Échkino,\"",
+        "said",
+        "a",
+        "Cossack",
+        "officer,",
+        "pointing",
+        "to",
+        "a",
+        "country",
+        "house",
+        "in",
+        "the",
+        "far",
+        "distance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 0.76,
+          "end": 1.02,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "over",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Échkino,\"",
+          "start": 1.66,
+          "end": 2.48,
+          "key": "échkino",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.48,
+          "end": 2.56,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Cossack",
+          "start": 2.74,
+          "end": 3.22,
+          "key": "cossack",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "officer,",
+          "start": 3.22,
+          "end": 3.6,
+          "key": "officer",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pointing",
+          "start": 3.9,
+          "end": 4.14,
+          "key": "pointing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.14,
+          "end": 4.38,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.38,
+          "end": 4.5,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 4.5,
+          "end": 4.74,
+          "key": "country",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 4.74,
+          "end": 5.08,
+          "key": "house",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.08,
+          "end": 5.26,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.26,
+          "end": 5.38,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 5.38,
+          "end": 5.6,
+          "key": "far",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "distance.",
+          "start": 5.6,
+          "end": 6.06,
+          "key": "distance",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Why,",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "there,",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "text": "over",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "at",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "text": "Échkino,”",
+          "start": 1.66,
+          "end": 2.48
+        },
+        {
+          "text": "said",
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "text": "a",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "Cossack",
+          "start": 2.74,
+          "end": 3.22
+        },
+        {
+          "text": "officer,",
+          "start": 3.22,
+          "end": 3.6
+        },
+        {
+          "text": "pointing",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "text": "to",
+          "start": 4.14,
+          "end": 4.38
+        },
+        {
+          "text": "a",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "text": "country",
+          "start": 4.5,
+          "end": 4.74
+        },
+        {
+          "text": "house",
+          "start": 4.74,
+          "end": 5.08
+        },
+        {
+          "text": "in",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "text": "the",
+          "start": 5.26,
+          "end": 5.38
+        },
+        {
+          "text": "far",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "text": "distance.",
+          "start": 5.6,
+          "end": 6.06
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23407495580613613
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49359fe5ff1fb45598fe465e5071841ffa2eb19c95a3a077be1ffc99ad99f7fd",
+  "selected_reasons": []
+}

@@ -1,0 +1,791 @@
+{
+  "complete": true,
+  "signature": "43fd32a31a636e7e72aecc972586a1ef48a15926559b62f93e54846fd06898a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.25518763437867165,
+      "alignment_seconds": 0.0019023735076189041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But what do you think, Daniel Teréntich? Doesn't it look as if that glow were in Moscow?\" remarked one of the footmen.",
+        "hotwords": "But, Daniel, Teréntich, Doesn't, Moscow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But what do you think, Daniel Teréntich? Doesn't it look as if that glow were in Moscow?\" remarked one of the footmen.",
+          "start": 0.0,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " what",
+              "start": 0.34,
+              "end": 0.52,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " think,",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Daniel",
+              "start": 1.64,
+              "end": 1.66,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Teréntich?",
+              "start": 1.66,
+              "end": 2.3,
+              "probability": 0.2555067092180252
+            },
+            {
+              "text": " Doesn't",
+              "start": 3.24,
+              "end": 3.6,
+              "probability": 0.86328125
+            },
+            {
+              "text": " it",
+              "start": 3.6,
+              "end": 3.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " look",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 3.84,
+              "end": 3.96,
+              "probability": 0.966796875
+            },
+            {
+              "text": " if",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 4.12,
+              "end": 4.26,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " glow",
+              "start": 4.26,
+              "end": 4.48,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " were",
+              "start": 4.48,
+              "end": 4.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 4.7,
+              "end": 4.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Moscow?\"",
+              "start": 4.86,
+              "end": 5.64,
+              "probability": 0.532257080078125
+            },
+            {
+              "text": " remarked",
+              "start": 5.64,
+              "end": 5.8,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " one",
+              "start": 5.8,
+              "end": 6.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 6.1,
+              "end": 6.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.22,
+              "end": 6.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " footmen.",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.920654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "what",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "think,",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "Daniel",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "raw": "Teréntich?",
+          "start": 1.66,
+          "end": 2.3
+        },
+        {
+          "raw": "Doesn't",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "raw": "it",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "raw": "look",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "as",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "raw": "if",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "that",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "raw": "glow",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "raw": "were",
+          "start": 4.48,
+          "end": 4.7
+        },
+        {
+          "raw": "in",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "raw": "Moscow?\"",
+          "start": 4.86,
+          "end": 5.64
+        },
+        {
+          "raw": "remarked",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "raw": "one",
+          "start": 5.8,
+          "end": 6.1
+        },
+        {
+          "raw": "of",
+          "start": 6.1,
+          "end": 6.22
+        },
+        {
+          "raw": "the",
+          "start": 6.22,
+          "end": 6.32
+        },
+        {
+          "raw": "footmen.",
+          "start": 6.32,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "“But",
+        "what",
+        "do",
+        "you",
+        "think,",
+        "Daniel",
+        "Teréntich?",
+        "Doesn’t",
+        "it",
+        "look",
+        "as",
+        "if",
+        "that",
+        "glow",
+        "were",
+        "in",
+        "Moscow?”",
+        "remarked",
+        "one",
+        "of",
+        "the",
+        "footmen."
+      ],
+      "acoustic_expected_tokens": [
+        "\"But",
+        "what",
+        "do",
+        "you",
+        "think,",
+        "Daniel",
+        "Teréntich?",
+        "Doesn't",
+        "it",
+        "look",
+        "as",
+        "if",
+        "that",
+        "glow",
+        "were",
+        "in",
+        "Moscow?\"",
+        "remarked",
+        "one",
+        "of",
+        "the",
+        "footmen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.34,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Daniel",
+          "start": 1.64,
+          "end": 1.66,
+          "key": "daniel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Teréntich?",
+          "start": 1.66,
+          "end": 2.3,
+          "key": "teréntich",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Doesn't",
+          "start": 3.24,
+          "end": 3.6,
+          "key": "doesnt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.6,
+          "end": 3.7,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "look",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.84,
+          "end": 3.96,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "if",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.12,
+          "end": 4.26,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "glow",
+          "start": 4.26,
+          "end": 4.48,
+          "key": "glow",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.48,
+          "end": 4.7,
+          "key": "were",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.7,
+          "end": 4.86,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Moscow?\"",
+          "start": 4.86,
+          "end": 5.64,
+          "key": "moscow",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "remarked",
+          "start": 5.64,
+          "end": 5.8,
+          "key": "remarked",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.8,
+          "end": 6.1,
+          "key": "one",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.1,
+          "end": 6.22,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.22,
+          "end": 6.32,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "footmen.",
+          "start": 6.32,
+          "end": 6.66,
+          "key": "footmen",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“But",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "what",
+          "start": 0.34,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "you",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "think,",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "Daniel",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "text": "Teréntich?",
+          "start": 1.66,
+          "end": 2.3
+        },
+        {
+          "text": "Doesn’t",
+          "start": 3.24,
+          "end": 3.6
+        },
+        {
+          "text": "it",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "look",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "as",
+          "start": 3.84,
+          "end": 3.96
+        },
+        {
+          "text": "if",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "that",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "text": "glow",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "text": "were",
+          "start": 4.48,
+          "end": 4.7
+        },
+        {
+          "text": "in",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "text": "Moscow?”",
+          "start": 4.86,
+          "end": 5.64
+        },
+        {
+          "text": "remarked",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "text": "one",
+          "start": 5.8,
+          "end": 6.1
+        },
+        {
+          "text": "of",
+          "start": 6.1,
+          "end": 6.22
+        },
+        {
+          "text": "the",
+          "start": 6.22,
+          "end": 6.32
+        },
+        {
+          "text": "footmen.",
+          "start": 6.32,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2573213651776314
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4cff926318b59ed29896ac8d6d05590e3d624320acae4273779bb495067dd093",
+  "selected_reasons": []
+}

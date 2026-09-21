@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "33c2e560199817d3f913333dfedd503012374ed2c802ab50b774904d1294708e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1560541484504938,
+      "alignment_seconds": 0.0007446333765983582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Come now, what about your Roi de Prusse?\"",
+        "hotwords": "Come, Roi, Prusse"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come now, what about your Roi de Prusse?",
+          "start": 0.0,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.0,
+              "end": 0.38,
+              "probability": 0.89453125
+            },
+            {
+              "text": " now,",
+              "start": 0.38,
+              "end": 0.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " what",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " about",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Roi",
+              "start": 1.6,
+              "end": 2.16,
+              "probability": 0.12306880950927734
+            },
+            {
+              "text": " de",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.0838623046875
+            },
+            {
+              "text": " Prusse?",
+              "start": 2.28,
+              "end": 2.8,
+              "probability": 0.2028025984764099
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "raw": "now,",
+          "start": 0.38,
+          "end": 0.7
+        },
+        {
+          "raw": "what",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "about",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "your",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "Roi",
+          "start": 1.6,
+          "end": 2.16
+        },
+        {
+          "raw": "de",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "Prusse?",
+          "start": 2.28,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "“Come",
+        "now,",
+        "what",
+        "about",
+        "your",
+        "Roi",
+        "de",
+        "Prusse?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Come",
+        "now,",
+        "what",
+        "about",
+        "your",
+        "Roi",
+        "de",
+        "Prusse?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.0,
+          "end": 0.38,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.38,
+          "end": 0.7,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Roi",
+          "start": 1.6,
+          "end": 2.16,
+          "key": "roi",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.16,
+          "end": 2.28,
+          "key": "de",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Prusse?",
+          "start": 2.28,
+          "end": 2.8,
+          "key": "prusse",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“Come",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "now,",
+          "start": 0.38,
+          "end": 0.7
+        },
+        {
+          "text": "what",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "about",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "your",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "Roi",
+          "start": 1.6,
+          "end": 2.16
+        },
+        {
+          "text": "de",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "text": "Prusse?”",
+          "start": 2.28,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15690029971301556
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c14eb01126b24a096f7c323ec0a7841f2124a2d567bf36406df8ed452e903a22",
+  "selected_reasons": []
+}

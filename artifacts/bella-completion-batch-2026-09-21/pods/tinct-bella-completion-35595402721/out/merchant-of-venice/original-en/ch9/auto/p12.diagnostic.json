@@ -1,0 +1,1469 @@
+{
+  "complete": true,
+  "signature": "9b5f0bd5d0c4fcba4ec2cda35f8c9a7ca140227225742be4881525065336147f",
+  "attempts": [
+    {
+      "asr_seconds": 0.15716253779828548,
+      "alignment_seconds": 0.0019047725945711136,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lorenzo certain, and my love indeed, For who love I so much? And now who knows But you, Lorenzo, whether I am yours?",
+        "hotwords": "Lorenzo, For, I, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And now who knows But you, Lorenzo, whether I am yours?",
+          "start": 4.54,
+          "end": 8.16,
+          "words": [
+            {
+              "text": " And",
+              "start": 4.54,
+              "end": 5.04,
+              "probability": 0.00220489501953125
+            },
+            {
+              "text": " now",
+              "start": 5.04,
+              "end": 5.54,
+              "probability": 0.9140625
+            },
+            {
+              "text": " who",
+              "start": 5.54,
+              "end": 5.7,
+              "probability": 0.587890625
+            },
+            {
+              "text": " knows",
+              "start": 5.7,
+              "end": 5.9,
+              "probability": 0.990234375
+            },
+            {
+              "text": " But",
+              "start": 5.9,
+              "end": 6.16,
+              "probability": 0.0030536651611328125
+            },
+            {
+              "text": " you,",
+              "start": 6.16,
+              "end": 6.4,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Lorenzo,",
+              "start": 6.64,
+              "end": 6.94,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " whether",
+              "start": 7.26,
+              "end": 7.46,
+              "probability": 0.468017578125
+            },
+            {
+              "text": " I",
+              "start": 7.46,
+              "end": 7.7,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " am",
+              "start": 7.7,
+              "end": 7.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " yours?",
+              "start": 7.84,
+              "end": 8.16,
+              "probability": 0.9375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 4.54,
+          "end": 5.04
+        },
+        {
+          "raw": "now",
+          "start": 5.04,
+          "end": 5.54
+        },
+        {
+          "raw": "who",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "raw": "knows",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "raw": "But",
+          "start": 5.9,
+          "end": 6.16
+        },
+        {
+          "raw": "you,",
+          "start": 6.16,
+          "end": 6.4
+        },
+        {
+          "raw": "Lorenzo,",
+          "start": 6.64,
+          "end": 6.94
+        },
+        {
+          "raw": "whether",
+          "start": 7.26,
+          "end": 7.46
+        },
+        {
+          "raw": "I",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "raw": "am",
+          "start": 7.7,
+          "end": 7.84
+        },
+        {
+          "raw": "yours?",
+          "start": 7.84,
+          "end": 8.16
+        }
+      ],
+      "expected_tokens": [
+        "JESSICA.",
+        "Lorenzo",
+        "certain,",
+        "and",
+        "my",
+        "love",
+        "indeed,",
+        "For",
+        "who",
+        "love",
+        "I",
+        "so",
+        "much?",
+        "And",
+        "now",
+        "who",
+        "knows",
+        "But",
+        "you,",
+        "Lorenzo,",
+        "whether",
+        "I",
+        "am",
+        "yours?"
+      ],
+      "acoustic_expected_tokens": [
+        "Lorenzo",
+        "certain,",
+        "and",
+        "my",
+        "love",
+        "indeed,",
+        "For",
+        "who",
+        "love",
+        "I",
+        "so",
+        "much?",
+        "And",
+        "now",
+        "who",
+        "knows",
+        "But",
+        "you,",
+        "Lorenzo,",
+        "whether",
+        "I",
+        "am",
+        "yours?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          12,
+          0,
+          0
+        ],
+        [
+          "equal",
+          12,
+          23,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          12,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 4.54,
+          "end": 5.04,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 5.04,
+          "end": 5.54,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 5.54,
+          "end": 5.7,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 5.7,
+          "end": 5.9,
+          "key": "knows",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 5.9,
+          "end": 6.16,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 6.16,
+          "end": 6.4,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lorenzo,",
+          "start": 6.64,
+          "end": 6.94,
+          "key": "lorenzo",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 7.26,
+          "end": 7.46,
+          "key": "whether",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.46,
+          "end": 7.7,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 7.7,
+          "end": 7.84,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yours?",
+          "start": 7.84,
+          "end": 8.16,
+          "key": "yours",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "JESSICA.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Lorenzo",
+          "start": 0.0,
+          "end": 2.27
+        },
+        {
+          "text": "certain,",
+          "start": 2.27,
+          "end": 3.405
+        },
+        {
+          "text": "and",
+          "start": 3.405,
+          "end": 3.973
+        },
+        {
+          "text": "my",
+          "start": 3.973,
+          "end": 4.256
+        },
+        {
+          "text": "love",
+          "start": 4.256,
+          "end": 4.398
+        },
+        {
+          "text": "indeed,",
+          "start": 4.398,
+          "end": 4.469
+        },
+        {
+          "text": "For",
+          "start": 4.469,
+          "end": 4.505
+        },
+        {
+          "text": "who",
+          "start": 4.505,
+          "end": 4.522
+        },
+        {
+          "text": "love",
+          "start": 4.522,
+          "end": 4.531
+        },
+        {
+          "text": "I",
+          "start": 4.531,
+          "end": 4.535
+        },
+        {
+          "text": "so",
+          "start": 4.535,
+          "end": 4.537
+        },
+        {
+          "text": "much?",
+          "start": 4.537,
+          "end": 4.538
+        },
+        {
+          "text": "And",
+          "start": 4.54,
+          "end": 5.04
+        },
+        {
+          "text": "now",
+          "start": 5.04,
+          "end": 5.54
+        },
+        {
+          "text": "who",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "text": "knows",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "text": "But",
+          "start": 5.9,
+          "end": 6.16
+        },
+        {
+          "text": "you,",
+          "start": 6.16,
+          "end": 6.4
+        },
+        {
+          "text": "Lorenzo,",
+          "start": 6.64,
+          "end": 6.94
+        },
+        {
+          "text": "whether",
+          "start": 7.26,
+          "end": 7.46
+        },
+        {
+          "text": "I",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "text": "am",
+          "start": 7.7,
+          "end": 7.84
+        },
+        {
+          "text": "yours?",
+          "start": 7.84,
+          "end": 8.16
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 0.4782608695652174,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15922464802861214
+    },
+    {
+      "asr_seconds": 0.291437778621912,
+      "alignment_seconds": 0.0019227154552936554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lorenzo, For, I, But"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Jessica, Lorenzo certain and my love indeed for who love I so much and now",
+          "start": 0.02,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " Jessica,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " Lorenzo",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " certain",
+              "start": 1.8,
+              "end": 2.2,
+              "probability": 0.27197265625
+            },
+            {
+              "text": " and",
+              "start": 2.2,
+              "end": 2.64,
+              "probability": 0.5810546875
+            },
+            {
+              "text": " my",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " love",
+              "start": 2.78,
+              "end": 2.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " indeed",
+              "start": 2.94,
+              "end": 3.28,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " for",
+              "start": 3.28,
+              "end": 3.66,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " who",
+              "start": 3.66,
+              "end": 3.86,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " love",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " I",
+              "start": 4.02,
+              "end": 4.18,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " so",
+              "start": 4.18,
+              "end": 4.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " much",
+              "start": 4.38,
+              "end": 4.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 4.7,
+              "end": 5.36,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " now",
+              "start": 5.36,
+              "end": 5.56,
+              "probability": 0.98046875
+            }
+          ]
+        },
+        {
+          "text": " who knows but you Lorenzo whether I am yours",
+          "start": 5.56,
+          "end": 8.1,
+          "words": [
+            {
+              "text": " who",
+              "start": 5.56,
+              "end": 5.72,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " knows",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 5.92,
+              "end": 6.16,
+              "probability": 0.869140625
+            },
+            {
+              "text": " you",
+              "start": 6.16,
+              "end": 6.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Lorenzo",
+              "start": 6.42,
+              "end": 6.92,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " whether",
+              "start": 6.92,
+              "end": 7.46,
+              "probability": 0.82421875
+            },
+            {
+              "text": " I",
+              "start": 7.46,
+              "end": 7.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " am",
+              "start": 7.7,
+              "end": 7.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " yours",
+              "start": 7.84,
+              "end": 8.1,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jessica,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "certain",
+          "start": 1.8,
+          "end": 2.2
+        },
+        {
+          "raw": "and",
+          "start": 2.2,
+          "end": 2.64
+        },
+        {
+          "raw": "my",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "love",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "raw": "indeed",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.66
+        },
+        {
+          "raw": "who",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "raw": "love",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "I",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "raw": "so",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "raw": "much",
+          "start": 4.38,
+          "end": 4.7
+        },
+        {
+          "raw": "and",
+          "start": 4.7,
+          "end": 5.36
+        },
+        {
+          "raw": "now",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "raw": "who",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "raw": "knows",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "but",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "raw": "you",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 6.42,
+          "end": 6.92
+        },
+        {
+          "raw": "whether",
+          "start": 6.92,
+          "end": 7.46
+        },
+        {
+          "raw": "I",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "raw": "am",
+          "start": 7.7,
+          "end": 7.84
+        },
+        {
+          "raw": "yours",
+          "start": 7.84,
+          "end": 8.1
+        }
+      ],
+      "expected_tokens": [
+        "JESSICA.",
+        "Lorenzo",
+        "certain,",
+        "and",
+        "my",
+        "love",
+        "indeed,",
+        "For",
+        "who",
+        "love",
+        "I",
+        "so",
+        "much?",
+        "And",
+        "now",
+        "who",
+        "knows",
+        "But",
+        "you,",
+        "Lorenzo,",
+        "whether",
+        "I",
+        "am",
+        "yours?"
+      ],
+      "acoustic_expected_tokens": [
+        "Lorenzo",
+        "certain,",
+        "and",
+        "my",
+        "love",
+        "indeed,",
+        "For",
+        "who",
+        "love",
+        "I",
+        "so",
+        "much?",
+        "And",
+        "now",
+        "who",
+        "knows",
+        "But",
+        "you,",
+        "Lorenzo,",
+        "whether",
+        "I",
+        "am",
+        "yours?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          23,
+          1,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jessica,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "jessica",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "lorenzo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 1.8,
+          "end": 2.2,
+          "key": "certain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.2,
+          "end": 2.64,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.78,
+          "end": 2.94,
+          "key": "love",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 2.94,
+          "end": 3.28,
+          "key": "indeed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.66,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.66,
+          "end": 3.86,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 3.86,
+          "end": 4.02,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.02,
+          "end": 4.18,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.18,
+          "end": 4.38,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 4.38,
+          "end": 4.7,
+          "key": "much",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.7,
+          "end": 5.36,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 5.36,
+          "end": 5.56,
+          "key": "now",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 5.56,
+          "end": 5.72,
+          "key": "who",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "knows",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.92,
+          "end": 6.16,
+          "key": "but",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.16,
+          "end": 6.42,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 6.42,
+          "end": 6.92,
+          "key": "lorenzo",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 6.92,
+          "end": 7.46,
+          "key": "whether",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.46,
+          "end": 7.7,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 7.7,
+          "end": 7.84,
+          "key": "am",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "yours",
+          "start": 7.84,
+          "end": 8.1,
+          "key": "yours",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "JESSICA.",
+          "start": 1.68,
+          "end": 1.68
+        },
+        {
+          "text": "Lorenzo",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "certain,",
+          "start": 1.8,
+          "end": 2.2
+        },
+        {
+          "text": "and",
+          "start": 2.2,
+          "end": 2.64
+        },
+        {
+          "text": "my",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "love",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "text": "indeed,",
+          "start": 2.94,
+          "end": 3.28
+        },
+        {
+          "text": "For",
+          "start": 3.28,
+          "end": 3.66
+        },
+        {
+          "text": "who",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "text": "love",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "I",
+          "start": 4.02,
+          "end": 4.18
+        },
+        {
+          "text": "so",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "text": "much?",
+          "start": 4.38,
+          "end": 4.7
+        },
+        {
+          "text": "And",
+          "start": 4.7,
+          "end": 5.36
+        },
+        {
+          "text": "now",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "text": "who",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "knows",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "But",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "text": "you,",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "text": "Lorenzo,",
+          "start": 6.42,
+          "end": 6.92
+        },
+        {
+          "text": "whether",
+          "start": 6.92,
+          "end": 7.46
+        },
+        {
+          "text": "I",
+          "start": 7.46,
+          "end": 7.7
+        },
+        {
+          "text": "am",
+          "start": 7.7,
+          "end": 7.84
+        },
+        {
+          "text": "yours?",
+          "start": 7.84,
+          "end": 8.1
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29359648935496807
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "9cfb177e15d38715c3e6d17d54293b99a01b20e3507655e727661716be893d82",
+  "selected_reasons": []
+}

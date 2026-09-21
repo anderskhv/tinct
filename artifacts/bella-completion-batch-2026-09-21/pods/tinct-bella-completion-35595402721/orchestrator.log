@@ -1,0 +1,18 @@
+[2026-09-21T11:44:25Z] created 81mcml6i6g23k7 tinct-bella-completion-35595402721 gpu=None $0.5/hr
+[2026-09-21T11:44:26Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-21T11:44:42Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-21T11:44:59Z] phase cohort at 0.5 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "e3466cc4fe301ae10f398b1f2792883fc16210d9", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-21T11:44:59Z] 0.5 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-21T11:45:29Z] phase aligning at 1.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "e3466cc4fe301ae10f398b1f2792883fc16210d9", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-21T11:45:29Z] 1.1 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 28}
+[2026-09-21T11:46:00Z] 1.6 min: aligning {"arm_chapters_passed": 1, "arm_chapters_rejected": 3, "arm_chapters_running": 1, "paragraph_diagnostics": 58}
+[2026-09-21T11:46:31Z] 2.1 min: aligning {"arm_chapters_passed": 4, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 122}
+[2026-09-21T11:47:01Z] 2.6 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 5, "arm_chapters_running": 1, "paragraph_diagnostics": 170}
+[2026-09-21T11:47:32Z] 3.1 min: aligning {"arm_chapters_passed": 7, "arm_chapters_rejected": 7, "arm_chapters_running": 1, "paragraph_diagnostics": 194}
+[2026-09-21T11:48:02Z] 3.6 min: aligning {"arm_chapters_passed": 10, "arm_chapters_rejected": 8, "arm_chapters_running": 1, "paragraph_diagnostics": 258}
+[2026-09-21T11:48:33Z] phase done at 4.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "e3466cc4fe301ae10f398b1f2792883fc16210d9", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-21T11:48:33Z] 4.1 min: done {"arm_chapters_passed": 12, "arm_chapters_rejected": 8, "arm_chapters_running": 0, "paragraph_diagnostics": 288}
+[2026-09-21T11:48:37Z] fetched out.tar.gz (1125762 bytes)
+[2026-09-21T11:48:39Z] stop 81mcml6i6g23k7: HTTP 200
+[2026-09-21T11:48:40Z] terminate 81mcml6i6g23k7: HTTP 204
+[2026-09-21T11:48:40Z] pod 81mcml6i6g23k7 done: outcome=done uptime=4.2m est $0.04

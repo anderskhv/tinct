@@ -1,0 +1,832 @@
+{
+  "complete": true,
+  "signature": "2f92f4b7399b7b38f35341f7e824a2c090591d141bc2ef4db1f847cf4c3839fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.2360213939100504,
+      "alignment_seconds": 0.001024162396788597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gaoler, look to him. Tell not me of mercy. This is the fool that lent out money gratis. Gaoler, look to him.",
+        "hotwords": "Gaoler, Tell, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shylock, Gaoler, look to him. Tell not me of mercy. This is the fool that lent out money gratis. Gaoler, look to him.",
+          "start": 0.48,
+          "end": 7.64,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.48,
+              "end": 0.92,
+              "probability": 0.7960611979166666
+            },
+            {
+              "text": " Gaoler,",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.037296295166015625
+            },
+            {
+              "text": " look",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.60595703125
+            },
+            {
+              "text": " to",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Tell",
+              "start": 2.6,
+              "end": 2.66,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " not",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " me",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 3.0,
+              "end": 3.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mercy.",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " This",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 4.26,
+              "end": 4.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.44,
+              "end": 4.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fool",
+              "start": 4.62,
+              "end": 4.84,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " that",
+              "start": 4.84,
+              "end": 5.08,
+              "probability": 0.990234375
+            },
+            {
+              "text": " lent",
+              "start": 5.08,
+              "end": 5.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " out",
+              "start": 5.24,
+              "end": 5.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " money",
+              "start": 5.44,
+              "end": 5.66,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " gratis.",
+              "start": 5.66,
+              "end": 6.28,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Gaoler,",
+              "start": 6.72,
+              "end": 6.96,
+              "probability": 0.875
+            },
+            {
+              "text": " look",
+              "start": 7.06,
+              "end": 7.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 7.24,
+              "end": 7.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him.",
+              "start": 7.4,
+              "end": 7.64,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "raw": "Gaoler,",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "look",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "to",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "him.",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "Tell",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "raw": "not",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "me",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "of",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "raw": "mercy.",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "This",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "raw": "is",
+          "start": 4.26,
+          "end": 4.44
+        },
+        {
+          "raw": "the",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "raw": "fool",
+          "start": 4.62,
+          "end": 4.84
+        },
+        {
+          "raw": "that",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "raw": "lent",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "raw": "out",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "raw": "money",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "raw": "gratis.",
+          "start": 5.66,
+          "end": 6.28
+        },
+        {
+          "raw": "Gaoler,",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "raw": "look",
+          "start": 7.06,
+          "end": 7.24
+        },
+        {
+          "raw": "to",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "raw": "him.",
+          "start": 7.4,
+          "end": 7.64
+        }
+      ],
+      "expected_tokens": [
+        "SHYLOCK.",
+        "Gaoler,",
+        "look",
+        "to",
+        "him.",
+        "Tell",
+        "not",
+        "me",
+        "of",
+        "mercy.",
+        "This",
+        "is",
+        "the",
+        "fool",
+        "that",
+        "lent",
+        "out",
+        "money",
+        "gratis.",
+        "Gaoler,",
+        "look",
+        "to",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "Gaoler,",
+        "look",
+        "to",
+        "him.",
+        "Tell",
+        "not",
+        "me",
+        "of",
+        "mercy.",
+        "This",
+        "is",
+        "the",
+        "fool",
+        "that",
+        "lent",
+        "out",
+        "money",
+        "gratis.",
+        "Gaoler,",
+        "look",
+        "to",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          22,
+          1,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.48,
+          "end": 0.92,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gaoler,",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "gaoler",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tell",
+          "start": 2.6,
+          "end": 2.66,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.84,
+          "end": 3.0,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.0,
+          "end": 3.12,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mercy.",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "mercy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.1,
+          "end": 4.26,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.26,
+          "end": 4.44,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.44,
+          "end": 4.62,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 4.62,
+          "end": 4.84,
+          "key": "fool",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.84,
+          "end": 5.08,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lent",
+          "start": 5.08,
+          "end": 5.24,
+          "key": "lent",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 5.24,
+          "end": 5.44,
+          "key": "out",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 5.44,
+          "end": 5.66,
+          "key": "money",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "gratis.",
+          "start": 5.66,
+          "end": 6.28,
+          "key": "gratis",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Gaoler,",
+          "start": 6.72,
+          "end": 6.96,
+          "key": "gaoler",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 7.06,
+          "end": 7.24,
+          "key": "look",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.24,
+          "end": 7.4,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 7.4,
+          "end": 7.64,
+          "key": "him",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SHYLOCK.",
+          "start": 1.24,
+          "end": 1.24
+        },
+        {
+          "text": "Gaoler,",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "look",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "to",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "him.",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "Tell",
+          "start": 2.6,
+          "end": 2.66
+        },
+        {
+          "text": "not",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "me",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "of",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "text": "mercy.",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "This",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "text": "is",
+          "start": 4.26,
+          "end": 4.44
+        },
+        {
+          "text": "the",
+          "start": 4.44,
+          "end": 4.62
+        },
+        {
+          "text": "fool",
+          "start": 4.62,
+          "end": 4.84
+        },
+        {
+          "text": "that",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "text": "lent",
+          "start": 5.08,
+          "end": 5.24
+        },
+        {
+          "text": "out",
+          "start": 5.24,
+          "end": 5.44
+        },
+        {
+          "text": "money",
+          "start": 5.44,
+          "end": 5.66
+        },
+        {
+          "text": "gratis.",
+          "start": 5.66,
+          "end": 6.28
+        },
+        {
+          "text": "Gaoler,",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "text": "look",
+          "start": 7.06,
+          "end": 7.24
+        },
+        {
+          "text": "to",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "text": "him.",
+          "start": 7.4,
+          "end": 7.64
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23717312328517437
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "890414bb01d81c23082723a6cb97985964d132f64c639865570f331d9734318a",
+  "selected_reasons": []
+}

@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "4e724691d335dc3eebd8d3132eb08cbe6d207f4744e6c98f8a4b2d8413aefa01",
+  "attempts": [
+    {
+      "asr_seconds": 0.18149029463529587,
+      "alignment_seconds": 0.0018443632870912552,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But they told us Little Mytíshchi had been set on fire by Mamónov's Cossacks.\"",
+        "hotwords": "But, Little, Mytíshchi, Mamónov's, Cossacks"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But they told us Little Mytíshchi had been set on fire by Mamónov's Cossacks.",
+          "start": 0.0,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.431640625
+            },
+            {
+              "text": " they",
+              "start": 0.3,
+              "end": 0.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " told",
+              "start": 0.44,
+              "end": 0.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Little",
+              "start": 0.84,
+              "end": 1.12,
+              "probability": 0.093017578125
+            },
+            {
+              "text": " Mytíshchi",
+              "start": 1.12,
+              "end": 1.58,
+              "probability": 0.06402420997619629
+            },
+            {
+              "text": " had",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " been",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " set",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 2.12,
+              "end": 2.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fire",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 2.58,
+              "end": 2.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mamónov's",
+              "start": 2.82,
+              "end": 3.5,
+              "probability": 0.3904850482940674
+            },
+            {
+              "text": " Cossacks.",
+              "start": 3.5,
+              "end": 4.14,
+              "probability": 0.29763031005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "raw": "they",
+          "start": 0.3,
+          "end": 0.44
+        },
+        {
+          "raw": "told",
+          "start": 0.44,
+          "end": 0.62
+        },
+        {
+          "raw": "us",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "Little",
+          "start": 0.84,
+          "end": 1.12
+        },
+        {
+          "raw": "Mytíshchi",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "raw": "had",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "been",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "set",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "on",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "raw": "fire",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "by",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "raw": "Mamónov's",
+          "start": 2.82,
+          "end": 3.5
+        },
+        {
+          "raw": "Cossacks.",
+          "start": 3.5,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "“But",
+        "they",
+        "told",
+        "us",
+        "Little",
+        "Mytíshchi",
+        "had",
+        "been",
+        "set",
+        "on",
+        "fire",
+        "by",
+        "Mamónov’s",
+        "Cossacks.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"But",
+        "they",
+        "told",
+        "us",
+        "Little",
+        "Mytíshchi",
+        "had",
+        "been",
+        "set",
+        "on",
+        "fire",
+        "by",
+        "Mamónov's",
+        "Cossacks.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.3,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.3,
+          "end": 0.44,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 0.44,
+          "end": 0.62,
+          "key": "told",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "us",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Little",
+          "start": 0.84,
+          "end": 1.12,
+          "key": "little",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mytíshchi",
+          "start": 1.12,
+          "end": 1.58,
+          "key": "mytíshchi",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "been",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "set",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.12,
+          "end": 2.32,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "fire",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.58,
+          "end": 2.82,
+          "key": "by",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Mamónov's",
+          "start": 2.82,
+          "end": 3.5,
+          "key": "mamónovs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cossacks.",
+          "start": 3.5,
+          "end": 4.14,
+          "key": "cossacks",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“But",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "they",
+          "start": 0.3,
+          "end": 0.44
+        },
+        {
+          "text": "told",
+          "start": 0.44,
+          "end": 0.62
+        },
+        {
+          "text": "us",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "Little",
+          "start": 0.84,
+          "end": 1.12
+        },
+        {
+          "text": "Mytíshchi",
+          "start": 1.12,
+          "end": 1.58
+        },
+        {
+          "text": "had",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "been",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "set",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "on",
+          "start": 2.12,
+          "end": 2.32
+        },
+        {
+          "text": "fire",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "by",
+          "start": 2.58,
+          "end": 2.82
+        },
+        {
+          "text": "Mamónov’s",
+          "start": 2.82,
+          "end": 3.5
+        },
+        {
+          "text": "Cossacks.”",
+          "start": 3.5,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1835527177900076
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa5dd8d353d18cbef6d8aac8dae0fc2fa31ff2f0c967d8e9e9f7b3f159da2f49",
+  "selected_reasons": []
+}

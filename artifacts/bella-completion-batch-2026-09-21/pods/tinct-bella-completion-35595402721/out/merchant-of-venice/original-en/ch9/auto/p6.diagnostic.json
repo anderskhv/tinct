@@ -1,0 +1,193 @@
+{
+  "complete": true,
+  "signature": "f5b011ad3cc9b7da1f2a664403fa7c1b799f1bd7937a25a7825899a1cc0230b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.24856039322912693,
+      "alignment_seconds": 0.0003227759152650833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Lorenzo.",
+        "hotwords": "Enter, Lorenzo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Lorenzo",
+          "start": 0.14,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.14,
+              "end": 0.68,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Lorenzo",
+              "start": 0.76,
+              "end": 1.0,
+              "probability": 0.92919921875
+            }
+          ]
+        },
+        {
+          "text": " Enter, Lorenzo",
+          "start": 1.0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 6.318092346191406e-06
+            },
+            {
+              "text": " Lorenzo",
+              "start": 1.42,
+              "end": 1.84,
+              "probability": 6.616115570068359e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 1.42,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lorenzo."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Lorenzo."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 0.76,
+          "end": 1.0,
+          "key": "lorenzo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lorenzo",
+          "start": 1.42,
+          "end": 1.84,
+          "key": "lorenzo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "text": "Lorenzo.",
+          "start": 0.76,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24894962832331657
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1404acdf1d342a2b750b3ccfd858a67fd050570af7636257a9b897c6cbf7fb35",
+  "selected_reasons": []
+}

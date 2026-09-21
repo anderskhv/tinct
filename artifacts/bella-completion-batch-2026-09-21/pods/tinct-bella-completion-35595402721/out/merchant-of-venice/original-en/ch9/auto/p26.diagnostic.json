@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "signature": "ad42fdba3c9820a657bdbd55efef17e1a0efbb6ffe7a627f717fec32cd03c545",
+  "attempts": [
+    {
+      "asr_seconds": 0.12118369713425636,
+      "alignment_seconds": 0.00037820637226104736,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Who's there?",
+        "hotwords": "Who's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, who's there?",
+          "start": 0.11,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.9296875
+            },
+            {
+              "text": " who's",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.98046875
+            },
+            {
+              "text": " there?",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "who's",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "there?",
+          "start": 1.39,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "ANTONIO.",
+        "Who’s",
+        "there?"
+      ],
+      "acoustic_expected_tokens": [
+        "Who's",
+        "there?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "ANTONIO.",
+          "start": 1.19,
+          "end": 1.19
+        },
+        {
+          "text": "Who’s",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "there?",
+          "start": 1.39,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12162386439740658
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1af735805f03483d7a7f44bf7407f2978ccefa6e8a4f41529811d6e79c9c728",
+  "selected_reasons": []
+}

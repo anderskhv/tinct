@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "14a5904483d3850604b722f62a4ff4c56e20df387d7fdc294b7193df89dc7db1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12942642904818058,
+      "alignment_seconds": 0.0005406755954027176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exit with Jessica and Salarino.",
+        "hotwords": "Exit, Jessica, Salarino"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit with Jessica and Salarino.",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.91796875
+            },
+            {
+              "text": " with",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Jessica",
+              "start": 0.86,
+              "end": 1.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.58,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Salarino.",
+              "start": 1.58,
+              "end": 2.2,
+              "probability": 0.8790690104166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "with",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "Jessica",
+          "start": 0.86,
+          "end": 1.22
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.58
+        },
+        {
+          "raw": "Salarino.",
+          "start": 1.58,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "with",
+        "Jessica",
+        "and",
+        "Salarino._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exit",
+        "with",
+        "Jessica",
+        "and",
+        "Salarino."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jessica",
+          "start": 0.86,
+          "end": 1.22,
+          "key": "jessica",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.58,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Salarino.",
+          "start": 1.58,
+          "end": 2.2,
+          "key": "salarino",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "with",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "Jessica",
+          "start": 0.86,
+          "end": 1.22
+        },
+        {
+          "text": "and",
+          "start": 1.22,
+          "end": 1.58
+        },
+        {
+          "text": "Salarino._]",
+          "start": 1.58,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13004650175571442
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb46bce5849357b3b6635395376752c2aa278f4810d7384bf03bd518c4098c9b",
+  "selected_reasons": []
+}

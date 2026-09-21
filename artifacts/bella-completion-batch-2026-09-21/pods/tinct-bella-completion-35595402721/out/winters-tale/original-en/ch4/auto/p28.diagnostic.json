@@ -1,0 +1,238 @@
+{
+  "complete": true,
+  "signature": "4fbdc6268e1d67c1f120257106377b34fa9eea8e315df4537d39a54affd20184",
+  "attempts": [
+    {
+      "asr_seconds": 0.11889299936592579,
+      "alignment_seconds": 0.00042457692325115204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I do believe it.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jailer, I do believe it.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Jailer,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.630615234375
+            },
+            {
+              "text": " I",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " do",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " believe",
+              "start": 1.31,
+              "end": 1.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jailer,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "do",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "believe",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "raw": "it.",
+          "start": 1.59,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "GAOLER.",
+        "I",
+        "do",
+        "believe",
+        "it."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "do",
+        "believe",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          4,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jailer,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "jailer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.09,
+          "end": 1.17,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.31,
+          "end": 1.59,
+          "key": "believe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "GAOLER.",
+          "start": 1.09,
+          "end": 1.09
+        },
+        {
+          "text": "I",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "do",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "believe",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "text": "it.",
+          "start": 1.59,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11938233487308025
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1c780a218cdc469d041cb6f45562065a9eb04148bdeca38e43a290f57d6d4024",
+  "selected_reasons": []
+}

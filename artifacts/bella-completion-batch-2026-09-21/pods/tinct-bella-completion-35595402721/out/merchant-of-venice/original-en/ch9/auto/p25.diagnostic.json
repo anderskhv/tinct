@@ -1,0 +1,131 @@
+{
+  "complete": true,
+  "signature": "b8b56a50d059c51774c36eccca7f6d40d8a848fe3b7565d1c538435aa936d25a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10834048874676228,
+      "alignment_seconds": 0.00031661614775657654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Antonio.",
+        "hotwords": "Enter, Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Antonio.",
+          "start": 0.08,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Antonio.",
+              "start": 0.68,
+              "end": 1.14,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Antonio.",
+          "start": 0.68,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Antonio."
+      ],
+      "acoustic_expected_tokens": [
+        "Enter",
+        "Antonio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antonio.",
+          "start": 0.68,
+          "end": 1.14,
+          "key": "antonio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Antonio.",
+          "start": 0.68,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10871098563075066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1e757e8f941ad732cd31e836fa8dbf95900ce2664085d3e2adc8b5aebeae563",
+  "selected_reasons": []
+}

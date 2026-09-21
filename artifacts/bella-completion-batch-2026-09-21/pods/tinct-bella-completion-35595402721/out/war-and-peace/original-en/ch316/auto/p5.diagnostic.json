@@ -1,0 +1,2040 @@
+{
+  "complete": true,
+  "signature": "f8ed363fef3ab2d006fd9d5ca0db565081b17ae9db86917e55f37dd86c897cdc",
+  "attempts": [
+    {
+      "asr_seconds": 0.5462404191493988,
+      "alignment_seconds": 0.0027980953454971313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And lastly, the final departure of the great Emperor from his heroic army is presented to us by the historians as something great and characteristic of genius. Even that final running away, described in ordinary language as the lowest depth of baseness which every child is taught to be ashamed of—even that act finds justification in the historians' language.",
+        "hotwords": "Emperor, Even"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And lastly, the final departure of the great Emperor from his heroic army is presented to",
+          "start": 0.0,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " lastly,",
+              "start": 0.36,
+              "end": 0.86,
+              "probability": 0.967529296875
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " final",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " departure",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " great",
+              "start": 2.3,
+              "end": 2.58,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " Emperor",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.217041015625
+            },
+            {
+              "text": " from",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " heroic",
+              "start": 3.28,
+              "end": 3.68,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " army",
+              "start": 3.68,
+              "end": 3.98,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " is",
+              "start": 3.98,
+              "end": 4.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " presented",
+              "start": 4.26,
+              "end": 4.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " us by the historians as something great and characteristic of genius. Even that final",
+          "start": 4.84,
+          "end": 10.16,
+          "words": [
+            {
+              "text": " us",
+              "start": 4.84,
+              "end": 4.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.18,
+              "end": 5.32,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " historians",
+              "start": 5.32,
+              "end": 5.84,
+              "probability": 0.833984375
+            },
+            {
+              "text": " as",
+              "start": 5.84,
+              "end": 6.12,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " something",
+              "start": 6.12,
+              "end": 6.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " great",
+              "start": 6.4,
+              "end": 6.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 6.8,
+              "end": 6.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " characteristic",
+              "start": 6.98,
+              "end": 7.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 7.52,
+              "end": 7.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " genius.",
+              "start": 7.86,
+              "end": 8.2,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Even",
+              "start": 9.38,
+              "end": 9.58,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " that",
+              "start": 9.58,
+              "end": 9.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " final",
+              "start": 9.8,
+              "end": 10.16,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " running away, described in ordinary language as the lowest depth of baseness which every",
+          "start": 10.16,
+          "end": 14.34,
+          "words": [
+            {
+              "text": " running",
+              "start": 10.16,
+              "end": 10.46,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " away,",
+              "start": 10.46,
+              "end": 10.84,
+              "probability": 0.923828125
+            },
+            {
+              "text": " described",
+              "start": 11.08,
+              "end": 11.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 11.42,
+              "end": 11.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ordinary",
+              "start": 11.66,
+              "end": 12.0,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " language",
+              "start": 12.0,
+              "end": 12.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 12.44,
+              "end": 12.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 12.62,
+              "end": 12.76,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " lowest",
+              "start": 12.76,
+              "end": 13.02,
+              "probability": 0.974609375
+            },
+            {
+              "text": " depth",
+              "start": 13.02,
+              "end": 13.32,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 13.32,
+              "end": 13.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " baseness",
+              "start": 13.52,
+              "end": 13.84,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " which",
+              "start": 13.84,
+              "end": 14.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " every",
+              "start": 14.06,
+              "end": 14.34,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " child is taught to be ashamed of—even that act finds justification in the historians'",
+          "start": 14.34,
+          "end": 18.66,
+          "words": [
+            {
+              "text": " child",
+              "start": 14.34,
+              "end": 14.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 14.64,
+              "end": 14.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " taught",
+              "start": 14.86,
+              "end": 15.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 15.06,
+              "end": 15.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 15.22,
+              "end": 15.32,
+              "probability": 1.0
+            },
+            {
+              "text": " ashamed",
+              "start": 15.32,
+              "end": 15.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of—even",
+              "start": 15.62,
+              "end": 16.22,
+              "probability": 0.644378662109375
+            },
+            {
+              "text": " that",
+              "start": 16.22,
+              "end": 16.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " act",
+              "start": 16.48,
+              "end": 16.68,
+              "probability": 0.935546875
+            },
+            {
+              "text": " finds",
+              "start": 16.68,
+              "end": 17.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " justification",
+              "start": 17.06,
+              "end": 17.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 17.66,
+              "end": 18.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 18.04,
+              "end": 18.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " historians'",
+              "start": 18.16,
+              "end": 18.66,
+              "probability": 0.1917724609375
+            }
+          ]
+        },
+        {
+          "text": " language.",
+          "start": 18.92,
+          "end": 19.24,
+          "words": [
+            {
+              "text": " language.",
+              "start": 18.92,
+              "end": 19.24,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "lastly,",
+          "start": 0.36,
+          "end": 0.86
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "final",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "departure",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "raw": "of",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "great",
+          "start": 2.3,
+          "end": 2.58
+        },
+        {
+          "raw": "Emperor",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "from",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "his",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "heroic",
+          "start": 3.28,
+          "end": 3.68
+        },
+        {
+          "raw": "army",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "raw": "is",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "raw": "presented",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "us",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "raw": "by",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "the",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "raw": "historians",
+          "start": 5.32,
+          "end": 5.84
+        },
+        {
+          "raw": "as",
+          "start": 5.84,
+          "end": 6.12
+        },
+        {
+          "raw": "something",
+          "start": 6.12,
+          "end": 6.4
+        },
+        {
+          "raw": "great",
+          "start": 6.4,
+          "end": 6.8
+        },
+        {
+          "raw": "and",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "raw": "characteristic",
+          "start": 6.98,
+          "end": 7.52
+        },
+        {
+          "raw": "of",
+          "start": 7.52,
+          "end": 7.86
+        },
+        {
+          "raw": "genius.",
+          "start": 7.86,
+          "end": 8.2
+        },
+        {
+          "raw": "Even",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "raw": "that",
+          "start": 9.58,
+          "end": 9.8
+        },
+        {
+          "raw": "final",
+          "start": 9.8,
+          "end": 10.16
+        },
+        {
+          "raw": "running",
+          "start": 10.16,
+          "end": 10.46
+        },
+        {
+          "raw": "away,",
+          "start": 10.46,
+          "end": 10.84
+        },
+        {
+          "raw": "described",
+          "start": 11.08,
+          "end": 11.42
+        },
+        {
+          "raw": "in",
+          "start": 11.42,
+          "end": 11.66
+        },
+        {
+          "raw": "ordinary",
+          "start": 11.66,
+          "end": 12.0
+        },
+        {
+          "raw": "language",
+          "start": 12.0,
+          "end": 12.44
+        },
+        {
+          "raw": "as",
+          "start": 12.44,
+          "end": 12.62
+        },
+        {
+          "raw": "the",
+          "start": 12.62,
+          "end": 12.76
+        },
+        {
+          "raw": "lowest",
+          "start": 12.76,
+          "end": 13.02
+        },
+        {
+          "raw": "depth",
+          "start": 13.02,
+          "end": 13.32
+        },
+        {
+          "raw": "of",
+          "start": 13.32,
+          "end": 13.52
+        },
+        {
+          "raw": "baseness",
+          "start": 13.52,
+          "end": 13.84
+        },
+        {
+          "raw": "which",
+          "start": 13.84,
+          "end": 14.06
+        },
+        {
+          "raw": "every",
+          "start": 14.06,
+          "end": 14.34
+        },
+        {
+          "raw": "child",
+          "start": 14.34,
+          "end": 14.64
+        },
+        {
+          "raw": "is",
+          "start": 14.64,
+          "end": 14.86
+        },
+        {
+          "raw": "taught",
+          "start": 14.86,
+          "end": 15.06
+        },
+        {
+          "raw": "to",
+          "start": 15.06,
+          "end": 15.22
+        },
+        {
+          "raw": "be",
+          "start": 15.22,
+          "end": 15.32
+        },
+        {
+          "raw": "ashamed",
+          "start": 15.32,
+          "end": 15.62
+        },
+        {
+          "raw": "of—even",
+          "start": 15.62,
+          "end": 16.22
+        },
+        {
+          "raw": "that",
+          "start": 16.22,
+          "end": 16.48
+        },
+        {
+          "raw": "act",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "raw": "finds",
+          "start": 16.68,
+          "end": 17.06
+        },
+        {
+          "raw": "justification",
+          "start": 17.06,
+          "end": 17.66
+        },
+        {
+          "raw": "in",
+          "start": 17.66,
+          "end": 18.04
+        },
+        {
+          "raw": "the",
+          "start": 18.04,
+          "end": 18.16
+        },
+        {
+          "raw": "historians'",
+          "start": 18.16,
+          "end": 18.66
+        },
+        {
+          "raw": "language.",
+          "start": 18.92,
+          "end": 19.24
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "lastly,",
+        "the",
+        "final",
+        "departure",
+        "of",
+        "the",
+        "great",
+        "Emperor",
+        "from",
+        "his",
+        "heroic",
+        "army",
+        "is",
+        "presented",
+        "to",
+        "us",
+        "by",
+        "the",
+        "historians",
+        "as",
+        "something",
+        "great",
+        "and",
+        "characteristic",
+        "of",
+        "genius.",
+        "Even",
+        "that",
+        "final",
+        "running",
+        "away,",
+        "described",
+        "in",
+        "ordinary",
+        "language",
+        "as",
+        "the",
+        "lowest",
+        "depth",
+        "of",
+        "baseness",
+        "which",
+        "every",
+        "child",
+        "is",
+        "taught",
+        "to",
+        "be",
+        "ashamed",
+        "of—even",
+        "that",
+        "act",
+        "finds",
+        "justification",
+        "in",
+        "the",
+        "historians’",
+        "language."
+      ],
+      "acoustic_expected_tokens": [
+        "And",
+        "lastly,",
+        "the",
+        "final",
+        "departure",
+        "of",
+        "the",
+        "great",
+        "Emperor",
+        "from",
+        "his",
+        "heroic",
+        "army",
+        "is",
+        "presented",
+        "to",
+        "us",
+        "by",
+        "the",
+        "historians",
+        "as",
+        "something",
+        "great",
+        "and",
+        "characteristic",
+        "of",
+        "genius.",
+        "Even",
+        "that",
+        "final",
+        "running",
+        "away,",
+        "described",
+        "in",
+        "ordinary",
+        "language",
+        "as",
+        "the",
+        "lowest",
+        "depth",
+        "of",
+        "baseness",
+        "which",
+        "every",
+        "child",
+        "is",
+        "taught",
+        "to",
+        "be",
+        "ashamed",
+        "of—even",
+        "that",
+        "act",
+        "finds",
+        "justification",
+        "in",
+        "the",
+        "historians'",
+        "language."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          59,
+          0,
+          59
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lastly,",
+          "start": 0.36,
+          "end": 0.86,
+          "key": "lastly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "final",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "final",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "departure",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "departure",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.3,
+          "end": 2.58,
+          "key": "great",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Emperor",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "emperor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "heroic",
+          "start": 3.28,
+          "end": 3.68,
+          "key": "heroic",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "army",
+          "start": 3.68,
+          "end": 3.98,
+          "key": "army",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.98,
+          "end": 4.26,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "presented",
+          "start": 4.26,
+          "end": 4.58,
+          "key": "presented",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 4.84,
+          "end": 4.98,
+          "key": "us",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "by",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.18,
+          "end": 5.32,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "historians",
+          "start": 5.32,
+          "end": 5.84,
+          "key": "historians",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.84,
+          "end": 6.12,
+          "key": "as",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 6.12,
+          "end": 6.4,
+          "key": "something",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 6.4,
+          "end": 6.8,
+          "key": "great",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.8,
+          "end": 6.98,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "characteristic",
+          "start": 6.98,
+          "end": 7.52,
+          "key": "characteristic",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.52,
+          "end": 7.86,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "genius.",
+          "start": 7.86,
+          "end": 8.2,
+          "key": "genius",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 9.38,
+          "end": 9.58,
+          "key": "even",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 9.58,
+          "end": 9.8,
+          "key": "that",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "final",
+          "start": 9.8,
+          "end": 10.16,
+          "key": "final",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "running",
+          "start": 10.16,
+          "end": 10.46,
+          "key": "running",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "away,",
+          "start": 10.46,
+          "end": 10.84,
+          "key": "away",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "described",
+          "start": 11.08,
+          "end": 11.42,
+          "key": "described",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.42,
+          "end": 11.66,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "ordinary",
+          "start": 11.66,
+          "end": 12.0,
+          "key": "ordinary",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "language",
+          "start": 12.0,
+          "end": 12.44,
+          "key": "language",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.44,
+          "end": 12.62,
+          "key": "as",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.62,
+          "end": 12.76,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "lowest",
+          "start": 12.76,
+          "end": 13.02,
+          "key": "lowest",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "depth",
+          "start": 13.02,
+          "end": 13.32,
+          "key": "depth",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.32,
+          "end": 13.52,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "baseness",
+          "start": 13.52,
+          "end": 13.84,
+          "key": "baseness",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 13.84,
+          "end": 14.06,
+          "key": "which",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 14.06,
+          "end": 14.34,
+          "key": "every",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "child",
+          "start": 14.34,
+          "end": 14.64,
+          "key": "child",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.64,
+          "end": 14.86,
+          "key": "is",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "taught",
+          "start": 14.86,
+          "end": 15.06,
+          "key": "taught",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.06,
+          "end": 15.22,
+          "key": "to",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.22,
+          "end": 15.32,
+          "key": "be",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "ashamed",
+          "start": 15.32,
+          "end": 15.62,
+          "key": "ashamed",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "of—even",
+          "start": 15.62,
+          "end": 16.22,
+          "key": "ofeven",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.22,
+          "end": 16.48,
+          "key": "that",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 16.48,
+          "end": 16.68,
+          "key": "act",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "finds",
+          "start": 16.68,
+          "end": 17.06,
+          "key": "finds",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "justification",
+          "start": 17.06,
+          "end": 17.66,
+          "key": "justification",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 17.66,
+          "end": 18.04,
+          "key": "in",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.04,
+          "end": 18.16,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "historians'",
+          "start": 18.16,
+          "end": 18.66,
+          "key": "historians",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "language.",
+          "start": 18.92,
+          "end": 19.24,
+          "key": "language",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "lastly,",
+          "start": 0.36,
+          "end": 0.86
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "final",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "departure",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "text": "of",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "great",
+          "start": 2.3,
+          "end": 2.58
+        },
+        {
+          "text": "Emperor",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "from",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "his",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "heroic",
+          "start": 3.28,
+          "end": 3.68
+        },
+        {
+          "text": "army",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "text": "is",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "text": "presented",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "text": "to",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "us",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "text": "by",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "text": "the",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "text": "historians",
+          "start": 5.32,
+          "end": 5.84
+        },
+        {
+          "text": "as",
+          "start": 5.84,
+          "end": 6.12
+        },
+        {
+          "text": "something",
+          "start": 6.12,
+          "end": 6.4
+        },
+        {
+          "text": "great",
+          "start": 6.4,
+          "end": 6.8
+        },
+        {
+          "text": "and",
+          "start": 6.8,
+          "end": 6.98
+        },
+        {
+          "text": "characteristic",
+          "start": 6.98,
+          "end": 7.52
+        },
+        {
+          "text": "of",
+          "start": 7.52,
+          "end": 7.86
+        },
+        {
+          "text": "genius.",
+          "start": 7.86,
+          "end": 8.2
+        },
+        {
+          "text": "Even",
+          "start": 9.38,
+          "end": 9.58
+        },
+        {
+          "text": "that",
+          "start": 9.58,
+          "end": 9.8
+        },
+        {
+          "text": "final",
+          "start": 9.8,
+          "end": 10.16
+        },
+        {
+          "text": "running",
+          "start": 10.16,
+          "end": 10.46
+        },
+        {
+          "text": "away,",
+          "start": 10.46,
+          "end": 10.84
+        },
+        {
+          "text": "described",
+          "start": 11.08,
+          "end": 11.42
+        },
+        {
+          "text": "in",
+          "start": 11.42,
+          "end": 11.66
+        },
+        {
+          "text": "ordinary",
+          "start": 11.66,
+          "end": 12.0
+        },
+        {
+          "text": "language",
+          "start": 12.0,
+          "end": 12.44
+        },
+        {
+          "text": "as",
+          "start": 12.44,
+          "end": 12.62
+        },
+        {
+          "text": "the",
+          "start": 12.62,
+          "end": 12.76
+        },
+        {
+          "text": "lowest",
+          "start": 12.76,
+          "end": 13.02
+        },
+        {
+          "text": "depth",
+          "start": 13.02,
+          "end": 13.32
+        },
+        {
+          "text": "of",
+          "start": 13.32,
+          "end": 13.52
+        },
+        {
+          "text": "baseness",
+          "start": 13.52,
+          "end": 13.84
+        },
+        {
+          "text": "which",
+          "start": 13.84,
+          "end": 14.06
+        },
+        {
+          "text": "every",
+          "start": 14.06,
+          "end": 14.34
+        },
+        {
+          "text": "child",
+          "start": 14.34,
+          "end": 14.64
+        },
+        {
+          "text": "is",
+          "start": 14.64,
+          "end": 14.86
+        },
+        {
+          "text": "taught",
+          "start": 14.86,
+          "end": 15.06
+        },
+        {
+          "text": "to",
+          "start": 15.06,
+          "end": 15.22
+        },
+        {
+          "text": "be",
+          "start": 15.22,
+          "end": 15.32
+        },
+        {
+          "text": "ashamed",
+          "start": 15.32,
+          "end": 15.62
+        },
+        {
+          "text": "of—even",
+          "start": 15.62,
+          "end": 16.22
+        },
+        {
+          "text": "that",
+          "start": 16.22,
+          "end": 16.48
+        },
+        {
+          "text": "act",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "text": "finds",
+          "start": 16.68,
+          "end": 17.06
+        },
+        {
+          "text": "justification",
+          "start": 17.06,
+          "end": 17.66
+        },
+        {
+          "text": "in",
+          "start": 17.66,
+          "end": 18.04
+        },
+        {
+          "text": "the",
+          "start": 18.04,
+          "end": 18.16
+        },
+        {
+          "text": "historians’",
+          "start": 18.16,
+          "end": 18.66
+        },
+        {
+          "text": "language.",
+          "start": 18.92,
+          "end": 19.24
+        }
+      ],
+      "stats": {
+        "expected_words": 59,
+        "heard_words": 59,
+        "matched_words": 59
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5492774434387684
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a40089c926abca3501605f24a5073812c0c12ef5aeb4714f67105cf23c82032e",
+  "selected_reasons": []
+}

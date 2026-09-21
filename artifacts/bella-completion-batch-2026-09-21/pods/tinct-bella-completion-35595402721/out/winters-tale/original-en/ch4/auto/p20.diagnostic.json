@@ -1,0 +1,172 @@
+{
+  "complete": true,
+  "signature": "b6edbe1049ab8c10127648c2a0dd37ab248c30667deda409c87b6e3588d3dd7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12113326787948608,
+      "alignment_seconds": 0.00025097839534282684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A boy?",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paulina. A boy.",
+          "start": 0.05,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Paulina.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.913330078125
+            },
+            {
+              "text": " A",
+              "start": 1.05,
+              "end": 1.13,
+              "probability": 0.966796875
+            },
+            {
+              "text": " boy.",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "A",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "raw": "boy.",
+          "start": 1.13,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "PAULINA.",
+        "A",
+        "boy?"
+      ],
+      "acoustic_expected_tokens": [
+        "A",
+        "boy?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.05,
+          "end": 1.13,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "boy",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PAULINA.",
+          "start": 1.05,
+          "end": 1.05
+        },
+        {
+          "text": "A",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "text": "boy?",
+          "start": 1.13,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12142879515886307
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ab62361f528f1778ac484a661625e086ac88f82e2023f5affcd509efe632491",
+  "selected_reasons": []
+}

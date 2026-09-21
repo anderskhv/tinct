@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "d0dfac20269efb23dc109a4807fb68256c012c76af74de6e444e0ec5fec68a2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14720099233090878,
+      "alignment_seconds": 0.0005000550299882889,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "More, more, I prithee, more.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jax, more, more, I prithee, more.",
+          "start": 0.49,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Jax,",
+              "start": 0.49,
+              "end": 0.81,
+              "probability": 0.748779296875
+            },
+            {
+              "text": " more,",
+              "start": 1.15,
+              "end": 1.19,
+              "probability": 0.904296875
+            },
+            {
+              "text": " more,",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.49,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " prithee,",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.5608723958333334
+            },
+            {
+              "text": " more.",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jax,",
+          "start": 0.49,
+          "end": 0.81
+        },
+        {
+          "raw": "more,",
+          "start": 1.15,
+          "end": 1.19
+        },
+        {
+          "raw": "more,",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "raw": "prithee,",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "more.",
+          "start": 1.79,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "JAQUES.",
+        "More,",
+        "more,",
+        "I",
+        "prithee,",
+        "more."
+      ],
+      "acoustic_expected_tokens": [
+        "More,",
+        "more,",
+        "I",
+        "prithee,",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          5,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jax,",
+          "start": 0.49,
+          "end": 0.81,
+          "key": "jax",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 1.15,
+          "end": 1.19,
+          "key": "more",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.49,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prithee,",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "prithee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "JAQUES.",
+          "start": 1.15,
+          "end": 1.15
+        },
+        {
+          "text": "More,",
+          "start": 1.15,
+          "end": 1.19
+        },
+        {
+          "text": "more,",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "text": "prithee,",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "more.",
+          "start": 1.79,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14776222594082355
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2aff6dc929e438d84b670a8de601a5b15df8dabdc1693e823f3b59e9bd356002",
+  "selected_reasons": []
+}

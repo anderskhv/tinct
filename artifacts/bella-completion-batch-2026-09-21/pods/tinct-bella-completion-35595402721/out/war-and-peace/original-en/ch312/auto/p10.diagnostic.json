@@ -1,0 +1,798 @@
+{
+  "complete": true,
+  "signature": "48f63c89242ff3c1baf0f0ff62702a17108aa21d9a51c2630d8d17fb13a6d7a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2850123457610607,
+      "alignment_seconds": 0.0009374711662530899,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Behind him, where Karatáev had been sitting, the dog began to howl. \"What a stupid beast! Why is it howling?\" thought Pierre.",
+        "hotwords": "Behind, Karatáev, What, Why, Pierre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Behind him, where Karatáev had been sitting, the dog began to howl.",
+          "start": 0.0,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " Behind",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.93359375
+            },
+            {
+              "text": " him,",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " where",
+              "start": 1.04,
+              "end": 1.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Karatáev",
+              "start": 1.12,
+              "end": 1.66,
+              "probability": 0.33565787971019745
+            },
+            {
+              "text": " had",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " been",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sitting,",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.66,
+              "end": 2.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dog",
+              "start": 2.76,
+              "end": 3.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " began",
+              "start": 3.0,
+              "end": 3.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.3,
+              "end": 3.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " howl.",
+              "start": 3.56,
+              "end": 3.94,
+              "probability": 0.994384765625
+            }
+          ]
+        },
+        {
+          "text": " What a stupid beast! Why is it howling?\" thought Pierre.",
+          "start": 4.82,
+          "end": 8.64,
+          "words": [
+            {
+              "text": " What",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " a",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stupid",
+              "start": 5.18,
+              "end": 5.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " beast!",
+              "start": 5.5,
+              "end": 5.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Why",
+              "start": 6.94,
+              "end": 7.22,
+              "probability": 0.859375
+            },
+            {
+              "text": " is",
+              "start": 7.22,
+              "end": 7.38,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it",
+              "start": 7.38,
+              "end": 7.52,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " howling?\"",
+              "start": 7.52,
+              "end": 8.22,
+              "probability": 0.6646728515625
+            },
+            {
+              "text": " thought",
+              "start": 8.22,
+              "end": 8.28,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Pierre.",
+              "start": 8.28,
+              "end": 8.64,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Behind",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "him,",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "where",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "raw": "Karatáev",
+          "start": 1.12,
+          "end": 1.66
+        },
+        {
+          "raw": "had",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "been",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "sitting,",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "raw": "dog",
+          "start": 2.76,
+          "end": 3.0
+        },
+        {
+          "raw": "began",
+          "start": 3.0,
+          "end": 3.3
+        },
+        {
+          "raw": "to",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "raw": "howl.",
+          "start": 3.56,
+          "end": 3.94
+        },
+        {
+          "raw": "What",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "a",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "stupid",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "raw": "beast!",
+          "start": 5.5,
+          "end": 5.84
+        },
+        {
+          "raw": "Why",
+          "start": 6.94,
+          "end": 7.22
+        },
+        {
+          "raw": "is",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "raw": "it",
+          "start": 7.38,
+          "end": 7.52
+        },
+        {
+          "raw": "howling?\"",
+          "start": 7.52,
+          "end": 8.22
+        },
+        {
+          "raw": "thought",
+          "start": 8.22,
+          "end": 8.28
+        },
+        {
+          "raw": "Pierre.",
+          "start": 8.28,
+          "end": 8.64
+        }
+      ],
+      "expected_tokens": [
+        "Behind",
+        "him,",
+        "where",
+        "Karatáev",
+        "had",
+        "been",
+        "sitting,",
+        "the",
+        "dog",
+        "began",
+        "to",
+        "howl.",
+        "“What",
+        "a",
+        "stupid",
+        "beast!",
+        "Why",
+        "is",
+        "it",
+        "howling?”",
+        "thought",
+        "Pierre."
+      ],
+      "acoustic_expected_tokens": [
+        "Behind",
+        "him,",
+        "where",
+        "Karatáev",
+        "had",
+        "been",
+        "sitting,",
+        "the",
+        "dog",
+        "began",
+        "to",
+        "howl.",
+        "\"What",
+        "a",
+        "stupid",
+        "beast!",
+        "Why",
+        "is",
+        "it",
+        "howling?\"",
+        "thought",
+        "Pierre."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Behind",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "behind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.04,
+          "end": 1.12,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Karatáev",
+          "start": 1.12,
+          "end": 1.66,
+          "key": "karatáev",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "been",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sitting,",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "sitting",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.66,
+          "end": 2.76,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 2.76,
+          "end": 3.0,
+          "key": "dog",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 3.0,
+          "end": 3.3,
+          "key": "began",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.3,
+          "end": 3.56,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "howl.",
+          "start": 3.56,
+          "end": 3.94,
+          "key": "howl",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "what",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stupid",
+          "start": 5.18,
+          "end": 5.5,
+          "key": "stupid",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "beast!",
+          "start": 5.5,
+          "end": 5.84,
+          "key": "beast",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 6.94,
+          "end": 7.22,
+          "key": "why",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.22,
+          "end": 7.38,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.38,
+          "end": 7.52,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "howling?\"",
+          "start": 7.52,
+          "end": 8.22,
+          "key": "howling",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 8.22,
+          "end": 8.28,
+          "key": "thought",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Pierre.",
+          "start": 8.28,
+          "end": 8.64,
+          "key": "pierre",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Behind",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "him,",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "text": "where",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "text": "Karatáev",
+          "start": 1.12,
+          "end": 1.66
+        },
+        {
+          "text": "had",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "been",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "sitting,",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "text": "dog",
+          "start": 2.76,
+          "end": 3.0
+        },
+        {
+          "text": "began",
+          "start": 3.0,
+          "end": 3.3
+        },
+        {
+          "text": "to",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "text": "howl.",
+          "start": 3.56,
+          "end": 3.94
+        },
+        {
+          "text": "“What",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "a",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "stupid",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "text": "beast!",
+          "start": 5.5,
+          "end": 5.84
+        },
+        {
+          "text": "Why",
+          "start": 6.94,
+          "end": 7.22
+        },
+        {
+          "text": "is",
+          "start": 7.22,
+          "end": 7.38
+        },
+        {
+          "text": "it",
+          "start": 7.38,
+          "end": 7.52
+        },
+        {
+          "text": "howling?”",
+          "start": 7.52,
+          "end": 8.22
+        },
+        {
+          "text": "thought",
+          "start": 8.22,
+          "end": 8.28
+        },
+        {
+          "text": "Pierre.",
+          "start": 8.28,
+          "end": 8.64
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28606440499424934
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca960edf8d4c8206cf068278ecc03b6bf8ae83178db7c872160523e01b955f78",
+  "selected_reasons": []
+}

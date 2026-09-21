@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "7c63f5b9181c55caf3cc0c22583a43c9093d3656802440f244b8e073d814195a",
+  "attempts": [
+    {
+      "asr_seconds": 0.19012018851935863,
+      "alignment_seconds": 0.0006292052567005157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"All right—all right. I haven't time just now,\" replied Ermólov, and left the hut.",
+        "hotwords": "All, I, Ermólov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All right—all right. I haven't time just now,\" replied Ermólov, and left the hut.",
+          "start": 0.0,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.07061767578125
+            },
+            {
+              "text": " right—all",
+              "start": 0.42,
+              "end": 1.22,
+              "probability": 0.6382637023925781
+            },
+            {
+              "text": " right.",
+              "start": 1.22,
+              "end": 1.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 2.34,
+              "end": 2.76,
+              "probability": 0.6796875
+            },
+            {
+              "text": " haven't",
+              "start": 2.76,
+              "end": 3.06,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " time",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " just",
+              "start": 3.3,
+              "end": 3.56,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " now,\"",
+              "start": 3.56,
+              "end": 4.1,
+              "probability": 0.717041015625
+            },
+            {
+              "text": " replied",
+              "start": 4.1,
+              "end": 4.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ermólov,",
+              "start": 4.38,
+              "end": 4.98,
+              "probability": 0.4425886869430542
+            },
+            {
+              "text": " and",
+              "start": 5.3,
+              "end": 5.4,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " left",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 5.6,
+              "end": 5.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hut.",
+              "start": 5.8,
+              "end": 6.02,
+              "probability": 0.92919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "right—all",
+          "start": 0.42,
+          "end": 1.22
+        },
+        {
+          "raw": "right.",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "raw": "I",
+          "start": 2.34,
+          "end": 2.76
+        },
+        {
+          "raw": "haven't",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "raw": "time",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "just",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "raw": "now,\"",
+          "start": 3.56,
+          "end": 4.1
+        },
+        {
+          "raw": "replied",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "raw": "Ermólov,",
+          "start": 4.38,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "raw": "left",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.8
+        },
+        {
+          "raw": "hut.",
+          "start": 5.8,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "“All",
+        "right—all",
+        "right.",
+        "I",
+        "haven’t",
+        "time",
+        "just",
+        "now,”",
+        "replied",
+        "Ermólov,",
+        "and",
+        "left",
+        "the",
+        "hut."
+      ],
+      "acoustic_expected_tokens": [
+        "\"All",
+        "right—all",
+        "right.",
+        "I",
+        "haven't",
+        "time",
+        "just",
+        "now,\"",
+        "replied",
+        "Ermólov,",
+        "and",
+        "left",
+        "the",
+        "hut."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "right—all",
+          "start": 0.42,
+          "end": 1.22,
+          "key": "rightall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 1.22,
+          "end": 1.6,
+          "key": "right",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.34,
+          "end": 2.76,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 2.76,
+          "end": 3.06,
+          "key": "havent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "time",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 3.3,
+          "end": 3.56,
+          "key": "just",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now,\"",
+          "start": 3.56,
+          "end": 4.1,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 4.1,
+          "end": 4.38,
+          "key": "replied",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ermólov,",
+          "start": 4.38,
+          "end": 4.98,
+          "key": "ermólov",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.4,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "left",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.8,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hut.",
+          "start": 5.8,
+          "end": 6.02,
+          "key": "hut",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“All",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "right—all",
+          "start": 0.42,
+          "end": 1.22
+        },
+        {
+          "text": "right.",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "text": "I",
+          "start": 2.34,
+          "end": 2.76
+        },
+        {
+          "text": "haven’t",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "text": "time",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "just",
+          "start": 3.3,
+          "end": 3.56
+        },
+        {
+          "text": "now,”",
+          "start": 3.56,
+          "end": 4.1
+        },
+        {
+          "text": "replied",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "text": "Ermólov,",
+          "start": 4.38,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "text": "left",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "the",
+          "start": 5.6,
+          "end": 5.8
+        },
+        {
+          "text": "hut.",
+          "start": 5.8,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19082995131611824
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "688cda91d51288c14ca7f7d25ef6692de654426bd71139697e5e210a6d934d56",
+  "selected_reasons": []
+}

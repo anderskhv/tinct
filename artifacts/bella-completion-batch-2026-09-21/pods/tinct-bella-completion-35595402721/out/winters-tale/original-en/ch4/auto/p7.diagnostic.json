@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "0a3b2baaf15d3d6c1f3bd68c3fc3c30697b103ba3afe5c30479879476e245372",
+  "attempts": [
+    {
+      "asr_seconds": 0.16467312164604664,
+      "alignment_seconds": 0.0007720738649368286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pray you then, Conduct me to the queen.",
+        "hotwords": "Pray, Conduct"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paulina, Pray you then, Conduct me to the queen.",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Paulina,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.823974609375
+            },
+            {
+              "text": " Pray",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.51763916015625
+            },
+            {
+              "text": " you",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " then,",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.984375
+            },
+            {
+              "text": " Conduct",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.0191497802734375
+            },
+            {
+              "text": " me",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " to",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " queen.",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.2061767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Pray",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "then,",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "Conduct",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "to",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "queen.",
+          "start": 2.53,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "PAULINA.",
+        "Pray",
+        "you",
+        "then,",
+        "Conduct",
+        "me",
+        "to",
+        "the",
+        "queen."
+      ],
+      "acoustic_expected_tokens": [
+        "Pray",
+        "you",
+        "then,",
+        "Conduct",
+        "me",
+        "to",
+        "the",
+        "queen."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          8,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 1.17,
+          "end": 1.45,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Conduct",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "conduct",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "queen.",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "queen",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PAULINA.",
+          "start": 1.17,
+          "end": 1.17
+        },
+        {
+          "text": "Pray",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "you",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "then,",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "Conduct",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "me",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "to",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "queen.",
+          "start": 2.53,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16557131335139275
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e5a1e6bcd4748363ca2580c983409473f145e837c05012d3d5b9d0db1c8a024b",
+  "selected_reasons": []
+}

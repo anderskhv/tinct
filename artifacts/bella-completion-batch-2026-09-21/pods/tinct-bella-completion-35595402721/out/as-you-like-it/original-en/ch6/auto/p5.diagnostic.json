@@ -1,0 +1,302 @@
+{
+  "complete": true,
+  "signature": "a27833b93502cf4ddd474b1433864c618c433a6eb055e5370b852775641c22d8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1638011932373047,
+      "alignment_seconds": 0.0007422249764204025,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It will make you melancholy, Monsieur Jaques.",
+        "hotwords": "It, Monsieur, Jaques"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It will make you melancholy, Monsieur Jaques.",
+          "start": 0.08,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.0290069580078125
+            },
+            {
+              "text": " will",
+              "start": 0.74,
+              "end": 1.42,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " make",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " melancholy,",
+              "start": 1.78,
+              "end": 2.24,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Monsieur",
+              "start": 2.56,
+              "end": 2.82,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " Jaques.",
+              "start": 2.82,
+              "end": 3.22,
+              "probability": 0.4640350341796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "will",
+          "start": 0.74,
+          "end": 1.42
+        },
+        {
+          "raw": "make",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "you",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "melancholy,",
+          "start": 1.78,
+          "end": 2.24
+        },
+        {
+          "raw": "Monsieur",
+          "start": 2.56,
+          "end": 2.82
+        },
+        {
+          "raw": "Jaques.",
+          "start": 2.82,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "AMIENS.",
+        "It",
+        "will",
+        "make",
+        "you",
+        "melancholy,",
+        "Monsieur",
+        "Jaques."
+      ],
+      "acoustic_expected_tokens": [
+        "It",
+        "will",
+        "make",
+        "you",
+        "melancholy,",
+        "Monsieur",
+        "Jaques."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.74,
+          "end": 1.42,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "make",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "melancholy,",
+          "start": 1.78,
+          "end": 2.24,
+          "key": "melancholy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 2.56,
+          "end": 2.82,
+          "key": "monsieur",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Jaques.",
+          "start": 2.82,
+          "end": 3.22,
+          "key": "jaques",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "AMIENS.",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "It",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "will",
+          "start": 0.74,
+          "end": 1.42
+        },
+        {
+          "text": "make",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "you",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "melancholy,",
+          "start": 1.78,
+          "end": 2.24
+        },
+        {
+          "text": "Monsieur",
+          "start": 2.56,
+          "end": 2.82
+        },
+        {
+          "text": "Jaques.",
+          "start": 2.82,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16464286670088768
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "45a47240ee1fccfc269572312766becacbd8fcdc3fa405b0058d9cc4eef9874a",
+  "selected_reasons": []
+}

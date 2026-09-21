@@ -1,0 +1,765 @@
+{
+  "complete": true,
+  "signature": "c4fc6159ac83c1c595389e5d08e8aff6f9598aba62ffb30a796bf7acf9ebf205",
+  "attempts": [
+    {
+      "asr_seconds": 0.22688905149698257,
+      "alignment_seconds": 0.0008405130356550217,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But noticing the grieved expression on Princess Mary's face she guessed the reason of that sadness and suddenly began to cry.",
+        "hotwords": "But, Princess, Mary's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But noticing the grieved expression on Princess Mary's face she guessed the reason of that sadness",
+          "start": 0.0,
+          "end": 4.6,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " noticing",
+              "start": 0.32,
+              "end": 0.7,
+              "probability": 0.876953125
+            },
+            {
+              "text": " the",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " grieved",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.915771484375
+            },
+            {
+              "text": " expression",
+              "start": 1.22,
+              "end": 1.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Princess",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " Mary's",
+              "start": 2.28,
+              "end": 2.82,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " face",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.420654296875
+            },
+            {
+              "text": " guessed",
+              "start": 3.22,
+              "end": 3.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " reason",
+              "start": 3.62,
+              "end": 3.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.84,
+              "end": 4.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sadness",
+              "start": 4.2,
+              "end": 4.6,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " and suddenly began to cry.",
+          "start": 4.6,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " and",
+              "start": 4.6,
+              "end": 4.9,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " suddenly",
+              "start": 4.9,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " began",
+              "start": 5.2,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 5.56,
+              "end": 5.8,
+              "probability": 1.0
+            },
+            {
+              "text": " cry.",
+              "start": 5.8,
+              "end": 6.1,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "raw": "noticing",
+          "start": 0.32,
+          "end": 0.7
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "grieved",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "expression",
+          "start": 1.22,
+          "end": 1.68
+        },
+        {
+          "raw": "on",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "Princess",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "Mary's",
+          "start": 2.28,
+          "end": 2.82
+        },
+        {
+          "raw": "face",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "she",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "guessed",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "reason",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "raw": "of",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "raw": "that",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "sadness",
+          "start": 4.2,
+          "end": 4.6
+        },
+        {
+          "raw": "and",
+          "start": 4.6,
+          "end": 4.9
+        },
+        {
+          "raw": "suddenly",
+          "start": 4.9,
+          "end": 5.2
+        },
+        {
+          "raw": "began",
+          "start": 5.2,
+          "end": 5.56
+        },
+        {
+          "raw": "to",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "raw": "cry.",
+          "start": 5.8,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "noticing",
+        "the",
+        "grieved",
+        "expression",
+        "on",
+        "Princess",
+        "Mary’s",
+        "face",
+        "she",
+        "guessed",
+        "the",
+        "reason",
+        "of",
+        "that",
+        "sadness",
+        "and",
+        "suddenly",
+        "began",
+        "to",
+        "cry."
+      ],
+      "acoustic_expected_tokens": [
+        "But",
+        "noticing",
+        "the",
+        "grieved",
+        "expression",
+        "on",
+        "Princess",
+        "Mary's",
+        "face",
+        "she",
+        "guessed",
+        "the",
+        "reason",
+        "of",
+        "that",
+        "sadness",
+        "and",
+        "suddenly",
+        "began",
+        "to",
+        "cry."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.0,
+          "end": 0.32,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "noticing",
+          "start": 0.32,
+          "end": 0.7,
+          "key": "noticing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.94,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "grieved",
+          "start": 0.94,
+          "end": 1.22,
+          "key": "grieved",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 1.22,
+          "end": 1.68,
+          "key": "expression",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Princess",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "princess",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mary's",
+          "start": 2.28,
+          "end": 2.82,
+          "key": "marys",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "guessed",
+          "start": 3.22,
+          "end": 3.42,
+          "key": "guessed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 3.62,
+          "end": 3.84,
+          "key": "reason",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.84,
+          "end": 4.04,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sadness",
+          "start": 4.2,
+          "end": 4.6,
+          "key": "sadness",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.6,
+          "end": 4.9,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 4.9,
+          "end": 5.2,
+          "key": "suddenly",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 5.2,
+          "end": 5.56,
+          "key": "began",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.56,
+          "end": 5.8,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cry.",
+          "start": 5.8,
+          "end": 6.1,
+          "key": "cry",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "noticing",
+          "start": 0.32,
+          "end": 0.7
+        },
+        {
+          "text": "the",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "text": "grieved",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "expression",
+          "start": 1.22,
+          "end": 1.68
+        },
+        {
+          "text": "on",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "Princess",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "Mary’s",
+          "start": 2.28,
+          "end": 2.82
+        },
+        {
+          "text": "face",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "she",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "guessed",
+          "start": 3.22,
+          "end": 3.42
+        },
+        {
+          "text": "the",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "reason",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "text": "of",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "text": "that",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "sadness",
+          "start": 4.2,
+          "end": 4.6
+        },
+        {
+          "text": "and",
+          "start": 4.6,
+          "end": 4.9
+        },
+        {
+          "text": "suddenly",
+          "start": 4.9,
+          "end": 5.2
+        },
+        {
+          "text": "began",
+          "start": 5.2,
+          "end": 5.56
+        },
+        {
+          "text": "to",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "text": "cry.",
+          "start": 5.8,
+          "end": 6.1
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2278546616435051
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "895cce03abf5265e08616ec6d1465d0f6f09accbc4027b3e727cd7038a32a573",
+  "selected_reasons": []
+}

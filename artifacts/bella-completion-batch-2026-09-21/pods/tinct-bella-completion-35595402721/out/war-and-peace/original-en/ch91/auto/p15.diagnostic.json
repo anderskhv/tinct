@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "d0a44049e77842c50387fea6f7ff9a32b8cdfaec1f1efb1173a8428b246581ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.12599149532616138,
+      "alignment_seconds": 0.0004451461136341095,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's impossible,\" replied another.",
+        "hotwords": "It's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's impossible, replied another.",
+          "start": 0.0,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.0,
+              "end": 0.42,
+              "probability": 0.59136962890625
+            },
+            {
+              "text": " impossible,",
+              "start": 0.42,
+              "end": 0.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " replied",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " another.",
+              "start": 1.48,
+              "end": 1.88,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "raw": "impossible,",
+          "start": 0.42,
+          "end": 0.86
+        },
+        {
+          "raw": "replied",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "another.",
+          "start": 1.48,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "“It’s",
+        "impossible,”",
+        "replied",
+        "another."
+      ],
+      "acoustic_expected_tokens": [
+        "\"It's",
+        "impossible,\"",
+        "replied",
+        "another."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.0,
+          "end": 0.42,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "impossible,",
+          "start": 0.42,
+          "end": 0.86,
+          "key": "impossible",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "another.",
+          "start": 1.48,
+          "end": 1.88,
+          "key": "another",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“It’s",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "impossible,”",
+          "start": 0.42,
+          "end": 0.86
+        },
+        {
+          "text": "replied",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "another.",
+          "start": 1.48,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12651451118290424
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf22f38521bfdbd859e2967b20edb6e547f3fd2741698fc5325441a3bfb1e800",
+  "selected_reasons": []
+}

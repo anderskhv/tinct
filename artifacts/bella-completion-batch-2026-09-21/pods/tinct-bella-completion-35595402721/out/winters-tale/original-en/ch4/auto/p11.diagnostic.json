@@ -1,0 +1,337 @@
+{
+  "complete": true,
+  "signature": "c28cc2b6436e5090eafc62daf443c275c7e3099320fe6567b1722489938f5aab",
+  "attempts": [
+    {
+      "asr_seconds": 0.1513889655470848,
+      "alignment_seconds": 0.0003808867186307907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I pray now, call her. Withdraw yourselves.",
+        "hotwords": "I, Withdraw"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paulina, I pray now, call her. Withdraw yourselves.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Paulina,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.825439453125
+            },
+            {
+              "text": " I",
+              "start": 1.03,
+              "end": 1.11,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " pray",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " now,",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " call",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " her.",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Withdraw",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.954833984375
+            },
+            {
+              "text": " yourselves.",
+              "start": 2.49,
+              "end": 2.91,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "raw": "pray",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "now,",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "call",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "her.",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "Withdraw",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "yourselves.",
+          "start": 2.49,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "PAULINA.",
+        "I",
+        "pray",
+        "now,",
+        "call",
+        "her.",
+        "Withdraw",
+        "yourselves."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "pray",
+        "now,",
+        "call",
+        "her.",
+        "Withdraw",
+        "yourselves."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.03,
+          "end": 1.11,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "call",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Withdraw",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "withdraw",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yourselves.",
+          "start": 2.49,
+          "end": 2.91,
+          "key": "yourselves",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PAULINA.",
+          "start": 1.03,
+          "end": 1.03
+        },
+        {
+          "text": "I",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "text": "pray",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "now,",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "call",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "her.",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "Withdraw",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "yourselves.",
+          "start": 2.49,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1518252920359373
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64bfe82dcedf775057ed23d947a4b2e65e3e3c9e8006376327523f7204be68da",
+  "selected_reasons": []
+}

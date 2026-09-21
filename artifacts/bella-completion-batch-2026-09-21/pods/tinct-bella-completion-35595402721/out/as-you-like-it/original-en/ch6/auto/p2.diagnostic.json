@@ -1,0 +1,133 @@
+{
+  "complete": true,
+  "signature": "661657c9c4654caad7d387b9975aa116932bf056e7524341ec2a9f95736ec6d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14425007812678814,
+      "alignment_seconds": 0.00034490786492824554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Song",
+        "hotwords": "Song"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Song song",
+          "start": 0.11,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Song",
+              "start": 0.11,
+              "end": 0.73,
+              "probability": 0.64453125
+            },
+            {
+              "text": " song",
+              "start": 0.73,
+              "end": 1.37,
+              "probability": 3.9696693420410156e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Song",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "raw": "song",
+          "start": 0.73,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "SONG"
+      ],
+      "acoustic_expected_tokens": [
+        "Song"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Song",
+          "start": 0.11,
+          "end": 0.73,
+          "key": "song",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "song",
+          "start": 0.73,
+          "end": 1.37,
+          "key": "song",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SONG",
+          "start": 0.11,
+          "end": 0.73
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1446569338440895
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e7b65f9dce2e95f00215ac12b5cd9ac7791cff1954eabfd0b1612b884423fdc",
+  "selected_reasons": []
+}

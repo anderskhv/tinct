@@ -1,0 +1,964 @@
+{
+  "complete": true,
+  "signature": "5db443528b4204f83a3be233795a8a82ff9675f7f8a69705ccd86cae6426a172",
+  "attempts": [
+    {
+      "asr_seconds": 0.3087666090577841,
+      "alignment_seconds": 0.0013410001993179321,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Here's ado, to lock up honesty and honour from Th' access of gentle visitors! Is't lawful, pray you, To see her women? any of them? Emilia?",
+        "hotwords": "Here's, Th, Is't, Emilia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paulina? Here's ado, to lock up honesty and honour from Th' access of gentle visitors! Is't lawful, pray you, To see her women? any of them? Emilia?",
+          "start": 0.05,
+          "end": 10.31,
+          "words": [
+            {
+              "text": " Paulina?",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.62890625
+            },
+            {
+              "text": " Here's",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.909912109375
+            },
+            {
+              "text": " ado,",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.0063323974609375
+            },
+            {
+              "text": " to",
+              "start": 2.01,
+              "end": 2.17,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " lock",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " up",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " honesty",
+              "start": 2.57,
+              "end": 2.91,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " and",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " honour",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.07415771484375
+            },
+            {
+              "text": " from",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Th'",
+              "start": 3.77,
+              "end": 4.13,
+              "probability": 0.043121337890625
+            },
+            {
+              "text": " access",
+              "start": 4.37,
+              "end": 4.65,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " of",
+              "start": 4.65,
+              "end": 4.89,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " gentle",
+              "start": 4.89,
+              "end": 5.21,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " visitors!",
+              "start": 5.21,
+              "end": 5.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Is't",
+              "start": 6.53,
+              "end": 6.77,
+              "probability": 0.1847686767578125
+            },
+            {
+              "text": " lawful,",
+              "start": 6.77,
+              "end": 7.09,
+              "probability": 0.92578125
+            },
+            {
+              "text": " pray",
+              "start": 7.31,
+              "end": 7.41,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " you,",
+              "start": 7.41,
+              "end": 7.65,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " To",
+              "start": 7.77,
+              "end": 7.87,
+              "probability": 0.01293182373046875
+            },
+            {
+              "text": " see",
+              "start": 7.87,
+              "end": 8.01,
+              "probability": 0.9921875
+            },
+            {
+              "text": " her",
+              "start": 8.01,
+              "end": 8.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " women?",
+              "start": 8.17,
+              "end": 8.41,
+              "probability": 0.953125
+            },
+            {
+              "text": " any",
+              "start": 8.91,
+              "end": 9.09,
+              "probability": 0.042877197265625
+            },
+            {
+              "text": " of",
+              "start": 9.09,
+              "end": 9.27,
+              "probability": 0.955078125
+            },
+            {
+              "text": " them?",
+              "start": 9.27,
+              "end": 9.51,
+              "probability": 0.984375
+            },
+            {
+              "text": " Emilia?",
+              "start": 9.95,
+              "end": 10.31,
+              "probability": 0.701904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina?",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Here's",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "ado,",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "to",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "raw": "lock",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "up",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "honesty",
+          "start": 2.57,
+          "end": 2.91
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "honour",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "raw": "from",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "raw": "Th'",
+          "start": 3.77,
+          "end": 4.13
+        },
+        {
+          "raw": "access",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "raw": "of",
+          "start": 4.65,
+          "end": 4.89
+        },
+        {
+          "raw": "gentle",
+          "start": 4.89,
+          "end": 5.21
+        },
+        {
+          "raw": "visitors!",
+          "start": 5.21,
+          "end": 5.67
+        },
+        {
+          "raw": "Is't",
+          "start": 6.53,
+          "end": 6.77
+        },
+        {
+          "raw": "lawful,",
+          "start": 6.77,
+          "end": 7.09
+        },
+        {
+          "raw": "pray",
+          "start": 7.31,
+          "end": 7.41
+        },
+        {
+          "raw": "you,",
+          "start": 7.41,
+          "end": 7.65
+        },
+        {
+          "raw": "To",
+          "start": 7.77,
+          "end": 7.87
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.01
+        },
+        {
+          "raw": "her",
+          "start": 8.01,
+          "end": 8.17
+        },
+        {
+          "raw": "women?",
+          "start": 8.17,
+          "end": 8.41
+        },
+        {
+          "raw": "any",
+          "start": 8.91,
+          "end": 9.09
+        },
+        {
+          "raw": "of",
+          "start": 9.09,
+          "end": 9.27
+        },
+        {
+          "raw": "them?",
+          "start": 9.27,
+          "end": 9.51
+        },
+        {
+          "raw": "Emilia?",
+          "start": 9.95,
+          "end": 10.31
+        }
+      ],
+      "expected_tokens": [
+        "PAULINA.",
+        "Here’s",
+        "ado,",
+        "to",
+        "lock",
+        "up",
+        "honesty",
+        "and",
+        "honour",
+        "from",
+        "Th’",
+        "access",
+        "of",
+        "gentle",
+        "visitors!",
+        "Is’t",
+        "lawful,",
+        "pray",
+        "you,",
+        "To",
+        "see",
+        "her",
+        "women?",
+        "any",
+        "of",
+        "them?",
+        "Emilia?"
+      ],
+      "acoustic_expected_tokens": [
+        "Here's",
+        "ado,",
+        "to",
+        "lock",
+        "up",
+        "honesty",
+        "and",
+        "honour",
+        "from",
+        "Th'",
+        "access",
+        "of",
+        "gentle",
+        "visitors!",
+        "Is't",
+        "lawful,",
+        "pray",
+        "you,",
+        "To",
+        "see",
+        "her",
+        "women?",
+        "any",
+        "of",
+        "them?",
+        "Emilia?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          26,
+          1,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina?",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "heres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ado,",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "ado",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.01,
+          "end": 2.17,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lock",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "lock",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "up",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "honesty",
+          "start": 2.57,
+          "end": 2.91,
+          "key": "honesty",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.25,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "honour",
+          "start": 3.25,
+          "end": 3.47,
+          "key": "honour",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Th'",
+          "start": 3.77,
+          "end": 4.13,
+          "key": "th",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "access",
+          "start": 4.37,
+          "end": 4.65,
+          "key": "access",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.65,
+          "end": 4.89,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 4.89,
+          "end": 5.21,
+          "key": "gentle",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "visitors!",
+          "start": 5.21,
+          "end": 5.67,
+          "key": "visitors",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Is't",
+          "start": 6.53,
+          "end": 6.77,
+          "key": "ist",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lawful,",
+          "start": 6.77,
+          "end": 7.09,
+          "key": "lawful",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 7.31,
+          "end": 7.41,
+          "key": "pray",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 7.41,
+          "end": 7.65,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 7.77,
+          "end": 7.87,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.01,
+          "key": "see",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.01,
+          "end": 8.17,
+          "key": "her",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "women?",
+          "start": 8.17,
+          "end": 8.41,
+          "key": "women",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 8.91,
+          "end": 9.09,
+          "key": "any",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.09,
+          "end": 9.27,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "them?",
+          "start": 9.27,
+          "end": 9.51,
+          "key": "them",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Emilia?",
+          "start": 9.95,
+          "end": 10.31,
+          "key": "emilia",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "PAULINA.",
+          "start": 1.27,
+          "end": 1.27
+        },
+        {
+          "text": "Here’s",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "ado,",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "to",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "text": "lock",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "up",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "honesty",
+          "start": 2.57,
+          "end": 2.91
+        },
+        {
+          "text": "and",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "text": "honour",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "text": "from",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "text": "Th’",
+          "start": 3.77,
+          "end": 4.13
+        },
+        {
+          "text": "access",
+          "start": 4.37,
+          "end": 4.65
+        },
+        {
+          "text": "of",
+          "start": 4.65,
+          "end": 4.89
+        },
+        {
+          "text": "gentle",
+          "start": 4.89,
+          "end": 5.21
+        },
+        {
+          "text": "visitors!",
+          "start": 5.21,
+          "end": 5.67
+        },
+        {
+          "text": "Is’t",
+          "start": 6.53,
+          "end": 6.77
+        },
+        {
+          "text": "lawful,",
+          "start": 6.77,
+          "end": 7.09
+        },
+        {
+          "text": "pray",
+          "start": 7.31,
+          "end": 7.41
+        },
+        {
+          "text": "you,",
+          "start": 7.41,
+          "end": 7.65
+        },
+        {
+          "text": "To",
+          "start": 7.77,
+          "end": 7.87
+        },
+        {
+          "text": "see",
+          "start": 7.87,
+          "end": 8.01
+        },
+        {
+          "text": "her",
+          "start": 8.01,
+          "end": 8.17
+        },
+        {
+          "text": "women?",
+          "start": 8.17,
+          "end": 8.41
+        },
+        {
+          "text": "any",
+          "start": 8.91,
+          "end": 9.09
+        },
+        {
+          "text": "of",
+          "start": 9.09,
+          "end": 9.27
+        },
+        {
+          "text": "them?",
+          "start": 9.27,
+          "end": 9.51
+        },
+        {
+          "text": "Emilia?",
+          "start": 9.95,
+          "end": 10.31
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 27,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3102608248591423
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "364fcbdc0423df677df3611a936a1dcfd9294c4c0b5ba4e2cc44c839d9cceb53",
+  "selected_reasons": []
+}

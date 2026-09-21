@@ -1,0 +1,197 @@
+{
+  "complete": true,
+  "signature": "e7c23e53c73fd77fbb37324a8f18b9ea68e63bc846778c551a76b31d313c7417",
+  "attempts": [
+    {
+      "asr_seconds": 0.12074165977537632,
+      "alignment_seconds": 0.00032014772295951843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, he's gone out.\"",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, he's gone out.",
+          "start": 0.0,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " he's",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " gone",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out.",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "he's",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "gone",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "out.",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "“No,",
+        "he’s",
+        "gone",
+        "out.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"No,",
+        "he's",
+        "gone",
+        "out.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "gone",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“No,",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "he’s",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "gone",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "out.”",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12110837735235691
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f63bbf49e2cd5c432b948032824e0b03331353b2f422d7e4681d4556c39d18e",
+  "selected_reasons": []
+}

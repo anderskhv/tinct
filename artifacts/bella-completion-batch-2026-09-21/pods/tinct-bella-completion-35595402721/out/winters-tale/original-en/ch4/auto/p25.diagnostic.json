@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "246e76a94e9f1ca5236037ebcb17f47b51710135a4cc84710ed14c846c8af66a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20137195102870464,
+      "alignment_seconds": 0.0006436426192522049,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Now be you blest for it! I'll to the queen: please you come something nearer.",
+        "hotwords": "Now, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Amelia, Now be you blest for it! I'll to the queen. Please you come something nearer.",
+          "start": 0.05,
+          "end": 4.79,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.53564453125
+            },
+            {
+              "text": " Now",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.007091522216796875
+            },
+            {
+              "text": " be",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " you",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " blest",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.505645751953125
+            },
+            {
+              "text": " for",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " it!",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I'll",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.5665283203125
+            },
+            {
+              "text": " to",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " the",
+              "start": 2.85,
+              "end": 2.97,
+              "probability": 0.978515625
+            },
+            {
+              "text": " queen.",
+              "start": 2.97,
+              "end": 3.25,
+              "probability": 0.34521484375
+            },
+            {
+              "text": " Please",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " you",
+              "start": 3.89,
+              "end": 4.05,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " come",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " something",
+              "start": 4.21,
+              "end": 4.51,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " nearer.",
+              "start": 4.51,
+              "end": 4.79,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Now",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "be",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "you",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "blest",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "for",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "it!",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "raw": "I'll",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "to",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "the",
+          "start": 2.85,
+          "end": 2.97
+        },
+        {
+          "raw": "queen.",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "raw": "Please",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "you",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "raw": "come",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "something",
+          "start": 4.21,
+          "end": 4.51
+        },
+        {
+          "raw": "nearer.",
+          "start": 4.51,
+          "end": 4.79
+        }
+      ],
+      "expected_tokens": [
+        "EMILIA.",
+        "Now",
+        "be",
+        "you",
+        "blest",
+        "for",
+        "it!",
+        "I’ll",
+        "to",
+        "the",
+        "queen:",
+        "please",
+        "you",
+        "come",
+        "something",
+        "nearer."
+      ],
+      "acoustic_expected_tokens": [
+        "Now",
+        "be",
+        "you",
+        "blest",
+        "for",
+        "it!",
+        "I'll",
+        "to",
+        "the",
+        "queen:",
+        "please",
+        "you",
+        "come",
+        "something",
+        "nearer."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          15,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "blest",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "blest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it!",
+          "start": 1.99,
+          "end": 2.27,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.85,
+          "end": 2.97,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "queen.",
+          "start": 2.97,
+          "end": 3.25,
+          "key": "queen",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Please",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "please",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.89,
+          "end": 4.05,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "come",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 4.21,
+          "end": 4.51,
+          "key": "something",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nearer.",
+          "start": 4.51,
+          "end": 4.79,
+          "key": "nearer",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "EMILIA.",
+          "start": 1.15,
+          "end": 1.15
+        },
+        {
+          "text": "Now",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "be",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "text": "you",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "blest",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "for",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "it!",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "I’ll",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "to",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "text": "the",
+          "start": 2.85,
+          "end": 2.97
+        },
+        {
+          "text": "queen:",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "text": "please",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "you",
+          "start": 3.89,
+          "end": 4.05
+        },
+        {
+          "text": "come",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "something",
+          "start": 4.21,
+          "end": 4.51
+        },
+        {
+          "text": "nearer.",
+          "start": 4.51,
+          "end": 4.79
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2021031752228737
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "17822b26d699ab41226988a57755a8e0de4346f22e990f4418e46a5e990fe856",
+  "selected_reasons": []
+}

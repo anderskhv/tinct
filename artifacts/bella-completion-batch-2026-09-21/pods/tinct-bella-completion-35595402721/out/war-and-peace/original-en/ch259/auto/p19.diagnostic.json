@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "1df86b4cb8387d42b2d8d8d75a0e9f15dda688b4c2bb5d3ffb78065d82bdd0be",
+  "attempts": [
+    {
+      "asr_seconds": 0.17013574205338955,
+      "alignment_seconds": 0.0007536560297012329,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"God have mercy.... It's windy and dry...\" said another voice.",
+        "hotwords": "God, It's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " God have mercy.... It's windy and dry...\" said another voice.",
+          "start": 0.0,
+          "end": 4.0,
+          "words": [
+            {
+              "text": " God",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.330322265625
+            },
+            {
+              "text": " have",
+              "start": 0.36,
+              "end": 0.5,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " mercy....",
+              "start": 0.5,
+              "end": 1.98,
+              "probability": 0.47037363052368164
+            },
+            {
+              "text": " It's",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.7335205078125
+            },
+            {
+              "text": " windy",
+              "start": 2.14,
+              "end": 2.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " dry...\"",
+              "start": 2.64,
+              "end": 3.22,
+              "probability": 0.49812793731689453
+            },
+            {
+              "text": " said",
+              "start": 3.22,
+              "end": 3.32,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " another",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " voice.",
+              "start": 3.64,
+              "end": 4.0,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "God",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "have",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "raw": "mercy....",
+          "start": 0.5,
+          "end": 1.98
+        },
+        {
+          "raw": "It's",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "windy",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "dry...\"",
+          "start": 2.64,
+          "end": 3.22
+        },
+        {
+          "raw": "said",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "raw": "another",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "raw": "voice.",
+          "start": 3.64,
+          "end": 4.0
+        }
+      ],
+      "expected_tokens": [
+        "“God",
+        "have",
+        "mercy....",
+        "It’s",
+        "windy",
+        "and",
+        "dry...”",
+        "said",
+        "another",
+        "voice."
+      ],
+      "acoustic_expected_tokens": [
+        "\"God",
+        "have",
+        "mercy....",
+        "It's",
+        "windy",
+        "and",
+        "dry...\"",
+        "said",
+        "another",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "God",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "god",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.36,
+          "end": 0.5,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mercy....",
+          "start": 0.5,
+          "end": 1.98,
+          "key": "mercy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "its",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "windy",
+          "start": 2.14,
+          "end": 2.52,
+          "key": "windy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dry...\"",
+          "start": 2.64,
+          "end": 3.22,
+          "key": "dry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.22,
+          "end": 3.32,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 3.32,
+          "end": 3.64,
+          "key": "another",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 3.64,
+          "end": 4.0,
+          "key": "voice",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“God",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "have",
+          "start": 0.36,
+          "end": 0.5
+        },
+        {
+          "text": "mercy....",
+          "start": 0.5,
+          "end": 1.98
+        },
+        {
+          "text": "It’s",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "windy",
+          "start": 2.14,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "dry...”",
+          "start": 2.64,
+          "end": 3.22
+        },
+        {
+          "text": "said",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "text": "another",
+          "start": 3.32,
+          "end": 3.64
+        },
+        {
+          "text": "voice.",
+          "start": 3.64,
+          "end": 4.0
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17098766565322876
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c4b9def09a89bb55ba0e7ca511e830415afb3c26f0373f9bbba6cb04dd16cd0a",
+  "selected_reasons": []
+}

@@ -1,0 +1,1327 @@
+{
+  "complete": true,
+  "signature": "c6becea82e732282bf0a654eec4c727de78890387960171e47a371a4729dfa40",
+  "attempts": [
+    {
+      "asr_seconds": 0.43094938062131405,
+      "alignment_seconds": 0.0018647722899913788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Under the greenwood tree Who loves to lie with me, And turn his merry note Unto the sweet bird's throat, Come hither, come hither, come hither. Here shall he see No enemy But winter and rough weather.",
+        "hotwords": "Under, Who, Unto, Here, No, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ammian, Under the greenwood tree Who loves to lie with me, And turn his merry note Unto the sweet bird's throat, Come hither, come hither, come hither. Here shall he see No enemy But winter and rough weather.",
+          "start": 0.02,
+          "end": 12.82,
+          "words": [
+            {
+              "text": " Ammian,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.4005126953125
+            },
+            {
+              "text": " Under",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.1015625
+            },
+            {
+              "text": " the",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " greenwood",
+              "start": 1.52,
+              "end": 1.92,
+              "probability": 0.412109375
+            },
+            {
+              "text": " tree",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Who",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.2919921875
+            },
+            {
+              "text": " loves",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " to",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lie",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 3.08,
+              "end": 3.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me,",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " And",
+              "start": 3.86,
+              "end": 3.98,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " turn",
+              "start": 3.98,
+              "end": 4.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " his",
+              "start": 4.22,
+              "end": 4.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " merry",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " note",
+              "start": 4.6,
+              "end": 4.94,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Unto",
+              "start": 4.94,
+              "end": 5.22,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " the",
+              "start": 5.22,
+              "end": 5.34,
+              "probability": 0.970703125
+            },
+            {
+              "text": " sweet",
+              "start": 5.34,
+              "end": 5.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bird's",
+              "start": 5.62,
+              "end": 6.14,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " throat,",
+              "start": 6.14,
+              "end": 6.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Come",
+              "start": 6.92,
+              "end": 7.12,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " hither,",
+              "start": 7.12,
+              "end": 7.34,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " come",
+              "start": 7.88,
+              "end": 8.04,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " hither,",
+              "start": 8.04,
+              "end": 8.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " come",
+              "start": 8.84,
+              "end": 8.92,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " hither.",
+              "start": 8.92,
+              "end": 9.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Here",
+              "start": 9.98,
+              "end": 10.14,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " shall",
+              "start": 10.14,
+              "end": 10.3,
+              "probability": 0.876953125
+            },
+            {
+              "text": " he",
+              "start": 10.3,
+              "end": 10.46,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " see",
+              "start": 10.46,
+              "end": 10.62,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " No",
+              "start": 10.62,
+              "end": 10.84,
+              "probability": 0.203369140625
+            },
+            {
+              "text": " enemy",
+              "start": 10.84,
+              "end": 11.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " But",
+              "start": 11.18,
+              "end": 11.44,
+              "probability": 0.0024566650390625
+            },
+            {
+              "text": " winter",
+              "start": 11.44,
+              "end": 11.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 11.86,
+              "end": 12.2,
+              "probability": 0.94921875
+            },
+            {
+              "text": " rough",
+              "start": 12.2,
+              "end": 12.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " weather.",
+              "start": 12.46,
+              "end": 12.82,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ammian,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "Under",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "greenwood",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "raw": "tree",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "Who",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "loves",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "lie",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "with",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "raw": "me,",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "And",
+          "start": 3.86,
+          "end": 3.98
+        },
+        {
+          "raw": "turn",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "raw": "his",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "raw": "merry",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "note",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "raw": "Unto",
+          "start": 4.94,
+          "end": 5.22
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.34
+        },
+        {
+          "raw": "sweet",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "raw": "bird's",
+          "start": 5.62,
+          "end": 6.14
+        },
+        {
+          "raw": "throat,",
+          "start": 6.14,
+          "end": 6.36
+        },
+        {
+          "raw": "Come",
+          "start": 6.92,
+          "end": 7.12
+        },
+        {
+          "raw": "hither,",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "raw": "come",
+          "start": 7.88,
+          "end": 8.04
+        },
+        {
+          "raw": "hither,",
+          "start": 8.04,
+          "end": 8.36
+        },
+        {
+          "raw": "come",
+          "start": 8.84,
+          "end": 8.92
+        },
+        {
+          "raw": "hither.",
+          "start": 8.92,
+          "end": 9.24
+        },
+        {
+          "raw": "Here",
+          "start": 9.98,
+          "end": 10.14
+        },
+        {
+          "raw": "shall",
+          "start": 10.14,
+          "end": 10.3
+        },
+        {
+          "raw": "he",
+          "start": 10.3,
+          "end": 10.46
+        },
+        {
+          "raw": "see",
+          "start": 10.46,
+          "end": 10.62
+        },
+        {
+          "raw": "No",
+          "start": 10.62,
+          "end": 10.84
+        },
+        {
+          "raw": "enemy",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "raw": "But",
+          "start": 11.18,
+          "end": 11.44
+        },
+        {
+          "raw": "winter",
+          "start": 11.44,
+          "end": 11.86
+        },
+        {
+          "raw": "and",
+          "start": 11.86,
+          "end": 12.2
+        },
+        {
+          "raw": "rough",
+          "start": 12.2,
+          "end": 12.46
+        },
+        {
+          "raw": "weather.",
+          "start": 12.46,
+          "end": 12.82
+        }
+      ],
+      "expected_tokens": [
+        "AMIENS.",
+        "Under",
+        "the",
+        "greenwood",
+        "tree",
+        "Who",
+        "loves",
+        "to",
+        "lie",
+        "with",
+        "me,",
+        "And",
+        "turn",
+        "his",
+        "merry",
+        "note",
+        "Unto",
+        "the",
+        "sweet",
+        "bird's",
+        "throat,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "acoustic_expected_tokens": [
+        "Under",
+        "the",
+        "greenwood",
+        "tree",
+        "Who",
+        "loves",
+        "to",
+        "lie",
+        "with",
+        "me,",
+        "And",
+        "turn",
+        "his",
+        "merry",
+        "note",
+        "Unto",
+        "the",
+        "sweet",
+        "bird's",
+        "throat,",
+        "Come",
+        "hither,",
+        "come",
+        "hither,",
+        "come",
+        "hither.",
+        "Here",
+        "shall",
+        "he",
+        "see",
+        "No",
+        "enemy",
+        "But",
+        "winter",
+        "and",
+        "rough",
+        "weather."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          37,
+          1,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ammian,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "ammian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Under",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "under",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "greenwood",
+          "start": 1.52,
+          "end": 1.92,
+          "key": "greenwood",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tree",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "tree",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 2.22,
+          "end": 2.48,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "loves",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.66,
+          "end": 2.9,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "lie",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.08,
+          "end": 3.24,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.86,
+          "end": 3.98,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 3.98,
+          "end": 4.22,
+          "key": "turn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.22,
+          "end": 4.38,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "merry",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "merry",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 4.6,
+          "end": 4.94,
+          "key": "note",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Unto",
+          "start": 4.94,
+          "end": 5.22,
+          "key": "unto",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.34,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 5.34,
+          "end": 5.62,
+          "key": "sweet",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "bird's",
+          "start": 5.62,
+          "end": 6.14,
+          "key": "birds",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "throat,",
+          "start": 6.14,
+          "end": 6.36,
+          "key": "throat",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 6.92,
+          "end": 7.12,
+          "key": "come",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 7.12,
+          "end": 7.34,
+          "key": "hither",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 7.88,
+          "end": 8.04,
+          "key": "come",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 8.04,
+          "end": 8.36,
+          "key": "hither",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.84,
+          "end": 8.92,
+          "key": "come",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 8.92,
+          "end": 9.24,
+          "key": "hither",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 9.98,
+          "end": 10.14,
+          "key": "here",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 10.14,
+          "end": 10.3,
+          "key": "shall",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.3,
+          "end": 10.46,
+          "key": "he",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 10.46,
+          "end": 10.62,
+          "key": "see",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 10.62,
+          "end": 10.84,
+          "key": "no",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 10.84,
+          "end": 11.18,
+          "key": "enemy",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 11.18,
+          "end": 11.44,
+          "key": "but",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "winter",
+          "start": 11.44,
+          "end": 11.86,
+          "key": "winter",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.86,
+          "end": 12.2,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "rough",
+          "start": 12.2,
+          "end": 12.46,
+          "key": "rough",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "weather.",
+          "start": 12.46,
+          "end": 12.82,
+          "key": "weather",
+          "pieces": [
+            37
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "AMIENS.",
+          "start": 1.14,
+          "end": 1.14
+        },
+        {
+          "text": "Under",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "greenwood",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "text": "tree",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "Who",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "text": "loves",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "to",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "lie",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "with",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "text": "me,",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "And",
+          "start": 3.86,
+          "end": 3.98
+        },
+        {
+          "text": "turn",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "text": "his",
+          "start": 4.22,
+          "end": 4.38
+        },
+        {
+          "text": "merry",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "note",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "text": "Unto",
+          "start": 4.94,
+          "end": 5.22
+        },
+        {
+          "text": "the",
+          "start": 5.22,
+          "end": 5.34
+        },
+        {
+          "text": "sweet",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "text": "bird's",
+          "start": 5.62,
+          "end": 6.14
+        },
+        {
+          "text": "throat,",
+          "start": 6.14,
+          "end": 6.36
+        },
+        {
+          "text": "Come",
+          "start": 6.92,
+          "end": 7.12
+        },
+        {
+          "text": "hither,",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "text": "come",
+          "start": 7.88,
+          "end": 8.04
+        },
+        {
+          "text": "hither,",
+          "start": 8.04,
+          "end": 8.36
+        },
+        {
+          "text": "come",
+          "start": 8.84,
+          "end": 8.92
+        },
+        {
+          "text": "hither.",
+          "start": 8.92,
+          "end": 9.24
+        },
+        {
+          "text": "Here",
+          "start": 9.98,
+          "end": 10.14
+        },
+        {
+          "text": "shall",
+          "start": 10.14,
+          "end": 10.3
+        },
+        {
+          "text": "he",
+          "start": 10.3,
+          "end": 10.46
+        },
+        {
+          "text": "see",
+          "start": 10.46,
+          "end": 10.62
+        },
+        {
+          "text": "No",
+          "start": 10.62,
+          "end": 10.84
+        },
+        {
+          "text": "enemy",
+          "start": 10.84,
+          "end": 11.18
+        },
+        {
+          "text": "But",
+          "start": 11.18,
+          "end": 11.44
+        },
+        {
+          "text": "winter",
+          "start": 11.44,
+          "end": 11.86
+        },
+        {
+          "text": "and",
+          "start": 11.86,
+          "end": 12.2
+        },
+        {
+          "text": "rough",
+          "start": 12.2,
+          "end": 12.46
+        },
+        {
+          "text": "weather.",
+          "start": 12.46,
+          "end": 12.82
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 38,
+        "matched_words": 37
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.43300798162817955
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "43f3f7ab34dcac5f0bfe56b705e037454c8f210fd57120df9c22a31308dd16d6",
+  "selected_reasons": []
+}

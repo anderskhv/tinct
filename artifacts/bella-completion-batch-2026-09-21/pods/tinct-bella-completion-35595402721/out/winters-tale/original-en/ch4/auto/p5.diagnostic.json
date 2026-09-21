@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "0a644bec621a803a8a57223c39680ad88b782ddc1ddb9208692b9211cfd04ab2",
+  "attempts": [
+    {
+      "asr_seconds": 0.160427737981081,
+      "alignment_seconds": 0.0008148141205310822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Now, good sir, You know me, do you not?",
+        "hotwords": "Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Now, good sir, You know me, do you not?",
+          "start": 0.34,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Now,",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " good",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " sir,",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " You",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.00472259521484375
+            },
+            {
+              "text": " know",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " me,",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " do",
+              "start": 1.88,
+              "end": 1.9,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " you",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " not?",
+              "start": 1.98,
+              "end": 2.2,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Now,",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "good",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "sir,",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "You",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "know",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "me,",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "do",
+          "start": 1.88,
+          "end": 1.9
+        },
+        {
+          "raw": "you",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "not?",
+          "start": 1.98,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Now,",
+        "good",
+        "sir,",
+        "You",
+        "know",
+        "me,",
+        "do",
+        "you",
+        "not?"
+      ],
+      "acoustic_expected_tokens": [
+        "Now,",
+        "good",
+        "sir,",
+        "You",
+        "know",
+        "me,",
+        "do",
+        "you",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Now,",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "now",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.88,
+          "end": 1.9,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not?",
+          "start": 1.98,
+          "end": 2.2,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Now,",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "text": "good",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "sir,",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "text": "You",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "know",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "me,",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "do",
+          "start": 1.88,
+          "end": 1.9
+        },
+        {
+          "text": "you",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "not?",
+          "start": 1.98,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16135730035603046
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "252609612ef274d98984271427fe0129d5b41fbab71dcb4d065b585191691ff3",
+  "selected_reasons": []
+}

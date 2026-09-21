@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "ff507097accf8a52858e8ae71f528b60dec935e0c8d315c19ed77ab7e47affc8",
+  "attempts": [
+    {
+      "asr_seconds": 0.09432885237038136,
+      "alignment_seconds": 0.00024398788809776306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Song",
+        "hotwords": "Song"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " song",
+          "start": 0.11,
+          "end": 0.71,
+          "words": [
+            {
+              "text": " song",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.18115234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "song",
+          "start": 0.11,
+          "end": 0.71
+        }
+      ],
+      "expected_tokens": [
+        "SONG"
+      ],
+      "acoustic_expected_tokens": [
+        "Song"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "song",
+          "start": 0.11,
+          "end": 0.71,
+          "key": "song",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "SONG",
+          "start": 0.11,
+          "end": 0.71
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09461639076471329
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8dda57f3d30412c433ba0753c2f0a84462069ef2a3c993ba5e617914e636eeb1",
+  "selected_reasons": []
+}

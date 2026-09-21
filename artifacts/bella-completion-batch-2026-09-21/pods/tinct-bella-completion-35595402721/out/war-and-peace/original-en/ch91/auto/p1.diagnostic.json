@@ -1,0 +1,725 @@
+{
+  "complete": true,
+  "signature": "1d2b220af5d0df522b664a729cbde03be0b39424cebed74307b6538a5361de45",
+  "attempts": [
+    {
+      "asr_seconds": 0.251900352537632,
+      "alignment_seconds": 0.0015850458294153214,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bending forward in his armchair he said: \"Le Roi de Prusse!\" and having said this laughed. Everyone turned toward him.",
+        "hotwords": "Bending, Le, Roi, Prusse, Everyone"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bending forward in his armchair he said, Le Roi de Prusse! and having said this laughed. Everyone turned toward him.",
+          "start": 0.0,
+          "end": 7.48,
+          "words": [
+            {
+              "text": " Bending",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.978515625
+            },
+            {
+              "text": " forward",
+              "start": 0.52,
+              "end": 0.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " armchair",
+              "start": 1.22,
+              "end": 1.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " he",
+              "start": 1.66,
+              "end": 1.88,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " said,",
+              "start": 1.88,
+              "end": 2.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Le",
+              "start": 2.52,
+              "end": 2.56,
+              "probability": 0.02587890625
+            },
+            {
+              "text": " Roi",
+              "start": 2.56,
+              "end": 3.18,
+              "probability": 0.18136215209960938
+            },
+            {
+              "text": " de",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.625
+            },
+            {
+              "text": " Prusse!",
+              "start": 3.28,
+              "end": 3.9,
+              "probability": 0.32135009765625
+            },
+            {
+              "text": " and",
+              "start": 4.0,
+              "end": 4.04,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " having",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.984375
+            },
+            {
+              "text": " said",
+              "start": 4.3,
+              "end": 4.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 4.56,
+              "end": 4.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " laughed.",
+              "start": 4.78,
+              "end": 5.12,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Everyone",
+              "start": 6.24,
+              "end": 6.48,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " turned",
+              "start": 6.48,
+              "end": 6.84,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " toward",
+              "start": 6.84,
+              "end": 7.18,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " him.",
+              "start": 7.18,
+              "end": 7.48,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bending",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "forward",
+          "start": 0.52,
+          "end": 0.86
+        },
+        {
+          "raw": "in",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "his",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "armchair",
+          "start": 1.22,
+          "end": 1.66
+        },
+        {
+          "raw": "he",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "raw": "said,",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "raw": "Le",
+          "start": 2.52,
+          "end": 2.56
+        },
+        {
+          "raw": "Roi",
+          "start": 2.56,
+          "end": 3.18
+        },
+        {
+          "raw": "de",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "Prusse!",
+          "start": 3.28,
+          "end": 3.9
+        },
+        {
+          "raw": "and",
+          "start": 4.0,
+          "end": 4.04
+        },
+        {
+          "raw": "having",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "said",
+          "start": 4.3,
+          "end": 4.56
+        },
+        {
+          "raw": "this",
+          "start": 4.56,
+          "end": 4.78
+        },
+        {
+          "raw": "laughed.",
+          "start": 4.78,
+          "end": 5.12
+        },
+        {
+          "raw": "Everyone",
+          "start": 6.24,
+          "end": 6.48
+        },
+        {
+          "raw": "turned",
+          "start": 6.48,
+          "end": 6.84
+        },
+        {
+          "raw": "toward",
+          "start": 6.84,
+          "end": 7.18
+        },
+        {
+          "raw": "him.",
+          "start": 7.18,
+          "end": 7.48
+        }
+      ],
+      "expected_tokens": [
+        "Bending",
+        "forward",
+        "in",
+        "his",
+        "armchair",
+        "he",
+        "said:",
+        "“Le",
+        "Roi",
+        "de",
+        "Prusse!”",
+        "and",
+        "having",
+        "said",
+        "this",
+        "laughed.",
+        "Everyone",
+        "turned",
+        "toward",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "Bending",
+        "forward",
+        "in",
+        "his",
+        "armchair",
+        "he",
+        "said:",
+        "\"Le",
+        "Roi",
+        "de",
+        "Prusse!\"",
+        "and",
+        "having",
+        "said",
+        "this",
+        "laughed.",
+        "Everyone",
+        "turned",
+        "toward",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bending",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "bending",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 0.52,
+          "end": 0.86,
+          "key": "forward",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "armchair",
+          "start": 1.22,
+          "end": 1.66,
+          "key": "armchair",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.66,
+          "end": 1.88,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.88,
+          "end": 2.16,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Le",
+          "start": 2.52,
+          "end": 2.56,
+          "key": "le",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Roi",
+          "start": 2.56,
+          "end": 3.18,
+          "key": "roi",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.18,
+          "end": 3.28,
+          "key": "de",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Prusse!",
+          "start": 3.28,
+          "end": 3.9,
+          "key": "prusse",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.0,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 4.04,
+          "end": 4.3,
+          "key": "having",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.3,
+          "end": 4.56,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.56,
+          "end": 4.78,
+          "key": "this",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "laughed.",
+          "start": 4.78,
+          "end": 5.12,
+          "key": "laughed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Everyone",
+          "start": 6.24,
+          "end": 6.48,
+          "key": "everyone",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 6.48,
+          "end": 6.84,
+          "key": "turned",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 6.84,
+          "end": 7.18,
+          "key": "toward",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 7.18,
+          "end": 7.48,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Bending",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "forward",
+          "start": 0.52,
+          "end": 0.86
+        },
+        {
+          "text": "in",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "his",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "armchair",
+          "start": 1.22,
+          "end": 1.66
+        },
+        {
+          "text": "he",
+          "start": 1.66,
+          "end": 1.88
+        },
+        {
+          "text": "said:",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "text": "“Le",
+          "start": 2.52,
+          "end": 2.56
+        },
+        {
+          "text": "Roi",
+          "start": 2.56,
+          "end": 3.18
+        },
+        {
+          "text": "de",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "Prusse!”",
+          "start": 3.28,
+          "end": 3.9
+        },
+        {
+          "text": "and",
+          "start": 4.0,
+          "end": 4.04
+        },
+        {
+          "text": "having",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "text": "said",
+          "start": 4.3,
+          "end": 4.56
+        },
+        {
+          "text": "this",
+          "start": 4.56,
+          "end": 4.78
+        },
+        {
+          "text": "laughed.",
+          "start": 4.78,
+          "end": 5.12
+        },
+        {
+          "text": "Everyone",
+          "start": 6.24,
+          "end": 6.48
+        },
+        {
+          "text": "turned",
+          "start": 6.48,
+          "end": 6.84
+        },
+        {
+          "text": "toward",
+          "start": 6.84,
+          "end": 7.18
+        },
+        {
+          "text": "him.",
+          "start": 7.18,
+          "end": 7.48
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2537032291293144
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "176c05cdd43f88d12cbe0cb6ed2ee18a8d9399ceaf818085107474c114583579",
+  "selected_reasons": []
+}

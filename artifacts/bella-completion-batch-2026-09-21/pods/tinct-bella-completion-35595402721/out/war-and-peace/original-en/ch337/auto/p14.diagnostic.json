@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "0b0a6a3c5a49d39dbe15a155d6c3b31bfdeb2b11cc89831a6cc0e71deebb7db2",
+  "attempts": [
+    {
+      "asr_seconds": 0.0989376250654459,
+      "alignment_seconds": 0.0002514161169528961,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You love him?\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You love him.",
+          "start": 0.0,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.0,
+              "end": 0.36,
+              "probability": 0.58984375
+            },
+            {
+              "text": " love",
+              "start": 0.36,
+              "end": 0.54,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " him.",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.9560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "raw": "love",
+          "start": 0.36,
+          "end": 0.54
+        },
+        {
+          "raw": "him.",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "“You",
+        "love",
+        "him?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"You",
+        "love",
+        "him?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.0,
+          "end": 0.36,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 0.36,
+          "end": 0.54,
+          "key": "love",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "“You",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "love",
+          "start": 0.36,
+          "end": 0.54
+        },
+        {
+          "text": "him?”",
+          "start": 0.54,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09924351051449776
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60bc22f9ab11ea00e14de16c7141375cad723be0befd065ca702cda56d7b11fb",
+  "selected_reasons": []
+}

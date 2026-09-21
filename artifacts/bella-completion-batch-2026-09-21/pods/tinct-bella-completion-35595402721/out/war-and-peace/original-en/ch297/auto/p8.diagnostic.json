@@ -1,0 +1,3900 @@
+{
+  "complete": true,
+  "signature": "991b246979d7ef88dfe05112085f5787a8efbec5dece0faa095bbda4463a591c",
+  "attempts": [
+    {
+      "asr_seconds": 1.0538525823503733,
+      "alignment_seconds": 0.015421468764543533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The day after the council at Málo-Yaroslávets Napoleon rode out early in the morning amid the lines of his army with his suite of marshals and an escort, on the pretext of inspecting the army and the scene of the previous and of the impending battle. Some Cossacks on the prowl for booty fell in with the Emperor and very nearly captured him. If the Cossacks did not capture Napoleon then, what saved him was the very thing that was destroying the French army, the booty on which the Cossacks fell. Here as at Tarútino they went after plunder, leaving the men. Disregarding Napoleon they rushed after the plunder and Napoleon managed to escape.",
+        "hotwords": "Málo-Yaroslávets, Napoleon, Some, Cossacks, Emperor, If, French, Here, Tarútino, Disregarding"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The day after the council at Málo-Yaroslávets Napoleon rode out early in the morning amid the",
+          "start": 0.0,
+          "end": 4.9,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " day",
+              "start": 0.34,
+              "end": 0.54,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " after",
+              "start": 0.54,
+              "end": 0.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.88,
+              "end": 1.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " council",
+              "start": 1.06,
+              "end": 1.38,
+              "probability": 0.69140625
+            },
+            {
+              "text": " at",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Málo",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.21530914306640625
+            },
+            {
+              "text": "-Yaroslávets",
+              "start": 1.92,
+              "end": 2.66,
+              "probability": 0.25665736198425293
+            },
+            {
+              "text": " Napoleon",
+              "start": 2.66,
+              "end": 3.14,
+              "probability": 0.321533203125
+            },
+            {
+              "text": " rode",
+              "start": 3.14,
+              "end": 3.42,
+              "probability": 0.9765625
+            },
+            {
+              "text": " out",
+              "start": 3.42,
+              "end": 3.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " early",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.12,
+              "end": 4.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " morning",
+              "start": 4.24,
+              "end": 4.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " amid",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " lines of his army with his suite of marshals and an escort, on the pretext of inspecting",
+          "start": 4.9,
+          "end": 9.14,
+          "words": [
+            {
+              "text": " lines",
+              "start": 4.9,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.18,
+              "end": 5.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 5.36,
+              "end": 5.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " army",
+              "start": 5.48,
+              "end": 5.74,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " with",
+              "start": 5.74,
+              "end": 5.94,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " his",
+              "start": 5.94,
+              "end": 6.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " suite",
+              "start": 6.12,
+              "end": 6.36,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 6.36,
+              "end": 6.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " marshals",
+              "start": 6.58,
+              "end": 6.94,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " and",
+              "start": 6.94,
+              "end": 7.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " an",
+              "start": 7.12,
+              "end": 7.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " escort,",
+              "start": 7.22,
+              "end": 7.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 7.92,
+              "end": 8.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 8.0,
+              "end": 8.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pretext",
+              "start": 8.14,
+              "end": 8.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 8.48,
+              "end": 8.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inspecting",
+              "start": 8.72,
+              "end": 9.14,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " the army and the scene of the previous and of the impending battle. Some Cossacks on",
+          "start": 9.14,
+          "end": 14.04,
+          "words": [
+            {
+              "text": " the",
+              "start": 9.14,
+              "end": 9.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " army",
+              "start": 9.36,
+              "end": 9.58,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 9.58,
+              "end": 9.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 9.8,
+              "end": 9.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " scene",
+              "start": 9.92,
+              "end": 10.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 10.1,
+              "end": 10.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 10.22,
+              "end": 10.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " previous",
+              "start": 10.34,
+              "end": 10.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 10.7,
+              "end": 10.96,
+              "probability": 0.984375
+            },
+            {
+              "text": " of",
+              "start": 10.96,
+              "end": 11.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 11.08,
+              "end": 11.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " impending",
+              "start": 11.2,
+              "end": 11.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " battle.",
+              "start": 11.54,
+              "end": 12.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Some",
+              "start": 13.04,
+              "end": 13.3,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Cossacks",
+              "start": 13.3,
+              "end": 13.82,
+              "probability": 0.4031422932942708
+            },
+            {
+              "text": " on",
+              "start": 13.82,
+              "end": 14.04,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " the prowl for booty fell in with the Emperor and very nearly captured him.",
+          "start": 14.04,
+          "end": 17.4,
+          "words": [
+            {
+              "text": " the",
+              "start": 14.04,
+              "end": 14.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " prowl",
+              "start": 14.2,
+              "end": 14.5,
+              "probability": 0.978515625
+            },
+            {
+              "text": " for",
+              "start": 14.5,
+              "end": 14.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " booty",
+              "start": 14.66,
+              "end": 15.02,
+              "probability": 0.674072265625
+            },
+            {
+              "text": " fell",
+              "start": 15.02,
+              "end": 15.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 15.18,
+              "end": 15.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 15.34,
+              "end": 15.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 15.48,
+              "end": 15.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Emperor",
+              "start": 15.62,
+              "end": 15.82,
+              "probability": 0.57470703125
+            },
+            {
+              "text": " and",
+              "start": 15.82,
+              "end": 16.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " very",
+              "start": 16.12,
+              "end": 16.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nearly",
+              "start": 16.4,
+              "end": 16.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " captured",
+              "start": 16.72,
+              "end": 17.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 17.14,
+              "end": 17.4,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " If the Cossacks did not capture Napoleon then, what saved him was the very thing that was",
+          "start": 18.32,
+          "end": 22.68,
+          "words": [
+            {
+              "text": " If",
+              "start": 18.32,
+              "end": 18.54,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 18.54,
+              "end": 18.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Cossacks",
+              "start": 18.7,
+              "end": 19.16,
+              "probability": 0.9749348958333334
+            },
+            {
+              "text": " did",
+              "start": 19.16,
+              "end": 19.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 19.36,
+              "end": 19.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " capture",
+              "start": 19.56,
+              "end": 19.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Napoleon",
+              "start": 19.9,
+              "end": 20.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " then,",
+              "start": 20.38,
+              "end": 20.72,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " what",
+              "start": 20.96,
+              "end": 21.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " saved",
+              "start": 21.08,
+              "end": 21.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 21.34,
+              "end": 21.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 21.56,
+              "end": 21.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 21.68,
+              "end": 21.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 21.82,
+              "end": 22.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 22.06,
+              "end": 22.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 22.34,
+              "end": 22.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 22.52,
+              "end": 22.68,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " destroying the French army, the booty on which the Cossacks fell. Here as at Tarútino they",
+          "start": 22.68,
+          "end": 28.4,
+          "words": [
+            {
+              "text": " destroying",
+              "start": 22.68,
+              "end": 23.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 23.1,
+              "end": 23.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " French",
+              "start": 23.32,
+              "end": 23.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " army,",
+              "start": 23.56,
+              "end": 23.9,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " the",
+              "start": 24.16,
+              "end": 24.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " booty",
+              "start": 24.28,
+              "end": 24.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " on",
+              "start": 24.66,
+              "end": 24.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 24.82,
+              "end": 25.02,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 25.02,
+              "end": 25.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Cossacks",
+              "start": 25.2,
+              "end": 25.74,
+              "probability": 0.9845377604166666
+            },
+            {
+              "text": " fell.",
+              "start": 25.74,
+              "end": 26.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Here",
+              "start": 27.04,
+              "end": 27.34,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " as",
+              "start": 27.34,
+              "end": 27.46,
+              "probability": 0.8359375
+            },
+            {
+              "text": " at",
+              "start": 27.46,
+              "end": 27.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Tarútino",
+              "start": 27.62,
+              "end": 28.18,
+              "probability": 0.6542339622974396
+            },
+            {
+              "text": " they",
+              "start": 28.18,
+              "end": 28.4,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " went after plunder, leaving the men. Disregarding Napoleon they rushed after the plunder and",
+          "start": 28.4,
+          "end": 33.84,
+          "words": [
+            {
+              "text": " went",
+              "start": 28.4,
+              "end": 28.6,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " after",
+              "start": 28.6,
+              "end": 28.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " plunder,",
+              "start": 28.94,
+              "end": 29.28,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " leaving",
+              "start": 29.6,
+              "end": 29.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 29.82,
+              "end": 30.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " men.",
+              "start": 30.04,
+              "end": 30.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Disregarding",
+              "start": 31.42,
+              "end": 31.84,
+              "probability": 0.9913736979166666
+            },
+            {
+              "text": " Napoleon",
+              "start": 31.84,
+              "end": 32.32,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " they",
+              "start": 32.32,
+              "end": 32.56,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " rushed",
+              "start": 32.56,
+              "end": 32.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after",
+              "start": 32.82,
+              "end": 33.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 33.16,
+              "end": 33.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " plunder",
+              "start": 33.32,
+              "end": 33.56,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 33.56,
+              "end": 33.84,
+              "probability": 0.91455078125
+            }
+          ]
+        },
+        {
+          "text": " Napoleon managed to escape.",
+          "start": 33.84,
+          "end": 35.14,
+          "words": [
+            {
+              "text": " Napoleon",
+              "start": 33.84,
+              "end": 34.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " managed",
+              "start": 34.3,
+              "end": 34.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 34.6,
+              "end": 34.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " escape.",
+              "start": 34.84,
+              "end": 35.14,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "raw": "day",
+          "start": 0.34,
+          "end": 0.54
+        },
+        {
+          "raw": "after",
+          "start": 0.54,
+          "end": 0.88
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "raw": "council",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "raw": "at",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "Málo",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "-Yaroslávets",
+          "start": 1.92,
+          "end": 2.66
+        },
+        {
+          "raw": "Napoleon",
+          "start": 2.66,
+          "end": 3.14
+        },
+        {
+          "raw": "rode",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "raw": "out",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "raw": "early",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "in",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "raw": "morning",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "raw": "amid",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "the",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "lines",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "raw": "of",
+          "start": 5.18,
+          "end": 5.36
+        },
+        {
+          "raw": "his",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "raw": "army",
+          "start": 5.48,
+          "end": 5.74
+        },
+        {
+          "raw": "with",
+          "start": 5.74,
+          "end": 5.94
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "raw": "suite",
+          "start": 6.12,
+          "end": 6.36
+        },
+        {
+          "raw": "of",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "raw": "marshals",
+          "start": 6.58,
+          "end": 6.94
+        },
+        {
+          "raw": "and",
+          "start": 6.94,
+          "end": 7.12
+        },
+        {
+          "raw": "an",
+          "start": 7.12,
+          "end": 7.22
+        },
+        {
+          "raw": "escort,",
+          "start": 7.22,
+          "end": 7.54
+        },
+        {
+          "raw": "on",
+          "start": 7.92,
+          "end": 8.0
+        },
+        {
+          "raw": "the",
+          "start": 8.0,
+          "end": 8.14
+        },
+        {
+          "raw": "pretext",
+          "start": 8.14,
+          "end": 8.48
+        },
+        {
+          "raw": "of",
+          "start": 8.48,
+          "end": 8.72
+        },
+        {
+          "raw": "inspecting",
+          "start": 8.72,
+          "end": 9.14
+        },
+        {
+          "raw": "the",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "raw": "army",
+          "start": 9.36,
+          "end": 9.58
+        },
+        {
+          "raw": "and",
+          "start": 9.58,
+          "end": 9.8
+        },
+        {
+          "raw": "the",
+          "start": 9.8,
+          "end": 9.92
+        },
+        {
+          "raw": "scene",
+          "start": 9.92,
+          "end": 10.1
+        },
+        {
+          "raw": "of",
+          "start": 10.1,
+          "end": 10.22
+        },
+        {
+          "raw": "the",
+          "start": 10.22,
+          "end": 10.34
+        },
+        {
+          "raw": "previous",
+          "start": 10.34,
+          "end": 10.7
+        },
+        {
+          "raw": "and",
+          "start": 10.7,
+          "end": 10.96
+        },
+        {
+          "raw": "of",
+          "start": 10.96,
+          "end": 11.08
+        },
+        {
+          "raw": "the",
+          "start": 11.08,
+          "end": 11.2
+        },
+        {
+          "raw": "impending",
+          "start": 11.2,
+          "end": 11.54
+        },
+        {
+          "raw": "battle.",
+          "start": 11.54,
+          "end": 12.0
+        },
+        {
+          "raw": "Some",
+          "start": 13.04,
+          "end": 13.3
+        },
+        {
+          "raw": "Cossacks",
+          "start": 13.3,
+          "end": 13.82
+        },
+        {
+          "raw": "on",
+          "start": 13.82,
+          "end": 14.04
+        },
+        {
+          "raw": "the",
+          "start": 14.04,
+          "end": 14.2
+        },
+        {
+          "raw": "prowl",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "raw": "for",
+          "start": 14.5,
+          "end": 14.66
+        },
+        {
+          "raw": "booty",
+          "start": 14.66,
+          "end": 15.02
+        },
+        {
+          "raw": "fell",
+          "start": 15.02,
+          "end": 15.18
+        },
+        {
+          "raw": "in",
+          "start": 15.18,
+          "end": 15.34
+        },
+        {
+          "raw": "with",
+          "start": 15.34,
+          "end": 15.48
+        },
+        {
+          "raw": "the",
+          "start": 15.48,
+          "end": 15.62
+        },
+        {
+          "raw": "Emperor",
+          "start": 15.62,
+          "end": 15.82
+        },
+        {
+          "raw": "and",
+          "start": 15.82,
+          "end": 16.12
+        },
+        {
+          "raw": "very",
+          "start": 16.12,
+          "end": 16.4
+        },
+        {
+          "raw": "nearly",
+          "start": 16.4,
+          "end": 16.72
+        },
+        {
+          "raw": "captured",
+          "start": 16.72,
+          "end": 17.14
+        },
+        {
+          "raw": "him.",
+          "start": 17.14,
+          "end": 17.4
+        },
+        {
+          "raw": "If",
+          "start": 18.32,
+          "end": 18.54
+        },
+        {
+          "raw": "the",
+          "start": 18.54,
+          "end": 18.7
+        },
+        {
+          "raw": "Cossacks",
+          "start": 18.7,
+          "end": 19.16
+        },
+        {
+          "raw": "did",
+          "start": 19.16,
+          "end": 19.36
+        },
+        {
+          "raw": "not",
+          "start": 19.36,
+          "end": 19.56
+        },
+        {
+          "raw": "capture",
+          "start": 19.56,
+          "end": 19.9
+        },
+        {
+          "raw": "Napoleon",
+          "start": 19.9,
+          "end": 20.38
+        },
+        {
+          "raw": "then,",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "raw": "what",
+          "start": 20.96,
+          "end": 21.08
+        },
+        {
+          "raw": "saved",
+          "start": 21.08,
+          "end": 21.34
+        },
+        {
+          "raw": "him",
+          "start": 21.34,
+          "end": 21.56
+        },
+        {
+          "raw": "was",
+          "start": 21.56,
+          "end": 21.68
+        },
+        {
+          "raw": "the",
+          "start": 21.68,
+          "end": 21.82
+        },
+        {
+          "raw": "very",
+          "start": 21.82,
+          "end": 22.06
+        },
+        {
+          "raw": "thing",
+          "start": 22.06,
+          "end": 22.34
+        },
+        {
+          "raw": "that",
+          "start": 22.34,
+          "end": 22.52
+        },
+        {
+          "raw": "was",
+          "start": 22.52,
+          "end": 22.68
+        },
+        {
+          "raw": "destroying",
+          "start": 22.68,
+          "end": 23.1
+        },
+        {
+          "raw": "the",
+          "start": 23.1,
+          "end": 23.32
+        },
+        {
+          "raw": "French",
+          "start": 23.32,
+          "end": 23.56
+        },
+        {
+          "raw": "army,",
+          "start": 23.56,
+          "end": 23.9
+        },
+        {
+          "raw": "the",
+          "start": 24.16,
+          "end": 24.28
+        },
+        {
+          "raw": "booty",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "raw": "on",
+          "start": 24.66,
+          "end": 24.82
+        },
+        {
+          "raw": "which",
+          "start": 24.82,
+          "end": 25.02
+        },
+        {
+          "raw": "the",
+          "start": 25.02,
+          "end": 25.2
+        },
+        {
+          "raw": "Cossacks",
+          "start": 25.2,
+          "end": 25.74
+        },
+        {
+          "raw": "fell.",
+          "start": 25.74,
+          "end": 26.04
+        },
+        {
+          "raw": "Here",
+          "start": 27.04,
+          "end": 27.34
+        },
+        {
+          "raw": "as",
+          "start": 27.34,
+          "end": 27.46
+        },
+        {
+          "raw": "at",
+          "start": 27.46,
+          "end": 27.62
+        },
+        {
+          "raw": "Tarútino",
+          "start": 27.62,
+          "end": 28.18
+        },
+        {
+          "raw": "they",
+          "start": 28.18,
+          "end": 28.4
+        },
+        {
+          "raw": "went",
+          "start": 28.4,
+          "end": 28.6
+        },
+        {
+          "raw": "after",
+          "start": 28.6,
+          "end": 28.94
+        },
+        {
+          "raw": "plunder,",
+          "start": 28.94,
+          "end": 29.28
+        },
+        {
+          "raw": "leaving",
+          "start": 29.6,
+          "end": 29.82
+        },
+        {
+          "raw": "the",
+          "start": 29.82,
+          "end": 30.04
+        },
+        {
+          "raw": "men.",
+          "start": 30.04,
+          "end": 30.26
+        },
+        {
+          "raw": "Disregarding",
+          "start": 31.42,
+          "end": 31.84
+        },
+        {
+          "raw": "Napoleon",
+          "start": 31.84,
+          "end": 32.32
+        },
+        {
+          "raw": "they",
+          "start": 32.32,
+          "end": 32.56
+        },
+        {
+          "raw": "rushed",
+          "start": 32.56,
+          "end": 32.82
+        },
+        {
+          "raw": "after",
+          "start": 32.82,
+          "end": 33.16
+        },
+        {
+          "raw": "the",
+          "start": 33.16,
+          "end": 33.32
+        },
+        {
+          "raw": "plunder",
+          "start": 33.32,
+          "end": 33.56
+        },
+        {
+          "raw": "and",
+          "start": 33.56,
+          "end": 33.84
+        },
+        {
+          "raw": "Napoleon",
+          "start": 33.84,
+          "end": 34.3
+        },
+        {
+          "raw": "managed",
+          "start": 34.3,
+          "end": 34.6
+        },
+        {
+          "raw": "to",
+          "start": 34.6,
+          "end": 34.84
+        },
+        {
+          "raw": "escape.",
+          "start": 34.84,
+          "end": 35.14
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "day",
+        "after",
+        "the",
+        "council",
+        "at",
+        "Málo-Yaroslávets",
+        "Napoleon",
+        "rode",
+        "out",
+        "early",
+        "in",
+        "the",
+        "morning",
+        "amid",
+        "the",
+        "lines",
+        "of",
+        "his",
+        "army",
+        "with",
+        "his",
+        "suite",
+        "of",
+        "marshals",
+        "and",
+        "an",
+        "escort,",
+        "on",
+        "the",
+        "pretext",
+        "of",
+        "inspecting",
+        "the",
+        "army",
+        "and",
+        "the",
+        "scene",
+        "of",
+        "the",
+        "previous",
+        "and",
+        "of",
+        "the",
+        "impending",
+        "battle.",
+        "Some",
+        "Cossacks",
+        "on",
+        "the",
+        "prowl",
+        "for",
+        "booty",
+        "fell",
+        "in",
+        "with",
+        "the",
+        "Emperor",
+        "and",
+        "very",
+        "nearly",
+        "captured",
+        "him.",
+        "If",
+        "the",
+        "Cossacks",
+        "did",
+        "not",
+        "capture",
+        "Napoleon",
+        "then,",
+        "what",
+        "saved",
+        "him",
+        "was",
+        "the",
+        "very",
+        "thing",
+        "that",
+        "was",
+        "destroying",
+        "the",
+        "French",
+        "army,",
+        "the",
+        "booty",
+        "on",
+        "which",
+        "the",
+        "Cossacks",
+        "fell.",
+        "Here",
+        "as",
+        "at",
+        "Tarútino",
+        "they",
+        "went",
+        "after",
+        "plunder,",
+        "leaving",
+        "the",
+        "men.",
+        "Disregarding",
+        "Napoleon",
+        "they",
+        "rushed",
+        "after",
+        "the",
+        "plunder",
+        "and",
+        "Napoleon",
+        "managed",
+        "to",
+        "escape."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "day",
+        "after",
+        "the",
+        "council",
+        "at",
+        "Málo-Yaroslávets",
+        "Napoleon",
+        "rode",
+        "out",
+        "early",
+        "in",
+        "the",
+        "morning",
+        "amid",
+        "the",
+        "lines",
+        "of",
+        "his",
+        "army",
+        "with",
+        "his",
+        "suite",
+        "of",
+        "marshals",
+        "and",
+        "an",
+        "escort,",
+        "on",
+        "the",
+        "pretext",
+        "of",
+        "inspecting",
+        "the",
+        "army",
+        "and",
+        "the",
+        "scene",
+        "of",
+        "the",
+        "previous",
+        "and",
+        "of",
+        "the",
+        "impending",
+        "battle.",
+        "Some",
+        "Cossacks",
+        "on",
+        "the",
+        "prowl",
+        "for",
+        "booty",
+        "fell",
+        "in",
+        "with",
+        "the",
+        "Emperor",
+        "and",
+        "very",
+        "nearly",
+        "captured",
+        "him.",
+        "If",
+        "the",
+        "Cossacks",
+        "did",
+        "not",
+        "capture",
+        "Napoleon",
+        "then,",
+        "what",
+        "saved",
+        "him",
+        "was",
+        "the",
+        "very",
+        "thing",
+        "that",
+        "was",
+        "destroying",
+        "the",
+        "French",
+        "army,",
+        "the",
+        "booty",
+        "on",
+        "which",
+        "the",
+        "Cossacks",
+        "fell.",
+        "Here",
+        "as",
+        "at",
+        "Tarútino",
+        "they",
+        "went",
+        "after",
+        "plunder,",
+        "leaving",
+        "the",
+        "men.",
+        "Disregarding",
+        "Napoleon",
+        "they",
+        "rushed",
+        "after",
+        "the",
+        "plunder",
+        "and",
+        "Napoleon",
+        "managed",
+        "to",
+        "escape."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          114,
+          0,
+          114
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 113
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.0,
+          "end": 0.34,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 0.34,
+          "end": 0.54,
+          "key": "day",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 0.54,
+          "end": 0.88,
+          "key": "after",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.06,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "council",
+          "start": 1.06,
+          "end": 1.38,
+          "key": "council",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Málo -Yaroslávets",
+          "start": 1.66,
+          "end": 2.66,
+          "key": "máloyaroslávets",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 2.66,
+          "end": 3.14,
+          "key": "napoleon",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "rode",
+          "start": 3.14,
+          "end": 3.42,
+          "key": "rode",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.42,
+          "end": 3.7,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "early",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "early",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.12,
+          "end": 4.24,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "morning",
+          "start": 4.24,
+          "end": 4.46,
+          "key": "morning",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "amid",
+          "start": 4.46,
+          "end": 4.7,
+          "key": "amid",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lines",
+          "start": 4.9,
+          "end": 5.18,
+          "key": "lines",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.18,
+          "end": 5.36,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.36,
+          "end": 5.48,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "army",
+          "start": 5.48,
+          "end": 5.74,
+          "key": "army",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.74,
+          "end": 5.94,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.94,
+          "end": 6.12,
+          "key": "his",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "suite",
+          "start": 6.12,
+          "end": 6.36,
+          "key": "suite",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.36,
+          "end": 6.58,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "marshals",
+          "start": 6.58,
+          "end": 6.94,
+          "key": "marshals",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.94,
+          "end": 7.12,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.12,
+          "end": 7.22,
+          "key": "an",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "escort,",
+          "start": 7.22,
+          "end": 7.54,
+          "key": "escort",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 7.92,
+          "end": 8.0,
+          "key": "on",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.0,
+          "end": 8.14,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "pretext",
+          "start": 8.14,
+          "end": 8.48,
+          "key": "pretext",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.48,
+          "end": 8.72,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "inspecting",
+          "start": 8.72,
+          "end": 9.14,
+          "key": "inspecting",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.14,
+          "end": 9.36,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "army",
+          "start": 9.36,
+          "end": 9.58,
+          "key": "army",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.58,
+          "end": 9.8,
+          "key": "and",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.8,
+          "end": 9.92,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "scene",
+          "start": 9.92,
+          "end": 10.1,
+          "key": "scene",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.1,
+          "end": 10.22,
+          "key": "of",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.22,
+          "end": 10.34,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "previous",
+          "start": 10.34,
+          "end": 10.7,
+          "key": "previous",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.7,
+          "end": 10.96,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.96,
+          "end": 11.08,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.08,
+          "end": 11.2,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "impending",
+          "start": 11.2,
+          "end": 11.54,
+          "key": "impending",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "battle.",
+          "start": 11.54,
+          "end": 12.0,
+          "key": "battle",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 13.04,
+          "end": 13.3,
+          "key": "some",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Cossacks",
+          "start": 13.3,
+          "end": 13.82,
+          "key": "cossacks",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 13.82,
+          "end": 14.04,
+          "key": "on",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.04,
+          "end": 14.2,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "prowl",
+          "start": 14.2,
+          "end": 14.5,
+          "key": "prowl",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 14.5,
+          "end": 14.66,
+          "key": "for",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "booty",
+          "start": 14.66,
+          "end": 15.02,
+          "key": "booty",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 15.02,
+          "end": 15.18,
+          "key": "fell",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.18,
+          "end": 15.34,
+          "key": "in",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 15.34,
+          "end": 15.48,
+          "key": "with",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.48,
+          "end": 15.62,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Emperor",
+          "start": 15.62,
+          "end": 15.82,
+          "key": "emperor",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 15.82,
+          "end": 16.12,
+          "key": "and",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 16.12,
+          "end": 16.4,
+          "key": "very",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "nearly",
+          "start": 16.4,
+          "end": 16.72,
+          "key": "nearly",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "captured",
+          "start": 16.72,
+          "end": 17.14,
+          "key": "captured",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 17.14,
+          "end": 17.4,
+          "key": "him",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 18.32,
+          "end": 18.54,
+          "key": "if",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.54,
+          "end": 18.7,
+          "key": "the",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Cossacks",
+          "start": 18.7,
+          "end": 19.16,
+          "key": "cossacks",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 19.16,
+          "end": 19.36,
+          "key": "did",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 19.36,
+          "end": 19.56,
+          "key": "not",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "capture",
+          "start": 19.56,
+          "end": 19.9,
+          "key": "capture",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 19.9,
+          "end": 20.38,
+          "key": "napoleon",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 20.38,
+          "end": 20.72,
+          "key": "then",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 20.96,
+          "end": 21.08,
+          "key": "what",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "saved",
+          "start": 21.08,
+          "end": 21.34,
+          "key": "saved",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 21.34,
+          "end": 21.56,
+          "key": "him",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 21.56,
+          "end": 21.68,
+          "key": "was",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.68,
+          "end": 21.82,
+          "key": "the",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 21.82,
+          "end": 22.06,
+          "key": "very",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 22.06,
+          "end": 22.34,
+          "key": "thing",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 22.34,
+          "end": 22.52,
+          "key": "that",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 22.52,
+          "end": 22.68,
+          "key": "was",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "destroying",
+          "start": 22.68,
+          "end": 23.1,
+          "key": "destroying",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.1,
+          "end": 23.32,
+          "key": "the",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 23.32,
+          "end": 23.56,
+          "key": "french",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "army,",
+          "start": 23.56,
+          "end": 23.9,
+          "key": "army",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.16,
+          "end": 24.28,
+          "key": "the",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "booty",
+          "start": 24.28,
+          "end": 24.66,
+          "key": "booty",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 24.66,
+          "end": 24.82,
+          "key": "on",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 24.82,
+          "end": 25.02,
+          "key": "which",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.02,
+          "end": 25.2,
+          "key": "the",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Cossacks",
+          "start": 25.2,
+          "end": 25.74,
+          "key": "cossacks",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "fell.",
+          "start": 25.74,
+          "end": 26.04,
+          "key": "fell",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 27.04,
+          "end": 27.34,
+          "key": "here",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 27.34,
+          "end": 27.46,
+          "key": "as",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 27.46,
+          "end": 27.62,
+          "key": "at",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "Tarútino",
+          "start": 27.62,
+          "end": 28.18,
+          "key": "tarútino",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 28.18,
+          "end": 28.4,
+          "key": "they",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 28.4,
+          "end": 28.6,
+          "key": "went",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 28.6,
+          "end": 28.94,
+          "key": "after",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "plunder,",
+          "start": 28.94,
+          "end": 29.28,
+          "key": "plunder",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "leaving",
+          "start": 29.6,
+          "end": 29.82,
+          "key": "leaving",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 29.82,
+          "end": 30.04,
+          "key": "the",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 30.04,
+          "end": 30.26,
+          "key": "men",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "Disregarding",
+          "start": 31.42,
+          "end": 31.84,
+          "key": "disregarding",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 31.84,
+          "end": 32.32,
+          "key": "napoleon",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 32.32,
+          "end": 32.56,
+          "key": "they",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "rushed",
+          "start": 32.56,
+          "end": 32.82,
+          "key": "rushed",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 32.82,
+          "end": 33.16,
+          "key": "after",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 33.16,
+          "end": 33.32,
+          "key": "the",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "plunder",
+          "start": 33.32,
+          "end": 33.56,
+          "key": "plunder",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 33.56,
+          "end": 33.84,
+          "key": "and",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "Napoleon",
+          "start": 33.84,
+          "end": 34.3,
+          "key": "napoleon",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "managed",
+          "start": 34.3,
+          "end": 34.6,
+          "key": "managed",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 34.6,
+          "end": 34.84,
+          "key": "to",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "escape.",
+          "start": 34.84,
+          "end": 35.14,
+          "key": "escape",
+          "pieces": [
+            114
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "Málo-Yaroslávets",
+          "heard": "Málo -Yaroslávets",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 1.66,
+          "end": 2.66
+        }
+      ],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 0.34
+        },
+        {
+          "text": "day",
+          "start": 0.34,
+          "end": 0.54
+        },
+        {
+          "text": "after",
+          "start": 0.54,
+          "end": 0.88
+        },
+        {
+          "text": "the",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "text": "council",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "text": "at",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "Málo-Yaroslávets",
+          "start": 1.66,
+          "end": 2.66
+        },
+        {
+          "text": "Napoleon",
+          "start": 2.66,
+          "end": 3.14
+        },
+        {
+          "text": "rode",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "text": "out",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "text": "early",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "in",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "the",
+          "start": 4.12,
+          "end": 4.24
+        },
+        {
+          "text": "morning",
+          "start": 4.24,
+          "end": 4.46
+        },
+        {
+          "text": "amid",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "text": "the",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "lines",
+          "start": 4.9,
+          "end": 5.18
+        },
+        {
+          "text": "of",
+          "start": 5.18,
+          "end": 5.36
+        },
+        {
+          "text": "his",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "text": "army",
+          "start": 5.48,
+          "end": 5.74
+        },
+        {
+          "text": "with",
+          "start": 5.74,
+          "end": 5.94
+        },
+        {
+          "text": "his",
+          "start": 5.94,
+          "end": 6.12
+        },
+        {
+          "text": "suite",
+          "start": 6.12,
+          "end": 6.36
+        },
+        {
+          "text": "of",
+          "start": 6.36,
+          "end": 6.58
+        },
+        {
+          "text": "marshals",
+          "start": 6.58,
+          "end": 6.94
+        },
+        {
+          "text": "and",
+          "start": 6.94,
+          "end": 7.12
+        },
+        {
+          "text": "an",
+          "start": 7.12,
+          "end": 7.22
+        },
+        {
+          "text": "escort,",
+          "start": 7.22,
+          "end": 7.54
+        },
+        {
+          "text": "on",
+          "start": 7.92,
+          "end": 8.0
+        },
+        {
+          "text": "the",
+          "start": 8.0,
+          "end": 8.14
+        },
+        {
+          "text": "pretext",
+          "start": 8.14,
+          "end": 8.48
+        },
+        {
+          "text": "of",
+          "start": 8.48,
+          "end": 8.72
+        },
+        {
+          "text": "inspecting",
+          "start": 8.72,
+          "end": 9.14
+        },
+        {
+          "text": "the",
+          "start": 9.14,
+          "end": 9.36
+        },
+        {
+          "text": "army",
+          "start": 9.36,
+          "end": 9.58
+        },
+        {
+          "text": "and",
+          "start": 9.58,
+          "end": 9.8
+        },
+        {
+          "text": "the",
+          "start": 9.8,
+          "end": 9.92
+        },
+        {
+          "text": "scene",
+          "start": 9.92,
+          "end": 10.1
+        },
+        {
+          "text": "of",
+          "start": 10.1,
+          "end": 10.22
+        },
+        {
+          "text": "the",
+          "start": 10.22,
+          "end": 10.34
+        },
+        {
+          "text": "previous",
+          "start": 10.34,
+          "end": 10.7
+        },
+        {
+          "text": "and",
+          "start": 10.7,
+          "end": 10.96
+        },
+        {
+          "text": "of",
+          "start": 10.96,
+          "end": 11.08
+        },
+        {
+          "text": "the",
+          "start": 11.08,
+          "end": 11.2
+        },
+        {
+          "text": "impending",
+          "start": 11.2,
+          "end": 11.54
+        },
+        {
+          "text": "battle.",
+          "start": 11.54,
+          "end": 12.0
+        },
+        {
+          "text": "Some",
+          "start": 13.04,
+          "end": 13.3
+        },
+        {
+          "text": "Cossacks",
+          "start": 13.3,
+          "end": 13.82
+        },
+        {
+          "text": "on",
+          "start": 13.82,
+          "end": 14.04
+        },
+        {
+          "text": "the",
+          "start": 14.04,
+          "end": 14.2
+        },
+        {
+          "text": "prowl",
+          "start": 14.2,
+          "end": 14.5
+        },
+        {
+          "text": "for",
+          "start": 14.5,
+          "end": 14.66
+        },
+        {
+          "text": "booty",
+          "start": 14.66,
+          "end": 15.02
+        },
+        {
+          "text": "fell",
+          "start": 15.02,
+          "end": 15.18
+        },
+        {
+          "text": "in",
+          "start": 15.18,
+          "end": 15.34
+        },
+        {
+          "text": "with",
+          "start": 15.34,
+          "end": 15.48
+        },
+        {
+          "text": "the",
+          "start": 15.48,
+          "end": 15.62
+        },
+        {
+          "text": "Emperor",
+          "start": 15.62,
+          "end": 15.82
+        },
+        {
+          "text": "and",
+          "start": 15.82,
+          "end": 16.12
+        },
+        {
+          "text": "very",
+          "start": 16.12,
+          "end": 16.4
+        },
+        {
+          "text": "nearly",
+          "start": 16.4,
+          "end": 16.72
+        },
+        {
+          "text": "captured",
+          "start": 16.72,
+          "end": 17.14
+        },
+        {
+          "text": "him.",
+          "start": 17.14,
+          "end": 17.4
+        },
+        {
+          "text": "If",
+          "start": 18.32,
+          "end": 18.54
+        },
+        {
+          "text": "the",
+          "start": 18.54,
+          "end": 18.7
+        },
+        {
+          "text": "Cossacks",
+          "start": 18.7,
+          "end": 19.16
+        },
+        {
+          "text": "did",
+          "start": 19.16,
+          "end": 19.36
+        },
+        {
+          "text": "not",
+          "start": 19.36,
+          "end": 19.56
+        },
+        {
+          "text": "capture",
+          "start": 19.56,
+          "end": 19.9
+        },
+        {
+          "text": "Napoleon",
+          "start": 19.9,
+          "end": 20.38
+        },
+        {
+          "text": "then,",
+          "start": 20.38,
+          "end": 20.72
+        },
+        {
+          "text": "what",
+          "start": 20.96,
+          "end": 21.08
+        },
+        {
+          "text": "saved",
+          "start": 21.08,
+          "end": 21.34
+        },
+        {
+          "text": "him",
+          "start": 21.34,
+          "end": 21.56
+        },
+        {
+          "text": "was",
+          "start": 21.56,
+          "end": 21.68
+        },
+        {
+          "text": "the",
+          "start": 21.68,
+          "end": 21.82
+        },
+        {
+          "text": "very",
+          "start": 21.82,
+          "end": 22.06
+        },
+        {
+          "text": "thing",
+          "start": 22.06,
+          "end": 22.34
+        },
+        {
+          "text": "that",
+          "start": 22.34,
+          "end": 22.52
+        },
+        {
+          "text": "was",
+          "start": 22.52,
+          "end": 22.68
+        },
+        {
+          "text": "destroying",
+          "start": 22.68,
+          "end": 23.1
+        },
+        {
+          "text": "the",
+          "start": 23.1,
+          "end": 23.32
+        },
+        {
+          "text": "French",
+          "start": 23.32,
+          "end": 23.56
+        },
+        {
+          "text": "army,",
+          "start": 23.56,
+          "end": 23.9
+        },
+        {
+          "text": "the",
+          "start": 24.16,
+          "end": 24.28
+        },
+        {
+          "text": "booty",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "text": "on",
+          "start": 24.66,
+          "end": 24.82
+        },
+        {
+          "text": "which",
+          "start": 24.82,
+          "end": 25.02
+        },
+        {
+          "text": "the",
+          "start": 25.02,
+          "end": 25.2
+        },
+        {
+          "text": "Cossacks",
+          "start": 25.2,
+          "end": 25.74
+        },
+        {
+          "text": "fell.",
+          "start": 25.74,
+          "end": 26.04
+        },
+        {
+          "text": "Here",
+          "start": 27.04,
+          "end": 27.34
+        },
+        {
+          "text": "as",
+          "start": 27.34,
+          "end": 27.46
+        },
+        {
+          "text": "at",
+          "start": 27.46,
+          "end": 27.62
+        },
+        {
+          "text": "Tarútino",
+          "start": 27.62,
+          "end": 28.18
+        },
+        {
+          "text": "they",
+          "start": 28.18,
+          "end": 28.4
+        },
+        {
+          "text": "went",
+          "start": 28.4,
+          "end": 28.6
+        },
+        {
+          "text": "after",
+          "start": 28.6,
+          "end": 28.94
+        },
+        {
+          "text": "plunder,",
+          "start": 28.94,
+          "end": 29.28
+        },
+        {
+          "text": "leaving",
+          "start": 29.6,
+          "end": 29.82
+        },
+        {
+          "text": "the",
+          "start": 29.82,
+          "end": 30.04
+        },
+        {
+          "text": "men.",
+          "start": 30.04,
+          "end": 30.26
+        },
+        {
+          "text": "Disregarding",
+          "start": 31.42,
+          "end": 31.84
+        },
+        {
+          "text": "Napoleon",
+          "start": 31.84,
+          "end": 32.32
+        },
+        {
+          "text": "they",
+          "start": 32.32,
+          "end": 32.56
+        },
+        {
+          "text": "rushed",
+          "start": 32.56,
+          "end": 32.82
+        },
+        {
+          "text": "after",
+          "start": 32.82,
+          "end": 33.16
+        },
+        {
+          "text": "the",
+          "start": 33.16,
+          "end": 33.32
+        },
+        {
+          "text": "plunder",
+          "start": 33.32,
+          "end": 33.56
+        },
+        {
+          "text": "and",
+          "start": 33.56,
+          "end": 33.84
+        },
+        {
+          "text": "Napoleon",
+          "start": 33.84,
+          "end": 34.3
+        },
+        {
+          "text": "managed",
+          "start": 34.3,
+          "end": 34.6
+        },
+        {
+          "text": "to",
+          "start": 34.6,
+          "end": 34.84
+        },
+        {
+          "text": "escape.",
+          "start": 34.84,
+          "end": 35.14
+        }
+      ],
+      "stats": {
+        "expected_words": 114,
+        "heard_words": 114,
+        "matched_words": 114
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.0702538713812828
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "65d7a1f882a98ba6e088c16d910967d092c6d4d29b5a5aa387ffda0a9472ee11",
+  "selected_reasons": []
+}

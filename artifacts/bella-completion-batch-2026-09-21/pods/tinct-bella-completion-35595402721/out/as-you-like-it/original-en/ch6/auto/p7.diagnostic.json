@@ -1,0 +1,436 @@
+{
+  "complete": true,
+  "signature": "5c548ac5afe8d921c00a823f3b46a47ef68d2cb405a9c62b5fee1aa26eddcb71",
+  "attempts": [
+    {
+      "asr_seconds": 0.18054684437811375,
+      "alignment_seconds": 0.0005305837839841843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "My voice is ragged; I know I cannot please you.",
+        "hotwords": "My, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Amian, my voice is ragged. I know I cannot please you.",
+          "start": 0.08,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " Amian,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.22607421875
+            },
+            {
+              "text": " my",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " voice",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ragged.",
+              "start": 1.68,
+              "end": 2.1,
+              "probability": 0.921875
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " know",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " cannot",
+              "start": 2.78,
+              "end": 2.98,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " please",
+              "start": 2.98,
+              "end": 3.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you.",
+              "start": 3.3,
+              "end": 3.6,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amian,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "my",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "voice",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "is",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "ragged.",
+          "start": 1.68,
+          "end": 2.1
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "know",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "cannot",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "raw": "please",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "raw": "you.",
+          "start": 3.3,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "AMIENS.",
+        "My",
+        "voice",
+        "is",
+        "ragged;",
+        "I",
+        "know",
+        "I",
+        "cannot",
+        "please",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "My",
+        "voice",
+        "is",
+        "ragged;",
+        "I",
+        "know",
+        "I",
+        "cannot",
+        "please",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          10,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amian,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "amian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "voice",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ragged.",
+          "start": 1.68,
+          "end": 2.1,
+          "key": "ragged",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.52,
+          "end": 2.62,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 2.78,
+          "end": 2.98,
+          "key": "cannot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 2.98,
+          "end": 3.3,
+          "key": "please",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.3,
+          "end": 3.6,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "AMIENS.",
+          "start": 1.14,
+          "end": 1.14
+        },
+        {
+          "text": "My",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "voice",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "is",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "ragged;",
+          "start": 1.68,
+          "end": 2.1
+        },
+        {
+          "text": "I",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "know",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "text": "I",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "cannot",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "text": "please",
+          "start": 2.98,
+          "end": 3.3
+        },
+        {
+          "text": "you.",
+          "start": 3.3,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18114868737757206
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66ca82964ee1cdcea433100e903083053e23fe4458b29e05f48b9f678a619bdf",
+  "selected_reasons": []
+}

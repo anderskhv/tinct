@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "dee326604f7b354e9c7e6cbabcd7c2eb37614d231fc27d45c567e6a46f1dc8cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.11145634204149246,
+      "alignment_seconds": 0.00040226615965366364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exit the Gentleman.",
+        "hotwords": "Exit, Gentleman"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit the Gentleman.",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " the",
+              "start": 0.72,
+              "end": 0.94,
+              "probability": 0.75390625
+            },
+            {
+              "text": " Gentleman.",
+              "start": 0.94,
+              "end": 1.32,
+              "probability": 0.06317138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "the",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "raw": "Gentleman.",
+          "start": 0.94,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "the",
+        "Gentleman._]"
+      ],
+      "acoustic_expected_tokens": [
+        "Exit",
+        "the",
+        "Gentleman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.72,
+          "end": 0.94,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gentleman.",
+          "start": 0.94,
+          "end": 1.32,
+          "key": "gentleman",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "the",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "text": "Gentleman._]",
+          "start": 0.94,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11193949729204178
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41eb3a526588ae0f62e0c2f93e9792f9ba651bdafc7f63da042ad1fbb78692e9",
+  "selected_reasons": []
+}

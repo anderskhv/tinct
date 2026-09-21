@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "f20b6e2e61cf1e43a89e3e17eba7c50113416c1f443f303c5d03b60955375353",
+  "attempts": [
+    {
+      "asr_seconds": 0.21553783118724823,
+      "alignment_seconds": 0.0007008332759141922,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anna Pávlovna frowned. Mortemart, Hippolyte's friend, addressed him firmly.",
+        "hotwords": "Anna, Pávlovna, Mortemart, Hippolyte's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anna Pávlovna frowned. Mortemart, Hippolyte's friend, addressed him firmly.",
+          "start": 0.0,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Anna",
+              "start": 0.0,
+              "end": 0.44,
+              "probability": 0.452392578125
+            },
+            {
+              "text": " Pávlovna",
+              "start": 0.44,
+              "end": 1.08,
+              "probability": 0.3834320068359375
+            },
+            {
+              "text": " frowned.",
+              "start": 1.08,
+              "end": 1.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Mortemart,",
+              "start": 2.8,
+              "end": 3.22,
+              "probability": 0.72265625
+            },
+            {
+              "text": " Hippolyte's",
+              "start": 3.58,
+              "end": 4.06,
+              "probability": 0.9586181640625
+            },
+            {
+              "text": " friend,",
+              "start": 4.06,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " addressed",
+              "start": 4.72,
+              "end": 5.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 5.04,
+              "end": 5.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " firmly.",
+              "start": 5.34,
+              "end": 5.68,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anna",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "raw": "Pávlovna",
+          "start": 0.44,
+          "end": 1.08
+        },
+        {
+          "raw": "frowned.",
+          "start": 1.08,
+          "end": 1.44
+        },
+        {
+          "raw": "Mortemart,",
+          "start": 2.8,
+          "end": 3.22
+        },
+        {
+          "raw": "Hippolyte's",
+          "start": 3.58,
+          "end": 4.06
+        },
+        {
+          "raw": "friend,",
+          "start": 4.06,
+          "end": 4.34
+        },
+        {
+          "raw": "addressed",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "raw": "him",
+          "start": 5.04,
+          "end": 5.34
+        },
+        {
+          "raw": "firmly.",
+          "start": 5.34,
+          "end": 5.68
+        }
+      ],
+      "expected_tokens": [
+        "Anna",
+        "Pávlovna",
+        "frowned.",
+        "Mortemart,",
+        "Hippolyte’s",
+        "friend,",
+        "addressed",
+        "him",
+        "firmly."
+      ],
+      "acoustic_expected_tokens": [
+        "Anna",
+        "Pávlovna",
+        "frowned.",
+        "Mortemart,",
+        "Hippolyte's",
+        "friend,",
+        "addressed",
+        "him",
+        "firmly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anna",
+          "start": 0.0,
+          "end": 0.44,
+          "key": "anna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pávlovna",
+          "start": 0.44,
+          "end": 1.08,
+          "key": "pávlovna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "frowned.",
+          "start": 1.08,
+          "end": 1.44,
+          "key": "frowned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mortemart,",
+          "start": 2.8,
+          "end": 3.22,
+          "key": "mortemart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hippolyte's",
+          "start": 3.58,
+          "end": 4.06,
+          "key": "hippolytes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 4.06,
+          "end": 4.34,
+          "key": "friend",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 4.72,
+          "end": 5.04,
+          "key": "addressed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.04,
+          "end": 5.34,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "firmly.",
+          "start": 5.34,
+          "end": 5.68,
+          "key": "firmly",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "Anna",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "Pávlovna",
+          "start": 0.44,
+          "end": 1.08
+        },
+        {
+          "text": "frowned.",
+          "start": 1.08,
+          "end": 1.44
+        },
+        {
+          "text": "Mortemart,",
+          "start": 2.8,
+          "end": 3.22
+        },
+        {
+          "text": "Hippolyte’s",
+          "start": 3.58,
+          "end": 4.06
+        },
+        {
+          "text": "friend,",
+          "start": 4.06,
+          "end": 4.34
+        },
+        {
+          "text": "addressed",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "text": "him",
+          "start": 5.04,
+          "end": 5.34
+        },
+        {
+          "text": "firmly.",
+          "start": 5.34,
+          "end": 5.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21632717177271843
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4fd776f0069dee0d805932d814df07a1496e79c49b9dc8e614c04b98d4e76102",
+  "selected_reasons": []
+}
