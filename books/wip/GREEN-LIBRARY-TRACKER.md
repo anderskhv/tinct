@@ -42,14 +42,21 @@ Investigated all 10 originally-named candidates. Findings:
 **Substitute selected:** `apology` (Plato, 3 chapters, gate sim 0.361, all
 REAL-HEAVY, 0% LIGHT/MECHANICAL) — shortest, cleanest available substitute
 checked (crito, phaedo, symposium, phaedrus, poetics also screened; apology
-and crito were cleanest, apology is shorter).
+and crito were cleanest, apology is shorter). **Superseded 2026-09-21**:
+Apology's round-1 fidelity review returned DO NOT ACCEPT — candidate ch2 is
+structurally broken (source paragraph 4 missing entirely, source paragraph 5
+rendered twice), plus a meaning reversal and systematic trailing-clause
+deletion across ~40 of chapter 1's paragraphs. This is substantial-rewrite
+territory, not a patch. Apology is deferred alongside Meditations; **`crito`**
+(Plato, 3 chapters, gate sim 0.548, REAL-HEAVY 1/REAL 2) substituted in its
+place as book #10.
 
 ## The Ten (final)
 
 | # | Book | id | Stage | Owner lane | Notes |
 |---|---|---|---|---|---|
-| 1 | The Manual | `the-manual` | Reviewing | Lane A | Reusing branch candidate `accepted.json` (sha256 `d785f2c99c7f628123b976457303d32143782f4e576e8d81671636e2c1e3bd42`) as the working draft; running missing blind-accessibility + packeted-fidelity + whole-book re-read steps |
-| 2 | Descartes' Meditations | `descartes-meditations` | Screening done | Lane B | Fresh A–D pending |
+| 1 | The Manual | `the-manual` | Reviewing (round 2) | Lane A | Reusing branch candidate as working draft (orig. sha256 `d785f2c99c7f628123b976457303d32143782f4e576e8d81671636e2c1e3bd42`, now modified — round-1 review found 13 blocking + 8 required defects across 3 independent packeted fidelity reviews, all fixed in round 2 (20 sections touched) + a book-wide terminology consistency sweep (phantasia→"impression", "power"→"control"); round-2 re-verification in flight |
+| 2 | Descartes' Meditations | `descartes-meditations` | Reviewing (round 2) | Lane B | Round-1 fidelity (2 packets) found 16 blocking defects, all patchable; fix pass dispatched |
 | 3 | The Comedy of Errors | `comedy-of-errors` | Screening done | Lane C | Fresh A–D pending |
 | 4 | Candide | `candide` | Screening done | queued | Fresh A–D pending |
 | 5 | The Prince | `the-prince` | Screening done | queued | ch22p8 gate flag resolved as false positive |
@@ -57,13 +64,18 @@ and crito were cleanest, apology is shorter).
 | 7 | Oedipus at Colonus | `oedipus-at-colonus` | Screening done | queued | |
 | 8 | Antigone | `antigone` | Screening done | queued | |
 | 9 | The Sorrows of Young Werther | `werther` | Screening done | queued | |
-| 10 | Apology | `apology` | Screening done | queued | substitute for Meditations |
+| 10 | Crito | `crito` | Reviewing (round 1) | Lane A (after Manual) | substitute for Apology (which substituted for Meditations); round-1 accessibility + fidelity dispatched |
 
 ## Deferred (separate lane, not started, not filling quota)
 
 - **Meditations** (Marcus Aurelius) — needs full fresh modern-en drafting
   (current text is mechanical scaffold, not a repairable rendering). Not
   started under this program per explicit scope instruction.
+- **Apology** (Plato) — chapters 1-2 need substantial repair (a dropped
+  source paragraph, a duplicated paragraph, ~40 trailing-clause deletions in
+  chapter 1). Chapter 3 alone is strong and would pass with minor fixes.
+  Not started under this program; candidate for a future targeted-repair
+  pass, not fresh drafting.
 
 ## Process notes
 
