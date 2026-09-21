@@ -1,5 +1,17 @@
 # Acceptance Record — Twelfth Night (`twelfth-night`, modern-en)
 
+> **SUPERSEDED 2026-09-21 — NOT AN ACCEPTANCE. See `PARKED.md`.**
+> The independent Opus round-2 verification this record anticipated has now
+> run and **rejected** the candidate. It found 12 fresh defects in one
+> recurring class (erasure of the source's own printed proper nouns,
+> spellings and deliberate coinages — including `Sowter`, `Tartar`,
+> `Belzebub`, `Cataian`, `substractors`, `firago`), a class this record
+> explicitly certifies clean book-wide and whose sole fixed instance it
+> lists as defect 3. This record's paragraph numbers are also off by one
+> throughout (0-based reported as 1-based). The structural findings and the
+> three round-1 fixes themselves were independently confirmed correct; the
+> "no other defects found" conclusion was not. Book is PARKED.
+
 **Book id:** `twelfth-night`
 **Edition:** `modern-en`
 **Accepted:** 2026-09-21
