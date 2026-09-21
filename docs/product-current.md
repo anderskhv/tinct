@@ -1,6 +1,6 @@
 # Current reader behavior
 
-This note records the active reader, including the September 21 polish candidate.
+This note records the active reader, including the September 21 reader polish release.
 Release status and verification limits are in [the reader polish plan](reader-panels-selection-2026-09-21.md)
 and [the September 17 release plan](reader-feedback-2026-09-17.md).
 

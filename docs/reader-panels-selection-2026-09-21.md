@@ -1,7 +1,7 @@
 # Desktop and mobile reader polish — 2026-09-21
 
-Status: implemented in the cloud; candidate reader and voice acceptance passed. Production release pending.
-Branch: `codex/reader-panels-selection-20260921`.
+Status: deployed and production-verified on September 21, 2026.
+Merged [PR 122](https://github.com/anderskhv/tinct/pull/122): `e8cb75ab89029fa5727e08011eca190e2acb150a`.
 Baseline: `c771b3349f5f0f9c6236756b02bdb63fec2838a9`.
 
 ## Approved scope
@@ -21,20 +21,29 @@ Highlight-only letter spacing changed the geometry around verse markers. Nearest
 
 Dictionary shard failures were permanently cached as misses, and the shipped archaic supplement was never loaded. The main word list does not contain “these”; missing entries must remain definitions, not chapter explanations.
 
-Voice capture exceptions were swallowed, so a dead graph could claim to be listening. Worklet registration was repeated on the same audio context after restarting. A late cancellation completion could clear the next response. Capture recovery and response identity need independent regressions; the user's precise device failure is not yet reproduced.
+Voice capture exceptions were swallowed, so a dead graph could claim to be listening. Worklet registration was repeated on the same audio context after restarting. A late cancellation completion could clear the next response. Capture recovery and response identity now have independent regressions; the user's precise device failure was not reproduced.
 
-## Verification and release
 
-All authoring and execution use remote GitHub branch/Actions; the historical Documents checkout remains untouched. Candidate run [35576417347](https://github.com/anderskhv/tinct/actions/runs/35576417347) passed 2,521 tests (one skipped), build, bundle verification, all six Chromium/WebKit reader cases, hyphenation and responsive entry acceptance. Candidate bundle: `index-gszvwRT4.js`. Its voice check stopped before connecting because it targeted a control hidden during dictation; the corrected test uses the Talk menu. Real-provider voice acceptance remains pending. Production uses the serialized GitHub deploy workflow on Node 24.13.0. No physical iPhone or Mac microphone testing is authorized. Browser AI definition tests use fixtures and do not call Anthropic APIs.
+## Verification and release — September 21
 
-## Candidate acceptance — September 21
+All authoring, tests and builds used GitHub/Actions on Node 24.13.0. The historical Documents checkout was not changed. Local temporary files contain only downloaded cloud QA artifacts.
 
-[Run 35578585953](https://github.com/anderskhv/tinct/actions/runs/35578585953) passed the current runtime's tests, build and bundle gates, six reader browser cases and library acceptance. Its silent real-provider Grok check passed a fully played answer returning to listening, three turns, interruption, mute/unmute, minimize/restore, End and same-page restart. First-audio measurements for three turns were 242, 245 and 201 ms after the provider's speech-ended event; these are controlled cloud measurements, not a real-device latency promise. The release test additionally requires new audio after restart, so a tool-only response cannot satisfy that check.
+- [Candidate acceptance](https://github.com/anderskhv/tinct/actions/runs/35578585953) passed every job. [Final acceptance](https://github.com/anderskhv/tinct/actions/runs/35579348664) additionally required fresh spoken audio after same-page restart.
+- [Production deployment and acceptance](https://github.com/anderskhv/tinct/actions/runs/35579840357) passed. It ran `npm test`, then the approved `npm run deploy` path, including build and bundle verification.
+- Production tests: **2,521 passed, one skipped**, across 199 passing test files and one skipped file.
+- Served bundle: **`/assets/index-A51kguxB.js`**. The release compared its bytes with the built bundle, passed the production smoke test, and asserted the exact bundle in desktop and phone browser checks.
+- All six Chromium/WebKit reader cases passed on tinct.app, including `/lab/phone` at 390×844. They covered character geometry during selection and saved highlights, Explain sizing/close/highlight, lexical Define fallback, window dragging/resizing/minimizing/restoring, header bounds, menus above companions, numeric settings and reading-position preservation, all themes, library navigation and **Tinct Modern English** comparison labels.
+- Live Grok acceptance passed dictation-to-Talk ownership handoff, a complete spoken answer returning to listening, three turns, interruption, mute/unmute, minimize/restore, End cleanup, and fresh spoken audio after restarting on the same page.
+- Production library/preparation, responsive landing/library and hyphenation acceptance passed. Existing book, edition, chapter, copy/accessibility and logical-word ownership checks remain in place.
 
-The window review also found two inherited conflicts: docked companion dimensions overrode floating sizes, and the navigation menu could fall behind a companion. Shared bounds now reserve the header, and companions remain below menus. Chrome/WebKit checks drag Chat to the upper boundary and open Settings while Chat is visible.
+The window review found inherited docked dimensions overriding floating sizes and menus falling behind companions. Shared bounds now reserve the header, while companions remain below menus. Both browsers exercise an upper-edge drag and opening Settings while Chat is present.
 
-Artifacts: `reader-panels-acceptance` and `voice-capture-acceptance` on the linked run. Local copies of cloud screenshots were inspected under `/tmp/tinct-reader-final` and `/tmp/tinct-voice-passed`; the durable originals are the Actions artifacts.
+## Evidence and limits
 
-Limits: phone viewport and WebKit checks do not reproduce physical iPhone touch, Safari browser chrome, Bluetooth routing or speaker echo. Dictionary and Explain browser responses are fixtures. Grok uses real provider audio with a synthetic microphone and muted playback; dictation uses a SpeechRecognition lifecycle fixture. The exact device-specific “stuck Listening” report remains unproven. The capture diagnostics and recovery paths now make that failure observable instead of silently claiming to listen.
+Durable screenshots and reports are in the deployment's `reader-panels-acceptance` and `production-library-preparation` artifacts. The [reader artifact](https://github.com/anderskhv/tinct/actions/runs/35579840357/artifacts/10629444492) contains all six reader cases. Local inspected copies are under `/tmp/tinct-production-reader` and `/tmp/tinct-production-voice/voice-capture`.
 
-Next: finish the combined workflow, release through the serialized deploy workflow, and record its exact production bundle and acceptance evidence.
+Dictionary and Explain browser replies are fixtures; no Anthropic development calls were made. Grok uses the real provider with a synthetic microphone and muted playback. Dictation uses a SpeechRecognition lifecycle fixture. Cloud WebKit/phone viewports do not establish physical iPhone touch, Safari browser chrome, Bluetooth routing or speaker-echo behaviour. The supplied X video could not be fetched (403); the windows follow the approved written interaction requirements.
+
+The precise device-specific “stuck Listening” report remains unproven. Capture diagnostics now expose frame age, sent chunks, context/track/socket state without recording speech or credentials; capture failures show reconnect recovery instead of silently claiming to listen. Live acceptance measured first audio at 344 and 627 ms after the provider's speech-ended event, and 626 ms after same-page restart. These controlled cloud measurements are not a real-device latency promise.
+
+No further implementation or automated release-acceptance work remains for this batch. If the physical-device issue recurs, the next action is to capture those state counters and reproduce the device/routing condition before changing prompts or models.
