@@ -1,0 +1,88 @@
+{
+ "bookId": "federalist-papers",
+ "edition": "original-en",
+ "chapter": 84,
+ "editionContentHash": "dae685ea31249485f86645a83d7a9b37e0618ad5652990fa5202ab697d81ca2b",
+ "voice": "unknown",
+ "checkedAt": "2026-09-21T10:56:09.345689+00:00",
+ "manifestStatus": 200,
+ "manifestContentHash": "41097fb9c6c0935406220152ca39c982c80aa6298dc60c34c8f5c5b88eb0e7b9",
+ "manifestMetadata": {
+  "chapter": 84,
+  "title": "No. 84 — Certain General and Miscellaneous Objections to the Constitution Considered and Answered. (Hamilton)"
+ },
+ "durationSeconds": 1490.736,
+ "wordsStatus": 404,
+ "wordsBytes": 0,
+ "readiness": {
+  "bookId": "federalist-papers",
+  "edition": "original-en",
+  "chapter": 84,
+  "textParagraphs": 28,
+  "textParagraphsWithWords": 28,
+  "manifestSpokenParagraphs": 28,
+  "durationSeconds": 1481.74,
+  "sampled": [
+   {
+    "file": "p0.mp3",
+    "status": 206,
+    "bytes": 450477
+   },
+   {
+    "file": "p14.mp3",
+    "status": 206,
+    "bytes": 430509
+   },
+   {
+    "file": "p27.mp3",
+    "status": 206,
+    "bytes": 190893
+   }
+  ],
+  "outcome": "ready",
+  "detail": "manifest matches the edition paragraph count"
+ },
+ "state": "timings-missing",
+ "priorAttempts": [
+  {
+   "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/collect-report.json",
+   "record": {
+    "key": "federalist-papers/original-en/ch84",
+    "arms": {
+     "auto": {
+      "status": "candidate_requires_acoustic_review",
+      "matchRatio": 0.9959581550166429,
+      "reasons": [],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch84/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9914407988587732,
+      "reasons": [
+       {
+        "paragraph": 25,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 27,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-45/out/federalist-papers/original-en/ch84/off/words.candidate.json"
+     }
+    },
+    "outcome": "candidate",
+    "selectedArm": "auto",
+    "matchRatio": 0.9959581550166429
+   }
+  }
+ ],
+ "contentHold": null,
+ "nextAction": "stronger-recognition"
+}
