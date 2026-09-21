@@ -1,0 +1,339 @@
+{
+  "complete": true,
+  "signature": "03f2c46c2f9a5bc5f614f3da642eee5e318c1011f96571d77c19db3056401b11",
+  "attempts": [
+    {
+      "asr_seconds": 4.82096837600011,
+      "alignment_seconds": 0.00015345399992838793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tiquetoc, academician of Argemisilla, on the tomb of Dulcinea del Tabos.",
+          "start": 0.02,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " Tiquetoc,",
+              "start": 0.02,
+              "end": 1.04,
+              "probability": 0.42323024943470955
+            },
+            {
+              "text": " academician",
+              "start": 1.46,
+              "end": 2.06,
+              "probability": 0.6886143237352371
+            },
+            {
+              "text": " of",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.9984824061393738
+            },
+            {
+              "text": " Argemisilla,",
+              "start": 2.22,
+              "end": 2.9,
+              "probability": 0.6434092223644257
+            },
+            {
+              "text": " on",
+              "start": 3.34,
+              "end": 3.42,
+              "probability": 0.9894158840179443
+            },
+            {
+              "text": " the",
+              "start": 3.42,
+              "end": 3.56,
+              "probability": 0.9982640147209167
+            },
+            {
+              "text": " tomb",
+              "start": 3.56,
+              "end": 3.78,
+              "probability": 0.9806147217750549
+            },
+            {
+              "text": " of",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.9988319277763367
+            },
+            {
+              "text": " Dulcinea",
+              "start": 3.98,
+              "end": 4.48,
+              "probability": 0.9547241528828939
+            },
+            {
+              "text": " del",
+              "start": 4.48,
+              "end": 4.74,
+              "probability": 0.9669083952903748
+            },
+            {
+              "text": " Tabos.",
+              "start": 4.74,
+              "end": 5.22,
+              "probability": 0.5716756582260132
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tiquetoc,",
+          "start": 0.02,
+          "end": 1.04
+        },
+        {
+          "raw": "academician",
+          "start": 1.46,
+          "end": 2.06
+        },
+        {
+          "raw": "of",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "Argemisilla,",
+          "start": 2.22,
+          "end": 2.9
+        },
+        {
+          "raw": "on",
+          "start": 3.34,
+          "end": 3.42
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "raw": "tomb",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "raw": "of",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "Dulcinea",
+          "start": 3.98,
+          "end": 4.48
+        },
+        {
+          "raw": "del",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "raw": "Tabos.",
+          "start": 4.74,
+          "end": 5.22
+        }
+      ],
+      "expected_tokens": [
+        "TIQUITOC,",
+        "ACADEMICIAN",
+        "OF",
+        "ARGAMASILLA,",
+        "ON",
+        "THE",
+        "TOMB",
+        "OF",
+        "DULCINEA",
+        "DEL",
+        "TOBOSO"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tiquetoc,",
+          "start": 0.02,
+          "end": 1.04,
+          "key": "tiquetoc",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "academician",
+          "start": 1.46,
+          "end": 2.06,
+          "key": "academician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Argemisilla,",
+          "start": 2.22,
+          "end": 2.9,
+          "key": "argemisilla",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.34,
+          "end": 3.42,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.42,
+          "end": 3.56,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tomb",
+          "start": 3.56,
+          "end": 3.78,
+          "key": "tomb",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.78,
+          "end": 3.98,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dulcinea",
+          "start": 3.98,
+          "end": 4.48,
+          "key": "dulcinea",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "del",
+          "start": 4.48,
+          "end": 4.74,
+          "key": "del",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Tabos.",
+          "start": 4.74,
+          "end": 5.22,
+          "key": "tabos",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "TIQUITOC,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ACADEMICIAN",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ARGAMASILLA,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ON",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "THE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "TOMB",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DULCINEA",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DEL",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "TOBOSO",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 11,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.821141216000115
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f04cd5756d07574a9f875c2e224826bf6f36b3ce88021bba411ed8e3b9f89f5",
+  "selected_reasons": []
+}

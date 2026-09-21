@@ -1,0 +1,313 @@
+{
+  "complete": true,
+  "signature": "a9db4f6ca4f148933fadf938d4b4c68c2140b87348db5eec101ef73f3359765c",
+  "attempts": [
+    {
+      "asr_seconds": 4.515430783000056,
+      "alignment_seconds": 0.0001487580000230082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caccidiabolo, academician of Argemisilla, on the tomb of Don Quixote.",
+          "start": 0.05,
+          "end": 4.67,
+          "words": [
+            {
+              "text": " Caccidiabolo,",
+              "start": 0.05,
+              "end": 1.33,
+              "probability": 0.3416228175163269
+            },
+            {
+              "text": " academician",
+              "start": 1.75,
+              "end": 2.25,
+              "probability": 0.6255107223987579
+            },
+            {
+              "text": " of",
+              "start": 2.25,
+              "end": 2.39,
+              "probability": 0.9984094500541687
+            },
+            {
+              "text": " Argemisilla,",
+              "start": 2.39,
+              "end": 3.03,
+              "probability": 0.5879150405526161
+            },
+            {
+              "text": " on",
+              "start": 3.41,
+              "end": 3.47,
+              "probability": 0.9902120232582092
+            },
+            {
+              "text": " the",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.997641921043396
+            },
+            {
+              "text": " tomb",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.9761313199996948
+            },
+            {
+              "text": " of",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.9987205862998962
+            },
+            {
+              "text": " Don",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.9610267281532288
+            },
+            {
+              "text": " Quixote.",
+              "start": 4.21,
+              "end": 4.67,
+              "probability": 0.9798053503036499
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caccidiabolo,",
+          "start": 0.05,
+          "end": 1.33
+        },
+        {
+          "raw": "academician",
+          "start": 1.75,
+          "end": 2.25
+        },
+        {
+          "raw": "of",
+          "start": 2.25,
+          "end": 2.39
+        },
+        {
+          "raw": "Argemisilla,",
+          "start": 2.39,
+          "end": 3.03
+        },
+        {
+          "raw": "on",
+          "start": 3.41,
+          "end": 3.47
+        },
+        {
+          "raw": "the",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "tomb",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "Don",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "Quixote.",
+          "start": 4.21,
+          "end": 4.67
+        }
+      ],
+      "expected_tokens": [
+        "CACHIDIABLO,",
+        "ACADEMICIAN",
+        "OF",
+        "ARGAMASILLA,",
+        "ON",
+        "THE",
+        "TOMB",
+        "OF",
+        "DON",
+        "QUIXOTE"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caccidiabolo,",
+          "start": 0.05,
+          "end": 1.33,
+          "key": "caccidiabolo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "academician",
+          "start": 1.75,
+          "end": 2.25,
+          "key": "academician",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.25,
+          "end": 2.39,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Argemisilla,",
+          "start": 2.39,
+          "end": 3.03,
+          "key": "argemisilla",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.41,
+          "end": 3.47,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tomb",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "tomb",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "don",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Quixote.",
+          "start": 4.21,
+          "end": 4.67,
+          "key": "quixote",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "CACHIDIABLO,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ACADEMICIAN",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ARGAMASILLA,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ON",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "THE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "TOMB",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DON",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "QUIXOTE",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 10,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.51559900999996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "73a37a25348ba1b87dc361ef073c3ec679c0b67f98e5805088151c9c3a6f88e0",
+  "selected_reasons": []
+}

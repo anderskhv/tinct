@@ -1,0 +1,700 @@
+{
+  "complete": true,
+  "signature": "7fae40d57e63497df262889e26d5af2dcdd538745e6d6cdcf55a67f3e1a88f16",
+  "attempts": [
+    {
+      "asr_seconds": 2.905827426999963,
+      "alignment_seconds": 0.0009980510000104914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I bring nothing of that sort, wife,\" said Sancho; \"though I bring other things of more consequence and value.\"",
+        "hotwords": "I, Sancho"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I bring nothing of that sort, wife, said Sancho, though I bring other things of more consequence",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.1799878627061844
+            },
+            {
+              "text": " bring",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.9846402406692505
+            },
+            {
+              "text": " nothing",
+              "start": 0.69,
+              "end": 0.99,
+              "probability": 0.9980941414833069
+            },
+            {
+              "text": " of",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.9978151321411133
+            },
+            {
+              "text": " that",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.9987144470214844
+            },
+            {
+              "text": " sort,",
+              "start": 1.39,
+              "end": 1.71,
+              "probability": 0.9981641173362732
+            },
+            {
+              "text": " wife,",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.8096609711647034
+            },
+            {
+              "text": " said",
+              "start": 2.83,
+              "end": 2.93,
+              "probability": 0.9727321863174438
+            },
+            {
+              "text": " Sancho,",
+              "start": 2.93,
+              "end": 3.43,
+              "probability": 0.929279625415802
+            },
+            {
+              "text": " though",
+              "start": 3.93,
+              "end": 4.15,
+              "probability": 0.9884900450706482
+            },
+            {
+              "text": " I",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.989780068397522
+            },
+            {
+              "text": " bring",
+              "start": 4.31,
+              "end": 4.47,
+              "probability": 0.9981820583343506
+            },
+            {
+              "text": " other",
+              "start": 4.47,
+              "end": 4.67,
+              "probability": 0.9923987984657288
+            },
+            {
+              "text": " things",
+              "start": 4.67,
+              "end": 4.93,
+              "probability": 0.9985631108283997
+            },
+            {
+              "text": " of",
+              "start": 4.93,
+              "end": 5.13,
+              "probability": 0.9977946281433105
+            },
+            {
+              "text": " more",
+              "start": 5.13,
+              "end": 5.35,
+              "probability": 0.9968834519386292
+            },
+            {
+              "text": " consequence",
+              "start": 5.35,
+              "end": 5.91,
+              "probability": 0.9989939332008362
+            }
+          ]
+        },
+        {
+          "text": " and value.",
+          "start": 5.91,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.91,
+              "end": 6.21,
+              "probability": 0.9959520101547241
+            },
+            {
+              "text": " value.",
+              "start": 6.21,
+              "end": 6.55,
+              "probability": 0.9978304505348206
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "bring",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "nothing",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "raw": "of",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "that",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "sort,",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "raw": "wife,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "said",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "raw": "Sancho,",
+          "start": 2.93,
+          "end": 3.43
+        },
+        {
+          "raw": "though",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "bring",
+          "start": 4.31,
+          "end": 4.47
+        },
+        {
+          "raw": "other",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "raw": "things",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.13
+        },
+        {
+          "raw": "more",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "raw": "consequence",
+          "start": 5.35,
+          "end": 5.91
+        },
+        {
+          "raw": "and",
+          "start": 5.91,
+          "end": 6.21
+        },
+        {
+          "raw": "value.",
+          "start": 6.21,
+          "end": 6.55
+        }
+      ],
+      "expected_tokens": [
+        "“I",
+        "bring",
+        "nothing",
+        "of",
+        "that",
+        "sort,",
+        "wife,”",
+        "said",
+        "Sancho;",
+        "“though",
+        "I",
+        "bring",
+        "other",
+        "things",
+        "of",
+        "more",
+        "consequence",
+        "and",
+        "value.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"I",
+        "bring",
+        "nothing",
+        "of",
+        "that",
+        "sort,",
+        "wife,\"",
+        "said",
+        "Sancho;",
+        "\"though",
+        "I",
+        "bring",
+        "other",
+        "things",
+        "of",
+        "more",
+        "consequence",
+        "and",
+        "value.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "bring",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 0.69,
+          "end": 0.99,
+          "key": "nothing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sort,",
+          "start": 1.39,
+          "end": 1.71,
+          "key": "sort",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wife,",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "wife",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.83,
+          "end": 2.93,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Sancho,",
+          "start": 2.93,
+          "end": 3.43,
+          "key": "sancho",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 3.93,
+          "end": 4.15,
+          "key": "though",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 4.31,
+          "end": 4.47,
+          "key": "bring",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 4.47,
+          "end": 4.67,
+          "key": "other",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 4.67,
+          "end": 4.93,
+          "key": "things",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.13,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.13,
+          "end": 5.35,
+          "key": "more",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "consequence",
+          "start": 5.35,
+          "end": 5.91,
+          "key": "consequence",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.91,
+          "end": 6.21,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "value.",
+          "start": 6.21,
+          "end": 6.55,
+          "key": "value",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "bring",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "nothing",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "text": "of",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "that",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "sort,",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "text": "wife,”",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "said",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "text": "Sancho;",
+          "start": 2.93,
+          "end": 3.43
+        },
+        {
+          "text": "“though",
+          "start": 3.93,
+          "end": 4.15
+        },
+        {
+          "text": "I",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "bring",
+          "start": 4.31,
+          "end": 4.47
+        },
+        {
+          "text": "other",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "text": "things",
+          "start": 4.67,
+          "end": 4.93
+        },
+        {
+          "text": "of",
+          "start": 4.93,
+          "end": 5.13
+        },
+        {
+          "text": "more",
+          "start": 5.13,
+          "end": 5.35
+        },
+        {
+          "text": "consequence",
+          "start": 5.35,
+          "end": 5.91
+        },
+        {
+          "text": "and",
+          "start": 5.91,
+          "end": 6.21
+        },
+        {
+          "text": "value.”",
+          "start": 6.21,
+          "end": 6.55
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.9068644120000044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "709ad43c2564fff43bcea3fb9cd0159bae66476094a8486337c7f83968b5a71b",
+  "selected_reasons": []
+}

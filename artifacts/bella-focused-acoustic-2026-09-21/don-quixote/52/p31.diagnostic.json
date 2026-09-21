@@ -1,0 +1,99 @@
+{
+  "complete": true,
+  "signature": "27e73b2df0ca52dd2912403a9314e86f6dd5e61621fc38e406afc13c5b631ae0",
+  "attempts": [
+    {
+      "asr_seconds": 2.0233984459999874,
+      "alignment_seconds": 0.00017578100005266606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sonnet",
+        "hotwords": "Sonnet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sonnet",
+          "start": 0.08,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " Sonnet",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.8007924258708954
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sonnet",
+          "start": 0.08,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "SONNET"
+      ],
+      "acoustic_expected_tokens": [
+        "Sonnet"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sonnet",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "sonnet",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "SONNET",
+          "start": 0.08,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.0235847370000783
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6fe35fce189a06840493e9c31aa088bfd67f78aed2b10bdd3ffaa43eebb0dcb5",
+  "selected_reasons": []
+}

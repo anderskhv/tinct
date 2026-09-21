@@ -1,0 +1,307 @@
+{
+  "complete": true,
+  "signature": "50a7a49c612bad2d03c34354641374a7bfbe7a5c780c8bd95fc409fd39e28ca1",
+  "attempts": [
+    {
+      "asr_seconds": 2.9563627360000737,
+      "alignment_seconds": 0.00019540899995718064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Peña Guado, Academician of Argamacilla, in Lautem-Dulcenie, Delta Bose.",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Peña",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.2964121997356415
+            },
+            {
+              "text": " Guado,",
+              "start": 0.67,
+              "end": 1.17,
+              "probability": 0.3421749547123909
+            },
+            {
+              "text": " Academician",
+              "start": 1.79,
+              "end": 2.27,
+              "probability": 0.7559559047222137
+            },
+            {
+              "text": " of",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.9944185018539429
+            },
+            {
+              "text": " Argamacilla,",
+              "start": 2.39,
+              "end": 2.97,
+              "probability": 0.5311767160892487
+            },
+            {
+              "text": " in",
+              "start": 3.39,
+              "end": 3.45,
+              "probability": 0.9441417455673218
+            },
+            {
+              "text": " Lautem",
+              "start": 3.45,
+              "end": 3.75,
+              "probability": 0.5162220696608225
+            },
+            {
+              "text": "-Dulcenie,",
+              "start": 3.75,
+              "end": 4.33,
+              "probability": 0.5981257433692614
+            },
+            {
+              "text": " Delta",
+              "start": 4.45,
+              "end": 4.67,
+              "probability": 0.15504559874534607
+            },
+            {
+              "text": " Bose.",
+              "start": 4.67,
+              "end": 5.05,
+              "probability": 0.7980875670909882
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peña",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Guado,",
+          "start": 0.67,
+          "end": 1.17
+        },
+        {
+          "raw": "Academician",
+          "start": 1.79,
+          "end": 2.27
+        },
+        {
+          "raw": "of",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "Argamacilla,",
+          "start": 2.39,
+          "end": 2.97
+        },
+        {
+          "raw": "in",
+          "start": 3.39,
+          "end": 3.45
+        },
+        {
+          "raw": "Lautem",
+          "start": 3.45,
+          "end": 3.75
+        },
+        {
+          "raw": "-Dulcenie,",
+          "start": 3.75,
+          "end": 4.33
+        },
+        {
+          "raw": "Delta",
+          "start": 4.45,
+          "end": 4.67
+        },
+        {
+          "raw": "Bose.",
+          "start": 4.67,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "PANIAGUADO,",
+        "ACADEMICIAN",
+        "OF",
+        "ARGAMASILLA,",
+        "IN",
+        "LAUDEM",
+        "DULCINEAE",
+        "DEL",
+        "TOBOSO"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peña",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "peña",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guado,",
+          "start": 0.67,
+          "end": 1.17,
+          "key": "guado",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Academician",
+          "start": 1.79,
+          "end": 2.27,
+          "key": "academician",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Argamacilla,",
+          "start": 2.39,
+          "end": 2.97,
+          "key": "argamacilla",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.39,
+          "end": 3.45,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lautem",
+          "start": 3.45,
+          "end": 3.75,
+          "key": "lautem",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-Dulcenie,",
+          "start": 3.75,
+          "end": 4.33,
+          "key": "dulcenie",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Delta",
+          "start": 4.45,
+          "end": 4.67,
+          "key": "delta",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Bose.",
+          "start": 4.67,
+          "end": 5.05,
+          "key": "bose",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "PANIAGUADO,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ACADEMICIAN",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "OF",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "ARGAMASILLA,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "IN",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "LAUDEM",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DULCINEAE",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "DEL",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "TOBOSO",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 10,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.9565830909999704
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3dc4d8ec7fe9bdd515c1bf378c6d73c33cb4043dc9aec14a590b867cce74d59f",
+  "selected_reasons": []
+}
