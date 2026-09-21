@@ -1,6 +1,6 @@
 import copy
 import unittest
-from stage import parse_book, legacy_index, correspondence, utf16, parse_text_export
+from stage import parse_book, legacy_index, correspondence, utf16, parse_text_export, canonical_projection
 
 def verse(n): return {"type":"verse","marker":"v","number":str(n)}
 def para(*content, marker="p"): return {"type":"para","marker":marker,"content":list(content)}
@@ -87,5 +87,35 @@ class ImportTests(unittest.TestCase):
     def test_official_text_export_duplicates_fail(self):
         with self.assertRaises(ValueError):
             parse_text_export(b"Genesis 1:1\tA.\nGenesis 1:1\tB.\n",["Genesis"])
+
+
+    def test_primary_projection_keeps_poetry_with_official_dash_spacing(self):
+        cs,vs,ix,_=parse_book(document(
+            para(verse(1),"First —",marker="q1"),
+            para("second.",marker="q2")),"GEN","Genesis",0)
+        new, mapped, fallback, layout=canonical_projection(cs,ix,{"GEN.1.1":"First—second."})
+        self.assertEqual(new[0]["paragraphs"],["¹ First—","second."])
+        self.assertFalse(fallback)
+        self.assertEqual(len(mapped["GEN.1.1"]),2)
+
+    def test_primary_projection_never_copies_structured_export_garbage(self):
+        cs,vs,ix,_=parse_book(document(para(
+            verse(1),"Named vvv him.",verse(2),"Next.")),"GEN","Genesis",0)
+        new, mapped, fallback, _=canonical_projection(cs,ix,{"GEN.1.1":"Named him.","GEN.1.2":"Next."})
+        self.assertEqual(new[0]["paragraphs"],["¹ Named him. ² Next."])
+        self.assertEqual(fallback[0]["reference"],"GEN.1.1")
+        self.assertEqual(set(mapped),{"GEN.1.1","GEN.1.2"})
+
+    def test_primary_projection_rejects_nonempty_missing_reference(self):
+        cs,vs,ix,_=parse_book(document(para(verse(1),"A.")),"GEN","Genesis",0)
+        with self.assertRaises(ValueError):
+            canonical_projection(cs,ix,{"GEN.1.1":"A.","GEN.1.2":"B."})
+
+    def test_official_empty_reference_is_not_invented(self):
+        cs,vs,ix,_=parse_book(document(para(verse(1),"A.")),"GEN","Genesis",0)
+        new,mapped,_,_=canonical_projection(cs,ix,{"GEN.1.1":"A.","GEN.1.2":""})
+        self.assertNotIn("GEN.1.2",mapped)
+        self.assertEqual(new[0]["paragraphs"],["¹ A."])
+
 
 if __name__=="__main__": unittest.main()
