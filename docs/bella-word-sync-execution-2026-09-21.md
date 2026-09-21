@@ -2,6 +2,17 @@
 
 Status: ongoing completion work. Anders explicitly instructed continuing through failures on 2026-09-21. This report records observed repairs and remaining gaps, not full Bella coverage or edition completion.
 
+
+## Strategy checkpoint — 2026-09-21, 12:58 UTC
+
+Anders questioned the value of spending further hours restoring incomplete Bella editions and stated that the narrator must not change within a book. Further repair batches are paused while the whole-edition voice strategy is decided; this is not authorization to implement or deploy the replacement architecture. The pending 27-chapter stronger-recognition batch was cancelled; the prepared next batch was not launched. Already-running bounded jobs retain their cleanup watchdogs and may finish to preserve results.
+
+Recommendation, pending decision: retain Bella for complete, verified editions; use one consistent selected narrator across each other book/edition through the planned on-demand, cached audio architecture. Do not splice WaveNet chapters into Bella editions. New audio still needs accepted word timings; changing provider alone does not establish highlighting. Cache identity must include the exact text chunk and voice/model configuration. Source changes invalidate only dependent chunks.
+
+Evidence at pause: 14 chapter repairs published, with production served-byte verification. Another 24 passed independent acoustic checks; existing-reader data acceptance is being completed. The all-zero-paragraph audit of 6,234 structurally passing sidecars found one additional spoken-heading defect (Jekyll chapter 9) and one genuinely silent verse-marker paragraph. Jekyll's candidate passes independent acoustic checks but is not published. Nine newly confirmed missing Bible recordings are within the original backlog. Sampled audio from Meditations and Faust matches earlier translations, demonstrating that those are recording replacement cases. Some original editions (including Imitation and Winter's Tale) lack catalogue audio availability; timing repairs alone do not enable them. No reader/app changes or deployments were made.
+
+Next action: preserve remaining run evidence, reconcile status by complete edition, and decide retention versus whole-edition replacement before authorizing further restoration spend. Earlier instructions below to continue broad repair batches are superseded by this pause.
+
 ## Continuation checkpoint — 12:16 UTC
 
 The initial pilot results below are historical. Its Imitation of Christ and King Lear failures have now been resolved and published. No app/reader implementation, source text, reading position, discovery hold or application deployment was changed.

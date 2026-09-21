@@ -1,0 +1,12 @@
+name: bella-strategy-docs-check
+on:
+  push:
+    branches: ['codex/bella-strategy-checkpoint-20260921']
+permissions:
+  contents: read
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/check-docs.py
