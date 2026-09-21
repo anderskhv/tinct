@@ -1,0 +1,8099 @@
+{
+  "complete": true,
+  "signature": "acc0b188a7485ebfa1a2fb48080a82e95918b98b911b1a547e71c57a926be4ba",
+  "attempts": [
+    {
+      "asr_seconds": 6.785558789999982,
+      "alignment_seconds": 0.004993003000009821,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beaudelet grumbled because Mariequita was there, taking up so much room. In reality he was annoyed at having old Monsieur Farival, who considered himself the better sailor of the two. But he would not quarrel with so old a man as Monsieur Farival, so he quarreled with Mariequita. The girl was deprecatory at one moment, appealing to Robert. She was saucy the next, moving her head up and down, making \"eyes\" at Robert and making \"mouths\" at Beaudelet.",
+        "hotwords": "Beaudelet, Mariequita, In, Monsieur, Farival, But, Robert, She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beaudelet grumbled because Mariequita was there, taking up so much room. In reality he was annoyed",
+          "start": 0.08,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Beaudelet",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.39012016891501844
+            },
+            {
+              "text": " grumbled",
+              "start": 0.82,
+              "end": 1.24,
+              "probability": 0.9962070286273956
+            },
+            {
+              "text": " because",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.9889523386955261
+            },
+            {
+              "text": " Mariequita",
+              "start": 1.56,
+              "end": 2.08,
+              "probability": 0.42263580051561195
+            },
+            {
+              "text": " was",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.9983893632888794
+            },
+            {
+              "text": " there,",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.9973708391189575
+            },
+            {
+              "text": " taking",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.9959819316864014
+            },
+            {
+              "text": " up",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.9992074370384216
+            },
+            {
+              "text": " so",
+              "start": 3.36,
+              "end": 3.6,
+              "probability": 0.9979357719421387
+            },
+            {
+              "text": " much",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.9993643164634705
+            },
+            {
+              "text": " room.",
+              "start": 3.86,
+              "end": 4.14,
+              "probability": 0.9991138577461243
+            },
+            {
+              "text": " In",
+              "start": 4.76,
+              "end": 4.9,
+              "probability": 0.9977261424064636
+            },
+            {
+              "text": " reality",
+              "start": 4.9,
+              "end": 5.26,
+              "probability": 0.9996013045310974
+            },
+            {
+              "text": " he",
+              "start": 5.26,
+              "end": 5.52,
+              "probability": 0.36693257093429565
+            },
+            {
+              "text": " was",
+              "start": 5.52,
+              "end": 5.62,
+              "probability": 0.999639630317688
+            },
+            {
+              "text": " annoyed",
+              "start": 5.62,
+              "end": 5.88,
+              "probability": 0.9989244341850281
+            }
+          ]
+        },
+        {
+          "text": " at having old Monsieur Farival, who considered himself the better sailor of the two. But he",
+          "start": 5.88,
+          "end": 10.98,
+          "words": [
+            {
+              "text": " at",
+              "start": 5.88,
+              "end": 6.08,
+              "probability": 0.9969884753227234
+            },
+            {
+              "text": " having",
+              "start": 6.08,
+              "end": 6.34,
+              "probability": 0.998472273349762
+            },
+            {
+              "text": " old",
+              "start": 6.34,
+              "end": 6.64,
+              "probability": 0.988723874092102
+            },
+            {
+              "text": " Monsieur",
+              "start": 6.64,
+              "end": 7.02,
+              "probability": 0.9107232292493185
+            },
+            {
+              "text": " Farival,",
+              "start": 7.02,
+              "end": 7.5,
+              "probability": 0.39293062686920166
+            },
+            {
+              "text": " who",
+              "start": 7.78,
+              "end": 8.0,
+              "probability": 0.9983248114585876
+            },
+            {
+              "text": " considered",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.9905974268913269
+            },
+            {
+              "text": " himself",
+              "start": 8.32,
+              "end": 8.72,
+              "probability": 0.9980990290641785
+            },
+            {
+              "text": " the",
+              "start": 8.72,
+              "end": 8.98,
+              "probability": 0.9905141592025757
+            },
+            {
+              "text": " better",
+              "start": 8.98,
+              "end": 9.2,
+              "probability": 0.9842224717140198
+            },
+            {
+              "text": " sailor",
+              "start": 9.2,
+              "end": 9.5,
+              "probability": 0.9083054661750793
+            },
+            {
+              "text": " of",
+              "start": 9.5,
+              "end": 9.76,
+              "probability": 0.998435914516449
+            },
+            {
+              "text": " the",
+              "start": 9.76,
+              "end": 9.88,
+              "probability": 0.9975419044494629
+            },
+            {
+              "text": " two.",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.9971864819526672
+            },
+            {
+              "text": " But",
+              "start": 10.72,
+              "end": 10.9,
+              "probability": 0.9963078498840332
+            },
+            {
+              "text": " he",
+              "start": 10.9,
+              "end": 10.98,
+              "probability": 0.9902591705322266
+            }
+          ]
+        },
+        {
+          "text": " would not quarrel with so old a man as Mariequita, so he quarreled with Mariequita. The girl was",
+          "start": 10.98,
+          "end": 16.68,
+          "words": [
+            {
+              "text": " would",
+              "start": 10.98,
+              "end": 11.08,
+              "probability": 0.9981138706207275
+            },
+            {
+              "text": " not",
+              "start": 11.08,
+              "end": 11.28,
+              "probability": 0.9977818131446838
+            },
+            {
+              "text": " quarrel",
+              "start": 11.28,
+              "end": 11.6,
+              "probability": 0.999173104763031
+            },
+            {
+              "text": " with",
+              "start": 11.6,
+              "end": 11.88,
+              "probability": 0.9984970092773438
+            },
+            {
+              "text": " so",
+              "start": 11.88,
+              "end": 12.06,
+              "probability": 0.9968936443328857
+            },
+            {
+              "text": " old",
+              "start": 12.06,
+              "end": 12.3,
+              "probability": 0.9744130373001099
+            },
+            {
+              "text": " a",
+              "start": 12.3,
+              "end": 12.38,
+              "probability": 0.9960338473320007
+            },
+            {
+              "text": " man",
+              "start": 12.38,
+              "end": 12.6,
+              "probability": 0.9991329312324524
+            },
+            {
+              "text": " as",
+              "start": 12.6,
+              "end": 12.8,
+              "probability": 0.9978806972503662
+            },
+            {
+              "text": " Mariequita,",
+              "start": 12.8,
+              "end": 13.62,
+              "probability": 0.6466231557230154
+            },
+            {
+              "text": " so",
+              "start": 13.66,
+              "end": 14.18,
+              "probability": 0.9777445197105408
+            },
+            {
+              "text": " he",
+              "start": 14.18,
+              "end": 14.32,
+              "probability": 0.9964571595191956
+            },
+            {
+              "text": " quarreled",
+              "start": 14.32,
+              "end": 14.66,
+              "probability": 0.9275190830230713
+            },
+            {
+              "text": " with",
+              "start": 14.66,
+              "end": 14.8,
+              "probability": 0.9922770261764526
+            },
+            {
+              "text": " Mariequita.",
+              "start": 14.8,
+              "end": 15.36,
+              "probability": 0.9822544852892557
+            },
+            {
+              "text": " The",
+              "start": 15.98,
+              "end": 16.24,
+              "probability": 0.9891797304153442
+            },
+            {
+              "text": " girl",
+              "start": 16.24,
+              "end": 16.42,
+              "probability": 0.9936595559120178
+            },
+            {
+              "text": " was",
+              "start": 16.42,
+              "end": 16.68,
+              "probability": 0.9992411136627197
+            }
+          ]
+        },
+        {
+          "text": " deprecatory at one moment, appealing to Robert. She was saucy the next, moving her head up",
+          "start": 16.68,
+          "end": 21.98,
+          "words": [
+            {
+              "text": " deprecatory",
+              "start": 16.68,
+              "end": 17.28,
+              "probability": 0.992060124874115
+            },
+            {
+              "text": " at",
+              "start": 17.28,
+              "end": 17.52,
+              "probability": 0.9923090934753418
+            },
+            {
+              "text": " one",
+              "start": 17.52,
+              "end": 17.72,
+              "probability": 0.9952321648597717
+            },
+            {
+              "text": " moment,",
+              "start": 17.72,
+              "end": 18.1,
+              "probability": 0.9947426319122314
+            },
+            {
+              "text": " appealing",
+              "start": 18.32,
+              "end": 18.62,
+              "probability": 0.9961578249931335
+            },
+            {
+              "text": " to",
+              "start": 18.62,
+              "end": 18.92,
+              "probability": 0.9984490871429443
+            },
+            {
+              "text": " Robert.",
+              "start": 18.92,
+              "end": 19.16,
+              "probability": 0.9987474679946899
+            },
+            {
+              "text": " She",
+              "start": 19.78,
+              "end": 19.94,
+              "probability": 0.9931093454360962
+            },
+            {
+              "text": " was",
+              "start": 19.94,
+              "end": 20.06,
+              "probability": 0.999300479888916
+            },
+            {
+              "text": " saucy",
+              "start": 20.06,
+              "end": 20.38,
+              "probability": 0.9673888882001241
+            },
+            {
+              "text": " the",
+              "start": 20.38,
+              "end": 20.52,
+              "probability": 0.9952214360237122
+            },
+            {
+              "text": " next,",
+              "start": 20.52,
+              "end": 20.86,
+              "probability": 0.9990838766098022
+            },
+            {
+              "text": " moving",
+              "start": 21.22,
+              "end": 21.42,
+              "probability": 0.9926763772964478
+            },
+            {
+              "text": " her",
+              "start": 21.42,
+              "end": 21.66,
+              "probability": 0.9961857199668884
+            },
+            {
+              "text": " head",
+              "start": 21.66,
+              "end": 21.84,
+              "probability": 0.99861741065979
+            },
+            {
+              "text": " up",
+              "start": 21.84,
+              "end": 21.98,
+              "probability": 0.998212456703186
+            }
+          ]
+        },
+        {
+          "text": " and down, making eyes at Robert and making mouths at Beaudelet.",
+          "start": 21.98,
+          "end": 26.06,
+          "words": [
+            {
+              "text": " and",
+              "start": 21.98,
+              "end": 22.1,
+              "probability": 0.9933506846427917
+            },
+            {
+              "text": " down,",
+              "start": 22.1,
+              "end": 22.4,
+              "probability": 0.9988453388214111
+            },
+            {
+              "text": " making",
+              "start": 22.8,
+              "end": 23.06,
+              "probability": 0.989384114742279
+            },
+            {
+              "text": " eyes",
+              "start": 23.06,
+              "end": 23.5,
+              "probability": 0.9845449924468994
+            },
+            {
+              "text": " at",
+              "start": 23.5,
+              "end": 23.82,
+              "probability": 0.9908599257469177
+            },
+            {
+              "text": " Robert",
+              "start": 23.82,
+              "end": 24.16,
+              "probability": 0.9993728995323181
+            },
+            {
+              "text": " and",
+              "start": 24.16,
+              "end": 24.42,
+              "probability": 0.9223800301551819
+            },
+            {
+              "text": " making",
+              "start": 24.42,
+              "end": 24.8,
+              "probability": 0.9924180507659912
+            },
+            {
+              "text": " mouths",
+              "start": 24.8,
+              "end": 25.28,
+              "probability": 0.46106263995170593
+            },
+            {
+              "text": " at",
+              "start": 25.28,
+              "end": 25.66,
+              "probability": 0.9981995820999146
+            },
+            {
+              "text": " Beaudelet.",
+              "start": 25.66,
+              "end": 26.06,
+              "probability": 0.9800701290369034
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beaudelet",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "grumbled",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "raw": "because",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "Mariequita",
+          "start": 1.56,
+          "end": 2.08
+        },
+        {
+          "raw": "was",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "there,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "taking",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "up",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "so",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "raw": "much",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "room.",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "raw": "In",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "raw": "reality",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "raw": "he",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "raw": "was",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "raw": "annoyed",
+          "start": 5.62,
+          "end": 5.88
+        },
+        {
+          "raw": "at",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "raw": "having",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "raw": "old",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "raw": "Monsieur",
+          "start": 6.64,
+          "end": 7.02
+        },
+        {
+          "raw": "Farival,",
+          "start": 7.02,
+          "end": 7.5
+        },
+        {
+          "raw": "who",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "raw": "considered",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "himself",
+          "start": 8.32,
+          "end": 8.72
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.2
+        },
+        {
+          "raw": "sailor",
+          "start": 9.2,
+          "end": 9.5
+        },
+        {
+          "raw": "of",
+          "start": 9.5,
+          "end": 9.76
+        },
+        {
+          "raw": "the",
+          "start": 9.76,
+          "end": 9.88
+        },
+        {
+          "raw": "two.",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "But",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "raw": "he",
+          "start": 10.9,
+          "end": 10.98
+        },
+        {
+          "raw": "would",
+          "start": 10.98,
+          "end": 11.08
+        },
+        {
+          "raw": "not",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "raw": "quarrel",
+          "start": 11.28,
+          "end": 11.6
+        },
+        {
+          "raw": "with",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "raw": "so",
+          "start": 11.88,
+          "end": 12.06
+        },
+        {
+          "raw": "old",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.38
+        },
+        {
+          "raw": "man",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "raw": "as",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "raw": "Mariequita,",
+          "start": 12.8,
+          "end": 13.62
+        },
+        {
+          "raw": "so",
+          "start": 13.66,
+          "end": 14.18
+        },
+        {
+          "raw": "he",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "raw": "quarreled",
+          "start": 14.32,
+          "end": 14.66
+        },
+        {
+          "raw": "with",
+          "start": 14.66,
+          "end": 14.8
+        },
+        {
+          "raw": "Mariequita.",
+          "start": 14.8,
+          "end": 15.36
+        },
+        {
+          "raw": "The",
+          "start": 15.98,
+          "end": 16.24
+        },
+        {
+          "raw": "girl",
+          "start": 16.24,
+          "end": 16.42
+        },
+        {
+          "raw": "was",
+          "start": 16.42,
+          "end": 16.68
+        },
+        {
+          "raw": "deprecatory",
+          "start": 16.68,
+          "end": 17.28
+        },
+        {
+          "raw": "at",
+          "start": 17.28,
+          "end": 17.52
+        },
+        {
+          "raw": "one",
+          "start": 17.52,
+          "end": 17.72
+        },
+        {
+          "raw": "moment,",
+          "start": 17.72,
+          "end": 18.1
+        },
+        {
+          "raw": "appealing",
+          "start": 18.32,
+          "end": 18.62
+        },
+        {
+          "raw": "to",
+          "start": 18.62,
+          "end": 18.92
+        },
+        {
+          "raw": "Robert.",
+          "start": 18.92,
+          "end": 19.16
+        },
+        {
+          "raw": "She",
+          "start": 19.78,
+          "end": 19.94
+        },
+        {
+          "raw": "was",
+          "start": 19.94,
+          "end": 20.06
+        },
+        {
+          "raw": "saucy",
+          "start": 20.06,
+          "end": 20.38
+        },
+        {
+          "raw": "the",
+          "start": 20.38,
+          "end": 20.52
+        },
+        {
+          "raw": "next,",
+          "start": 20.52,
+          "end": 20.86
+        },
+        {
+          "raw": "moving",
+          "start": 21.22,
+          "end": 21.42
+        },
+        {
+          "raw": "her",
+          "start": 21.42,
+          "end": 21.66
+        },
+        {
+          "raw": "head",
+          "start": 21.66,
+          "end": 21.84
+        },
+        {
+          "raw": "up",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "raw": "and",
+          "start": 21.98,
+          "end": 22.1
+        },
+        {
+          "raw": "down,",
+          "start": 22.1,
+          "end": 22.4
+        },
+        {
+          "raw": "making",
+          "start": 22.8,
+          "end": 23.06
+        },
+        {
+          "raw": "eyes",
+          "start": 23.06,
+          "end": 23.5
+        },
+        {
+          "raw": "at",
+          "start": 23.5,
+          "end": 23.82
+        },
+        {
+          "raw": "Robert",
+          "start": 23.82,
+          "end": 24.16
+        },
+        {
+          "raw": "and",
+          "start": 24.16,
+          "end": 24.42
+        },
+        {
+          "raw": "making",
+          "start": 24.42,
+          "end": 24.8
+        },
+        {
+          "raw": "mouths",
+          "start": 24.8,
+          "end": 25.28
+        },
+        {
+          "raw": "at",
+          "start": 25.28,
+          "end": 25.66
+        },
+        {
+          "raw": "Beaudelet.",
+          "start": 25.66,
+          "end": 26.06
+        }
+      ],
+      "expected_tokens": [
+        "Beaudelet",
+        "grumbled",
+        "because",
+        "Mariequita",
+        "was",
+        "there,",
+        "taking",
+        "up",
+        "so",
+        "much",
+        "room.",
+        "In",
+        "reality",
+        "he",
+        "was",
+        "annoyed",
+        "at",
+        "having",
+        "old",
+        "Monsieur",
+        "Farival,",
+        "who",
+        "considered",
+        "himself",
+        "the",
+        "better",
+        "sailor",
+        "of",
+        "the",
+        "two.",
+        "But",
+        "he",
+        "would",
+        "not",
+        "quarrel",
+        "with",
+        "so",
+        "old",
+        "a",
+        "man",
+        "as",
+        "Monsieur",
+        "Farival,",
+        "so",
+        "he",
+        "quarreled",
+        "with",
+        "Mariequita.",
+        "The",
+        "girl",
+        "was",
+        "deprecatory",
+        "at",
+        "one",
+        "moment,",
+        "appealing",
+        "to",
+        "Robert.",
+        "She",
+        "was",
+        "saucy",
+        "the",
+        "next,",
+        "moving",
+        "her",
+        "head",
+        "up",
+        "and",
+        "down,",
+        "making",
+        "“eyes”",
+        "at",
+        "Robert",
+        "and",
+        "making",
+        "“mouths”",
+        "at",
+        "Beaudelet."
+      ],
+      "acoustic_expected_tokens": [
+        "Beaudelet",
+        "grumbled",
+        "because",
+        "Mariequita",
+        "was",
+        "there,",
+        "taking",
+        "up",
+        "so",
+        "much",
+        "room.",
+        "In",
+        "reality",
+        "he",
+        "was",
+        "annoyed",
+        "at",
+        "having",
+        "old",
+        "Monsieur",
+        "Farival,",
+        "who",
+        "considered",
+        "himself",
+        "the",
+        "better",
+        "sailor",
+        "of",
+        "the",
+        "two.",
+        "But",
+        "he",
+        "would",
+        "not",
+        "quarrel",
+        "with",
+        "so",
+        "old",
+        "a",
+        "man",
+        "as",
+        "Monsieur",
+        "Farival,",
+        "so",
+        "he",
+        "quarreled",
+        "with",
+        "Mariequita.",
+        "The",
+        "girl",
+        "was",
+        "deprecatory",
+        "at",
+        "one",
+        "moment,",
+        "appealing",
+        "to",
+        "Robert.",
+        "She",
+        "was",
+        "saucy",
+        "the",
+        "next,",
+        "moving",
+        "her",
+        "head",
+        "up",
+        "and",
+        "down,",
+        "making",
+        "\"eyes\"",
+        "at",
+        "Robert",
+        "and",
+        "making",
+        "\"mouths\"",
+        "at",
+        "Beaudelet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          41,
+          0,
+          41
+        ],
+        [
+          "replace",
+          41,
+          43,
+          41,
+          42
+        ],
+        [
+          "equal",
+          43,
+          78,
+          42,
+          77
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 76
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          41,
+          43,
+          41,
+          42
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beaudelet",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "beaudelet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grumbled",
+          "start": 0.82,
+          "end": 1.24,
+          "key": "grumbled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "because",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mariequita",
+          "start": 1.56,
+          "end": 2.08,
+          "key": "mariequita",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "taking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.16,
+          "end": 3.36,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.36,
+          "end": 3.6,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 3.86,
+          "end": 4.14,
+          "key": "room",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.76,
+          "end": 4.9,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reality",
+          "start": 4.9,
+          "end": 5.26,
+          "key": "reality",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.26,
+          "end": 5.52,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.52,
+          "end": 5.62,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "annoyed",
+          "start": 5.62,
+          "end": 5.88,
+          "key": "annoyed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.88,
+          "end": 6.08,
+          "key": "at",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 6.08,
+          "end": 6.34,
+          "key": "having",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 6.34,
+          "end": 6.64,
+          "key": "old",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 6.64,
+          "end": 7.02,
+          "key": "monsieur",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Farival,",
+          "start": 7.02,
+          "end": 7.5,
+          "key": "farival",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 7.78,
+          "end": 8.0,
+          "key": "who",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "considered",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "considered",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 8.32,
+          "end": 8.72,
+          "key": "himself",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.98,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.2,
+          "key": "better",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sailor",
+          "start": 9.2,
+          "end": 9.5,
+          "key": "sailor",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.5,
+          "end": 9.76,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.76,
+          "end": 9.88,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "two.",
+          "start": 9.88,
+          "end": 10.1,
+          "key": "two",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 10.72,
+          "end": 10.9,
+          "key": "but",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.9,
+          "end": 10.98,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 10.98,
+          "end": 11.08,
+          "key": "would",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.08,
+          "end": 11.28,
+          "key": "not",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "quarrel",
+          "start": 11.28,
+          "end": 11.6,
+          "key": "quarrel",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 11.6,
+          "end": 11.88,
+          "key": "with",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 11.88,
+          "end": 12.06,
+          "key": "so",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 12.06,
+          "end": 12.3,
+          "key": "old",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.38,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.38,
+          "end": 12.6,
+          "key": "man",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.6,
+          "end": 12.8,
+          "key": "as",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Mariequita,",
+          "start": 12.8,
+          "end": 13.62,
+          "key": "mariequita",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 13.66,
+          "end": 14.18,
+          "key": "so",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.18,
+          "end": 14.32,
+          "key": "he",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "quarreled",
+          "start": 14.32,
+          "end": 14.66,
+          "key": "quarreled",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 14.66,
+          "end": 14.8,
+          "key": "with",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Mariequita.",
+          "start": 14.8,
+          "end": 15.36,
+          "key": "mariequita",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 15.98,
+          "end": 16.24,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "girl",
+          "start": 16.24,
+          "end": 16.42,
+          "key": "girl",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 16.42,
+          "end": 16.68,
+          "key": "was",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "deprecatory",
+          "start": 16.68,
+          "end": 17.28,
+          "key": "deprecatory",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 17.28,
+          "end": 17.52,
+          "key": "at",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 17.52,
+          "end": 17.72,
+          "key": "one",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 17.72,
+          "end": 18.1,
+          "key": "moment",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "appealing",
+          "start": 18.32,
+          "end": 18.62,
+          "key": "appealing",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.62,
+          "end": 18.92,
+          "key": "to",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Robert.",
+          "start": 18.92,
+          "end": 19.16,
+          "key": "robert",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 19.78,
+          "end": 19.94,
+          "key": "she",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.94,
+          "end": 20.06,
+          "key": "was",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "saucy",
+          "start": 20.06,
+          "end": 20.38,
+          "key": "saucy",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.38,
+          "end": 20.52,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "next,",
+          "start": 20.52,
+          "end": 20.86,
+          "key": "next",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "moving",
+          "start": 21.22,
+          "end": 21.42,
+          "key": "moving",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 21.42,
+          "end": 21.66,
+          "key": "her",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 21.66,
+          "end": 21.84,
+          "key": "head",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 21.84,
+          "end": 21.98,
+          "key": "up",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.98,
+          "end": 22.1,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 22.1,
+          "end": 22.4,
+          "key": "down",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 22.8,
+          "end": 23.06,
+          "key": "making",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 23.06,
+          "end": 23.5,
+          "key": "eyes",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 23.5,
+          "end": 23.82,
+          "key": "at",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Robert",
+          "start": 23.82,
+          "end": 24.16,
+          "key": "robert",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.16,
+          "end": 24.42,
+          "key": "and",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 24.42,
+          "end": 24.8,
+          "key": "making",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "mouths",
+          "start": 24.8,
+          "end": 25.28,
+          "key": "mouths",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 25.28,
+          "end": 25.66,
+          "key": "at",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Beaudelet.",
+          "start": 25.66,
+          "end": 26.06,
+          "key": "beaudelet",
+          "pieces": [
+            76
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Beaudelet",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "grumbled",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "text": "because",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "Mariequita",
+          "start": 1.56,
+          "end": 2.08
+        },
+        {
+          "text": "was",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "there,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "taking",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "up",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "so",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "text": "much",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "room.",
+          "start": 3.86,
+          "end": 4.14
+        },
+        {
+          "text": "In",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "text": "reality",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "text": "he",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "text": "was",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "text": "annoyed",
+          "start": 5.62,
+          "end": 5.88
+        },
+        {
+          "text": "at",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "text": "having",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "text": "old",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "text": "Monsieur",
+          "start": 6.64,
+          "end": 7.02
+        },
+        {
+          "text": "Farival,",
+          "start": 7.02,
+          "end": 7.5
+        },
+        {
+          "text": "who",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "text": "considered",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "himself",
+          "start": 8.32,
+          "end": 8.72
+        },
+        {
+          "text": "the",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "text": "better",
+          "start": 8.98,
+          "end": 9.2
+        },
+        {
+          "text": "sailor",
+          "start": 9.2,
+          "end": 9.5
+        },
+        {
+          "text": "of",
+          "start": 9.5,
+          "end": 9.76
+        },
+        {
+          "text": "the",
+          "start": 9.76,
+          "end": 9.88
+        },
+        {
+          "text": "two.",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "But",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "text": "he",
+          "start": 10.9,
+          "end": 10.98
+        },
+        {
+          "text": "would",
+          "start": 10.98,
+          "end": 11.08
+        },
+        {
+          "text": "not",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "text": "quarrel",
+          "start": 11.28,
+          "end": 11.6
+        },
+        {
+          "text": "with",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "text": "so",
+          "start": 11.88,
+          "end": 12.06
+        },
+        {
+          "text": "old",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "text": "a",
+          "start": 12.3,
+          "end": 12.38
+        },
+        {
+          "text": "man",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "text": "as",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "text": "Monsieur",
+          "start": 12.8,
+          "end": 13.23
+        },
+        {
+          "text": "Farival,",
+          "start": 13.23,
+          "end": 13.445
+        },
+        {
+          "text": "so",
+          "start": 13.66,
+          "end": 14.18
+        },
+        {
+          "text": "he",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "text": "quarreled",
+          "start": 14.32,
+          "end": 14.66
+        },
+        {
+          "text": "with",
+          "start": 14.66,
+          "end": 14.8
+        },
+        {
+          "text": "Mariequita.",
+          "start": 14.8,
+          "end": 15.36
+        },
+        {
+          "text": "The",
+          "start": 15.98,
+          "end": 16.24
+        },
+        {
+          "text": "girl",
+          "start": 16.24,
+          "end": 16.42
+        },
+        {
+          "text": "was",
+          "start": 16.42,
+          "end": 16.68
+        },
+        {
+          "text": "deprecatory",
+          "start": 16.68,
+          "end": 17.28
+        },
+        {
+          "text": "at",
+          "start": 17.28,
+          "end": 17.52
+        },
+        {
+          "text": "one",
+          "start": 17.52,
+          "end": 17.72
+        },
+        {
+          "text": "moment,",
+          "start": 17.72,
+          "end": 18.1
+        },
+        {
+          "text": "appealing",
+          "start": 18.32,
+          "end": 18.62
+        },
+        {
+          "text": "to",
+          "start": 18.62,
+          "end": 18.92
+        },
+        {
+          "text": "Robert.",
+          "start": 18.92,
+          "end": 19.16
+        },
+        {
+          "text": "She",
+          "start": 19.78,
+          "end": 19.94
+        },
+        {
+          "text": "was",
+          "start": 19.94,
+          "end": 20.06
+        },
+        {
+          "text": "saucy",
+          "start": 20.06,
+          "end": 20.38
+        },
+        {
+          "text": "the",
+          "start": 20.38,
+          "end": 20.52
+        },
+        {
+          "text": "next,",
+          "start": 20.52,
+          "end": 20.86
+        },
+        {
+          "text": "moving",
+          "start": 21.22,
+          "end": 21.42
+        },
+        {
+          "text": "her",
+          "start": 21.42,
+          "end": 21.66
+        },
+        {
+          "text": "head",
+          "start": 21.66,
+          "end": 21.84
+        },
+        {
+          "text": "up",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "text": "and",
+          "start": 21.98,
+          "end": 22.1
+        },
+        {
+          "text": "down,",
+          "start": 22.1,
+          "end": 22.4
+        },
+        {
+          "text": "making",
+          "start": 22.8,
+          "end": 23.06
+        },
+        {
+          "text": "“eyes”",
+          "start": 23.06,
+          "end": 23.5
+        },
+        {
+          "text": "at",
+          "start": 23.5,
+          "end": 23.82
+        },
+        {
+          "text": "Robert",
+          "start": 23.82,
+          "end": 24.16
+        },
+        {
+          "text": "and",
+          "start": 24.16,
+          "end": 24.42
+        },
+        {
+          "text": "making",
+          "start": 24.42,
+          "end": 24.8
+        },
+        {
+          "text": "“mouths”",
+          "start": 24.8,
+          "end": 25.28
+        },
+        {
+          "text": "at",
+          "start": 25.28,
+          "end": 25.66
+        },
+        {
+          "text": "Beaudelet.",
+          "start": 25.66,
+          "end": 26.06
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 77,
+        "matched_words": 76
+      },
+      "match_ratio": 0.9743589743589743,
+      "rejection_reasons": [],
+      "seconds": 6.790696882999981
+    },
+    {
+      "asr_seconds": 8.993961511999998,
+      "alignment_seconds": 0.0049427220000097805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Beaudelet, Mariequita, In, Monsieur, Farival, But, Robert, She"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Beaudelet grumbled because Mariequita was there, taking up so much room. In reality he was annoyed",
+          "start": 0.08,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Beaudelet",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.39012016891501844
+            },
+            {
+              "text": " grumbled",
+              "start": 0.82,
+              "end": 1.24,
+              "probability": 0.9962070286273956
+            },
+            {
+              "text": " because",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.9889523386955261
+            },
+            {
+              "text": " Mariequita",
+              "start": 1.56,
+              "end": 2.08,
+              "probability": 0.42263580051561195
+            },
+            {
+              "text": " was",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.9983893632888794
+            },
+            {
+              "text": " there,",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.9973708391189575
+            },
+            {
+              "text": " taking",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.9959819316864014
+            },
+            {
+              "text": " up",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.9992074370384216
+            },
+            {
+              "text": " so",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.9979357719421387
+            },
+            {
+              "text": " much",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.9993643164634705
+            },
+            {
+              "text": " room.",
+              "start": 3.86,
+              "end": 4.12,
+              "probability": 0.9991138577461243
+            },
+            {
+              "text": " In",
+              "start": 4.76,
+              "end": 4.9,
+              "probability": 0.9977261424064636
+            },
+            {
+              "text": " reality",
+              "start": 4.9,
+              "end": 5.26,
+              "probability": 0.9996013045310974
+            },
+            {
+              "text": " he",
+              "start": 5.26,
+              "end": 5.52,
+              "probability": 0.36693257093429565
+            },
+            {
+              "text": " was",
+              "start": 5.52,
+              "end": 5.62,
+              "probability": 0.999639630317688
+            },
+            {
+              "text": " annoyed",
+              "start": 5.62,
+              "end": 5.88,
+              "probability": 0.9989244341850281
+            }
+          ]
+        },
+        {
+          "text": " at having old Monsieur Farival, who considered himself the better sailor of the two. But he",
+          "start": 5.88,
+          "end": 10.98,
+          "words": [
+            {
+              "text": " at",
+              "start": 5.88,
+              "end": 6.08,
+              "probability": 0.9969884753227234
+            },
+            {
+              "text": " having",
+              "start": 6.08,
+              "end": 6.34,
+              "probability": 0.998472273349762
+            },
+            {
+              "text": " old",
+              "start": 6.34,
+              "end": 6.62,
+              "probability": 0.988723874092102
+            },
+            {
+              "text": " Monsieur",
+              "start": 6.62,
+              "end": 7.02,
+              "probability": 0.9107232292493185
+            },
+            {
+              "text": " Farival,",
+              "start": 7.02,
+              "end": 7.5,
+              "probability": 0.39293062686920166
+            },
+            {
+              "text": " who",
+              "start": 7.78,
+              "end": 8.0,
+              "probability": 0.9983248114585876
+            },
+            {
+              "text": " considered",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.9905974268913269
+            },
+            {
+              "text": " himself",
+              "start": 8.32,
+              "end": 8.72,
+              "probability": 0.9980990290641785
+            },
+            {
+              "text": " the",
+              "start": 8.72,
+              "end": 8.98,
+              "probability": 0.9905141592025757
+            },
+            {
+              "text": " better",
+              "start": 8.98,
+              "end": 9.2,
+              "probability": 0.9842224717140198
+            },
+            {
+              "text": " sailor",
+              "start": 9.2,
+              "end": 9.5,
+              "probability": 0.9083054661750793
+            },
+            {
+              "text": " of",
+              "start": 9.5,
+              "end": 9.76,
+              "probability": 0.998435914516449
+            },
+            {
+              "text": " the",
+              "start": 9.76,
+              "end": 9.88,
+              "probability": 0.9975419044494629
+            },
+            {
+              "text": " two.",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.9971864819526672
+            },
+            {
+              "text": " But",
+              "start": 10.72,
+              "end": 10.9,
+              "probability": 0.9963078498840332
+            },
+            {
+              "text": " he",
+              "start": 10.9,
+              "end": 10.98,
+              "probability": 0.9902591705322266
+            }
+          ]
+        },
+        {
+          "text": " would not quarrel with so old a man as Monsieur Farival, so he quarrelled with Mariequita.",
+          "start": 10.98,
+          "end": 15.36,
+          "words": [
+            {
+              "text": " would",
+              "start": 10.98,
+              "end": 11.08,
+              "probability": 0.9981138706207275
+            },
+            {
+              "text": " not",
+              "start": 11.08,
+              "end": 11.28,
+              "probability": 0.9977818131446838
+            },
+            {
+              "text": " quarrel",
+              "start": 11.28,
+              "end": 11.6,
+              "probability": 0.999173104763031
+            },
+            {
+              "text": " with",
+              "start": 11.6,
+              "end": 11.88,
+              "probability": 0.9984970092773438
+            },
+            {
+              "text": " so",
+              "start": 11.88,
+              "end": 12.04,
+              "probability": 0.9968936443328857
+            },
+            {
+              "text": " old",
+              "start": 12.04,
+              "end": 12.3,
+              "probability": 0.9744130373001099
+            },
+            {
+              "text": " a",
+              "start": 12.3,
+              "end": 12.38,
+              "probability": 0.9960338473320007
+            },
+            {
+              "text": " man",
+              "start": 12.38,
+              "end": 12.6,
+              "probability": 0.9991329312324524
+            },
+            {
+              "text": " as",
+              "start": 12.6,
+              "end": 12.8,
+              "probability": 0.9978806972503662
+            },
+            {
+              "text": " Monsieur",
+              "start": 12.8,
+              "end": 13.16,
+              "probability": 0.9176144599914551
+            },
+            {
+              "text": " Farival,",
+              "start": 13.16,
+              "end": 13.66,
+              "probability": 0.9724518656730652
+            },
+            {
+              "text": " so",
+              "start": 13.88,
+              "end": 14.18,
+              "probability": 0.996619462966919
+            },
+            {
+              "text": " he",
+              "start": 14.18,
+              "end": 14.32,
+              "probability": 0.9985484480857849
+            },
+            {
+              "text": " quarrelled",
+              "start": 14.32,
+              "end": 14.66,
+              "probability": 0.7653938631216685
+            },
+            {
+              "text": " with",
+              "start": 14.66,
+              "end": 14.8,
+              "probability": 0.9987778067588806
+            },
+            {
+              "text": " Mariequita.",
+              "start": 14.8,
+              "end": 15.36,
+              "probability": 0.9894243677457174
+            }
+          ]
+        },
+        {
+          "text": " The girl was deprecatory at one moment, appealing to Robert. She was saucy the next, moving her",
+          "start": 16.04,
+          "end": 21.68,
+          "words": [
+            {
+              "text": " The",
+              "start": 16.04,
+              "end": 16.24,
+              "probability": 0.9957756400108337
+            },
+            {
+              "text": " girl",
+              "start": 16.24,
+              "end": 16.44,
+              "probability": 0.9958145022392273
+            },
+            {
+              "text": " was",
+              "start": 16.44,
+              "end": 16.68,
+              "probability": 0.9995375871658325
+            },
+            {
+              "text": " deprecatory",
+              "start": 16.68,
+              "end": 17.28,
+              "probability": 0.9915967782338461
+            },
+            {
+              "text": " at",
+              "start": 17.28,
+              "end": 17.52,
+              "probability": 0.9932355284690857
+            },
+            {
+              "text": " one",
+              "start": 17.52,
+              "end": 17.72,
+              "probability": 0.9970691800117493
+            },
+            {
+              "text": " moment,",
+              "start": 17.72,
+              "end": 18.1,
+              "probability": 0.9972708821296692
+            },
+            {
+              "text": " appealing",
+              "start": 18.32,
+              "end": 18.62,
+              "probability": 0.9976972937583923
+            },
+            {
+              "text": " to",
+              "start": 18.62,
+              "end": 18.92,
+              "probability": 0.9994414448738098
+            },
+            {
+              "text": " Robert.",
+              "start": 18.92,
+              "end": 19.16,
+              "probability": 0.9990062117576599
+            },
+            {
+              "text": " She",
+              "start": 19.8,
+              "end": 19.94,
+              "probability": 0.9967531561851501
+            },
+            {
+              "text": " was",
+              "start": 19.94,
+              "end": 20.06,
+              "probability": 0.9994738698005676
+            },
+            {
+              "text": " saucy",
+              "start": 20.06,
+              "end": 20.38,
+              "probability": 0.9667997161547343
+            },
+            {
+              "text": " the",
+              "start": 20.38,
+              "end": 20.52,
+              "probability": 0.9957626461982727
+            },
+            {
+              "text": " next,",
+              "start": 20.52,
+              "end": 20.86,
+              "probability": 0.9992548823356628
+            },
+            {
+              "text": " moving",
+              "start": 21.22,
+              "end": 21.42,
+              "probability": 0.995965838432312
+            },
+            {
+              "text": " her",
+              "start": 21.42,
+              "end": 21.68,
+              "probability": 0.9984080195426941
+            }
+          ]
+        },
+        {
+          "text": " head up and down, making eyes at Robert and making mouths at Beaudelet.",
+          "start": 21.68,
+          "end": 26.12,
+          "words": [
+            {
+              "text": " head",
+              "start": 21.68,
+              "end": 21.84,
+              "probability": 0.4137136936187744
+            },
+            {
+              "text": " up",
+              "start": 21.84,
+              "end": 21.98,
+              "probability": 0.9874370098114014
+            },
+            {
+              "text": " and",
+              "start": 21.98,
+              "end": 22.1,
+              "probability": 0.9776831269264221
+            },
+            {
+              "text": " down,",
+              "start": 22.1,
+              "end": 22.42,
+              "probability": 0.9975341558456421
+            },
+            {
+              "text": " making",
+              "start": 22.86,
+              "end": 23.06,
+              "probability": 0.9830834865570068
+            },
+            {
+              "text": " eyes",
+              "start": 23.06,
+              "end": 23.52,
+              "probability": 0.9916252493858337
+            },
+            {
+              "text": " at",
+              "start": 23.52,
+              "end": 23.84,
+              "probability": 0.9936989545822144
+            },
+            {
+              "text": " Robert",
+              "start": 23.84,
+              "end": 24.14,
+              "probability": 0.9858672022819519
+            },
+            {
+              "text": " and",
+              "start": 24.14,
+              "end": 24.42,
+              "probability": 0.9230949878692627
+            },
+            {
+              "text": " making",
+              "start": 24.42,
+              "end": 24.8,
+              "probability": 0.9940358400344849
+            },
+            {
+              "text": " mouths",
+              "start": 24.8,
+              "end": 25.36,
+              "probability": 0.6945200562477112
+            },
+            {
+              "text": " at",
+              "start": 25.36,
+              "end": 25.66,
+              "probability": 0.9945713877677917
+            },
+            {
+              "text": " Beaudelet.",
+              "start": 25.66,
+              "end": 26.12,
+              "probability": 0.3076245386619121
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beaudelet",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "grumbled",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "raw": "because",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "Mariequita",
+          "start": 1.56,
+          "end": 2.08
+        },
+        {
+          "raw": "was",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "there,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "taking",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "up",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "much",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "room.",
+          "start": 3.86,
+          "end": 4.12
+        },
+        {
+          "raw": "In",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "raw": "reality",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "raw": "he",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "raw": "was",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "raw": "annoyed",
+          "start": 5.62,
+          "end": 5.88
+        },
+        {
+          "raw": "at",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "raw": "having",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "raw": "old",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "raw": "Monsieur",
+          "start": 6.62,
+          "end": 7.02
+        },
+        {
+          "raw": "Farival,",
+          "start": 7.02,
+          "end": 7.5
+        },
+        {
+          "raw": "who",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "raw": "considered",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "himself",
+          "start": 8.32,
+          "end": 8.72
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.2
+        },
+        {
+          "raw": "sailor",
+          "start": 9.2,
+          "end": 9.5
+        },
+        {
+          "raw": "of",
+          "start": 9.5,
+          "end": 9.76
+        },
+        {
+          "raw": "the",
+          "start": 9.76,
+          "end": 9.88
+        },
+        {
+          "raw": "two.",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "But",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "raw": "he",
+          "start": 10.9,
+          "end": 10.98
+        },
+        {
+          "raw": "would",
+          "start": 10.98,
+          "end": 11.08
+        },
+        {
+          "raw": "not",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "raw": "quarrel",
+          "start": 11.28,
+          "end": 11.6
+        },
+        {
+          "raw": "with",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "raw": "so",
+          "start": 11.88,
+          "end": 12.04
+        },
+        {
+          "raw": "old",
+          "start": 12.04,
+          "end": 12.3
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.38
+        },
+        {
+          "raw": "man",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "raw": "as",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "raw": "Monsieur",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "raw": "Farival,",
+          "start": 13.16,
+          "end": 13.66
+        },
+        {
+          "raw": "so",
+          "start": 13.88,
+          "end": 14.18
+        },
+        {
+          "raw": "he",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "raw": "quarrelled",
+          "start": 14.32,
+          "end": 14.66
+        },
+        {
+          "raw": "with",
+          "start": 14.66,
+          "end": 14.8
+        },
+        {
+          "raw": "Mariequita.",
+          "start": 14.8,
+          "end": 15.36
+        },
+        {
+          "raw": "The",
+          "start": 16.04,
+          "end": 16.24
+        },
+        {
+          "raw": "girl",
+          "start": 16.24,
+          "end": 16.44
+        },
+        {
+          "raw": "was",
+          "start": 16.44,
+          "end": 16.68
+        },
+        {
+          "raw": "deprecatory",
+          "start": 16.68,
+          "end": 17.28
+        },
+        {
+          "raw": "at",
+          "start": 17.28,
+          "end": 17.52
+        },
+        {
+          "raw": "one",
+          "start": 17.52,
+          "end": 17.72
+        },
+        {
+          "raw": "moment,",
+          "start": 17.72,
+          "end": 18.1
+        },
+        {
+          "raw": "appealing",
+          "start": 18.32,
+          "end": 18.62
+        },
+        {
+          "raw": "to",
+          "start": 18.62,
+          "end": 18.92
+        },
+        {
+          "raw": "Robert.",
+          "start": 18.92,
+          "end": 19.16
+        },
+        {
+          "raw": "She",
+          "start": 19.8,
+          "end": 19.94
+        },
+        {
+          "raw": "was",
+          "start": 19.94,
+          "end": 20.06
+        },
+        {
+          "raw": "saucy",
+          "start": 20.06,
+          "end": 20.38
+        },
+        {
+          "raw": "the",
+          "start": 20.38,
+          "end": 20.52
+        },
+        {
+          "raw": "next,",
+          "start": 20.52,
+          "end": 20.86
+        },
+        {
+          "raw": "moving",
+          "start": 21.22,
+          "end": 21.42
+        },
+        {
+          "raw": "her",
+          "start": 21.42,
+          "end": 21.68
+        },
+        {
+          "raw": "head",
+          "start": 21.68,
+          "end": 21.84
+        },
+        {
+          "raw": "up",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "raw": "and",
+          "start": 21.98,
+          "end": 22.1
+        },
+        {
+          "raw": "down,",
+          "start": 22.1,
+          "end": 22.42
+        },
+        {
+          "raw": "making",
+          "start": 22.86,
+          "end": 23.06
+        },
+        {
+          "raw": "eyes",
+          "start": 23.06,
+          "end": 23.52
+        },
+        {
+          "raw": "at",
+          "start": 23.52,
+          "end": 23.84
+        },
+        {
+          "raw": "Robert",
+          "start": 23.84,
+          "end": 24.14
+        },
+        {
+          "raw": "and",
+          "start": 24.14,
+          "end": 24.42
+        },
+        {
+          "raw": "making",
+          "start": 24.42,
+          "end": 24.8
+        },
+        {
+          "raw": "mouths",
+          "start": 24.8,
+          "end": 25.36
+        },
+        {
+          "raw": "at",
+          "start": 25.36,
+          "end": 25.66
+        },
+        {
+          "raw": "Beaudelet.",
+          "start": 25.66,
+          "end": 26.12
+        }
+      ],
+      "expected_tokens": [
+        "Beaudelet",
+        "grumbled",
+        "because",
+        "Mariequita",
+        "was",
+        "there,",
+        "taking",
+        "up",
+        "so",
+        "much",
+        "room.",
+        "In",
+        "reality",
+        "he",
+        "was",
+        "annoyed",
+        "at",
+        "having",
+        "old",
+        "Monsieur",
+        "Farival,",
+        "who",
+        "considered",
+        "himself",
+        "the",
+        "better",
+        "sailor",
+        "of",
+        "the",
+        "two.",
+        "But",
+        "he",
+        "would",
+        "not",
+        "quarrel",
+        "with",
+        "so",
+        "old",
+        "a",
+        "man",
+        "as",
+        "Monsieur",
+        "Farival,",
+        "so",
+        "he",
+        "quarreled",
+        "with",
+        "Mariequita.",
+        "The",
+        "girl",
+        "was",
+        "deprecatory",
+        "at",
+        "one",
+        "moment,",
+        "appealing",
+        "to",
+        "Robert.",
+        "She",
+        "was",
+        "saucy",
+        "the",
+        "next,",
+        "moving",
+        "her",
+        "head",
+        "up",
+        "and",
+        "down,",
+        "making",
+        "“eyes”",
+        "at",
+        "Robert",
+        "and",
+        "making",
+        "“mouths”",
+        "at",
+        "Beaudelet."
+      ],
+      "acoustic_expected_tokens": [
+        "Beaudelet",
+        "grumbled",
+        "because",
+        "Mariequita",
+        "was",
+        "there,",
+        "taking",
+        "up",
+        "so",
+        "much",
+        "room.",
+        "In",
+        "reality",
+        "he",
+        "was",
+        "annoyed",
+        "at",
+        "having",
+        "old",
+        "Monsieur",
+        "Farival,",
+        "who",
+        "considered",
+        "himself",
+        "the",
+        "better",
+        "sailor",
+        "of",
+        "the",
+        "two.",
+        "But",
+        "he",
+        "would",
+        "not",
+        "quarrel",
+        "with",
+        "so",
+        "old",
+        "a",
+        "man",
+        "as",
+        "Monsieur",
+        "Farival,",
+        "so",
+        "he",
+        "quarreled",
+        "with",
+        "Mariequita.",
+        "The",
+        "girl",
+        "was",
+        "deprecatory",
+        "at",
+        "one",
+        "moment,",
+        "appealing",
+        "to",
+        "Robert.",
+        "She",
+        "was",
+        "saucy",
+        "the",
+        "next,",
+        "moving",
+        "her",
+        "head",
+        "up",
+        "and",
+        "down,",
+        "making",
+        "\"eyes\"",
+        "at",
+        "Robert",
+        "and",
+        "making",
+        "\"mouths\"",
+        "at",
+        "Beaudelet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          45,
+          0,
+          45
+        ],
+        [
+          "replace",
+          45,
+          46,
+          45,
+          46
+        ],
+        [
+          "equal",
+          46,
+          78,
+          46,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          45,
+          46,
+          45,
+          46
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beaudelet",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "beaudelet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grumbled",
+          "start": 0.82,
+          "end": 1.24,
+          "key": "grumbled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "because",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mariequita",
+          "start": 1.56,
+          "end": 2.08,
+          "key": "mariequita",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "taking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.6,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 3.86,
+          "end": 4.12,
+          "key": "room",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.76,
+          "end": 4.9,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reality",
+          "start": 4.9,
+          "end": 5.26,
+          "key": "reality",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.26,
+          "end": 5.52,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.52,
+          "end": 5.62,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "annoyed",
+          "start": 5.62,
+          "end": 5.88,
+          "key": "annoyed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.88,
+          "end": 6.08,
+          "key": "at",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 6.08,
+          "end": 6.34,
+          "key": "having",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 6.34,
+          "end": 6.62,
+          "key": "old",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 6.62,
+          "end": 7.02,
+          "key": "monsieur",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Farival,",
+          "start": 7.02,
+          "end": 7.5,
+          "key": "farival",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 7.78,
+          "end": 8.0,
+          "key": "who",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "considered",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "considered",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 8.32,
+          "end": 8.72,
+          "key": "himself",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.98,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.2,
+          "key": "better",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sailor",
+          "start": 9.2,
+          "end": 9.5,
+          "key": "sailor",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.5,
+          "end": 9.76,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.76,
+          "end": 9.88,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "two.",
+          "start": 9.88,
+          "end": 10.1,
+          "key": "two",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 10.72,
+          "end": 10.9,
+          "key": "but",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.9,
+          "end": 10.98,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 10.98,
+          "end": 11.08,
+          "key": "would",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.08,
+          "end": 11.28,
+          "key": "not",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "quarrel",
+          "start": 11.28,
+          "end": 11.6,
+          "key": "quarrel",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 11.6,
+          "end": 11.88,
+          "key": "with",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 11.88,
+          "end": 12.04,
+          "key": "so",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 12.04,
+          "end": 12.3,
+          "key": "old",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.38,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.38,
+          "end": 12.6,
+          "key": "man",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.6,
+          "end": 12.8,
+          "key": "as",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 12.8,
+          "end": 13.16,
+          "key": "monsieur",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Farival,",
+          "start": 13.16,
+          "end": 13.66,
+          "key": "farival",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 13.88,
+          "end": 14.18,
+          "key": "so",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.18,
+          "end": 14.32,
+          "key": "he",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "quarrelled",
+          "start": 14.32,
+          "end": 14.66,
+          "key": "quarrelled",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 14.66,
+          "end": 14.8,
+          "key": "with",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Mariequita.",
+          "start": 14.8,
+          "end": 15.36,
+          "key": "mariequita",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 16.04,
+          "end": 16.24,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "girl",
+          "start": 16.24,
+          "end": 16.44,
+          "key": "girl",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 16.44,
+          "end": 16.68,
+          "key": "was",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "deprecatory",
+          "start": 16.68,
+          "end": 17.28,
+          "key": "deprecatory",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 17.28,
+          "end": 17.52,
+          "key": "at",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 17.52,
+          "end": 17.72,
+          "key": "one",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 17.72,
+          "end": 18.1,
+          "key": "moment",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "appealing",
+          "start": 18.32,
+          "end": 18.62,
+          "key": "appealing",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.62,
+          "end": 18.92,
+          "key": "to",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Robert.",
+          "start": 18.92,
+          "end": 19.16,
+          "key": "robert",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 19.8,
+          "end": 19.94,
+          "key": "she",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.94,
+          "end": 20.06,
+          "key": "was",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "saucy",
+          "start": 20.06,
+          "end": 20.38,
+          "key": "saucy",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.38,
+          "end": 20.52,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "next,",
+          "start": 20.52,
+          "end": 20.86,
+          "key": "next",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "moving",
+          "start": 21.22,
+          "end": 21.42,
+          "key": "moving",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 21.42,
+          "end": 21.68,
+          "key": "her",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 21.68,
+          "end": 21.84,
+          "key": "head",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 21.84,
+          "end": 21.98,
+          "key": "up",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.98,
+          "end": 22.1,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 22.1,
+          "end": 22.42,
+          "key": "down",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 22.86,
+          "end": 23.06,
+          "key": "making",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 23.06,
+          "end": 23.52,
+          "key": "eyes",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 23.52,
+          "end": 23.84,
+          "key": "at",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Robert",
+          "start": 23.84,
+          "end": 24.14,
+          "key": "robert",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.14,
+          "end": 24.42,
+          "key": "and",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 24.42,
+          "end": 24.8,
+          "key": "making",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "mouths",
+          "start": 24.8,
+          "end": 25.36,
+          "key": "mouths",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 25.36,
+          "end": 25.66,
+          "key": "at",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Beaudelet.",
+          "start": 25.66,
+          "end": 26.12,
+          "key": "beaudelet",
+          "pieces": [
+            77
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Beaudelet",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "grumbled",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "text": "because",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "Mariequita",
+          "start": 1.56,
+          "end": 2.08
+        },
+        {
+          "text": "was",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "there,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "taking",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "up",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "so",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "much",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "room.",
+          "start": 3.86,
+          "end": 4.12
+        },
+        {
+          "text": "In",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "text": "reality",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "text": "he",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "text": "was",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "text": "annoyed",
+          "start": 5.62,
+          "end": 5.88
+        },
+        {
+          "text": "at",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "text": "having",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "text": "old",
+          "start": 6.34,
+          "end": 6.62
+        },
+        {
+          "text": "Monsieur",
+          "start": 6.62,
+          "end": 7.02
+        },
+        {
+          "text": "Farival,",
+          "start": 7.02,
+          "end": 7.5
+        },
+        {
+          "text": "who",
+          "start": 7.78,
+          "end": 8.0
+        },
+        {
+          "text": "considered",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "himself",
+          "start": 8.32,
+          "end": 8.72
+        },
+        {
+          "text": "the",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "text": "better",
+          "start": 8.98,
+          "end": 9.2
+        },
+        {
+          "text": "sailor",
+          "start": 9.2,
+          "end": 9.5
+        },
+        {
+          "text": "of",
+          "start": 9.5,
+          "end": 9.76
+        },
+        {
+          "text": "the",
+          "start": 9.76,
+          "end": 9.88
+        },
+        {
+          "text": "two.",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "But",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "text": "he",
+          "start": 10.9,
+          "end": 10.98
+        },
+        {
+          "text": "would",
+          "start": 10.98,
+          "end": 11.08
+        },
+        {
+          "text": "not",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "text": "quarrel",
+          "start": 11.28,
+          "end": 11.6
+        },
+        {
+          "text": "with",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "text": "so",
+          "start": 11.88,
+          "end": 12.04
+        },
+        {
+          "text": "old",
+          "start": 12.04,
+          "end": 12.3
+        },
+        {
+          "text": "a",
+          "start": 12.3,
+          "end": 12.38
+        },
+        {
+          "text": "man",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "text": "as",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "text": "Monsieur",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "text": "Farival,",
+          "start": 13.16,
+          "end": 13.66
+        },
+        {
+          "text": "so",
+          "start": 13.88,
+          "end": 14.18
+        },
+        {
+          "text": "he",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "text": "quarreled",
+          "start": 14.32,
+          "end": 14.49
+        },
+        {
+          "text": "with",
+          "start": 14.66,
+          "end": 14.8
+        },
+        {
+          "text": "Mariequita.",
+          "start": 14.8,
+          "end": 15.36
+        },
+        {
+          "text": "The",
+          "start": 16.04,
+          "end": 16.24
+        },
+        {
+          "text": "girl",
+          "start": 16.24,
+          "end": 16.44
+        },
+        {
+          "text": "was",
+          "start": 16.44,
+          "end": 16.68
+        },
+        {
+          "text": "deprecatory",
+          "start": 16.68,
+          "end": 17.28
+        },
+        {
+          "text": "at",
+          "start": 17.28,
+          "end": 17.52
+        },
+        {
+          "text": "one",
+          "start": 17.52,
+          "end": 17.72
+        },
+        {
+          "text": "moment,",
+          "start": 17.72,
+          "end": 18.1
+        },
+        {
+          "text": "appealing",
+          "start": 18.32,
+          "end": 18.62
+        },
+        {
+          "text": "to",
+          "start": 18.62,
+          "end": 18.92
+        },
+        {
+          "text": "Robert.",
+          "start": 18.92,
+          "end": 19.16
+        },
+        {
+          "text": "She",
+          "start": 19.8,
+          "end": 19.94
+        },
+        {
+          "text": "was",
+          "start": 19.94,
+          "end": 20.06
+        },
+        {
+          "text": "saucy",
+          "start": 20.06,
+          "end": 20.38
+        },
+        {
+          "text": "the",
+          "start": 20.38,
+          "end": 20.52
+        },
+        {
+          "text": "next,",
+          "start": 20.52,
+          "end": 20.86
+        },
+        {
+          "text": "moving",
+          "start": 21.22,
+          "end": 21.42
+        },
+        {
+          "text": "her",
+          "start": 21.42,
+          "end": 21.68
+        },
+        {
+          "text": "head",
+          "start": 21.68,
+          "end": 21.84
+        },
+        {
+          "text": "up",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "text": "and",
+          "start": 21.98,
+          "end": 22.1
+        },
+        {
+          "text": "down,",
+          "start": 22.1,
+          "end": 22.42
+        },
+        {
+          "text": "making",
+          "start": 22.86,
+          "end": 23.06
+        },
+        {
+          "text": "“eyes”",
+          "start": 23.06,
+          "end": 23.52
+        },
+        {
+          "text": "at",
+          "start": 23.52,
+          "end": 23.84
+        },
+        {
+          "text": "Robert",
+          "start": 23.84,
+          "end": 24.14
+        },
+        {
+          "text": "and",
+          "start": 24.14,
+          "end": 24.42
+        },
+        {
+          "text": "making",
+          "start": 24.42,
+          "end": 24.8
+        },
+        {
+          "text": "“mouths”",
+          "start": 24.8,
+          "end": 25.36
+        },
+        {
+          "text": "at",
+          "start": 25.36,
+          "end": 25.66
+        },
+        {
+          "text": "Beaudelet.",
+          "start": 25.66,
+          "end": 26.12
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 78,
+        "matched_words": 77
+      },
+      "match_ratio": 0.9871794871794872,
+      "rejection_reasons": [],
+      "seconds": 8.999033945999997
+    },
+    {
+      "asr_seconds": 8.504064745999983,
+      "alignment_seconds": 0.0054269720000093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Baudelit grumbled because Marikita was there, taking up so much room.",
+          "start": 0.08,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Baudelit",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.5439424626529217
+            },
+            {
+              "text": " grumbled",
+              "start": 0.84,
+              "end": 1.24,
+              "probability": 0.9968457520008087
+            },
+            {
+              "text": " because",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.9941580295562744
+            },
+            {
+              "text": " Marikita",
+              "start": 1.56,
+              "end": 2.06,
+              "probability": 0.6069172024726868
+            },
+            {
+              "text": " was",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.9989140033721924
+            },
+            {
+              "text": " there,",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.9979641437530518
+            },
+            {
+              "text": " taking",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.9970483183860779
+            },
+            {
+              "text": " up",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.9995206594467163
+            },
+            {
+              "text": " so",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.9984136819839478
+            },
+            {
+              "text": " much",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.9994801878929138
+            },
+            {
+              "text": " room.",
+              "start": 3.86,
+              "end": 4.12,
+              "probability": 0.9991199374198914
+            }
+          ]
+        },
+        {
+          "text": " In reality, he was annoyed at having old Monsieur Farival, who considered himself the better",
+          "start": 4.78,
+          "end": 9.22,
+          "words": [
+            {
+              "text": " In",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.9979180693626404
+            },
+            {
+              "text": " reality,",
+              "start": 4.9,
+              "end": 5.26,
+              "probability": 0.9996389150619507
+            },
+            {
+              "text": " he",
+              "start": 5.42,
+              "end": 5.52,
+              "probability": 0.9968680739402771
+            },
+            {
+              "text": " was",
+              "start": 5.52,
+              "end": 5.62,
+              "probability": 0.9997617602348328
+            },
+            {
+              "text": " annoyed",
+              "start": 5.62,
+              "end": 5.9,
+              "probability": 0.9994762539863586
+            },
+            {
+              "text": " at",
+              "start": 5.9,
+              "end": 6.08,
+              "probability": 0.9977830052375793
+            },
+            {
+              "text": " having",
+              "start": 6.08,
+              "end": 6.34,
+              "probability": 0.9989302754402161
+            },
+            {
+              "text": " old",
+              "start": 6.34,
+              "end": 6.64,
+              "probability": 0.9902036190032959
+            },
+            {
+              "text": " Monsieur",
+              "start": 6.64,
+              "end": 7.02,
+              "probability": 0.8265187740325928
+            },
+            {
+              "text": " Farival,",
+              "start": 7.02,
+              "end": 7.48,
+              "probability": 0.46074050664901733
+            },
+            {
+              "text": " who",
+              "start": 7.76,
+              "end": 8.0,
+              "probability": 0.9988517761230469
+            },
+            {
+              "text": " considered",
+              "start": 8.0,
+              "end": 8.32,
+              "probability": 0.9931411147117615
+            },
+            {
+              "text": " himself",
+              "start": 8.32,
+              "end": 8.72,
+              "probability": 0.9986218214035034
+            },
+            {
+              "text": " the",
+              "start": 8.72,
+              "end": 8.98,
+              "probability": 0.991048276424408
+            },
+            {
+              "text": " better",
+              "start": 8.98,
+              "end": 9.22,
+              "probability": 0.983955442905426
+            }
+          ]
+        },
+        {
+          "text": " sailor of the two.",
+          "start": 9.22,
+          "end": 10.1,
+          "words": [
+            {
+              "text": " sailor",
+              "start": 9.22,
+              "end": 9.5,
+              "probability": 0.8887284398078918
+            },
+            {
+              "text": " of",
+              "start": 9.5,
+              "end": 9.76,
+              "probability": 0.9987309575080872
+            },
+            {
+              "text": " the",
+              "start": 9.76,
+              "end": 9.88,
+              "probability": 0.9977735877037048
+            },
+            {
+              "text": " two.",
+              "start": 9.88,
+              "end": 10.1,
+              "probability": 0.9968735575675964
+            }
+          ]
+        },
+        {
+          "text": " But he would not quarrel with so old a man as Monsieur Farival, so he quarreled with",
+          "start": 10.72,
+          "end": 14.8,
+          "words": [
+            {
+              "text": " But",
+              "start": 10.72,
+              "end": 10.9,
+              "probability": 0.9972816705703735
+            },
+            {
+              "text": " he",
+              "start": 10.9,
+              "end": 10.98,
+              "probability": 0.9845424890518188
+            },
+            {
+              "text": " would",
+              "start": 10.98,
+              "end": 11.08,
+              "probability": 0.9980583786964417
+            },
+            {
+              "text": " not",
+              "start": 11.08,
+              "end": 11.28,
+              "probability": 0.9984276294708252
+            },
+            {
+              "text": " quarrel",
+              "start": 11.28,
+              "end": 11.6,
+              "probability": 0.9993495345115662
+            },
+            {
+              "text": " with",
+              "start": 11.6,
+              "end": 11.88,
+              "probability": 0.9989257454872131
+            },
+            {
+              "text": " so",
+              "start": 11.88,
+              "end": 12.04,
+              "probability": 0.9973944425582886
+            },
+            {
+              "text": " old",
+              "start": 12.04,
+              "end": 12.3,
+              "probability": 0.9819304347038269
+            },
+            {
+              "text": " a",
+              "start": 12.3,
+              "end": 12.38,
+              "probability": 0.9963924288749695
+            },
+            {
+              "text": " man",
+              "start": 12.38,
+              "end": 12.6,
+              "probability": 0.9993168115615845
+            },
+            {
+              "text": " as",
+              "start": 12.6,
+              "end": 12.8,
+              "probability": 0.9982284903526306
+            },
+            {
+              "text": " Monsieur",
+              "start": 12.8,
+              "end": 13.16,
+              "probability": 0.9932851990063986
+            },
+            {
+              "text": " Farival,",
+              "start": 13.16,
+              "end": 13.64,
+              "probability": 0.9748095870018005
+            },
+            {
+              "text": " so",
+              "start": 13.92,
+              "end": 14.18,
+              "probability": 0.9973909854888916
+            },
+            {
+              "text": " he",
+              "start": 14.18,
+              "end": 14.32,
+              "probability": 0.9983822107315063
+            },
+            {
+              "text": " quarreled",
+              "start": 14.32,
+              "end": 14.66,
+              "probability": 0.8680982987085978
+            },
+            {
+              "text": " with",
+              "start": 14.66,
+              "end": 14.8,
+              "probability": 0.9992266893386841
+            }
+          ]
+        },
+        {
+          "text": " Marikita.",
+          "start": 14.8,
+          "end": 15.38,
+          "words": [
+            {
+              "text": " Marikita.",
+              "start": 14.8,
+              "end": 15.38,
+              "probability": 0.9925411144892374
+            }
+          ]
+        },
+        {
+          "text": " The girl was deprecatory at one moment, appealing to Robert.",
+          "start": 16.04,
+          "end": 19.16,
+          "words": [
+            {
+              "text": " The",
+              "start": 16.04,
+              "end": 16.24,
+              "probability": 0.9965595602989197
+            },
+            {
+              "text": " girl",
+              "start": 16.24,
+              "end": 16.44,
+              "probability": 0.996246874332428
+            },
+            {
+              "text": " was",
+              "start": 16.44,
+              "end": 16.68,
+              "probability": 0.9996470212936401
+            },
+            {
+              "text": " deprecatory",
+              "start": 16.68,
+              "end": 17.28,
+              "probability": 0.9912130037943522
+            },
+            {
+              "text": " at",
+              "start": 17.28,
+              "end": 17.52,
+              "probability": 0.992283046245575
+            },
+            {
+              "text": " one",
+              "start": 17.52,
+              "end": 17.72,
+              "probability": 0.997398853302002
+            },
+            {
+              "text": " moment,",
+              "start": 17.72,
+              "end": 18.1,
+              "probability": 0.9979968667030334
+            },
+            {
+              "text": " appealing",
+              "start": 18.32,
+              "end": 18.62,
+              "probability": 0.9983539581298828
+            },
+            {
+              "text": " to",
+              "start": 18.62,
+              "end": 18.92,
+              "probability": 0.9996340274810791
+            },
+            {
+              "text": " Robert.",
+              "start": 18.92,
+              "end": 19.16,
+              "probability": 0.9990038275718689
+            }
+          ]
+        },
+        {
+          "text": " She was saucy the next, moving her head up and down, making eyes at Robert and making",
+          "start": 19.78,
+          "end": 24.8,
+          "words": [
+            {
+              "text": " She",
+              "start": 19.78,
+              "end": 19.94,
+              "probability": 0.9972028732299805
+            },
+            {
+              "text": " was",
+              "start": 19.94,
+              "end": 20.06,
+              "probability": 0.9994839429855347
+            },
+            {
+              "text": " saucy",
+              "start": 20.06,
+              "end": 20.38,
+              "probability": 0.9624333580334982
+            },
+            {
+              "text": " the",
+              "start": 20.38,
+              "end": 20.52,
+              "probability": 0.9962473511695862
+            },
+            {
+              "text": " next,",
+              "start": 20.52,
+              "end": 20.86,
+              "probability": 0.9993564486503601
+            },
+            {
+              "text": " moving",
+              "start": 21.22,
+              "end": 21.42,
+              "probability": 0.9970898032188416
+            },
+            {
+              "text": " her",
+              "start": 21.42,
+              "end": 21.66,
+              "probability": 0.9986739158630371
+            },
+            {
+              "text": " head",
+              "start": 21.66,
+              "end": 21.84,
+              "probability": 0.9993818998336792
+            },
+            {
+              "text": " up",
+              "start": 21.84,
+              "end": 21.98,
+              "probability": 0.9990518689155579
+            },
+            {
+              "text": " and",
+              "start": 21.98,
+              "end": 22.1,
+              "probability": 0.9949407577514648
+            },
+            {
+              "text": " down,",
+              "start": 22.1,
+              "end": 22.4,
+              "probability": 0.9994710087776184
+            },
+            {
+              "text": " making",
+              "start": 22.8,
+              "end": 23.06,
+              "probability": 0.9950941801071167
+            },
+            {
+              "text": " eyes",
+              "start": 23.06,
+              "end": 23.5,
+              "probability": 0.9897255301475525
+            },
+            {
+              "text": " at",
+              "start": 23.5,
+              "end": 23.82,
+              "probability": 0.9919348955154419
+            },
+            {
+              "text": " Robert",
+              "start": 23.82,
+              "end": 24.16,
+              "probability": 0.9997993111610413
+            },
+            {
+              "text": " and",
+              "start": 24.16,
+              "end": 24.42,
+              "probability": 0.9129198789596558
+            },
+            {
+              "text": " making",
+              "start": 24.42,
+              "end": 24.8,
+              "probability": 0.9965652823448181
+            }
+          ]
+        },
+        {
+          "text": " mouths at Baudelit.",
+          "start": 24.8,
+          "end": 26.18,
+          "words": [
+            {
+              "text": " mouths",
+              "start": 24.8,
+              "end": 25.38,
+              "probability": 0.0401763953268528
+            },
+            {
+              "text": " at",
+              "start": 25.38,
+              "end": 25.66,
+              "probability": 0.9772550463676453
+            },
+            {
+              "text": " Baudelit.",
+              "start": 25.66,
+              "end": 26.18,
+              "probability": 0.5296307057142258
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Baudelit",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "grumbled",
+          "start": 0.84,
+          "end": 1.24
+        },
+        {
+          "raw": "because",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "Marikita",
+          "start": 1.56,
+          "end": 2.06
+        },
+        {
+          "raw": "was",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "there,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "taking",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "up",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "much",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "room.",
+          "start": 3.86,
+          "end": 4.12
+        },
+        {
+          "raw": "In",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "reality,",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "raw": "he",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "raw": "was",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "raw": "annoyed",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "raw": "at",
+          "start": 5.9,
+          "end": 6.08
+        },
+        {
+          "raw": "having",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "raw": "old",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "raw": "Monsieur",
+          "start": 6.64,
+          "end": 7.02
+        },
+        {
+          "raw": "Farival,",
+          "start": 7.02,
+          "end": 7.48
+        },
+        {
+          "raw": "who",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "raw": "considered",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "raw": "himself",
+          "start": 8.32,
+          "end": 8.72
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.22
+        },
+        {
+          "raw": "sailor",
+          "start": 9.22,
+          "end": 9.5
+        },
+        {
+          "raw": "of",
+          "start": 9.5,
+          "end": 9.76
+        },
+        {
+          "raw": "the",
+          "start": 9.76,
+          "end": 9.88
+        },
+        {
+          "raw": "two.",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "raw": "But",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "raw": "he",
+          "start": 10.9,
+          "end": 10.98
+        },
+        {
+          "raw": "would",
+          "start": 10.98,
+          "end": 11.08
+        },
+        {
+          "raw": "not",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "raw": "quarrel",
+          "start": 11.28,
+          "end": 11.6
+        },
+        {
+          "raw": "with",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "raw": "so",
+          "start": 11.88,
+          "end": 12.04
+        },
+        {
+          "raw": "old",
+          "start": 12.04,
+          "end": 12.3
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.38
+        },
+        {
+          "raw": "man",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "raw": "as",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "raw": "Monsieur",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "raw": "Farival,",
+          "start": 13.16,
+          "end": 13.64
+        },
+        {
+          "raw": "so",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "raw": "he",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "raw": "quarreled",
+          "start": 14.32,
+          "end": 14.66
+        },
+        {
+          "raw": "with",
+          "start": 14.66,
+          "end": 14.8
+        },
+        {
+          "raw": "Marikita.",
+          "start": 14.8,
+          "end": 15.38
+        },
+        {
+          "raw": "The",
+          "start": 16.04,
+          "end": 16.24
+        },
+        {
+          "raw": "girl",
+          "start": 16.24,
+          "end": 16.44
+        },
+        {
+          "raw": "was",
+          "start": 16.44,
+          "end": 16.68
+        },
+        {
+          "raw": "deprecatory",
+          "start": 16.68,
+          "end": 17.28
+        },
+        {
+          "raw": "at",
+          "start": 17.28,
+          "end": 17.52
+        },
+        {
+          "raw": "one",
+          "start": 17.52,
+          "end": 17.72
+        },
+        {
+          "raw": "moment,",
+          "start": 17.72,
+          "end": 18.1
+        },
+        {
+          "raw": "appealing",
+          "start": 18.32,
+          "end": 18.62
+        },
+        {
+          "raw": "to",
+          "start": 18.62,
+          "end": 18.92
+        },
+        {
+          "raw": "Robert.",
+          "start": 18.92,
+          "end": 19.16
+        },
+        {
+          "raw": "She",
+          "start": 19.78,
+          "end": 19.94
+        },
+        {
+          "raw": "was",
+          "start": 19.94,
+          "end": 20.06
+        },
+        {
+          "raw": "saucy",
+          "start": 20.06,
+          "end": 20.38
+        },
+        {
+          "raw": "the",
+          "start": 20.38,
+          "end": 20.52
+        },
+        {
+          "raw": "next,",
+          "start": 20.52,
+          "end": 20.86
+        },
+        {
+          "raw": "moving",
+          "start": 21.22,
+          "end": 21.42
+        },
+        {
+          "raw": "her",
+          "start": 21.42,
+          "end": 21.66
+        },
+        {
+          "raw": "head",
+          "start": 21.66,
+          "end": 21.84
+        },
+        {
+          "raw": "up",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "raw": "and",
+          "start": 21.98,
+          "end": 22.1
+        },
+        {
+          "raw": "down,",
+          "start": 22.1,
+          "end": 22.4
+        },
+        {
+          "raw": "making",
+          "start": 22.8,
+          "end": 23.06
+        },
+        {
+          "raw": "eyes",
+          "start": 23.06,
+          "end": 23.5
+        },
+        {
+          "raw": "at",
+          "start": 23.5,
+          "end": 23.82
+        },
+        {
+          "raw": "Robert",
+          "start": 23.82,
+          "end": 24.16
+        },
+        {
+          "raw": "and",
+          "start": 24.16,
+          "end": 24.42
+        },
+        {
+          "raw": "making",
+          "start": 24.42,
+          "end": 24.8
+        },
+        {
+          "raw": "mouths",
+          "start": 24.8,
+          "end": 25.38
+        },
+        {
+          "raw": "at",
+          "start": 25.38,
+          "end": 25.66
+        },
+        {
+          "raw": "Baudelit.",
+          "start": 25.66,
+          "end": 26.18
+        }
+      ],
+      "expected_tokens": [
+        "Beaudelet",
+        "grumbled",
+        "because",
+        "Mariequita",
+        "was",
+        "there,",
+        "taking",
+        "up",
+        "so",
+        "much",
+        "room.",
+        "In",
+        "reality",
+        "he",
+        "was",
+        "annoyed",
+        "at",
+        "having",
+        "old",
+        "Monsieur",
+        "Farival,",
+        "who",
+        "considered",
+        "himself",
+        "the",
+        "better",
+        "sailor",
+        "of",
+        "the",
+        "two.",
+        "But",
+        "he",
+        "would",
+        "not",
+        "quarrel",
+        "with",
+        "so",
+        "old",
+        "a",
+        "man",
+        "as",
+        "Monsieur",
+        "Farival,",
+        "so",
+        "he",
+        "quarreled",
+        "with",
+        "Mariequita.",
+        "The",
+        "girl",
+        "was",
+        "deprecatory",
+        "at",
+        "one",
+        "moment,",
+        "appealing",
+        "to",
+        "Robert.",
+        "She",
+        "was",
+        "saucy",
+        "the",
+        "next,",
+        "moving",
+        "her",
+        "head",
+        "up",
+        "and",
+        "down,",
+        "making",
+        "“eyes”",
+        "at",
+        "Robert",
+        "and",
+        "making",
+        "“mouths”",
+        "at",
+        "Beaudelet."
+      ],
+      "acoustic_expected_tokens": [
+        "Beaudelet",
+        "grumbled",
+        "because",
+        "Mariequita",
+        "was",
+        "there,",
+        "taking",
+        "up",
+        "so",
+        "much",
+        "room.",
+        "In",
+        "reality",
+        "he",
+        "was",
+        "annoyed",
+        "at",
+        "having",
+        "old",
+        "Monsieur",
+        "Farival,",
+        "who",
+        "considered",
+        "himself",
+        "the",
+        "better",
+        "sailor",
+        "of",
+        "the",
+        "two.",
+        "But",
+        "he",
+        "would",
+        "not",
+        "quarrel",
+        "with",
+        "so",
+        "old",
+        "a",
+        "man",
+        "as",
+        "Monsieur",
+        "Farival,",
+        "so",
+        "he",
+        "quarreled",
+        "with",
+        "Mariequita.",
+        "The",
+        "girl",
+        "was",
+        "deprecatory",
+        "at",
+        "one",
+        "moment,",
+        "appealing",
+        "to",
+        "Robert.",
+        "She",
+        "was",
+        "saucy",
+        "the",
+        "next,",
+        "moving",
+        "her",
+        "head",
+        "up",
+        "and",
+        "down,",
+        "making",
+        "\"eyes\"",
+        "at",
+        "Robert",
+        "and",
+        "making",
+        "\"mouths\"",
+        "at",
+        "Beaudelet."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          47,
+          4,
+          47
+        ],
+        [
+          "replace",
+          47,
+          48,
+          47,
+          48
+        ],
+        [
+          "equal",
+          48,
+          77,
+          48,
+          77
+        ],
+        [
+          "replace",
+          77,
+          78,
+          77,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          47,
+          48,
+          47,
+          48
+        ],
+        [
+          "replace",
+          77,
+          78,
+          77,
+          78
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Baudelit",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "baudelit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grumbled",
+          "start": 0.84,
+          "end": 1.24,
+          "key": "grumbled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "because",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Marikita",
+          "start": 1.56,
+          "end": 2.06,
+          "key": "marikita",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "taking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.34,
+          "end": 3.6,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 3.86,
+          "end": 4.12,
+          "key": "room",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.78,
+          "end": 4.9,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reality,",
+          "start": 4.9,
+          "end": 5.26,
+          "key": "reality",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.42,
+          "end": 5.52,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.52,
+          "end": 5.62,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "annoyed",
+          "start": 5.62,
+          "end": 5.9,
+          "key": "annoyed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.9,
+          "end": 6.08,
+          "key": "at",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 6.08,
+          "end": 6.34,
+          "key": "having",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 6.34,
+          "end": 6.64,
+          "key": "old",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 6.64,
+          "end": 7.02,
+          "key": "monsieur",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Farival,",
+          "start": 7.02,
+          "end": 7.48,
+          "key": "farival",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 7.76,
+          "end": 8.0,
+          "key": "who",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "considered",
+          "start": 8.0,
+          "end": 8.32,
+          "key": "considered",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 8.32,
+          "end": 8.72,
+          "key": "himself",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.98,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 8.98,
+          "end": 9.22,
+          "key": "better",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sailor",
+          "start": 9.22,
+          "end": 9.5,
+          "key": "sailor",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.5,
+          "end": 9.76,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.76,
+          "end": 9.88,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "two.",
+          "start": 9.88,
+          "end": 10.1,
+          "key": "two",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 10.72,
+          "end": 10.9,
+          "key": "but",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.9,
+          "end": 10.98,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 10.98,
+          "end": 11.08,
+          "key": "would",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 11.08,
+          "end": 11.28,
+          "key": "not",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "quarrel",
+          "start": 11.28,
+          "end": 11.6,
+          "key": "quarrel",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 11.6,
+          "end": 11.88,
+          "key": "with",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 11.88,
+          "end": 12.04,
+          "key": "so",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 12.04,
+          "end": 12.3,
+          "key": "old",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.3,
+          "end": 12.38,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 12.38,
+          "end": 12.6,
+          "key": "man",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.6,
+          "end": 12.8,
+          "key": "as",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Monsieur",
+          "start": 12.8,
+          "end": 13.16,
+          "key": "monsieur",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Farival,",
+          "start": 13.16,
+          "end": 13.64,
+          "key": "farival",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 13.92,
+          "end": 14.18,
+          "key": "so",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.18,
+          "end": 14.32,
+          "key": "he",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "quarreled",
+          "start": 14.32,
+          "end": 14.66,
+          "key": "quarreled",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 14.66,
+          "end": 14.8,
+          "key": "with",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Marikita.",
+          "start": 14.8,
+          "end": 15.38,
+          "key": "marikita",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 16.04,
+          "end": 16.24,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "girl",
+          "start": 16.24,
+          "end": 16.44,
+          "key": "girl",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 16.44,
+          "end": 16.68,
+          "key": "was",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "deprecatory",
+          "start": 16.68,
+          "end": 17.28,
+          "key": "deprecatory",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 17.28,
+          "end": 17.52,
+          "key": "at",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 17.52,
+          "end": 17.72,
+          "key": "one",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "moment,",
+          "start": 17.72,
+          "end": 18.1,
+          "key": "moment",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "appealing",
+          "start": 18.32,
+          "end": 18.62,
+          "key": "appealing",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.62,
+          "end": 18.92,
+          "key": "to",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Robert.",
+          "start": 18.92,
+          "end": 19.16,
+          "key": "robert",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 19.78,
+          "end": 19.94,
+          "key": "she",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.94,
+          "end": 20.06,
+          "key": "was",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "saucy",
+          "start": 20.06,
+          "end": 20.38,
+          "key": "saucy",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.38,
+          "end": 20.52,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "next,",
+          "start": 20.52,
+          "end": 20.86,
+          "key": "next",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "moving",
+          "start": 21.22,
+          "end": 21.42,
+          "key": "moving",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 21.42,
+          "end": 21.66,
+          "key": "her",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 21.66,
+          "end": 21.84,
+          "key": "head",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 21.84,
+          "end": 21.98,
+          "key": "up",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.98,
+          "end": 22.1,
+          "key": "and",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 22.1,
+          "end": 22.4,
+          "key": "down",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 22.8,
+          "end": 23.06,
+          "key": "making",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 23.06,
+          "end": 23.5,
+          "key": "eyes",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 23.5,
+          "end": 23.82,
+          "key": "at",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Robert",
+          "start": 23.82,
+          "end": 24.16,
+          "key": "robert",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.16,
+          "end": 24.42,
+          "key": "and",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 24.42,
+          "end": 24.8,
+          "key": "making",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "mouths",
+          "start": 24.8,
+          "end": 25.38,
+          "key": "mouths",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 25.38,
+          "end": 25.66,
+          "key": "at",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Baudelit.",
+          "start": 25.66,
+          "end": 26.18,
+          "key": "baudelit",
+          "pieces": [
+            77
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Beaudelet",
+          "start": 0.0,
+          "end": 0.42
+        },
+        {
+          "text": "grumbled",
+          "start": 0.84,
+          "end": 1.24
+        },
+        {
+          "text": "because",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "Mariequita",
+          "start": 1.56,
+          "end": 1.81
+        },
+        {
+          "text": "was",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "there,",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "taking",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "up",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "so",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "much",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "room.",
+          "start": 3.86,
+          "end": 4.12
+        },
+        {
+          "text": "In",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "reality",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "text": "he",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "text": "was",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "text": "annoyed",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "text": "at",
+          "start": 5.9,
+          "end": 6.08
+        },
+        {
+          "text": "having",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "text": "old",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "text": "Monsieur",
+          "start": 6.64,
+          "end": 7.02
+        },
+        {
+          "text": "Farival,",
+          "start": 7.02,
+          "end": 7.48
+        },
+        {
+          "text": "who",
+          "start": 7.76,
+          "end": 8.0
+        },
+        {
+          "text": "considered",
+          "start": 8.0,
+          "end": 8.32
+        },
+        {
+          "text": "himself",
+          "start": 8.32,
+          "end": 8.72
+        },
+        {
+          "text": "the",
+          "start": 8.72,
+          "end": 8.98
+        },
+        {
+          "text": "better",
+          "start": 8.98,
+          "end": 9.22
+        },
+        {
+          "text": "sailor",
+          "start": 9.22,
+          "end": 9.5
+        },
+        {
+          "text": "of",
+          "start": 9.5,
+          "end": 9.76
+        },
+        {
+          "text": "the",
+          "start": 9.76,
+          "end": 9.88
+        },
+        {
+          "text": "two.",
+          "start": 9.88,
+          "end": 10.1
+        },
+        {
+          "text": "But",
+          "start": 10.72,
+          "end": 10.9
+        },
+        {
+          "text": "he",
+          "start": 10.9,
+          "end": 10.98
+        },
+        {
+          "text": "would",
+          "start": 10.98,
+          "end": 11.08
+        },
+        {
+          "text": "not",
+          "start": 11.08,
+          "end": 11.28
+        },
+        {
+          "text": "quarrel",
+          "start": 11.28,
+          "end": 11.6
+        },
+        {
+          "text": "with",
+          "start": 11.6,
+          "end": 11.88
+        },
+        {
+          "text": "so",
+          "start": 11.88,
+          "end": 12.04
+        },
+        {
+          "text": "old",
+          "start": 12.04,
+          "end": 12.3
+        },
+        {
+          "text": "a",
+          "start": 12.3,
+          "end": 12.38
+        },
+        {
+          "text": "man",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "text": "as",
+          "start": 12.6,
+          "end": 12.8
+        },
+        {
+          "text": "Monsieur",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "text": "Farival,",
+          "start": 13.16,
+          "end": 13.64
+        },
+        {
+          "text": "so",
+          "start": 13.92,
+          "end": 14.18
+        },
+        {
+          "text": "he",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "text": "quarreled",
+          "start": 14.32,
+          "end": 14.66
+        },
+        {
+          "text": "with",
+          "start": 14.66,
+          "end": 14.8
+        },
+        {
+          "text": "Mariequita.",
+          "start": 14.8,
+          "end": 15.42
+        },
+        {
+          "text": "The",
+          "start": 16.04,
+          "end": 16.24
+        },
+        {
+          "text": "girl",
+          "start": 16.24,
+          "end": 16.44
+        },
+        {
+          "text": "was",
+          "start": 16.44,
+          "end": 16.68
+        },
+        {
+          "text": "deprecatory",
+          "start": 16.68,
+          "end": 17.28
+        },
+        {
+          "text": "at",
+          "start": 17.28,
+          "end": 17.52
+        },
+        {
+          "text": "one",
+          "start": 17.52,
+          "end": 17.72
+        },
+        {
+          "text": "moment,",
+          "start": 17.72,
+          "end": 18.1
+        },
+        {
+          "text": "appealing",
+          "start": 18.32,
+          "end": 18.62
+        },
+        {
+          "text": "to",
+          "start": 18.62,
+          "end": 18.92
+        },
+        {
+          "text": "Robert.",
+          "start": 18.92,
+          "end": 19.16
+        },
+        {
+          "text": "She",
+          "start": 19.78,
+          "end": 19.94
+        },
+        {
+          "text": "was",
+          "start": 19.94,
+          "end": 20.06
+        },
+        {
+          "text": "saucy",
+          "start": 20.06,
+          "end": 20.38
+        },
+        {
+          "text": "the",
+          "start": 20.38,
+          "end": 20.52
+        },
+        {
+          "text": "next,",
+          "start": 20.52,
+          "end": 20.86
+        },
+        {
+          "text": "moving",
+          "start": 21.22,
+          "end": 21.42
+        },
+        {
+          "text": "her",
+          "start": 21.42,
+          "end": 21.66
+        },
+        {
+          "text": "head",
+          "start": 21.66,
+          "end": 21.84
+        },
+        {
+          "text": "up",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "text": "and",
+          "start": 21.98,
+          "end": 22.1
+        },
+        {
+          "text": "down,",
+          "start": 22.1,
+          "end": 22.4
+        },
+        {
+          "text": "making",
+          "start": 22.8,
+          "end": 23.06
+        },
+        {
+          "text": "“eyes”",
+          "start": 23.06,
+          "end": 23.5
+        },
+        {
+          "text": "at",
+          "start": 23.5,
+          "end": 23.82
+        },
+        {
+          "text": "Robert",
+          "start": 23.82,
+          "end": 24.16
+        },
+        {
+          "text": "and",
+          "start": 24.16,
+          "end": 24.42
+        },
+        {
+          "text": "making",
+          "start": 24.42,
+          "end": 24.8
+        },
+        {
+          "text": "“mouths”",
+          "start": 24.8,
+          "end": 25.38
+        },
+        {
+          "text": "at",
+          "start": 25.38,
+          "end": 25.66
+        },
+        {
+          "text": "Beaudelet.",
+          "start": 25.66,
+          "end": 25.92
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 78,
+        "matched_words": 74
+      },
+      "match_ratio": 0.9487179487179487,
+      "rejection_reasons": [],
+      "seconds": 8.509622149999984
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "1e40c66883a204d778e0631675b3ec0c83183ba428d4913aae1e0c2569b2736e",
+  "selected_reasons": []
+}

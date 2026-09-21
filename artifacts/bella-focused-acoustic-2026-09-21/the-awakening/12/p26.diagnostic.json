@@ -1,0 +1,799 @@
+{
+  "complete": true,
+  "signature": "ea2da6535332c248913f5dc10c786f81d762e657524e2c631172f7a0d709c7ce",
+  "attempts": [
+    {
+      "asr_seconds": 3.0646961699999906,
+      "alignment_seconds": 0.0010995380000053956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Climb up the hill to the old fort and look at the little wriggling gold snakes, and watch the lizards sun themselves.\"",
+        "hotwords": "Climb"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Climb up the hill to the old fort and look at the little wriggling gold snakes, and watch",
+          "start": 0.08,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " Climb",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.9069832265377045
+            },
+            {
+              "text": " up",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9965080618858337
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.9965433478355408
+            },
+            {
+              "text": " hill",
+              "start": 0.92,
+              "end": 1.08,
+              "probability": 0.9926244616508484
+            },
+            {
+              "text": " to",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.9969086050987244
+            },
+            {
+              "text": " the",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.9946807026863098
+            },
+            {
+              "text": " old",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.8101990222930908
+            },
+            {
+              "text": " fort",
+              "start": 1.62,
+              "end": 1.94,
+              "probability": 0.9802477955818176
+            },
+            {
+              "text": " and",
+              "start": 1.94,
+              "end": 2.46,
+              "probability": 0.7443525195121765
+            },
+            {
+              "text": " look",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.9984915256500244
+            },
+            {
+              "text": " at",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.998034656047821
+            },
+            {
+              "text": " the",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.9942387342453003
+            },
+            {
+              "text": " little",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.9950957894325256
+            },
+            {
+              "text": " wriggling",
+              "start": 3.02,
+              "end": 3.44,
+              "probability": 0.9747809171676636
+            },
+            {
+              "text": " gold",
+              "start": 3.44,
+              "end": 3.76,
+              "probability": 0.9730194807052612
+            },
+            {
+              "text": " snakes,",
+              "start": 3.76,
+              "end": 4.28,
+              "probability": 0.9848790764808655
+            },
+            {
+              "text": " and",
+              "start": 4.74,
+              "end": 4.96,
+              "probability": 0.9866859912872314
+            },
+            {
+              "text": " watch",
+              "start": 4.96,
+              "end": 5.22,
+              "probability": 0.9991416931152344
+            }
+          ]
+        },
+        {
+          "text": " the lizards sun themselves.",
+          "start": 5.22,
+          "end": 6.48,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.9982312321662903
+            },
+            {
+              "text": " lizards",
+              "start": 5.44,
+              "end": 5.7,
+              "probability": 0.5661691874265671
+            },
+            {
+              "text": " sun",
+              "start": 5.7,
+              "end": 6.04,
+              "probability": 0.8682512640953064
+            },
+            {
+              "text": " themselves.",
+              "start": 6.04,
+              "end": 6.48,
+              "probability": 0.9935205578804016
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Climb",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "up",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "hill",
+          "start": 0.92,
+          "end": 1.08
+        },
+        {
+          "raw": "to",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "old",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "fort",
+          "start": 1.62,
+          "end": 1.94
+        },
+        {
+          "raw": "and",
+          "start": 1.94,
+          "end": 2.46
+        },
+        {
+          "raw": "look",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "at",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "little",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "wriggling",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "raw": "gold",
+          "start": 3.44,
+          "end": 3.76
+        },
+        {
+          "raw": "snakes,",
+          "start": 3.76,
+          "end": 4.28
+        },
+        {
+          "raw": "and",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "raw": "watch",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "lizards",
+          "start": 5.44,
+          "end": 5.7
+        },
+        {
+          "raw": "sun",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "raw": "themselves.",
+          "start": 6.04,
+          "end": 6.48
+        }
+      ],
+      "expected_tokens": [
+        "“Climb",
+        "up",
+        "the",
+        "hill",
+        "to",
+        "the",
+        "old",
+        "fort",
+        "and",
+        "look",
+        "at",
+        "the",
+        "little",
+        "wriggling",
+        "gold",
+        "snakes,",
+        "and",
+        "watch",
+        "the",
+        "lizards",
+        "sun",
+        "themselves.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Climb",
+        "up",
+        "the",
+        "hill",
+        "to",
+        "the",
+        "old",
+        "fort",
+        "and",
+        "look",
+        "at",
+        "the",
+        "little",
+        "wriggling",
+        "gold",
+        "snakes,",
+        "and",
+        "watch",
+        "the",
+        "lizards",
+        "sun",
+        "themselves.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Climb",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "climb",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "up",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hill",
+          "start": 0.92,
+          "end": 1.08,
+          "key": "hill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "old",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fort",
+          "start": 1.62,
+          "end": 1.94,
+          "key": "fort",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.94,
+          "end": 2.46,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "look",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "little",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wriggling",
+          "start": 3.02,
+          "end": 3.44,
+          "key": "wriggling",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 3.44,
+          "end": 3.76,
+          "key": "gold",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "snakes,",
+          "start": 3.76,
+          "end": 4.28,
+          "key": "snakes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.74,
+          "end": 4.96,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 4.96,
+          "end": 5.22,
+          "key": "watch",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "lizards",
+          "start": 5.44,
+          "end": 5.7,
+          "key": "lizards",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 5.7,
+          "end": 6.04,
+          "key": "sun",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "themselves.",
+          "start": 6.04,
+          "end": 6.48,
+          "key": "themselves",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Climb",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "up",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "the",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "hill",
+          "start": 0.92,
+          "end": 1.08
+        },
+        {
+          "text": "to",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "the",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "old",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "fort",
+          "start": 1.62,
+          "end": 1.94
+        },
+        {
+          "text": "and",
+          "start": 1.94,
+          "end": 2.46
+        },
+        {
+          "text": "look",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "at",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "little",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "wriggling",
+          "start": 3.02,
+          "end": 3.44
+        },
+        {
+          "text": "gold",
+          "start": 3.44,
+          "end": 3.76
+        },
+        {
+          "text": "snakes,",
+          "start": 3.76,
+          "end": 4.28
+        },
+        {
+          "text": "and",
+          "start": 4.74,
+          "end": 4.96
+        },
+        {
+          "text": "watch",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "text": "the",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "lizards",
+          "start": 5.44,
+          "end": 5.7
+        },
+        {
+          "text": "sun",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "text": "themselves.”",
+          "start": 6.04,
+          "end": 6.48
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.0658407820000093
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df138e05d59df0e3d27d709c1c4ccb69397737d7831aae759d2fbeec0302a619",
+  "selected_reasons": []
+}

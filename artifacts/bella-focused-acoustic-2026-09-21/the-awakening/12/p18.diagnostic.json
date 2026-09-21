@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "e484e67080b714f8e49b2076b771760cf81a9381e51d3387cef4d58e1ef1f485",
+  "attempts": [
+    {
+      "asr_seconds": 2.1391817649999894,
+      "alignment_seconds": 0.0003243049999923642,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Does she understand?\"",
+        "hotwords": "Does"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Does she understand?",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Does",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.888963520526886
+            },
+            {
+              "text": " she",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9961923360824585
+            },
+            {
+              "text": " understand?",
+              "start": 0.66,
+              "end": 1.1,
+              "probability": 0.9973770380020142
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Does",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "she",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "understand?",
+          "start": 0.66,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "“Does",
+        "she",
+        "understand?”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Does",
+        "she",
+        "understand?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Does",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "does",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "understand?",
+          "start": 0.66,
+          "end": 1.1,
+          "key": "understand",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Does",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "she",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "understand?”",
+          "start": 0.66,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.1395202759999847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea9e6b48f6488b32e17c4571e816ecf54128ff695b038f8f1e77bd7388dd85c3",
+  "selected_reasons": []
+}
