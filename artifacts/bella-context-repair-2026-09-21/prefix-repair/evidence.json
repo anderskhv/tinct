@@ -7,15 +7,35 @@
       "diagnosticSha256": "167605423fe850a8216e653dea3cd08cade260a8a0cb6d381328b32ec75c9af5"
     },
     {
+      "paragraph": 3,
+      "restored": 1,
+      "diagnosticSha256": "90a51afa47f6d526aa1e5730ab24b10f6ae0cfc86c9117ebf9eaf109a50571ec"
+    },
+    {
+      "paragraph": 5,
+      "restored": 1,
+      "diagnosticSha256": "02c5772e7a96c9797cbd3e6f27a11250909b5b7a82e4730d96915a2df42637bc"
+    },
+    {
+      "paragraph": 6,
+      "restored": 1,
+      "diagnosticSha256": "0a5a4734ee92334639f0a41a3d5d3411a2611a8c4991a91ddc8d9164b8a25cb0"
+    },
+    {
       "paragraph": 7,
       "restored": 1,
       "diagnosticSha256": "eda3133b877e6f3c1f1578a1835e4f16e50abbb323d65c3f86873a3a0e3dc12a"
+    },
+    {
+      "paragraph": 8,
+      "restored": 1,
+      "diagnosticSha256": "5b6400c3ba9d63daab44b8c752489f0e6bca3349d6510f3fbeb7bbb8fa501405"
     }
   ],
-  "criterion_met": false,
-  "within_300ms": 28,
+  "criterion_met": true,
+  "within_300ms": 30,
   "selected_count": 30,
-  "max_delta": 1.35,
+  "max_delta": 0.28999999999999915,
   "selected_anchors": [
     {
       "paragraph": 0,
@@ -41,11 +61,11 @@
       "paragraph": 3,
       "word": 0,
       "text": "GONERIL.",
-      "candidate_start": 1.35,
+      "candidate_start": 0.05,
       "probe_start": 0.0,
-      "candidate_end": 1.35,
+      "candidate_end": 0.91,
       "probe_end": 0.88,
-      "max_delta": 1.35
+      "max_delta": 0.05
     },
     {
       "paragraph": 3,
@@ -251,11 +271,11 @@
       "paragraph": 8,
       "word": 0,
       "text": "GONERIL.",
-      "candidate_start": 1.34,
+      "candidate_start": 0.02,
       "probe_start": 0.0,
-      "candidate_end": 1.34,
+      "candidate_end": 0.92,
       "probe_end": 0.88,
-      "max_delta": 1.34
+      "max_delta": 0.040000000000000036
     },
     {
       "paragraph": 8,
@@ -318,7 +338,7 @@
       "max_delta": 0.11999999999999922
     }
   ],
-  "candidate_sha256": "9fb631fb9c5222a5c5ececdcdc72ec951972934654c8d3e169abf63f0960d6cd",
+  "candidate_sha256": "326bc38cd664a11b1246f7a555b1751f644bb660fdfbf11551505d21b3503219",
   "probe_model_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
   "source_audio_hashes_reverified": true
 }

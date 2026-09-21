@@ -145,8 +145,8 @@
       "words": [
         {
           "text": "GONERIL.",
-          "start": 1.35,
-          "end": 1.35
+          "start": 0.05,
+          "end": 0.91
         },
         {
           "text": "By",
@@ -500,9 +500,9 @@
         }
       ],
       "alignment": {
-        "expectedWords": 70,
+        "expectedWords": 71,
         "heardWords": 71,
-        "matchedWords": 70,
+        "matchedWords": 71,
         "matchRatio": 1.0,
         "bias": "both"
       }
@@ -536,8 +536,8 @@
       "words": [
         {
           "text": "OSWALD.",
-          "start": 1.25,
-          "end": 1.25
+          "start": 0.05,
+          "end": 0.79
         },
         {
           "text": "He\u2019s",
@@ -571,9 +571,9 @@
         }
       ],
       "alignment": {
-        "expectedWords": 6,
+        "expectedWords": 7,
         "heardWords": 7,
-        "matchedWords": 6,
+        "matchedWords": 7,
         "matchRatio": 1.0,
         "bias": "both"
       }
@@ -584,8 +584,8 @@
       "words": [
         {
           "text": "GONERIL.",
-          "start": 1.33,
-          "end": 1.33
+          "start": 0.05,
+          "end": 0.91
         },
         {
           "text": "Put",
@@ -994,10 +994,10 @@
         }
       ],
       "alignment": {
-        "expectedWords": 81,
+        "expectedWords": 82,
         "heardWords": 82,
-        "matchedWords": 78,
-        "matchRatio": 0.9629629629629629,
+        "matchedWords": 79,
+        "matchRatio": 0.9634146341463414,
         "bias": "both"
       }
     },
@@ -1040,8 +1040,8 @@
       "words": [
         {
           "text": "GONERIL.",
-          "start": 1.34,
-          "end": 1.34
+          "start": 0.02,
+          "end": 0.92
         },
         {
           "text": "And",
@@ -1275,9 +1275,9 @@
         }
       ],
       "alignment": {
-        "expectedWords": 46,
+        "expectedWords": 47,
         "heardWords": 47,
-        "matchedWords": 46,
+        "matchedWords": 47,
         "matchRatio": 1.0,
         "bias": "both"
       }
@@ -1304,10 +1304,10 @@
   "model": "medium.en",
   "language": "en",
   "alignment": {
-    "expectedWords": 228,
+    "expectedWords": 232,
     "heardWords": 233,
-    "matchedWords": 225,
-    "matchRatio": 0.9868421052631579,
+    "matchedWords": 229,
+    "matchRatio": 0.9870689655172413,
     "minimumParagraphRatio": 0.85,
     "bias": "auto"
   }
