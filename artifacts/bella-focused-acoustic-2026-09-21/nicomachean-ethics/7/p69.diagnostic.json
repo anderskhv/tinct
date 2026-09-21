@@ -1,0 +1,2824 @@
+{
+  "complete": true,
+  "signature": "28e626178923a7183d2af77144e75d959a1d40758bcf6dd49b387dccdcabbd72",
+  "attempts": [
+    {
+      "asr_seconds": 29.34647302899998,
+      "alignment_seconds": 0.002531265000015992,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Again, the man who is a slave to amusement is commonly thought to be destitute of Self-Control, but he really is Soft; because amusement is an act of relaxing, being an act of resting, and the character in question is one of those who exceed due bounds in respect of this.",
+        "hotwords": "Again, Self-Control, Soft"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Self-Control, Soft Again, the man who is a slave to amusement is commonly",
+          "start": 0.05,
+          "end": 17.69,
+          "words": [
+            {
+              "text": " Self",
+              "start": 0.05,
+              "end": 2.03,
+              "probability": 3.51785547536565e-06
+            },
+            {
+              "text": "-Control,",
+              "start": 2.03,
+              "end": 5.61,
+              "probability": 0.3550185104832053
+            },
+            {
+              "text": " Soft",
+              "start": 5.77,
+              "end": 6.67,
+              "probability": 0.00012091525422874838
+            },
+            {
+              "text": " Again,",
+              "start": 6.67,
+              "end": 17.69,
+              "probability": 0.03433605283498764
+            },
+            {
+              "text": " the",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9634392857551575
+            },
+            {
+              "text": " man",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9819804430007935
+            },
+            {
+              "text": " who",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9958894848823547
+            },
+            {
+              "text": " is",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.99355548620224
+            },
+            {
+              "text": " a",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9741786122322083
+            },
+            {
+              "text": " slave",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9962030053138733
+            },
+            {
+              "text": " to",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9985634684562683
+            },
+            {
+              "text": " amusement",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9069826602935791
+            },
+            {
+              "text": " is",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.9898041486740112
+            },
+            {
+              "text": " commonly",
+              "start": 17.69,
+              "end": 17.69,
+              "probability": 0.995368480682373
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Self",
+          "start": 0.05,
+          "end": 2.03
+        },
+        {
+          "raw": "-Control,",
+          "start": 2.03,
+          "end": 5.61
+        },
+        {
+          "raw": "Soft",
+          "start": 5.77,
+          "end": 6.67
+        },
+        {
+          "raw": "Again,",
+          "start": 6.67,
+          "end": 17.69
+        },
+        {
+          "raw": "the",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "man",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "who",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "is",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "a",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "slave",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "to",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "amusement",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "is",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "raw": "commonly",
+          "start": 17.69,
+          "end": 17.69
+        }
+      ],
+      "expected_tokens": [
+        "Again,",
+        "the",
+        "man",
+        "who",
+        "is",
+        "a",
+        "slave",
+        "to",
+        "amusement",
+        "is",
+        "commonly",
+        "thought",
+        "to",
+        "be",
+        "destitute",
+        "of",
+        "Self-Control,",
+        "but",
+        "he",
+        "really",
+        "is",
+        "Soft;",
+        "because",
+        "amusement",
+        "is",
+        "an",
+        "act",
+        "of",
+        "relaxing,",
+        "being",
+        "an",
+        "act",
+        "of",
+        "resting,",
+        "and",
+        "the",
+        "character",
+        "in",
+        "question",
+        "is",
+        "one",
+        "of",
+        "those",
+        "who",
+        "exceed",
+        "due",
+        "bounds",
+        "in",
+        "respect",
+        "of",
+        "this."
+      ],
+      "acoustic_expected_tokens": [
+        "Again,",
+        "the",
+        "man",
+        "who",
+        "is",
+        "a",
+        "slave",
+        "to",
+        "amusement",
+        "is",
+        "commonly",
+        "thought",
+        "to",
+        "be",
+        "destitute",
+        "of",
+        "Self-Control,",
+        "but",
+        "he",
+        "really",
+        "is",
+        "Soft;",
+        "because",
+        "amusement",
+        "is",
+        "an",
+        "act",
+        "of",
+        "relaxing,",
+        "being",
+        "an",
+        "act",
+        "of",
+        "resting,",
+        "and",
+        "the",
+        "character",
+        "in",
+        "question",
+        "is",
+        "one",
+        "of",
+        "those",
+        "who",
+        "exceed",
+        "due",
+        "bounds",
+        "in",
+        "respect",
+        "of",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          11,
+          3,
+          14
+        ],
+        [
+          "delete",
+          11,
+          51,
+          14,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "delete",
+          11,
+          51,
+          14,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Self",
+          "start": 0.05,
+          "end": 2.03,
+          "key": "self",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-Control,",
+          "start": 2.03,
+          "end": 5.61,
+          "key": "control",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Soft",
+          "start": 5.77,
+          "end": 6.67,
+          "key": "soft",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Again,",
+          "start": 6.67,
+          "end": 17.69,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "who",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slave",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "slave",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "amusement",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "amusement",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "commonly",
+          "start": 17.69,
+          "end": 17.69,
+          "key": "commonly",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Again,",
+          "start": 6.67,
+          "end": 17.69
+        },
+        {
+          "text": "the",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "man",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "who",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "is",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "a",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "slave",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "to",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "amusement",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "is",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "commonly",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "thought",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "to",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "be",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "destitute",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "of",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "Self-Control,",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "but",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "he",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "really",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "is",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "Soft;",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "because",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "amusement",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "is",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "an",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "act",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "of",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "relaxing,",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "being",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "an",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "act",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "of",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "resting,",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "and",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "the",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "character",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "in",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "question",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "is",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "one",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "of",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "those",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "who",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "exceed",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "due",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "bounds",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "in",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "respect",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "of",
+          "start": 17.69,
+          "end": 17.69
+        },
+        {
+          "text": "this.",
+          "start": 17.69,
+          "end": 17.69
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.21568627450980393,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 29.349036923000085
+    },
+    {
+      "asr_seconds": 4.421147754000003,
+      "alignment_seconds": 0.0027188209999167157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Again, Self-Control, Soft"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Again, the man who is a slave to amusement is commonly thought to be destitute of self-control,",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Again,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.9474079608917236
+            },
+            {
+              "text": " the",
+              "start": 1.03,
+              "end": 1.07,
+              "probability": 0.9666033387184143
+            },
+            {
+              "text": " man",
+              "start": 1.07,
+              "end": 1.27,
+              "probability": 0.988066554069519
+            },
+            {
+              "text": " who",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.9954133629798889
+            },
+            {
+              "text": " is",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.993030846118927
+            },
+            {
+              "text": " a",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.9792932271957397
+            },
+            {
+              "text": " slave",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.9973867535591125
+            },
+            {
+              "text": " to",
+              "start": 2.07,
+              "end": 2.35,
+              "probability": 0.9992839694023132
+            },
+            {
+              "text": " amusement",
+              "start": 2.35,
+              "end": 2.75,
+              "probability": 0.9309945106506348
+            },
+            {
+              "text": " is",
+              "start": 2.75,
+              "end": 3.11,
+              "probability": 0.9916852712631226
+            },
+            {
+              "text": " commonly",
+              "start": 3.11,
+              "end": 3.47,
+              "probability": 0.9969983100891113
+            },
+            {
+              "text": " thought",
+              "start": 3.47,
+              "end": 3.81,
+              "probability": 0.9963725805282593
+            },
+            {
+              "text": " to",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.9935222268104553
+            },
+            {
+              "text": " be",
+              "start": 3.99,
+              "end": 4.11,
+              "probability": 0.9969183206558228
+            },
+            {
+              "text": " destitute",
+              "start": 4.11,
+              "end": 4.63,
+              "probability": 0.9977773129940033
+            },
+            {
+              "text": " of",
+              "start": 4.63,
+              "end": 4.83,
+              "probability": 0.9988147020339966
+            },
+            {
+              "text": " self",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.9978305697441101
+            },
+            {
+              "text": "-control,",
+              "start": 5.05,
+              "end": 5.49,
+              "probability": 0.9124429225921631
+            }
+          ]
+        },
+        {
+          "text": " but he really is soft.",
+          "start": 5.95,
+          "end": 7.47,
+          "words": [
+            {
+              "text": " but",
+              "start": 5.95,
+              "end": 6.27,
+              "probability": 0.9963465332984924
+            },
+            {
+              "text": " he",
+              "start": 6.27,
+              "end": 6.43,
+              "probability": 0.9982788562774658
+            },
+            {
+              "text": " really",
+              "start": 6.43,
+              "end": 6.75,
+              "probability": 0.9865816831588745
+            },
+            {
+              "text": " is",
+              "start": 6.75,
+              "end": 7.03,
+              "probability": 0.9990454316139221
+            },
+            {
+              "text": " soft.",
+              "start": 7.03,
+              "end": 7.47,
+              "probability": 0.9946300983428955
+            }
+          ]
+        },
+        {
+          "text": " Because amusement is an act of relaxing, being an act of resting, and the character in question",
+          "start": 8.11,
+          "end": 13.65,
+          "words": [
+            {
+              "text": " Because",
+              "start": 8.11,
+              "end": 8.33,
+              "probability": 0.9915391802787781
+            },
+            {
+              "text": " amusement",
+              "start": 8.33,
+              "end": 8.71,
+              "probability": 0.9968293309211731
+            },
+            {
+              "text": " is",
+              "start": 8.71,
+              "end": 9.11,
+              "probability": 0.9983915686607361
+            },
+            {
+              "text": " an",
+              "start": 9.11,
+              "end": 9.21,
+              "probability": 0.9970065951347351
+            },
+            {
+              "text": " act",
+              "start": 9.21,
+              "end": 9.47,
+              "probability": 0.9975206255912781
+            },
+            {
+              "text": " of",
+              "start": 9.47,
+              "end": 9.65,
+              "probability": 0.9971573352813721
+            },
+            {
+              "text": " relaxing,",
+              "start": 9.65,
+              "end": 10.17,
+              "probability": 0.9974310994148254
+            },
+            {
+              "text": " being",
+              "start": 10.75,
+              "end": 10.91,
+              "probability": 0.9967877864837646
+            },
+            {
+              "text": " an",
+              "start": 10.91,
+              "end": 11.11,
+              "probability": 0.9937684535980225
+            },
+            {
+              "text": " act",
+              "start": 11.11,
+              "end": 11.35,
+              "probability": 0.9982160925865173
+            },
+            {
+              "text": " of",
+              "start": 11.35,
+              "end": 11.49,
+              "probability": 0.9970107078552246
+            },
+            {
+              "text": " resting,",
+              "start": 11.49,
+              "end": 11.89,
+              "probability": 0.9978370070457458
+            },
+            {
+              "text": " and",
+              "start": 12.47,
+              "end": 12.59,
+              "probability": 0.9908787608146667
+            },
+            {
+              "text": " the",
+              "start": 12.59,
+              "end": 12.71,
+              "probability": 0.9978454113006592
+            },
+            {
+              "text": " character",
+              "start": 12.71,
+              "end": 13.03,
+              "probability": 0.9988813996315002
+            },
+            {
+              "text": " in",
+              "start": 13.03,
+              "end": 13.31,
+              "probability": 0.9977325201034546
+            },
+            {
+              "text": " question",
+              "start": 13.31,
+              "end": 13.65,
+              "probability": 0.9970537424087524
+            }
+          ]
+        },
+        {
+          "text": " is one of those who exceed due bounds in respect of this.",
+          "start": 13.65,
+          "end": 17.07,
+          "words": [
+            {
+              "text": " is",
+              "start": 13.65,
+              "end": 14.07,
+              "probability": 0.9940186738967896
+            },
+            {
+              "text": " one",
+              "start": 14.07,
+              "end": 14.23,
+              "probability": 0.9987275004386902
+            },
+            {
+              "text": " of",
+              "start": 14.23,
+              "end": 14.35,
+              "probability": 0.9969713687896729
+            },
+            {
+              "text": " those",
+              "start": 14.35,
+              "end": 14.57,
+              "probability": 0.9984726309776306
+            },
+            {
+              "text": " who",
+              "start": 14.57,
+              "end": 14.85,
+              "probability": 0.9973721504211426
+            },
+            {
+              "text": " exceed",
+              "start": 14.85,
+              "end": 15.27,
+              "probability": 0.9761389493942261
+            },
+            {
+              "text": " due",
+              "start": 15.27,
+              "end": 15.61,
+              "probability": 0.8482100963592529
+            },
+            {
+              "text": " bounds",
+              "start": 15.61,
+              "end": 16.01,
+              "probability": 0.9946494698524475
+            },
+            {
+              "text": " in",
+              "start": 16.01,
+              "end": 16.31,
+              "probability": 0.9858112335205078
+            },
+            {
+              "text": " respect",
+              "start": 16.31,
+              "end": 16.63,
+              "probability": 0.9994387030601501
+            },
+            {
+              "text": " of",
+              "start": 16.63,
+              "end": 16.85,
+              "probability": 0.9783242344856262
+            },
+            {
+              "text": " this.",
+              "start": 16.85,
+              "end": 17.07,
+              "probability": 0.9988812804222107
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Again,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.07
+        },
+        {
+          "raw": "man",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "raw": "who",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "slave",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "to",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "raw": "amusement",
+          "start": 2.35,
+          "end": 2.75
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 3.11
+        },
+        {
+          "raw": "commonly",
+          "start": 3.11,
+          "end": 3.47
+        },
+        {
+          "raw": "thought",
+          "start": 3.47,
+          "end": 3.81
+        },
+        {
+          "raw": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "be",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "raw": "destitute",
+          "start": 4.11,
+          "end": 4.63
+        },
+        {
+          "raw": "of",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "raw": "self",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "-control,",
+          "start": 5.05,
+          "end": 5.49
+        },
+        {
+          "raw": "but",
+          "start": 5.95,
+          "end": 6.27
+        },
+        {
+          "raw": "he",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "raw": "really",
+          "start": 6.43,
+          "end": 6.75
+        },
+        {
+          "raw": "is",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "raw": "soft.",
+          "start": 7.03,
+          "end": 7.47
+        },
+        {
+          "raw": "Because",
+          "start": 8.11,
+          "end": 8.33
+        },
+        {
+          "raw": "amusement",
+          "start": 8.33,
+          "end": 8.71
+        },
+        {
+          "raw": "is",
+          "start": 8.71,
+          "end": 9.11
+        },
+        {
+          "raw": "an",
+          "start": 9.11,
+          "end": 9.21
+        },
+        {
+          "raw": "act",
+          "start": 9.21,
+          "end": 9.47
+        },
+        {
+          "raw": "of",
+          "start": 9.47,
+          "end": 9.65
+        },
+        {
+          "raw": "relaxing,",
+          "start": 9.65,
+          "end": 10.17
+        },
+        {
+          "raw": "being",
+          "start": 10.75,
+          "end": 10.91
+        },
+        {
+          "raw": "an",
+          "start": 10.91,
+          "end": 11.11
+        },
+        {
+          "raw": "act",
+          "start": 11.11,
+          "end": 11.35
+        },
+        {
+          "raw": "of",
+          "start": 11.35,
+          "end": 11.49
+        },
+        {
+          "raw": "resting,",
+          "start": 11.49,
+          "end": 11.89
+        },
+        {
+          "raw": "and",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "raw": "the",
+          "start": 12.59,
+          "end": 12.71
+        },
+        {
+          "raw": "character",
+          "start": 12.71,
+          "end": 13.03
+        },
+        {
+          "raw": "in",
+          "start": 13.03,
+          "end": 13.31
+        },
+        {
+          "raw": "question",
+          "start": 13.31,
+          "end": 13.65
+        },
+        {
+          "raw": "is",
+          "start": 13.65,
+          "end": 14.07
+        },
+        {
+          "raw": "one",
+          "start": 14.07,
+          "end": 14.23
+        },
+        {
+          "raw": "of",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "raw": "those",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "raw": "who",
+          "start": 14.57,
+          "end": 14.85
+        },
+        {
+          "raw": "exceed",
+          "start": 14.85,
+          "end": 15.27
+        },
+        {
+          "raw": "due",
+          "start": 15.27,
+          "end": 15.61
+        },
+        {
+          "raw": "bounds",
+          "start": 15.61,
+          "end": 16.01
+        },
+        {
+          "raw": "in",
+          "start": 16.01,
+          "end": 16.31
+        },
+        {
+          "raw": "respect",
+          "start": 16.31,
+          "end": 16.63
+        },
+        {
+          "raw": "of",
+          "start": 16.63,
+          "end": 16.85
+        },
+        {
+          "raw": "this.",
+          "start": 16.85,
+          "end": 17.07
+        }
+      ],
+      "expected_tokens": [
+        "Again,",
+        "the",
+        "man",
+        "who",
+        "is",
+        "a",
+        "slave",
+        "to",
+        "amusement",
+        "is",
+        "commonly",
+        "thought",
+        "to",
+        "be",
+        "destitute",
+        "of",
+        "Self-Control,",
+        "but",
+        "he",
+        "really",
+        "is",
+        "Soft;",
+        "because",
+        "amusement",
+        "is",
+        "an",
+        "act",
+        "of",
+        "relaxing,",
+        "being",
+        "an",
+        "act",
+        "of",
+        "resting,",
+        "and",
+        "the",
+        "character",
+        "in",
+        "question",
+        "is",
+        "one",
+        "of",
+        "those",
+        "who",
+        "exceed",
+        "due",
+        "bounds",
+        "in",
+        "respect",
+        "of",
+        "this."
+      ],
+      "acoustic_expected_tokens": [
+        "Again,",
+        "the",
+        "man",
+        "who",
+        "is",
+        "a",
+        "slave",
+        "to",
+        "amusement",
+        "is",
+        "commonly",
+        "thought",
+        "to",
+        "be",
+        "destitute",
+        "of",
+        "Self-Control,",
+        "but",
+        "he",
+        "really",
+        "is",
+        "Soft;",
+        "because",
+        "amusement",
+        "is",
+        "an",
+        "act",
+        "of",
+        "relaxing,",
+        "being",
+        "an",
+        "act",
+        "of",
+        "resting,",
+        "and",
+        "the",
+        "character",
+        "in",
+        "question",
+        "is",
+        "one",
+        "of",
+        "those",
+        "who",
+        "exceed",
+        "due",
+        "bounds",
+        "in",
+        "respect",
+        "of",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Again,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "again",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.07,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.07,
+          "end": 1.27,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "who",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "slave",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "slave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.07,
+          "end": 2.35,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "amusement",
+          "start": 2.35,
+          "end": 2.75,
+          "key": "amusement",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.75,
+          "end": 3.11,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "commonly",
+          "start": 3.11,
+          "end": 3.47,
+          "key": "commonly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 3.47,
+          "end": 3.81,
+          "key": "thought",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.81,
+          "end": 3.99,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.99,
+          "end": 4.11,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "destitute",
+          "start": 4.11,
+          "end": 4.63,
+          "key": "destitute",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.63,
+          "end": 4.83,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "self -control,",
+          "start": 4.83,
+          "end": 5.49,
+          "key": "selfcontrol",
+          "pieces": [
+            16,
+            17
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.95,
+          "end": 6.27,
+          "key": "but",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.27,
+          "end": 6.43,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "really",
+          "start": 6.43,
+          "end": 6.75,
+          "key": "really",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.75,
+          "end": 7.03,
+          "key": "is",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "soft.",
+          "start": 7.03,
+          "end": 7.47,
+          "key": "soft",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Because",
+          "start": 8.11,
+          "end": 8.33,
+          "key": "because",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "amusement",
+          "start": 8.33,
+          "end": 8.71,
+          "key": "amusement",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.71,
+          "end": 9.11,
+          "key": "is",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 9.11,
+          "end": 9.21,
+          "key": "an",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 9.21,
+          "end": 9.47,
+          "key": "act",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.47,
+          "end": 9.65,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "relaxing,",
+          "start": 9.65,
+          "end": 10.17,
+          "key": "relaxing",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 10.75,
+          "end": 10.91,
+          "key": "being",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 10.91,
+          "end": 11.11,
+          "key": "an",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 11.11,
+          "end": 11.35,
+          "key": "act",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.35,
+          "end": 11.49,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "resting,",
+          "start": 11.49,
+          "end": 11.89,
+          "key": "resting",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.47,
+          "end": 12.59,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.59,
+          "end": 12.71,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "character",
+          "start": 12.71,
+          "end": 13.03,
+          "key": "character",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.03,
+          "end": 13.31,
+          "key": "in",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "question",
+          "start": 13.31,
+          "end": 13.65,
+          "key": "question",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.65,
+          "end": 14.07,
+          "key": "is",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 14.07,
+          "end": 14.23,
+          "key": "one",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.23,
+          "end": 14.35,
+          "key": "of",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 14.35,
+          "end": 14.57,
+          "key": "those",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 14.57,
+          "end": 14.85,
+          "key": "who",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "exceed",
+          "start": 14.85,
+          "end": 15.27,
+          "key": "exceed",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "due",
+          "start": 15.27,
+          "end": 15.61,
+          "key": "due",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "bounds",
+          "start": 15.61,
+          "end": 16.01,
+          "key": "bounds",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 16.01,
+          "end": 16.31,
+          "key": "in",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "respect",
+          "start": 16.31,
+          "end": 16.63,
+          "key": "respect",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.63,
+          "end": 16.85,
+          "key": "of",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 16.85,
+          "end": 17.07,
+          "key": "this",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 16,
+          "text": "Self-Control,",
+          "heard": "self -control,",
+          "heard_indexes": [
+            16,
+            17
+          ],
+          "start": 4.83,
+          "end": 5.49
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Again,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "the",
+          "start": 1.03,
+          "end": 1.07
+        },
+        {
+          "text": "man",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "who",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "is",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "a",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "slave",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "to",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "text": "amusement",
+          "start": 2.35,
+          "end": 2.75
+        },
+        {
+          "text": "is",
+          "start": 2.75,
+          "end": 3.11
+        },
+        {
+          "text": "commonly",
+          "start": 3.11,
+          "end": 3.47
+        },
+        {
+          "text": "thought",
+          "start": 3.47,
+          "end": 3.81
+        },
+        {
+          "text": "to",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "be",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "text": "destitute",
+          "start": 4.11,
+          "end": 4.63
+        },
+        {
+          "text": "of",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "text": "Self-Control,",
+          "start": 4.83,
+          "end": 5.49
+        },
+        {
+          "text": "but",
+          "start": 5.95,
+          "end": 6.27
+        },
+        {
+          "text": "he",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "text": "really",
+          "start": 6.43,
+          "end": 6.75
+        },
+        {
+          "text": "is",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "text": "Soft;",
+          "start": 7.03,
+          "end": 7.47
+        },
+        {
+          "text": "because",
+          "start": 8.11,
+          "end": 8.33
+        },
+        {
+          "text": "amusement",
+          "start": 8.33,
+          "end": 8.71
+        },
+        {
+          "text": "is",
+          "start": 8.71,
+          "end": 9.11
+        },
+        {
+          "text": "an",
+          "start": 9.11,
+          "end": 9.21
+        },
+        {
+          "text": "act",
+          "start": 9.21,
+          "end": 9.47
+        },
+        {
+          "text": "of",
+          "start": 9.47,
+          "end": 9.65
+        },
+        {
+          "text": "relaxing,",
+          "start": 9.65,
+          "end": 10.17
+        },
+        {
+          "text": "being",
+          "start": 10.75,
+          "end": 10.91
+        },
+        {
+          "text": "an",
+          "start": 10.91,
+          "end": 11.11
+        },
+        {
+          "text": "act",
+          "start": 11.11,
+          "end": 11.35
+        },
+        {
+          "text": "of",
+          "start": 11.35,
+          "end": 11.49
+        },
+        {
+          "text": "resting,",
+          "start": 11.49,
+          "end": 11.89
+        },
+        {
+          "text": "and",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "text": "the",
+          "start": 12.59,
+          "end": 12.71
+        },
+        {
+          "text": "character",
+          "start": 12.71,
+          "end": 13.03
+        },
+        {
+          "text": "in",
+          "start": 13.03,
+          "end": 13.31
+        },
+        {
+          "text": "question",
+          "start": 13.31,
+          "end": 13.65
+        },
+        {
+          "text": "is",
+          "start": 13.65,
+          "end": 14.07
+        },
+        {
+          "text": "one",
+          "start": 14.07,
+          "end": 14.23
+        },
+        {
+          "text": "of",
+          "start": 14.23,
+          "end": 14.35
+        },
+        {
+          "text": "those",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "text": "who",
+          "start": 14.57,
+          "end": 14.85
+        },
+        {
+          "text": "exceed",
+          "start": 14.85,
+          "end": 15.27
+        },
+        {
+          "text": "due",
+          "start": 15.27,
+          "end": 15.61
+        },
+        {
+          "text": "bounds",
+          "start": 15.61,
+          "end": 16.01
+        },
+        {
+          "text": "in",
+          "start": 16.01,
+          "end": 16.31
+        },
+        {
+          "text": "respect",
+          "start": 16.31,
+          "end": 16.63
+        },
+        {
+          "text": "of",
+          "start": 16.63,
+          "end": 16.85
+        },
+        {
+          "text": "this.",
+          "start": 16.85,
+          "end": 17.07
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 51
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.423983067000108
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c6d9d3687ed457517e9ab08759fc49c095d74a5b354985520848fa1d8493dbb2",
+  "selected_reasons": []
+}

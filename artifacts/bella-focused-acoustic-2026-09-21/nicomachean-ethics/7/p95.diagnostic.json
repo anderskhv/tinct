@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "08f7bf9ca46df6c8b775cd9f179f856c057dc9e1a503ba40ac43da3677f05802",
+  "attempts": [
+    {
+      "asr_seconds": 2.6109972130000187,
+      "alignment_seconds": 0.0004407510000419279,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Book 7. Chapters 12 to 15. (Bekker.)",
+        "hotwords": "Book, Chapters, Bekker"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Appendix, Book 7. Chapters 12 to 15. Bekker.",
+          "start": 0.02,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " Appendix,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.3303401470184326
+            },
+            {
+              "text": " Book",
+              "start": 0.84,
+              "end": 1.22,
+              "probability": 0.9188119769096375
+            },
+            {
+              "text": " 7.",
+              "start": 1.22,
+              "end": 1.68,
+              "probability": 0.4364365339279175
+            },
+            {
+              "text": " Chapters",
+              "start": 2.12,
+              "end": 2.3,
+              "probability": 0.7440162897109985
+            },
+            {
+              "text": " 12",
+              "start": 2.3,
+              "end": 2.7,
+              "probability": 0.9855467081069946
+            },
+            {
+              "text": " to",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.2721248269081116
+            },
+            {
+              "text": " 15.",
+              "start": 2.92,
+              "end": 3.4,
+              "probability": 0.9977744221687317
+            },
+            {
+              "text": " Bekker.",
+              "start": 3.96,
+              "end": 4.32,
+              "probability": 0.30635124693314236
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Appendix,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "Book",
+          "start": 0.84,
+          "end": 1.22
+        },
+        {
+          "raw": "7.",
+          "start": 1.22,
+          "end": 1.68
+        },
+        {
+          "raw": "Chapters",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "raw": "12",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "15.",
+          "start": 2.92,
+          "end": 3.4
+        },
+        {
+          "raw": "Bekker.",
+          "start": 3.96,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "APPENDIX.",
+        "Book",
+        "VII.",
+        "Chapters",
+        "12",
+        "to",
+        "15.",
+        "(Bekker.)"
+      ],
+      "acoustic_expected_tokens": [
+        "Book",
+        "7.",
+        "Chapters",
+        "12",
+        "to",
+        "15.",
+        "(Bekker.)"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "unspoken",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "compared_heard": [
+        {
+          "raw": "Appendix,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "appendix",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Book",
+          "start": 0.84,
+          "end": 1.22,
+          "key": "book",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "7.",
+          "start": 1.22,
+          "end": 1.68,
+          "key": "seven",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Chapters",
+          "start": 2.12,
+          "end": 2.3,
+          "key": "chapters",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "12",
+          "start": 2.3,
+          "end": 2.7,
+          "key": "twelve",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "15.",
+          "start": 2.92,
+          "end": 3.4,
+          "key": "fifteen",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bekker.",
+          "start": 3.96,
+          "end": 4.32,
+          "key": "bekker",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "APPENDIX.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Book",
+          "start": 0.0,
+          "end": 2.16
+        },
+        {
+          "text": "VII.",
+          "start": 2.16,
+          "end": 3.24
+        },
+        {
+          "text": "Chapters",
+          "start": 3.24,
+          "end": 3.78
+        },
+        {
+          "text": "12",
+          "start": 3.78,
+          "end": 4.05
+        },
+        {
+          "text": "to",
+          "start": 4.05,
+          "end": 4.185
+        },
+        {
+          "text": "15.",
+          "start": 4.185,
+          "end": 4.252
+        },
+        {
+          "text": "(Bekker.)",
+          "start": 4.252,
+          "end": 4.286
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 8,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.611460457000021
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b427d8d01244798ee6faa69d6b42cf756877d4807cdc8af3daa96b72db04dcda",
+  "selected_reasons": []
+}
