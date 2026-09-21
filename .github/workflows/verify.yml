@@ -43,6 +43,8 @@ jobs:
       - run: npm run verify-bundle
       - name: Install silent browser acceptance
         run: npx playwright install --with-deps chromium webkit
+      - name: Verify reader panels and selection
+        run: node scripts/check-reader-panels.mjs
       - name: Verify library and preparation
         run: node scripts/check-library-layout.mjs
       - name: Verify hyphenation hardening
@@ -56,6 +58,7 @@ jobs:
         with:
           name: library-preparation-acceptance
           path: |
+            app/artifacts/reader-panels
             app/artifacts/library-layout
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening

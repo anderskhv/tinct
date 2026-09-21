@@ -73,6 +73,11 @@ jobs:
 
       - name: Install silent production browser
         run: npx playwright install --with-deps chromium webkit
+      - name: Verify production reader panels and selection
+        env:
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ steps.bundle.outputs.path }}
+        run: node scripts/check-reader-panels.mjs
       - name: Verify production library and preparation
         run: LIBRARY_LIVE=1 node scripts/check-library-layout.mjs
       - name: Verify responsive landing and library
@@ -87,6 +92,7 @@ jobs:
         with:
           name: production-library-preparation
           path: |
+            app/artifacts/reader-panels
             app/artifacts/library-layout
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening
