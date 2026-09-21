@@ -106,8 +106,9 @@ muted headless desktop and phone browsers. See the
   percent of book/chapter. Comparison footers separate edition names from folios,
   with the modern edition labelled **Tinct Modern English**.
 - Phone titles follow the reading margin; its progress uses the book font at a
-  smaller size. Desktop frame and page share paper colour with a subtle centre
-  gutter shadow.
+  smaller size. Desktop frame and page share paper colour. The centre fold spans the full
+  page with a smooth graduated shadow, a faint reflected edge and soft exterior
+  depth, including short chapter-end and comparison spreads.
 - Advanced settings remain reachable within the viewport. Line spacing, paragraph
   spacing and margins use bounded sliders with editable decimal-comma values.
   Restore defaults resets appearance while preserving edition, position and data.
