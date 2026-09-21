@@ -31,7 +31,7 @@ jobs:
       - name: Check project documentation
         run: |
           python3 ../scripts/check-docs.py
-          python3 ../scripts/check-docs.py docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md
+          python3 ../scripts/check-docs.py docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md docs/reader-panels-selection-2026-09-21.md
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing

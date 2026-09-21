@@ -115,9 +115,10 @@ try{
   report.checks.push({name:'mute unmute minimize end',capture:(await evidence()).capture})
   // Same page and AudioContext: duplicate processor registration used to
   // fall back on every restart. Require fresh audio and a new completed turn.
-  const prior=(await evidence()).events.filter(e=>e.type==='response.done').length
+  const priorState=await evidence()
+  const prior={responses:priorState.events.filter(e=>e.type==='response.done').length,audio:priorState.audio}
   await open()
-  await page.waitForFunction(prior=>window.__captureQA.events.filter(e=>e.type==='response.done').length>prior,prior,{timeout:40000})
+  await page.waitForFunction(prior=>window.__captureQA.events.filter(e=>e.type==='response.done').length>prior.responses&&(window.__captureQA.audio||0)>prior.audio+64000,prior,{timeout:60000})
   report.checks.push({name:'restart same page',...(await evidence())})
   await page.getByTestId('lab-voice-panel-end').click()
   assert((await evidence()).tracks.every(s=>s==='ended'))
