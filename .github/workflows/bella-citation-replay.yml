@@ -1,0 +1,27 @@
+name: bella-citation-corpus-replay
+on:
+  push:
+    branches: ['codex/bella-sync-replay-20260921']
+    paths: ['tools/audio-highlight/bella_citation_corpus.py', '.github/workflows/bella-citation-replay.yml']
+permissions:
+  contents: write
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test and replay recorded diagnostics
+        run: |
+          python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_roman_reference.py'
+          python3 tools/audio-highlight/bella_citation_corpus.py
+      - name: Save replay evidence
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-sync-pilot-2026-09-21/citation-corpus-replay.json
+          git commit -m "Measure citation repair against historical failures [skip ci]"
+          git push origin HEAD:codex/bella-sync-replay-20260921
