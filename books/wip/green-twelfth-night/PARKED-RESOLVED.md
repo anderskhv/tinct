@@ -1,6 +1,18 @@
-# PARKED — Twelfth Night (`twelfth-night`, modern-en)
+# PARKED → RESOLVED — Twelfth Night (`twelfth-night`, modern-en)
 
-**Status:** PARKED after round 2 (independent adversarial verification).
+> **CLOSED 2026-09-21 — the park is lifted.** Round 4 (independent
+> adversarial verification, Claude Opus 5) re-derived everything below from
+> `source.json` and `candidate.json` without trusting round 3's self-report
+> and **ACCEPTED** the book. The recurring defect class documented here has
+> no remaining instances; no new defect class was found; round 4 made no
+> edits. Final candidate.json sha256
+> `2388962f1d10a2619b72d9e47f74f4b695abe9eeb87bb9bd4d235c9e4c8b7374`.
+> See `ACCEPTANCE-RECORD.md` for the acceptance and the round-4 findings,
+> and the round-4 section at the bottom of this file for how round 3's
+> honest "I cannot certify this is the last one" warning was tested.
+> Everything below is kept as history.
+
+**Status (historical):** PARKED after round 2 (independent adversarial verification).
 **Parked:** 2026-09-21
 **Round 1 (drafting/repair + self-review):** Claude Sonnet 5 (`claude-sonnet-5`).
 **Round 2 (independent verification, this record):** Claude Opus 5 (`claude-opus-5`).
@@ -422,3 +434,104 @@ cross-reference sweep method described above rather than relying solely
 on a proper-noun/epithet map, given that method is what caught the one
 instance (`cubiculo`) that a proper-noun-shaped sweep structurally
 cannot catch.
+
+
+---
+---
+
+# ROUND 4 — INDEPENDENT VERIFICATION: ACCEPTED (Claude Opus 5)
+
+**Round 4 performer:** Claude Opus 5 (`claude-opus-5`).
+**Date:** 2026-09-21. **Verdict: ACCEPTED. Park lifted.**
+**Edits made in round 4: none.** `source.json` and `candidate.json` are
+byte-for-byte as round 3 left them.
+
+## What round 4 re-derived rather than trusted
+
+- **Both file hashes**, recomputed: candidate
+  `2388962f…4c8b7374` and source `bf69ddee…9d756baed3` — both match round
+  3's declared values exactly.
+- **Structure**, re-derived fresh from both files: 18 chapters, 1,120
+  paragraphs, per-chapter counts, chapter numbers, reader-facing titles,
+  top-level keys, absence of empty paragraphs, and the full speaker-tag
+  set with per-tag counts — all exact matches.
+- **All 13 round-3 fixes**, each located by searching `source.json` for
+  the distinctive term rather than by trusting any cited paragraph number
+  (this book has already lost a round to a 0/1-based mismatch). All 13
+  confirmed at their stated 1-based locations, all restoring source's
+  exact wording, and none of the 13 replaced forms surviving anywhere.
+  Round 1's 3 fixes were re-confirmed too.
+
+## How round 3's honest warning was tested
+
+Round 3 stated plainly that it could not certify 13/13 as the true final
+count, since each of rounds 1-3 had found at least one instance every
+earlier round missed. Round 4 attacked that directly with methods no
+earlier round had run in this combination:
+
+1. **Reverse capitalized-token sweep** — every capitalized token the
+   *candidate* introduces that is absent from its own source paragraph.
+   This is the only method that structurally catches an *imported*
+   editorial identification (the `the Sophy`→"Shah of Persia" shape), as
+   opposed to a *lost* source form. 55 hits, all contractions or ordinary
+   word choices. **None anywhere in the book.**
+2. **Near-variant normalization sweep** — for every source word missing
+   from its own candidate paragraph, look for a close spelling-variant
+   present in that same paragraph. This is the precise signature of
+   `Cataian`→`Cathayan` / `Belzebub`→`Beelzebub` / `Tartar`→`Tartarus`,
+   and unlike a name list or a hapax cross-reference it finds them without
+   knowing in advance what to look for. 262 hits, all read in context.
+3. **Named-entity count check** over 47 proper nouns, foreign phrases and
+   coinages — every count matches source exactly.
+4. **Whole-vocabulary missing-word sweep** (3,138 source types, 840 absent
+   from the candidate, hand-triaged) — a superset of round 3's hapax
+   method.
+5. **Location-keyed capitalized-token loss sweep** — 419 raw hits filtered
+   to 79 genuine proper-noun candidates, each read in full.
+6. **Italic-marker parity check** on all 1,120 pairs — 108 deltas, every
+   one the consistent stage-direction convention; all sung verse, letter
+   text and Latin terms keep their marking.
+7. **Compression/content-loss sweep** recomputed from scratch over all
+   1,120 pairs (mean ratio 1.02); every outlier read in full — no dropped
+   clause, no dropped claim, no invented content.
+8. **257 paragraphs read word-for-word across 9 chapters deliberately
+   chosen for being outside the known hot spots** — Ch1, 2, 4, 7, 11
+   (the Feste/Viola wit duel), 12, 13, 16 (Sir Topas dark house), 17.
+
+**Result: no remaining instance of the class, and no new class of
+defect.** The coinages this book kept losing are all present and correct —
+and Feste's `impeticos` and `gratillity` (Ch8 ¶12), which no round had
+specifically checked, survive verbatim. The songs were re-read in full and
+are verbatim, including all five stanzas of the closing song.
+
+## Closest surviving relatives — judged permitted, recorded for the owner
+
+`Signior`→`Signor` (Ch10 ¶2, Ch14 ¶117) · `viol-de-gamboys`→`viol-da-gamba`
+(Ch3 ¶14) · `sink-a-pace`→`cinquepace` (Ch3 ¶65) · `renegado`→`renegade`
+(Ch12 ¶28) · `huswife`→`housewife` (Ch3 ¶55) · `Hallow`→`halloo` (Ch5 ¶126)
+· `triplex`→`triple` (Ch18 ¶23) · `cockatrices`→`basilisks` (Ch14 ¶93) ·
+`kick-shawses`→`fancy moves` (Ch3 ¶59).
+
+Every one is an orthographic or common-noun modernization, not a proper
+noun, a referent swap, or a character-specific coinage — the same line
+rounds 2 and 3 drew when they explicitly permitted `barricadoes`,
+`wainropes`, `staniel`, `bawcock` and `coystril`. The candidate applies
+that line consistently across the whole book; **no referent is changed
+anywhere.** Recorded here so a future owner can revisit the line itself if
+they want to, not as unfixed defects.
+
+## Why this is a genuine close and not a fourth "clean" self-certification
+
+The two earlier clean claims that turned out wrong were both made by the
+round that had just done the editing, about a class it had just touched.
+Round 4 did no editing, had no stake in the fix list, located every claim
+by independent search, and — most importantly — used two sweep shapes
+(reverse-direction and near-variant) that would have surfaced the
+previously-missed instances (`Sowter`, `the Sophy`, `Cataian`, `cubiculo`)
+from a cold start, without any prior round's findings as input. That is
+the property earlier sweeps lacked.
+
+No app, registry, audio, SEO, or deploy action was taken. No paid API
+calls. This directory only. Deliverables: `ACCEPTANCE-RECORD.md`
+(finalized) and `accepted-paragraph-hashes.tsv` (1,120 rows, 1-based,
+sha256 `a5d14b0df7ab7f91d0f2d1ed19b92d3d7a9e1d629152b77b615151ad53ce8bf4`).
