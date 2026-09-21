@@ -19,4 +19,8 @@ class PrefixTest(unittest.TestCase):
  def test_existing_real_timing_is_preserved(self):
   args=list(self.fixture());args[0][0]["start"]=.1
   self.assertEqual(restore_observed_prefix(*args)[1],0)
+ def test_trailing_silent_markup_does_not_hide_spoken_prefix(self):
+  args=list(self.fixture());args[0].append(dict(text="_Exit_",start=1.5,end=1.5));args[1].append("_Exit_")
+  out,n=restore_observed_prefix(*args)
+  self.assertEqual(n,1);self.assertEqual(out[-1],args[0][-1])
 if __name__=="__main__":unittest.main()

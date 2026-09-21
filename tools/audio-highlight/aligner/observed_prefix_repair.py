@@ -3,8 +3,10 @@ import copy,re
 import pinned_words_sidecar_lib_v7 as lib
 def restore_observed_prefix(words,source,acoustic,heard):
     result=copy.deepcopy(words)
-    n=len(source)-len(acoustic)
-    if n<=0 or not acoustic or source[n:]!=acoustic:return result,0
+    n=0
+    while n<len(words) and words[n]["start"]==words[n]["end"]:n+=1
+    if n<=0 or n>=len(source) or not acoustic:return result,0
+    if lib.canonical_alignment_token(source[n])!=lib.canonical_alignment_token(acoustic[0]):return result,0
     prefix=" ".join(source[:n])
     if not re.fullmatch(r"[A-Z][A-Z .'’\\-]*[.:]",prefix):return result,0
     if len(heard)<n+1:return result,0
