@@ -1,0 +1,41 @@
+name: bella-sync-recovery
+on:
+  push:
+    branches: ['codex/bella-sync-recovery-20260921']
+    paths: ['tools/audio-highlight/bella_recover.py', '.github/workflows/bella-sync-recovery.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: bella-sync-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover and validate existing candidates
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m py_compile tools/audio-highlight/bella_recover.py
+          python3 -u tools/audio-highlight/bella_recover.py
+      - name: Save staged results only
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-sync-recovery-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Save recovered Bella candidate validation [skip ci]"
+          git push origin HEAD:codex/bella-sync-recovery-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-sync-recovery
+          path: artifacts/bella-sync-recovery-2026-09-21
+          retention-days: 30
