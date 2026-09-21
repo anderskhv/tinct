@@ -99,6 +99,7 @@ jobs:
       - name: Verify responsive landing and library
         run: LIBRARY_LIVE=1 node scripts/check-entry-responsive.mjs
       - name: Verify currently reading reel
+        if: ${{ !cancelled() }}
         run: LIBRARY_LIVE=1 node scripts/check-reading-reel.mjs
       - name: Verify production hyphenation hardening
         env:

@@ -477,3 +477,21 @@ describe('worker static routing helpers', () => {
     expect(assetFetches).toBe(0)
   })
 })
+
+describe('approved brand entry metadata', () => {
+  it.each(['/','/library','/reader'])('serves install assets and one social image in initial HTML at %s', async path => {
+    const response=await worker.fetch(new Request('https://tinct.app'+path),routerEnv() as never,ctx)
+    const html=await response.text()
+    expect(html).toContain('href="/brand/20260921/apple-touch-icon.png"')
+    expect(html).toContain('href="/brand/manifest.webmanifest"')
+    expect(html.match(/property="og:image"/g)).toHaveLength(1)
+    expect(html).toContain('property="og:image:alt"')
+  })
+  it('uses the requested public book for a library link without exposing private query text', async () => {
+    const response=await worker.fetch(new Request('https://tinct.app/library?book=frankenstein&note=private-secret'),routerEnv() as never,ctx)
+    const html=await response.text()
+    expect(html).toContain('/brand/20260921/books/frankenstein.jpg')
+    expect(html).toContain('Frankenstein')
+    expect(html).not.toContain('private-secret')
+  })
+})

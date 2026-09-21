@@ -44,14 +44,6 @@ jobs:
         id: bundle_gate
       - name: Install silent browser acceptance
         run: npx playwright install --with-deps chromium webkit
-      - name: Render approved brand book cards
-        run: node scripts/generate-brand-cards.mjs
-      - name: Save brand book cards
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: brand-book-cards
-          path: app/artifacts/brand-cards
       - name: Verify real Grok microphone recovery silently
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' && github.head_ref == 'codex/reader-panels-selection-20260921' }}
         run: |
@@ -79,6 +71,7 @@ jobs:
         if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
         run: node scripts/check-library-layout.mjs
       - name: Verify currently reading reel
+        if: ${{ !cancelled() }}
         run: node scripts/check-reading-reel.mjs
       - name: Verify hyphenation hardening
         if: ${{ !cancelled() }}

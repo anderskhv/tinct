@@ -62,7 +62,7 @@ const BRAND_IMAGE = 'https://tinct.app/brand/20260921/share-tinct-1200x630.jpg'
 const BRAND_INSTALL = "  <link rel=\"icon\" href=\"/brand/20260921/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"icon\" href=\"/brand/20260921/favicon.ico\" sizes=\"any\">\n  <link rel=\"apple-touch-icon\" href=\"/brand/20260921/apple-touch-icon.png\" sizes=\"180x180\">\n  <link rel=\"manifest\" href=\"/brand/manifest.webmanifest\">\n"
 /** Public metadata uses only the catalogue, never saved passages or chat. */
 function brandedHtml(html: string, bookId?: string, bookPage = false): string {
-  const meta = bookId ? BOOK_META[bookId] || GENERATED_BOOK_META[bookId] : undefined
+  const meta = bookId && PUBLIC_BOOK_IDS.has(bookId) ? BOOK_META[bookId] || GENERATED_BOOK_META[bookId] : undefined
   const image = meta ? `https://tinct.app/brand/20260921/books/${bookId}.jpg` : BRAND_IMAGE
   const alt = meta ? `${meta.bookName} by ${meta.author} — read with Tinct` : 'Tinct — Fall in love with the books that matter.'
   let next = html.replace(/<link\b[^>]*rel=["'](?:icon|shortcut icon|apple-touch-icon|manifest)["'][^>]*>\s*/gi, '')
@@ -156,6 +156,7 @@ async function serveStaticHtml(
 
   const bookId = pathname.match(/^\/read\/([a-z0-9-]+)\//)?.[1]
   const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(await assetResp.text(), bookId), assetResp)
+  for (const header of ['Content-Length','Content-Encoding','ETag']) newResp.headers.delete(header)
   newResp.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
     newResp.headers.set(key, value)
@@ -248,6 +249,7 @@ async function serveLabPreReader(
   if (!labResp.ok) return null
 
   const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(await labResp.text(), url.searchParams.get('book') || undefined, true), labResp)
+  for (const header of ['Content-Length','Content-Encoding','ETag']) newResp.headers.delete(header)
   newResp.headers.set('Cache-Control', 'no-store')
   newResp.headers.set('X-Robots-Tag', 'noindex, noarchive')
   for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
@@ -268,7 +270,7 @@ async function serveLabDemo(
   const withRobots = html.includes('name="robots"')
     ? html
     : html.replace(/<head([^>]*)>/i, '<head$1>\n  <meta name="robots" content="noindex, noarchive">')
-  const newResp = new Response(requestMethod === 'HEAD' ? null : withRobots, {
+  const newResp = new Response(requestMethod === 'HEAD' ? null : brandedHtml(withRobots, url.searchParams.get('book') || undefined, true), {
     status: 200,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
   })
@@ -630,6 +632,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     const contentType = response.headers.get('content-type') || ''
     if (contentType.includes('text/html')) {
       const newResponse = new Response(request.method === 'HEAD' ? null : brandedHtml(await response.text(), url.searchParams.get('book') || undefined, true), response)
+  for (const header of ['Content-Length','Content-Encoding','ETag']) newResponse.headers.delete(header)
       // HTML must never be edge-cached — see the SPA fallback comment above.
       newResponse.headers.set('Cache-Control', 'no-store')
       for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
