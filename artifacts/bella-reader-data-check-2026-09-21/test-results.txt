@@ -5,11 +5,37 @@
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.5 [39m[90m/home/runner/work/tinct/tinct/app[39m
 
- [32m✓[39m src/lab/bellaRepairData.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 60[2mms[22m[39m
- [32m✓[39m src/lab/labListen.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [31m❯[39m src/lab/bellaRepairData.test.ts [2m([22m[2m9 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 116[2mms[22m[39m
+     [32m✓[39m merchant-of-venice/original-en/ch15 has word-level highlighting in every paragraph[32m 66[2mms[22m[39m
+     [32m✓[39m merchant-of-venice/original-en/ch6 has word-level highlighting in every paragraph[32m 3[2mms[22m[39m
+     [32m✓[39m merchant-of-venice/original-en/ch9 has word-level highlighting in every paragraph[32m 9[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch259 has word-level highlighting in every paragraph[32m 7[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch281 has word-level highlighting in every paragraph[39m[32m 11[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch283 has word-level highlighting in every paragraph[32m 8[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch314 has word-level highlighting in every paragraph[32m 2[2mms[22m[39m
+     [32m✓[39m winters-tale/original-en/ch4 has word-level highlighting in every paragraph[32m 6[2mms[22m[39m
+     [32m✓[39m winters-tale/original-en/ch9 has word-level highlighting in every paragraph[32m 2[2mms[22m[39m
+ [32m✓[39m src/lab/labListen.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
-[2m      Tests [22m [1m[32m16 passed[39m[22m[90m (16)[39m
-[2m   Start at [22m 11:55:58
-[2m   Duration [22m 423ms[2m (transform 281ms, setup 0ms, import 398ms, tests 71ms, environment 0ms)[22m
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
 
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch281 has word-level highlighting in every paragraph
+[31m[1mAssertionError[22m: expected 0 to be greater than 0[39m
+[36m [2m❯[22m src/lab/bellaRepairData.test.ts:[2m20:26[22m[39m
+    [90m 18|[39m     [34mexpect[39m(clips[i][33m.[39mfile)[33m.[39m[34mtoBe[39m(f[33m.[39mmanifest[33m.[39mparagraphs[i][33m.[39mfile)
+    [90m 19|[39m     const timed=p.words!.map((w,j)=>({w,j})).filter(({w})=>w.end>w.sta…
+    [90m 20|[39m     [34mexpect[39m(timed[33m.[39mlength)[33m.[39m[34mtoBeGreaterThan[39m([34m0[39m)
+    [90m   |[39m                          [31m^[39m
+    [90m 21|[39m     for(const entry of [timed[0],timed[Math.floor(timed.length/2)],tim…
+    [90m 22|[39m      const target=followPlayingClip(paragraphs,clips[i],(entry.w.start…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m18 passed[39m[22m[90m (19)[39m
+[2m   Start at [22m 12:07:55
+[2m   Duration [22m 471ms[2m (transform 278ms, setup 0ms, import 418ms, tests 128ms, environment 0ms)[22m
+
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch281 has word-level highlighting in every paragraph,line=20,column=26::AssertionError: expected 0 to be greater than 0%0A ❯ src/lab/bellaRepairData.test.ts:20:26%0A%0A
