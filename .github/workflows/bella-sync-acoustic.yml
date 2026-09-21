@@ -1,0 +1,60 @@
+name: bella-sync-acoustic-review
+on:
+  push:
+    branches: ['codex/bella-sync-acoustic-20260921']
+    paths: ['tools/audio-highlight/aligner/roman_reference_alignment.py', '.github/workflows/bella-sync-acoustic.yml']
+permissions:
+  contents: write
+concurrency:
+  group: bella-sync-timing-publication
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test citation normalization without weakening acceptance
+        run: |
+          python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_roman_reference.py'
+          python3 tools/audio-highlight/bella_replay_citation.py
+      - name: Install isolated acoustic review dependencies
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper av==18.1.0 boto3
+      - name: Rebuild exact pilot inputs
+        run: |
+          python3 tools/audio-highlight/aligner/cloud_cohort.py --targets artifacts/bella-sync-pilot-2026-09-21/acoustic-targets.json --out /tmp/bella-cohort --workers 2
+          python3 tools/audio-highlight/bella_check_inputs.py
+      - name: Load independent acoustic model
+        run: python3 -c "import whisper; whisper.load_model('base',device='cpu')"
+      - name: Independently verify both timing candidates
+        run: |
+          python3 tools/audio-highlight/aligner/cloud_probe.py --cohort /tmp/bella-cohort/cohort.json --run artifacts/bella-sync-pilot-2026-09-21/out --arm auto --only winters-tale/original-en/ch6 --out artifacts/bella-sync-pilot-2026-09-21/probe-winter.json --threads 2
+          python3 tools/audio-highlight/aligner/cloud_probe.py --cohort /tmp/bella-cohort/cohort.json --run artifacts/bella-sync-pilot-2026-09-21/replay --arm auto --only imitation-of-christ/original-en/ch76 --out artifacts/bella-sync-pilot-2026-09-21/probe-imitation.json --threads 2
+          python3 tools/audio-highlight/bella_acoustic_gate.py
+      - name: Publish only independently accepted new timing objects
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+        run: |
+          python3 tools/audio-highlight/publish_timings.py --candidates artifacts/bella-sync-pilot-2026-09-21/acoustically-accepted.json --journal artifacts/bella-sync-pilot-2026-09-21/publication-journal.json --apply
+      - name: Save repair evidence on isolated branch
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-sync-pilot-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Record independent Bella timing verification and conditional publication [skip ci]"
+          git push origin HEAD:codex/bella-sync-acoustic-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-sync-acoustic-review
+          path: artifacts/bella-sync-pilot-2026-09-21
+          retention-days: 30
