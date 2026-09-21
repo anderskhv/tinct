@@ -55,16 +55,16 @@ place as book #10.
 
 | # | Book | id | Stage | Owner lane | Notes |
 |---|---|---|---|---|---|
-| 1 | The Manual | `the-manual` | Reviewing (round 2) | Lane A | Reusing branch candidate as working draft (orig. sha256 `d785f2c99c7f628123b976457303d32143782f4e576e8d81671636e2c1e3bd42`, now modified — round-1 review found 13 blocking + 8 required defects across 3 independent packeted fidelity reviews, all fixed in round 2 (20 sections touched) + a book-wide terminology consistency sweep (phantasia→"impression", "power"→"control"); round-2 re-verification in flight |
-| 2 | Descartes' Meditations | `descartes-meditations` | Reviewing (round 2) | Lane B | Round-1 fidelity (2 packets) found 16 blocking defects, all patchable; fix pass dispatched |
-| 3 | The Comedy of Errors | `comedy-of-errors` | Screening done | Lane C | Fresh A–D pending |
+| 1 | The Manual | `the-manual` | Reviewing (round 3) | Lane A | Reusing branch candidate as working draft (orig. sha256 `d785f2c99c7f628123b976457303d32143782f4e576e8d81671636e2c1e3bd42`, now modified). Round 1: 13 blocking + 8 required defects (3 fidelity packets), fixed round 2 (20 sections) + terminology sweep. Round-2 re-verification found round-2's own patch introduced 4 new issues (fidelity: invented gloss §29, missed recap §1, unswept terminology §18/19/23/24, dropped qualifier §45) and 2 accessibility snags (§12 overloaded sentence, §24 circular comparison) — all fixed in round 3 (8 sections: 1,12,18,19,23,24,29,45), diff-verified. Round-3 independent re-verification (fidelity + accessibility on just these 8) dispatched |
+| 2 | Descartes' Meditations | `descartes-meditations` | Reviewing (round 2, accessibility fix dispatched) | Lane B | Fidelity: round-1 (2 packets) found 16 blocking defects, all fixed round 2, independently re-verified **ACCEPT AS-IS** — fidelity is done pending 2 documentation-only items (S1-S7 editorial decisions, scripture-modernization policy). Accessibility: round-1 verdict "needs targeted fixes" (dense double-negative/nested-conditional sentences, false-friend terms unglossed on repeat use — intuition/accidents/common sense/titillation, two bare Latin parentheticals, sciolists/dropsical ungl); fix pass dispatched, not yet landed |
+| 3 | The Comedy of Errors | `comedy-of-errors` | Screening done | queued | Fresh A–D pending, lane opens when Manual or Descartes reaches Text accepted |
 | 4 | Candide | `candide` | Screening done | queued | Fresh A–D pending |
 | 5 | The Prince | `the-prince` | Screening done | queued | ch22p8 gate flag resolved as false positive |
 | 6 | Oedipus Rex | `oedipus-rex` | Screening done | queued | |
 | 7 | Oedipus at Colonus | `oedipus-at-colonus` | Screening done | queued | |
 | 8 | Antigone | `antigone` | Screening done | queued | |
 | 9 | The Sorrows of Young Werther | `werther` | Screening done | queued | |
-| 10 | Crito | `crito` | Reviewing (round 1) | Lane A (after Manual) | substitute for Apology (which substituted for Meditations); round-1 accessibility + fidelity dispatched |
+| 10 | Crito | `crito` | Reviewing (round 1, fix pass dispatched) | Lane C | substitute for Apology (which substituted for Meditations). Accessibility round 1: needs targeted fixes, localized only. Fidelity round 1: ACCEPT WITH FIXES REQUIRED — 2 blocking (2.9 dropped/duplicated paragraph — same failure family as Apology but isolated to one spot, not systemic; 2.6 dropped conditional/reproach/certainty), 11 should-fix, 1 policy call (Jowett editorial cross-refs). Fix pass dispatched |
 
 ## Deferred (separate lane, not started, not filling quota)
 
