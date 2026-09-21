@@ -1,3 +1,234 @@
+# HARD PARKED — Romeo and Juliet (`romeo-and-juliet`, modern-en)
+
+**Status:** HARD PARKED after round 4. **No acceptance hash issued.**
+**Date:** 2026-09-21
+**This round:** independent adversarial verification, **Claude Opus
+(`claude-opus-5`)**. Rounds 1 and 3 (find-and-fix) were **Claude Sonnet 5**;
+rounds 2 and 4 (independent verification) were **Claude Opus
+(`claude-opus-5`)**.
+
+The book's 3 nominal correction rounds are used. Round 4 rebuilt every sweep
+from `source.json` without reference to any prior round's word or character
+list, and found **~34 further live locations of the same
+register-softening / printed-form-erasure class** — including instances
+*inside paragraphs round 3 had just edited*, a directly incomplete
+application of round 3's own book-wide oath convention, a previously
+uncovered minor character's verbal tic, and two more occurrences of the
+exact word ("wanton") round 1 falsely certified exhausted and round 3 fixed
+only once. The trend has not plateaued. Per the Merchant of Venice and Merry
+Wives of Windsor precedents in this batch, this is a hard park, not a fourth
+correction round.
+
+No `accepted-paragraph-hashes.tsv` and no `RELEASE-PACKET.md` were written.
+Only files inside this directory were touched. No app/registry/audio/deploy
+change, no paid API calls. `candidate.json` was **not modified** this round.
+
+---
+
+## What round 4 verified as CORRECT
+
+**Hashes (computed independently this round — both match round 3's claims):**
+- `source.json` → `d7be46edc32ddbb1321be7655ff819bd43e349f6ac59ba8c990fbd236f9f9276` (unchanged; source was never edited)
+- `candidate.json` → `49272cde2304c31da93b12970aed7c9dc492a7a5646b56783054218fb4da0fa9`
+
+**Structure (re-derived fresh):** 25 chapters both files; 1,062 paragraphs
+both files; per-chapter counts identical
+(`3,112,36,35,31,63,16,68,23,98,24,13,76,28,51,10,79,38,26,11,24,57,22,12,106`);
+`sections` arrays identical (Prologue + Acts 1–5, all real Act/Scene reading
+units, no apparatus/collation chapters); JSON valid both sides; no
+empty/whitespace-only paragraph. **Clean.**
+
+**Round 3's fixes: spot-checked ~30 of the claimed 64 by locating each in
+`source.json` by distinctive phrase, not by trusting cited indices. All
+checked fixes are genuinely present and correct**, including: the medlar /
+open-arse / poperin-pear joke (7,13); "civil" restored (2,13); "a pretty
+piece of flesh" (2,17); "My naked weapon" (2,20); alderman / tithe-pig's /
+foul sluttish hair / the hag (5,24); minion, green-sickness carrion, baggage
+(17,52); young baggage + "Out on her, hilding" (17,55); harlotry (19,11);
+whoreson (21,18); carrion flies (15,11); wanton blood + bird's nest (11,21);
+pestilent knave + "Hang him, Jack" (22,54/55); twenty such Jacks (10,74);
+wormwood ×2 + by the rood + by my holidame + wretch/fool variation (4,12);
+ropery (10,72); versal world + "one Paris" de-titled (10,89); silk button
+(10,11); "Without his roe" (10,16); "or let Benvolio die" (13,70); the
+`[Putting on a mask.]` stage direction (5,11); "hot a Jack" (13,4); "you
+knaves" (6,11); second "Scurvy knave" (10,76); "damned guilty deeds"
+(14,22); the ch2 ¶67 / ¶72 image restorations; and the non-blocking fixes at
+14,1 / 4,2 / 17,1 / 17,63 / 16,4 / 16,6 / 3,22. **Round 3 did the work it
+said it did.** The problem is coverage, not execution.
+
+**Oath convention (Marry / i'faith / Jesu / Mass): verified complete for the
+words it names.** Every source occurrence of those four has a matching
+restoration at the same location (16 Marry, 12 faith-class, 3 Jesu, 1 Mass).
+The convention was applied correctly — it was just scoped to four words when
+the play has at least eight in the same class (below).
+
+**Other sweeps run this round that came back clean:**
+- Stage directions: every bracketed direction in source present in
+  candidate, all 1,062 paragraphs. Zero mismatches now.
+- Compression sweep, all 1,062 paragraphs, ratio < 0.82 with source ≥ 12
+  words: 32 paragraphs, all read. No new blocking content loss beyond the
+  register class below (10,20 "bow in the hams" → "bow at the waist" is the
+  only one, and it is listed below as a register item).
+- Speaker-tag map: all speaker attributions correct at every location.
+- "A plague o' both your houses" preserved at all three occurrences.
+- Friar Lawrence's potion plan, the 42 hours, the vial, Friar John's delay:
+  intact.
+
+---
+
+## BLOCKING — the class is still live (round 4's independent findings)
+
+Method: rebuilt from scratch. (a) Per-paragraph lost-token diff over all
+1,062 paragraph pairs with possessive/inflection normalization, yielding
+1,230 source word-forms that appear nowhere in the candidate; scanned all of
+them by hand. (b) Independent location-keyed capitalized-token /
+proper-noun / allusion map. (c) Per-speaker scan of every character with
+more than a handful of lines, looking for repeated unusual vocabulary. (d)
+Word-for-word read of the scenes belonging to characters no prior round
+covered (Peter, the Apothecary, Balthasar, the Prince).
+
+### C-group 1 — named things and allusions replaced by generic descriptors
+*(the exact class round 1 fixed for Aurora / Jove / Titan / Phoebus /
+Cynthia and then certified exhausted)*
+
+| Loc | Source | Candidate |
+|---|---|---|
+| 6,16 | "a rich jewel in an **Ethiop's** ear" | "a jewel sparkling against **dark skin**" |
+| 5,3 | "a **Tartar's** painted bow **of lath**" | "a painted bow" |
+| 14,10 | "the death-darting eye of **cockatrice**" | "the deadly gaze of **a serpent**" |
+| 8,52 | "to lure this **tassel-gentle** back" | "to call this **beautiful hawk** back" |
+| 2,18 | "thou hadst been **poor John**" | "you'd be **a dried-out nobody**" |
+| 5,24 | "no bigger than an **agate-stone**" | "no bigger than **a gemstone**" |
+| 23,14 | "there is forty **ducats**" | "take forty **gold coins**" |
+| 22,1 | "Some **aqua vitae**, ho!" | "Somebody bring **brandy**!" |
+| 5,14 | "**dun's the mouse, the constable's own word**" + "save your reverence love" | "don't be such a mouse" + "that swamp of love" |
+| 14,1 | "**Hood** my **unmann'd** blood, **bating** in my cheeks" (sustained falconry image) | "Cover the wild blood rushing to my cheeks" |
+| 14,1 | "Come, **civil** night, Thou sober-suited **matron**, all in black" | "Come, sober night, dressed all in black" |
+| 1,1 | "From forth the fatal **loins** of these two foes … **take their life**" | "From these two enemy households … **are born**" (also loses "civil blood / civil hands") |
+
+### C-group 2 — crude / bawdy vocabulary swapped for milder near-synonyms
+*(round 2's B1–B14 class)*
+
+| Loc | Source | Candidate |
+|---|---|---|
+| 2,18 | "Draw thy **tool**" (the pun "My naked weapon is out" at 2,20 answers) | "Draw your **sword**" |
+| 5,11 | "**Prick** love for **pricking**" | "Fight back against love's **sting**" |
+| 10,40 | "to hide his **bauble** in a hole" | "to hide his **toy** in a hole" |
+| 10,13 | "The **pox** of such antic lisping" | "**A plague on** these affected…" (also invents "Tybalt's", not in source) |
+| 4,2 | "What **ladybird**!" (Nurse's pet name, with its second sense) | "Come here, **little bird**!" |
+| 4,19 | "suck'd wisdom from **thy teat**" | "sucked wisdom from **your mother's breast**" — **also a meaning error**: source has the Nurse's own teat ("Were not I thine only nurse"), the candidate reassigns it to Lady Capulet, destroying the joke |
+| 4,12 | "wormwood to my **dug**" … "the **nipple** Of my **dug**" | "on my **breast**" … "the **breast**" (wormwood was restored; dug/nipple were not) |
+| 10,47 | "a **shirt and a smock**" | "**a man and a woman**" |
+| 10,20 | "bow in the **hams**" | "bow **at the waist**" |
+
+### C-group 3 — character coinages / insult vocabulary flattened
+*(round 2's B15 class — and several of these are in paragraphs round 3 edited)*
+
+| Loc | Source | Candidate | Note |
+|---|---|---|---|
+| 10,74 | "none of his **flirt-gills** … none of his **skains-mates**" | "one of his **loose women** … one of his **gang**" | **Round 3 edited this exact paragraph twice** (Jacks, Scurvy knave) and left the Nurse's two signature scold-coinages flattened |
+| 6,26 | "You are a **saucy** boy" / "You are a **princox**" | "**insolent** boy" / "You're a **brat**" | Round 3 edited this paragraph (Marry) |
+| 21,5 | "Go, you **cot-quean**, go" | "Go on, you **fussy man**, go" | Round 3 edited this paragraph (faith) |
+| 17,52 | "**Mistress** minion you" / "You **tallow-face**!" | "Listen here, you minion" / "You **pasty-face**!" | Round 3 edited this paragraph (minion/carrion/baggage) and left two more in it |
+| 10,16 | "Helen and Hero **hildings** and harlots" / "Dido a **dowdy**" / "a kitchen **wench**" / "your French **slop**" | "**hussies** and harlots" / "a **frump**" / "kitchen **maid**" / "French-style **trousers**" | Round 3 edited this paragraph (roe, marry). "hilding" is the same word round 3 restored at 17,55 — restored there, erased here |
+| 15,42 | "like a misshaped and sullen **wench**" | "like a sulky, stubborn **brat**" | |
+| 23,11 | "a **caitiff** wretch" | "a **miserable** wretch" | |
+| 22,1 | "**fie**, you **slug-abed**!" / "**well-a-day** that ever I was born" | "You **lazy thing**!" / "**curse the day** I was ever born" | Round 3 edited this paragraph (Marry) |
+| 22,43/45/46 | Peter's "**dagger**" ×3 | "**knife**" ×3 | "dagger" is ordinary modern English; nothing required this |
+
+### C-group 4 — round 3's oath convention applied to four words out of at least eight
+
+Round 3 decided, on the record, to restore period oath/interjection
+vocabulary verbatim "at every location, rather than modernizing them away",
+reasoning that these carry character-voice weight. It then applied that
+decision to `Marry`, `i'faith`/`faith`, `Jesu` and `Mass` only. The play's
+other interjections in exactly the same class are still modernized away,
+which leaves the book internally inconsistent by round 3's own stated rule:
+
+| Word | Source locations | Candidate | Speakers |
+|---|---|---|---|
+| **Sirrah** | 3,5; 6,11; 6,47; 19,3; 21,15; 25,98 (6×) | "You there" / "Boy" / deleted | Capulet ×5, Prince |
+| **Tush** | 19,24; 23,7 | "Nonsense!" | Capulet, Romeo |
+| **Tut** | 2,95; 3,9; 3,33; 5,14 | "Nonsense!" / "Come on" | Romeo, Benvolio ×2, Mercutio |
+| **Fie** | 11,7; 15,42 (×2); 17,53; 22,1 | "Oh" / "Shame on you" / "Stop it" / deleted | Nurse ×2, Friar, Lady Capulet |
+| **Prates** | 22,48; 22,50 | "Nonsense!" | **Peter** |
+| **Hist** | 8,52 | "Psst!" | Juliet |
+| **Benedicite** | 9,5 | "Bless you!" | Friar Lawrence |
+| **"O God's lady dear"** | 11,17 | "Oh, for heaven's sake!" | Nurse — and this is in the paragraph where round 3 *did* restore "Marry, come up, I trow" two clauses later |
+| **"by my fay"** | 6,47 | deleted entirely | Capulet |
+
+Three distinct source interjections (`Tush`, `Tut`, `Prates`) across four
+characters are all rendered as the single modern filler **"Nonsense!"** —
+the precise flattening round 3's own reasoning said to avoid.
+
+### C-group 5 — the uncovered-character check (the Merry Wives lesson)
+
+Per-speaker scan of every character with more than a handful of lines. The
+Nurse and Mercutio were covered by rounds 1–3. **Peter was not covered by
+any round**, and he has a signature tic: he answers each musician with
+**"Prates."** / **"Prates too!"** (22,48 / 22,50) — a distinctive,
+repeated, character-defining word, rendered as generic "Nonsense!" both
+times. This is structurally identical to the Host's "bully" miss that
+hard-parked Merry Wives of Windsor.
+
+Balthasar, the Apothecary, the Prince, Lady Montague, Montague, Abram,
+Sampson and Gregory were also read in full this round; apart from the items
+already listed (2,18; 23,11; 23,14; 25,98) their lines are faithful.
+
+### C-group 6 — "wanton": the plateau test, failed
+
+Round 1 explicitly certified that **every** source use of "wanton" is
+non-sexual and correctly rendered. Round 2 disproved that with 11,21. Round
+3 fixed 11,21 and only 11,21. Round 4 finds **two more still live**:
+
+- **8,62** — "no farther than a **wanton's** bird" → "a **spoiled child's** pet bird"
+- **12,5** — "idles in the **wanton** summer air" → "floating in the summer air"
+
+One word, four rounds, still not exhausted. That is the clearest possible
+evidence that the defect trend in this book has not plateaued.
+
+---
+
+## Why HARD PARK and not a fourth correction round
+
+1. **Volume.** ~34 further live locations on a first independent pass, after
+   three rounds that each self-certified. This is not a residue; it is the
+   same class at the same density round 2 found.
+2. **Recurrence inside just-edited text.** Six of the findings sit in
+   paragraphs round 3 opened and edited this same day (10,74; 6,26; 21,5;
+   17,52; 10,16; 22,1). A fourth pass would be fixing the same paragraphs a
+   fourth time.
+3. **Convention incompleteness, not omission.** Round 3 made an explicit
+   book-wide oath rule and then applied it to half the vocabulary it
+   covers. Fixing that requires re-deciding the convention, not patching
+   locations.
+4. **An uncovered character voice** (Peter) — the specific failure mode that
+   hard-parked Merry Wives of Windsor.
+5. **The plateau test fails on "wanton"** — the one word with a four-round
+   paper trail is still not clean.
+6. Per the batch rule and the Merchant of Venice precedent, a fresh
+   independent pass after round 3 finding live instances of this class means
+   hard park with no acceptance hash.
+
+## If this book is ever revived
+
+It should not be resumed as a patch round. It needs a **re-rendering of the
+modern-en edition under an explicit, written, up-front lexical policy**
+covering: period oaths and interjections as a whole class (not a word list),
+named things and allusions, crude/bawdy vocabulary, and character coinages —
+decided before rendering, not discovered by successive adversarial sweeps.
+`source.json` is untouched and correct; the structure work (25 chapters,
+1,062 paragraphs, clean Act/Scene units) is sound and can be reused as-is.
+
+---
+
+# HISTORY — rounds 1-3 (preserved verbatim)
+
+> **Superseded.** This file was named `PARKED-RESOLVED.md` by round 3, which
+> believed the book resolved. Round 4 disproved that (above). Everything
+> below is round 3's document exactly as it handed off, kept as history.
+> Its 'READY FOR INDEPENDENT VERIFICATION' claim is NOT the book's status.
+
 # RESOLVED — Romeo and Juliet (`romeo-and-juliet`, modern-en)
 
 > **Round 3 resolution, 2026-09-21, Claude Sonnet 5.** This file was

@@ -1,5 +1,37 @@
 # Acceptance Record — Romeo and Juliet (`romeo-and-juliet`, modern-en)
 
+> # STATUS: NOT ACCEPTED — HARD PARKED at round 4 (2026-09-21)
+>
+> **No acceptance hash has been issued. No `accepted-paragraph-hashes.tsv`
+> and no `RELEASE-PACKET.md` exist. This book must not be registered,
+> published, or sent for audio.**
+>
+> Round 4 (independent adversarial verification, Claude Opus
+> `claude-opus-5`) confirmed round 3's structure work, its hashes, and the
+> ~30 of its 64 fixes that were spot-checked — but rebuilt every sweep from
+> `source.json` and found **~34 further live locations of the same
+> register-softening / printed-form-erasure class**, including six inside
+> paragraphs round 3 had just edited, an uncovered minor character's verbal
+> tic (Peter's "Prates"), an oath convention applied to four words out of at
+> least eight, and two further live occurrences of "wanton" — the one word
+> with a four-round paper trail. The defect trend has not plateaued.
+>
+> The book's 3 nominal correction rounds are used. Per the Merchant of
+> Venice / Merry Wives of Windsor precedent in this batch, this is a **hard
+> park**, not a fourth correction round.
+>
+> **Full round-4 finding list, method, and coverage table:
+> `PARKED-RESOLVED.md` (top section).**
+>
+> Model note: rounds 1 and 3 (find-and-fix) = Claude Sonnet 5; rounds 2 and
+> 4 (independent verification) = Claude Opus `claude-opus-5`.
+>
+> Everything below this banner is round 3's record, preserved verbatim as
+> history. **Its "READY FOR INDEPENDENT VERIFICATION" claim and its
+> candidate hash are superseded and are not an acceptance.**
+
+---
+
 > **UPDATED AT ROUND 3 — READY FOR INDEPENDENT VERIFICATION.** See
 > `PARKED-RESOLVED.md` (formerly `PARKED.md`) for the full round 2 → round 3
 > history.
