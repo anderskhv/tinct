@@ -2787,7 +2787,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // A new passage/view invalidates a frozen card, including while edition data loads.
   useLayoutEffect(() => { setSelectionPopup(null) }, [book.bookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, desktopCompareActive, initialResolving, phoneAskOpen, frontispieceVisible])
 
-  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup') => {
+  const handleSelectRange = useCallback((range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup', highlightId?: string) => {
     if (initialResolving || frontispieceVisible || phoneAskOpen) return
     const comparison = side === 'compare' || mobileCompareActive
     const editionKey = comparison ? prefs.compareEdition : prefs.primaryEdition
@@ -2795,7 +2795,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     const paragraph = paragraphs[range.paragraphIndex] || ''
     const offsets = range.endParagraphIndex === range.paragraphIndex ? wordSelectionOffsets(paragraph, range.fromWord, range.toWord) : null
     // Selection is temporary. Only an explicit Highlight or note action writes a mark.
-    const existing = highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
+    // A click carries the identity that painted the word/space/fragment.
+    // Do not reinterpret a rendered mark as a new dictionary selection.
+    const painted = intent === 'lookup' && highlightId
+      ? (comparison ? highlightsApi.compareHighlights : highlightsApi.chapterHighlights).find(mark => mark.id === highlightId)
+      : undefined
+    const existing = painted ?? highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
     const highlight = existing
     // A click inside an existing highlight is about the thing the reader

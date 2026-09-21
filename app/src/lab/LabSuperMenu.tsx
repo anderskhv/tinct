@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './labSuperMenu'
 
 export interface LabSuperMenuProps {
@@ -62,6 +62,22 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * panel — so the blur lives on the panel's own backdrop.
  */
 export function LabSuperMenu({ open, phone, onSelect, onClose }: LabSuperMenuProps) {
+  const layerRef = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    const layer = layerRef.current
+    const header = layer?.closest('.lab')?.querySelector('.lab-header')
+    if (!open || !phone || !layer || !header) return
+    // Use the actual header, including font size and safe-area padding. The
+    // menu has its own 12px breathing room below the chapter and close targets.
+    const place = () => layer.style.setProperty('--lab-v2-menu-top',
+      `${header.getBoundingClientRect().bottom - layer.getBoundingClientRect().top + 12}px`)
+    place()
+    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(place) : null
+    observer?.observe(header)
+    window.addEventListener('resize', place)
+    return () => { observer?.disconnect(); window.removeEventListener('resize', place) }
+  }, [open, phone])
+
   useEffect(() => {
     if (!open) return
     const onKey = (event: KeyboardEvent) => {
@@ -75,7 +91,7 @@ export function LabSuperMenu({ open, phone, onSelect, onClose }: LabSuperMenuPro
   const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone })
 
   return (
-    <div className="lab-super-layer" data-testid="lab-super-layer">
+    <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">
       <button
         type="button"
         className="lab-super-scrim"

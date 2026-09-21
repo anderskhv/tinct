@@ -4,6 +4,7 @@ import { Fragment, useEffect, useLayoutEffect, useRef, useState, type ReactNode 
 import { LAB_COPY } from './labCopy'
 import {
   buildHighlightRange,
+  highlightAt,
   highlightColorAt,
   labHighlightGapCssClass,
   labHighlightCssClass,
@@ -65,7 +66,7 @@ interface LabPassageProps {
   highlights?: LabHighlight[]
   chapterNumber?: number
   selectingRange?: LabHighlightRange | null
-  onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup') => void
+  onSelectRange?: (range: LabHighlightRange, clientX: number, clientY: number, side?: 'compare', intent?: 'lookup', highlightId?: string) => void
   browseWhileListening?: boolean
   inlineHearingPaint?: boolean
   onSeekToWord?: (paragraphIndex: number, wordIndex: number) => void
@@ -445,6 +446,7 @@ export function LabPassage({
     touch: boolean
     comparison: boolean
     pointerType: string
+    highlightId?: string
   } | null>(null)
   const edgeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const edgeDirectionRef = useRef<-1 | 1 | null>(null)
@@ -611,6 +613,7 @@ export function LabPassage({
       touch: touchSelection,
       comparison: !!(event.target as Element).closest('.lab-book-col-compare'),
       pointerType: event.pointerType,
+      highlightId: (event.target as Element).closest('[data-highlight-id]')?.getAttribute('data-highlight-id') || undefined,
     }
     dragRef.current = drag
     if (touchSelection && selectionPlace) {
@@ -727,12 +730,9 @@ export function LabPassage({
     const deltaY = event.clientY - drag.startY
     const duration = Math.max(0, event.timeStamp - drag.startedAt)
     const surfaceRect = event.currentTarget.getBoundingClientRect()
-    const savedHighlight = drag.start
-      ? (drag.comparison ? compareHighlights : highlights).find(mark => (
-          mark.chapterNumber === chapterNumber
-          && wordInHighlightRange(mark, drag.start!.paragraphIndex, drag.start!.wordIndex)
-        ))
-      : null
+    const visibleHighlights = drag.comparison ? compareHighlights : highlights
+    const savedHighlight = visibleHighlights.find(mark => mark.id === drag.highlightId && mark.chapterNumber === chapterNumber)
+      ?? (drag.start ? highlightAt(visibleHighlights, chapterNumber, drag.start.paragraphIndex, drag.start.wordIndex) : undefined)
     // Precedence, decided once and used by everything below: a click or tap
     // that lands in a live page-turn zone turns the page and does nothing
     // else. It must never also open a word definition — one click cannot both
@@ -754,7 +754,10 @@ export function LabPassage({
       const range = buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, drag.start, drag.start)
       dragRef.current = null
       setLocalSelecting(null)
-      if (range?.text.trim()) onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined, 'lookup')
+      if (range?.text.trim()) {
+        if (savedHighlight) onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined, 'lookup', savedHighlight.id)
+        else onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined, 'lookup')
+      }
       return
     }
     // Compare's whole-page swap is the vertical swipe, and it is checked
@@ -827,7 +830,8 @@ export function LabPassage({
                   >
                     {renderWordGroups(line.words, (word, wordIndex, spacing) => {
                       const absoluteWord = wordBase + wordIndex
-                      const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
+                      const mark = highlightAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
+                      const color = mark?.color ?? null
                       const selecting = !((localSelecting && dragRef.current?.comparison) || (!localSelecting && selectingComparison)) && activeSelecting
                         && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
                       const inlineRole = inlineHearingPaint
@@ -846,6 +850,7 @@ export function LabPassage({
                             data-testid="lab-word-fragment"
                             data-fragment-paragraph={paragraphIndex}
                             data-fragment-word={absoluteWord}
+                            data-highlight-id={mark?.id}
                             aria-hidden="true"
                           >
                             {spacing}
@@ -860,6 +865,7 @@ export function LabPassage({
                           data-testid="lab-word"
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
+                          data-highlight-id={mark?.id}
                           onClick={onSeekToWord
                             ? (event) => {
                                 event.stopPropagation()
@@ -875,13 +881,14 @@ export function LabPassage({
                       if (!spacing || wordIndex <= 0) return spacing
                       const absoluteWord = wordBase + wordIndex
                       const previousWord = absoluteWord - 1
-                      const color = highlightColorAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
+                      const mark = highlightAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
+                      const color = mark?.color ?? null
                       const previousColor = highlightColorAt(highlights, chapterNumber, paragraphIndex, previousWord)
                       const onPrimary = !((localSelecting && dragRef.current?.comparison) || (!localSelecting && selectingComparison))
                       const selecting = !!activeSelecting && onPrimary && wordInHighlightRange(activeSelecting, paragraphIndex, absoluteWord)
                       const previousSelecting = !!activeSelecting && onPrimary && wordInHighlightRange(activeSelecting, paragraphIndex, previousWord)
                       const className = labHighlightGapCssClass(color, selecting, previousColor, previousSelecting)
-                      return className ? <span className={className}>{spacing}</span> : spacing
+                      return className ? <span className={className} data-highlight-id={mark?.id}>{spacing}</span> : spacing
                     })}
                   </p>
                 )
@@ -995,12 +1002,13 @@ export function LabPassage({
               const compareSelecting = !!activeSelecting && !!(localSelecting ? dragRef.current?.comparison : selectingComparison)
               return <p key={lineIndex} className="lab-hearing-line" style={alignCompare ? { gridColumn: 2, gridRow: lineIndex + 1 } : undefined} data-compare-paragraph={paragraphIndex} data-compare-from={segment.from} data-compare-to={segment.to}>{asVerseLines(source[paragraphIndex], segment.from, words.slice(segment.from, segment.to).map((word, index) => {
                 const absoluteWord = segment.from + index
-                const color = highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord)
+                const mark = highlightAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord)
+                const color = mark?.color ?? null
                 const selecting = compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord)
                 const previousColor = index > 0 ? highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord - 1) : null
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
                 const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
-                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
+                return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id}>{word.emphasis ? <em>{word.text}</em> : word.text}</span></Fragment>
               }))}</p>
             })}
           </div>

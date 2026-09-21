@@ -13,7 +13,7 @@ const explanation = 'A compact opening grounded in the selected passage.\n\nA se
 const definition = 'pronoun. Used to refer to people or things already identified.'
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
-async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1) {
+async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1, fixture={}) {
   const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone })
   const page = await context.newPage()
   page.setDefaultTimeout(10000)
@@ -37,13 +37,14 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     }
     return route.continue()
   })
-  await page.addInitScript(({bookId,edition,chapterNumber}) => {
-    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:0,wordIndex:0,page:0}}))
+  await page.addInitScript(({bookId,edition,chapterNumber,fixture}) => {
+    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
+    if(fixture.highlights && !localStorage.getItem('tinct-lab-highlights')) localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
     HTMLMediaElement.prototype.play = async function(){this.muted=true}
     window.__copied = []
     Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
-  },{bookId,edition,chapterNumber})
+  },{bookId,edition,chapterNumber,fixture})
   await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.evaluate(()=>document.fonts.ready)
@@ -287,11 +288,19 @@ async function checkFullPageFold(page) {
     return {pageHeight:node.clientHeight, height:parseFloat(paint.height), top:parseFloat(paint.top),
       bottom:parseFloat(paint.bottom), width:parseFloat(paint.width), events:paint.pointerEvents,
       oldDivider:columns&&getComputedStyle(columns,'::after').content, shadow:style.boxShadow,
-      rect:rect.toJSON(), content:paint.content}
+      rect:rect.toJSON(), content:paint.content,
+      gutter:parseFloat(getComputedStyle(columns).columnGap),
+      ink:[...node.querySelectorAll('.lab-book-columns [data-testid="lab-word"],.lab-book-columns .lab-chapter-end')].flatMap(n=>[...n.getClientRects()].filter(b=>b.width&&b.height).map(b=>({left:b.left,right:b.right}))),
+      foldLeft:rect.left+node.clientLeft+node.clientWidth/2-parseFloat(paint.width)/2,
+      foldRight:rect.left+node.clientLeft+node.clientWidth/2+parseFloat(paint.width)/2}
   })
-  assert(fold.content!=='none'&&fold.width>40,'binding must be visible')
+  assert(fold.content!=='none'&&fold.width>=40,'binding must be visible')
   assert(Math.abs(fold.height-fold.pageHeight)<1 && fold.top===0 && fold.bottom===0,
     'binding must span the full sheet, including margins: '+JSON.stringify(fold))
+  assert(fold.width<=fold.gutter,'binding stays within the reserved gutter')
+  assert(fold.ink.every(box=>box.right<=fold.foldLeft+.6 || box.left>=fold.foldRight-.6),
+    'binding must not tint text or the chapter-end card: '+JSON.stringify(fold))
+  delete fold.ink
   assert.equal(fold.events,'none','decoration must not intercept text selection or controls')
   assert.equal(fold.oldDivider,'none','short text must not carry a second, truncated binding')
   assert.notEqual(fold.shadow,'none')
@@ -434,35 +443,22 @@ async function highlightRegression(engine,name){
   let state
   const result={engine:name,layout:'persisted-highlight-regression',live,clicks:[]}
   try{
-    for(const fixture of [{book:'bible',edition:'web-en',chapter:935},{book:'notes-from-underground',edition:'original-en',chapter:1}]){
+    for(const fixture of [{book:'notes-from-underground',edition:'original-en',chapter:1,p:0,to:115},{book:'bible',edition:'web-en',chapter:935,p:5,to:88}]){
       if(state)await state.context.close()
-      state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter)
+      const record={id:'persisted-gold',bookId:fixture.book,editionKey:fixture.edition,chapterNumber:fixture.chapter,paragraphIndex:fixture.p,endParagraphIndex:fixture.p,fromWord:0,toWord:fixture.to,color:'gold',kept:true}
+      state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter,{paragraphIndex:fixture.p,highlights:[record]})
       const {page}=state
       await clickMenu(page,'settings')
       await page.getByTestId('lab-v2-theme-dark').click()
       await page.getByTestId('lab-v2-sheet-close').click()
-      if(fixture.book==='bible'){
-        for(let i=0;i<12&&!await page.locator('.lab-chapter-end:visible').count();i++){
-          await page.getByTestId('lab-page-next').click();await page.waitForTimeout(350)
-        }
-      }
-      const words=page.getByTestId('lab-word')
-      const all=await words.evaluateAll(nodes=>nodes.map(n=>({text:n.textContent,p:Number(n.dataset.paragraphIndex),w:Number(n.dataset.wordIndex)})))
-      const first=await words.first().boundingBox(),lastIndex=Math.min(fixture.book==='bible'?100:115,all.length-1),last=await words.nth(lastIndex).boundingBox()
-      await page.mouse.move(first.x+first.width/2,first.y+first.height/2);await page.mouse.down()
-      await page.mouse.move(last.x+last.width/2,last.y+last.height/2,{steps:14});await page.mouse.up()
-      await page.getByRole('button',{name:'Highlight',exact:true}).click()
-      await page.getByRole('button',{name:'Highlight Gold',exact:true}).click()
-      const records=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'))
-      result[fixture.book]={records,all:all.slice(0,lastIndex+1)}
       await page.reload({waitUntil:'domcontentloaded'})
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
       await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
-      if(fixture.book==='bible'){
-        for(let i=0;i<12&&!await page.locator('.lab-chapter-end:visible').count();i++){
-          await page.getByTestId('lab-page-next').click();await page.waitForTimeout(350)
-        }
-      }
+      const target='[data-testid="lab-word"][data-paragraph-index="'+fixture.p+'"].is-hl-warm'
+      // Restore starts at the paragraph; if the spread backs up to its mate,
+      // the mark still has to be on one of the two visible leaves.
+      await page.locator(target).first().waitFor()
+      result[fixture.book]={records:await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'))}
       await page.screenshot({path:output+'/'+name+'-'+fixture.book+'-gold-reloaded.png'})
       const marked=page.locator('[data-testid="lab-word"].is-hl-warm')
       const count=await marked.count();assert(count>5,'saved Gold is painted after reload')
@@ -489,6 +485,55 @@ async function highlightRegression(engine,name){
   }catch(error){
     result.passed=false;result.error=error.stack
     if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-3000)}
+  }finally{await browser.close();results.push(result)}
+}
+
+
+async function mobileChromeRegression(engine,name){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'phone-chrome-regression',live}
+  try{
+    state=await boot(browser,true,'notes-from-underground','original-en')
+    const {page}=state
+    for(const theme of ['dark','book','light']){
+      await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-'+theme).click()
+      await page.getByTestId('lab-v2-sheet-close').click()
+      await page.getByTestId('lab-super').click()
+      const panel=await page.getByTestId('lab-super-menu').boundingBox()
+      const header=await page.locator('.lab-header').boundingBox()
+      assert(panel.y-(header.y+header.height)>=11.5,'menu needs a gap below the whole header')
+      await page.screenshot({path:output+'/'+name+'-phone-menu-'+theme+'.png'})
+      await page.keyboard.press('Escape')
+      await page.getByTestId('lab-header-book').click()
+      await page.keyboard.press('Tab')
+      await page.locator('.lab-book-switcher-row.is-active').focus()
+      const focus=await page.locator('.lab-book-switcher-row.is-active').evaluate(node=>{
+        const style=getComputedStyle(node),list=node.closest('.lab-book-switcher-list').getBoundingClientRect(),row=node.getBoundingClientRect()
+        return {offset:parseFloat(style.outlineOffset),width:parseFloat(style.outlineWidth),visible:node.matches(':focus-visible'),top:row.top,listTop:list.top}
+      })
+      assert(focus.visible&&focus.offset+focus.width<=0,'first row focus stays inside its box: '+JSON.stringify(focus))
+      assert(focus.top>=focus.listTop)
+      await page.screenshot({path:output+'/'+name+'-phone-switcher-'+theme+'.png'})
+      await page.getByRole('button',{name:'Close book switcher'}).click()
+      // A real quiet-reading tap, away from the edge page-turn zones.
+      await page.touchscreen.tap(195,220)
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]').dataset.readerControls==='hidden')
+      await page.waitForTimeout(200)
+      const quiet=await page.evaluate(()=>{
+        const header=document.querySelector('.lab-header-brand'),title=header.querySelector('.lab-header-work'),progress=document.querySelector('.lab-chapter-progress-info')
+        return {headerOpacity:getComputedStyle(header).opacity,progressOpacity:getComputedStyle(progress).opacity,title:getComputedStyle(title).color,progress:getComputedStyle(progress).color}
+      })
+      assert.equal(quiet.progressOpacity,quiet.headerOpacity,'quiet progress fades with the header')
+      assert.equal(quiet.progress,quiet.title,'quiet progress uses the same grey ink as the header')
+      await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
+      await page.touchscreen.tap(195,220)
+    }
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  }catch(error){
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-phone-chrome-failure.png'}).catch(()=>{})
   }finally{await browser.close();results.push(result)}
 }
 
@@ -522,6 +567,7 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   await compareLabel(engine,name)
   await bookSurface(engine,name)
   await highlightRegression(engine,name)
+  await mobileChromeRegression(engine,name)
   for(const phone of [false,true])await contentsAndSameEdition(engine,name,phone)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
