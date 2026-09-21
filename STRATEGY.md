@@ -2,9 +2,27 @@
 
 **Last updated:** 2026-04-21
 
-The full emotional argument is in [MANIFESTO.md](./MANIFESTO.md). The one-minute version is in [ELEVATOR-PITCH.md](./ELEVATOR-PITCH.md). This document is the strategic machinery behind both — what we're building, for whom, against whom, and how the economics work.
+The full emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md). The one-minute version is in [ELEVATOR-PITCH.md](./ELEVATOR-PITCH.md). This document is the strategic machinery behind both — what we're building, for whom, against whom, and how the economics work.
 
 ---
+
+## Language scope
+
+**Approved by Anders, 2026-09-21.** English is the current product and delivery strategy. Danish is no longer the strategy, a launch requirement or an automatically queued next language. This supersedes older EN/DA plans, Danish onboarding handoffs, translation/audio follow-ups, QA requirements, SEO mirrors and Danish-language launch campaigns.
+
+- Prioritize English reading editions, modern-English renderings, narration, interface, onboarding and marketing. Original-language source texts and their provenance remain valid parts of the library.
+- Do not commission new Danish translations, narration, localized onboarding, QA or SEO pages unless Anders explicitly reopens that scope. Finishing English work does not automatically reopen Danish. No next language or rollout date is committed.
+- Preserve existing Danish/source-language texts, recordings and historical evidence. This decision does not authorize deleting assets, removing existing reader functionality or declaring old assets current and verified.
+
+**Make later localization and translation easy as we do current work:**
+
+- Keep interface locale, edition language and narration language distinct. Use explicit language identifiers and configurable language/voice mappings rather than hard-coded English-versus-Danish branches.
+- Keep user-facing strings separable from interface logic, and use locale-aware formatting and pluralization where needed. Allow localized onboarding, metadata and SEO content later, with an explicit English fallback for interface copy.
+- Preserve stable book, edition, chapter and paragraph identities, source-version provenance and cross-edition alignment. A future translation must track the source it translates; English edits must not silently leave a translation marked current.
+- Treat narration providers and voices as configuration. Reuse stored audio and timings for the same spoken text, language, provider/model, voice and settings. Invalidate only affected speech chunks after text changes; preserve unchanged chunks and independent language/voice variants. Never silently play another language's recording for an edition.
+- Enable future languages only with explicit scope, suitable voices, content rights and quality checks. Localized routes and search metadata should describe actual supported content.
+
+This is a design direction for current work, not a request to implement a localization framework, change schemas or dependencies, generate translations, or deploy now. Concrete implementation remains subject to the relevant work plan. Other dated metrics and historical completion claims in this document have not been reverified by this language-scope update.
 
 ## 1. Mission
 
@@ -109,7 +127,7 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 
 ## 6. Library
 
-**Today: 34 classics.** All with modern English translation, modern Danish translation, and visual QA. All paragraph-aligned for split-pane reading. All with AI companion, character tracker, and audiobook.
+**Current language scope:** original/authoritative English editions and modern-English reading editions, with aligned reading and narration where available. Danish coverage is not a publication requirement. Use the current registry and inventory tooling for book and audio coverage; the former April count and universal EN/DA completion claim are not a current inventory.
 
 **End of 2026: 100+ titles.** Expansion across the Western canon — more Plato, more Shakespeare, additional 19th-century fiction (Flaubert, Austen, Dickens), more devotional/philosophical works (Calvin, Aquinas, early Christian writings), more 20th-century modernists where public domain permits.
 
@@ -136,7 +154,7 @@ Reader, multi-edition, AI chat, highlights, notes, reading journal, character tr
 - First paying users beyond friends and family
 
 **Phase 3 (late 2026 / 2027): Scale.**
-Decisions deferred until we get there: whether to raise price, introduce tiers, expand translations beyond EN/DA, explore B2B distribution (schools, book clubs). None of these are committed.
+Decisions deferred until we get there: whether to raise price, introduce tiers, introduce additional target languages after explicit approval, explore B2B distribution (schools, book clubs). None of these are committed.
 
 ---
 
@@ -146,7 +164,7 @@ Decisions deferred until we get there: whether to raise price, introduce tiers, 
 
 **Hardware.** Custom e-reader with voice interaction. Software must validate first. Currently parked indefinitely — building consumer hardware is company-scale work and a distraction from the real product.
 
-**Additional languages.** French, German, Spanish, Italian. Adds ~$5–10 per book per language in pre-computation costs. Expands addressable market significantly. Revisit after US/UK/Nordic launch.
+**Additional languages.** Deferred, with no committed first language, cost estimate or launch sequence. Current work should preserve the localization and translation flexibility described in [Language scope](#language-scope).
 
 **School / book-club tier.** Teacher dashboards, group reading, shared notes, angle suggestions for classrooms. Potentially the strongest distribution moat (institutional adoption) but requires a different product surface. The strongest candidate for Phase 3.
 
@@ -192,7 +210,7 @@ Not subscriber count alone. The better proxy: books finished per user. If a read
 
 ## Appendix — Related documents
 
-- [`MANIFESTO.md`](./MANIFESTO.md) — the public argument for Tinct. Goes live at `/about`.
+- [`MANIFESTO.md`](./archive/old-docs/MANIFESTO.md) — the public argument for Tinct. Goes live at `/about`.
 - [`ELEVATOR-PITCH.md`](./ELEVATOR-PITCH.md) — 60-second spoken version for conversations.
 - [`BACKLOG.md`](./BACKLOG.md) — current work items and priorities.
 - [`CLAUDE.md`](./CLAUDE.md) — project CEO operating file.

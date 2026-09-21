@@ -1,5 +1,7 @@
 # Tinct Pipelines
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 Last updated: 2026-09-21
 
 Use this as the quick overview before opening Claude, Codex, or RunPod. Keep it short and current. Git history keeps the detailed record.
@@ -121,6 +123,10 @@ A book may move into public `BOOKS` only when:
 - taxonomy is complete
 - audio flags match actual R2 coverage
 - app build and bundle verification pass
+
+## Bella word-sync planning — 2026-09-21
+
+See [Bella word-sync repair plan](docs/bella-word-sync-repair-plan-2026-09-21.md). Planning only: first refresh the Bella-specific production ledger, recover reusable results, and choose a small representative pilot. No new paid alignment, publication or deployment has started. Existing historical audio backlog instructions do not authorize execution of this proposed repair plan.
 
 ## Next Actions
 

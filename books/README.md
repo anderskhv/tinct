@@ -1,5 +1,7 @@
 # Book Factory — Tinct
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 This folder is the preparation workspace for adding new books to Tinct. Each book goes through a standardized pipeline from raw source text to fully registered, translated, audio-ready edition.
 
 ## Quick Start

@@ -1,5 +1,7 @@
 # Current reader behavior
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 This note records the active reader, including the September 21 reader polish release.
 Release status and verification limits are in [the reader polish plan](reader-panels-selection-2026-09-21.md)
 and [the September 17 release plan](reader-feedback-2026-09-17.md).

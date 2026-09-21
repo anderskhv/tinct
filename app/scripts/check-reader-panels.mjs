@@ -258,7 +258,6 @@ async function compareLabel(engine,name){
     const footers=page.getByTestId('lab-desktop-page-footers')
     await footers.getByText('Tinct Modern English',{exact:true}).waitFor()
     assert.equal(await footers.locator('b').count(),2)
-    await page.getByTestId('lab-v2-sheet-close').click()
     const divider=page.locator('.lab-compare-divider')
     await divider.waitFor()
     assert.equal((await divider.innerText()).trim(),'Compare')
@@ -395,6 +394,26 @@ async function contentsAndSameEdition(engine,name,phone){
     }
     assert.deepEqual(errors,[])
     assert.deepEqual(state.errors,[])
+    for (const book of ['notes-from-underground','frederick-douglass']) {
+      await state.context.close()
+      state=await boot(browser,phone,book,'original-en',3)
+      const contentsPage=state.page
+      await contentsPage.getByTestId('lab-header-chapter').click()
+      const contents=contentsPage.getByTestId('lab-contents-v2')
+      await contents.getByTestId('lab-tree-chapter-3').waitFor()
+      await contentsPage.evaluate(()=>document.fonts.ready)
+      assert.equal(await contents.locator('[aria-current="page"]').count(),1)
+      if(book==='frederick-douglass') {
+        await contents.getByRole('button',{name:'Chapters',exact:true}).waitFor()
+        const heading=contents.locator('header .title')
+        assert(await heading.evaluate(node=>node.scrollWidth>node.clientWidth),'long title ellipsizes')
+        await heading.click()
+        await contents.locator('.full-title').getByText('Narrative of the Life of Frederick Douglass',{exact:true}).waitFor()
+        await heading.click()
+      }
+      await contentsPage.screenshot({path:output+'/'+name+'-'+result.layout+'-'+book+'.png'})
+      assert.deepEqual(state.errors,[])
+    }
     result.passed=true
   }catch(error){
     result.passed=false;result.error=error.stack
@@ -409,6 +428,7 @@ async function designReference(){
   try{
     const state=await boot(browser,false)
     const {page}=state
+    await page.goto('about:blank')
     const original=await fs.readFile('../docs/verification/reader-design1-2026-09-21/chapter-picker-approved.html','utf8')
     const icons={search:'m21 21-4.34-4.34M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
       highlighter:'m9 11-6 6v3h9l3-3 M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4',

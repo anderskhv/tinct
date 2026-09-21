@@ -1,5 +1,7 @@
 # Fish Audio narration pilot — 2026-09-18
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 Branch `claude/eloquent-wozniak-4il2zo`. Scope: on-demand narration for
 **The Odyssey, Book 1, `original-en` and `modern-en`**, behind an explicit
 opt-in in the V2 reader (`/reader`). Kokoro recordings, the production
@@ -253,8 +255,7 @@ What this says:
 
 ## 8. Out of scope, with implications
 
-- **Danish**: Fish lists 83 languages for `s2.1-pro`; nothing here is
-  English-specific except the two voices and the pilot scope constant.
+- **Danish**: outside the current strategy, with no automatic follow-up. Keep language and voice selection configurable for future explicitly approved localization.
 - **Interactive voice chat**: separate OpenAI path; unaffected.
 - **Offline downloads**: the download manager knows Kokoro paths only;
   narrated chapters would need the blob URLs added to the offline manifest.
@@ -578,10 +579,7 @@ and a small admin page for `/api/narration/usage` so spend is visible without
 a token in a terminal. Alert when the breaker opens or a day crosses 50% of
 its ceiling.
 
-**7. Not in Stage 3.** Danish narration (Fish's Danish quality is unmeasured
-and the modern-da editions are the larger corpus), voice chat over Fish,
-offline narration bundles and the sleep timer stay out of scope until the
-English default has a month of data.
+**7. Not in Stage 3.** Danish narration is outside the strategy and requires an explicit new decision; a month of English data does not reopen it. Voice chat over Fish, offline narration bundles and the sleep timer remain outside this stage under the existing pilot plan.
 
 **Needs a decision from Anders:** items 1, 2 and 4 before any default flips;
 item 3 as a design direction; items 5 and 6 are recommendations that can

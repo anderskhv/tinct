@@ -1,5 +1,7 @@
 # Tinct — Backlog
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 **Last updated:** 2026-04-29
 
 ---
@@ -9,7 +11,7 @@
 | Feature | Status |
 |---|---|
 | 60 books in registry | Done |
-| Multiple editions (original, modern EN, modern DA) | Done |
+| Legacy multi-edition support (including existing Danish assets) | Historical implementation; Danish is not a current delivery requirement |
 | Side-by-side reading (paragraph-aligned) | Done |
 | AI chat (page-aware, self-aware about Tinct features) | Done |
 | Cast (character tracker, spoiler-aware) | Done |
@@ -113,7 +115,7 @@ The unbuilt 6-step manifesto in `Design refs/Account Onboarding.html` is dropped
 - [ ] Content marketing (book summaries as SEO pages)
 
 ### More Languages
-- [ ] German as first expansion (better LLM quality than Danish)
+- Additional-language rollout deferred; no first expansion language selected. Keep current work localization-ready.
 - [ ] EPUB import ("Your book, your way")
 
 ### Apple OAuth
@@ -131,9 +133,9 @@ The unbuilt 6-step manifesto in `Design refs/Account Onboarding.html` is dropped
 - [ ] Premium-gated
 
 ### Translation Quality
-- [ ] Danish translation style guide (5 structural patterns identified from FoR comparison)
-- [ ] Second-pass proofreading prompt for Danish
-- [ ] German as expansion language
+- Retired from the active queue (2026-09-21): Danish translation style guide (5 structural patterns identified from FoR comparison). Future language work needs a new scope decision.
+- Retired from the active queue (2026-09-21): Second-pass proofreading prompt for Danish. Future language work needs a new scope decision.
+- Retired from the active queue (2026-09-21): German as expansion language. Future language work needs a new scope decision.
 
 ### B2B / Education
 - [ ] Teacher landing page ("Assign The Odyssey on Tinct")

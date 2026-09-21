@@ -1,4 +1,6 @@
 # Human Review Queue: Hamlet
+
+> **Scope update — 2026-09-21:** This report preserves historical observations. Danish findings and recommendations do not create current repair, translation, audio or publication requirements; Danish is no longer the strategy. English findings remain subject to the current QA plan. See [Language scope](../../STRATEGY.md#language-scope).
 Date: 2026-04-08
 Total flagged: 2
 Estimated review time: ~5 minutes

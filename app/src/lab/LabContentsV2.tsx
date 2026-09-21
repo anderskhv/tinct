@@ -137,8 +137,10 @@ export function LabContentsV2(props: Props) {
     if (!open || typeof ResizeObserver === 'undefined') return
     const observer = new ResizeObserver(() => geometryRef.current())
     if (panelRef.current) observer.observe(panelRef.current)
+    const tree = bodyRef.current?.querySelector('.tree')
+    if (tree) observer.observe(tree)
     return () => observer.disconnect()
-  }, [open])
+  }, [open, props.chaptersReady])
   useEffect(() => {
     if (!open) return
     const previous = document.activeElement as HTMLElement | null

@@ -1,5 +1,7 @@
 # Temporary audio edition availability — 2026-09-10
 
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+
 Authorized through the audio execution task after Anders clarified edition-level
 availability. Source proposal: output/audio-highlight-execution-2026-09-10/edition-availability-proposal.json.
 The committed reversible policy is app/src/data/audioAvailability.json.

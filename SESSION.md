@@ -1,4 +1,6 @@
 # Tinct — Session State
+
+> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 **Last updated: 2026-04-29**
 
 > This file is a current-state snapshot, not a changelog. Fully overwrite it at the end of each session. Git log has the history.

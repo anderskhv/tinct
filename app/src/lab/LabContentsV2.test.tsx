@@ -137,3 +137,12 @@ describe('Design 1 contents', () => {
     expect(Array.from(document.querySelectorAll('header .actions button')).map(n=>n.getAttribute('aria-label'))).toEqual(['Search contents','Highlights'])
   })
 })
+
+it('matches the flat-book Chapters root and simplifies repeated part labels', () => {
+  const flatBook=contentsTree([{number:1,title:'Chapter 1'},{number:2,title:'Appendix'}],undefined,false)
+  expect(flatBook[0].label).toBe('Chapters')
+  expect(flatBook[0].children?.map(n=>n.label)).toEqual(['Chapter 1','Appendix'])
+  const parts=contentsTree([{number:1,title:'Part 1, Chapter 1'}],[{title:'Part 1 — Underground',chapters:[1]}],false)
+  expect(parts[0].label).toBe('Part 1 — Underground')
+  expect(parts[0].children?.[0].label).toBe('Chapter 1')
+})
