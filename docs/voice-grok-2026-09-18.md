@@ -151,6 +151,28 @@ subjective voice quality, first-response perception or iOS background
 microphone continuity. Those remain physical-device acceptance items; no
 browser-only result is recorded as an audible or lock-screen verification.
 
+### Standalone acceptance closeout
+
+Post-deploy voice-lab run 35640493699 exposed an operational test failure, not
+a product failure: its preserved 17 September script still waited for the
+removed **Voice test room** heading and never contacted xAI. PR #137 replaced
+that stale route/selector with the current reader/Talk handshake, retained a
+deterministic muted microphone, added serialized workflow concurrency and
+stored current voice-capture artifacts. It merged as
+`dfc3be72f5607eac2c32713c32ee6f7602059416` after verify run 35641165614
+passed.
+
+Serialized deploy run 35642731138 and post-merge verify run 35642731146 both
+completed successfully. The final served bundle is `index-y_UmWX9a.js`.
+Automatically triggered voice-lab
+[run 35644446005](https://github.com/anderskhv/tinct/actions/runs/35644446005)
+then passed: female requested and received exact `ursa`; male requested and
+received exact `helios`; the female `force_message` produced 53,295 audio bytes,
+transcript **One moment.**, and `response.done`, with no page errors. The
+[576-byte evidence artifact](https://github.com/anderskhv/tinct/actions/runs/35644446005/artifacts/10659776205)
+contains both handshake records. This supersedes the stale-selector failures;
+the physical-device limits above are unchanged.
+
 ## Sandbox notes (not production)
 
 The cloud sandbox's egress proxy negotiates HTTP/2 with Chromium and cannot
