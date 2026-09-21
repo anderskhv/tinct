@@ -2,9 +2,14 @@
 
 **Book id:** `the-tempest`
 **Edition:** `modern-en`
-**Status: correction round 3/3 complete (2026-09-21). READY FOR INDEPENDENT
-VERIFICATION**, pending a round-4 independent pass per the task's
-three-correction-round rule. See `PARKED-RESOLVED.md` (formerly
+**Status: HARD PARKED (2026-09-21, after round 4).** NOT accepted. No
+acceptance hash, no `accepted-paragraph-hashes.tsv`, no release packet —
+and none should be produced. Round 4's independent pass confirmed every
+one of round 3's 23 fixes as present and correct, and confirmed the
+proper-noun/deity class is finally closed, but found ~14 further live
+items (6 blocking) inside the other defect classes every prior round had
+certified as swept. Defects per round: 14 -> 15 -> 23 -> ~14; no plateau.
+Full round-4 record: section 6 of `PARKED-RESOLVED.md`. See `PARKED-RESOLVED.md` (formerly
 `PARKED.md`) for round 2's findings and `fidelity-review-3.md` for round
 3's fix table, fresh location-keyed sweep, lexical policy, and
 verification. No acceptance hash / `accepted-paragraph-hashes.tsv` /
@@ -227,8 +232,63 @@ and nothing else, with no ratio outlier among them. Full detail:
 Final `candidate.json` sha256:
 `c60c6ffeb87f254a116d9a5f114562e4fad415b22fd0068962b92f4564566806`
 
-Per the task's three-correction-round rule, this is the last correction
-round. If a round-4 independent pass again finds live instances of classes
-A-D from `PARKED-RESOLVED.md`, this book hard-parks. If round 4 confirms
-this file clean, it should produce `RELEASE-PACKET.md` and
-`accepted-paragraph-hashes.tsv`.
+Per the task's three-correction-round rule, this was the last correction
+round, with the stated condition: *if a round-4 independent pass again
+finds live instances of classes A-D, this book hard-parks.*
+
+## Verdict (round 4 — Claude Opus `claude-opus-5`, independent verification, FINAL)
+
+**NOT ACCEPTED — HARD PARKED.** That condition was met.
+
+Re-derived from `source.json` and `candidate.json` with no reuse of any
+prior round's lists: structure (10 chapters / 790 paragraphs, exact
+match); all 790 paragraph pairs read in full; all 23 of round 3's fixes
+located by distinctive source wording rather than cited coordinates and
+confirmed present and correct; an independently built location-keyed
+capitalized-token map (232 tokens) that found **no** dropped proper noun,
+deity or epithet anywhere — that class is genuinely closed; a fresh
+~190-term charged-word and address-form lexicon; a curated concrete-noun
+sweep; and a compression sweep over all 414 paragraphs of >=12 source
+words including the moderate 0.85-0.95 band, which came back clean.
+
+What blocks acceptance is class D/E residue that has not plateaued:
+6 blocking items (`adders`->"snakes" 4.2; `pard or cat o' mountain`->"a
+leopard" 8.95; `chough`->"jackdaw" 3.141; `cubit`->"inch" 3.141;
+`Mistress line`->"this clothesline" 8.82; the snow/liver image erasure
+8.17) plus 8 sub-blocking items of the same shapes. Every one is
+forbidden by the lexical policy **round 3 itself wrote**; one (8.82)
+contradicts a policy item written in that same round; another (3.141
+`cubit`) sits two paragraphs from the `Ten leagues` unit distortion round
+3 found and fixed for the identical reason.
+
+`candidate.json` was not modified by this round. Its sha256 remains
+`c60c6ffeb87f254a116d9a5f114562e4fad415b22fd0068962b92f4564566806` —
+round 3's self-report was accurate, but this is a file hash, **not** an
+acceptance hash.
+
+Recommended disposition: do not open a round-5 correction pass. Revive
+only as a re-rendering under a pre-committed concrete-noun and
+address-form discipline, per section 6.6 of `PARKED-RESOLVED.md`.
+
+**Model note (all four rounds):** rounds 1 and 3 = Claude Sonnet 5
+(`claude-sonnet-5`); rounds 2 and 4 = Claude Opus (`claude-opus-5`).
+
+### Coverage table across all 4 rounds
+
+| Class | R1 | R2 | R3 | R4 (independent) | Status |
+|---|---|---|---|---|---|
+| Structure (10 ch / 790 ¶ / alignment) | clean | clean | clean | clean | **closed** |
+| Source completeness (set-piece speeches) | clean | clean | clean | clean | **closed** |
+| Proper nouns / deities / epithets (location-keyed) | count-based, missed 2 | found 2 | swept, clean | independently rebuilt, clean | **closed** |
+| Compression / dropped clause / content loss | 1 found | 1 found (E1) | fixed | all 414 ¶ >=12w re-swept, clean | **closed** |
+| Meaning alteration / invented content | 3 found | 3 found | fixed | clean | **closed** |
+| Printed-form normalization | 1 found | 2 found | fixed | 1 live (`Cacaliban` 4.56) | **open** |
+| Charged / crude / violent word softening | 5 found | 5 found | fixed + policy | 2 live (`pox` 6.40, `thrice-double ass` 9.92) | **open** |
+| Named animal / plant / unit de-specification | 2 found | 2 found | fixed + policy item 7 | **6 live** (4.2, 8.95, 3.141 x2, 9.11, 8.40) | **OPEN — blocking** |
+| Address / epithet forms | 1 found | 3 found | fixed + policy item 4 | **1 live** (`Mistress line` 8.82) | **OPEN — blocking** |
+| Image / figure erasure | — | — | 1 found (`Poor worm`) | **1 live** (8.17 snow/liver) | **OPEN — blocking** |
+| Idiom / pun loss | — | — | — | 2 live (`line and level` 8.83/8.84, `bat-fowling` 3.108) | **open** |
+| Register seam introduced by a fix | — | — | — | 1 live (2.80 `thou`/`you` mix) | **open** |
+| Lexical policy (scurvy / sirrah / songs / wench) | — | flagged ~8 | written | spot-checked, **reasoning holds** | **closed** |
+
+Defects found per round: **14 -> 15 -> 23 -> ~14.**
