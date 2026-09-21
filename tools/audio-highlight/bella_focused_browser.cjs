@@ -6,7 +6,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  const browser=await chromium.launch({headless:true,args:['--mute-audio']});
  const results=[];
  try{
- for(const width of [390,1440])for(const target of [{book:'candide',chapter:26}]){
+ for(const width of [390,1440])for(const target of [{book:'federalist-papers',chapter:48},{book:'federalist-papers',chapter:84}]){
   const context=await browser.newContext({viewport:{width,height:width===390?844:900},permissions:[]});
   const page=await context.newPage();const row={...target,width,http:[],requestFailures:[],pageErrors:[]};
   page.on('pageerror',e=>row.pageErrors.push(String(e)));
@@ -39,7 +39,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
    await page.evaluate(()=>{const a=window.__bellaAudio.find(a=>!a.paused);a.currentTime=Math.max(.2,a.duration*.5)});
    await page.waitForTimeout(400);
    assert(await page.getByTestId('lab-hearing-current').count()>0,'highlight lost after seek');
-   await page.screenshot({path:path.join(dir,target.book+'-'+width+'.png')});
+   await page.screenshot({path:path.join(dir,target.book+'-'+target.chapter+'-'+width+'.png')});
    await play.click();
    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]').getAttribute('data-playing')==='false');
    const paused=await page.evaluate(()=>window.__bellaAudio.find(a=>a.src)?.currentTime);
@@ -64,7 +64,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
    await play.click();
    await page.waitForFunction(n=>window.__bellaAudio.some(a=>!a.paused&&decodeURIComponent(a.src).includes('/ch'+n+'/')&&a.readyState>=2),target.chapter+1);
    row.chapterNavigation=true;row.status='pass';
-  }catch(e){row.status='fail';row.error=String(e);row.media=await page.evaluate(()=>window.__bellaAudio?.map(a=>({src:a.src,time:a.currentTime,duration:a.duration,readyState:a.readyState,networkState:a.networkState,paused:a.paused,error:a.error?{code:a.error.code,message:a.error.message}:null}))).catch(()=>null);row.url=page.url();row.rootState=await page.getByTestId('lab-root').evaluate(e=>Object.fromEntries([...e.attributes].map(a=>[a.name,a.value]))).catch(()=>null);await page.screenshot({path:path.join(dir,target.book+'-'+width+'-failure.png')}).catch(()=>{});}
+  }catch(e){row.status='fail';row.error=String(e);row.media=await page.evaluate(()=>window.__bellaAudio?.map(a=>({src:a.src,time:a.currentTime,duration:a.duration,readyState:a.readyState,networkState:a.networkState,paused:a.paused,error:a.error?{code:a.error.code,message:a.error.message}:null}))).catch(()=>null);row.url=page.url();row.rootState=await page.getByTestId('lab-root').evaluate(e=>Object.fromEntries([...e.attributes].map(a=>[a.name,a.value]))).catch(()=>null);await page.screenshot({path:path.join(dir,target.book+'-'+target.chapter+'-'+width+'-failure.png')}).catch(()=>{});}
   finally{await context.close();results.push(row);fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(row));}
  }
  }finally{await browser.close()}
