@@ -20,6 +20,8 @@ for row in accepted:
   status,raw=prodapi.audio_object(row["key"]+"/"+p["file"]);assert status==200 and hashlib.sha256(raw).hexdigest()==p["sha256"]
  assert not publish_timings.validate_candidate(candidate,book,ed,number)
  original=prodapi.chapter_words
+ publishedStatus,_,served=original(book,ed,number)
+ if publishedStatus==200:assert hashlib.sha256(served).hexdigest()==row["candidateSha256"]
  for ch in edition["chapters"]:
   n=ch["number"]
   if n==number:prodapi.chapter_words=lambda *a:(200,candidate,body)
@@ -34,7 +36,7 @@ for row in accepted:
    assert any(w["end"]>w["start"] for w in p["words"])
   fixtures.append(dict(key=f"{book}/{ed}/ch{n}",manifest=manifest,sidecar=words,paragraphs=ts))
  prodapi.chapter_words=original
- receipts.append(dict(row,source="codex/bella-focused-collected-20260921",audioHashesRechecked=True,completeEditionStructural=all(x["ok"] for x in checks if x["bookId"]==book)))
+ receipts.append(dict(row,source="codex/bella-focused-collected-20260921",audioHashesRechecked=True,publishedBytesVerified=(publishedStatus==200),completeEditionStructural=all(x["ok"] for x in checks if x["bookId"]==book)))
 dump("checks.json",checks);dump("accepted.json",receipts)
 target=Path("artifacts/bella-reader-data-check-2026-09-21");target.mkdir(parents=True,exist_ok=True)
 (target/"fixtures.json").write_text(json.dumps(fixtures))
