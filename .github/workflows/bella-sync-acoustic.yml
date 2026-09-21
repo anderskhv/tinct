@@ -23,6 +23,8 @@ jobs:
           python3 tools/audio-highlight/bella_replay_citation.py
       - name: Install isolated acoustic review dependencies
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install openai-whisper av==18.1.0 boto3
       - name: Rebuild exact pilot inputs
