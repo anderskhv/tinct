@@ -104,8 +104,7 @@ Files: `app/src/voice/GrokVoiceSessionController.ts`, `grokConfig.ts`,
 
 ## First-turn and lookup follow-up — 21 September 2026
 
-Status: release candidate; production evidence will be appended after the
-serialized deployment completes.
+Status: shipped and accepted on production, 21 September 2026 at 18:45 UTC.
 
 The first sentence could begin while Tinct was still minting the ephemeral
 secret and connecting the WebSocket. Capture previously started only after
@@ -133,6 +132,24 @@ This does not certify perceived timing, AirPods behavior or background capture
 on a physical iPhone. Those remain part of the agreed device window, including
 first and later turns, a delayed lookup, lock while listening/speaking, and
 unlock recovery.
+
+PR #135 merged as `d56ae18ae0ce3132acf16ac7d56c52a9604c6a31` after
+[verify run 35637055401](https://github.com/anderskhv/tinct/actions/runs/35637055401)
+passed the full suite and the bounded live-provider acceptance. That acceptance
+received provider audio bytes, the expected **One moment.** transcript and
+`response.done` for the exact `force_message`; the exact `ursa` and `helios`
+session updates were accepted without substitution. Serialized production
+[deploy run 35638636285](https://github.com/anderskhv/tinct/actions/runs/35638636285)
+and post-merge
+[verify run 35638636481](https://github.com/anderskhv/tinct/actions/runs/35638636481)
+completed successfully. The served bundle is `index-CdxhFG7Y.js`, and the
+production deploy's muted Grok microphone-recovery check passed against that
+bundle.
+
+The provider test establishes protocol support and ordered audio output, not
+subjective voice quality, first-response perception or iOS background
+microphone continuity. Those remain physical-device acceptance items; no
+browser-only result is recorded as an audible or lock-screen verification.
 
 ## Sandbox notes (not production)
 
