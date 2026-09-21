@@ -7598,7 +7598,7 @@
 .lab.is-desktop[data-chrome-version="v2"] .lab-page-wrap { background:var(--lab-paper); }
 /* Paint the binding on the whole sheet, independent of text/terminal-card
    height. This is decoration only: no reader or pagination geometry changes. */
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns::after {
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns::after {
   content: none;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-frontispiece) .lab-page-wrap {
