@@ -4803,7 +4803,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onRead={() => {
           setPrefaceCoverBook(null)
           if (chapterCoverTitle === book.bookTitle) goNext()
-          requestAnimationFrame(() => labRootRef.current?.querySelector<HTMLButtonElement>('[data-testid="lab-header-chapter"]')?.focus({ preventScroll: true }))
+          // Programmatic focus is useful for a hardware keyboard, but WebKit
+          // paints it as a focus-visible ring after a touch-only book entry.
+          if (typeof window !== 'undefined' && window.matchMedia?.('(pointer: fine)').matches) {
+            requestAnimationFrame(() => labRootRef.current?.querySelector<HTMLButtonElement>('[data-testid="lab-header-chapter"]')?.focus({ preventScroll: true }))
+          }
         }}
       />}
       {chromeV2 && <LabContentsV2
@@ -4827,7 +4831,20 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
-        onOpenCover={approvedPreface ? () => { listen.pause(); setTocOpen(false); setPrefaceCoverBook(book.bookId || 'bible') } : undefined}
+        onOpenCover={() => {
+          listen.pause()
+          setTocOpen(false)
+          setPrefaceCoverBook(null)
+          setChapterCoverTitle(book.bookTitle)
+        }}
+        onOpenPreface={approvedPreface ? () => {
+          listen.pause()
+          setTocOpen(false)
+          // Keep the real cover mounted behind the dialog. The preface's Back
+          // transition measures this exact target before returning to it.
+          setChapterCoverTitle(book.bookTitle)
+          setPrefaceCoverBook(book.bookId || 'bible')
+        } : undefined}
         onWarmChapter={warmChapterTexts}
         onClose={() => setTocOpen(false)}
       />}

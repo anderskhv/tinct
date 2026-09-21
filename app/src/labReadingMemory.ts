@@ -238,10 +238,10 @@ function coverFor(book: CatalogueBook | undefined, bookId: string): CoverSource 
   return null
 }
 
-function coverMarkup(book: CatalogueBook | undefined, bookId: string): string {
+function coverMarkup(book: CatalogueBook | undefined, bookId: string, priority = false): string {
   const cover = coverFor(book, bookId)
   if (!cover) return '<span class="lib-cover" aria-hidden="true"></span>'
-  return `<span class="lib-cover"><img src="${escapeHtml(cover.src)}"${cover.srcSet ? ` srcset="${escapeHtml(cover.srcSet)}"` : ''} alt="" decoding="async"></span>`
+  return `<span class="lib-cover"><img src="${escapeHtml(cover.src)}"${cover.srcSet ? ` srcset="${escapeHtml(cover.srcSet)}"` : ''} alt="" decoding="async" loading="${priority ? 'eager' : 'lazy'}"${priority ? ' fetchpriority="high"' : ''}></span>`
 }
 
 /**
@@ -515,7 +515,7 @@ async function fillHeroSummary(
  */
 function nowItemMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>, index: number, focused: boolean): string {
   const title = bookTitle(books.get(row.bookId), row.bookId)
-  return `<div class="lib-now-item${focused ? ' is-focused' : ''}" data-now-book="${escapeHtml(row.bookId)}" data-now-index="${index}"><button type="button" class="lib-now-open" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-current="${focused}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(books.get(row.bookId), row.bookId)}</button>${removeMarkup(row.bookId, title)}</div>`
+  return `<div class="lib-now-item${focused ? ' is-focused' : ''}" data-now-book="${escapeHtml(row.bookId)}" data-now-index="${index}"><button type="button" class="lib-now-open" data-recap-open="${escapeHtml(row.bookId)}" data-continue-source="${row.target.source}" data-continue-chapter="${row.target.chapterNumber}" aria-current="${focused}" aria-label="${escapeHtml(`Continue ${title} from ${row.target.chapterLabel}`)}">${coverMarkup(books.get(row.bookId), row.bookId, focused)}</button>${removeMarkup(row.bookId, title)}</div>`
 }
 
 function elementFromMarkup(markup: string): HTMLElement {
@@ -571,6 +571,9 @@ function updateNowItem(item: HTMLElement, row: ReadingListRow, books: Map<string
     if (img.getAttribute('src') !== source.src) img.src = source.src
     if (source.srcSet) { if (img.getAttribute('srcset') !== source.srcSet) img.srcset = source.srcSet }
     else if (img.hasAttribute('srcset')) img.removeAttribute('srcset')
+    img.loading = focused ? 'eager' : 'lazy'
+    if (focused) img.setAttribute('fetchpriority', 'high')
+    else img.removeAttribute('fetchpriority')
   }
   let remove = item.querySelector<HTMLElement>('.lib-now-remove')
   if (!remove) {
@@ -655,8 +658,8 @@ function removeMarkup(bookId: string, title: string): string {
  * carries the aside — chapter name, author — as a fallback, not a control;
  * `showSummary` swaps the recap in over it without the block changing size.
  */
-function summaryMarkup(summaryKey: string, aside: string): string {
-  return `<button type="button" class="lib-recap-summary is-fallback" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-summary-kind="fallback" data-expandable="false" disabled><span class="lib-recap-summary-text">${escapeHtml(aside)}</span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
+function summaryMarkup(summaryKey: string): string {
+  return `<button type="button" class="lib-recap-summary" data-testid="lab-recap-summary" data-recap-summary-key="${escapeHtml(summaryKey)}" data-summary-kind="pending" data-expandable="false" disabled hidden><span class="lib-recap-summary-text"></span><span class="lib-recap-summary-more" aria-hidden="true"></span></button>`
 }
 
 /**
@@ -673,8 +676,10 @@ function nowCaptionMarkup(row: ReadingListRow, books: Map<string, CatalogueBook>
   const note = progressNote(row)
   const request = summaryRequestFor(row, books)
   const summaryKey = request ? summaryKeyFor(row, request) : ''
-  const summary = summaryMarkup(summaryKey, heroAside(row, book))
+  const summary = summaryMarkup(summaryKey)
+  const byline = String(book?.author ?? '').trim()
   return `<p class="lib-lede" data-testid="lab-recap-book" title="${escapeHtml(bookTitle(book, row.bookId))}">${escapeHtml(bookTitle(book, row.bookId))}</p>
+      ${byline ? `<p class="lib-byline" data-testid="lab-recap-byline">${escapeHtml(byline)}</p>` : ''}
       <p class="lib-h1" data-testid="lab-recap-headline" title="${escapeHtml(heroHeadline(row))}">${escapeHtml(heroHeadline(row))}</p>
       <p class="lib-eyebrow" data-testid="lab-recap-eyebrow">${escapeHtml(recapEyebrow(row.lastActiveAt))}</p>
       <div class="lib-now-cta"><button type="button" class="lib-cta" data-recap-continue="${escapeHtml(row.bookId)}">Continue reading</button>${note ? `<span class="lib-cta-note" data-testid="lab-recap-progress">${escapeHtml(note)}</span>` : ''}</div>
@@ -1021,7 +1026,10 @@ function bootSnapshot(list: ReadingList, userId: string | null, books: Map<strin
       coverSrc: safeCoverSource(cover?.src),
       coverSrcSet: safeCoverSource(cover?.src) && cover?.srcSet ? cover.srcSet : null,
       note: progressNote(hero),
-      aside: heroAside(hero, book),
+      // The boot snapshot uses this as the byline beside the title. Chapter
+      // location is already carried by `headline`; duplicating it below the
+      // Continue action made the caption read like mislabeled metadata.
+      aside: String(book?.author ?? '').trim(),
     } : null,
   }
 }

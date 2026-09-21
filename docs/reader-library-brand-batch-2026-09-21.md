@@ -43,3 +43,28 @@ Production screenshots were inspected for the dark Bible spread and reloaded hig
 Temporary inspection copies are at `/tmp/tinct-production-reader` and `/tmp/tinct-production-library`. Brand checks compare served SHA-256 hashes against committed built assets.
 
 Verification limits: browser checks are isolated headless Chromium/WebKit with audio/microphone disabled and AI/auth fixtures where required. They do not establish physical iPhone/Android installation, native Safari compositing fidelity, or third-party thumbnail cache refresh. No further implementation remains in this batch; record new device-specific findings separately.
+
+## Mobile reader/library follow-up — 21 September 2026
+
+Status: release candidate; production evidence will be appended after the
+serialized deployment completes.
+
+- Phone Contents is a full reader-viewport destination rather than an inset
+  dialog. Its header remains fixed and its chapter tree is the only scrolling
+  region. Desktop retains the bounded panel.
+- Cover and Preface are separate first-class entries. Both preserve the reading
+  tuple. Preface mounts the actual cover behind its dialog, so Back to cover has
+  a real destination and Cover opens the frontispiece directly.
+- Returning from preparation focuses the chapter control only for a fine
+  pointer. Touch-only Safari no longer receives a programmatic focus-visible
+  ring, while hardware-keyboard focus remains available.
+- Currently Reading places authorship beside the title, not underneath Continue.
+  The location line remains separate, and the optional generated recap appears
+  only when it exists. The focused cover is eager/high-priority; off-centre
+  covers are lazy, without delaying reading-state or speculative narration.
+
+Focused unit coverage exercises the two front-matter routes, the mounted-cover
+return, touch focus policy, boot/confirmed library markup and cover priorities.
+The muted Chromium/WebKit acceptance now requires the phone Contents surface to
+match the viewport and verifies both entries. Physical Safari animation and
+perceived library speed remain device acceptance items.

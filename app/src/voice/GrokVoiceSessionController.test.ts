@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { GrokVoiceSessionController, floatToPcm16Base64, pcm16Base64ToFloat, resampleFloat, type GrokSocket } from './GrokVoiceSessionController'
+import { GrokVoiceSessionController, LOOKUP_ACKNOWLEDGEMENT, LOOKUP_ACKNOWLEDGEMENT_DELAY_MS, floatToPcm16Base64, pcm16Base64ToFloat, resampleFloat, type GrokSocket } from './GrokVoiceSessionController'
 import { GROK_VOICE_INSTRUCTIONS, GROK_VOICE_MODEL } from './grokConfig'
 import type { StartVoiceSessionInput, VoiceSessionCallbacks } from './session'
 
@@ -208,6 +208,43 @@ describe('tools', () => {
     expect(sent.find(event => event.type === 'response.create')).toEqual({ type: 'response.create', response: { instructions: 'Use the source evidence.' } })
   })
 
+  it('acknowledges only a lookup that is still running after the bounded delay', async () => {
+    vi.useFakeTimers()
+    let finishLookup!: (value: { output: Record<string, unknown>; responseInstructions: string }) => void
+    const onApplicationTool = vi.fn(() => new Promise<{ output: Record<string, unknown>; responseInstructions: string }>(resolve => { finishLookup = resolve }))
+    const { controller, sent } = connected({ onApplicationTool }, { tools: [{ type: 'function', name: 'search_reading_sources', parameters: {} }] })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'search_reading_sources', call_id: 'slow', arguments: '{"query":"a source"}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await Promise.resolve()
+    vi.advanceTimersByTime(LOOKUP_ACKNOWLEDGEMENT_DELAY_MS - 1)
+    expect(sent.filter(event => event.type === 'response.create')).toHaveLength(0)
+    vi.advanceTimersByTime(1)
+    const acknowledgement = sent.find(event => event.type === 'conversation.item.create') as unknown as { item: { type: string; content: Array<{ text: string }> } }
+    expect(acknowledgement.item).toMatchObject({ type: 'force_message', content: [{ text: LOOKUP_ACKNOWLEDGEMENT }] })
+
+    controller.handleEvent({ type: 'response.created', response: { id: 'ack' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', response_id: 'ack', delta: LOOKUP_ACKNOWLEDGEMENT })
+    controller.handleEvent({ type: 'response.done', response: { id: 'ack', status: 'completed' } })
+    finishLookup({ output: { ok: true }, responseInstructions: 'Answer from the evidence.' })
+    await vi.advanceTimersByTimeAsync(0)
+    expect(sent.filter(event => event.type === 'response.create')).toEqual([{ type: 'response.create', response: { instructions: 'Answer from the evidence.' } }])
+  })
+
+  it('does not insert a holding phrase for a fast lookup', async () => {
+    vi.useFakeTimers()
+    const onApplicationTool = vi.fn().mockResolvedValue({ output: { ok: true }, responseInstructions: 'Answer now.' })
+    const { controller, sent } = connected({ onApplicationTool }, { tools: [{ type: 'function', name: 'search_reading_sources', parameters: {} }] })
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'r1' } })
+    controller.handleEvent({ type: 'response.function_call_arguments.done', name: 'search_reading_sources', call_id: 'fast', arguments: '{}' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+    await vi.advanceTimersByTimeAsync(LOOKUP_ACKNOWLEDGEMENT_DELAY_MS + 1)
+    const creates = sent.filter(event => event.type === 'response.create')
+    expect(creates).toEqual([{ type: 'response.create', response: { instructions: 'Answer now.' } }])
+  })
+
   it('leaves provider-side search to the server and rejects unknown functions', async () => {
     const onApplicationTool = vi.fn()
     const { controller, sent } = connected({ onApplicationTool })
@@ -276,6 +313,21 @@ describe('tools', () => {
 })
 
 describe('microphone lifecycle', () => {
+  it('retains early microphone frames until the configured session is ready', () => {
+    const { controller, sent } = connected()
+    const internals = controller as unknown as { pendingCapture: Float32Array[]; pendingCaptureLength: number; ready: boolean; flushCapture: () => void }
+    internals.pendingCapture = [new Float32Array([0.1, -0.1])]
+    internals.pendingCaptureLength = 2
+    internals.ready = false
+    internals.flushCapture()
+    expect(sent.some(event => event.type === 'input_audio_buffer.append')).toBe(false)
+    expect(internals.pendingCaptureLength).toBe(2)
+    internals.ready = true
+    internals.flushCapture()
+    expect(sent.some(event => event.type === 'input_audio_buffer.append')).toBe(true)
+    expect(internals.pendingCaptureLength).toBe(0)
+  })
+
   it('stops every microphone track, closes the socket and clears the snapshot on stop', () => {
     const stop = vi.fn()
     const { controller, socket } = connected()

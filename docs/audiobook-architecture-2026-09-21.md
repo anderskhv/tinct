@@ -63,3 +63,15 @@ Status: released to production and under lock-screen follow-up, 2026-09-21. This
 - Browser automation can verify Media Session state, handler stability, pause-free source handoff and unlock recovery logic. It cannot lock a physical iPhone or establish whether current iOS Safari continues JavaScript source changes, network fetches, `AudioContext` output, WebSocket traffic or microphone delivery while locked.
 - A physical iPhone window remains required: lock during audiobook speech, at a clip boundary and at a chapter boundary; exercise lock-screen play/pause/seek; unlock and verify exact position/highlight recovery; repeat with AirPods; then separately lock during assistant speech and listening. Conversation microphone continuity is promised only where the platform continues capture. A native rewrite or keep-awake workaround is not included.
 - Unknown future provider latency and catalogue listening quality are not promised. Cold playback may wait, and operational ceilings can refuse generation visibly.
+
+## Reader and Talk preservation follow-up
+
+The same 21 September follow-up keeps the audiobook architecture intact while
+making mobile Contents full-screen, splitting Cover from Preface, repairing the
+front-matter return target and removing the touch-only programmatic focus ring.
+Library cover prioritisation does not block speculative narration or change its
+Anders exemption. Talk now buffers bounded first-turn microphone audio during
+session setup and uses xAI `force_message` for genuinely delayed application
+lookups. See `reader-library-brand-batch-2026-09-21.md` and
+`voice-grok-2026-09-18.md` for release evidence and remaining physical-iPhone
+limits.
