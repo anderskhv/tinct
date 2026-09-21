@@ -1,0 +1,716 @@
+{
+  "complete": true,
+  "signature": "168069267542faea5a2aa3cfb2c08816f97f91189824fef37b73372acdd17c32",
+  "attempts": [
+    {
+      "asr_seconds": 2.6548930849999692,
+      "alignment_seconds": 0.0009701349999886588,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "94. The maturity of man--that means, to have reacquired the seriousness that one had as a child at play."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 94. The maturity of man-that means, to have reacquired the seriousness that one had as a child at play.",
+          "start": 0.05,
+          "end": 7.07,
+          "words": [
+            {
+              "text": " 94.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.7302164435386658
+            },
+            {
+              "text": " The",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.865138053894043
+            },
+            {
+              "text": " maturity",
+              "start": 1.77,
+              "end": 2.09,
+              "probability": 0.916771411895752
+            },
+            {
+              "text": " of",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.9988011121749878
+            },
+            {
+              "text": " man",
+              "start": 2.39,
+              "end": 2.59,
+              "probability": 0.925007164478302
+            },
+            {
+              "text": "-that",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.4399552163667977
+            },
+            {
+              "text": " means,",
+              "start": 2.79,
+              "end": 3.17,
+              "probability": 0.8609573841094971
+            },
+            {
+              "text": " to",
+              "start": 3.59,
+              "end": 3.71,
+              "probability": 0.9730563759803772
+            },
+            {
+              "text": " have",
+              "start": 3.71,
+              "end": 3.83,
+              "probability": 0.9986013770103455
+            },
+            {
+              "text": " reacquired",
+              "start": 3.83,
+              "end": 4.47,
+              "probability": 0.9668330550193787
+            },
+            {
+              "text": " the",
+              "start": 4.47,
+              "end": 4.67,
+              "probability": 0.9976667165756226
+            },
+            {
+              "text": " seriousness",
+              "start": 4.67,
+              "end": 5.09,
+              "probability": 0.9992853999137878
+            },
+            {
+              "text": " that",
+              "start": 5.09,
+              "end": 5.51,
+              "probability": 0.9854902029037476
+            },
+            {
+              "text": " one",
+              "start": 5.51,
+              "end": 5.69,
+              "probability": 0.9936879277229309
+            },
+            {
+              "text": " had",
+              "start": 5.69,
+              "end": 5.97,
+              "probability": 0.9965593218803406
+            },
+            {
+              "text": " as",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.9969629645347595
+            },
+            {
+              "text": " a",
+              "start": 6.15,
+              "end": 6.27,
+              "probability": 0.9944645762443542
+            },
+            {
+              "text": " child",
+              "start": 6.27,
+              "end": 6.59,
+              "probability": 0.9918815493583679
+            },
+            {
+              "text": " at",
+              "start": 6.59,
+              "end": 6.81,
+              "probability": 0.9977651834487915
+            },
+            {
+              "text": " play.",
+              "start": 6.81,
+              "end": 7.07,
+              "probability": 0.9967167973518372
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "94.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "The",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "maturity",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "raw": "man",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "raw": "-that",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "means,",
+          "start": 2.79,
+          "end": 3.17
+        },
+        {
+          "raw": "to",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "raw": "have",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "raw": "reacquired",
+          "start": 3.83,
+          "end": 4.47
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "raw": "seriousness",
+          "start": 4.67,
+          "end": 5.09
+        },
+        {
+          "raw": "that",
+          "start": 5.09,
+          "end": 5.51
+        },
+        {
+          "raw": "one",
+          "start": 5.51,
+          "end": 5.69
+        },
+        {
+          "raw": "had",
+          "start": 5.69,
+          "end": 5.97
+        },
+        {
+          "raw": "as",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "a",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "raw": "child",
+          "start": 6.27,
+          "end": 6.59
+        },
+        {
+          "raw": "at",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "raw": "play.",
+          "start": 6.81,
+          "end": 7.07
+        }
+      ],
+      "expected_tokens": [
+        "94.",
+        "The",
+        "maturity",
+        "of",
+        "man--that",
+        "means,",
+        "to",
+        "have",
+        "reacquired",
+        "the",
+        "seriousness",
+        "that",
+        "one",
+        "had",
+        "as",
+        "a",
+        "child",
+        "at",
+        "play."
+      ],
+      "acoustic_expected_tokens": [
+        "94.",
+        "The",
+        "maturity",
+        "of",
+        "man--that",
+        "means,",
+        "to",
+        "have",
+        "reacquired",
+        "the",
+        "seriousness",
+        "that",
+        "one",
+        "had",
+        "as",
+        "a",
+        "child",
+        "at",
+        "play."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "94.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "ninetyfour",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "maturity",
+          "start": 1.77,
+          "end": 2.09,
+          "key": "maturity",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man -that",
+          "start": 2.39,
+          "end": 2.79,
+          "key": "manthat",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "means,",
+          "start": 2.79,
+          "end": 3.17,
+          "key": "means",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.59,
+          "end": 3.71,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.71,
+          "end": 3.83,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reacquired",
+          "start": 3.83,
+          "end": 4.47,
+          "key": "reacquired",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.47,
+          "end": 4.67,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seriousness",
+          "start": 4.67,
+          "end": 5.09,
+          "key": "seriousness",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.09,
+          "end": 5.51,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.51,
+          "end": 5.69,
+          "key": "one",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.69,
+          "end": 5.97,
+          "key": "had",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.97,
+          "end": 6.15,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.15,
+          "end": 6.27,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "child",
+          "start": 6.27,
+          "end": 6.59,
+          "key": "child",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.59,
+          "end": 6.81,
+          "key": "at",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "play.",
+          "start": 6.81,
+          "end": 7.07,
+          "key": "play",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "man--that",
+          "heard": "man -that",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 2.39,
+          "end": 2.79
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "94.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "The",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "maturity",
+          "start": 1.77,
+          "end": 2.09
+        },
+        {
+          "text": "of",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "text": "man--that",
+          "start": 2.39,
+          "end": 2.79
+        },
+        {
+          "text": "means,",
+          "start": 2.79,
+          "end": 3.17
+        },
+        {
+          "text": "to",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "text": "have",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "text": "reacquired",
+          "start": 3.83,
+          "end": 4.47
+        },
+        {
+          "text": "the",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "text": "seriousness",
+          "start": 4.67,
+          "end": 5.09
+        },
+        {
+          "text": "that",
+          "start": 5.09,
+          "end": 5.51
+        },
+        {
+          "text": "one",
+          "start": 5.51,
+          "end": 5.69
+        },
+        {
+          "text": "had",
+          "start": 5.69,
+          "end": 5.97
+        },
+        {
+          "text": "as",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "a",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "text": "child",
+          "start": 6.27,
+          "end": 6.59
+        },
+        {
+          "text": "at",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "text": "play.",
+          "start": 6.81,
+          "end": 7.07
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.6558997219999583
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3d8e016dd96e5ae5b2c69225cddc747b6051d7071d7fa3aacf296759b4092ad",
+  "selected_reasons": []
+}

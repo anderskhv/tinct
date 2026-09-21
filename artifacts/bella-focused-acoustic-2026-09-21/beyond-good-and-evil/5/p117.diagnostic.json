@@ -1,0 +1,627 @@
+{
+  "complete": true,
+  "signature": "6309ccb1b7b6003073ff0a9f7ba2e1f675da3ca5be688f6156bb9e2d066625ab",
+  "attempts": [
+    {
+      "asr_seconds": 2.410514510999974,
+      "alignment_seconds": 0.0008029149998947105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "180. There is an innocence in lying which is the sign of good faith in a cause.",
+        "hotwords": "There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 180. There is an innocence in lying which is the sign of good faith in a cause.",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " 180.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.8195695281028748
+            },
+            {
+              "text": " There",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.947579026222229
+            },
+            {
+              "text": " is",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.9967077970504761
+            },
+            {
+              "text": " an",
+              "start": 2.11,
+              "end": 2.25,
+              "probability": 0.9958145022392273
+            },
+            {
+              "text": " innocence",
+              "start": 2.25,
+              "end": 2.57,
+              "probability": 0.7434009313583374
+            },
+            {
+              "text": " in",
+              "start": 2.57,
+              "end": 2.89,
+              "probability": 0.9964714050292969
+            },
+            {
+              "text": " lying",
+              "start": 2.89,
+              "end": 3.15,
+              "probability": 0.9678890109062195
+            },
+            {
+              "text": " which",
+              "start": 3.15,
+              "end": 3.43,
+              "probability": 0.9159259796142578
+            },
+            {
+              "text": " is",
+              "start": 3.43,
+              "end": 3.63,
+              "probability": 0.99836665391922
+            },
+            {
+              "text": " the",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.9832252860069275
+            },
+            {
+              "text": " sign",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.9917781352996826
+            },
+            {
+              "text": " of",
+              "start": 4.07,
+              "end": 4.27,
+              "probability": 0.9985994696617126
+            },
+            {
+              "text": " good",
+              "start": 4.27,
+              "end": 4.43,
+              "probability": 0.9783353209495544
+            },
+            {
+              "text": " faith",
+              "start": 4.43,
+              "end": 4.79,
+              "probability": 0.9946371912956238
+            },
+            {
+              "text": " in",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.8416579365730286
+            },
+            {
+              "text": " a",
+              "start": 4.99,
+              "end": 5.09,
+              "probability": 0.9950972199440002
+            },
+            {
+              "text": " cause.",
+              "start": 5.09,
+              "end": 5.41,
+              "probability": 0.9742982983589172
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "180.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "There",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "is",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "an",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "raw": "innocence",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "raw": "in",
+          "start": 2.57,
+          "end": 2.89
+        },
+        {
+          "raw": "lying",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "raw": "which",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "raw": "is",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "raw": "the",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "sign",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "raw": "of",
+          "start": 4.07,
+          "end": 4.27
+        },
+        {
+          "raw": "good",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "raw": "faith",
+          "start": 4.43,
+          "end": 4.79
+        },
+        {
+          "raw": "in",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "a",
+          "start": 4.99,
+          "end": 5.09
+        },
+        {
+          "raw": "cause.",
+          "start": 5.09,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "180.",
+        "There",
+        "is",
+        "an",
+        "innocence",
+        "in",
+        "lying",
+        "which",
+        "is",
+        "the",
+        "sign",
+        "of",
+        "good",
+        "faith",
+        "in",
+        "a",
+        "cause."
+      ],
+      "acoustic_expected_tokens": [
+        "180.",
+        "There",
+        "is",
+        "an",
+        "innocence",
+        "in",
+        "lying",
+        "which",
+        "is",
+        "the",
+        "sign",
+        "of",
+        "good",
+        "faith",
+        "in",
+        "a",
+        "cause."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "180.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "180",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.11,
+          "end": 2.25,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "innocence",
+          "start": 2.25,
+          "end": 2.57,
+          "key": "innocence",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.57,
+          "end": 2.89,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lying",
+          "start": 2.89,
+          "end": 3.15,
+          "key": "lying",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.15,
+          "end": 3.43,
+          "key": "which",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.43,
+          "end": 3.63,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.63,
+          "end": 3.83,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sign",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "sign",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.07,
+          "end": 4.27,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.27,
+          "end": 4.43,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "faith",
+          "start": 4.43,
+          "end": 4.79,
+          "key": "faith",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.79,
+          "end": 4.99,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.99,
+          "end": 5.09,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cause.",
+          "start": 5.09,
+          "end": 5.41,
+          "key": "cause",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "180.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "There",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "is",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "an",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "text": "innocence",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "text": "in",
+          "start": 2.57,
+          "end": 2.89
+        },
+        {
+          "text": "lying",
+          "start": 2.89,
+          "end": 3.15
+        },
+        {
+          "text": "which",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "text": "is",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "text": "the",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "sign",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "text": "of",
+          "start": 4.07,
+          "end": 4.27
+        },
+        {
+          "text": "good",
+          "start": 4.27,
+          "end": 4.43
+        },
+        {
+          "text": "faith",
+          "start": 4.43,
+          "end": 4.79
+        },
+        {
+          "text": "in",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "a",
+          "start": 4.99,
+          "end": 5.09
+        },
+        {
+          "text": "cause.",
+          "start": 5.09,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.41135141999996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d1b19e5817092dee89103c67992f1154164d7f8a53c2de8505e8c93903f5ece",
+  "selected_reasons": []
+}

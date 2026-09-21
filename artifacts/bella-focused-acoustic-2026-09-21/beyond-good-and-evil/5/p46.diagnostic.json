@@ -1,0 +1,629 @@
+{
+  "complete": true,
+  "signature": "2cf1803a7ab7ef8f980402224ba4a4922ca349a0185d8ef7ea868ec47ecd8d4e",
+  "attempts": [
+    {
+      "asr_seconds": 2.5620148570000083,
+      "alignment_seconds": 0.0007796610000241344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "109. The criminal is often enough not equal to his deed: he extenuates and maligns it.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The 109. The criminal is often enough not equal to his deed. He extenuates and maligns it.",
+          "start": 0.02,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.02007700689136982
+            },
+            {
+              "text": " 109.",
+              "start": 0.9,
+              "end": 0.9,
+              "probability": 4.915921749670815e-07
+            },
+            {
+              "text": " The",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.9168006777763367
+            },
+            {
+              "text": " criminal",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.9472046494483948
+            },
+            {
+              "text": " is",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.9954061508178711
+            },
+            {
+              "text": " often",
+              "start": 2.54,
+              "end": 2.84,
+              "probability": 0.9948520064353943
+            },
+            {
+              "text": " enough",
+              "start": 2.84,
+              "end": 3.16,
+              "probability": 0.9944998025894165
+            },
+            {
+              "text": " not",
+              "start": 3.16,
+              "end": 3.42,
+              "probability": 0.9785208702087402
+            },
+            {
+              "text": " equal",
+              "start": 3.42,
+              "end": 3.74,
+              "probability": 0.9986741542816162
+            },
+            {
+              "text": " to",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.9993372559547424
+            },
+            {
+              "text": " his",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.9953629970550537
+            },
+            {
+              "text": " deed.",
+              "start": 4.1,
+              "end": 4.36,
+              "probability": 0.992745578289032
+            },
+            {
+              "text": " He",
+              "start": 4.94,
+              "end": 5.04,
+              "probability": 0.9939444661140442
+            },
+            {
+              "text": " extenuates",
+              "start": 5.04,
+              "end": 5.72,
+              "probability": 0.9813545942306519
+            },
+            {
+              "text": " and",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.9754080772399902
+            },
+            {
+              "text": " maligns",
+              "start": 5.98,
+              "end": 6.5,
+              "probability": 0.9536304076512655
+            },
+            {
+              "text": " it.",
+              "start": 6.5,
+              "end": 6.66,
+              "probability": 0.9989932179450989
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "109.",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "raw": "The",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "criminal",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "raw": "is",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "often",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "raw": "enough",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "raw": "not",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "raw": "equal",
+          "start": 3.42,
+          "end": 3.74
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "his",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "deed.",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "raw": "He",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "raw": "extenuates",
+          "start": 5.04,
+          "end": 5.72
+        },
+        {
+          "raw": "and",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "maligns",
+          "start": 5.98,
+          "end": 6.5
+        },
+        {
+          "raw": "it.",
+          "start": 6.5,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "109.",
+        "The",
+        "criminal",
+        "is",
+        "often",
+        "enough",
+        "not",
+        "equal",
+        "to",
+        "his",
+        "deed:",
+        "he",
+        "extenuates",
+        "and",
+        "maligns",
+        "it."
+      ],
+      "acoustic_expected_tokens": [
+        "109.",
+        "The",
+        "criminal",
+        "is",
+        "often",
+        "enough",
+        "not",
+        "equal",
+        "to",
+        "his",
+        "deed:",
+        "he",
+        "extenuates",
+        "and",
+        "maligns",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          16,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "109.",
+          "start": 0.9,
+          "end": 0.9,
+          "key": "109",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "criminal",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "criminal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 2.54,
+          "end": 2.84,
+          "key": "often",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 2.84,
+          "end": 3.16,
+          "key": "enough",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.16,
+          "end": 3.42,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "equal",
+          "start": 3.42,
+          "end": 3.74,
+          "key": "equal",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.96,
+          "end": 4.1,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "deed.",
+          "start": 4.1,
+          "end": 4.36,
+          "key": "deed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.94,
+          "end": 5.04,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "extenuates",
+          "start": 5.04,
+          "end": 5.72,
+          "key": "extenuates",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.72,
+          "end": 5.98,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "maligns",
+          "start": 5.98,
+          "end": 6.5,
+          "key": "maligns",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 6.5,
+          "end": 6.66,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "109.",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "text": "The",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "criminal",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "text": "is",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "text": "often",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "text": "enough",
+          "start": 2.84,
+          "end": 3.16
+        },
+        {
+          "text": "not",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "text": "equal",
+          "start": 3.42,
+          "end": 3.74
+        },
+        {
+          "text": "to",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "his",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "deed:",
+          "start": 4.1,
+          "end": 4.36
+        },
+        {
+          "text": "he",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "text": "extenuates",
+          "start": 5.04,
+          "end": 5.72
+        },
+        {
+          "text": "and",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "text": "maligns",
+          "start": 5.98,
+          "end": 6.5
+        },
+        {
+          "text": "it.",
+          "start": 6.5,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.5628469569999766
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2366b0310f6c9c525f747441c416b8cc7e672167deed7facaabd2dc966ef81fd",
+  "selected_reasons": []
+}

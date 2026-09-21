@@ -1,0 +1,528 @@
+{
+  "complete": true,
+  "signature": "7df729d4b39da87c9dd5731e2fa7c5d5a5c638061cd07b18595082ed3dffdb85",
+  "attempts": [
+    {
+      "asr_seconds": 2.364180160999922,
+      "alignment_seconds": 0.0007156110000323679,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "177. With regard to what \"truthfulness\" is, perhaps nobody has ever been sufficiently truthful.",
+        "hotwords": "With"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 177. With regard to what truthfulness is, perhaps nobody has ever been sufficiently truthful.",
+          "start": 0.02,
+          "end": 7.38,
+          "words": [
+            {
+              "text": " 177.",
+              "start": 0.02,
+              "end": 1.12,
+              "probability": 0.7514842748641968
+            },
+            {
+              "text": " With",
+              "start": 2.26,
+              "end": 2.4,
+              "probability": 0.9501261711120605
+            },
+            {
+              "text": " regard",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.993533730506897
+            },
+            {
+              "text": " to",
+              "start": 2.76,
+              "end": 3.0,
+              "probability": 0.9993269443511963
+            },
+            {
+              "text": " what",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.9920443296432495
+            },
+            {
+              "text": " truthfulness",
+              "start": 3.2,
+              "end": 3.86,
+              "probability": 0.8797258138656616
+            },
+            {
+              "text": " is,",
+              "start": 3.86,
+              "end": 4.54,
+              "probability": 0.9481775164604187
+            },
+            {
+              "text": " perhaps",
+              "start": 5.24,
+              "end": 5.28,
+              "probability": 0.9940018057823181
+            },
+            {
+              "text": " nobody",
+              "start": 5.28,
+              "end": 5.68,
+              "probability": 0.9962280988693237
+            },
+            {
+              "text": " has",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.9972725510597229
+            },
+            {
+              "text": " ever",
+              "start": 5.94,
+              "end": 6.2,
+              "probability": 0.9933252334594727
+            },
+            {
+              "text": " been",
+              "start": 6.2,
+              "end": 6.38,
+              "probability": 0.9991047978401184
+            },
+            {
+              "text": " sufficiently",
+              "start": 6.38,
+              "end": 6.94,
+              "probability": 0.9975836277008057
+            },
+            {
+              "text": " truthful.",
+              "start": 6.94,
+              "end": 7.38,
+              "probability": 0.9945253133773804
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "177.",
+          "start": 0.02,
+          "end": 1.12
+        },
+        {
+          "raw": "With",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "raw": "regard",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 3.0
+        },
+        {
+          "raw": "what",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "truthfulness",
+          "start": 3.2,
+          "end": 3.86
+        },
+        {
+          "raw": "is,",
+          "start": 3.86,
+          "end": 4.54
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.24,
+          "end": 5.28
+        },
+        {
+          "raw": "nobody",
+          "start": 5.28,
+          "end": 5.68
+        },
+        {
+          "raw": "has",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "ever",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "raw": "been",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "raw": "sufficiently",
+          "start": 6.38,
+          "end": 6.94
+        },
+        {
+          "raw": "truthful.",
+          "start": 6.94,
+          "end": 7.38
+        }
+      ],
+      "expected_tokens": [
+        "177.",
+        "With",
+        "regard",
+        "to",
+        "what",
+        "\"truthfulness\"",
+        "is,",
+        "perhaps",
+        "nobody",
+        "has",
+        "ever",
+        "been",
+        "sufficiently",
+        "truthful."
+      ],
+      "acoustic_expected_tokens": [
+        "177.",
+        "With",
+        "regard",
+        "to",
+        "what",
+        "\"truthfulness\"",
+        "is,",
+        "perhaps",
+        "nobody",
+        "has",
+        "ever",
+        "been",
+        "sufficiently",
+        "truthful."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "177.",
+          "start": 0.02,
+          "end": 1.12,
+          "key": "177",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 2.26,
+          "end": 2.4,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "regard",
+          "start": 2.4,
+          "end": 2.76,
+          "key": "regard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 3.0,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "truthfulness",
+          "start": 3.2,
+          "end": 3.86,
+          "key": "truthfulness",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 3.86,
+          "end": 4.54,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 5.24,
+          "end": 5.28,
+          "key": "perhaps",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nobody",
+          "start": 5.28,
+          "end": 5.68,
+          "key": "nobody",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 5.68,
+          "end": 5.94,
+          "key": "has",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 5.94,
+          "end": 6.2,
+          "key": "ever",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 6.2,
+          "end": 6.38,
+          "key": "been",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sufficiently",
+          "start": 6.38,
+          "end": 6.94,
+          "key": "sufficiently",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "truthful.",
+          "start": 6.94,
+          "end": 7.38,
+          "key": "truthful",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "177.",
+          "start": 0.02,
+          "end": 1.12
+        },
+        {
+          "text": "With",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "text": "regard",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "to",
+          "start": 2.76,
+          "end": 3.0
+        },
+        {
+          "text": "what",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "\"truthfulness\"",
+          "start": 3.2,
+          "end": 3.86
+        },
+        {
+          "text": "is,",
+          "start": 3.86,
+          "end": 4.54
+        },
+        {
+          "text": "perhaps",
+          "start": 5.24,
+          "end": 5.28
+        },
+        {
+          "text": "nobody",
+          "start": 5.28,
+          "end": 5.68
+        },
+        {
+          "text": "has",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "ever",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "text": "been",
+          "start": 6.2,
+          "end": 6.38
+        },
+        {
+          "text": "sufficiently",
+          "start": 6.38,
+          "end": 6.94
+        },
+        {
+          "text": "truthful.",
+          "start": 6.94,
+          "end": 7.38
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.3649413919999915
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d59d6fce6aae220f6db0ff039a58eabd6ffe4b9ee44ff30f3420ba59af28b8f",
+  "selected_reasons": []
+}

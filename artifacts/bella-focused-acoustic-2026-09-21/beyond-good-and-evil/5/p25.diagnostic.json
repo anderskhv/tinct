@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "3db82062541111286f9a29aea82b7452c1040d2660684e1bc0be1182df53cc01",
+  "attempts": [
+    {
+      "asr_seconds": 2.1951898089999986,
+      "alignment_seconds": 0.0006202460000110932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "88. One begins to distrust very clever persons when they become embarrassed.",
+        "hotwords": "One"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 88. One begins to distrust very clever persons when they become embarrassed.",
+          "start": 0.05,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " 88.",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.7289732098579407
+            },
+            {
+              "text": " One",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.9388766884803772
+            },
+            {
+              "text": " begins",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.9952930808067322
+            },
+            {
+              "text": " to",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.9987095594406128
+            },
+            {
+              "text": " distrust",
+              "start": 2.21,
+              "end": 2.59,
+              "probability": 0.9967395663261414
+            },
+            {
+              "text": " very",
+              "start": 2.59,
+              "end": 3.03,
+              "probability": 0.9970278143882751
+            },
+            {
+              "text": " clever",
+              "start": 3.03,
+              "end": 3.39,
+              "probability": 0.9971603155136108
+            },
+            {
+              "text": " persons",
+              "start": 3.39,
+              "end": 3.93,
+              "probability": 0.9951100945472717
+            },
+            {
+              "text": " when",
+              "start": 3.93,
+              "end": 4.21,
+              "probability": 0.9893814325332642
+            },
+            {
+              "text": " they",
+              "start": 4.21,
+              "end": 4.35,
+              "probability": 0.9986642599105835
+            },
+            {
+              "text": " become",
+              "start": 4.35,
+              "end": 4.67,
+              "probability": 0.9976917505264282
+            },
+            {
+              "text": " embarrassed.",
+              "start": 4.67,
+              "end": 5.17,
+              "probability": 0.9872331619262695
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "88.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "One",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "begins",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "distrust",
+          "start": 2.21,
+          "end": 2.59
+        },
+        {
+          "raw": "very",
+          "start": 2.59,
+          "end": 3.03
+        },
+        {
+          "raw": "clever",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "raw": "persons",
+          "start": 3.39,
+          "end": 3.93
+        },
+        {
+          "raw": "when",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "raw": "they",
+          "start": 4.21,
+          "end": 4.35
+        },
+        {
+          "raw": "become",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "raw": "embarrassed.",
+          "start": 4.67,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "88.",
+        "One",
+        "begins",
+        "to",
+        "distrust",
+        "very",
+        "clever",
+        "persons",
+        "when",
+        "they",
+        "become",
+        "embarrassed."
+      ],
+      "acoustic_expected_tokens": [
+        "88.",
+        "One",
+        "begins",
+        "to",
+        "distrust",
+        "very",
+        "clever",
+        "persons",
+        "when",
+        "they",
+        "become",
+        "embarrassed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "88.",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "eightyeight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "begins",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "begins",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "distrust",
+          "start": 2.21,
+          "end": 2.59,
+          "key": "distrust",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.59,
+          "end": 3.03,
+          "key": "very",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clever",
+          "start": 3.03,
+          "end": 3.39,
+          "key": "clever",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "persons",
+          "start": 3.39,
+          "end": 3.93,
+          "key": "persons",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.93,
+          "end": 4.21,
+          "key": "when",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.21,
+          "end": 4.35,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "become",
+          "start": 4.35,
+          "end": 4.67,
+          "key": "become",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "embarrassed.",
+          "start": 4.67,
+          "end": 5.17,
+          "key": "embarrassed",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "88.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "One",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "begins",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "to",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "distrust",
+          "start": 2.21,
+          "end": 2.59
+        },
+        {
+          "text": "very",
+          "start": 2.59,
+          "end": 3.03
+        },
+        {
+          "text": "clever",
+          "start": 3.03,
+          "end": 3.39
+        },
+        {
+          "text": "persons",
+          "start": 3.39,
+          "end": 3.93
+        },
+        {
+          "text": "when",
+          "start": 3.93,
+          "end": 4.21
+        },
+        {
+          "text": "they",
+          "start": 4.21,
+          "end": 4.35
+        },
+        {
+          "text": "become",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "text": "embarrassed.",
+          "start": 4.67,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.1958386750000045
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "01a5f433825bd765b9825d570eeb3fdf82e6dcd7ad809ef4bdabc2da6cc7d6d3",
+  "selected_reasons": []
+}

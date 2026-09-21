@@ -1,0 +1,528 @@
+{
+  "complete": true,
+  "signature": "4c527515d72492813ec2bf8d948ffb042640b178b36afa64596d9161f30ba29c",
+  "attempts": [
+    {
+      "asr_seconds": 2.3936060190000035,
+      "alignment_seconds": 0.0006817899999873589,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "134. From the senses originate all trustworthiness, all good conscience, all evidence of truth.",
+        "hotwords": "From"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 134. From the senses originate all trustworthiness, all good conscience, all evidence of truth.",
+          "start": 0.02,
+          "end": 7.38,
+          "words": [
+            {
+              "text": " 134.",
+              "start": 0.02,
+              "end": 1.16,
+              "probability": 0.7523767352104187
+            },
+            {
+              "text": " From",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.8919676542282104
+            },
+            {
+              "text": " the",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.997442364692688
+            },
+            {
+              "text": " senses",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.9769457578659058
+            },
+            {
+              "text": " originate",
+              "start": 2.82,
+              "end": 3.44,
+              "probability": 0.9575446248054504
+            },
+            {
+              "text": " all",
+              "start": 3.44,
+              "end": 3.8,
+              "probability": 0.9939760565757751
+            },
+            {
+              "text": " trustworthiness,",
+              "start": 3.8,
+              "end": 4.48,
+              "probability": 0.9854366779327393
+            },
+            {
+              "text": " all",
+              "start": 5.02,
+              "end": 5.1,
+              "probability": 0.9941872358322144
+            },
+            {
+              "text": " good",
+              "start": 5.1,
+              "end": 5.28,
+              "probability": 0.9975640773773193
+            },
+            {
+              "text": " conscience,",
+              "start": 5.28,
+              "end": 5.82,
+              "probability": 0.9950779676437378
+            },
+            {
+              "text": " all",
+              "start": 6.28,
+              "end": 6.46,
+              "probability": 0.9940682649612427
+            },
+            {
+              "text": " evidence",
+              "start": 6.46,
+              "end": 6.8,
+              "probability": 0.9986478686332703
+            },
+            {
+              "text": " of",
+              "start": 6.8,
+              "end": 7.14,
+              "probability": 0.999151349067688
+            },
+            {
+              "text": " truth.",
+              "start": 7.14,
+              "end": 7.38,
+              "probability": 0.9455970525741577
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "134.",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "raw": "From",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "senses",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "originate",
+          "start": 2.82,
+          "end": 3.44
+        },
+        {
+          "raw": "all",
+          "start": 3.44,
+          "end": 3.8
+        },
+        {
+          "raw": "trustworthiness,",
+          "start": 3.8,
+          "end": 4.48
+        },
+        {
+          "raw": "all",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "raw": "good",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "raw": "conscience,",
+          "start": 5.28,
+          "end": 5.82
+        },
+        {
+          "raw": "all",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "raw": "evidence",
+          "start": 6.46,
+          "end": 6.8
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 7.14
+        },
+        {
+          "raw": "truth.",
+          "start": 7.14,
+          "end": 7.38
+        }
+      ],
+      "expected_tokens": [
+        "134.",
+        "From",
+        "the",
+        "senses",
+        "originate",
+        "all",
+        "trustworthiness,",
+        "all",
+        "good",
+        "conscience,",
+        "all",
+        "evidence",
+        "of",
+        "truth."
+      ],
+      "acoustic_expected_tokens": [
+        "134.",
+        "From",
+        "the",
+        "senses",
+        "originate",
+        "all",
+        "trustworthiness,",
+        "all",
+        "good",
+        "conscience,",
+        "all",
+        "evidence",
+        "of",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "134.",
+          "start": 0.02,
+          "end": 1.16,
+          "key": "134",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "senses",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "senses",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "originate",
+          "start": 2.82,
+          "end": 3.44,
+          "key": "originate",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.44,
+          "end": 3.8,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "trustworthiness,",
+          "start": 3.8,
+          "end": 4.48,
+          "key": "trustworthiness",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.02,
+          "end": 5.1,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 5.1,
+          "end": 5.28,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "conscience,",
+          "start": 5.28,
+          "end": 5.82,
+          "key": "conscience",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.28,
+          "end": 6.46,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "evidence",
+          "start": 6.46,
+          "end": 6.8,
+          "key": "evidence",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.8,
+          "end": 7.14,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 7.14,
+          "end": 7.38,
+          "key": "truth",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "134.",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "text": "From",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "senses",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "originate",
+          "start": 2.82,
+          "end": 3.44
+        },
+        {
+          "text": "all",
+          "start": 3.44,
+          "end": 3.8
+        },
+        {
+          "text": "trustworthiness,",
+          "start": 3.8,
+          "end": 4.48
+        },
+        {
+          "text": "all",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "text": "good",
+          "start": 5.1,
+          "end": 5.28
+        },
+        {
+          "text": "conscience,",
+          "start": 5.28,
+          "end": 5.82
+        },
+        {
+          "text": "all",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "text": "evidence",
+          "start": 6.46,
+          "end": 6.8
+        },
+        {
+          "text": "of",
+          "start": 6.8,
+          "end": 7.14
+        },
+        {
+          "text": "truth.",
+          "start": 7.14,
+          "end": 7.38
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.3943288230000235
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a73435b384bd6464ef52a856952e5590e12b687e5df1b345b204f4f85d11e36",
+  "selected_reasons": []
+}

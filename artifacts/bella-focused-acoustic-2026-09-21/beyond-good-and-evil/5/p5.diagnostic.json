@@ -1,0 +1,823 @@
+{
+  "complete": true,
+  "signature": "8fd3170e66102ffe63350615039feb900603fb577f200f4f87d2b5554e7fe524",
+  "attempts": [
+    {
+      "asr_seconds": 4.438122469000007,
+      "alignment_seconds": 0.0010845989999950234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "68. \"I did that,\" says my memory. \"I could not have done that,\" says my pride, and remains inexorable. Eventually--the memory yields.",
+        "hotwords": "I, Eventually--the"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 68. I did that,\" says my memory. I could not have done that,\" says my pride, and remains",
+          "start": 0.05,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " 68.",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.0549459382891655
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.5004023909568787
+            },
+            {
+              "text": " did",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.973308265209198
+            },
+            {
+              "text": " that,\"",
+              "start": 1.79,
+              "end": 2.33,
+              "probability": 0.52452427521348
+            },
+            {
+              "text": " says",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9909601211547852
+            },
+            {
+              "text": " my",
+              "start": 2.59,
+              "end": 2.85,
+              "probability": 0.9829441905021667
+            },
+            {
+              "text": " memory.",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.675846517086029
+            },
+            {
+              "text": " I",
+              "start": 3.73,
+              "end": 3.97,
+              "probability": 0.012617047876119614
+            },
+            {
+              "text": " could",
+              "start": 3.97,
+              "end": 4.07,
+              "probability": 0.995512068271637
+            },
+            {
+              "text": " not",
+              "start": 4.07,
+              "end": 4.23,
+              "probability": 0.9959893822669983
+            },
+            {
+              "text": " have",
+              "start": 4.23,
+              "end": 4.35,
+              "probability": 0.9945017099380493
+            },
+            {
+              "text": " done",
+              "start": 4.35,
+              "end": 4.53,
+              "probability": 0.9983844757080078
+            },
+            {
+              "text": " that,\"",
+              "start": 4.53,
+              "end": 5.13,
+              "probability": 0.7052376121282578
+            },
+            {
+              "text": " says",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.996241569519043
+            },
+            {
+              "text": " my",
+              "start": 5.27,
+              "end": 5.51,
+              "probability": 0.9977166652679443
+            },
+            {
+              "text": " pride,",
+              "start": 5.51,
+              "end": 5.85,
+              "probability": 0.9678919315338135
+            },
+            {
+              "text": " and",
+              "start": 5.99,
+              "end": 6.07,
+              "probability": 0.9531168341636658
+            },
+            {
+              "text": " remains",
+              "start": 6.07,
+              "end": 6.55,
+              "probability": 0.9731897711753845
+            }
+          ]
+        },
+        {
+          "text": " inexorable. Eventually the memory yields.",
+          "start": 6.55,
+          "end": 9.19,
+          "words": [
+            {
+              "text": " inexorable.",
+              "start": 6.55,
+              "end": 7.23,
+              "probability": 0.9766330420970917
+            },
+            {
+              "text": " Eventually",
+              "start": 7.91,
+              "end": 8.07,
+              "probability": 0.9930827617645264
+            },
+            {
+              "text": " the",
+              "start": 8.07,
+              "end": 8.37,
+              "probability": 0.40967971086502075
+            },
+            {
+              "text": " memory",
+              "start": 8.37,
+              "end": 8.69,
+              "probability": 0.9987922310829163
+            },
+            {
+              "text": " yields.",
+              "start": 8.69,
+              "end": 9.19,
+              "probability": 0.9968787431716919
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "68.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "did",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "that,\"",
+          "start": 1.79,
+          "end": 2.33
+        },
+        {
+          "raw": "says",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "my",
+          "start": 2.59,
+          "end": 2.85
+        },
+        {
+          "raw": "memory.",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "I",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "raw": "could",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "raw": "have",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "raw": "done",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "raw": "that,\"",
+          "start": 4.53,
+          "end": 5.13
+        },
+        {
+          "raw": "says",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "my",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "raw": "pride,",
+          "start": 5.51,
+          "end": 5.85
+        },
+        {
+          "raw": "and",
+          "start": 5.99,
+          "end": 6.07
+        },
+        {
+          "raw": "remains",
+          "start": 6.07,
+          "end": 6.55
+        },
+        {
+          "raw": "inexorable.",
+          "start": 6.55,
+          "end": 7.23
+        },
+        {
+          "raw": "Eventually",
+          "start": 7.91,
+          "end": 8.07
+        },
+        {
+          "raw": "the",
+          "start": 8.07,
+          "end": 8.37
+        },
+        {
+          "raw": "memory",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "raw": "yields.",
+          "start": 8.69,
+          "end": 9.19
+        }
+      ],
+      "expected_tokens": [
+        "68.",
+        "\"I",
+        "did",
+        "that,\"",
+        "says",
+        "my",
+        "memory.",
+        "\"I",
+        "could",
+        "not",
+        "have",
+        "done",
+        "that,\"",
+        "says",
+        "my",
+        "pride,",
+        "and",
+        "remains",
+        "inexorable.",
+        "Eventually--the",
+        "memory",
+        "yields."
+      ],
+      "acoustic_expected_tokens": [
+        "68.",
+        "\"I",
+        "did",
+        "that,\"",
+        "says",
+        "my",
+        "memory.",
+        "\"I",
+        "could",
+        "not",
+        "have",
+        "done",
+        "that,\"",
+        "says",
+        "my",
+        "pride,",
+        "and",
+        "remains",
+        "inexorable.",
+        "Eventually--the",
+        "memory",
+        "yields."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "68.",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "sixtyeight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,\"",
+          "start": 1.79,
+          "end": 2.33,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "says",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.59,
+          "end": 2.85,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "memory.",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "memory",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.73,
+          "end": 3.97,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 3.97,
+          "end": 4.07,
+          "key": "could",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.07,
+          "end": 4.23,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.23,
+          "end": 4.35,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 4.35,
+          "end": 4.53,
+          "key": "done",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that,\"",
+          "start": 4.53,
+          "end": 5.13,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "says",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.27,
+          "end": 5.51,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pride,",
+          "start": 5.51,
+          "end": 5.85,
+          "key": "pride",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.99,
+          "end": 6.07,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "remains",
+          "start": 6.07,
+          "end": 6.55,
+          "key": "remains",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "inexorable.",
+          "start": 6.55,
+          "end": 7.23,
+          "key": "inexorable",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Eventually the",
+          "start": 7.91,
+          "end": 8.37,
+          "key": "eventuallythe",
+          "pieces": [
+            19,
+            20
+          ]
+        },
+        {
+          "raw": "memory",
+          "start": 8.37,
+          "end": 8.69,
+          "key": "memory",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "yields.",
+          "start": 8.69,
+          "end": 9.19,
+          "key": "yields",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 19,
+          "text": "Eventually--the",
+          "heard": "Eventually the",
+          "heard_indexes": [
+            19,
+            20
+          ],
+          "start": 7.91,
+          "end": 8.37
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "68.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "\"I",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "did",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "that,\"",
+          "start": 1.79,
+          "end": 2.33
+        },
+        {
+          "text": "says",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "my",
+          "start": 2.59,
+          "end": 2.85
+        },
+        {
+          "text": "memory.",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "\"I",
+          "start": 3.73,
+          "end": 3.97
+        },
+        {
+          "text": "could",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "text": "not",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "text": "have",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "text": "done",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "text": "that,\"",
+          "start": 4.53,
+          "end": 5.13
+        },
+        {
+          "text": "says",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "my",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "text": "pride,",
+          "start": 5.51,
+          "end": 5.85
+        },
+        {
+          "text": "and",
+          "start": 5.99,
+          "end": 6.07
+        },
+        {
+          "text": "remains",
+          "start": 6.07,
+          "end": 6.55
+        },
+        {
+          "text": "inexorable.",
+          "start": 6.55,
+          "end": 7.23
+        },
+        {
+          "text": "Eventually--the",
+          "start": 7.91,
+          "end": 8.37
+        },
+        {
+          "text": "memory",
+          "start": 8.37,
+          "end": 8.69
+        },
+        {
+          "text": "yields.",
+          "start": 8.69,
+          "end": 9.19
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.439247153999986
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6831f932e749692713712494cbac07d2752435eda08343b91da38409d958b2e1",
+  "selected_reasons": []
+}

@@ -1,0 +1,192 @@
+{
+ "bookId": "beyond-good-and-evil",
+ "edition": "original-en",
+ "chapter": 5,
+ "editionContentHash": "e567e753d97cb2516a7fd519b3b475cad91d3b749b23191ca763f7e3d4aae5a8",
+ "voice": "unknown",
+ "checkedAt": "2026-09-21T10:55:23.961144+00:00",
+ "manifestStatus": 200,
+ "manifestContentHash": "5f59cf4176876225eff7facdf56985593f56b5cd609c4c070b5325eb72140eaf",
+ "manifestMetadata": {
+  "chapter": 5,
+  "title": "Chapter 4 — Epigrams and Interludes"
+ },
+ "durationSeconds": 1115.883,
+ "wordsStatus": 404,
+ "wordsBytes": 0,
+ "readiness": {
+  "bookId": "beyond-good-and-evil",
+  "edition": "original-en",
+  "chapter": 5,
+  "textParagraphs": 123,
+  "textParagraphsWithWords": 123,
+  "manifestSpokenParagraphs": 123,
+  "durationSeconds": 1112.36,
+  "sampled": [
+   {
+    "file": "p0.mp3",
+    "status": 206,
+    "bytes": 128685
+   },
+   {
+    "file": "p61.mp3",
+    "status": 206,
+    "bytes": 175917
+   },
+   {
+    "file": "p122.mp3",
+    "status": 206,
+    "bytes": 117165
+   }
+  ],
+  "outcome": "ready",
+  "detail": "manifest matches the edition paragraph count"
+ },
+ "state": "timings-missing",
+ "priorAttempts": [
+  {
+   "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-11/collect-report.json",
+   "record": {
+    "key": "beyond-good-and-evil/original-en/ch5",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9948677457560205,
+      "reasons": [
+       {
+        "paragraph": 84,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-11/out/beyond-good-and-evil/original-en/ch5/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9711804184761152,
+      "reasons": [
+       {
+        "paragraph": 10,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 79,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 84,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 99,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 111,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-11/out/beyond-good-and-evil/original-en/ch5/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  },
+  {
+   "path": "artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-5/collect-report.json",
+   "record": {
+    "key": "beyond-good-and-evil/original-en/ch5",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9735491512041058,
+      "reasons": [
+       {
+        "paragraph": 84,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 122,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-5/out/beyond-good-and-evil/original-en/ch5/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9510461902881958,
+      "reasons": [
+       {
+        "paragraph": 10,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 19,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 79,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 84,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 99,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 111,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 122,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "/home/user/tinct/artifacts/audio-highlight-run1-2026-09-11/pods/tinct-words-run1-5/out/beyond-good-and-evil/original-en/ch5/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  }
+ ],
+ "contentHold": null,
+ "nextAction": "stronger-recognition"
+}
