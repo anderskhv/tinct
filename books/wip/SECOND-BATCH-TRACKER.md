@@ -77,6 +77,7 @@ started.
 | 18 | Romeo and Juliet | `romeo-and-juliet` | 0.446 | 25/25 REAL-HEAVY, 1 truncated-quote flag | queued | Screening done |
 | 19 | Macbeth | `macbeth` | 0.483 | 18 REAL-HEAVY/10 REAL | queued | Screening done |
 | 20 | The Tempest | `the-tempest` | 0.453 | 8 REAL-HEAVY/2 REAL | queued | Screening done |
+| 7 | Julius Caesar | `julius-caesar` | 0.621 | 18/18 REAL | freed | **Text accepted.** sha256 `be475cf9c2b8ed2b85be22d8a1f8cb9bb1a89332e31bf390e1272323c02f52b9` (2026-09-21). 1 round, independently verified clean. Release packet done. |
 | — | Oresteia | `oresteia` | 0.614 | 4 REAL-HEAVY/22 REAL | backup | Screening done, not started |
 | — | Nicomachean Ethics | `nicomachean-ethics` | 0.635 | 1 REAL-HEAVY/9 REAL | backup | Screening done, not started |
 

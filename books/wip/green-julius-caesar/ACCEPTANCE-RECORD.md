@@ -3,9 +3,14 @@
 **Book id:** `julius-caesar`
 **Edition:** `modern-en`
 **Accepted:** 2026-09-21
-**Drafting/repair pass:** Claude Sonnet 5 (model id `claude-sonnet-5`). An
-independent Opus verification pass is expected separately, per programme
-process notes — this record covers the Sonnet acceptance only.
+**Drafting/repair pass:** Claude Sonnet 5 (model id `claude-sonnet-5`).
+**Independent verification:** Claude Opus (model id `claude-opus-5`) —
+built a location-keyed occurrence map (not just totals) for the
+Antonius/Antony split including its all-caps speaker-tag form (this
+batch's recurring failure mode elsewhere), independently re-derived the
+violence fix, did its own word-for-word read of the assassination scene
+and all Act 5 deaths, and checked 60+ other proper nouns in both cases
+across the whole book. Verdict: VERIFIED, no further changes needed.
 **Staged files:** `books/wip/green-julius-caesar/source.json` (copied
 unmodified from `app/public/data/editions/julius-caesar-original-en.json`),
 `books/wip/green-julius-caesar/candidate.json` (copied from
