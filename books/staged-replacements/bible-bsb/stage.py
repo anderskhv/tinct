@@ -10,8 +10,8 @@ SOURCES = {
 }
 CODES = "GEN EXO LEV NUM DEU JOS JDG RUT 1SA 2SA 1KI 2KI 1CH 2CH EZR NEH EST JOB PSA PRO ECC SNG ISA JER LAM EZK DAN HOS JOL AMO OBA JON MIC NAM HAB ZEP HAG ZEC MAL MAT MRK LUK JHN ACT ROM 1CO 2CO GAL EPH PHP COL 1TH 2TH 1TI 2TI TIT PHM HEB JAS 1PE 2PE 1JN 2JN 3JN JUD REV".split()
 COUNTS = [50,40,27,36,34,24,21,4,31,24,22,25,29,36,10,13,10,42,150,31,12,8,66,52,5,48,12,14,3,9,1,4,7,3,3,3,2,14,4,28,16,24,21,28,16,16,13,6,6,4,4,5,3,6,4,3,1,13,5,5,3,5,1,1,1,22]
-BODY = {"p","pc","pmo","q1","q2","qr","li1","li2"}
-META = {"h","toc1","toc2","toc3","mt1","mt2","ms","mr","s1","s2","r","d","qa","b"}
+BODY = {"p","pc","pmo","q1","q2","qr","li1","li2","d"}
+META = {"h","toc1","toc2","toc3","mt1","mt2","ms","mr","s1","s2","r","qa","b"}
 SUPER = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
 UNSUPER = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789")
 MARKER = re.compile(r"(?<!\S)([⁰¹²³⁴⁵⁶⁷⁸⁹]+)(?=\s)")
@@ -323,8 +323,8 @@ def main():
         return re.sub(r"\s*—\s*", "—", t) if t is not None else None
     material = [d for d in differences if dash_space(d["usj"]) != dash_space(d["textExport"])]
     print("DIAGNOSTIC_MATERIAL_COUNT", len(material))
-    print("DIAGNOSTIC_MATERIAL_SAMPLE", json.dumps(material[:35], ensure_ascii=False))
-    print("DIAGNOSTIC_MISSING", json.dumps([d for d in material if d["usj"] is None][:25], ensure_ascii=False))
+    print("DIAGNOSTIC_MATERIAL_SAMPLE", json.dumps(material[:100], ensure_ascii=False))
+    print("DIAGNOSTIC_MISSING", json.dumps([d for d in material if d["usj"] is None], ensure_ascii=False))
     psa = json.loads(z.read("bsb_usj/PSA.usj"))
     print("DIAGNOSTIC_PSA_NODES", json.dumps(psa["content"][60:77], ensure_ascii=False))
     print("DIAGNOSTIC_PSA_23_1", external.get("PSA.23.1"))
