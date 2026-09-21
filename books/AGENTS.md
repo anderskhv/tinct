@@ -41,10 +41,10 @@ If adding a book requires new app behavior, stop and ask Anders to handle it as 
 - Do not run `generate-editions.cjs`.
 - Do not answer book-status, publication-readiness, or "what is missing?"
   questions from memory. Run `python3 books/wip_inventory.py` from the repo root
-  first, and add `--audio` when English/Danish audio status matters.
+  first, and add `--audio` when English audio status matters.
 - Finish-to-publish discipline: do not download or parse a NEW source while a
   staged book is blocked only by content work this lane can do (modern-en
-  repair, modern-da, threads, onboarding). Default next task is the staged book
+  repair, threads, onboarding). Default next task is the staged book
   closest to publishable per `wip_inventory.py`, unless Anders directs otherwise.
 - Discuss structure before downloading or parsing a new source.
 - Use public-domain sources only.
@@ -52,9 +52,8 @@ If adding a book requires new app behavior, stop and ask Anders to handle it as 
 - Maintain paragraph alignment across editions.
 - No kids editions.
 - Every production book must be classified in the library taxonomy: House, Shelf membership, form, era, and relevant canon/list metadata.
-- Claude owns the content package for new books: source discovery, original parsing, human English translation sourcing for non-English works, `modern-en`, and `modern-da`.
+- Claude owns the content package for new books: source discovery, original parsing, human English translation sourcing for non-English works, `modern-en`.
 - Codex owns publication: final registry/public `BOOKS` changes, app verification, and deploy after verify per `../AGENTS.md` (do not ask first unless Anders said local-only).
-- Modern Danish is translated from `modern-en`, not from the original.
 - Preserve user changes and never overlap deploy work with active edition writes.
 
 ## Structure Discussion
@@ -63,7 +62,7 @@ Before downloading anything, discuss the intended structure with Anders:
 
 - Chapter division: chapters, books, cantos, acts/scenes, biblical books, or another natural unit.
 - Hierarchical sections: usually no for novels; often yes for Bible, Divine Comedy, Canterbury Tales, and similar works.
-- Editions: standard publishing target is original text, a human English translation when the original is non-English, `modern-en`, and `modern-da`. For English-original books, the original edition is `original-en`.
+- Editions: standard publishing target is original text, a human English translation when the original is non-English, `modern-en`. For English-original books, the original edition is `original-en`.
 - Paragraph grouping: prose paragraphs, verse stanzas, Bible verse ranges, or play speech blocks.
 - Book metadata: title, author, year, word count, cover colors, description, taxonomy.
 
@@ -110,7 +109,7 @@ After parsing source text, verify that chapter entries represent the agreed read
 
 - For plays, chapter entries must be real acts/scenes or other agreed scene units. Do not leave separate chapters for textual apparatus, editorial collation notes, transcriber's notes, source variants, or scene-number crosswalks.
 - Titles must be reader-facing labels, for example `Act 2, Scene 3`, not source-apparatus fragments such as `] SCENE 6. Pope`, `SCENA QUARTA Ff`, `Capell`, `Rowe`, `Hanmer`, `Collier`, `conj.`, `om.`, or bracket debris from parser splits.
-- Edition-note paragraphs from Cambridge/Gutenberg-style Shakespeare sources are not reading text. Remove them before `modern-en`, `modern-da`, threads, onboarding, or audio work.
+- Edition-note paragraphs from Cambridge/Gutenberg-style Shakespeare sources are not reading text. Remove them before `modern-en`, threads, onboarding, or audio work.
 - If source cleanup removes or merges chapters, apply the same structure to every included edition and then re-key threads to the repaired chapter numbers.
 - Do not generate audio for a book with suspected apparatus/stub chapters. Repair text first; audio manifests over bad chapter structure are not publication-ready.
 
@@ -121,7 +120,7 @@ BOOK=measure-for-measure python3 - <<'PY'
 import json, os, re
 book = os.environ["BOOK"]
 pat = re.compile(r'(\] SCENE|SCENA|Transcriber|Pope|Rowe|Hanmer|Capell|Collier|Ff|F1|F2|F3|F4|conj\.|om\.)')
-for ed in ("original-en", "modern-en", "modern-da"):
+for ed in ("original-en", "modern-en"):
     path = f"app/public/data/editions/{book}-{ed}.json"
     try:
         data = json.load(open(path))
@@ -163,25 +162,9 @@ Anti-truncation prompt requirements:
 3. Paragraph N must start with content equivalent to the first sentence of source paragraph N. Do not merge content across paragraph boundaries.
 4. Output length per paragraph should usually be at least 75% of the source word count. If it falls below that, inspect for dropped content.
 
-## Modern Danish
-
-Modern Danish is translated from `modern-en`.
-
-- Natural Danish, not word-for-word English.
-- Paragraph count must match `modern-en` exactly.
-- Preserve one output paragraph for every `modern-en` paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
-- Dialogue uses `»...«`.
-- Straight apostrophes for contractions and possessives.
-- Em dashes for interruptions and parentheticals.
-- Preserve names and diacritics.
-- Do not soften historical content.
-- Honorifics from 19th-century Anglo sources, such as `Mrs.` and `Mr.`, normally stay in English form.
-- Avoid false cognates, English word order, invented compound words, and direct calques of English idioms.
-- Translate fully into Danish; do not perform a light edit of English scaffold text.
-
 ## QA Gates
 
-**Similarity gate (mandatory, blocking).** No `modern-da` work and no audio
+**Similarity gate (mandatory, blocking).** No audio
 generation may start until `modern-en` passes the committed similarity gate:
 
 ```bash
@@ -194,7 +177,7 @@ The gate fails on weighted similarity > 0.75, > 5% LIGHT/MECHANICAL chapters, or
 2026-05 mechanical-modernization failure (539 fake chapters); it exists so that
 failure class cannot recur silently. A prose claim that a rendering is "real"
 does not substitute for a passing gate. Run it per batch during rendering and on
-the whole book before handing off to Danish or audio.
+the whole book before handing off to audio.
 
 Run focused QA after chapter batches and before considering an edition complete:
 
@@ -205,13 +188,11 @@ Run focused QA after chapter batches and before considering an edition complete:
 - Proper noun and name consistency.
 - Truncation audit where scripts exist, especially for large, verse-to-prose, or allusion-heavy works.
 - Manual spot-read: first 3 paragraphs of chapters 1, middle, and last.
-- For Danish, run a byte-identity audit against `modern-en` before audio. More than 5% identical long paragraphs means the translation has gaps.
 
 Truncation audits should use existing local tooling when available, for example:
 
 ```bash
 python3 audit-truncation.py {book-id} en
-python3 audit-truncation.py {book-id} da
 ```
 
 Every flagged paragraph requires human inspection. Natural compression is acceptable; genuine omitted content is not.
@@ -219,10 +200,8 @@ Every flagged paragraph requires human inspection. Natural compression is accept
 ## Audio
 
 - English audio uses Kokoro.
-- Danish audio uses Google Chirp.
 - Do not mix engines.
-- For now, skip `modern-da` audio unless Anders explicitly asks for it. Danish text is still required for publication; Danish audio is opt-in while this rule is in effect.
-- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`; `modern-da` audio is required only when explicitly requested.
+- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`.
 - Generate or regenerate audio only after the relevant text passes QA.
 - If text changes after audio generation, mark the affected book, edition, chapter, and paragraph numbers; regenerate the corresponding audio and manifest before considering the book final.
 - Chapter title audio should be present where the audio pipeline supports it.
@@ -310,10 +289,9 @@ A book is ready for the public registry only when the agreed publishing standard
 - original edition exists
 - for non-English originals, a public-domain human English translation exists
 - `modern-en` exists
-- `modern-da` exists
 - all included editions are paragraph-aligned
 - no stubs or untranslated scaffold content remain
-- required audio is generated, manifested, uploaded, and verified: Kokoro for English editions; Chirp for Danish only when `modern-da` audio has been explicitly requested
+- required audio is generated, manifested, uploaded, and verified: Kokoro for English editions
 - onboarding exists
 - registry entry is correct
 - taxonomy is complete
@@ -354,8 +332,8 @@ For long-running book work, leave a concise status note in `books/` documenting:
 
 When Anders asks for status, present a single compact table:
 
-| Book | Editions | Modern EN | Modern DA | Audio | Threads |
-|------|----------|-----------|-----------|-------|---------|
+| Book | Editions | Modern EN | Audio | Threads |
+|------|----------|-----------|-------|---------|
 
 Every cell should be `Complete` or `Not complete` with a short note on the gap.
 
@@ -364,6 +342,5 @@ Every cell should be `Complete` or `Not complete` with a short note on the gap.
 - Do not trust reports that a translation is committed; verify the file contents.
 - Do not run multiple writers against the same edition JSON in parallel.
 - Do not deploy or stash during active edition writes.
-- Do not start Danish audio before confirming the Danish file is actually Danish.
 - Do not rely only on absence of `[untranslated]`; scaffolded English can look clean while still untranslated.
 - Do not let audio live only in staging. If users need it, it must be in R2 with manifests.

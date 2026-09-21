@@ -81,7 +81,7 @@ If a book requires new app behavior, stop and ask Anders to handle it as app/Cod
 ## Canonical Book Flow
 
 Finish-to-publish discipline: do not start a NEW source while a staged book is
-blocked only by content work this lane can do (modern-en repair, modern-da,
+blocked only by content work this lane can do (modern-en repair,
 threads, onboarding). Default next task is the staged book closest to
 publishable per `wip_inventory.py`, unless Anders directs otherwise.
 
@@ -92,15 +92,14 @@ publishable per `wip_inventory.py`, unless Anders directs otherwise.
 4. For non-English works, keep the original-language edition when available and add a public-domain human English translation as the English baseline.
 5. Create `modern-en`.
 5b. Similarity gate (mandatory, blocking): `python3 books/classify-modern-en.py {book-id} --gate`
-   must PASS before any `modern-da` or audio work. Run per batch with
+   must PASS before audio work. Run per batch with
    `--chapters N-M` while rendering. A prose claim that the rendering is
    "real" does not substitute for a passing gate.
-6. Create `modern-da` from `modern-en`.
-7. Create onboarding content and threads when appropriate.
-8. Run QA: JSON validity, paragraph alignment, truncation checks, byte-identity checks for Danish, and manual spot reads.
-9. Generate audio only after text QA passes:
-   Kokoro/RunPod for English editions, Google Chirp for Danish.
-10. Hand off to Codex for final publication once all content, audio, onboarding, taxonomy, and registry data are ready.
+6. Create onboarding content and threads when appropriate.
+7. Run QA: JSON validity, paragraph alignment, truncation checks, and manual spot reads.
+8. Generate audio only after text QA passes:
+   Kokoro/RunPod for English editions.
+9. Hand off to Codex for final publication once all content, audio, onboarding, taxonomy, and registry data are ready.
 
 ## Source Rules
 
@@ -151,8 +150,8 @@ After parsing, verify that chapter entries are real reading units, not parser ar
 - For plays, chapters should be real acts/scenes or another agreed scene unit.
 - Do not leave separate chapters for textual apparatus, editor collation notes, transcriber's notes, source variants, scene-number crosswalks, or bracket debris.
 - Titles like `] SCENE 6. Pope`, `SCENA QUARTA Ff`, `Capell`, `Rowe`, `Hanmer`, `Collier`, `conj.`, or `om.` are blockers, not acceptable reader-facing chapter titles.
-- Cambridge/Gutenberg Shakespeare apparatus paragraphs are not reading text. Remove them before `modern-en`, `modern-da`, threads, onboarding, or audio.
-- If cleanup changes chapter structure, apply the same structure to `original-en`, `modern-en`, and `modern-da`, then re-key threads to the repaired chapter numbers.
+- Cambridge/Gutenberg Shakespeare apparatus paragraphs are not reading text. Remove them before `modern-en`, threads, onboarding, or audio.
+- If cleanup changes chapter structure, apply the same structure to the included editions, then re-key threads to the repaired chapter numbers.
 - Do not generate audio over apparatus/stub chapters.
 
 ## Translation Rules
@@ -170,27 +169,13 @@ Modern English must be a real modern-English rendering, not a summary and not a 
 - If Anders explicitly asks for a lightly cleaned original translation, keep it as an original/human-translation edition or ask what edition key to use; do not label it `modern-en`.
 - Paragraph N must begin with content equivalent to source paragraph N and should normally remain at least 75% of the source paragraph's word count unless the source is genuinely verbose/repetitive.
 
-Modern Danish is translated from `modern-en`, not from the original.
-
-- Paragraph count must match `modern-en`.
-- Preserve one output paragraph for every `modern-en` paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
-- Use natural Danish.
-- Dialogue uses `»...«`.
-- Preserve names, diacritics, historical content, quotations, and allusions.
-- Do not leave English scaffold text in Danish files.
-- Translate fully into Danish; do not perform a light edit of English scaffold text.
-
-Before Danish audio, run a byte-identity audit against `modern-en`. More than 5% identical long paragraphs means the translation has gaps.
-
 Paragraph alignment is sacred. If alignment breaks, stop and fix alignment before continuing translation or audio.
 
 ## Audio Rules
 
 - English audio uses Kokoro.
-- Danish audio uses Google Chirp.
 - Do not mix engines.
-- For now, skip `modern-da` audio unless Anders explicitly asks for it. Danish text is still required for publication; Danish audio is opt-in while this rule is in effect.
-- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`; `modern-da` audio is required only when explicitly requested.
+- For non-English originals, do not invent source-language audio by default. The required default audio package is the human English translation and `modern-en`.
 - Regenerate audio if text changes after audio generation.
 - R2 uploads must use the remote Cloudflare target, not a local emulator.
 
@@ -213,11 +198,10 @@ Every production book must include:
 - original edition
 - public-domain human English translation for non-English originals
 - `modern-en`
-- `modern-da`
 - paragraph alignment across editions
 - no stubs or untranslated scaffold content
 - no textual apparatus/stub chapters or polluted scene titles
-- required Kokoro audio generated, manifested, uploaded, and verified; Chirp audio only when `modern-da` audio has been explicitly requested
+- required Kokoro audio generated, manifested, uploaded, and verified
 - onboarding
 - taxonomy: House, shelves, form, era, and relevant canon/list metadata
 - correct registry entry and edition flags

@@ -40,11 +40,11 @@ One repo, one remote (`https://github.com/anderskhv/tinct.git`).
 
 ## Telling Anders to "hard refresh"
 
-Anders is on a **Danish Mac keyboard**. `Cmd+Shift+R` may do nothing because the `R` key isn't where browsers expect on a DK layout. Stop telling him to press that.
+Do not recommend `Cmd+Shift+R` to Anders; use the cache-clearing alternatives below.
 
 **Always recommend in this order:**
 
-1. **Open a private/incognito window** (`Cmd+Shift+N` in Chrome, `Cmd+Shift+P` in Safari/Firefox — these DO work on DK layout). Most reliable, keyboard-agnostic, totally cache-free.
+1. **Open a private/incognito window** (`Cmd+Shift+N` in Chrome, `Cmd+Shift+P` in Safari/Firefox). Most reliable, keyboard-agnostic, totally cache-free.
 2. **Right-click the browser reload button → "Empty Cache and Hard Reload"** (Chrome with DevTools open). One click, no shortcut.
 3. **Safari only:** Develop menu → Empty Caches, then reload. (Develop menu must be enabled in Preferences → Advanced.)
 
@@ -76,7 +76,7 @@ All content (editions, translations, summaries, onboarding, threads) is generate
 
 ## Project Overview
 
-A content-agnostic deep reading platform. Active wrestling with texts: multi-edition reading (original / modern EN / modern DA), AI chat, highlighting, journaling. 33 books live, expanding to 100+ Western classics + Bible.
+A content-agnostic deep reading platform. Active wrestling with texts: multi-edition reading (original / modern English), AI chat, highlighting, journaling. 33 books live, expanding to 100+ Western classics + Bible.
 
 ---
 
@@ -104,7 +104,7 @@ React + TypeScript + Vite. Claude API for chat. Public-domain texts (Project Gut
 
 **Built & deployed:**
 - 33 public books in `bookRegistry.ts` (+ 1 copyright-protected local-only).
-- 3 editions per book: original-en, modern-en, modern-da.
+- English editions: original-en and modern-en.
 - Paginated reader (CSS multi-column) + opt-in split pane (paragraph-aligned).
 - Side panel: Chat | Feed | Cast (Feed = journal+highlights+notes+chats; Cast = character tracker, formerly "Threads").
 - Audio: paragraph-level playback, speed control, auto-advance, R2-hosted.
@@ -217,9 +217,8 @@ A book is "added" only when every box below is checked. Partial additions are wo
 
 **2. All editions** (CLI-generated, zero API spend):
 - `{bookId}-modern-en.json` — accessible contemporary English.
-- `{bookId}-modern-da.json` — Moderne Dansk.
 - All paragraph-aligned with original.
-- **Kids editions are permanently out of scope. Never generate kids-en or kids-da.**
+- **Kids editions are permanently out of scope. Never generate children's editions.**
 
 **3. Book registry** — entry in `bookRegistry.ts` with all editions, correct metadata (key, language, style, label, aligned), included in `BOOKS` array.
 
@@ -234,7 +233,7 @@ A book is "added" only when every box below is checked. Partial additions are wo
 
 **Flow:** (1) Edition setup → (2) About + Why → (3) Angle (free, skip option present) → (4) Cast → (5) Extended pre-reading chat (premium).
 
-**5. Cast / threads** — `{bookId}-threads.json` with major characters: id, name (en/da), epithet (en/da), role, wikipediaUrl, searchNames; per-chapter summaries in modern-en + modern-da. Loader is convention-based (`useThreads.ts` fetches `/data/editions/{bookId}-threads.json` for any bookId) — no code change needed; just drop the JSON in.
+**5. Cast / threads** — `{bookId}-threads.json` with major characters: id, name and epithet using the existing schema, role, wikipediaUrl, searchNames; per-chapter summaries in modern-en. Loader is convention-based (`useThreads.ts` fetches `/data/editions/{bookId}-threads.json` for any bookId) — no code change needed; just drop the JSON in.
 
 **6. App integration** — Book selectable in header, chapter nav works (correct labels and count), edition switching works, split pane verified with aligned editions, position persistence per book, chat context uses correct title/author, onboarding fires for ALL entry points (direct nav, SEO landing, share links), reading angle stored in session and injected into AI system prompt, dismissable at any step ("Start reading now →").
 
@@ -254,7 +253,7 @@ Active product policy. Older implementation logs and superseded decisions live i
 - **[Onboarding Entry Point]** — Onboarding modal fires for ALL entry points (direct nav, SEO, share links). This is intentional — it's Tinct's differentiation from Project Gutenberg. Dismissable at any step.
 - **[Reading Angle is core, not premium]** — Free for all users. The #1 completion-rate mechanism — research confirms personal connection before reading begins is the top driver of book completion. Stored in session, injected into AI system prompt so mid-read chat references it. Skip option offered ("Just start reading" 5th card; "Or skip — the book works either way" copy in Account Onboarding Step 1) — pitched as default but never imposed.
 - **[Pricing]** — Premium **$3/mo**, 30-day free trial (auto-cancels). Three tiers in PricingModal: Anonymous (read-only) / Free account (reading features + 30-day Premium trial) / Premium ($3/mo: AI chat 200 msgs/mo, audiobook, Cast, offline, reading journal). Chat-pack overflow $5/200 messages stays as a separate product.
-- **[Kids Editions Dropped]** — Permanently out of scope. Never generate, reference, or discuss kids-en/kids-da.
+- **[Kids Editions Dropped]** — Permanently out of scope. Never generate, reference, or discuss children's editions.
 - **[Landing Page Auth Redirect — P0]** — Signed-in users must NEVER see the landing page. Auth-check script at top of `app/public/landing.html` inspects the Supabase session token and redirects to `/read` before render. Any regression is a P0 bug.
 - **[User Journeys v1]** — Two paths. Journey A (direct-to-book / SEO): edition picker → reader → state-aware top banner → end-of-chapter-1 progress prompt → sign-up → TierChooser. Journey B (library-first): landing → library → 3-step Book Onboarding → TierChooser → reader. Four locked principles: no hard gates, don't describe local storage, no-downside Premium (defaulted), three tiers always. URL parsing: `/read/{bookId}` = full mode, `/{bookId}` = edition-only mode. Account Onboarding (6-step tour) is optional, available from Settings — NOT critical path.
 - **[Books CEO Scope Lockdown]** — `books/CLAUDE.md` is content-only. May only touch `app/public/data/editions/{bookId}-*.json`, `app/public/data/onboarding/{bookId}.json`, `app/public/audio/{bookId}/`, `app/src/data/bookRegistry.ts` (registration only), and `books/**`. Everything else is OFF-LIMITS. Publish via `npm run deploy` only — raw `vite build` and `wrangler deploy` are forbidden (skip the html swap and verify-bundle steps; cause repeated prod outages).
@@ -273,7 +272,7 @@ Active product policy. Older implementation logs and superseded decisions live i
 
   JSON schema gains `acclaim` (array of `{quote, source, context}`) and `whyItMatters` (array of 3 `{title, body}`). The old `preReadingChat` block (3 themes + fallback) is **dropped** — was a spec idea that never landed. Voice calibration locked: declarative, book-focused, "deals with / asks / follows" verbs, ONE brief contemporary line at the end of each `whyItMatters` item, no aphorisms, no first-person-plural commentary, no parallelism rhythms.
 
-- **[Acclaim quotes — primary sources only, fact-checked]** — Every acclaim quote must be verifiable in a primary source (Wikipedia with citations, Letters, published essays). No folklore (e.g., the "Joyce learned Danish for Niels Lyhne" story is actually about Joyce learning Norwegian for Ibsen — do not ship). Fact-checking agent runs over each batch of generated book content before commit.
+- **[Acclaim quotes — primary sources only, fact-checked]** — Every acclaim quote must be verifiable in a primary source (Wikipedia with citations, Letters, published essays). No unverified literary folklore. Fact-checking agent runs over each batch of generated book content before commit.
 
 - **[Book Onboarding flow rewrite + manifesto retired 2026-04-29]** — The unbuilt 6-step "Account Onboarding" manifesto (HTML at `Design refs/Account Onboarding.html`) is formally **dropped**. What we now mean by "post-signup onboarding" is the Feature Tour. The Account Onboarding component referenced in earlier decisions (User Journeys v1, Account Onboarding Rewrite 2026-04-21) was design-only and never built; we're not building it. Feature Tour fills that role.
 

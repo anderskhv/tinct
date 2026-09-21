@@ -1,5 +1,7 @@
 # Session Notes — Translation Quality Sweep
 
+> Historical record only, retired from operational use on 2026-09-21. The tasks, commands and language-specific guidance below are not current instructions. Follow `AGENTS.md` and the exact current assignment instead.
+
 **Started:** 2026-04-17
 **Status:** In progress (Anders away, Claude working autonomously)
 **Branch:** main
