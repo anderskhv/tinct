@@ -1,5 +1,6 @@
 """Accept staged chapter candidates against whole current editions and existing reader functions."""
 import json,sys,urllib.request,urllib.error,hashlib
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 sys.path.insert(0,"tools/audio-highlight")
 import prodapi,verify_timings,publish_timings
@@ -17,8 +18,9 @@ for row in summary:
  if row["status"]=="acoustic-pass":
   b,ed,ch=row["key"].split("/");chosen[row["key"]]=dict(row,sourceCommit=ref,sourceFolder=f"{folder}/{b}/{int(ch[2:])}")
 for branch,folder,keys in [
+ ("codex/bella-focused-communist-boundaries-20260921","bella-focused-communist-boundaries-2026-09-21",["communist-manifesto/original-en/ch4"]),
  ("codex/bella-focused-pride-ready-20260921","bella-focused-short-clips-2026-09-21",["pride-and-prejudice/original-en/ch2"]),
- ("codex/bella-focused-nicomachean-20260921","bella-focused-acoustic-2026-09-21",["nicomachean-ethics/original-en/ch7"]),
+ ("codex/bella-focused-nicomachean-resume-20260921","bella-focused-acoustic-2026-09-21",["nicomachean-ethics/original-en/ch7"]),
  ("codex/bella-focused-short-clips-20260921","bella-focused-short-clips-2026-09-21",["pride-and-prejudice/original-en/ch2","communist-manifesto/original-en/ch4"]),
  ("codex/bella-focused-beyond-20260921","bella-focused-beyond-2026-09-21",["beyond-good-and-evil/original-en/ch5"])
 ]:
@@ -39,9 +41,10 @@ for key,row in sorted(chosen.items()):
  if (book,ed) not in editions:
   code,edition=prodapi.edition_text(book,ed);assert code==200;editions[(book,ed)]=edition
  texts=verify_timings.paragraph_texts(editions[(book,ed)],n)
- for p in co["paragraphs"]:
+ def check_audio(p):
   assert p["text"]==texts[p["index"]]
   code,audio=prodapi.audio_object(key+"/"+p["file"]);assert code==200 and sha(audio)==p["sha256"]
+ with ThreadPoolExecutor(max_workers=8) as pool:list(pool.map(check_audio,co["paragraphs"]))
  assert not publish_timings.validate_candidate(candidate,book,ed,n)
  status,_,served=prodapi.chapter_words(book,ed,n)
  if status==200:assert sha(served)==sha(body),"Existing publication differs"
@@ -56,15 +59,19 @@ def proposed(b,e,n):
  return original(b,e,n)
 prodapi.chapter_words=proposed
 fixtures=[];checks=[]
-for (book,ed),edition in editions.items():
- for ch in edition["chapters"]:
-  n=ch["number"];check=verify_timings.check_chapter(book,ed,n,edition);checks.append(check)
-  if not check["ok"]:continue
-  _,manifest=prodapi.chapter_manifest(book,ed,n);_,words,_=proposed(book,ed,n);texts=verify_timings.paragraph_texts(edition,n)
-  for p in words["paragraphs"]:
-   assert verify_timings.tokenize(texts[p["paragraph"]])==verify_timings.tokenize(" ".join(w["text"] for w in p["words"]))
-   assert any(w["end"]>w["start"] for w in p["words"]),(book,n,p["paragraph"])
-  fixtures.append(dict(key=f"{book}/{ed}/ch{n}",manifest=manifest,sidecar=words,paragraphs=texts))
+def check_chapter_task(task):
+ book,ed,edition,ch=task;n=ch["number"];check=verify_timings.check_chapter(book,ed,n,edition)
+ if not check["ok"]:return check,None
+ _,manifest=prodapi.chapter_manifest(book,ed,n);_,words,_=proposed(book,ed,n);texts=verify_timings.paragraph_texts(edition,n)
+ for p in words["paragraphs"]:
+  assert verify_timings.tokenize(texts[p["paragraph"]])==verify_timings.tokenize(" ".join(w["text"] for w in p["words"]))
+  assert any(w["end"]>w["start"] for w in p["words"]),(book,n,p["paragraph"])
+ return check,dict(key=f"{book}/{ed}/ch{n}",manifest=manifest,sidecar=words,paragraphs=texts)
+tasks=[(book,ed,edition,ch) for (book,ed),edition in editions.items() for ch in edition["chapters"]]
+with ThreadPoolExecutor(max_workers=8) as pool:
+ for check,fixture in pool.map(check_chapter_task,tasks):
+  checks.append(check)
+  if fixture is not None:fixtures.append(fixture)
 for row in receipts:
  book=row["key"].split("/")[0]
  row["completeEditionStructural"]=all(x["ok"] for x in checks if x["bookId"]==book)
