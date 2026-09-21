@@ -1,0 +1,59 @@
+name: bella-sync-cpu-pilot
+on:
+  push:
+    branches: ['codex/bella-sync-pilot-20260921']
+    paths: ['tools/audio-highlight/bella_pilot_prepare.py', '.github/workflows/bella-sync-cpu-pilot.yml']
+permissions:
+  contents: write
+concurrency:
+  group: bella-sync-cpu-pilot
+  cancel-in-progress: false
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify every pilot audio object and current text map
+        run: python3 tools/audio-highlight/bella_pilot_prepare.py
+      - name: Install isolated alignment dependencies
+        run: pip install faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0 huggingface-hub
+      - name: Check existing alignment invariants
+        run: python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_*.py'
+      - name: Freeze the text and recording bytes
+        run: |
+          python3 tools/audio-highlight/aligner/cloud_cohort.py --targets artifacts/bella-sync-pilot-2026-09-21/targets.json --out /tmp/bella-cohort --workers 2
+          cp /tmp/bella-cohort/cohort.json artifacts/bella-sync-pilot-2026-09-21/cohort.json
+          cp /tmp/bella-cohort/cohort-dropped.json artifacts/bella-sync-pilot-2026-09-21/cohort-dropped.json
+      - name: Fetch pinned model
+        run: |
+          python3 - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download("Systran/faster-whisper-small.en", revision="d1d751a5f8271d482d14ca55d9e2deeebbae577f", local_dir="/tmp/bella-model")
+          PY
+      - name: Generate timing candidates on CPU without uploading
+        run: |
+          python3 tools/audio-highlight/aligner/trial.py --input /tmp/bella-cohort/cohort.json --output artifacts/bella-sync-pilot-2026-09-21/out --model-path /tmp/bella-model --model-sha256 f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5 --device cpu --compute-type int8 --helper v7 --arms off auto --max-seconds 1200 --run
+      - name: Collect and structurally validate staged results
+        if: always()
+        run: |
+          python3 tools/audio-highlight/aligner/collect_candidates.py --run artifacts/bella-sync-pilot-2026-09-21/out --out artifacts/bella-sync-pilot-2026-09-21/candidates.json --report artifacts/bella-sync-pilot-2026-09-21/collection-report.json
+          python3 tools/audio-highlight/publish_timings.py --candidates artifacts/bella-sync-pilot-2026-09-21/candidates.json --journal artifacts/bella-sync-pilot-2026-09-21/validation.json
+      - name: Preserve candidates on isolated branch
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-sync-pilot-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Stage Bella pilot timing candidates only [skip ci]"
+          git push origin HEAD:codex/bella-sync-pilot-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-sync-cpu-pilot
+          path: artifacts/bella-sync-pilot-2026-09-21
+          retention-days: 30
