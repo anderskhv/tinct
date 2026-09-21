@@ -166,7 +166,7 @@ export function buildHighlightRange(
 }
 
 export function wordInHighlightRange(
-  range: LabHighlightRange,
+  range: Pick<LabHighlightRange, 'paragraphIndex' | 'endParagraphIndex' | 'fromWord' | 'toWord'>,
   paragraphIndex: number,
   wordIndex: number,
 ): boolean {

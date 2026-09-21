@@ -1238,6 +1238,9 @@
 .lab .lab-contextual-explain.is-expanded { height: auto; min-height: 0; max-height: 100%; }
 .lab .lab-contextual-explain.is-expanded .lab-contextual-explain-scroll { flex: 1 1 auto; height: auto; min-height: 0; max-height: none; overflow-y: auto; }
 .lab .lab-ask-attachment-text { display: block; max-height: 100px; overflow-y: auto; overscroll-behavior: contain; -webkit-line-clamp: unset; }
+/* The seam underlay belongs behind ink inside its own paragraph. */
+.lab .lab-passage.has-text-range-highlights .lab-hearing-line { position:relative; isolation:isolate; }
+.lab-highlight-seam { position:absolute; z-index:-1; pointer-events:none; user-select:none; }
 .lab .lab-passage.has-text-range-highlights .lab-hearing-word[class*="is-hl-"],
 .lab .lab-passage.has-text-range-highlights .lab-highlight-gap,
 .lab .lab-passage.has-text-range-highlights .lab-hearing-word[class~="is-selecting"] { background: transparent !important; }
@@ -2856,7 +2859,7 @@
 .lab-book-switcher-row:hover,
 .lab-book-switcher-row:focus-visible { background: var(--lab-surface); }
 /* A focused first row must not paint beyond the scroll viewport. */
-.lab .lab-book-switcher-row:focus-visible { outline-offset: -3px; }
+.lab[data-chrome-version="v2"] .lab-book-switcher .lab-book-switcher-row:focus-visible { outline-offset: -3px; }
 .lab-book-switcher-row.is-active { background: color-mix(in srgb, var(--lab-accent, #1f4a5c) 8%, transparent); }
 .lab-book-switcher-cover { width: 32px; height: 44px; overflow: hidden; border-radius: 3px; background: var(--lab-surface); box-shadow: 0 2px 7px #0002; }
 .lab-book-switcher-cover img { width: 100%; height: 100%; display: block; object-fit: cover; }
@@ -7586,7 +7589,8 @@
 .lab[data-chrome-version="v2"].has-phone-chrome .lab-header { padding-left:var(--lab-reader-margin,1.55rem); padding-right:var(--lab-reader-margin,1.55rem); }
 .lab[data-chrome-version="v2"].is-phone .lab-chapter-progress-info,
 .lab[data-chrome-version="v2"].has-phone-chrome .lab-chapter-progress-info { font-family:var(--lab-font-reader); font-size:12px; color:var(--lab-ink-muted); transition:color 160ms ease, opacity 160ms ease; }
-.lab[data-chrome-version="v2"]:is(.is-phone,.has-phone-chrome)[data-reader-controls="hidden"] .lab-chapter-progress-info {
+.lab[data-chrome-version="v2"].is-phone[data-reader-controls="hidden"] .lab-chapter-progress-info,
+.lab[data-chrome-version="v2"].has-phone-chrome[data-reader-controls="hidden"] .lab-chapter-progress-info {
   color:var(--lab-ink);
   opacity:var(--lab-quiet-chrome-opacity,.58);
 }

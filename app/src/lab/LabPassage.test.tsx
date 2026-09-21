@@ -829,7 +829,7 @@ it('clicks the mark that paints an overlapping word or separator, preserving its
     { id:'older', chapterNumber:1, paragraphIndex:0, fromWord:0, endParagraphIndex:0, toWord:4, color:'gold' as const },
     { id:'newer', chapterNumber:1, paragraphIndex:0, fromWord:1, endParagraphIndex:0, toWord:3, color:'sky' as const },
   ]
-  const {container}=render(<LabPassage chapterTitle="Test" paragraphs={['one two three four']} compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]} markedIndexes={new Set()} chapterNumber={1} highlights={marks} onSelectRange={select} />)
+  const {container}=render(<LabPassage chapterTitle="Test" paragraphs={['one two three four']} compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]} markedIndexes={new Set()} chapterNumber={1} highlights={marks} readingPage={{paragraphIndex:0,from:0,to:4}} onSelectRange={select} />)
   const word=screen.getAllByTestId('lab-word')[2]
   expect(word.getAttribute('data-highlight-id')).toBe('newer')
   fireEvent.pointerDown(word,{pointerId:1,pointerType:'mouse',button:0,clientX:100,clientY:100})
