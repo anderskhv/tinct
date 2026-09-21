@@ -5,10 +5,26 @@ const status=document.querySelector('[role=status]')
 const reduced=matchMedia('(prefers-reduced-motion:reduce)')
 let books=[],buttons=[],panels=[],selected=-1,frame=0,drag=null,suppressClick=false
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
+let motionFrame=0
+function stopMotion(){cancelAnimationFrame(motionFrame);motionFrame=0;reel.classList.remove('is-moving')}
 function centre(i, smooth=true){
  const button=buttons[Math.max(0,Math.min(i,buttons.length-1))]
  if(!button)return
- reel.scrollTo({left:button.offsetLeft+button.offsetWidth/2-reel.clientWidth/2,behavior:smooth&&!reduced.matches?'smooth':'instant'})
+ stopMotion()
+ const target=button.offsetLeft+button.offsetWidth/2-reel.clientWidth/2
+ if(!smooth||reduced.matches){reel.scrollLeft=target;requestPaint();return}
+ // Own the short button/key transition. WebKit's native smooth-scroll queue
+ // can cancel/restart these moves when the focused snap scroller handles keys.
+ const start=reel.scrollLeft,time=performance.now()
+ reel.classList.add('is-moving')
+ function tick(now){
+  const t=Math.min(1,(now-time)/360),ease=1-Math.pow(1-t,3)
+  reel.scrollLeft=start+(target-start)*ease
+  requestPaint()
+  if(t<1)motionFrame=requestAnimationFrame(tick)
+  else{motionFrame=0;reel.classList.remove('is-moving')}
+ }
+ motionFrame=requestAnimationFrame(tick)
 }
 function paint(){
  frame=0
@@ -45,6 +61,7 @@ reel.addEventListener('keydown',event=>{
 // Touch stays native: momentum, direction locking and vertical page scrolling.
 // Only mouse drag is enhanced; a drag must never activate a cover.
 reel.addEventListener('pointerdown',event=>{
+ stopMotion()
  if(event.pointerType!=='mouse'||event.button!==0)return
  drag={id:event.pointerId,x:event.clientX,left:reel.scrollLeft,moved:false}
 })
@@ -68,6 +85,7 @@ reel.addEventListener('click',event=>{
  const button=event.target.closest('.book')
  if(button)centre(Number(button.dataset.index))
 })
+reel.addEventListener('wheel',stopMotion,{passive:true})
 reel.addEventListener('dragstart',event=>event.preventDefault())
 let resizeFrame
 new ResizeObserver(()=>{

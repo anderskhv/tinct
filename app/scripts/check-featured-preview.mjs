@@ -64,7 +64,7 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
   assert(await frame.locator('.caption.active .description').evaluate(n=>n.clientHeight>=n.scrollHeight-1),'full description visible')
  }
  await frame.locator('.reel').focus()
- await page.keyboard.press('Home');await page.waitForTimeout(600)
+ await page.keyboard.press('Home');await frame.waitForFunction(()=>document.querySelector('.book[aria-current=true]')?.dataset.index==='0',{},{timeout:5000});await page.waitForTimeout(400)
  assert.equal(await frame.locator('.book[aria-current=true]').getAttribute('data-index'),'0')
  await frame.evaluate(()=>{window.keyTrace=[];document.addEventListener('keydown',e=>window.keyTrace.push({key:e.key,target:e.target.className}),true)})
  await page.keyboard.press('ArrowRight');await page.waitForTimeout(600)
