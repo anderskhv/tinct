@@ -126,6 +126,16 @@ export class GrokVoiceSessionController {
   private speechStoppedAt = 0
   private turnNumber = 0
   private startedAt = 0
+  private visibilityListening = false
+
+  private readonly handleVisibilityChange = () => {
+    if (typeof document === 'undefined' || document.visibilityState !== 'visible' || !this.ui.isActive) return
+    // WebKit can suspend the capture graph while an iPhone is locked. Do not
+    // let the first resumed watchdog tick tear down an otherwise live session;
+    // give the graph a fresh interval to resume and produce frames.
+    this.lastCaptureAt = Date.now()
+    this.unlockLabAudioContext()
+  }
 
   constructor(private callbacks: VoiceSessionCallbacks) {}
 
@@ -512,6 +522,10 @@ export class GrokVoiceSessionController {
     this.captureSource = source
     this.lastCaptureAt = Date.now()
     this.sentAudioChunks = 0
+    if (typeof document !== 'undefined' && !this.visibilityListening) {
+      document.addEventListener('visibilitychange', this.handleVisibilityChange)
+      this.visibilityListening = true
+    }
     const onChunk = (chunk: Float32Array) => {
       if (!current()) return
       this.lastCaptureAt = Date.now()
@@ -548,6 +562,9 @@ export class GrokVoiceSessionController {
     if (!current()) return
     this.sendTimer = setInterval(() => {
       if (!current()) return
+      // Browsers may suspend microphone delivery and JavaScript timers while
+      // locked. A hidden-page gap is not proof that the capture graph died.
+      if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return
       if (context.state !== 'running') void context.resume().catch(() => {})
       if (Date.now() - this.lastCaptureAt > 5000) {
         this.fail('Microphone audio stopped reaching the conversation. Reconnect to continue.')
@@ -636,6 +653,10 @@ export class GrokVoiceSessionController {
     this.ready = false
     if (this.contextTimer) { clearTimeout(this.contextTimer); this.contextTimer = null }
     if (this.sendTimer) { clearInterval(this.sendTimer); this.sendTimer = null }
+    if (typeof document !== 'undefined' && this.visibilityListening) {
+      document.removeEventListener('visibilitychange', this.handleVisibilityChange)
+      this.visibilityListening = false
+    }
     this.pendingCapture = []
     this.pendingCaptureLength = 0
     this.stopPlayback()

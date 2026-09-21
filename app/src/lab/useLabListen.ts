@@ -121,6 +121,9 @@ function chapterHasWordTimings(paragraphs: FollowParagraph[]): boolean {
 function defaultCreateAudio(): HTMLAudioElement {
   const audio = new Audio()
   audio.preload = 'auto'
+  // Keep one native media element eligible for iOS lock-screen ownership.
+  // `playsinline` avoids a separate fullscreen media lifecycle on WebKit.
+  if (typeof audio.setAttribute === 'function') audio.setAttribute('playsinline', '')
   return audio
 }
 
@@ -141,6 +144,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const playClipRef = useRef<(index: number, offsetSeconds: number, andPlay?: boolean) => boolean>(() => false)
   const switchingRef = useRef(false)
   const playingRef = useRef(false)
+  const chapterHandoffRef = useRef(false)
   const playRequestRef = useRef(0)
   const requestIsCurrent = (request: number) => !optionsRef.current.guardPlaybackRequests || request === playRequestRef.current
   // Narration pilot: prepared recordings for the current tuple, requests in
@@ -449,9 +453,11 @@ export function useLabListen(options: UseLabListenOptions) {
     setFollowParagraphs(optionsRef.current.narration ? bareFollowParagraphs(options.followParagraphs) : options.followParagraphs)
     clipsRef.current = []
     setClips([])
-    setSrc(null)
-    playingRef.current = false
-    setPlaying(false)
+    if (!chapterHandoffRef.current) {
+      setSrc(null)
+      playingRef.current = false
+      setPlaying(false)
+    }
     setFollow({ kind: 'none' })
   }, [options.audioEdition, options.bookId, options.chapterNumber, narrationActive, narrationVoice])
 
@@ -505,6 +511,7 @@ export function useLabListen(options: UseLabListenOptions) {
   const attachAudio = useCallback((audio: HTMLAudioElement) => {
     const finishPlayback = () => {
       try { audio.pause() } catch { /* ignore */ }
+      audio.autoplay = false
       playingRef.current = false
       setPlaying(false)
       setFollow({ kind: 'none' })
@@ -515,7 +522,16 @@ export function useLabListen(options: UseLabListenOptions) {
     }
     const handleEnded = () => {
       // Safari fires ended again when src changes on an already-ended element.
-      if (switchingRef.current || !playingRef.current || !audio.src) return
+      if (!playingRef.current || !audio.src) return
+      if (switchingRef.current) {
+        const current = clipsRef.current[clipIndexRef.current]
+        // Ignore Safari's stale post-swap event at time zero, but do not lose
+        // a genuine very short clip that reaches its known end before the
+        // normal `playing` event has disarmed the transition guard.
+        const reachedKnownEnd = typeof current?.duration === 'number' && audio.currentTime >= current.duration - 0.05
+        if (!reachedKnownEnd && !(audio.ended && audio.currentTime > 0)) return
+        switchingRef.current = false
+      }
       const next = clipIndexRef.current + 1
       const clip = clipsRef.current[next]
       if (!clip) {
@@ -624,7 +640,15 @@ export function useLabListen(options: UseLabListenOptions) {
     setClipIndex(index)
     setSrc(url)
     const sameSrc = audio.src === url || audio.src.endsWith(url)
-    try { audio.pause() } catch { /* ignore */ }
+    // At an automatic boundary, pausing the ended element before assigning
+    // the next source makes WebKit hand lock-screen ownership back to the
+    // page. Preserve the active native media session and arm autoplay before
+    // the synchronous source swap. Manual seeks/source changes still pause.
+    const continuousBoundary = Boolean(andPlay && playingRef.current && audio.ended)
+    audio.autoplay = andPlay
+    if (!continuousBoundary) {
+      try { audio.pause() } catch { /* ignore */ }
+    }
     if (!sameSrc) {
       setAudioSource(audio, url)
       try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
@@ -644,6 +668,7 @@ export function useLabListen(options: UseLabListenOptions) {
     audio.addEventListener('timeupdate', armed, { once: true })
     if (!andPlay) {
       try { audio.pause() } catch { /* ignore */ }
+      audio.autoplay = false
       switchingRef.current = false
       playingRef.current = false
       setPlaying(false)
@@ -663,11 +688,13 @@ export function useLabListen(options: UseLabListenOptions) {
       if (!requestIsCurrent(request) || audio.src !== expectedSrc) return
       switchingRef.current = false
       if (started) {
+        chapterHandoffRef.current = false
         applyRate(audio, speed)
         syncFollow(index, audio.currentTime || offsetSeconds)
         return
       }
       playingRef.current = false
+      chapterHandoffRef.current = false
       setPlaying(false)
       setFollow({ kind: 'none' })
     })
@@ -839,12 +866,14 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [playPlace, playing])
 
   const pause = useCallback(() => {
+    chapterHandoffRef.current = false
     playRequestRef.current += 1
     narrationRequestRef.current += 1
     narrationAbortRef.current?.abort()
     narrationAbortRef.current = null
     setNarrationState(current => (current.status === 'loading' ? { status: 'idle' } : current))
     audioRef.current?.pause()
+    if (audioRef.current) audioRef.current.autoplay = false
     playingRef.current = false
     setPlaying(false)
     // Pause retains the verified last word; chapter/source changes still clear it.
@@ -893,6 +922,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [applyRate, playClip, speed, start, syncFollow])
 
   const stop = useCallback(() => {
+    chapterHandoffRef.current = false
     playRequestRef.current += 1
     narrationRequestRef.current += 1
     // Stop ends look-ahead too; prepared recordings for this tuple are kept.
@@ -902,6 +932,7 @@ export function useLabListen(options: UseLabListenOptions) {
     const audio = audioRef.current
     if (audio) {
       audio.pause()
+      audio.autoplay = false
       audio.removeAttribute('src')
     }
     clipIndexRef.current = 0
@@ -911,6 +942,20 @@ export function useLabListen(options: UseLabListenOptions) {
     setPlaying(false)
     setFollow({ kind: 'none' })
     setSrc(null)
+  }, [])
+
+  /** Preserve native media-session ownership while React loads the next chapter. */
+  const handoffChapter = useCallback(() => {
+    playRequestRef.current += 1
+    narrationRequestRef.current += 1
+    narrationAbortRef.current?.abort()
+    narrationAbortRef.current = null
+    chapterHandoffRef.current = true
+    const audio = audioRef.current
+    if (audio) audio.autoplay = true
+    playingRef.current = true
+    setPlaying(true)
+    setFollow({ kind: 'none' })
   }, [])
 
   const seek = useCallback((deltaSeconds: number) => {
@@ -990,7 +1035,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [estimatedClipDuration, playClip, playPlace, playing])
 
   useEffect(() => {
-    if (typeof navigator === 'undefined' || !('mediaSession' in navigator) || chapterTimeline.duration <= 0) return
+    if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
     const session = navigator.mediaSession
     try {
       if (typeof MediaMetadata !== 'undefined') session.metadata = new MediaMetadata({
@@ -1002,16 +1047,27 @@ export function useLabListen(options: UseLabListenOptions) {
       session.setActionHandler('seekbackward', details => seek(-(details.seekOffset || 15)))
       session.setActionHandler('seekforward', details => seek(details.seekOffset || 30))
       session.setActionHandler('seekto', details => { if (typeof details.seekTime === 'number') seekChapter(details.seekTime) })
-      session.setPositionState({
-        duration: Math.max(0.001, chapterTimeline.duration),
-        playbackRate: speed,
-        position: Math.max(0, Math.min(chapterTimeline.elapsed, Math.max(0, chapterTimeline.duration - 0.001))),
-      })
     } catch { /* unsupported action or incomplete metadata */ }
     return () => {
       try { session.setActionHandler('play', null); session.setActionHandler('pause', null); session.setActionHandler('seekbackward', null); session.setActionHandler('seekforward', null); session.setActionHandler('seekto', null) } catch { /* unsupported */ }
     }
-  }, [chapterTimeline.duration, chapterTimeline.elapsed, options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, pause, resume, seek, seekChapter, speed])
+  }, [options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, pause, resume, seek, seekChapter])
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) return
+    try { navigator.mediaSession.playbackState = playing ? 'playing' : 'paused' } catch { /* unsupported */ }
+  }, [playing])
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined' || !('mediaSession' in navigator) || chapterTimeline.duration <= 0) return
+    try {
+      navigator.mediaSession.setPositionState({
+        duration: Math.max(0.001, chapterTimeline.duration),
+        playbackRate: speed,
+        position: Math.max(0, Math.min(chapterTimeline.elapsed, Math.max(0, chapterTimeline.duration - 0.001))),
+      })
+    } catch { /* unsupported or incomplete metadata */ }
+  }, [chapterTimeline.duration, chapterTimeline.elapsed, speed])
 
   const cycleSpeed = useCallback(() => {
     setSpeedState((current) => {
@@ -1058,6 +1114,7 @@ export function useLabListen(options: UseLabListenOptions) {
     pause,
     resume,
     stop,
+    handoffChapter,
     seek,
     seekChapter,
     cycleSpeed,

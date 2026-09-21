@@ -3091,7 +3091,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setOpenAtEnd(landing === 'end')
   }, [book.bookId, bookEditions, listen.playing, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
-  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end') => {
+  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false) => {
     setRecentChapterReturn(null)
     const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
@@ -3104,7 +3104,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     }
     keepPlayingChapterRef.current = listen.playing ? number : null
     if (listen.playing) setAudioChapterTransitioning(true)
-    listen.stop()
+    if (preserveAudioSession && listen.playing) listen.handoffChapter()
+    else listen.stop()
     pageAnchorRef.current = null
     restorePlaceRef.current = null
     chapterLandingRef.current = landing
@@ -3136,6 +3137,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       })
     } catch {
       if (navigation === chapterNavigationRef.current) {
+        if (preserveAudioSession) listen.stop()
         setAudioChapterTransitioning(false)
         setContentsTarget(null)
         setReaderLoadError('That chapter is temporarily unavailable. Your current reading place has been preserved.')
@@ -3147,7 +3149,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       || loaded.chapterNumber !== number
       || loaded.paragraphs.length === 0
     ) {
-      if (navigation === chapterNavigationRef.current) setAudioChapterTransitioning(false)
+      if (navigation === chapterNavigationRef.current) {
+        if (preserveAudioSession) listen.stop()
+        setAudioChapterTransitioning(false)
+      }
       return
     }
     setReaderLoadError('')
@@ -3173,7 +3178,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // page — on the book's final chapter too, where there is nothing to open.
     markChapterFinished(book.chapterNumber)
     if (next == null) return false
-    void goToChapter(next, 'start')
+    void goToChapter(next, 'start', true)
     return true
   }
 

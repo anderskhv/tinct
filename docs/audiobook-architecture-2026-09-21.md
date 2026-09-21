@@ -1,10 +1,11 @@
 # Audiobook architecture
 
-Status: implementation branch, 2026-09-21. This is the authoritative plan for current English audiobook delivery. `fish-audio-pilot-2026-09-18.md` remains historical evidence for the cache, lock and spend-control pilot that this design adapts.
+Status: released to production and under lock-screen follow-up, 2026-09-21. This is the authoritative plan for current English audiobook delivery. `fish-audio-pilot-2026-09-18.md` remains historical evidence for the cache, lock and spend-control pilot that this design adapts.
 
 ## Voice contract
 
-- Female original/classic English uses retained Bella only for the 31 whole-edition candidates in `bella-edition-inventory-2026-09-21.md`. The code list is intentionally conservative and excludes Meditations, Faust, Jekyll, Bible, Histories and the separate repair queue.
+- Female original/classic English uses retained Bella only for the 35 whole-edition acceptances established by `bella-edition-inventory-2026-09-21.md` and the focused closeout in `bella-word-sync-execution-2026-09-21.md`. The closeout adds Candide, Federalist Papers, Pride and Prejudice, and Jekyll and Hyde. Jekyll's stale catalogue `hasAudio` block is removed because its ten chapters and repaired timing passed the recorded acceptance. No audio or timing asset is changed by that metadata correction.
+- Meditations, Faust, Bible and Histories remain excluded. Don Quixote, The Awakening, Beyond Good and Evil, Nicomachean Ethics and The Communist Manifesto remain unresolved and therefore use whole-edition WaveNet. No fallback mixes narrators inside an edition.
 - Every other female English tuple uses exactly `en-US-Wavenet-F`.
 - Every male English tuple uses exactly `en-US-Wavenet-J`.
 - One persona is resolved for the whole book/edition. Playback never falls between Bella and generated audio inside an edition.
@@ -35,17 +36,28 @@ Status: implementation branch, 2026-09-21. This is the authoritative plan for cu
 - Media Session uses the same chapter elapsed time and duration for lock-screen position, play, pause, backward, forward and seek-to actions.
 - Reading position remains word/chapter based. Timeline calculations do not write or reinterpret reading progress.
 
-## Evidence on this branch
+## Lock-screen continuity follow-up
+
+- The reader uses one `HTMLAudioElement`. Automatic clip changes now preserve native media ownership: an ended element is not explicitly paused before its synchronous source swap, autoplay is armed before the swap, and the same element is reused. Automatic chapter handoff keeps that media session alive while the next chapter source loads instead of calling the ordinary stop path.
+- Media Session action handlers are stable across progress ticks, `playbackState` explicitly follows the real player state, and the chapter position update remains separate. This removes avoidable pause/re-register churn but does not itself prove iOS background execution.
+- Conversation capture is a separate path. A hidden page no longer interprets missing microphone frames as a dead graph. On unlock it refreshes the capture watchdog and asks the existing `AudioContext` to resume. It still surfaces a real dead graph or ended track rather than claiming to listen.
+- [WebKit bug 241400](https://bugs.webkit.org/show_bug.cgi?id=241400) documents an iOS case where lock stopped microphone input while speaker audio continued, with input returning after unlock. The report was closed as configuration-changed on an iOS 15.6 beta, so it is relevant evidence, not proof of behavior on the user's current device.
+
+## Release and production evidence
 
 - Cloud repository read access: `origin/main` at `0cd12bc06850ee85a1ac5dd7749cc8153062d50c`.
 - Cloud repository write authority: authenticated GitHub identity `anderskhv` with admin/push permission. The local HTTPS remote itself is intentionally unauthenticated, so release writes use the GitHub connector.
 - Catalogue audit: `python3 books/wip_inventory.py --audio` passed for the one staged WIP, Treasure Island. Published coverage is exercised through the full English scope rather than a hard-coded featured shelf.
-- The full local suite passed: 202 files and 2,550 tests, with one file and one test intentionally skipped. Focused cases cover exact voice mapping, Bella exclusions, Google SSML marks, timing rejection, cold/warm cache behavior, provider/voice identity, concurrency, selective invalidation, pause/seek scheduling and whole-chapter Media Session seeking.
-- `SKIP_ENV_CHECK=1 npm run build` and a Wrangler dry-run bundle compile succeeded locally. Local `npm run verify-bundle` correctly refused the intentionally placeholder build because this cloud checkout has no client Supabase/audio environment values. The release workflow must supply its configured values and pass `verify-bundle` before deployment.
+- The initial full local suite passed: 202 files and 2,550 tests, with one file and one test intentionally skipped. The lock follow-up passes 202 files and 2,552 tests, again with one file and one test intentionally skipped. Focused cases cover exact voice mapping, Bella exclusions, Google SSML marks, timing rejection, cold/warm cache behavior, provider/voice identity, concurrency, selective invalidation, pause/seek scheduling, whole-chapter Media Session seeking, pause-free ended-clip transitions, native chapter handoff and hidden-microphone watchdog recovery.
+- `SKIP_ENV_CHECK=1 npm run build` and a Wrangler dry-run bundle compile succeeded locally. Local `npm run verify-bundle` correctly refused the intentionally placeholder build because this cloud checkout has no client Supabase/audio environment values. The Node 24 release workflow supplied its configured values and passed `verify-bundle` before deployment.
+- PR #132 merged as `7342d05a90a9b2cbe479f03a8c67cb35b8043a60`. Node 24 verify run 35617422794 passed all jobs. Serialized deploy run 35618798888 passed tests, Cloudflare deployment, exact served-bundle comparison, smoke, brand, reader, featured, library/preparation, responsive, reading-reel and hyphenation acceptance. The observed production bundle is `index-Bdc2XFtQ.js`.
+- Live `/api/narration/voices` reported Google `google-tts-v1beta1`, both personas, full `*-en` scope and cache version 2. A cold Odyssey modern-English Female request generated two chunks, 101 ordered timed words and 33.480 seconds; the repeated request generated zero chunks and returned the same usable timings. Male generated two distinct chunks, 101 timed words and 32.616 seconds; its repeat generated zero chunks. All sampled audio URLs returned 200 `audio/mpeg` with non-empty bytes.
+- Meditations original-English Female generated through the fallback path with usable timings rather than retaining the mismatched recording. Frankenstein original-English Female returned 204 from speculative preparation, confirming the retained-Bella path did not overwrite or generate assets.
 
-## Acceptance limits still requiring production evidence
+## Acceptance limits
 
-- Google production calls must confirm both F and J through the deployed Worker. Earlier local samples prove mark structure, not production latency or listening quality.
 - Grok Ursa and Helios are listed by xAI for speech-to-speech and must each receive a successful production `session.updated` response. Automated tests remain muted and do not request microphone access.
-- Browser automation can verify Media Session state and handlers. A physical phone lock-screen display and audible punctuation, headings and joins require an agreed manual test window and will not be inferred from headless results.
+- Production voice-lab run 35620497044 did not reach a provider handshake: its legacy acceptance script timed out waiting for the removed `Voice test room` heading. That failure is a stale test-route/selector result and is not evidence for or against Ursa or Helios. Neither voice is silently substituted in current resolution code; actual production acknowledgement remains open.
+- Browser automation can verify Media Session state, handler stability, pause-free source handoff and unlock recovery logic. It cannot lock a physical iPhone or establish whether current iOS Safari continues JavaScript source changes, network fetches, `AudioContext` output, WebSocket traffic or microphone delivery while locked.
+- A physical iPhone window remains required: lock during audiobook speech, at a clip boundary and at a chapter boundary; exercise lock-screen play/pause/seek; unlock and verify exact position/highlight recovery; repeat with AirPods; then separately lock during assistant speech and listening. Conversation microphone continuity is promised only where the platform continues capture. A native rewrite or keep-awake workaround is not included.
 - Unknown future provider latency and catalogue listening quality are not promised. Cold playback may wait, and operational ceilings can refuse generation visibly.

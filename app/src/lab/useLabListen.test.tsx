@@ -7,7 +7,7 @@ function harness() {
   const pending: Array<{ resolve: () => void; reject: (error: Error) => void }> = []
   const audio = new EventTarget() as HTMLAudioElement
   Object.assign(audio, {
-    src: '', currentTime: 0, playbackRate: 1,
+    src: '', currentTime: 0, playbackRate: 1, autoplay: false, ended: false,
     pause: vi.fn(), load: vi.fn(), removeAttribute: vi.fn(),
     play: vi.fn(() => new Promise<void>((resolve, reject) => pending.push({ resolve, reject }))),
   })
@@ -43,8 +43,12 @@ it('retries a transient rejection at an automatic clip transition without forcin
   await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
   await act(async () => h.pending[0].resolve())
 
+  const pausesBeforeBoundary = vi.mocked(h.audio.pause).mock.calls.length
+  Object.assign(h.audio, { ended: true })
   act(() => h.audio.dispatchEvent(new Event('ended')))
   expect(h.audio.play).toHaveBeenCalledTimes(2)
+  expect(h.audio.pause).toHaveBeenCalledTimes(pausesBeforeBoundary)
+  expect(h.audio.autoplay).toBe(true)
   await act(async () => h.pending[1].reject(new DOMException('Source swap interrupted', 'AbortError')))
   await act(async () => { await Promise.resolve() })
   act(() => h.audio.dispatchEvent(new Event('canplay')))
@@ -56,6 +60,17 @@ it('retries a transient rejection at an automatic clip transition without forcin
   expect(h.result.current.clipIndex).toBe(1)
   expect(h.result.current.playing).toBe(true)
   expect(h.result.current.follow).toMatchObject({ kind: 'word', paragraphIndex: 1 })
+})
+
+it('preserves the native media element during an automatic chapter handoff', async () => {
+  const h = harness()
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+  await act(async () => h.pending[0].resolve())
+  const pausesBefore = vi.mocked(h.audio.pause).mock.calls.length
+  act(() => h.result.current.handoffChapter())
+  expect(h.audio.pause).toHaveBeenCalledTimes(pausesBefore)
+  expect(h.audio.autoplay).toBe(true)
+  expect(h.result.current.playing).toBe(true)
 })
 
 it('does not retry an old rejected source after a newer play request supersedes it', async () => {
