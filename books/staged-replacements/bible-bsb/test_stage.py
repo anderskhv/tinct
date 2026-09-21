@@ -47,9 +47,11 @@ class ImportTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_book(document(para(verse(1),"A.",marker="unexpected")),"GEN","Genesis",0)
 
-    def test_chapter_identity_and_unanchored_text_fail(self):
-        with self.assertRaises(ValueError):
-            parse_book(document(para("No verse.")),"GEN","Genesis",0)
+    def test_chapter_identity_and_unanchored_text_preserved(self):
+        cs,vs,ix,blocks=parse_book(document(para("No verse."),para(verse(1),"Body.")),"GEN","Genesis",0)
+        self.assertEqual(cs[0]["paragraphs"][0],"No verse.")
+        self.assertTrue(blocks[0]["unanchoredBodyText"])
+        self.assertEqual(vs,{"GEN.1.1":"Body."})
         d=document(para(verse(1),"A."))
         d["content"][0]["code"]="EXO"
         with self.assertRaises(ValueError): parse_book(d,"GEN","Genesis",0)
