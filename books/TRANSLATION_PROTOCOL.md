@@ -33,6 +33,15 @@ the full drafting rules; the short version:
 - Clarify essential unfamiliar terms briefly and accurately; never invent
   interpretation or erase deliberate ambiguity.
 - No required rewrite percentage — already-clear wording may stay as is.
+- Modernize quoted speech, verse, and formulas as well as surrounding
+  prose. Preserve meaning, imagery, rhetorical function, and recognizable
+  recurring wording. Do not leave archaic language merely because it
+  appears inside quotation marks. When the source's own discussion is
+  about the exact wording (a character comparing two near-identical
+  lines), preserve the distinctions that discussion depends on, and
+  clarify briefly if necessary. This applies only to quotations embedded
+  in the chosen source — never substitute wording from another
+  translation or a modern copyrighted edition.
 - In verse: meaning outranks rhyme. Never add an idea or change an image
   to land a rhyme. Preserve musicality where it doesn't cost fidelity.
 - Use a documented, context-aware name convention. No blind global

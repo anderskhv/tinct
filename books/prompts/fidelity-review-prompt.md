@@ -43,6 +43,17 @@ drafter's self-report. Re-derive your own verdict from the text.
    - **Silent "corrections"** — a name, citation, or fact changed to what
      is historically/factually standard rather than what the source
      actually says. Flag these even if the source is "wrong."
+   - **Unmodernized quotations** — a quoted formula, oath, definition,
+     verse, or line of dialogue left in archaic spelling/syntax while the
+     surrounding prose is modernized. Quotation marks are not an
+     exemption from the modernization mandate; flag any passage that
+     reads as an archaic island inside otherwise modern prose, and check
+     it for the same defects (actors/negation/causality/etc.) as any
+     other paragraph. Where the surrounding dialogue depends on an exact
+     distinction in the quoted wording (e.g. characters comparing two
+     near-identical lines), verify the modernized quote and the
+     modernized commentary about it still support the same distinction —
+     flag it if the fix to one broke the other.
 3. Move to the next packet and repeat, until the whole chapter is covered.
    **A sampled read does not certify the chapter.** State your coverage
    explicitly.

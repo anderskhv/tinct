@@ -29,6 +29,11 @@ encounter today.
      reference a general reader won't recognize, or anything else
      concrete.
    - Note the paragraph index.
+   - Do not give a passage a pass just because it's presented as a
+     quotation (dialogue, a sung verse, a sworn formula). If a quoted
+     passage is archaic, dense, or otherwise hard, flag it exactly like
+     any other sentence — quotation marks are not evidence it was
+     supposed to stay that way.
 3. Judge natural flow, not just sentence length. A short sentence can read
    choppily; a long sentence can read smoothly. Flag prose that feels
    stitched-together or mechanically chopped, not just prose that's dense.

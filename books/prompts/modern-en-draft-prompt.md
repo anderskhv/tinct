@@ -66,6 +66,40 @@ Every paragraph must preserve, without exception:
 - Do not condense arguments, examples, dialogue, or descriptive detail to
   save words.
 
+## Quoted speech, verse, and formulas
+
+**Modernize quoted speech, verse, and formulas as well as surrounding
+prose.** This includes dialogue in quotation marks, sung or recited verse,
+epigraphs, and any performative or definitional formula that is part of
+the author's own text (an oath, a contract formula, a stated definition,
+a toast) — quotation marks around something do not exempt it from
+modernization. Preserve meaning, imagery, rhetorical function, and any
+recognizable recurring wording (a refrain, a phrase characters quote back
+at each other) exactly as you would in prose. Do not leave a passage in
+archaic spelling, syntax, or vocabulary merely because it sits inside
+quotation marks or is presented as a "quotation" within the story.
+
+This applies to quotations embedded in the source text you were given —
+never substitute wording from another translation or a different,
+possibly copyrighted, modern edition of the same underlying document,
+even when you recognize what's being quoted (a well-known oath, a Bible
+verse, a classical text). Your fidelity anchor is this chapter's own
+source text, not any other rendering of the quoted material.
+
+**When the source's discussion is itself about the exact wording** (a
+character remarks that a phrase "sounds more tender" than another, or
+comments on a specific word choice), preserve the distinctions that
+discussion depends on. If the surrounding dialogue only makes sense
+because of a specific word (e.g. two lines share a rhyme, or differ by
+exactly one word the characters are discussing), your modernized version
+of both the quoted material and the commentary about it must still support
+that same distinction — don't modernize the quote in a way that breaks
+the commentary referring to it, and don't leave the commentary
+unmodernized while changing the quote it discusses. Add a brief
+clarification only if a modern reader would otherwise lose the specific
+distinction being discussed; never invent an explanation beyond what the
+text supports.
+
 ## Verse and song
 
 - Meaning outranks rhyme. Never add an idea, invent an image, or change a
