@@ -144,6 +144,75 @@ def parse_book(doc, code, title, offset):
             raise ValueError("Empty source verse " + ref)
     return chapters, verse_text, index, blocks
 
+
+def slice16(s, start, end):
+    return s.encode("utf-16-le")[start*2:end*2].decode("utf-16-le")
+
+def canonical_projection(templates, usj_index, texts):
+    """Official TXT wording; transfer layout only where mechanically verifiable."""
+    by_chapter = {c["number"]: c for c in templates}
+    occurrences = collections.defaultdict(list)
+    fallback = []
+    expected = {r:t for r,t in texts.items() if t}
+    if set(expected) != set(usj_index):
+        raise ValueError("Nonempty official verse identities differ from USJ")
+    for ref, spans in usj_index.items():
+        target = texts[ref]
+        original = [slice16(by_chapter[s["chapterNumber"]]["paragraphs"][s["paragraphIndex"]],
+                            s["startUtf16"], s["endUtf16"]) for s in spans]
+        compact = lambda t: re.sub(r"\s", "", t)
+        matching = compact("".join(original)) == compact(target)
+        if matching:
+            positions = [i for i,c in enumerate(target) if not c.isspace()]
+            cursor = 0
+            projected = []
+            for fragment in original:
+                length = len(compact(fragment))
+                projected.append(target[positions[cursor]:positions[cursor+length-1]+1])
+                cursor += length
+            if cursor != len(positions):
+                raise ValueError("Incomplete transfer of paragraph boundaries")
+        else:
+            fallback.append({"reference":ref,"reason":"official_format_text_difference",
+                             "sourceFragments":len(spans),"treatment":"complete_TXT_verse_at_first_source_position"})
+            projected = [target] + [""] * (len(spans)-1)
+        for span, text in zip(spans, projected):
+            occurrences[(span["chapterNumber"],span["paragraphIndex"])].append((span["startUtf16"],ref,text))
+    chapters, index, layout, seen = [], {}, [], set()
+    reconstructed = collections.defaultdict(list)
+    for old in templates:
+        ch = {"number":old["number"],"title":old["title"],"paragraphs":[]}
+        for old_p in range(len(old["paragraphs"])):
+            text, fragments = "", []
+            for _, ref, fragment in sorted(occurrences[(old["number"],old_p)]):
+                if not fragment:
+                    continue
+                if text: text += " "
+                if ref not in seen:
+                    text += ref.rsplit(".",1)[1].translate(SUPER) + " "
+                    seen.add(ref)
+                start = utf16(text)
+                text += fragment
+                fragments.append((ref,start,utf16(text),fragment))
+                reconstructed[ref].append(fragment)
+            if not text:
+                continue
+            p = len(ch["paragraphs"])
+            ch["paragraphs"].append(text)
+            layout.append({"chapterNumber":ch["number"],"paragraphIndex":p,"usjParagraphIndex":old_p})
+            for ref,start,end,fragment in fragments:
+                index.setdefault(ref,[]).append({"chapterNumber":ch["number"],"paragraphIndex":p,
+                    "startUtf16":start,"endUtf16":end,"textSha256":digest(fragment.encode())})
+        if not ch["paragraphs"]: raise ValueError("Empty projected chapter")
+        chapters.append(ch)
+    if set(reconstructed) != set(expected):
+        raise ValueError("Lost verse during projection")
+    for ref, text in expected.items():
+        if norm(" ".join(reconstructed[ref])) != norm(text):
+            raise ValueError("Changed official text during layout projection: " + ref)
+    return chapters, index, fallback, layout
+
+
 def leaf_books(sections):
     result = []
     for s in sections:
@@ -170,7 +239,7 @@ def parse_text_export(raw, titles):
         ref = f"{names[name]}.{c}.{v}"
         if ref in out:
             raise ValueError("Duplicate text-export verse")
-        out[ref] = norm(text)
+        out[ref] = text.strip()
     return out
 
 def legacy_index(data, code_by_global):
@@ -290,6 +359,20 @@ def main():
     differences = [{"reference": r, "usj": verses.get(r), "textExport": external.get(r)}
                    for r in dict.fromkeys([*external, *verses]) if verses.get(r) != external.get(r)]
     dump(out / "source-export-differences.json", differences)
+    # USJ contains export artifacts (e.g. GEN 35:18 "vvv"); TXT is the word/punctuation anchor.
+    # Keep both raw official sources and disclose their differences rather than editing either.
+    dump(out / "usj-reading-projection.UNACCEPTED.json", {"chapters":chapters})
+    chapters, indices, layout_fallbacks, layout_map = canonical_projection(chapters, indices, external)
+    empty_refs = [r for r,t in external.items() if not t]
+    expected_empty = "MAT.17.21 MAT.18.11 MAT.23.14 MRK.7.16 MRK.9.44 MRK.9.46 MRK.11.26 MRK.15.28 LUK.17.36 LUK.23.17 JHN.5.4 ACT.8.37 ACT.15.34 ACT.24.7 ACT.28.29 ROM.16.24".split()
+    if empty_refs != expected_empty:
+        raise ValueError("Official empty reference set changed")
+    dump(out / "official-empty-references.json", empty_refs)
+    dump(out / "layout-transfer.json", {"fallbacks":layout_fallbacks,"paragraphs":layout_map})
+    verses = {r:t for r,t in external.items() if t}
+    provenance["wordingAnchor"] = "bsb.txt, official third-printing verse export; no AI rewrite"
+    provenance["layoutSource"] = "USJ, with explicit complete-verse fallback where exports differ beyond whitespace"
+    provenance["outputsRequireReaderIntegration"] = True
     # Raw AST is preserved in archive, with all metadata/note nodes in structure sidecar.
     edition = {"sections": legacy["kjv-en"]["sections"], "chapters": chapters}
     dump(out / "bible-bsb-en.candidate.json", edition)
@@ -314,24 +397,18 @@ def main():
        "legacyUnsafeChapters":{ed:sorted(ns) for ed,ns in unsafe.items()},
        "crosswalkStatusCounts":{ed:dict(collections.Counter(row[ed]["status"] for row in mapping.values())) for ed in all_indices},
        "samples":{r:verses.get(r) for r in sample_refs},
-       "candidateAccepted":not differences, "readerIntegration":False,"audio":False}
+       "candidateAccepted":True, "readerIntegration":False,"audio":False,
+       "officialEmptyReferences":empty_refs,"layoutFallbackVerses":len(layout_fallbacks),
+       "wordingAnchor":"official TXT, exact words and punctuation; only display whitespace changes",
+       "renderedVerseRoundtrip":"all nonempty official TXT verses match",
+       "sourceExportDifferencesAreNotCandidateChanges":True}
     dump(out / "validation.json", summary)
     provenance["outputs"] = {p.name:digest(p.read_bytes()) for p in out.glob("*.json")}
     dump(out / "provenance.json", provenance)
     print(json.dumps({k:v for k,v in summary.items() if k not in {"unanchoredBodyBlocks","sourceExportExamples"}}, ensure_ascii=False, indent=2))
-    def dash_space(t):
-        return re.sub(r"\s*—\s*", "—", t) if t is not None else None
-    material = [d for d in differences if dash_space(d["usj"]) != dash_space(d["textExport"])]
-    print("DIAGNOSTIC_MATERIAL_COUNT", len(material))
-    print("DIAGNOSTIC_MATERIAL_SAMPLE", json.dumps(material[:100], ensure_ascii=False))
-    print("DIAGNOSTIC_MISSING", json.dumps([d for d in material if d["usj"] is None], ensure_ascii=False))
-    psa = json.loads(z.read("bsb_usj/PSA.usj"))
-    print("DIAGNOSTIC_PSA_NODES", json.dumps(psa["content"][60:77], ensure_ascii=False))
-    print("DIAGNOSTIC_PSA_23_1", external.get("PSA.23.1"))
-    print("DIAGNOSTIC_UNANCHORED_COUNT", len(summary["unanchoredBodyBlocks"]))
-    print("DIAGNOSTIC_META_VERSES", [(code, b["sourceNode"], b["marker"]) for code,bs in structure.items() for b in bs if b["marker"] in META and '"type": "verse"' in json.dumps(b["usj"])][:10])
-    if differences:
-        raise SystemExit("Source export differences require investigation before acceptance")
+    print("LAYOUT_FALLBACK_SAMPLE", json.dumps(layout_fallbacks[:12]))
+    print("UNANCHORED_USJ_BLOCKS", json.dumps(summary["unanchoredBodyBlocks"], ensure_ascii=False))
+    assert len(verses) == 31086 and len(external) == 31102
     assert len(chapters) == 1189
 
 if __name__ == "__main__":
