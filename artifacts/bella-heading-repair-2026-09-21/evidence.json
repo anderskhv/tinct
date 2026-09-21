@@ -1,0 +1,80 @@
+{
+ "key": "war-and-peace/original-en/ch281",
+ "paragraph": 10,
+ "source": "MOSCOW, OCTOBER 30, 1812",
+ "recovered": {
+  "words": [
+   {
+    "text": "MOSCOW,",
+    "start": 0.0,
+    "end": 0.68
+   },
+   {
+    "text": "OCTOBER",
+    "start": 1.02,
+    "end": 1.3
+   },
+   {
+    "text": "30,",
+    "start": 1.3,
+    "end": 2.42
+   },
+   {
+    "text": "1812",
+    "start": 2.42,
+    "end": 3.26
+   }
+  ],
+  "normalizations": [
+   {
+    "heardIndex": 2,
+    "raw": "30th,",
+    "comparison": "30"
+   }
+  ],
+  "matched": 4
+ },
+ "independent": {
+  "words": [
+   {
+    "text": "MOSCOW,",
+    "start": 0.0,
+    "end": 0.64
+   },
+   {
+    "text": "OCTOBER",
+    "start": 0.94,
+    "end": 1.2
+   },
+   {
+    "text": "30,",
+    "start": 1.2,
+    "end": 2.18
+   },
+   {
+    "text": "1812",
+    "start": 2.3,
+    "end": 3.04
+   }
+  ],
+  "normalizations": [
+   {
+    "heardIndex": 2,
+    "raw": "30th,",
+    "comparison": "30"
+   }
+  ],
+  "matched": 4
+ },
+ "deltas": [
+  0.040000000000000036,
+  0.10000000000000009,
+  0.23999999999999977,
+  0.21999999999999975
+ ],
+ "criterion_met": true,
+ "candidateSha256": "8ff6d2b4b20fcddf0092ff2e0e53b19e2e49d1f192e7bc06c26dd4903296b6b2",
+ "audioSha256": "c6483dc851e9974057baa782579dd1c38843a2c802775515b710b47a40be90ba",
+ "model": "OpenAI Whisper small CPU unprompted",
+ "originalChapterProbeRun": 35596348457
+}
