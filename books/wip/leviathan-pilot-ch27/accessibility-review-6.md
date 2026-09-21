@@ -1,0 +1,25 @@
+# Accessibility Review — Round 6 (Reviewer A, fresh read)
+
+**Book/chapter:** Leviathan, Chapter 26, "Of Civil Laws" (candidate-sonnet.json, chapter object numbered 27 in the file)
+
+**Coverage:** I read all 48 paragraphs in full, in order, indices 0–47, start to finish as a continuous read, then went back through paragraph by paragraph for close inspection. I was not shown the source text, prior review notes, or any drafter commentary, per the prompt.
+
+## Issues found
+
+None that rise to the level of a genuine comprehension stumble for a general adult reader. Two very minor, non-blocking items worth noting for completeness:
+
+- **Paragraph 10** — "(as Sir Edward Coke makes it, upon Littleton, lib.2, ch.6, fol.97.b)". The citation abbreviation "lib.2, ch.6, fol.97.b" (book/chapter/folio) is a legal-citation convention no general reader today will recognize or need to parse. However, it functions exactly like an inline footnote — nothing in the surrounding sentence depends on decoding it, and a reader will naturally skim past it without losing the argument ("Nor yet ... is it 'an artificial perfection of reason...'" reads fine with or without stopping on the citation). This is a citation-format artifact, not a wording problem, and I'd call it non-blocking/stylistic rather than a fix item.
+- **Paragraph 36** — "The Edicts of the Praetors, and in some cases of the Aediles — comparable to the Chief Justices in the courts of England." Unlike the neighboring list items (which gloss "Senatus consulta" as "the Orders of the Senate," "Responsa Prudentum" as "the opinions and rulings...," etc.), "Praetors" and "Aediles" are left unglossed as bare Roman official titles. That said, the appositive "comparable to the Chief Justices in the courts of England" already gives the reader functional meaning (these were judicial officials), so the sentence doesn't actually strand the reader — it's a minor inconsistency in gloss density across the list, not a real stumble.
+
+I did not find any of the following anywhere in the 48 paragraphs: unresolved archaic constructions, sentences that are grammatically legal but overloaded past the point of tracking, ambiguous pronoun/referent problems, or prose that reads as mechanically stitched-together. Latin and technical terms throughout (civitas, Persona Civitatis, Rex In Parlamento, juris prudentia, viva voce, Senatus consulta, juris consulti, Lex Civilis/Jus Civile, jubeo/injungo, dedi/concessi) are consistently translated or glossed inline at first use. Biblical citations (Prov. 7:3, Deut. 11:19, Deut. 31:12, Gen. 17:10) are given in standard, recognizable citation form and don't require the reader to look anything up to follow the argument.
+
+## What reads especially well
+
+- **Paragraph 27** (the fled-and-acquitted-but-still-forfeits-his-goods example) is a standout — a long, legally dense paragraph made fully trackable through a concrete narrative example ("Suppose that a man is accused of a capital crime...") before the abstract argument resumes. The embedded direct quotation from "a great lawyer" is glossed inline ("chattels (that is, his personal property)") without breaking flow.
+- **Paragraph 34** (the empty-house/negligence example and the judge-who-witnessed-the-crime example) does the same thing well — abstract interpretive principle, then a concrete illustrative case, then back to the principle.
+- **Paragraph 43** (the Abraham/Sinai argument for how one can be bound to obey a revelation one didn't personally receive) is a long theological-legal argument that stays completely readable end to end; the two embedded Scripture quotations land naturally as evidence rather than as decoration.
+- Paragraph 22 ("The authentic interpretation of the law is not the interpretation of writers.") and paragraph 26 ("The sentence of a judge does not bind him, nor any other judge, to give the like sentence in like cases ever afterward.") are effective as short, standalone topic-sentence paragraphs that give the reader a breather between the long argumentative ones — a good structural rhythm across the chapter.
+
+## Overall verdict
+
+**Substantially accessible.** After five prior rounds of fixes, this round found no avoidable wording that causes a real comprehension stumble. The two items noted above (an archaic-format legal citation in ¶10, and one unglossed Roman title pair in ¶36) are genuinely marginal/stylistic — a reader will not get stuck on either, and I would not hold the chapter for them. What remains difficult in this chapter — dense multi-clause legal-philosophical argument (e.g. the sovereign-cannot-be-bound-by-his-own-law reasoning in ¶5, the natural-law-and-civil-law-contain-each-other argument in ¶7, the divine-positive-law epistemology in ¶42) — is conceptual and structural density inherent to Hobbes's subject matter and argumentative method, not a translation or wording defect. The prose consistently uses concrete examples, inline glosses, and short connective sentences to carry the reader through that density. This chapter is ready to move past the accessibility pass.
