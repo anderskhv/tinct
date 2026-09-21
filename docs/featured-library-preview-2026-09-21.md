@@ -1,6 +1,6 @@
 # Featured library preview — September 21, 2026
 
-Status: implementation; verification and deployment pending.
+Status: merged; cloud acceptance passed; deployment in progress.
 
 Approved scope: an isolated preview of the featured-book reel, with full text
 underneath, designed for desktop and mobile. No public-library replacement.
@@ -28,3 +28,9 @@ No physical-device, microphone or paid-model testing.
 Next: finish cloud acceptance, inspect screenshots and record release evidence.
 
 Candidate preview acceptance passed in [run 35579802539](https://github.com/anderskhv/tinct/actions/runs/35579802539), with eight Chromium/WebKit viewports. Startup resize paints now wait for catalogue data. Explicit controls use a short interruptible transition to avoid WebKit native smooth-scroll cancellation; touch remains native. Concurrent reader changes from e8cb75ab are preserved for the final integrated verification.
+
+## Candidate acceptance and release — September 21
+
+[Integrated acceptance 35580261662](https://github.com/anderskhv/tinct/actions/runs/35580261662) passed: 2,524 tests, one existing skipped test, build, bundle and documentation gates; preview Chrome/WebKit phone/tablet/desktop checks and existing reader/library regression checks. [PR 124](https://github.com/anderskhv/tinct/pull/124) merged as 63662fd5c9aec20af85f3558974a7f602f372e72.
+
+Initial deployment 35581145844 was correctly stopped by the exact-main guard when a concurrent documentation-only reader receipt advanced main to 17311c3bcf79. Those notes are preserved. This commit retries release from the reconciled latest main; production verification remains pending.
