@@ -13,7 +13,7 @@ const explanation = 'A compact opening grounded in the selected passage.\n\nA se
 const definition = 'pronoun. Used to refer to people or things already identified.'
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
-async function boot(browser, phone, bookId='bible', edition='kjv-en') {
+async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1) {
   const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone })
   const page = await context.newPage()
   page.setDefaultTimeout(10000)
@@ -37,11 +37,11 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en') {
     }
     return route.continue()
   })
-  await page.addInitScript(({bookId,edition}) => {
-    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber:1,paragraphIndex:0,wordIndex:0,page:0}}))
+  await page.addInitScript(({bookId,edition,chapterNumber}) => {
+    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:0,wordIndex:0,page:0}}))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
     HTMLMediaElement.prototype.play = async function(){this.muted=true}
-  },{bookId,edition})
+  },{bookId,edition,chapterNumber})
   await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.evaluate(()=>document.fonts.ready)
@@ -237,6 +237,7 @@ async function compareLabel(engine,name){
     const footers=page.getByTestId('lab-desktop-page-footers')
     await footers.getByText('Tinct Modern English',{exact:true}).waitFor()
     assert.equal(await footers.locator('b').count(),2)
+    await checkFullPageFold(page)
     await page.screenshot({path:output+'/'+name+'-desktop-comparison.png'})
     result.passed=true
   }catch(error){
@@ -244,9 +245,69 @@ async function compareLabel(engine,name){
     if(state)await state.page.screenshot({path:output+'/'+name+'-comparison-failure.png'}).catch(()=>{})
   }finally{await browser.close();results.push(result)}
 }
+
+async function checkFullPageFold(page) {
+  const fold=await page.getByTestId('lab-page-wrap').evaluate(node=>{
+    const rect=node.getBoundingClientRect(), style=getComputedStyle(node), paint=getComputedStyle(node,'::after')
+    const columns=node.querySelector('.lab-book-columns')
+    return {pageHeight:node.clientHeight, height:parseFloat(paint.height), top:parseFloat(paint.top),
+      bottom:parseFloat(paint.bottom), width:parseFloat(paint.width), events:paint.pointerEvents,
+      oldDivider:columns&&getComputedStyle(columns,'::after').content, shadow:style.boxShadow,
+      rect:rect.toJSON(), content:paint.content}
+  })
+  assert(fold.content!=='none'&&fold.width>40,'binding must be visible')
+  assert(Math.abs(fold.height-fold.pageHeight)<1 && fold.top===0 && fold.bottom===0,
+    'binding must span the full sheet, including margins: '+JSON.stringify(fold))
+  assert.equal(fold.events,'none','decoration must not intercept text selection or controls')
+  assert.equal(fold.oldDivider,'none','short text must not carry a second, truncated binding')
+  assert.notEqual(fold.shadow,'none')
+  return fold
+}
+async function bookSurface(engine,name){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'desktop-book-surface',live}
+  try{
+    state=await boot(browser,false,'bible','kjv-en',935)
+    const {page,errors}=state
+    assert.equal(await page.getByTestId('lab-root').getAttribute('data-chapter'),'935')
+    result.opening=await checkFullPageFold(page)
+    await page.screenshot({path:output+'/'+name+'-book-spread.png'})
+    // The reported failure: Matthew 6 ends with a shorter text column beside
+    // a chapter-end card. Walk real page turns, never modify source layout.
+    for(let i=0;i<12 && !await page.locator('.lab-chapter-end:visible').count();i++){
+      await page.getByTestId('lab-page-next').click()
+      await page.waitForTimeout(350)
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-chapter'),'935')
+    }
+    await page.locator('.lab-chapter-end:visible').waitFor()
+    const before=await wordBoxes(page)
+    const place=await page.getByTestId('lab-root').getAttribute('data-place')
+    result.terminal=await checkFullPageFold(page)
+    const bare=await page.addStyleTag({content:'.lab-page-wrap::after { display:none!important }'})
+    assert.deepEqual(await wordBoxes(page),before,'decorative fold must never alter text geometry')
+    await bare.evaluate(node=>node.remove())
+    for(const theme of ['book','light','dark']){
+      await clickMenu(page,'settings')
+      await page.getByTestId('lab-v2-theme-'+theme).click()
+      await page.getByTestId('lab-v2-sheet-close').click()
+      await page.waitForTimeout(250)
+      await checkFullPageFold(page)
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place)
+      await page.screenshot({path:output+'/'+name+'-book-end-'+theme+'.png'})
+    }
+    assert.deepEqual(errors,[])
+    result.passed=true
+  }catch(error){
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-book-surface-failure.png'}).catch(()=>{})
+  }finally{await browser.close();results.push(result)}
+}
+
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await run(engine,name,phone)
   await compareLabel(engine,name)
+  await bookSurface(engine,name)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
 console.log(JSON.stringify({live,results},null,2))

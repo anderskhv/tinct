@@ -47,3 +47,9 @@ Dictionary and Explain browser replies are fixtures; no Anthropic development ca
 The precise device-specific “stuck Listening” report remains unproven. Capture diagnostics now expose frame age, sent chunks, context/track/socket state without recording speech or credentials; capture failures show reconnect recovery instead of silently claiming to listen. Live acceptance measured first audio at 344 and 627 ms after the provider's speech-ended event, and 626 ms after same-page restart. These controlled cloud measurements are not a real-device latency promise.
 
 No further implementation or automated release-acceptance work remains for this batch. If the physical-device issue recurs, the next action is to capture those state counters and reproduce the device/routing condition before changing prompts or models.
+
+## Full-height book fold follow-up — September 21
+
+Anders reported that the new gutter stops abruptly at the text height and approved a softer, full-page book treatment. The failure class affects desktop Read, Compare and chapter-end spreads: decoration was attached to content-sized columns. The candidate moves it to the complete sheet, uses a broader graduated shadow with a quiet reflected edge, and adds soft exterior depth. It changes no source, text dimensions, pagination, position or phone layout.
+
+Cloud acceptance now exercises Matthew 6 through its actual final page in Chromium and WebKit, full-height fold geometry in Read/Compare, unchanged character rectangles with decoration toggled, chapter/position retention, and book/light/dark screenshots. Implementation is pending cloud gates, visual inspection, deployment and production acceptance; the release evidence above describes the preceding version.

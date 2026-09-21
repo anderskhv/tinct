@@ -7596,9 +7596,45 @@
 .lab.is-desktop[data-chrome-version="v2"] { background:var(--lab-paper); }
 .lab.is-desktop[data-chrome-version="v2"] .lab-body,
 .lab.is-desktop[data-chrome-version="v2"] .lab-page-wrap { background:var(--lab-paper); }
+/* Paint the binding on the whole sheet, independent of text/terminal-card
+   height. This is decoration only: no reader or pagination geometry changes. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book-columns::after {
-  width:32px; transform:translateX(-50%); pointer-events:none;
-  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--lab-ink) 9%,transparent) 49%,color-mix(in srgb,var(--lab-ink) 13%,transparent) 50%,transparent);
+  content: none;
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-frontispiece) .lab-page-wrap {
+  --lab-fold-shade: #493923;
+  --lab-fold-light: rgb(255 255 255 / .18);
+  box-shadow: 0 1px 3px rgb(49 38 22 / .035), 0 12px 36px rgb(49 38 22 / .065);
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"]:not(.is-frontispiece) .lab-page-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: calc(var(--desktop-gutter) * 2);
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 1px),
+      color-mix(in srgb, var(--lab-fold-shade) 10%, transparent) 50%,
+      transparent calc(50% + 1px)),
+    linear-gradient(90deg, transparent 0%,
+      color-mix(in srgb, var(--lab-fold-shade) 1%, transparent) 12%,
+      color-mix(in srgb, var(--lab-fold-shade) 3%, transparent) 26%,
+      color-mix(in srgb, var(--lab-fold-shade) 6%, transparent) 38%,
+      color-mix(in srgb, var(--lab-fold-shade) 9%, transparent) 48%,
+      color-mix(in srgb, var(--lab-fold-shade) 8%, transparent) 51%,
+      color-mix(in srgb, var(--lab-fold-shade) 4%, transparent) 60%,
+      color-mix(in srgb, var(--lab-fold-shade) 1%, transparent) 72%,
+      transparent 88%),
+    linear-gradient(90deg, transparent 53%, var(--lab-fold-light) 76%, transparent);
+}
+.lab[data-chrome-version="v2"][data-desktop-paging="true"].is-night:not(.is-frontispiece) .lab-page-wrap {
+  --lab-fold-shade: #000;
+  --lab-fold-light: rgb(255 255 255 / .025);
+  box-shadow: 0 1px 3px rgb(0 0 0 / .1), 0 12px 36px rgb(0 0 0 / .18);
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers b { opacity:.6; font-family:var(--lab-font-reader); font-size:12px; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-page-footers > span { gap:20px; }
