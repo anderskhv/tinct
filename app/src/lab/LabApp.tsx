@@ -2620,7 +2620,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ? ''
     : showPhoneChrome
       ? phoneProgressLabel
-      : desktopProgressLabel
+      : chromeV2 ? desktopProgressLabel : desktopPaging ? desktopProgressLabel : `${chapterProgress.currentPage} of ${chapterProgress.totalPages}`
 
   useEffect(() => {
     if (!showHearing) return
@@ -3947,7 +3947,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         // passage and the hidden measure box read it, so pagination and paint
         // stay in step. V1 reads nothing of it, and its DOM stays as it was.
         ...(chromeV2 ? { ['--lab-reader-margin-scale' as string]: String(labMarginScale(prefs.margins)) } : {}),
-        ['--lab-paragraph-gap' as string]: `${labParagraphGap(prefs.paragraphSpacing)}em`,
+        ['--lab-paragraph-gap' as string]: typeof prefs.paragraphSpacing === 'number' ? `${labParagraphGap(prefs.paragraphSpacing)}em` : prefs.paragraphSpacing === 'compact' ? '.08em' : prefs.paragraphSpacing === 'generous' ? '.55em' : '.28em',
       }}
     >
       {fullscreen && !showPhoneChrome && (

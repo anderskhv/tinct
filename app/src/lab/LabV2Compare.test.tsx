@@ -111,12 +111,12 @@ describe('the compare gesture', () => {
 })
 
 describe('what Compare says about itself', () => {
-  it('carries no running head, and its bottom line reads only "Compare version"', () => {
+  it('carries no running head and identifies the actual comparison edition', () => {
     withCompare()
     renderPhone()
     swipe(screen.getByTestId('lab-book'), 0, -110)
     expect(screen.queryByTestId('lab-v2-edition-name')).toBeNull()
-    expect(screen.getByTestId('lab-chapter-progress').textContent).toBe('Compare version')
+    expect(screen.getByTestId('lab-chapter-progress').textContent).toBe('World English Bible')
     expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/\d/)
     // Back on the primary page the line is the progress line it always was.
     swipe(screen.getByTestId('lab-book'), 0, 110)
