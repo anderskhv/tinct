@@ -22,6 +22,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Test importer and mapping invariants
+        run: python -m unittest discover -s books/staged-replacements/bible-bsb -p 'test_*.py' -v
+      - name: Check project documentation
+        run: python scripts/check-docs.py
       - name: Import and validate in staging only
         run: python books/staged-replacements/bible-bsb/stage.py --repo . --output /tmp/bsb-staged
       - name: Verify input files remained unchanged
