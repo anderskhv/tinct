@@ -1,13 +1,19 @@
 # PARKED-RESOLVED — Coriolanus (`coriolanus`, modern-en)
 
-**Status:** RESOLVED at round 3 of 3 (last round before hard park). See the
-"Round 3 resolution" section at the bottom of this file for what changed and
-the final hash. The rest of this document is the unedited round-2 record,
-kept for history.
+**Status:** RESOLVED and **ACCEPTED** at round 4 (independent verification).
+Round 3 was the last nominal correction round; round 4 verified it
+independently, confirmed the parked defect class exhausted, fixed 3 narrow
+candidate-introduced additions of the inverse kind, and accepted the file.
+Accepted `candidate.json` sha256
+`012fdaaa359726830d58c6745b9e776891360256de19a0aec008f9831abb829c`.
+Full round-4 detail is in `ACCEPTANCE-RECORD.md`; the "Round 3 resolution"
+and "Round 4 acceptance" sections are at the bottom of this file. The rest of
+this document is the unedited round-2 record, kept for history.
 **Date:** 2026-09-21
 **Round 1 (draft review + fix):** Claude Sonnet 5 (`claude-sonnet-5`) — self-certified clean.
 **Round 2 (independent adversarial fidelity verification):** Claude Opus 5 (`claude-opus-5`) — this document.
 **Round 3 (fix pass on round 2's inventory + fresh sweep):** Claude Sonnet 5 (`claude-sonnet-5`).
+**Round 4 (independent final adversarial verification):** Claude Opus 5 (`claude-opus-5`) — ACCEPTED.
 
 **File under review:** `books/wip/green-coriolanus/candidate.json`
 sha256 `daabd24d383433a8d906801698ba74b133e2f950316c57b21fb3ae8a50ab5e13`
@@ -335,3 +341,72 @@ Full detail: `ACCEPTANCE-RECORD.md`.
 **Result: READY FOR INDEPENDENT VERIFICATION.** Per the three-round protocol,
 this was the last fix round; acceptance is a decision for an independent
 verifier who did not make these fixes, not for this round's own self-check.
+
+---
+
+## Round 4 acceptance (Claude Opus 5, 2026-09-21)
+
+Independent verification by a session that made none of rounds 1–3's fixes.
+Nothing in any prior self-report was trusted.
+
+**Re-derived from the files, not from any report:** hash chain (round 3's
+`413459fc…f276c2d17` confirmed exactly), structure (29/29 chapters,
+1,379/1,379 paragraphs, titles and per-chapter counts exact, zero empty
+paragraphs), and **all 35 of round 3's fixes**, each re-located in
+`source.json` by distinctive printed phrase. All 35 correct.
+
+**The parked defect class is exhausted.** A whole-book, per-paragraph,
+case-sensitive occurrence map for all six Volsce(s)/Volscian(s) forms now
+shows **zero differences at every location** (not merely matching totals):
+`Volsces` 23, `Volscians` 5, `Volsce` 3, `Volscian` 5, `VOLSCE` 9. Round 3's
+specific claim about ch29 ¶42 — one occurrence restored to `Volsces`, one
+left as source's own `Volscians` — was checked against source and is correct;
+the contrast round 2 called "the sharpest instance" survives in source's own
+order.
+
+**Third methodology, covering both prior rounds' blind spot.** Rounds 2 and 3
+used occurrence maps, an all-caps tag diff, a *capitalized*-vocabulary diff
+and a proper-noun rare-word cross-reference — all blind to lowercase mid-line
+vocabulary. Round 4 added a **lowercase-hapax sweep**: every source word
+occurring once book-wide and absent from the candidate in any form. It
+surfaced ~35 obsolete words rendered into modern equivalents (`mammocked`,
+`foxship`, `undercrest`, `godded`, `unhearts`, `inshelled`, `o'erpeer`,
+`lockram`, `reechy`, `provand`, `fatigate`, `traducement`, …). Every one was
+opened in context and **ruled not a defect**: the meaning is fully carried in
+each case, and this is the licensed core operation of a `modern-en` edition.
+Round 2's Class B was scoped to words whose strangeness is itself the point,
+and that line is now held uniformly — `directitude`, `carbonado`,
+`microcosm`, `empiricutic`, `bisson conspectuities`, `Jack guardant`,
+`Embarquements`, `'Sdeath` and `Hollo me like a hare` all survive verbatim.
+What round 2 called an "ad-hoc mix" is now a coherent, consistently applied
+policy.
+
+**Three narrow defects found and fixed directly in round 4.** All are the
+*inverse* of the parked class — small interpretive additions of material
+source does not contain — three instances across 1,379 paragraphs, each
+removable by deleting one word or one bracket. Round 3 had flagged the first
+and left it unfixed; the other two were new.
+
+| Location | Source | Was | Now |
+|---|---|---|---|
+| ch4 ¶40 | `Following the fliers at the very heels` | `the fleeing Volsces` | `the fleeing men` |
+| ch12 ¶27 | `He stopped the flyers` | `the fleeing Romans` | `the fleeing men` |
+| ch1 ¶79 | `Lead you on. Follow Cominius.` (no stage direction) | `Lead on. [To Cominius.] Follow Cominius.` | `Lead on. Follow Cominius.` |
+
+These were fixed rather than parked because they are narrow and mechanical
+and are **not** the class this book was parked for — the erasure class has
+zero remaining instances. `git diff` confirms exactly 3 changed lines and no
+other paragraph touched.
+
+**Also re-run from scratch in round 4:** a full compression/content-loss
+sweep over all 1,379 paragraphs (ratio range 0.80–1.29 for the 663
+paragraphs ≥12 words; extreme bands and the full moderate 0.70–0.88 band
+≥25 words read in full — all complete); a full inline-stage-direction
+addition sweep; and word-for-word reads of scenes no prior round had covered
+(Act 2 Sc.1–2, Act 3 Sc.1–2, Act 4 Sc.4, Act 4 Sc.7) — all clean.
+
+**Result: ACCEPTED.** `candidate.json` sha256
+`012fdaaa359726830d58c6745b9e776891360256de19a0aec008f9831abb829c`
+(`source.json` unchanged: `d0381f3053901dbbf81876e9ef4ce8a4dd2829d40c50c3b199a959c5da8468da`).
+Per-paragraph hashes pinned in `accepted-paragraph-hashes.tsv`.
+This book is no longer parked. Full detail: `ACCEPTANCE-RECORD.md`.
