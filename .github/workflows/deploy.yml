@@ -98,6 +98,8 @@ jobs:
         run: LIBRARY_LIVE=1 node scripts/check-library-layout.mjs
       - name: Verify responsive landing and library
         run: LIBRARY_LIVE=1 node scripts/check-entry-responsive.mjs
+      - name: Verify currently reading reel
+        run: LIBRARY_LIVE=1 node scripts/check-reading-reel.mjs
       - name: Verify production hyphenation hardening
         env:
           HYPHENATION_LIVE: '1'
@@ -110,6 +112,7 @@ jobs:
           path: |
             app/artifacts/voice-capture
             app/artifacts/featured-preview
+            app/artifacts/reading-reel
             app/artifacts/library-layout
             app/artifacts/entry-responsive
             app/artifacts/hyphenation-hardening

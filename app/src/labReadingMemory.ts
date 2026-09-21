@@ -788,7 +788,7 @@ function fitNowShelf(): void {
   if (nowReelShelf !== shelf) {
     nowReel?.destroy()
     nowReelShelf = shelf
-    nowReel = createCoverReel(shelf, {selector:'[data-now-index]', index:nowFocus, onSelect:(index: number)=>setNowFocus(index)})
+    nowReel = createCoverReel(shelf, {selector:'[data-now-index]', index:nowFocus, centreFirst:true, onSelect:(index: number)=>setNowFocus(index)})
   }
   nowReel?.setIndex(nowFocus)
 }

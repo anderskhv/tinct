@@ -1,7 +1,13 @@
 /** Shared cover motion for discovery and the reader's own shelf. */
-export function createCoverReel(shelf, { selector, index = 0, onSelect }) {
+export function createCoverReel(shelf, { selector, index = 0, onSelect, centreFirst = false }) {
   let position = index, drag = null, wheelTimer, blockedUntil = 0
-  const items = () => [...shelf.querySelectorAll(selector)]
+  const rawItems = () => [...shelf.querySelectorAll(selector)]
+  const items = () => {
+    const nodes=rawItems(), split=nodes.length-Math.floor(nodes.length/2)
+    return centreFirst ? [...nodes.slice(split),...nodes.slice(0,split)] : nodes
+  }
+  const toPosition = n => Math.max(0, items().indexOf(rawItems()[n]))
+  position = toPosition(index)
   const clamp = n => Math.max(0, Math.min(items().length - 1, n))
   const step = () => (items()[0]?.offsetWidth || 166) + 28
   function paint() {
@@ -12,7 +18,7 @@ export function createCoverReel(shelf, { selector, index = 0, onSelect }) {
       item.style.zIndex = String(10 - Math.round(amount))
     })
   }
-  function select(n) { position = clamp(n); paint(); onSelect(position) }
+  function select(n) { position = clamp(n); paint(); onSelect(rawItems().indexOf(items()[position])) }
   shelf.ondragstart = event => event.preventDefault()
   shelf.onpointerdown = event => {
     if (event.button !== 0 || event.target.closest('[data-now-remove]')) return
@@ -54,11 +60,19 @@ export function createCoverReel(shelf, { selector, index = 0, onSelect }) {
   }
   const blockClick = event => { if (Date.now() < blockedUntil) { event.preventDefault(); event.stopImmediatePropagation() } }
   shelf.addEventListener('click', blockClick, true)
+  const key = event => {
+    if (!centreFirst || !['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return
+    event.preventDefault();event.stopPropagation()
+    select(event.key==='Home'?0:event.key==='End'?items().length-1:position+(event.key==='ArrowRight'?1:-1))
+    items()[position]?.querySelector('button')?.focus({preventScroll:true})
+  }
+  shelf.addEventListener('keydown',key)
   paint()
   return {
-    setIndex(n) { position = clamp(n); paint() },
+    setIndex(n) { position = toPosition(n); paint() },
     destroy() {
       clearTimeout(wheelTimer)
+      shelf.removeEventListener('keydown',key)
       shelf.removeEventListener('click', blockClick, true)
       for (const name of ['ondragstart','onpointerdown','onpointermove','onpointerup','onpointercancel','onlostpointercapture','onwheel']) shelf[name] = null
     },
