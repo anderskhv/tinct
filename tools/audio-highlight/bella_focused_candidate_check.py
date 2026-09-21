@@ -17,6 +17,8 @@ for row in summary:
  if row["status"]=="acoustic-pass":
   b,ed,ch=row["key"].split("/");chosen[row["key"]]=dict(row,sourceCommit=ref,sourceFolder=f"{folder}/{b}/{int(ch[2:])}")
 for branch,folder,keys in [
+ ("codex/bella-focused-pride-ready-20260921","bella-focused-short-clips-2026-09-21",["pride-and-prejudice/original-en/ch2"]),
+ ("codex/bella-focused-nicomachean-20260921","bella-focused-acoustic-2026-09-21",["nicomachean-ethics/original-en/ch7"]),
  ("codex/bella-focused-short-clips-20260921","bella-focused-short-clips-2026-09-21",["pride-and-prejudice/original-en/ch2","communist-manifesto/original-en/ch4"]),
  ("codex/bella-focused-beyond-20260921","bella-focused-beyond-2026-09-21",["beyond-good-and-evil/original-en/ch5"])
 ]:
