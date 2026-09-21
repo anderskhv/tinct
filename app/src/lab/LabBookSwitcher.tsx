@@ -9,10 +9,9 @@ interface LabBookSwitcherProps {
   onClose: () => void
   onSelect: (row: QuickBookRow) => void
   onLibrary: () => void
-  onOpenCover?: () => void
 }
 
-export function LabBookSwitcher({ current, rows, loading, error, onClose, onSelect, onLibrary, onOpenCover }: LabBookSwitcherProps) {
+export function LabBookSwitcher({ current, rows, loading, error, onClose, onSelect, onLibrary }: LabBookSwitcherProps) {
   const activeRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLElement>(null)
   useEffect(() => { activeRef.current?.focus() }, [current.bookId, rows])
@@ -72,7 +71,6 @@ export function LabBookSwitcher({ current, rows, loading, error, onClose, onSele
         {loading && ordered.length === 0 && <p className="lab-book-switcher-status">Loading your books…</p>}
         {error && <p className="lab-book-switcher-status" role="status">{error}</p>}
       </div>
-      {onOpenCover && <button type="button" className="lab-book-switcher-library" onClick={onOpenCover}>Cover <span aria-hidden="true">→</span></button>}
       <button type="button" className="lab-book-switcher-library" onClick={onLibrary}>Full library <span aria-hidden="true">→</span></button>
     </section>
   </div>

@@ -1,3 +1,4 @@
+import { createCoverReel } from '../public/lab/cover-reel.js'
 /**
  * Returning-reader sections for the locked /lab library.
  *
@@ -767,45 +768,29 @@ function setNowFocus(index: number, scroll = false): void {
   nowFocus = next
   nowFocusChosen = true
   renderNowCaption()
+  nowReel?.setIndex(next)
   if (!scroll) return
   const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
   const item = shelf?.querySelector<HTMLElement>(`[data-now-index="${next}"]`)
   if (shelf && item) centreNowItem(shelf, item)
 }
 
-function centreNowItem(shelf: HTMLElement, item: HTMLElement): void {
-  if (shelf.classList.contains('is-flush')) return
-  const target = Math.max(0, Math.min(
-    shelf.scrollWidth - shelf.clientWidth,
-    item.offsetLeft - shelf.offsetLeft + item.offsetWidth / 2 - shelf.clientWidth / 2,
-  ))
-  if (Math.abs(target - shelf.scrollLeft) < 2) return
-  nowQuietUntil = Date.now() + 420
-  if (typeof shelf.scrollTo === 'function') shelf.scrollTo({ left: target, behavior: reducedMotion() ? 'auto' : 'smooth' })
-  else shelf.scrollLeft = target
+let nowReel: ReturnType<typeof createCoverReel> | null = null
+let nowReelShelf: HTMLElement | null = null
+function centreNowItem(_shelf: HTMLElement, item: HTMLElement): void {
+  nowReel?.setIndex(Number(item.dataset.nowIndex))
 }
-
-/**
- * The centring spacers are for a row that overflows. A row whose covers all
- * fit — two books on a tablet, one on a phone — would otherwise park them in
- * the middle of an empty rail, away from the caption that names them. Only
- * measurement knows which case this is, so the class is set here rather than
- * guessed at a breakpoint.
- */
 function fitNowShelf(): void {
   const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
   if (!shelf) return
-  const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')]
-  if (!items.length) return
-  const style = getComputedStyle(shelf)
-  // Desktop (≥1280px, lab/index.html): the covers wrap into rows beside the
-  // caption instead of scrolling. A wrapped row has no middle to read, so it
-  // is flush whatever its width, and the scroll-driven focus stays off.
-  const wrapped = style.flexWrap === 'wrap'
-  shelf.classList.toggle('is-grid', wrapped)
-  const gap = Number.parseFloat(style.columnGap) || 0
-  const content = items.reduce((total, item) => total + item.offsetWidth, 0) + gap * (items.length - 1)
-  shelf.classList.toggle('is-flush', wrapped || content <= shelf.clientWidth + 1)
+  shelf.classList.remove('is-flush', 'is-grid')
+  shelf.classList.add('is-reel')
+  if (nowReelShelf !== shelf) {
+    nowReel?.destroy()
+    nowReelShelf = shelf
+    nowReel = createCoverReel(shelf, {selector:'[data-now-index]', index:nowFocus, onSelect:(index: number)=>setNowFocus(index)})
+  }
+  nowReel?.setIndex(nowFocus)
 }
 
 /**
@@ -834,49 +819,7 @@ function refitNowShelfOnResize(): void {
  * the row scroll an empty slot past it), so it can never come to the middle
  * and the end-of-track case is how it is ever focused.
  */
-function focusNowFromGeometry(shelf: HTMLElement): void {
-  if (Date.now() < nowQuietUntil) return
-  const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')].map(item => ({
-    left: item.offsetLeft - shelf.offsetLeft,
-    width: item.offsetWidth,
-  }))
-  const index = shelfFocusIndex(items, shelf.scrollLeft, shelf.clientWidth, shelf.scrollWidth)
-  if (index !== nowFocus) setNowFocus(index)
-}
-
-/** Centre detection, the same rule the popular shelf uses. */
-function observeNowShelf(): void {
-  nowObserver?.disconnect()
-  nowObserver = null
-  const shelf = section?.querySelector<HTMLElement>('[data-now-shelf]')
-  if (!shelf || lastList.readingNow.length < 2) return
-  // A row that does not scroll has no middle to read: the focus stays on the
-  // book the library opened on until the reader taps another cover.
-  if (shelf.classList.contains('is-flush')) return
-  if (typeof IntersectionObserver === 'function') {
-    // The observer only says "the row moved past the middle"; the geometry
-    // decides which cover that is, so both paths answer the same way at the
-    // end of the track.
-    nowObserver = new IntersectionObserver(entries => {
-      if (!entries.some(entry => entry.isIntersecting)) return
-      focusNowFromGeometry(shelf)
-    }, { root: shelf, rootMargin: '0px -50% 0px -50%', threshold: 0 })
-    shelf.querySelectorAll('[data-now-index]').forEach(item => nowObserver!.observe(item))
-  }
-  // The shelf is re-created on every render and observeNowShelf may run twice
-  // for one of them (once before layout, once after it settles): mark the
-  // element so the scroll fallback is attached exactly once per row.
-  if (shelf.dataset.nowScrollBound === '1') return
-  shelf.dataset.nowScrollBound = '1'
-  let frame = 0
-  shelf.addEventListener('scroll', () => {
-    if (frame || Date.now() < nowQuietUntil) return
-    frame = requestAnimationFrame(() => {
-      frame = 0
-      focusNowFromGeometry(shelf)
-    })
-  }, { passive: true })
-}
+function observeNowShelf(): void { fitNowShelf() }
 
 /**
  * Paint the list into the section by reconciling what is already there — the

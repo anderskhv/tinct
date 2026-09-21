@@ -450,11 +450,17 @@ async function paintDiagnostics(page,label){
 }
 
 async function checkHighlightPaint(page){
-  await page.locator('.lab-highlight-seam').first().waitFor({state:'attached'})
-  const geometry=await page.locator('.lab-highlight-seam').evaluateAll(nodes=>nodes.map(node=>{
-    const rect=node.getBoundingClientRect()
-    return {left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,color:getComputedStyle(node).backgroundColor}
-  }).filter(r=>r.right-r.left>60))
+  // Read the ready geometry atomically: an unrelated React commit can
+  // replace the paint-only nodes between waitFor() and evaluateAll().
+  const handle=await page.waitForFunction(()=>{
+    const rects=[...document.querySelectorAll('.lab-highlight-seam')].map(node=>{
+      const rect=node.getBoundingClientRect()
+      return {left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,color:getComputedStyle(node).backgroundColor}
+    }).filter(r=>r.right-r.left>60 && r.top>=0 && r.bottom<=innerHeight)
+    return rects.length ? rects : false
+  })
+  const geometry=await handle.jsonValue()
+  await handle.dispose()
   const pixels=(await page.screenshot()).toString('base64')
   const gaps=await page.evaluate(async({pixels,geometry})=>{
     const image=new Image();image.src='data:image/png;base64,'+pixels;await image.decode()

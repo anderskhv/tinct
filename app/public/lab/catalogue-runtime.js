@@ -1,3 +1,5 @@
+import { captureCoverTransition } from './cover-transition.js'
+import { createCoverReel } from './cover-reel.js'
 import { fullShelf, pairedSamples } from './entry-model.js?v=20260912-withheld-1'
 import { wholeBookProgress } from './library-2-model.js'
 import {
@@ -667,83 +669,12 @@ import {
   }
 
   let reelPosition = 0
-  let reelDrag = null
   let reelClickBlockedUntil = 0
-
-  function reelStep() { return (root.querySelector('[data-shelf-index]')?.offsetWidth || 166) + 28 }
-
-  function paintReel(position = reelPosition) {
-    const shelf = root.querySelector('[data-popular-shelf]')
-    if (!shelf) return
-    const step = reelStep()
-    shelf.querySelectorAll('[data-shelf-index]').forEach(item => {
-      const distance = Number(item.dataset.shelfIndex) - position
-      const amount = Math.abs(distance)
-      const scale = 1 - Math.min(amount, 3) * .075
-      const lift = Math.min(amount, 3) * 13
-      const angle = Math.max(-1.6, Math.min(1.6, distance)) * -16
-      item.style.transform = `translateX(calc(-50% + ${distance * step}px)) translateY(${lift}px) rotateY(${angle}deg) scale(${scale})`
-      item.style.opacity = String(Math.max(.24, 1 - amount * .2))
-      item.style.zIndex = String(10 - Math.round(amount))
-    })
-  }
-
+  let reel = null
+  function paintReel(position = reelPosition) { reel?.setIndex(position) }
   function bindReel(shelf) {
-    shelf.ondragstart = event => event.preventDefault()
-    shelf.onpointerdown = event => {
-      if (event.button !== 0) return
-      reelDrag = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, initial: reelPosition, moved: 0 }
-      if (event.pointerType === 'mouse') event.preventDefault()
-      shelf.classList.add('is-dragging')
-    }
-    shelf.onpointermove = event => {
-      if (!reelDrag || reelDrag.pointerId !== event.pointerId) return
-      const dx = event.clientX - reelDrag.x
-      const dy = event.clientY - reelDrag.y
-      if (Math.abs(dy) > Math.abs(dx) + 12 && reelDrag.moved < 5) {
-        if (shelf.hasPointerCapture(event.pointerId)) shelf.releasePointerCapture(event.pointerId)
-        reelDrag = null
-        shelf.classList.remove('is-dragging')
-        paintReel(state.shelfIndex)
-        return
-      }
-      reelDrag.moved = Math.max(reelDrag.moved, Math.abs(dx))
-      if (reelDrag.moved > 6 && !shelf.hasPointerCapture(event.pointerId)) shelf.setPointerCapture(event.pointerId)
-      const step = reelStep()
-      const raw = reelDrag.initial - dx / step
-      reelPosition = raw < 0 ? raw * .22 : raw > state.shelfBooks.length - 1 ? state.shelfBooks.length - 1 + (raw - state.shelfBooks.length + 1) * .22 : raw
-      paintReel()
-    }
-    const finish = event => {
-      if (!reelDrag || reelDrag.pointerId !== event.pointerId) return
-      const moved = reelDrag.moved
-      const initial = reelDrag.initial
-      const travelled = reelPosition - initial
-      const target = moved >= 28 && Math.abs(travelled) < .5 ? Math.round(initial) + Math.sign(travelled) : Math.round(reelPosition)
-      reelDrag = null
-      shelf.classList.remove('is-dragging')
-      if (shelf.hasPointerCapture(event.pointerId)) shelf.releasePointerCapture(event.pointerId)
-      if (moved > 6) reelClickBlockedUntil = Date.now() + 350
-      setShelfIndex(target)
-    }
-    shelf.onpointerup = finish
-    shelf.onpointercancel = finish
-    // Touch begins with implicit capture on the cover. Its bubbled loss when
-    // capture transfers to the shelf is not the end of the gesture.
-    shelf.onlostpointercapture = event => { if (event.target === shelf && reelDrag) finish(event) }
-    let wheelTimer
-    shelf.onwheel = event => {
-      const delta = event.shiftKey && !event.deltaX ? event.deltaY : event.deltaX
-      if (!delta || (!event.shiftKey && Math.abs(delta) <= Math.abs(event.deltaY))) return
-      event.preventDefault()
-      clearTimeout(wheelTimer)
-      const step = reelStep()
-      const pixels = delta * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? shelf.clientWidth : 1)
-      reelPosition = Math.max(0, Math.min(state.shelfBooks.length - 1, reelPosition + pixels / step))
-      shelf.classList.add('is-dragging')
-      paintReel()
-      wheelTimer = setTimeout(() => { shelf.classList.remove('is-dragging'); setShelfIndex(Math.round(reelPosition)) }, 120)
-    }
+    reel?.destroy()
+    reel = createCoverReel(shelf, {selector:'[data-shelf-index]', index:state.shelfIndex, onSelect:index=>setShelfIndex(index)})
   }
 
   /**
@@ -870,11 +801,15 @@ import {
     const section = root.querySelector('[data-library-popular]')
     library().dataset.libraryMode = state.libraryMode
     shelfSize = popularShelfSize(window.innerWidth)
-    const starters = ['the-prince', 'meditations', 'frankenstein', 'notes-from-underground', 'jekyll-and-hyde', 'the-manual']
+    const starters = ['niels-lyhne', 'the-awakening', 'heart-of-darkness', 'candide', 'the-manual', 'the-prince', 'meditations', 'frankenstein', 'notes-from-underground', 'jekyll-and-hyde', 'pride-and-prejudice', 'odyssey', 'the-republic', 'beowulf', 'walden', 'werther']
     const eligible = filterIndexBooks(state.catalogue, '').filter(book => book.art?.src)
     const curated = starters.map(id => eligible.find(book => book.id === id)).filter(Boolean)
     state.shelfBooks = showPopularShelf(state.libraryMode)
       ? (curated.length >= 3 ? curated : popularBooks(state.catalogue, shelfSize)) : []
+    if (!shelfSelectionReady) {
+      state.shelfIndex = Math.max(1, state.shelfBooks.findIndex(book => book.id === 'frankenstein'))
+      shelfSelectionReady = true
+    }
     state.shelfIndex = moveSelection(state.shelfIndex, 0, state.shelfBooks.length)
     section.hidden = state.shelfBooks.length === 0
     if (section.hidden) {
@@ -1449,6 +1384,8 @@ import {
    * (pride-and-prejudice among them) had no book page at all.
    */
   async function openBookPage(bookId) {
+    const source = [...root.querySelectorAll('[data-shelf-book],[data-catalogue-book]')].find(node => node.dataset.shelfBook === bookId || node.dataset.catalogueBook === bookId)
+    captureCoverTransition(bookId, source)
     if (!await selectBook(bookId, 'library', true)) return false
     return openReader()
   }
@@ -1673,15 +1610,10 @@ import {
   if (window.__tinctLabBoot?.state?.returning) state.libraryMode = 'returning'
   if (window.__tinctLabLibraryMode === 'new' || window.__tinctLabLibraryMode === 'returning') state.libraryMode = window.__tinctLabLibraryMode
   // The shelf selection outlives a trip into a book or the reader.
-  let initialShelf = readSession(LIBRARY_SHELF_SESSION_KEY)
-  if (initialShelf === null && window.innerWidth <= 600) {
-    const choices = [3,1,2,0] // Notes, Meditations, Frankenstein, The Prince.
-    const visits = Number.parseInt(readLocal('tinct:featured-visit') || '0',10) || 0
-    initialShelf = String(choices[Math.max(0,visits) % choices.length])
-    writeSession(LIBRARY_SHELF_SESSION_KEY,initialShelf)
-    try { localStorage.setItem('tinct:featured-visit', String(visits+1)) } catch {}
-  }
-  state.shelfIndex = Number.parseInt(initialShelf ?? '2',10) || 0
+  // Every fresh arrival starts inside the collection. Explicit Back restores
+  // the user's chosen book through restoreLibrary(), including an edge book.
+  let shelfSelectionReady = false
+  state.shelfIndex = 0
   state.searchRevealed = searchRevealed(safeSessionStorage())
   // Focus reaching the field in a closed drawer (Tab, or the tap on its
   // <label>) opens the drawer; see revealSearch.

@@ -1,3 +1,4 @@
+import { COVER_TRANSITION_KEY, readCoverTransition } from '../../public/lab/cover-transition.js'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { loadOnboardingData } from '../utils/onboardingData'
 import { LabAudiobookSelect } from './LabAudiobookSelect'
@@ -41,13 +42,15 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
     const previous = document.activeElement as HTMLElement | null
     if (!open) return
     const source = document.querySelector<HTMLImageElement>('.lab-chapter-cover-art')
-    const sourceBox = source?.getBoundingClientRect()
+    const fromLibrary = readCoverTransition(preface.bookId)
+    const sourceBox = fromLibrary || source?.getBoundingClientRect()
+    try { sessionStorage.removeItem(COVER_TRANSITION_KEY) } catch {}
     node?.showModal()
     const target = artwork.current
     const animations: Animation[] = []
-    if (target && source && sourceBox && sourceBox.width > 0 && source.naturalWidth && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches && typeof target.animate === 'function') {
+    if (target && sourceBox && sourceBox.width > 0 && (fromLibrary || source?.naturalWidth) && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches && typeof target.animate === 'function') {
       // Account for object-fit: contain: the image element can span the whole reader.
-      const ratio = source.naturalWidth / source.naturalHeight
+      const ratio = fromLibrary ? fromLibrary.width / fromLibrary.height : source!.naturalWidth / source!.naturalHeight
       const width = Math.min(sourceBox.width, sourceBox.height * ratio)
       const height = width / ratio
       const left = sourceBox.left + (sourceBox.width - width) / 2
@@ -58,7 +61,7 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
         { transform: 'none' },
       ], { duration: 720, easing: 'cubic-bezier(.22,.8,.22,1)' }))
       if (frame.current) animations.push(frame.current.animate([
-        { opacity: 0, transform: 'translateX(-24px)' }, { opacity: 1, transform: 'none' },
+        { opacity: 0, transform: 'translateX(24px)' }, { opacity: 1, transform: 'none' },
       ], { duration: 620, easing: 'cubic-bezier(.22,.8,.22,1)' }))
     }
     heading.current?.focus({ preventScroll: true })

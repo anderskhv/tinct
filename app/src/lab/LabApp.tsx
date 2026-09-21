@@ -1,3 +1,4 @@
+import { readCoverTransition } from '../../public/lab/cover-transition.js'
 import { ReadIcon, ChatIcon, TalkIcon } from './LabReaderIcons'
 import { isAudioHeld, isEditionDiscoverable } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
@@ -664,7 +665,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       : null
   ), [book.chapterNumber, readerHandoff])
   const [preparationChat, setPreparationChat] = useState(false)
-  const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(null)
+  const [prefaceCoverBook, setPrefaceCoverBook] = useState<string | null>(() => readerHandoff && readCoverTransition(readerHandoff.bookId) ? readerHandoff.bookId : null)
   const [preparationCompanion, setPreparationCompanion] = useState(false)
   const preparationReturnRef = useRef<string | null>(null)
   const returnToPreparation = useCallback(() => {
@@ -4097,7 +4098,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onClose={() => setBookSwitcherOpen(false)}
         onSelect={switchQuickBook}
         onLibrary={() => { setBookSwitcherOpen(false); handleSuperMenuSelect('library') }}
-        onOpenCover={approvedPreface ? () => { listen.pause(); setBookSwitcherOpen(false); setPrefaceCoverBook(book.bookId || 'bible') } : undefined}
       />}
       {chromeV2 && !frontispieceVisible && (
         <LabSuperMenu
@@ -4794,6 +4794,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
+        onOpenCover={approvedPreface ? () => { listen.pause(); setTocOpen(false); setPrefaceCoverBook(book.bookId || 'bible') } : undefined}
         onWarmChapter={warmChapterTexts}
         onClose={() => setTocOpen(false)}
       />}
