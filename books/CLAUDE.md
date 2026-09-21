@@ -90,11 +90,10 @@ publishable per `wip_inventory.py`, unless Anders directs otherwise.
 2. Find and validate the public-domain source.
 3. Parse the original text.
 4. For non-English works, keep the original-language edition when available and add a public-domain human English translation as the English baseline.
-5. Create `modern-en`.
-5b. Similarity gate (mandatory, blocking): `python3 books/classify-modern-en.py {book-id} --gate`
-   must PASS before audio work. Run per batch with
-   `--chapters N-M` while rendering. A prose claim that the rendering is
-   "real" does not substitute for a passing gate.
+5. Create `modern-en` per [`TRANSLATION_PROTOCOL.md`](TRANSLATION_PROTOCOL.md) and run it through that document's acceptance procedure (accessibility review, then fidelity review, then whole-chapter re-read, then verify-and-pin).
+5b. Similarity/length check (inspection flag, not a blocking pass/fail): `python3 books/classify-modern-en.py {book-id}` — run per batch with
+   `--chapters N-M` while rendering. Use it to find chapters worth a human look; the acceptance procedure in `TRANSLATION_PROTOCOL.md`, not this number, is what makes a chapter "done." A prose claim that the rendering is
+   "real" does not substitute for an actual reviewer pass.
 6. Create onboarding content and threads when appropriate.
 7. Run QA: JSON validity, paragraph alignment, truncation checks, and manual spot reads.
 8. Generate audio only after text QA passes:
@@ -156,18 +155,21 @@ After parsing, verify that chapter entries are real reading units, not parser ar
 
 ## Translation Rules
 
-Modern English must be a real modern-English rendering, not a summary and not a mechanical cleanup.
+This file is historical; `books/AGENTS.md` (Modern English + Acceptance
+Procedure sections) and `books/TRANSLATION_PROTOCOL.md` are the source of
+truth for translation rules and are kept up to date — do not duplicate
+their content here, and if this section ever appears to say something
+different from them, follow them instead.
 
-- Paragraph count must match the source exactly.
-- Preserve one output paragraph for every input paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
-- Preserve proper nouns, allusions, quotations, historical content, and meaningful punctuation.
-- Do not condense arguments, examples, dialogue, or descriptive detail.
-- Shakespeare and plays keep speaker tags and stage-direction conventions.
-- Rewrite sentence by sentence for present-day clarity while preserving the source's claims, sequence, tone, and examples.
-- For already-readable public-domain translations such as Garnett, Ormsby, or older philosophical prose, still produce a fresh modern reading edition. A light spelling pass is not enough.
-- Do not create `modern-en` by bulk regex, dictionary lemma replacement, quote normalization, or spelling modernization alone. Those operations may be used only as preparation before a human-quality paragraph-by-paragraph rendering.
-- If Anders explicitly asks for a lightly cleaned original translation, keep it as an original/human-translation edition or ask what edition key to use; do not label it `modern-en`.
-- Paragraph N must begin with content equivalent to source paragraph N and should normally remain at least 75% of the source paragraph's word count unless the source is genuinely verbose/repetitive.
+Short version: a real modern-English rendering, not a summary, not a
+mechanical cleanup. Paragraph count/order/indices must match the source
+exactly; nothing merged, split, reordered, dropped, or invented. Preserve
+proper nouns, allusions, quotations, historical content, meaningful
+punctuation, and — in verse — meaning over rhyme. No required rewrite
+percentage and no minimum output-length ratio to hit; a length or
+similarity signal is a flag to go inspect the paragraph, never a rewrite
+target in itself. Every chapter goes through the two-reviewer acceptance
+procedure in `TRANSLATION_PROTOCOL.md` before it counts as done.
 
 Paragraph alignment is sacred. If alignment breaks, stop and fix alignment before continuing translation or audio.
 

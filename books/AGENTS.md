@@ -140,44 +140,46 @@ PY
 
 ## Modern English
 
-Modern English must be a real modern-English rendering, not a summary and not a mechanical cleanup.
+Modern English must be a real modern-English rendering, not a summary and not a mechanical cleanup. The authoritative drafting requirements and acceptance procedure live in [`TRANSLATION_PROTOCOL.md`](TRANSLATION_PROTOCOL.md) and its linked prompts in `prompts/`; this section is the short form.
 
 - Paragraph count must match the source exactly.
 - Preserve one output paragraph for every input paragraph. Do not merge, split, reorder, drop, or invent paragraphs.
 - Preserve proper nouns, allusions, quotations, historical content, and meaningful punctuation.
-- Do not soften period language or add editorial corrections.
+- Do not soften period language or add editorial corrections. Do not silently "correct" a source name, citation, or fact to its historically standard form — reproduce the source exactly, even where it looks wrong.
 - Preserve exclamation marks unless the sentence is genuinely restructured.
 - Preserve proper noun accents and diacritics.
 - Shakespeare and play texts keep speaker tags and stage-direction conventions, such as `MACBETH.` and `[Enter MACBETH]`.
-- Prefer contemporary clarity, but do not condense arguments, examples, dialogue, or descriptive detail.
-- Rewrite sentence by sentence for present-day clarity while preserving the source's claims, sequence, tone, and examples.
-- For already-readable public-domain translations such as Garnett, Ormsby, or older philosophical prose, still produce a fresh modern reading edition. A light spelling pass is not enough.
+- Rebuild difficult period syntax into ordinary contemporary vocabulary and clear sentence structure. One source sentence may become several, but avoid choppy, list-like prose. Do not condense arguments, examples, dialogue, or descriptive detail.
+- Already-clear, idiomatic wording may remain unchanged. There is no required rewrite percentage and no target similarity score — a passage reading close to the source is not itself a defect.
+- For already-readable public-domain translations such as Garnett, Ormsby, or older philosophical prose, still produce a fresh modern reading edition; a light spelling pass is not enough. But "fresh" means rebuilt syntax and vocabulary where the original is genuinely hard, not blanket rewriting of sentences that are already clear.
 - Do not create `modern-en` by bulk regex, dictionary lemma replacement, quote normalization, or spelling modernization alone. Those operations may be used only as preparation before a human-quality paragraph-by-paragraph rendering.
+- Verse and song: meaning outranks rhyme. Never add an idea, image, or detail to land a rhyme, and never invent lyric/verse content the source omits or elides. Modernize archaic diction in verse the same as in prose (e.g. "doth say" → "says") unless doing so breaks the meter badly enough that a different, equally faithful modern phrasing is needed. Preserve musicality where it doesn't cost fidelity.
+- Character names: use the book's documented, context-aware name convention. Never do a blind global find-and-replace on a name — the same string can mean different things in different places.
 - If Anders explicitly asks for a lightly cleaned original translation, keep it as an original/human-translation edition or ask what edition key to use; do not label it `modern-en`.
 
-Anti-truncation prompt requirements:
+Anti-truncation checks (things to watch for, not a required rewrite ratio):
 
 1. Translate the complete content of each paragraph. Do not summarize, condense, or omit arguments, examples, dialogue, or descriptive detail.
 2. Preserve every quotation, allusion, proper noun, place name, and specific detail. If uncertain, copy from the source rather than paraphrase.
 3. Paragraph N must start with content equivalent to the first sentence of source paragraph N. Do not merge content across paragraph boundaries.
-4. Output length per paragraph should usually be at least 75% of the source word count. If it falls below that, inspect for dropped content.
+4. A paragraph rendered well under the source's word count is a signal to go inspect it for dropped content, not proof of a defect on its own — a genuinely verbose or repetitive source paragraph can legitimately compress. Never treat a length threshold as a rewrite target to hit.
+
+## Acceptance Procedure
+
+Every `modern-en` chapter goes through the two-reviewer procedure in [`TRANSLATION_PROTOCOL.md`](TRANSLATION_PROTOCOL.md) before it counts as repaired/accepted: (A) a fresh accessibility reviewer blind to the source, (B) a separate fidelity reviewer working the source in small packets with neighboring context, (C) a whole-chapter re-read for cross-boundary issues, (D) fixes verified in the actual final file with the review artifact regenerated and pinned to that file's hash. The drafter's own self-check never substitutes for step B. A reviewer must state exactly what they read; a sampled review does not certify a whole batch.
 
 ## QA Gates
 
-**Similarity gate (mandatory, blocking).** No audio
-generation may start until `modern-en` passes the committed similarity gate:
+**Similarity/length metrics are inspection flags, not a blocking quality gate and not a mandatory rewrite target.** Run the classifier to find chapters worth a human look, not to pass/fail a chapter on the number alone:
 
 ```bash
-python3 books/classify-modern-en.py {book-id} --gate            # whole book
-python3 books/classify-modern-en.py {book-id} --gate --chapters 1-8   # per batch
+python3 books/classify-modern-en.py {book-id}                        # whole book, no --gate
+python3 books/classify-modern-en.py {book-id} --chapters 1-8         # per batch
 ```
 
-The gate fails on weighted similarity > 0.75, > 5% LIGHT/MECHANICAL chapters, or
-> 5% byte-identical long paragraphs. This is the instrument that caught the
-2026-05 mechanical-modernization failure (539 fake chapters); it exists so that
-failure class cannot recur silently. A prose claim that a rendering is "real"
-does not substitute for a passing gate. Run it per batch during rendering and on
-the whole book before handing off to audio.
+High similarity (or a short paragraph) means "go read this chapter and judge it against the acceptance procedure above" — it does not by itself mean the chapter is unmodernized, and it must never be used to demand a rewrite of prose that a human reviewer judges already clear and faithful. This is the same instrument that caught the 2026-05 mechanical-modernization failure (539 fake chapters that were never actually rewritten) — keep using it as a trip-wire for that failure class, not as the standard of quality itself. A prose claim that a rendering is "real" does not substitute for actually reading it under the acceptance procedure.
+
+Before a chapter is considered repaired, it must have passed the full acceptance procedure above (A-D), with the fidelity/accessibility reviews as the actual quality bar. The similarity score is one input a reviewer may cite when deciding what to inspect, never the pass condition on its own.
 
 Run focused QA after chapter batches and before considering an edition complete:
 
