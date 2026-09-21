@@ -1,0 +1,13 @@
+name: focused-retention-docs
+on:
+  push:
+    branches: ['codex/bella-focused-closeout-20260921']
+permissions:
+  contents: read
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/check-docs.py docs/bella-word-sync-repair-plan-2026-09-21.md docs/bella-word-sync-execution-2026-09-21.md docs/bella-edition-inventory-2026-09-21.md

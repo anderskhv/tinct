@@ -1,5 +1,30 @@
 # Bella word-sync repair plan
 
+## Focused retention pass — 2026-09-21, 15:27 UTC
+
+Anders authorized a narrow exception to the 12:58 pause: finish nine near-complete original-English editions, with a 90-minute wall-clock cap starting at 13:34:35 UTC (deadline 15:04:35 UTC). The broader backlog remains paused. This pass changed timing sidecars only; it did not change recordings, book text, reader/app code, catalogue availability, narrator, or deploy the app.
+
+Five chapter sidecars were published and their served bytes verified: Jekyll and Hyde 9, Candide 26, Federalist Papers 48 and 84, and Pride and Prejudice 2. Candide (30 chapters), Federalist Papers (85), and Pride and Prejudice (61) passed whole-edition structural/text and existing-reader data checks, plus isolated muted production playback at 390 and 1440 pixels. The browser checks covered word highlighting, seeking, pause/resume, 1.5× speed, and paragraph/chapter transitions. These three editions are accepted for retention. Acoustic checks are representative automated samples, not human listening or word-by-word certification.
+
+Jekyll's spoken HASTIE LANYON paragraph is repaired, with previous bytes backed up before conditional replacement. Its ten chapters passed timing/text and existing-reader checks. Its original edition still has `hasAudio: false`; normal audio handoff is rejected by the existing catalogue validation. It is timing-complete but not accepted as user-visible audio completion. No flag was changed.
+
+| Original-English edition | Focused result |
+| --- | --- |
+| Candide | Complete retention acceptance; chapter 26 published |
+| The Federalist Papers | Complete retention acceptance; chapters 48 and 84 published |
+| Pride and Prejudice | Complete retention acceptance; chapter 2 published |
+| Jekyll and Hyde | Chapter 9 published; timing-complete, existing catalogue audio unavailability remains |
+| Don Quixote | Chapter 52 remains unpublished: six spoken labels/headings still fail recognition |
+| The Awakening | Chapter 12 remains unpublished: independent acoustic check 28/30, maximum 1.11 seconds; paragraph 1 alternative did not improve agreement |
+| Beyond Good and Evil | Chapter 5 remains unpublished: independent acoustic check 27/30, maximum 1.20 seconds; alternatives did not improve agreement |
+| Nicomachean Ethics | Chapter 7 remains unpublished: final phrase recognition recovered a candidate, but the independent acoustic check hit its 8-minute cap before producing an acceptance result |
+| The Communist Manifesto | Chapter 4 remains unpublished: spoken section labels recovered, but independent base check remains 28/30, maximum 0.55 seconds; small check passes 30/30 |
+
+The unresolved editions remain candidates for whole-edition voice replacement under the separate strategy decision. No replacement was activated and no narrator was mixed within an edition. The Histories original-en chapter 1390 remains held for content: both ledger and quarantine say `hold: content` / `reason: content`. The originating September 17 entry explicitly retains that content hold after a helper update; no more specific editorial reason was present in the inspected records.
+
+See [execution evidence](bella-word-sync-execution-2026-09-21.md) and [updated edition inventory](bella-edition-inventory-2026-09-21.md). These results supersede the historical “staged, not published” statements below for the five named sidecars only.
+
+
 Status: active completion work. Anders explicitly authorized continuing through failures on 2026-09-21. Thirteen chapters have verified production repairs as of 12:16 UTC; broader coverage remains incomplete. Work is confined to audio assets, timing data and technical tooling. Reader/app code, book text, positions and availability policies remain unchanged. See [execution evidence](bella-word-sync-execution-2026-09-21.md).
 
 
