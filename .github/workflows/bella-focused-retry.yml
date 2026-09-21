@@ -1,7 +1,7 @@
 name: bella-focused-retry
 on:
   push:
-    branches: ['codex/bella-focused-retry-20260921']
+    branches: ['codex/bella-focused-nicomachean-resume-20260921']
     paths: ['tools/audio-highlight/bella_focused_retry.py', '.github/workflows/bella-focused-retry.yml']
 permissions:
   contents: write
@@ -12,9 +12,9 @@ jobs:
       fail-fast: false
       max-parallel: 9
       matrix:
-        target: [0,1,2,3,4,5,6,7,8]
+        target: [7]
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 19
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -45,7 +45,7 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install openai-whisper==20250625 faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0
       - name: Recover or repair only this authorized chapter
-        timeout-minutes: 45
+        timeout-minutes: 16
         run: python3 tools/audio-highlight/bella_focused_retry.py ${{ matrix.target }}
       - uses: actions/upload-artifact@v4
         if: always()
@@ -70,4 +70,4 @@ jobs:
           git add -f artifacts/bella-focused-acoustic-2026-09-21
           git diff --cached --quiet && exit 0
           git commit -m "Preserve narrow chapter repair evidence [skip ci]"
-          git push origin HEAD:codex/bella-focused-retry-20260921
+          git push origin HEAD:codex/bella-focused-nicomachean-resume-20260921

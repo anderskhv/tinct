@@ -27,14 +27,48 @@ def main():
  saved=json.loads((root/"cohort.json").read_text())[0] if (root/"cohort.json").exists() else None
  # Downloaded diagnostics are reusable only for identical current inputs.
  assert saved and [(p["index"],p["text"],p["sha256"]) for p in saved["paragraphs"]]==[(p["index"],p["text"],p["sha256"]) for p in e["paragraphs"]]
- candidate=json.loads((root/"initial-candidate.json").read_text())
- failed=json.loads((root/"failed-paragraphs.json").read_text())
+ candidate=None
+ failed=[]
  config=json.loads((root/"configuration.json").read_text())
  revision=config["smallModelPath"].rstrip("/").split("/")[-1]
  smallpath=snapshot_download("Systran/faster-whisper-small.en",revision=revision,local_dir="/tmp/small-model")
  config["smallTreeSha256"]=trial.tree_hash(Path(smallpath));config["smallRevision"]=revision
  assert config["smallTreeSha256"]!="4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
  write("configuration-verified.json",config)
+ # Repair only the demonstrated enclosing-bracket restoration mismatch.
+ original_restore=trial.restore_source_tokens
+ def restore_brackets(aligned,source,acoustic):
+  try:return original_restore(aligned,source,acoustic)
+  except ValueError:
+   clean=[token.replace("[","").replace("]","") for token in source]
+   if clean==list(source) or any(not token for token in clean):raise
+   restored=original_restore(aligned,clean,acoustic)
+   assert len(restored)==len(source)
+   return [dict(word,text=token) for word,token in zip(restored,source)]
+ trial.restore_source_tokens=restore_brackets
+ test=[dict(text="which",start=.1,end=.3),dict(text="is",start=.3,end=.5)]
+ assert restore_brackets(test,["[which","is]"],["which","is"])==[dict(test[0],text="[which"),dict(test[1],text="is]")]
+ try:restore_brackets(test,["[wrong","is]"],["which","is"])
+ except ValueError:pass
+ else:raise AssertionError("Bracket restoration must reject changed words")
+ write("bracket-restoration-test.json",dict(exactSourcePreserved=True,timingsUnchanged=True,changedWordRejected=True))
+ small=None;passed=[];reused=[]
+ for p in e["paragraphs"]:
+  diagnostic=root/f"p{p['index']}.diagnostic.json"
+  cached=json.loads(diagnostic.read_text()) if diagnostic.exists() else {}
+  if cached.get("complete"):
+   assert cached["audio_sha256"]==p["sha256"]
+   r=next(x for x in cached["attempts"] if x["mode"]==cached["selected_mode"])
+   assert r["expected_tokens"]==trial.lib.chapter_words_from_text(p["text"].replace("\n"," "))
+   reused.append(p["index"])
+  else:
+   if small is None:small=WhisperModel(smallpath,device="cpu",compute_type="int8",cpu_threads=4)
+   r=trial.paragraph(small,work/p["path"],p["text"],"auto",root/f"p{p['index']}.resumed.json",configuration=config)
+  passed.append((p["index"],p["file"],r["candidate_words"]))
+  if r["rejection_reasons"] or not any(w["end"]>w["start"] for w in r["candidate_words"]):failed.append(p["index"])
+ del small
+ candidate=trial.lib.build_sidecar(book,"original-en",ch,e["title"],passed)
+ write("initial-candidate.json",candidate);write("failed-paragraphs.json",failed);write("reused-paragraphs.json",reused)
  if failed:
   mediumPath=snapshot_download("Systran/faster-whisper-medium.en",revision="a29b04bd15381511a9af671baec01072039215e3",local_dir="/tmp/medium-model")
   modelHash=trial.tree_hash(Path(mediumPath))
