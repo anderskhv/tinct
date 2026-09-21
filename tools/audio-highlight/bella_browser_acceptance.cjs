@@ -6,7 +6,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  const browser=await chromium.launch({headless:true,args:['--mute-audio']});
  const results=[];
  try{
- for(const width of [390])for(const target of [{book:'king-lear',chapter:3}]){
+ for(const width of [390,1440])for(const target of [{book:'king-lear',chapter:3},{book:'imitation-of-christ',chapter:76},{book:'winters-tale',chapter:6}]){
   const context=await browser.newContext({viewport:{width,height:width===390?844:900},permissions:[]});
   const page=await context.newPage();const row={...target,width,http:[],requestFailures:[]};
   page.on('response',r=>{if(r.url().includes('/api/audio'))row.http.push({url:r.url(),status:r.status(),type:r.headers()['content-type']})});
