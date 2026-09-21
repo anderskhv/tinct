@@ -3,17 +3,20 @@ import sys,json,hashlib
 from pathlib import Path
 import torch,whisper
 import cloud_probe
+from faster_whisper.audio import decode_audio
 cohort_dir,out=map(Path,sys.argv[1:]);cohort=json.loads((cohort_dir/"cohort.json").read_text())
 torch.set_num_threads(4);model=whisper.load_model("base",device="cuda")
 model_hash=hashlib.sha256((Path.home()/".cache/whisper/base.pt").read_bytes()).hexdigest()
+class DecodedModel:
+ def transcribe(self,path,**kwargs):return model.transcribe(decode_audio(str(path),sampling_rate=16000),**kwargs)
+decoded=DecodedModel()
 results=[];accepted=[]
 for e in cohort:
  p=out/e["key"]/"auto"/"words.candidate.json"
  if not p.exists():continue
- state=json.loads((p.parent/"chapter.json").read_text())
- if state["status"]!="candidate_requires_acoustic_review":continue
+ if json.loads((p.parent/"chapter.json").read_text())["status"]!="candidate_requires_acoustic_review":continue
  try:
-  r=cloud_probe.probe_chapter(model,e,json.loads(p.read_text()),cohort_dir,False)
+  r=cloud_probe.probe_chapter(decoded,e,json.loads(p.read_text()),cohort_dir,False)
   r["model"]="OpenAI Whisper base CUDA fp32, unprompted"
   r["model_sha256"]=model_hash;r["candidate_sha256"]=hashlib.sha256(p.read_bytes()).hexdigest()
   r=json.loads(json.dumps(r,default=lambda x:x.item() if hasattr(x,"item") else x.tolist()))

@@ -2,7 +2,7 @@ name: bella-remap-wave02
 on:
   push:
     branches: ['codex/bella-remap-wave02-20260921']
-    paths: ['tools/audio-highlight/bella_batch_prepare.py', '.github/workflows/bella-remap-wave02.yml']
+    paths: ['tools/audio-highlight/aligner/trial.py', 'tools/audio-highlight/aligner/bella_gpu_review.py', 'tools/audio-highlight/bella_batch_prepare.py', '.github/workflows/bella-remap-wave02.yml']
 permissions:
   contents: write
   actions: read
