@@ -7637,11 +7637,11 @@
 }
 
 /* Floating companions must override the former docked-leaf dimensions. Keep
-   them above the reader header but below its menus and settings layer. */
+   them below navigation menus; the shared bounds reserve the header area. */
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
   width:calc(50vw - 88px); height:calc(100dvh - 164px);
-  padding:12px 18px 18px; z-index:335;
+  padding:12px 18px 18px; z-index:310;
 }
 .lab.is-desktop[data-chrome-version="v2"] .lab-desktop-companion-head {
   display:flex; align-items:center; gap:6px; min-height:36px; margin:0 0 10px;

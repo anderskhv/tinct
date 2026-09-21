@@ -11,7 +11,7 @@ export function useReaderWindow<T extends HTMLElement>(
   const [node, setNode] = useState<T | null>(null)
   const ref = useCallback((element: T | null) => setNode(element), [])
   useLayoutEffect(() => {
-    if (!node || !enabled || !node.closest('.lab.is-desktop')) return
+    if (!node || !enabled || !node.closest('.lab.is-desktop:not(.has-phone-chrome)')) return
     const storageKey = 'tinct-window:' + key
     let saved: Placement | null = null
     try {
@@ -20,26 +20,27 @@ export function useReaderWindow<T extends HTMLElement>(
     } catch { /* unavailable storage */ }
     node.dataset.readerWindow = 'true'
     const set = (property: string, value: string) => node.style.setProperty(property, value, 'important')
+    const topInset = () => Math.max(8, (node.closest('.lab')?.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0) + 8)
     const place = (x: number, y: number) => {
       const box = node.getBoundingClientRect()
       const point = clampToViewport({ x, y }, box, { width: innerWidth, height: innerHeight })
-      set('left', point.x + 'px'); set('top', point.y + 'px')
+      set('left', point.x + 'px'); set('top', Math.max(topInset(), point.y) + 'px')
       set('right', 'auto'); set('bottom', 'auto'); set('transform', 'none')
     }
     const size = (width: number, height: number) => {
       // Explain / Define may grow only as wide as one reader leaf.
       const limit = key === 'explain' || key === 'define' ? innerWidth / 2 - 36 : innerWidth - 32
       set('width', Math.max(260, Math.min(width, limit)) + 'px')
-      set('height', Math.max(160, Math.min(height, innerHeight - 32)) + 'px')
+      set('height', Math.max(160, Math.min(height, innerHeight - topInset() - 8)) + 'px')
     }
     if (collapsed) { set('width', '240px'); set('height', '52px') }
     else if (saved && Number.isFinite(saved.width) && Number.isFinite(saved.height)) size(saved.width!, saved.height!)
     if (saved) place(saved.x, saved.y)
     const clamp = () => {
       const box = node.getBoundingClientRect()
-      if (!collapsed && (box.width > innerWidth - 16 || box.height > innerHeight - 16)) size(box.width, box.height)
+      if (!collapsed && (box.width > innerWidth - 16 || box.height > innerHeight - topInset() - 8)) size(box.width, box.height)
       const current = node.getBoundingClientRect()
-      if (saved || current.left < 8 || current.top < 8 || current.right > innerWidth - 8 || current.bottom > innerHeight - 8) place(current.left, current.top)
+      if (saved || current.left < 8 || current.top < topInset() || current.right > innerWidth - 8 || current.bottom > innerHeight - 8) place(current.left, current.top)
     }
     const remember = () => {
       const box = node.getBoundingClientRect()

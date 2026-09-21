@@ -149,9 +149,14 @@ async function run(engine,name,phone) {
       await drag(page,resize,60,-50)
       await page.getByRole('button',{name:'Minimize chat'}).click()
       assert((await chat.boundingBox()).height<80)
+      await drag(page,chat.locator('[data-reader-window-handle]'),0,-1000)
+      assert((await chat.boundingBox()).y >= (await page.locator('.lab-header').boundingBox()).height,'window controls stay below the header')
       await page.getByRole('button',{name:'Restore chat'}).click()
       assert((await chat.boundingBox()).height>200)
       await page.screenshot({path:output+'/'+name+'-desktop-chat.png'})
+      // Menus must remain clickable while a floating companion is open.
+      await clickMenu(page,'settings')
+      await page.getByTestId('lab-v2-sheet-close').click()
       await page.getByTestId('lab-desktop-companion-close').click()
     }
     await clickMenu(page,'settings')
