@@ -30,9 +30,8 @@ Canonical new-book flow:
 2. Claude parses the original text. For non-English works, keep the original-language text when available.
 3. Claude adds a public-domain human English translation for non-English originals.
 4. Claude creates `modern-en`.
-5. Claude creates `modern-da` from `modern-en`.
-6. Audio is generated after text QA: Kokoro/RunPod for English editions, Chirp for Danish.
-7. Codex publishes the book only after all required content, audio, onboarding, taxonomy, and registry data are present.
+5. Audio is generated after text QA: Kokoro/RunPod for English editions.
+6. Codex publishes the book only after all required content, audio, onboarding, taxonomy, and registry data are present.
 
 Generated files such as `app/public/sitemap.xml` and `app/src/data/bookMetaGenerated.ts` should be committed only with content/library changes that require them.
 
