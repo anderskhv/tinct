@@ -2,9 +2,23 @@
 
 Book id: `merchant-of-venice`. Green-library second batch, pool item #12.
 Procedure: `books/TRANSLATION_PROTOCOL.md` steps A–D.
-Rounds: 2 of 3.
+Rounds: 3 of 3, plus one independent verification round (round 4).
 
-> **STATUS: NOT ACCEPTED — PARKED after round 2.**
+> **STATUS (2026-09-21, after round 4): NOT ACCEPTED — HARD PARKED.**
+> Round 4 (independent adversarial verification, Claude Opus
+> `claude-opus-5`) re-derived structure, all 24 of round 3's fixes, the
+> 26/26 Exeunt restoration, a fresh compression sweep over all 779
+> paragraphs and word-for-word reads of the previously uncovered scenes.
+> Round 3's fixes all hold and its reported candidate hash is accurate —
+> but round 4 found **five further live instances of the same defect
+> class** (ch1 idx8, ch10 idx4, ch9 idx5 ×2, ch13 idx16, ch18 idx25). The
+> 3-round budget is spent, so the book is hard parked. **No acceptance
+> hash and no `accepted-paragraph-hashes.tsv` exist for this book.** This
+> record is NOT finalized; see `PARKED.md` for the round-4 findings and
+> disposition. Model note: rounds 1/3 = Claude Sonnet 5, rounds 2/4 =
+> Claude Opus `claude-opus-5`.
+>
+> *(Round-2 banner, retained:)* **NOT ACCEPTED — PARKED after round 2.**
 > Round-2 independent verification (Claude Opus `claude-opus-5`) found **18
 > blocking defects in one recurring class** that round 1's "no other
 > fidelity defects found across a full, non-sampled read" missed, and found
@@ -260,7 +274,7 @@ and every location was read before and after the edit).
 - **D3 inexecrable** (ch18 idx34) — `inexorable dog` → `inexecrable dog`.
 - **D4** — noted, not a fix: round 1's false "inexecrable" verification
   claim in `fidelity-review-1.md` is left in that file as historical
-  record (it is superseded by this record and `PARKED-RESOLVED.md`, not
+  record (it is superseded by this record and `PARKED.md`, not
   edited in place).
 - **E Exeunt** (26 paragraphs) — systematic search of `source.json` for
   every occurrence of "Exeunt" (26 found, matching round 2's count exactly)
@@ -279,7 +293,7 @@ and every location was read before and after the edit).
 A location-keyed capitalized-token diff (source vs. candidate, whole book)
 plus targeted reads of every non-trivial mismatch turned up six further
 instances of the identical "erasure of source's own printed form" class,
-all judged genuine and fixed in this round (see `PARKED-RESOLVED.md` for
+all judged genuine and fixed in this round (see `PARKED.md` for
 the reasoning on each, and on the items judged *not* defects):
 
 - **ch3 idx15 — habitation.** `to eat from that creature` → `to eat from
@@ -371,7 +385,7 @@ registry, app, deploy, or audio changes; no paid API calls.
 from `PARKED.md` confirmed and fixed; a fresh sweep for the same defect
 class found and fixed 6 further instances; the 9 lower-confidence judgment
 items were resolved (3 fixed, 6 kept as legitimate modernization, with
-reasoning recorded above and in `PARKED-RESOLVED.md`). This is round 3 of
+reasoning recorded above and in `PARKED.md`). This is round 3 of
 3 — the round budget for this book is now used. If an independent verifier
 finds further blocking defects, the book is hard-parked per the programme's
 3-round limit, not sent for a 4th correction round.

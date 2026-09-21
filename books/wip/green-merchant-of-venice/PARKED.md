@@ -1,5 +1,14 @@
-# PARKED-RESOLVED — The Merchant of Venice (`merchant-of-venice`, modern-en)
+# PARKED — The Merchant of Venice (`merchant-of-venice`, modern-en)
 
+> **CURRENT STATUS (2026-09-21, after round 4): HARD PARKED — NOT ACCEPTED.**
+> Read the "Round 4" section at the end of this file first; it supersedes
+> the round-3 "READY FOR INDEPENDENT VERIFICATION" verdict below, which did
+> not hold. Round 4 (independent, Claude Opus `claude-opus-5`) confirmed
+> every one of round 3's 24 fixes as real and correctly placed, but found
+> five further live instances of the same defect class. The 3-round budget
+> is spent, so the book is hard parked rather than sent to a 4th correction
+> round. No acceptance hash exists for this book.
+>
 > **2026-09-21 round-3 update:** Round 3 (Claude Sonnet 5) fixed all 18
 > defects listed below, plus 6 further instances of the same defect class
 > found by a fresh sweep, plus resolved the 9 lower-confidence judgment
@@ -307,5 +316,140 @@ changes; no paid API calls.
 **Rounds used: 3 of 3.** This is the final correction round for this book
 under the programme's 3-round limit. **Verdict: READY FOR INDEPENDENT
 VERIFICATION.**
+
+**Date:** 2026-09-21
+
+---
+
+## Round 4 — independent adversarial verification (Claude Opus `claude-opus-5`)
+
+**Verdict: HARD PARKED. Not accepted. No acceptance hash computed.**
+The 3 nominal correction rounds are used. Round 4 was verification only; it
+made **no edits to `candidate.json`** and did not run a 4th correction round.
+
+**File renamed back to `PARKED.md`** — the round-3 rename to
+`PARKED-RESOLVED.md` was premature under the programme's own naming
+convention, because the park is not resolved.
+
+### What round 4 independently confirmed as correct
+
+Everything below was re-derived from `source.json` / `candidate.json` alone,
+by searching source for the distinctive string rather than trusting any prior
+round's cited coordinates.
+
+- **Hashes.** `source.json` sha256
+  `4897042eb44535622771253d9f1155d184c56b1b7450e17a3b2fcfa98ecbad20`;
+  `candidate.json` sha256
+  `9484e8948a2f6cc393ff3ede5a505f46013cf92ee7a0fe899b988cc1141b2d6d`
+  — round 3's self-reported hash is accurate; the file reviewed here is the
+  file round 3 pinned.
+- **Structure, fresh.** 20 chapters, 779 paragraphs, per-chapter counts
+  37/33/53/9/73/7/25/20/31/13/13/25/46/58/12/18/32/152/14/108, chapter
+  numbers and titles identical between files, no empty/whitespace-only
+  paragraphs either side, no extra top-level keys.
+- **All 18 round-2 blockers are genuinely fixed, at their real locations.**
+  `Arragon` ×7 (ch12), `Abram` ×2 (ch3 idx28, idx44), `Sibylla` (ch2 idx23),
+  `Tripolis` ×3 (ch3 idx11, ch13 idx33, ch14 idx46), `Frankfort`
+  (ch13 idx30), `Colchos' strond` (ch1 idx34), `gossip Report` (ch13 idx2),
+  `Dardanian wives` (ch14 idx9), `"Fia!"` and `devil incarnation`
+  (ch5 idx1), `impertinent` (ch5 idx46, with `frutify` still quoted at
+  ch5 idx44 and `defect` at ch5 idx49), `Nor will I` (ch4 idx5),
+  `on Ash Wednesday` (ch8 idx10), `inexecrable` (ch18 idx34).
+- **The Alcides/Hercules alternation is matched exactly, not blanket-reverted.**
+  ch4 idx3 reads `If Hercules and Lichas … So Alcides can be beaten by his
+  rage` — the imported `his servant` / `his attendant` emendation and gloss
+  are both gone. ch14 idx9 reads `young Alcides … Go, Hercules!`, preserving
+  source's own variation within one speech.
+- **Exeunt/Exit, recounted from source.** 26 `Exeunt` in source, 26 in
+  candidate, at the same 26 paragraph coordinates, including all 8
+  plural-subject directions. 20 `Exit` in source, 20 in candidate, same
+  coordinates. No crossover in either direction.
+- **Round 3's own 6 fresh finds verified.** `habitation` (ch3 idx15),
+  `a gentle, and no Jew` (ch9 idx20), `sand-blind, high-gravel blind`
+  (ch5 idx6) and `sand-blind` (ch5 idx23), `the Sisters Three` (ch5 idx16),
+  `respective` → `mindful` (ch20 idx64).
+- **Compression/content loss: clean.** Own word-ratio sweep over all 779
+  paragraphs from scratch: range 0.50×–1.50×, nothing above 1.6×. All 18
+  paragraphs below 0.90× with ≥25 source words were read in full, as were
+  all 12 paragraphs below 0.80×. No dropped clause or invented content.
+- **Word-for-word reads.** Act 1 Sc 1 (ch1, all 37), Act 1 Sc 3 (ch3, all
+  53), Act 2 Sc 7 (ch10), Act 2 Sc 9 (ch12), Act 3 Sc 2 (ch14), the
+  "quality of mercy" speech (ch18 idx57, intact clause for clause), plus
+  full parallel reads of ch2, ch4–ch9, ch11, ch13, ch15–ch20. Antisemitic
+  and racial content re-spot-checked and still unsoftened (ch13 idx21,
+  ch3 idx36, ch17 idx12, ch18 idx20/88/126, ch11 idx4, ch13 idx30).
+
+### Why the book is HARD PARKED: the defect class is still not exhausted
+
+Round 4's own location-keyed sweep — a fresh capitalized-token and
+rare-word cross-reference built from `source.json`, not reusing any prior
+round's word list — plus the word-for-word scene reads surfaced **further
+live instances of the identical class** ("erasure of source's own printed
+forms"), in scenes prior rounds had not covered exhaustively. These are
+*not* fixed here; fixing them would be a 4th correction round.
+
+| # | Location | Source prints | Candidate has | Why it is the same class |
+|---|---|---|---|---|
+| R4-1 | ch1 idx8 | `by two-headed Janus` | `by two-faced Janus` | Source's printed word silently replaced by a different word. `two-headed` is plain modern English and needed no change; `two-faced` carries a modern connotation (duplicitous) that the line — about two contrasting temperaments — does not mean. `two-headed` appears nowhere in the candidate. |
+| R4-2 | ch10 idx4 | `A coin that bears the figure of an angel / Stamped in gold; but that's insculp'd upon` | `a coin called an angel stamped in gold—but that's only engraved on the surface` | The clause `bears the figure of` is dropped and replaced by an imported external fact (the coin's name). This is the `his servant Lichas` rule verbatim: a gloss may only define a term already explicit in source's own words. It also changes what the line asserts (figure-of → named-), which is the hinge of the figure-outside / angel-within contrast. |
+| R4-3 | ch9 idx5 (×2, same paragraph) | `the strumpet wind` … `by the strumpet wind` | `the wanton wind` … `that same wanton wind` | `strumpet` is plain modern English and is the harsher word; replacing it twice with `wanton` is register-softening of source's own printed word — the thing this programme exists to prevent. |
+| R4-4 | ch13 idx16 | `Out upon it, old carrion! Rebels it at these years?` | `Out on it, old carrion! Are you still in heat at your age?` | Source's question (and its deliberate echo of Shylock's `rebel` in the previous line) is replaced with an explicit bawdy paraphrase source does not print. Meaning alteration plus loss of the verbal echo. |
+| R4-5 | ch18 idx25 | `a tainted wether of the flock` | `a diseased ram of the flock` | A wether is a castrated ram; `ram` is a different animal category, and Antonio's self-description depends on the word. Substitution, not modernization. |
+
+Two further items were **considered and judged acceptable**, recorded so the
+next owner sees where round 4 drew the line and does not re-litigate them:
+
+- ch10 idx8 `All that glisters is not gold` → `All that glitters is not
+  gold`. `glister` is the archaic form of the same word; this sits inside
+  round 2's accepted bucket (`spet`→`spit`, `gaberdine`→`gabardine`,
+  `Uncapable`→`incapable`, `Æson`→`Aeson`). **Accepted.**
+- ch10 idx4 `The Hyrcanian deserts` → `The deserts of Hyrcania`. The proper
+  noun survives; this is a grammatical recast, not a swap of one name for
+  another. **Accepted.**
+- ch10 idx7 `A carrion Death` → `A skull`, and ch2 idx11 `a death's-head` →
+  `a skull`. A descriptive period idiom, glossed consistently in both
+  places, in line with `hovel-post`→`tent-pole`, `fill-horse`→`cart-horse`,
+  `penthouse`→`overhang` elsewhere. **Accepted.**
+
+### Why this is not a narrow single-instance fix
+
+The programme's rule is that a single missed instance of an
+already-bounded class may be fixed in place by the verifier. That does not
+apply here:
+
+1. There are **five** live instances, in four different chapters, not one.
+2. They were found on round 4's **first** independent pass, by the same
+   method round 3 used for its own fresh finds — which means the method
+   round 3 relied on to declare the class exhausted did not, in fact,
+   exhaust it.
+3. R4-2 and R4-3 are new *sub-shapes* of the class (imported external fact
+   replacing a dropped clause; twofold register-softening of a charged
+   word) rather than repeats of a shape already enumerated.
+4. Three of the five sit in exactly the regions prior rounds had not read
+   word-for-word — Act 1 Sc 1, Act 2 Sc 7, Act 2 Sc 6 — which means the
+   remaining exposure is bounded by coverage, not by the class being
+   understood.
+
+Round 3's report is not dishonest — its 24 fixes are all real and all
+correctly placed — but its coverage claim ("every one accounted for",
+class exhausted) cannot be used as a bound, for the same reason round 1's
+could not.
+
+### Disposition
+
+- `candidate.json` is **unchanged** by round 4 and remains at sha256
+  `9484e8948a2f6cc393ff3ede5a505f46013cf92ee7a0fe899b988cc1141b2d6d`.
+- **No `accepted-paragraph-hashes.tsv` was written.** `ACCEPTANCE-RECORD.md`
+  was **not** finalized; it still records rounds 1–3 only.
+- **Rounds used: 3 of 3, plus one verification round. HARD PARKED.** This
+  book does not re-enter the correction loop on the current budget. Any
+  future attempt should be authorized explicitly as a re-baseline (fresh
+  modern-en pass with the full class list above as a pre-brief), not as a
+  4th patch round.
+- Model note: rounds 1 and 3 = Claude Sonnet 5; rounds 2 and 4 =
+  Claude Opus `claude-opus-5`.
+
+Scope: nothing outside `books/wip/green-merchant-of-venice/` was touched.
+No registry/app/deploy/audio changes. No paid API calls.
 
 **Date:** 2026-09-21

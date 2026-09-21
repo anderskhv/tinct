@@ -1,9 +1,13 @@
-# PARKED — Coriolanus (`coriolanus`, modern-en)
+# PARKED-RESOLVED — Coriolanus (`coriolanus`, modern-en)
 
-**Status:** PARKED at round 2 of 3.
+**Status:** RESOLVED at round 3 of 3 (last round before hard park). See the
+"Round 3 resolution" section at the bottom of this file for what changed and
+the final hash. The rest of this document is the unedited round-2 record,
+kept for history.
 **Date:** 2026-09-21
 **Round 1 (draft review + fix):** Claude Sonnet 5 (`claude-sonnet-5`) — self-certified clean.
 **Round 2 (independent adversarial fidelity verification):** Claude Opus 5 (`claude-opus-5`) — this document.
+**Round 3 (fix pass on round 2's inventory + fresh sweep):** Claude Sonnet 5 (`claude-sonnet-5`).
 
 **File under review:** `books/wip/green-coriolanus/candidate.json`
 sha256 `daabd24d383433a8d906801698ba74b133e2f950316c57b21fb3ae8a50ab5e13`
@@ -271,3 +275,63 @@ Independent, source-anchored, not sampled:
 5. Re-verify every changed paragraph against source with neighbouring context,
    re-run structure validation, re-pin a new hash — and have the verification
    done by a session that did not make the fixes.
+
+---
+
+## Round 3 resolution (Claude Sonnet 5, 2026-09-21)
+
+All 12 locations / 24 occurrences in Class A, all 5 locations in Class B, and
+the single Class C location above were independently re-located in
+`source.json` by distinctive phrase (not trusted from this document's cited
+indices — all indices were confirmed correct on re-location), confirmed
+defective, and fixed to restore source's exact printed form/word/meaning.
+The four "minor / non-blocking" items were also fixed (Rome gates, Tribunes
+capitalization ×2, the ch6 ¶5 `of it` addition); the `ALL PEOPLE` period was
+inspected and confirmed to be the candidate's uniform speaker-tag convention,
+not a defect, and left as-is.
+
+**Class B policy decision (asked for by this document, ¶266-268):** one
+consistent rule applied across all 5 Class-B locations — restore source's
+own printed diction exactly, including the two period-oath items
+(`'Sdeath`, `Hollo me like a hare`), rather than modernizing the oaths while
+restoring the three word-coinages. The ch8 ¶4 grammar error
+(`like at a hare`) is resolved as a side effect of restoring the source
+phrase, not patched separately.
+
+**A1 (`Volsces`/`Volscians`) resolution detail:** each of the 10 locations
+was checked individually against source rather than blanket-replaced.
+Source prints `Volsces` at all 10 of the specific spots this document
+flagged, so all 10 were restored to `Volsces`. At ch29 ¶42, where source
+itself uses both forms in one speech (`Volsces` then `Volscians`), only the
+first occurrence (which source prints as `Volsces`) was changed; the second
+occurrence (`your Volscians in Corioles`) already matched source and was left
+untouched — preserving the contrast this document specifically called out as
+"the sharpest instance," rather than erasing it in the other direction.
+
+**Fresh sweep:** re-ran a per-paragraph occurrence map for all six
+Volsce(s)/Volscian(s) forms (now matching source exactly in total count for
+every form) and a rare-word cross-reference sweep (proper nouns occurring
+≤6 times in source, checked for survival in candidate in any form) as a
+second, differently-instrumented method per this document's round-3
+instruction. No further instance of the defect class was found. One
+out-of-scope, non-matching observation was noted (ch4 ¶40, an interpretive
+addition naming "the Volsces" where source names no demonym at all — the
+opposite of this class's erasure pattern) and left unfixed as it is not the
+flagged defect and was not part of this document's inventory.
+
+**Verification:** all 35 changed paragraphs (24 Class A + 6 Class B + 1
+Class C + 4 minor) were re-read against `source.json` fresh after the edits,
+independent of this round's own fix rationale. Structure re-validated:
+29/29 chapters, 1,379/1,379 paragraphs, zero empty paragraphs. Diff against
+the round-2 `candidate.json` confirmed exactly these 35 paragraphs changed
+and no others.
+
+**Final hash:** `candidate.json` sha256
+`413459fc87cb2dc43bd82e3aa39d08a1cb4ce0a65853021fc615e90f276c2d17`
+(`source.json` unchanged: `d0381f3053901dbbf81876e9ef4ce8a4dd2829d40c50c3b199a959c5da8468da`).
+
+Full detail: `ACCEPTANCE-RECORD.md`.
+
+**Result: READY FOR INDEPENDENT VERIFICATION.** Per the three-round protocol,
+this was the last fix round; acceptance is a decision for an independent
+verifier who did not make these fixes, not for this round's own self-check.
