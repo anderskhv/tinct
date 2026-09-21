@@ -1,0 +1,44 @@
+name: bella-focused-acceptance
+on:
+  push:
+    branches: ['codex/bella-focused-acceptance-20260921']
+    paths: ['tools/audio-highlight/bella_focused_acceptance.py', '.github/workflows/bella-focused-acceptance.yml']
+permissions:
+  contents: write
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - run: pip install av==18.1.0
+      - run: python3 tools/audio-highlight/bella_focused_acceptance.py
+      - name: Reconcile provider billing without creating jobs
+        if: always()
+        env:
+          RUNPOD_API_KEY: ${{ secrets.RUNPOD_API_KEY }}
+        run: python3 tools/audio-highlight/bella_focused_billing.py
+      - name: Test current unchanged reader functions
+        run: |
+          cp tools/audio-highlight/bellaReaderData.test.ts app/src/lab/bellaReaderData.test.ts
+          cd app
+          npm ci
+          npm test -- --run src/lab/bellaReaderData.test.ts > ../artifacts/bella-focused-acceptance-2026-09-21/reader-tests.txt 2>&1
+      - name: Documentation checks
+        if: always()
+        run: python3 scripts/check-docs.py > artifacts/bella-focused-acceptance-2026-09-21/docs-check.txt 2>&1
+      - name: Preserve evidence only
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-focused-acceptance-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Record full Jekyll edition data acceptance and current billing [skip ci]"
+          git push origin HEAD:codex/bella-focused-acceptance-20260921
