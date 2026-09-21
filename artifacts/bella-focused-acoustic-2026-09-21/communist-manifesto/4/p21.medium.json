@@ -1,0 +1,183 @@
+{
+  "complete": true,
+  "signature": "6072a406804e8a4c7efda418c89298bc01ed1826fba464258e256450f5d81773",
+  "attempts": [
+    {
+      "asr_seconds": 2.2536099919999515,
+      "alignment_seconds": 9.729700002480968e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " See German or true socialism",
+          "start": 0.08,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " See",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.5718839168548584
+            },
+            {
+              "text": " German",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.9384811520576477
+            },
+            {
+              "text": " or",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.9840795397758484
+            },
+            {
+              "text": " true",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.6162775754928589
+            },
+            {
+              "text": " socialism",
+              "start": 1.48,
+              "end": 2.2,
+              "probability": 0.642886221408844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "See",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "German",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "or",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "true",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "socialism",
+          "start": 1.48,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "_C.",
+        "German,",
+        "or",
+        "“True,”",
+        "Socialism_"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "See",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "see",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "German",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "german",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "or",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "socialism",
+          "start": 1.48,
+          "end": 2.2,
+          "key": "socialism",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_C.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "German,",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "or",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "“True,”",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Socialism_",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.253718334999917
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "856ef80d3cfd0325ccc017984c71a90579dea3f39184e4043d9791c31efc85b0",
+  "selected_reasons": []
+}

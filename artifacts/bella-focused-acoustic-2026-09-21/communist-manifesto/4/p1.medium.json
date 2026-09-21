@@ -1,0 +1,111 @@
+{
+  "complete": true,
+  "signature": "2070fb0dbc9b3746d604db029068f368862c61eafb28fa2f5697615b9e2fa0c0",
+  "attempts": [
+    {
+      "asr_seconds": 2.1739758070000335,
+      "alignment_seconds": 8.702100001301005e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Afeudal socialism",
+          "start": 0.08,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Afeudal",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.4951023906469345
+            },
+            {
+              "text": " socialism",
+              "start": 1.04,
+              "end": 1.46,
+              "probability": 0.512971043586731
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Afeudal",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "socialism",
+          "start": 1.04,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "_A.",
+        "Feudal",
+        "Socialism_"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Afeudal",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "afeudal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "socialism",
+          "start": 1.04,
+          "end": 1.46,
+          "key": "socialism",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_A.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Feudal",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Socialism_",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.17407206200005
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "900c668b1414d0ddbe81f4723082dae175ebf884846918ac87a16dc3b463eda9",
+  "selected_reasons": []
+}

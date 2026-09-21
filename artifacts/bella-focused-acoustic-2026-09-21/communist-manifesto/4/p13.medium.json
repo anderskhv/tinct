@@ -1,0 +1,151 @@
+{
+  "complete": true,
+  "signature": "b3e79ca915bc433a21788ef63085f1654f71191bda6e6332c54505fb410c2b85",
+  "attempts": [
+    {
+      "asr_seconds": 2.2345451279999224,
+      "alignment_seconds": 8.108200006518018e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Be petty bourgeois socialism",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Be",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.730173647403717
+            },
+            {
+              "text": " petty",
+              "start": 0.62,
+              "end": 0.98,
+              "probability": 0.788609504699707
+            },
+            {
+              "text": " bourgeois",
+              "start": 0.98,
+              "end": 1.28,
+              "probability": 0.7376878261566162
+            },
+            {
+              "text": " socialism",
+              "start": 1.28,
+              "end": 1.86,
+              "probability": 0.9525372385978699
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "petty",
+          "start": 0.62,
+          "end": 0.98
+        },
+        {
+          "raw": "bourgeois",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "raw": "socialism",
+          "start": 1.28,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "_B.",
+        "Petty-Bourgeois",
+        "Socialism_"
+      ],
+      "acoustic_expected_tokens": [],
+      "opcodes": [],
+      "provenance": [],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "be",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "petty",
+          "start": 0.62,
+          "end": 0.98,
+          "key": "petty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bourgeois",
+          "start": 0.98,
+          "end": 1.28,
+          "key": "bourgeois",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "socialism",
+          "start": 1.28,
+          "end": 1.86,
+          "key": "socialism",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_B.",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Petty-Bourgeois",
+          "start": 0.0,
+          "end": 0.0
+        },
+        {
+          "text": "Socialism_",
+          "start": 0.0,
+          "end": 0.0
+        }
+      ],
+      "stats": {
+        "expected_words": 0,
+        "heard_words": 4,
+        "matched_words": 0
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.2346371259999387
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb73cd60179df5f1af75d5b993fb81c509309f7eb5087f602b729c517f8565ec",
+  "selected_reasons": []
+}

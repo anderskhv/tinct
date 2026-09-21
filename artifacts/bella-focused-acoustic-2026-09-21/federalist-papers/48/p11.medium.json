@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "dac061b2be7ae0f7e1bb83cf07960bb9184ab07637a9085dce7f4d1d3a06e419",
+  "attempts": [
+    {
+      "asr_seconds": 6.686569927999983,
+      "alignment_seconds": 0.0005019000000174856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Executive powers had been usurped.",
+        "hotwords": "Executive"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Executive powers had been usurped.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Executive",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.9121112823486328
+            },
+            {
+              "text": " powers",
+              "start": 0.87,
+              "end": 1.35,
+              "probability": 0.8870323300361633
+            },
+            {
+              "text": " had",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.6061638593673706
+            },
+            {
+              "text": " been",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.9992825388908386
+            },
+            {
+              "text": " usurped.",
+              "start": 1.61,
+              "end": 2.19,
+              "probability": 0.9976827204227448
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Executive",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "powers",
+          "start": 0.87,
+          "end": 1.35
+        },
+        {
+          "raw": "had",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "been",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "usurped.",
+          "start": 1.61,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Executive",
+        "powers",
+        "had",
+        "been",
+        "usurped."
+      ],
+      "acoustic_expected_tokens": [
+        "Executive",
+        "powers",
+        "had",
+        "been",
+        "usurped."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Executive",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "executive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "powers",
+          "start": 0.87,
+          "end": 1.35,
+          "key": "powers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "usurped.",
+          "start": 1.61,
+          "end": 2.19,
+          "key": "usurped",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Executive",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "powers",
+          "start": 0.87,
+          "end": 1.35
+        },
+        {
+          "text": "had",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "been",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "usurped.",
+          "start": 1.61,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.687090032000015
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "771bb79fa195d7120788a4304336f5fd01a3bc13d81db41c7a839e1794516ee0",
+  "selected_reasons": []
+}

@@ -1,0 +1,692 @@
+{
+  "complete": true,
+  "signature": "4ff922b436fc4daa72379c26cb87d3b9dfe6d8b85f02ef27300b6e3b89d5d813",
+  "attempts": [
+    {
+      "asr_seconds": 3.031540292999921,
+      "alignment_seconds": 0.0009517329999653157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The constitutional trial by jury had been violated, and powers assumed which had not been delegated by the constitution."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The constitutional trial by jury had been violated, and powers assumed which had not been delegated by the constitution.",
+          "start": 0.02,
+          "end": 7.36,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.883663535118103
+            },
+            {
+              "text": " constitutional",
+              "start": 0.5,
+              "end": 1.08,
+              "probability": 0.7479490041732788
+            },
+            {
+              "text": " trial",
+              "start": 1.08,
+              "end": 1.66,
+              "probability": 0.9953195452690125
+            },
+            {
+              "text": " by",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.9927800297737122
+            },
+            {
+              "text": " jury",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.9923201203346252
+            },
+            {
+              "text": " had",
+              "start": 2.28,
+              "end": 2.7,
+              "probability": 0.9915624260902405
+            },
+            {
+              "text": " been",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.9990812540054321
+            },
+            {
+              "text": " violated,",
+              "start": 2.84,
+              "end": 3.42,
+              "probability": 0.9994064569473267
+            },
+            {
+              "text": " and",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.9947980642318726
+            },
+            {
+              "text": " powers",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.9801693558692932
+            },
+            {
+              "text": " assumed",
+              "start": 4.46,
+              "end": 4.98,
+              "probability": 0.9993261098861694
+            },
+            {
+              "text": " which",
+              "start": 4.98,
+              "end": 5.4,
+              "probability": 0.8802244067192078
+            },
+            {
+              "text": " had",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.9961860775947571
+            },
+            {
+              "text": " not",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.9990000128746033
+            },
+            {
+              "text": " been",
+              "start": 5.78,
+              "end": 5.96,
+              "probability": 0.9967671632766724
+            },
+            {
+              "text": " delegated",
+              "start": 5.96,
+              "end": 6.4,
+              "probability": 0.996758759021759
+            },
+            {
+              "text": " by",
+              "start": 6.4,
+              "end": 6.72,
+              "probability": 0.9992473125457764
+            },
+            {
+              "text": " the",
+              "start": 6.72,
+              "end": 6.88,
+              "probability": 0.9991536140441895
+            },
+            {
+              "text": " constitution.",
+              "start": 6.88,
+              "end": 7.36,
+              "probability": 0.20053713023662567
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "constitutional",
+          "start": 0.5,
+          "end": 1.08
+        },
+        {
+          "raw": "trial",
+          "start": 1.08,
+          "end": 1.66
+        },
+        {
+          "raw": "by",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "jury",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "had",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "raw": "been",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "violated,",
+          "start": 2.84,
+          "end": 3.42
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "powers",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "assumed",
+          "start": 4.46,
+          "end": 4.98
+        },
+        {
+          "raw": "which",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "raw": "had",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "not",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": "been",
+          "start": 5.78,
+          "end": 5.96
+        },
+        {
+          "raw": "delegated",
+          "start": 5.96,
+          "end": 6.4
+        },
+        {
+          "raw": "by",
+          "start": 6.4,
+          "end": 6.72
+        },
+        {
+          "raw": "the",
+          "start": 6.72,
+          "end": 6.88
+        },
+        {
+          "raw": "constitution.",
+          "start": 6.88,
+          "end": 7.36
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "constitutional",
+        "trial",
+        "by",
+        "jury",
+        "had",
+        "been",
+        "violated,",
+        "and",
+        "powers",
+        "assumed",
+        "which",
+        "had",
+        "not",
+        "been",
+        "delegated",
+        "by",
+        "the",
+        "constitution."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "constitutional",
+        "trial",
+        "by",
+        "jury",
+        "had",
+        "been",
+        "violated,",
+        "and",
+        "powers",
+        "assumed",
+        "which",
+        "had",
+        "not",
+        "been",
+        "delegated",
+        "by",
+        "the",
+        "constitution."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "constitutional",
+          "start": 0.5,
+          "end": 1.08,
+          "key": "constitutional",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trial",
+          "start": 1.08,
+          "end": 1.66,
+          "key": "trial",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jury",
+          "start": 1.96,
+          "end": 2.28,
+          "key": "jury",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.28,
+          "end": 2.7,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "violated,",
+          "start": 2.84,
+          "end": 3.42,
+          "key": "violated",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.12,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "powers",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "powers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "assumed",
+          "start": 4.46,
+          "end": 4.98,
+          "key": "assumed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.98,
+          "end": 5.4,
+          "key": "which",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.54,
+          "end": 5.78,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 5.78,
+          "end": 5.96,
+          "key": "been",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "delegated",
+          "start": 5.96,
+          "end": 6.4,
+          "key": "delegated",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.4,
+          "end": 6.72,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.72,
+          "end": 6.88,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "constitution.",
+          "start": 6.88,
+          "end": 7.36,
+          "key": "constitution",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "constitutional",
+          "start": 0.5,
+          "end": 1.08
+        },
+        {
+          "text": "trial",
+          "start": 1.08,
+          "end": 1.66
+        },
+        {
+          "text": "by",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "jury",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "had",
+          "start": 2.28,
+          "end": 2.7
+        },
+        {
+          "text": "been",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "violated,",
+          "start": 2.84,
+          "end": 3.42
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "text": "powers",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "text": "assumed",
+          "start": 4.46,
+          "end": 4.98
+        },
+        {
+          "text": "which",
+          "start": 4.98,
+          "end": 5.4
+        },
+        {
+          "text": "had",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "not",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "text": "been",
+          "start": 5.78,
+          "end": 5.96
+        },
+        {
+          "text": "delegated",
+          "start": 5.96,
+          "end": 6.4
+        },
+        {
+          "text": "by",
+          "start": 6.4,
+          "end": 6.72
+        },
+        {
+          "text": "the",
+          "start": 6.72,
+          "end": 6.88
+        },
+        {
+          "text": "constitution.",
+          "start": 6.88,
+          "end": 7.36
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.032530973000007
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8774908921d9f53bbf88a8d0372af2aa0b1a755ba478051e9610ae8d22e9415",
+  "selected_reasons": []
+}

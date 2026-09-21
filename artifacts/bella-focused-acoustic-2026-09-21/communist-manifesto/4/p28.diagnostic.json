@@ -1,0 +1,2864 @@
+{
+  "complete": true,
+  "signature": "dc03f3b660118738756b982645a736d81ba7f76c242b81e1ed741ee5f0975e65",
+  "attempts": [
+    {
+      "asr_seconds": 8.859634738000011,
+      "alignment_seconds": 0.005757378000055269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The French Socialist and Communist literature was thus completely emasculated. And, since it ceased in the hands of the German to express the struggle of one class with the other, he felt conscious of having overcome \"French one-sidedness\" and of representing, not true requirements, but the requirements of truth; not the interests of the proletariat, but the interests of Human Nature, of Man in general, who belongs to no class, has no reality, who exists only in the misty realm of philosophical fantasy.",
+        "hotwords": "French, Socialist, Communist, German, Human, Nature, Man"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The French Socialist and Communist literature was thus completely emasculated. And, since",
+          "start": 0.02,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.4844818711280823
+            },
+            {
+              "text": " French",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.979211688041687
+            },
+            {
+              "text": " Socialist",
+              "start": 0.8,
+              "end": 1.34,
+              "probability": 0.10309124737977982
+            },
+            {
+              "text": " and",
+              "start": 1.34,
+              "end": 1.74,
+              "probability": 0.9687150120735168
+            },
+            {
+              "text": " Communist",
+              "start": 1.74,
+              "end": 2.12,
+              "probability": 0.809181272983551
+            },
+            {
+              "text": " literature",
+              "start": 2.12,
+              "end": 2.72,
+              "probability": 0.7845391035079956
+            },
+            {
+              "text": " was",
+              "start": 2.72,
+              "end": 3.34,
+              "probability": 0.969164252281189
+            },
+            {
+              "text": " thus",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.9930619597434998
+            },
+            {
+              "text": " completely",
+              "start": 3.6,
+              "end": 4.14,
+              "probability": 0.9851318001747131
+            },
+            {
+              "text": " emasculated.",
+              "start": 4.14,
+              "end": 4.92,
+              "probability": 0.9690693020820618
+            },
+            {
+              "text": " And,",
+              "start": 6.22,
+              "end": 6.24,
+              "probability": 0.954311728477478
+            },
+            {
+              "text": " since",
+              "start": 6.4,
+              "end": 6.4,
+              "probability": 0.991564154624939
+            }
+          ]
+        },
+        {
+          "text": " it ceased in the hands of the German to express the struggle of one class with the other, he",
+          "start": 6.4,
+          "end": 10.88,
+          "words": [
+            {
+              "text": " it",
+              "start": 6.4,
+              "end": 6.58,
+              "probability": 0.9973642230033875
+            },
+            {
+              "text": " ceased",
+              "start": 6.58,
+              "end": 6.84,
+              "probability": 0.9974560141563416
+            },
+            {
+              "text": " in",
+              "start": 6.84,
+              "end": 7.02,
+              "probability": 0.9953675270080566
+            },
+            {
+              "text": " the",
+              "start": 7.02,
+              "end": 7.12,
+              "probability": 0.9996697902679443
+            },
+            {
+              "text": " hands",
+              "start": 7.12,
+              "end": 7.36,
+              "probability": 0.996423065662384
+            },
+            {
+              "text": " of",
+              "start": 7.36,
+              "end": 7.5,
+              "probability": 0.9989088773727417
+            },
+            {
+              "text": " the",
+              "start": 7.5,
+              "end": 7.62,
+              "probability": 0.9971888661384583
+            },
+            {
+              "text": " German",
+              "start": 7.62,
+              "end": 7.86,
+              "probability": 0.989406168460846
+            },
+            {
+              "text": " to",
+              "start": 7.86,
+              "end": 8.12,
+              "probability": 0.9856541752815247
+            },
+            {
+              "text": " express",
+              "start": 8.12,
+              "end": 8.52,
+              "probability": 0.9990841150283813
+            },
+            {
+              "text": " the",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.998802661895752
+            },
+            {
+              "text": " struggle",
+              "start": 8.76,
+              "end": 9.04,
+              "probability": 0.998953104019165
+            },
+            {
+              "text": " of",
+              "start": 9.04,
+              "end": 9.26,
+              "probability": 0.9981911778450012
+            },
+            {
+              "text": " one",
+              "start": 9.26,
+              "end": 9.48,
+              "probability": 0.9959626793861389
+            },
+            {
+              "text": " class",
+              "start": 9.48,
+              "end": 9.78,
+              "probability": 0.977616548538208
+            },
+            {
+              "text": " with",
+              "start": 9.78,
+              "end": 10.0,
+              "probability": 0.9932278990745544
+            },
+            {
+              "text": " the",
+              "start": 10.0,
+              "end": 10.12,
+              "probability": 0.9939800500869751
+            },
+            {
+              "text": " other,",
+              "start": 10.12,
+              "end": 10.34,
+              "probability": 0.9986934065818787
+            },
+            {
+              "text": " he",
+              "start": 10.76,
+              "end": 10.88,
+              "probability": 0.9820389151573181
+            }
+          ]
+        },
+        {
+          "text": " felt conscious of having overcome French one-sidedness, and of representing, not true requirements,",
+          "start": 10.88,
+          "end": 16.92,
+          "words": [
+            {
+              "text": " felt",
+              "start": 10.88,
+              "end": 11.08,
+              "probability": 0.9989389777183533
+            },
+            {
+              "text": " conscious",
+              "start": 11.08,
+              "end": 11.56,
+              "probability": 0.9839292764663696
+            },
+            {
+              "text": " of",
+              "start": 11.56,
+              "end": 11.78,
+              "probability": 0.9985219836235046
+            },
+            {
+              "text": " having",
+              "start": 11.78,
+              "end": 12.06,
+              "probability": 0.9982571005821228
+            },
+            {
+              "text": " overcome",
+              "start": 12.06,
+              "end": 12.62,
+              "probability": 0.9956250786781311
+            },
+            {
+              "text": " French",
+              "start": 12.62,
+              "end": 13.38,
+              "probability": 0.9812930226325989
+            },
+            {
+              "text": " one",
+              "start": 13.38,
+              "end": 13.66,
+              "probability": 0.9433602094650269
+            },
+            {
+              "text": "-sidedness,",
+              "start": 13.66,
+              "end": 14.38,
+              "probability": 0.9450312654177347
+            },
+            {
+              "text": " and",
+              "start": 14.82,
+              "end": 14.98,
+              "probability": 0.9971423745155334
+            },
+            {
+              "text": " of",
+              "start": 14.98,
+              "end": 15.08,
+              "probability": 0.992768406867981
+            },
+            {
+              "text": " representing,",
+              "start": 15.08,
+              "end": 15.6,
+              "probability": 0.9982115030288696
+            },
+            {
+              "text": " not",
+              "start": 15.84,
+              "end": 16.06,
+              "probability": 0.9947499632835388
+            },
+            {
+              "text": " true",
+              "start": 16.06,
+              "end": 16.34,
+              "probability": 0.9927335977554321
+            },
+            {
+              "text": " requirements,",
+              "start": 16.34,
+              "end": 16.92,
+              "probability": 0.9937707781791687
+            }
+          ]
+        },
+        {
+          "text": " but the requirements of truth, not the interests of the proletariat, but the interests of Human",
+          "start": 17.48,
+          "end": 22.7,
+          "words": [
+            {
+              "text": " but",
+              "start": 17.48,
+              "end": 17.7,
+              "probability": 0.9972902536392212
+            },
+            {
+              "text": " the",
+              "start": 17.7,
+              "end": 17.8,
+              "probability": 0.9914532899856567
+            },
+            {
+              "text": " requirements",
+              "start": 17.8,
+              "end": 18.3,
+              "probability": 0.9975464940071106
+            },
+            {
+              "text": " of",
+              "start": 18.3,
+              "end": 18.6,
+              "probability": 0.9987955093383789
+            },
+            {
+              "text": " truth,",
+              "start": 18.6,
+              "end": 18.86,
+              "probability": 0.968985378742218
+            },
+            {
+              "text": " not",
+              "start": 19.52,
+              "end": 19.66,
+              "probability": 0.993310809135437
+            },
+            {
+              "text": " the",
+              "start": 19.66,
+              "end": 19.84,
+              "probability": 0.9988081455230713
+            },
+            {
+              "text": " interests",
+              "start": 19.84,
+              "end": 20.14,
+              "probability": 0.9747061729431152
+            },
+            {
+              "text": " of",
+              "start": 20.14,
+              "end": 20.34,
+              "probability": 0.9987564086914062
+            },
+            {
+              "text": " the",
+              "start": 20.34,
+              "end": 20.48,
+              "probability": 0.9980148077011108
+            },
+            {
+              "text": " proletariat,",
+              "start": 20.48,
+              "end": 20.9,
+              "probability": 0.9853665828704834
+            },
+            {
+              "text": " but",
+              "start": 21.56,
+              "end": 21.72,
+              "probability": 0.9964675903320312
+            },
+            {
+              "text": " the",
+              "start": 21.72,
+              "end": 21.86,
+              "probability": 0.998181939125061
+            },
+            {
+              "text": " interests",
+              "start": 21.86,
+              "end": 22.18,
+              "probability": 0.9781309962272644
+            },
+            {
+              "text": " of",
+              "start": 22.18,
+              "end": 22.42,
+              "probability": 0.9990130662918091
+            },
+            {
+              "text": " Human",
+              "start": 22.42,
+              "end": 22.7,
+              "probability": 0.0022212639451026917
+            }
+          ]
+        },
+        {
+          "text": " Nature, of Man in general, who belongs to no class, has no reality, who exists only",
+          "start": 22.7,
+          "end": 28.9,
+          "words": [
+            {
+              "text": " Nature,",
+              "start": 22.7,
+              "end": 23.08,
+              "probability": 0.5079628825187683
+            },
+            {
+              "text": " of",
+              "start": 23.5,
+              "end": 23.62,
+              "probability": 0.9942573308944702
+            },
+            {
+              "text": " Man",
+              "start": 23.62,
+              "end": 23.94,
+              "probability": 0.20214322209358215
+            },
+            {
+              "text": " in",
+              "start": 23.94,
+              "end": 24.16,
+              "probability": 0.9396957755088806
+            },
+            {
+              "text": " general,",
+              "start": 24.16,
+              "end": 24.56,
+              "probability": 0.5977970361709595
+            },
+            {
+              "text": " who",
+              "start": 24.9,
+              "end": 25.02,
+              "probability": 0.9884131550788879
+            },
+            {
+              "text": " belongs",
+              "start": 25.02,
+              "end": 25.36,
+              "probability": 0.9892751574516296
+            },
+            {
+              "text": " to",
+              "start": 25.36,
+              "end": 25.64,
+              "probability": 0.9984501600265503
+            },
+            {
+              "text": " no",
+              "start": 25.64,
+              "end": 25.86,
+              "probability": 0.9706854224205017
+            },
+            {
+              "text": " class,",
+              "start": 25.86,
+              "end": 26.28,
+              "probability": 0.9404847025871277
+            },
+            {
+              "text": " has",
+              "start": 26.78,
+              "end": 26.92,
+              "probability": 0.9942163228988647
+            },
+            {
+              "text": " no",
+              "start": 26.92,
+              "end": 27.14,
+              "probability": 0.9979051351547241
+            },
+            {
+              "text": " reality,",
+              "start": 27.14,
+              "end": 27.64,
+              "probability": 0.9179337024688721
+            },
+            {
+              "text": " who",
+              "start": 28.08,
+              "end": 28.16,
+              "probability": 0.9936413168907166
+            },
+            {
+              "text": " exists",
+              "start": 28.16,
+              "end": 28.5,
+              "probability": 0.9840132594108582
+            },
+            {
+              "text": " only",
+              "start": 28.5,
+              "end": 28.9,
+              "probability": 0.9949706196784973
+            }
+          ]
+        },
+        {
+          "text": " in the misty realm of philosophical fantasy.",
+          "start": 28.9,
+          "end": 31.26,
+          "words": [
+            {
+              "text": " in",
+              "start": 28.9,
+              "end": 29.1,
+              "probability": 0.7859139442443848
+            },
+            {
+              "text": " the",
+              "start": 29.1,
+              "end": 29.2,
+              "probability": 0.9973132014274597
+            },
+            {
+              "text": " misty",
+              "start": 29.2,
+              "end": 29.62,
+              "probability": 0.8156121969223022
+            },
+            {
+              "text": " realm",
+              "start": 29.62,
+              "end": 29.82,
+              "probability": 0.9972562193870544
+            },
+            {
+              "text": " of",
+              "start": 29.82,
+              "end": 30.08,
+              "probability": 0.9989786148071289
+            },
+            {
+              "text": " philosophical",
+              "start": 30.08,
+              "end": 30.52,
+              "probability": 0.9626096487045288
+            },
+            {
+              "text": " fantasy.",
+              "start": 30.52,
+              "end": 31.26,
+              "probability": 0.987165093421936
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "French",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "Socialist",
+          "start": 0.8,
+          "end": 1.34
+        },
+        {
+          "raw": "and",
+          "start": 1.34,
+          "end": 1.74
+        },
+        {
+          "raw": "Communist",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "raw": "literature",
+          "start": 2.12,
+          "end": 2.72
+        },
+        {
+          "raw": "was",
+          "start": 2.72,
+          "end": 3.34
+        },
+        {
+          "raw": "thus",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "completely",
+          "start": 3.6,
+          "end": 4.14
+        },
+        {
+          "raw": "emasculated.",
+          "start": 4.14,
+          "end": 4.92
+        },
+        {
+          "raw": "And,",
+          "start": 6.22,
+          "end": 6.24
+        },
+        {
+          "raw": "since",
+          "start": 6.4,
+          "end": 6.4
+        },
+        {
+          "raw": "it",
+          "start": 6.4,
+          "end": 6.58
+        },
+        {
+          "raw": "ceased",
+          "start": 6.58,
+          "end": 6.84
+        },
+        {
+          "raw": "in",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "raw": "the",
+          "start": 7.02,
+          "end": 7.12
+        },
+        {
+          "raw": "hands",
+          "start": 7.12,
+          "end": 7.36
+        },
+        {
+          "raw": "of",
+          "start": 7.36,
+          "end": 7.5
+        },
+        {
+          "raw": "the",
+          "start": 7.5,
+          "end": 7.62
+        },
+        {
+          "raw": "German",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "raw": "to",
+          "start": 7.86,
+          "end": 8.12
+        },
+        {
+          "raw": "express",
+          "start": 8.12,
+          "end": 8.52
+        },
+        {
+          "raw": "the",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "raw": "struggle",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "raw": "of",
+          "start": 9.04,
+          "end": 9.26
+        },
+        {
+          "raw": "one",
+          "start": 9.26,
+          "end": 9.48
+        },
+        {
+          "raw": "class",
+          "start": 9.48,
+          "end": 9.78
+        },
+        {
+          "raw": "with",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "raw": "the",
+          "start": 10.0,
+          "end": 10.12
+        },
+        {
+          "raw": "other,",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "raw": "he",
+          "start": 10.76,
+          "end": 10.88
+        },
+        {
+          "raw": "felt",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "raw": "conscious",
+          "start": 11.08,
+          "end": 11.56
+        },
+        {
+          "raw": "of",
+          "start": 11.56,
+          "end": 11.78
+        },
+        {
+          "raw": "having",
+          "start": 11.78,
+          "end": 12.06
+        },
+        {
+          "raw": "overcome",
+          "start": 12.06,
+          "end": 12.62
+        },
+        {
+          "raw": "French",
+          "start": 12.62,
+          "end": 13.38
+        },
+        {
+          "raw": "one",
+          "start": 13.38,
+          "end": 13.66
+        },
+        {
+          "raw": "-sidedness,",
+          "start": 13.66,
+          "end": 14.38
+        },
+        {
+          "raw": "and",
+          "start": 14.82,
+          "end": 14.98
+        },
+        {
+          "raw": "of",
+          "start": 14.98,
+          "end": 15.08
+        },
+        {
+          "raw": "representing,",
+          "start": 15.08,
+          "end": 15.6
+        },
+        {
+          "raw": "not",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "raw": "true",
+          "start": 16.06,
+          "end": 16.34
+        },
+        {
+          "raw": "requirements,",
+          "start": 16.34,
+          "end": 16.92
+        },
+        {
+          "raw": "but",
+          "start": 17.48,
+          "end": 17.7
+        },
+        {
+          "raw": "the",
+          "start": 17.7,
+          "end": 17.8
+        },
+        {
+          "raw": "requirements",
+          "start": 17.8,
+          "end": 18.3
+        },
+        {
+          "raw": "of",
+          "start": 18.3,
+          "end": 18.6
+        },
+        {
+          "raw": "truth,",
+          "start": 18.6,
+          "end": 18.86
+        },
+        {
+          "raw": "not",
+          "start": 19.52,
+          "end": 19.66
+        },
+        {
+          "raw": "the",
+          "start": 19.66,
+          "end": 19.84
+        },
+        {
+          "raw": "interests",
+          "start": 19.84,
+          "end": 20.14
+        },
+        {
+          "raw": "of",
+          "start": 20.14,
+          "end": 20.34
+        },
+        {
+          "raw": "the",
+          "start": 20.34,
+          "end": 20.48
+        },
+        {
+          "raw": "proletariat,",
+          "start": 20.48,
+          "end": 20.9
+        },
+        {
+          "raw": "but",
+          "start": 21.56,
+          "end": 21.72
+        },
+        {
+          "raw": "the",
+          "start": 21.72,
+          "end": 21.86
+        },
+        {
+          "raw": "interests",
+          "start": 21.86,
+          "end": 22.18
+        },
+        {
+          "raw": "of",
+          "start": 22.18,
+          "end": 22.42
+        },
+        {
+          "raw": "Human",
+          "start": 22.42,
+          "end": 22.7
+        },
+        {
+          "raw": "Nature,",
+          "start": 22.7,
+          "end": 23.08
+        },
+        {
+          "raw": "of",
+          "start": 23.5,
+          "end": 23.62
+        },
+        {
+          "raw": "Man",
+          "start": 23.62,
+          "end": 23.94
+        },
+        {
+          "raw": "in",
+          "start": 23.94,
+          "end": 24.16
+        },
+        {
+          "raw": "general,",
+          "start": 24.16,
+          "end": 24.56
+        },
+        {
+          "raw": "who",
+          "start": 24.9,
+          "end": 25.02
+        },
+        {
+          "raw": "belongs",
+          "start": 25.02,
+          "end": 25.36
+        },
+        {
+          "raw": "to",
+          "start": 25.36,
+          "end": 25.64
+        },
+        {
+          "raw": "no",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "raw": "class,",
+          "start": 25.86,
+          "end": 26.28
+        },
+        {
+          "raw": "has",
+          "start": 26.78,
+          "end": 26.92
+        },
+        {
+          "raw": "no",
+          "start": 26.92,
+          "end": 27.14
+        },
+        {
+          "raw": "reality,",
+          "start": 27.14,
+          "end": 27.64
+        },
+        {
+          "raw": "who",
+          "start": 28.08,
+          "end": 28.16
+        },
+        {
+          "raw": "exists",
+          "start": 28.16,
+          "end": 28.5
+        },
+        {
+          "raw": "only",
+          "start": 28.5,
+          "end": 28.9
+        },
+        {
+          "raw": "in",
+          "start": 28.9,
+          "end": 29.1
+        },
+        {
+          "raw": "the",
+          "start": 29.1,
+          "end": 29.2
+        },
+        {
+          "raw": "misty",
+          "start": 29.2,
+          "end": 29.62
+        },
+        {
+          "raw": "realm",
+          "start": 29.62,
+          "end": 29.82
+        },
+        {
+          "raw": "of",
+          "start": 29.82,
+          "end": 30.08
+        },
+        {
+          "raw": "philosophical",
+          "start": 30.08,
+          "end": 30.52
+        },
+        {
+          "raw": "fantasy.",
+          "start": 30.52,
+          "end": 31.26
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "French",
+        "Socialist",
+        "and",
+        "Communist",
+        "literature",
+        "was",
+        "thus",
+        "completely",
+        "emasculated.",
+        "And,",
+        "since",
+        "it",
+        "ceased",
+        "in",
+        "the",
+        "hands",
+        "of",
+        "the",
+        "German",
+        "to",
+        "express",
+        "the",
+        "struggle",
+        "of",
+        "one",
+        "class",
+        "with",
+        "the",
+        "other,",
+        "he",
+        "felt",
+        "conscious",
+        "of",
+        "having",
+        "overcome",
+        "“French",
+        "one-sidedness”",
+        "and",
+        "of",
+        "representing,",
+        "not",
+        "true",
+        "requirements,",
+        "but",
+        "the",
+        "requirements",
+        "of",
+        "truth;",
+        "not",
+        "the",
+        "interests",
+        "of",
+        "the",
+        "proletariat,",
+        "but",
+        "the",
+        "interests",
+        "of",
+        "Human",
+        "Nature,",
+        "of",
+        "Man",
+        "in",
+        "general,",
+        "who",
+        "belongs",
+        "to",
+        "no",
+        "class,",
+        "has",
+        "no",
+        "reality,",
+        "who",
+        "exists",
+        "only",
+        "in",
+        "the",
+        "misty",
+        "realm",
+        "of",
+        "philosophical",
+        "fantasy."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "French",
+        "Socialist",
+        "and",
+        "Communist",
+        "literature",
+        "was",
+        "thus",
+        "completely",
+        "emasculated.",
+        "And,",
+        "since",
+        "it",
+        "ceased",
+        "in",
+        "the",
+        "hands",
+        "of",
+        "the",
+        "German",
+        "to",
+        "express",
+        "the",
+        "struggle",
+        "of",
+        "one",
+        "class",
+        "with",
+        "the",
+        "other,",
+        "he",
+        "felt",
+        "conscious",
+        "of",
+        "having",
+        "overcome",
+        "\"French",
+        "one-sidedness\"",
+        "and",
+        "of",
+        "representing,",
+        "not",
+        "true",
+        "requirements,",
+        "but",
+        "the",
+        "requirements",
+        "of",
+        "truth;",
+        "not",
+        "the",
+        "interests",
+        "of",
+        "the",
+        "proletariat,",
+        "but",
+        "the",
+        "interests",
+        "of",
+        "Human",
+        "Nature,",
+        "of",
+        "Man",
+        "in",
+        "general,",
+        "who",
+        "belongs",
+        "to",
+        "no",
+        "class,",
+        "has",
+        "no",
+        "reality,",
+        "who",
+        "exists",
+        "only",
+        "in",
+        "the",
+        "misty",
+        "realm",
+        "of",
+        "philosophical",
+        "fantasy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          83,
+          0,
+          83
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "french",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Socialist",
+          "start": 0.8,
+          "end": 1.34,
+          "key": "socialist",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.34,
+          "end": 1.74,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Communist",
+          "start": 1.74,
+          "end": 2.12,
+          "key": "communist",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "literature",
+          "start": 2.12,
+          "end": 2.72,
+          "key": "literature",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.72,
+          "end": 3.34,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 3.34,
+          "end": 3.6,
+          "key": "thus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "completely",
+          "start": 3.6,
+          "end": 4.14,
+          "key": "completely",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "emasculated.",
+          "start": 4.14,
+          "end": 4.92,
+          "key": "emasculated",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 6.22,
+          "end": 6.24,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 6.4,
+          "end": 6.4,
+          "key": "since",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.4,
+          "end": 6.58,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ceased",
+          "start": 6.58,
+          "end": 6.84,
+          "key": "ceased",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.84,
+          "end": 7.02,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.02,
+          "end": 7.12,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 7.12,
+          "end": 7.36,
+          "key": "hands",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.36,
+          "end": 7.5,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.5,
+          "end": 7.62,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "German",
+          "start": 7.62,
+          "end": 7.86,
+          "key": "german",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.86,
+          "end": 8.12,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "express",
+          "start": 8.12,
+          "end": 8.52,
+          "key": "express",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "struggle",
+          "start": 8.76,
+          "end": 9.04,
+          "key": "struggle",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.04,
+          "end": 9.26,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 9.26,
+          "end": 9.48,
+          "key": "one",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "class",
+          "start": 9.48,
+          "end": 9.78,
+          "key": "class",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.78,
+          "end": 10.0,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.0,
+          "end": 10.12,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "other,",
+          "start": 10.12,
+          "end": 10.34,
+          "key": "other",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.76,
+          "end": 10.88,
+          "key": "he",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 10.88,
+          "end": 11.08,
+          "key": "felt",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "conscious",
+          "start": 11.08,
+          "end": 11.56,
+          "key": "conscious",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.56,
+          "end": 11.78,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "having",
+          "start": 11.78,
+          "end": 12.06,
+          "key": "having",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "overcome",
+          "start": 12.06,
+          "end": 12.62,
+          "key": "overcome",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 12.62,
+          "end": 13.38,
+          "key": "french",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "one -sidedness,",
+          "start": 13.38,
+          "end": 14.38,
+          "key": "onesidedness",
+          "pieces": [
+            37,
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.82,
+          "end": 14.98,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.98,
+          "end": 15.08,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "representing,",
+          "start": 15.08,
+          "end": 15.6,
+          "key": "representing",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.84,
+          "end": 16.06,
+          "key": "not",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 16.06,
+          "end": 16.34,
+          "key": "true",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "requirements,",
+          "start": 16.34,
+          "end": 16.92,
+          "key": "requirements",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 17.48,
+          "end": 17.7,
+          "key": "but",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.7,
+          "end": 17.8,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "requirements",
+          "start": 17.8,
+          "end": 18.3,
+          "key": "requirements",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.3,
+          "end": 18.6,
+          "key": "of",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 18.6,
+          "end": 18.86,
+          "key": "truth",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 19.52,
+          "end": 19.66,
+          "key": "not",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.66,
+          "end": 19.84,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "interests",
+          "start": 19.84,
+          "end": 20.14,
+          "key": "interests",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 20.14,
+          "end": 20.34,
+          "key": "of",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.34,
+          "end": 20.48,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "proletariat,",
+          "start": 20.48,
+          "end": 20.9,
+          "key": "proletariat",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 21.56,
+          "end": 21.72,
+          "key": "but",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.72,
+          "end": 21.86,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "interests",
+          "start": 21.86,
+          "end": 22.18,
+          "key": "interests",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.18,
+          "end": 22.42,
+          "key": "of",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Human",
+          "start": 22.42,
+          "end": 22.7,
+          "key": "human",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Nature,",
+          "start": 22.7,
+          "end": 23.08,
+          "key": "nature",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.5,
+          "end": 23.62,
+          "key": "of",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Man",
+          "start": 23.62,
+          "end": 23.94,
+          "key": "man",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 23.94,
+          "end": 24.16,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "general,",
+          "start": 24.16,
+          "end": 24.56,
+          "key": "general",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 24.9,
+          "end": 25.02,
+          "key": "who",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "belongs",
+          "start": 25.02,
+          "end": 25.36,
+          "key": "belongs",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 25.36,
+          "end": 25.64,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 25.64,
+          "end": 25.86,
+          "key": "no",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "class,",
+          "start": 25.86,
+          "end": 26.28,
+          "key": "class",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 26.78,
+          "end": 26.92,
+          "key": "has",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 26.92,
+          "end": 27.14,
+          "key": "no",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "reality,",
+          "start": 27.14,
+          "end": 27.64,
+          "key": "reality",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 28.08,
+          "end": 28.16,
+          "key": "who",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "exists",
+          "start": 28.16,
+          "end": 28.5,
+          "key": "exists",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 28.5,
+          "end": 28.9,
+          "key": "only",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 28.9,
+          "end": 29.1,
+          "key": "in",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 29.1,
+          "end": 29.2,
+          "key": "the",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "misty",
+          "start": 29.2,
+          "end": 29.62,
+          "key": "misty",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "realm",
+          "start": 29.62,
+          "end": 29.82,
+          "key": "realm",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 29.82,
+          "end": 30.08,
+          "key": "of",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "philosophical",
+          "start": 30.08,
+          "end": 30.52,
+          "key": "philosophical",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "fantasy.",
+          "start": 30.52,
+          "end": 31.26,
+          "key": "fantasy",
+          "pieces": [
+            83
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 37,
+          "text": "one-sidedness\"",
+          "heard": "one -sidedness,",
+          "heard_indexes": [
+            37,
+            38
+          ],
+          "start": 13.38,
+          "end": 14.38
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "French",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "Socialist",
+          "start": 0.8,
+          "end": 1.34
+        },
+        {
+          "text": "and",
+          "start": 1.34,
+          "end": 1.74
+        },
+        {
+          "text": "Communist",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "text": "literature",
+          "start": 2.12,
+          "end": 2.72
+        },
+        {
+          "text": "was",
+          "start": 2.72,
+          "end": 3.34
+        },
+        {
+          "text": "thus",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "completely",
+          "start": 3.6,
+          "end": 4.14
+        },
+        {
+          "text": "emasculated.",
+          "start": 4.14,
+          "end": 4.92
+        },
+        {
+          "text": "And,",
+          "start": 6.22,
+          "end": 6.24
+        },
+        {
+          "text": "since",
+          "start": 6.4,
+          "end": 6.4
+        },
+        {
+          "text": "it",
+          "start": 6.4,
+          "end": 6.58
+        },
+        {
+          "text": "ceased",
+          "start": 6.58,
+          "end": 6.84
+        },
+        {
+          "text": "in",
+          "start": 6.84,
+          "end": 7.02
+        },
+        {
+          "text": "the",
+          "start": 7.02,
+          "end": 7.12
+        },
+        {
+          "text": "hands",
+          "start": 7.12,
+          "end": 7.36
+        },
+        {
+          "text": "of",
+          "start": 7.36,
+          "end": 7.5
+        },
+        {
+          "text": "the",
+          "start": 7.5,
+          "end": 7.62
+        },
+        {
+          "text": "German",
+          "start": 7.62,
+          "end": 7.86
+        },
+        {
+          "text": "to",
+          "start": 7.86,
+          "end": 8.12
+        },
+        {
+          "text": "express",
+          "start": 8.12,
+          "end": 8.52
+        },
+        {
+          "text": "the",
+          "start": 8.52,
+          "end": 8.76
+        },
+        {
+          "text": "struggle",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "text": "of",
+          "start": 9.04,
+          "end": 9.26
+        },
+        {
+          "text": "one",
+          "start": 9.26,
+          "end": 9.48
+        },
+        {
+          "text": "class",
+          "start": 9.48,
+          "end": 9.78
+        },
+        {
+          "text": "with",
+          "start": 9.78,
+          "end": 10.0
+        },
+        {
+          "text": "the",
+          "start": 10.0,
+          "end": 10.12
+        },
+        {
+          "text": "other,",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "text": "he",
+          "start": 10.76,
+          "end": 10.88
+        },
+        {
+          "text": "felt",
+          "start": 10.88,
+          "end": 11.08
+        },
+        {
+          "text": "conscious",
+          "start": 11.08,
+          "end": 11.56
+        },
+        {
+          "text": "of",
+          "start": 11.56,
+          "end": 11.78
+        },
+        {
+          "text": "having",
+          "start": 11.78,
+          "end": 12.06
+        },
+        {
+          "text": "overcome",
+          "start": 12.06,
+          "end": 12.62
+        },
+        {
+          "text": "“French",
+          "start": 12.62,
+          "end": 13.38
+        },
+        {
+          "text": "one-sidedness”",
+          "start": 13.38,
+          "end": 14.38
+        },
+        {
+          "text": "and",
+          "start": 14.82,
+          "end": 14.98
+        },
+        {
+          "text": "of",
+          "start": 14.98,
+          "end": 15.08
+        },
+        {
+          "text": "representing,",
+          "start": 15.08,
+          "end": 15.6
+        },
+        {
+          "text": "not",
+          "start": 15.84,
+          "end": 16.06
+        },
+        {
+          "text": "true",
+          "start": 16.06,
+          "end": 16.34
+        },
+        {
+          "text": "requirements,",
+          "start": 16.34,
+          "end": 16.92
+        },
+        {
+          "text": "but",
+          "start": 17.48,
+          "end": 17.7
+        },
+        {
+          "text": "the",
+          "start": 17.7,
+          "end": 17.8
+        },
+        {
+          "text": "requirements",
+          "start": 17.8,
+          "end": 18.3
+        },
+        {
+          "text": "of",
+          "start": 18.3,
+          "end": 18.6
+        },
+        {
+          "text": "truth;",
+          "start": 18.6,
+          "end": 18.86
+        },
+        {
+          "text": "not",
+          "start": 19.52,
+          "end": 19.66
+        },
+        {
+          "text": "the",
+          "start": 19.66,
+          "end": 19.84
+        },
+        {
+          "text": "interests",
+          "start": 19.84,
+          "end": 20.14
+        },
+        {
+          "text": "of",
+          "start": 20.14,
+          "end": 20.34
+        },
+        {
+          "text": "the",
+          "start": 20.34,
+          "end": 20.48
+        },
+        {
+          "text": "proletariat,",
+          "start": 20.48,
+          "end": 20.9
+        },
+        {
+          "text": "but",
+          "start": 21.56,
+          "end": 21.72
+        },
+        {
+          "text": "the",
+          "start": 21.72,
+          "end": 21.86
+        },
+        {
+          "text": "interests",
+          "start": 21.86,
+          "end": 22.18
+        },
+        {
+          "text": "of",
+          "start": 22.18,
+          "end": 22.42
+        },
+        {
+          "text": "Human",
+          "start": 22.42,
+          "end": 22.7
+        },
+        {
+          "text": "Nature,",
+          "start": 22.7,
+          "end": 23.08
+        },
+        {
+          "text": "of",
+          "start": 23.5,
+          "end": 23.62
+        },
+        {
+          "text": "Man",
+          "start": 23.62,
+          "end": 23.94
+        },
+        {
+          "text": "in",
+          "start": 23.94,
+          "end": 24.16
+        },
+        {
+          "text": "general,",
+          "start": 24.16,
+          "end": 24.56
+        },
+        {
+          "text": "who",
+          "start": 24.9,
+          "end": 25.02
+        },
+        {
+          "text": "belongs",
+          "start": 25.02,
+          "end": 25.36
+        },
+        {
+          "text": "to",
+          "start": 25.36,
+          "end": 25.64
+        },
+        {
+          "text": "no",
+          "start": 25.64,
+          "end": 25.86
+        },
+        {
+          "text": "class,",
+          "start": 25.86,
+          "end": 26.28
+        },
+        {
+          "text": "has",
+          "start": 26.78,
+          "end": 26.92
+        },
+        {
+          "text": "no",
+          "start": 26.92,
+          "end": 27.14
+        },
+        {
+          "text": "reality,",
+          "start": 27.14,
+          "end": 27.64
+        },
+        {
+          "text": "who",
+          "start": 28.08,
+          "end": 28.16
+        },
+        {
+          "text": "exists",
+          "start": 28.16,
+          "end": 28.5
+        },
+        {
+          "text": "only",
+          "start": 28.5,
+          "end": 28.9
+        },
+        {
+          "text": "in",
+          "start": 28.9,
+          "end": 29.1
+        },
+        {
+          "text": "the",
+          "start": 29.1,
+          "end": 29.2
+        },
+        {
+          "text": "misty",
+          "start": 29.2,
+          "end": 29.62
+        },
+        {
+          "text": "realm",
+          "start": 29.62,
+          "end": 29.82
+        },
+        {
+          "text": "of",
+          "start": 29.82,
+          "end": 30.08
+        },
+        {
+          "text": "philosophical",
+          "start": 30.08,
+          "end": 30.52
+        },
+        {
+          "text": "fantasy.",
+          "start": 30.52,
+          "end": 31.26
+        }
+      ],
+      "stats": {
+        "expected_words": 83,
+        "heard_words": 83,
+        "matched_words": 83
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 8.865527407000002
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "766bc98d031ec585a0a9a9403085889d73d56a56c8c35eff96f25cb93f1f9229",
+  "selected_reasons": []
+}
