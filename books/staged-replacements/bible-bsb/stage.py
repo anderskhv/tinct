@@ -95,8 +95,6 @@ def parse_book(doc, code, title, offset):
                 raw += atom
             else:
                 if raw.strip():
-                    if current_ref is None:
-                        raise ValueError("Reading text without verse")
                     segments.append((current_ref, raw))
                 raw = ""
                 v = atom["number"]
@@ -110,8 +108,6 @@ def parse_book(doc, code, title, offset):
                 # Marker retained as presentation, not part of source verse text.
                 segments.append((current_ref, None))
         if raw.strip():
-            if current_ref is None:
-                raise ValueError("Reading text without verse")
             segments.append((current_ref, raw))
         text = ""
         spans = []
@@ -129,12 +125,16 @@ def parse_book(doc, code, title, offset):
             start = utf16(text)
             text += fragment
             spans.append((ref, start, utf16(text), fragment))
-            pieces[ref].append(fragment)
+            if ref is not None:
+                pieces[ref].append(fragment)
         if text.strip():
             p = len(ch["paragraphs"])
             ch["paragraphs"].append(text)
             block["paragraphIndex"] = p
             for ref, start, end, fragment in spans:
+                if ref is None:
+                    block["unanchoredBodyText"] = True
+                    continue
                 index[ref].append({"chapterNumber": ch["number"], "paragraphIndex": p,
                                   "startUtf16": start, "endUtf16": end,
                                   "textSha256": digest(fragment.encode())})
@@ -309,6 +309,7 @@ def main():
     sample_refs = ["GEN.1.1","PSA.23.1","ISA.53.5","JER.14.1","MAT.5.3","ROM.8.1","REV.21.1","REV.22.21"]
     summary = {"books":66,"chapters":len(chapters),"sourceVerses":len(verses),"textExportVerses":len(external),
        "sourceExportDifferences":len(differences), "sourceExportExamples":differences[:12],
+       "unanchoredBodyBlocks":[{"book":code,"sourceNode":b["sourceNode"],"chapterNumber":b["chapterNumber"],"text":flatten(b["usj"])} for code,bs in structure.items() for b in bs if b.get("unanchoredBodyText")],
        "paragraphs":sum(len(c["paragraphs"]) for c in chapters),
        "legacyUnsafeChapters":{ed:sorted(ns) for ed,ns in unsafe.items()},
        "crosswalkStatusCounts":{ed:dict(collections.Counter(row[ed]["status"] for row in mapping.values())) for ed in all_indices},
