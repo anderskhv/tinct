@@ -1,0 +1,28 @@
+name: bella-focused-beyond
+on:
+  push:
+    branches: ['codex/bella-focused-beyond-20260921']
+    paths: ['tools/audio-highlight/bella_focused_beyond.py', '.github/workflows/bella-focused-beyond.yml']
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper==20250625 faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0
+      - run: python3 tools/audio-highlight/bella_focused_beyond.py 0
+      - if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-focused-beyond-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve targeted paragraph acoustic repair evidence [skip ci]"
+          git push origin HEAD:codex/bella-focused-beyond-20260921
