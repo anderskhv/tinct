@@ -1,6 +1,6 @@
 # Reader, library and brand batch — 21 September 2026
 
-Status: release candidate implemented; production deployment and acceptance pending.
+Status: shipped and accepted on production, 21 September 2026 at 13:59 UTC.
 
 ## Approved scope
 
@@ -28,6 +28,18 @@ The stronger highlight check measured 74–76% exact background-colour pixels in
 
 All 100 public book-card variants were generated in cloud run 35602998019, then committed after representative normal/long-title review. The Prince retains the exact approved book-card asset. The generation script remains available, but normal builds use committed assets. Production acceptance checks initial HTML metadata and served-byte hashes for representative icons and cards.
 
-## Remaining release work
+## Production acceptance — 21 September 2026, 13:59 UTC
 
-Finish cloud acceptance, merge the reconciled batch, wait for serialized GitHub Actions deployment, verify the exact production bundle and visual cases, then record evidence here and in product-current. Actual iOS/Android installation and third-party thumbnail cache refresh cannot be established by headless browser checks.
+[PR #130](https://github.com/anderskhv/tinct/pull/130) merged as `889d1970ff42e716b49b517a6141bbfce5aa181c`, preserving concurrent Bella documentation. Final candidate [verify run 35607219495](https://github.com/anderskhv/tinct/actions/runs/35607219495) passed all jobs, including the isolated preview rerun and project documentation checks.
+
+[Production deploy 35607805800](https://github.com/anderskhv/tinct/actions/runs/35607805800) succeeded through its final acceptance steps. Node 24.13.0 ran the approved deployment path after 2,541 tests passed (one existing skip), build and bundle verification. The release served `/assets/index-DEtLZ0Dq.js`; production bytes matched the built bundle on the first check. All 15 smoke checks passed.
+
+Live acceptance passed all 16 Chromium/WebKit reader cases, phone and desktop preparation, the featured preview, responsive landing/library coverage, all four returning-reader reel cases, hyphenation, and 13 brand metadata/asset checks. Reader checks include saved highlight control priority (including the reported “can”), positive highlight fill and joined rows in prose and Bible passages, full-height gutter boundaries, Compare separation, mobile menu clearance, focus-ring inset, matching quiet header/footer, chapter-tree navigation and same-edition position handling. The returning-reader fixture confirmed centred initial selection, drag/caption updates, immediate removal and Continue without changing stored reading positions.
+
+Production screenshots were inspected for the dark Bible spread and reloaded highlight, mobile menu clearance, desktop cover on the left, full-screen phone preparation and returning-reader reel. Durable evidence is attached to the deployment:
+- [Reader screenshots and report](https://github.com/anderskhv/tinct/actions/runs/35607805800/artifacts/10642519796).
+- [Library, preparation, responsive, hyphenation and brand evidence](https://github.com/anderskhv/tinct/actions/runs/35607805800/artifacts/10642038874).
+
+Temporary inspection copies are at `/tmp/tinct-production-reader` and `/tmp/tinct-production-library`. Brand checks compare served SHA-256 hashes against committed built assets.
+
+Verification limits: browser checks are isolated headless Chromium/WebKit with audio/microphone disabled and AI/auth fixtures where required. They do not establish physical iPhone/Android installation, native Safari compositing fidelity, or third-party thumbnail cache refresh. No further implementation remains in this batch; record new device-specific findings separately.

@@ -88,3 +88,8 @@ Acceptance adds reopened Gold records for Matthew 6 WEB and Notes from Undergrou
 
 
 This follow-up is incorporated into the [combined reader, library and brand release](reader-library-brand-batch-2026-09-21.md). That plan owns current acceptance and release status. It records the Safari native-background failure and the measured row underlay, the stronger positive-paint check, and the explicitly approved move of **Cover and preface** into the chapter tree above its first entry (superseding its earlier placement in Reading Now).
+
+
+### Batch shipped — 21 September 2026, 13:59 UTC
+
+PR #130 is merged and [production deploy 35607805800](https://github.com/anderskhv/tinct/actions/runs/35607805800) passed, serving `index-DEtLZ0Dq.js`. All 16 live Chromium/WebKit reader cases passed, including the reported saved-highlight clicks, positive Safari highlight fill, gutter boundaries and mobile spacing. The [combined batch plan](reader-library-brand-batch-2026-09-21.md) owns the final release evidence, library/brand scope and verification limits. This supersedes earlier pending-release checkpoints in this document.
