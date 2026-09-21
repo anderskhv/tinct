@@ -39,7 +39,8 @@ reel.addEventListener('scroll',requestPaint,{passive:true})
 document.querySelectorAll('[data-step]').forEach(button=>button.addEventListener('click',()=>centre(selected+Number(button.dataset.step))))
 reel.addEventListener('keydown',event=>{
  const target=event.key==='ArrowRight'?selected+1:event.key==='ArrowLeft'?selected-1:event.key==='Home'?0:event.key==='End'?books.length-1:null
- if(target!==null){event.preventDefault();centre(target)}
+ // WebKit cancels smooth scrolling started during its native key handling.
+ if(target!==null){event.preventDefault();requestAnimationFrame(()=>centre(target))}
 })
 // Touch stays native: momentum, direction locking and vertical page scrolling.
 // Only mouse drag is enhanced; a drag must never activate a cover.
