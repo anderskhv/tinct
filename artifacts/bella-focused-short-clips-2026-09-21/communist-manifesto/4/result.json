@@ -1,0 +1,23 @@
+{
+ "key": "communist-manifesto/original-en/ch4",
+ "status": "acoustic-fail",
+ "candidateSha256": "51475d175f8883f442815d7e32c4388772bc7784250b5603cc1b30a6f2813c64",
+ "changedParagraphs": [
+  13,
+  21
+ ],
+ "probes": [
+  {
+   "model": "base",
+   "passGate": false,
+   "within": 28,
+   "maxDelta": 0.5499999999999989
+  },
+  {
+   "model": "small",
+   "passGate": true,
+   "within": 30,
+   "maxDelta": 0.14000000000000057
+  }
+ ]
+}
