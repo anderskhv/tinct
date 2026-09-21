@@ -1,0 +1,31 @@
+name: bella-observed-heading
+on:
+  push:
+    branches: ['codex/bella-heading-repair-20260921']
+    paths: ['tools/audio-highlight/observed_heading_replay.py','.github/workflows/bella-heading.yml']
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m unittest discover -s tools/audio-highlight/aligner -p test_observed_heading.py -v
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper==20250625
+      - run: python3 tools/audio-highlight/observed_heading_replay.py
+      - if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-heading-repair-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Record observed heading repair and independent acoustic evidence [skip ci]"
+          git push origin HEAD:codex/bella-heading-repair-20260921
