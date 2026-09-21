@@ -1,0 +1,1970 @@
+{
+  "complete": true,
+  "signature": "18821d21c5e7a6cb38d12d945ac55b2a67592d45ec5edee23de06e27e923c837",
+  "attempts": [
+    {
+      "asr_seconds": 5.537528810000026,
+      "alignment_seconds": 0.0011794499999950858,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ I thank thee, Varrius; thou hast made good haste: Come, we will walk. There's other of our friends Will greet us here anon, my gentle Varrius. Exeunt._",
+        "hotwords": "I, Varrius, Come, There's, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I thank thee, Varrius. Thou hast made good haste. Come, we will walk. There's other of our friends",
+          "start": 0.08,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.0023358382750302553
+            },
+            {
+              "text": " thank",
+              "start": 0.62,
+              "end": 1.28,
+              "probability": 0.9120730757713318
+            },
+            {
+              "text": " thee,",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.9804415702819824
+            },
+            {
+              "text": " Varrius.",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.046652598306536674
+            },
+            {
+              "text": " Thou",
+              "start": 2.54,
+              "end": 2.62,
+              "probability": 0.8771345615386963
+            },
+            {
+              "text": " hast",
+              "start": 2.62,
+              "end": 2.92,
+              "probability": 0.9779648780822754
+            },
+            {
+              "text": " made",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.992185652256012
+            },
+            {
+              "text": " good",
+              "start": 3.12,
+              "end": 3.3,
+              "probability": 0.9968031644821167
+            },
+            {
+              "text": " haste.",
+              "start": 3.3,
+              "end": 3.62,
+              "probability": 0.9923416376113892
+            },
+            {
+              "text": " Come,",
+              "start": 4.08,
+              "end": 4.28,
+              "probability": 0.9864285588264465
+            },
+            {
+              "text": " we",
+              "start": 4.48,
+              "end": 4.56,
+              "probability": 0.9948228597640991
+            },
+            {
+              "text": " will",
+              "start": 4.56,
+              "end": 4.74,
+              "probability": 0.9944925308227539
+            },
+            {
+              "text": " walk.",
+              "start": 4.74,
+              "end": 5.06,
+              "probability": 0.9993712306022644
+            },
+            {
+              "text": " There's",
+              "start": 5.68,
+              "end": 5.84,
+              "probability": 0.9229711890220642
+            },
+            {
+              "text": " other",
+              "start": 5.84,
+              "end": 6.02,
+              "probability": 0.9932199716567993
+            },
+            {
+              "text": " of",
+              "start": 6.02,
+              "end": 6.16,
+              "probability": 0.9979641437530518
+            },
+            {
+              "text": " our",
+              "start": 6.16,
+              "end": 6.3,
+              "probability": 0.997836172580719
+            },
+            {
+              "text": " friends",
+              "start": 6.3,
+              "end": 6.58,
+              "probability": 0.9933632612228394
+            }
+          ]
+        },
+        {
+          "text": " Will greet us here anon, my gentle Varrius. Exeunt._",
+          "start": 6.58,
+          "end": 10.68,
+          "words": [
+            {
+              "text": " Will",
+              "start": 6.58,
+              "end": 6.78,
+              "probability": 0.11110321432352066
+            },
+            {
+              "text": " greet",
+              "start": 6.78,
+              "end": 7.04,
+              "probability": 0.9947026371955872
+            },
+            {
+              "text": " us",
+              "start": 7.04,
+              "end": 7.22,
+              "probability": 0.984069287776947
+            },
+            {
+              "text": " here",
+              "start": 7.22,
+              "end": 7.44,
+              "probability": 0.9745932817459106
+            },
+            {
+              "text": " anon,",
+              "start": 7.44,
+              "end": 7.82,
+              "probability": 0.9181989431381226
+            },
+            {
+              "text": " my",
+              "start": 7.96,
+              "end": 8.06,
+              "probability": 0.6077946424484253
+            },
+            {
+              "text": " gentle",
+              "start": 8.06,
+              "end": 8.42,
+              "probability": 0.9859042763710022
+            },
+            {
+              "text": " Varrius.",
+              "start": 8.42,
+              "end": 9.1,
+              "probability": 0.03927885740995407
+            },
+            {
+              "text": " Exeunt._",
+              "start": 10.16,
+              "end": 10.68,
+              "probability": 0.5420091058864074
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "thank",
+          "start": 0.62,
+          "end": 1.28
+        },
+        {
+          "raw": "thee,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "Varrius.",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "Thou",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "raw": "hast",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "raw": "made",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "good",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "raw": "haste.",
+          "start": 3.3,
+          "end": 3.62
+        },
+        {
+          "raw": "Come,",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "raw": "we",
+          "start": 4.48,
+          "end": 4.56
+        },
+        {
+          "raw": "will",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "raw": "walk.",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "raw": "There's",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "raw": "other",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "raw": "of",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "raw": "our",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "raw": "friends",
+          "start": 6.3,
+          "end": 6.58
+        },
+        {
+          "raw": "Will",
+          "start": 6.58,
+          "end": 6.78
+        },
+        {
+          "raw": "greet",
+          "start": 6.78,
+          "end": 7.04
+        },
+        {
+          "raw": "us",
+          "start": 7.04,
+          "end": 7.22
+        },
+        {
+          "raw": "here",
+          "start": 7.22,
+          "end": 7.44
+        },
+        {
+          "raw": "anon,",
+          "start": 7.44,
+          "end": 7.82
+        },
+        {
+          "raw": "my",
+          "start": 7.96,
+          "end": 8.06
+        },
+        {
+          "raw": "gentle",
+          "start": 8.06,
+          "end": 8.42
+        },
+        {
+          "raw": "Varrius.",
+          "start": 8.42,
+          "end": 9.1
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 10.16,
+          "end": 10.68
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "I",
+        "thank",
+        "thee,",
+        "Varrius;",
+        "thou",
+        "hast",
+        "made",
+        "good",
+        "haste:",
+        "Come,",
+        "we",
+        "will",
+        "walk.",
+        "There's",
+        "other",
+        "of",
+        "our",
+        "friends",
+        "Will",
+        "greet",
+        "us",
+        "here",
+        "anon,",
+        "my",
+        "gentle",
+        "Varrius.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "I",
+        "thank",
+        "thee,",
+        "Varrius;",
+        "thou",
+        "hast",
+        "made",
+        "good",
+        "haste:",
+        "Come,",
+        "we",
+        "will",
+        "walk.",
+        "There's",
+        "other",
+        "of",
+        "our",
+        "friends",
+        "Will",
+        "greet",
+        "us",
+        "here",
+        "anon,",
+        "my",
+        "gentle",
+        "Varrius.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          28,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 0.62,
+          "end": 1.28,
+          "key": "thank",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "thee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Varrius.",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "varrius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 2.54,
+          "end": 2.62,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 2.62,
+          "end": 2.92,
+          "key": "hast",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "made",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.12,
+          "end": 3.3,
+          "key": "good",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "haste.",
+          "start": 3.3,
+          "end": 3.62,
+          "key": "haste",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 4.08,
+          "end": 4.28,
+          "key": "come",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.48,
+          "end": 4.56,
+          "key": "we",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.56,
+          "end": 4.74,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "walk.",
+          "start": 4.74,
+          "end": 5.06,
+          "key": "walk",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 5.68,
+          "end": 5.84,
+          "key": "theres",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 5.84,
+          "end": 6.02,
+          "key": "other",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.02,
+          "end": 6.16,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 6.16,
+          "end": 6.3,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 6.3,
+          "end": 6.58,
+          "key": "friends",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 6.58,
+          "end": 6.78,
+          "key": "will",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "greet",
+          "start": 6.78,
+          "end": 7.04,
+          "key": "greet",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 7.04,
+          "end": 7.22,
+          "key": "us",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 7.22,
+          "end": 7.44,
+          "key": "here",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "anon,",
+          "start": 7.44,
+          "end": 7.82,
+          "key": "anon",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.96,
+          "end": 8.06,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 8.06,
+          "end": 8.42,
+          "key": "gentle",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Varrius.",
+          "start": 8.42,
+          "end": 9.1,
+          "key": "varrius",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 10.16,
+          "end": 10.68,
+          "key": "exeunt",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "thank",
+          "start": 0.62,
+          "end": 1.28
+        },
+        {
+          "text": "thee,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "Varrius;",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "thou",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "text": "hast",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "text": "made",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "good",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "text": "haste:",
+          "start": 3.3,
+          "end": 3.62
+        },
+        {
+          "text": "Come,",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "text": "we",
+          "start": 4.48,
+          "end": 4.56
+        },
+        {
+          "text": "will",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "text": "walk.",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "text": "There's",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "text": "other",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "text": "of",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "text": "our",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "text": "friends",
+          "start": 6.3,
+          "end": 6.58
+        },
+        {
+          "text": "Will",
+          "start": 6.58,
+          "end": 6.78
+        },
+        {
+          "text": "greet",
+          "start": 6.78,
+          "end": 7.04
+        },
+        {
+          "text": "us",
+          "start": 7.04,
+          "end": 7.22
+        },
+        {
+          "text": "here",
+          "start": 7.22,
+          "end": 7.44
+        },
+        {
+          "text": "anon,",
+          "start": 7.44,
+          "end": 7.82
+        },
+        {
+          "text": "my",
+          "start": 7.96,
+          "end": 8.06
+        },
+        {
+          "text": "gentle",
+          "start": 8.06,
+          "end": 8.42
+        },
+        {
+          "text": "Varrius.",
+          "start": 8.42,
+          "end": 9.1
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 10.16,
+          "end": 10.68
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 5.538770506999981
+    },
+    {
+      "asr_seconds": 3.616132381,
+      "alignment_seconds": 0.0011444840000081058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Varrius, Come, There's, Exeunt._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Duke, I thank thee, Varrius. Thou hast made good haste. Come, we will walk. There's other of our friends will greet us here anon, my gentle Varrius. Exeunt.",
+          "start": 0.08,
+          "end": 10.1,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.5479840040206909
+            },
+            {
+              "text": " I",
+              "start": 0.94,
+              "end": 1.08,
+              "probability": 0.9938141107559204
+            },
+            {
+              "text": " thank",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.9945074915885925
+            },
+            {
+              "text": " thee,",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.9922468662261963
+            },
+            {
+              "text": " Varrius.",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.040524741634726524
+            },
+            {
+              "text": " Thou",
+              "start": 2.56,
+              "end": 2.62,
+              "probability": 0.8838191032409668
+            },
+            {
+              "text": " hast",
+              "start": 2.62,
+              "end": 2.92,
+              "probability": 0.9794884920120239
+            },
+            {
+              "text": " made",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.9953070282936096
+            },
+            {
+              "text": " good",
+              "start": 3.12,
+              "end": 3.3,
+              "probability": 0.9978329539299011
+            },
+            {
+              "text": " haste.",
+              "start": 3.3,
+              "end": 3.62,
+              "probability": 0.9906325340270996
+            },
+            {
+              "text": " Come,",
+              "start": 4.08,
+              "end": 4.28,
+              "probability": 0.9862505197525024
+            },
+            {
+              "text": " we",
+              "start": 4.48,
+              "end": 4.56,
+              "probability": 0.9955649971961975
+            },
+            {
+              "text": " will",
+              "start": 4.56,
+              "end": 4.74,
+              "probability": 0.9959843158721924
+            },
+            {
+              "text": " walk.",
+              "start": 4.74,
+              "end": 5.06,
+              "probability": 0.9994875192642212
+            },
+            {
+              "text": " There's",
+              "start": 5.68,
+              "end": 5.84,
+              "probability": 0.9319644272327423
+            },
+            {
+              "text": " other",
+              "start": 5.84,
+              "end": 6.02,
+              "probability": 0.9938335418701172
+            },
+            {
+              "text": " of",
+              "start": 6.02,
+              "end": 6.16,
+              "probability": 0.9981498718261719
+            },
+            {
+              "text": " our",
+              "start": 6.16,
+              "end": 6.3,
+              "probability": 0.9984104633331299
+            },
+            {
+              "text": " friends",
+              "start": 6.3,
+              "end": 6.58,
+              "probability": 0.9937266111373901
+            },
+            {
+              "text": " will",
+              "start": 6.58,
+              "end": 6.82,
+              "probability": 0.8807054162025452
+            },
+            {
+              "text": " greet",
+              "start": 6.82,
+              "end": 7.04,
+              "probability": 0.9988025426864624
+            },
+            {
+              "text": " us",
+              "start": 7.04,
+              "end": 7.24,
+              "probability": 0.9965614676475525
+            },
+            {
+              "text": " here",
+              "start": 7.24,
+              "end": 7.44,
+              "probability": 0.9920946955680847
+            },
+            {
+              "text": " anon,",
+              "start": 7.44,
+              "end": 7.8,
+              "probability": 0.8954779803752899
+            },
+            {
+              "text": " my",
+              "start": 7.96,
+              "end": 8.06,
+              "probability": 0.9672107100486755
+            },
+            {
+              "text": " gentle",
+              "start": 8.06,
+              "end": 8.4,
+              "probability": 0.9943610429763794
+            },
+            {
+              "text": " Varrius.",
+              "start": 8.4,
+              "end": 9.02,
+              "probability": 0.8520525991916656
+            },
+            {
+              "text": " Exeunt.",
+              "start": 9.64,
+              "end": 10.1,
+              "probability": 0.7677163084348043
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "raw": "thank",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "thee,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "Varrius.",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "raw": "Thou",
+          "start": 2.56,
+          "end": 2.62
+        },
+        {
+          "raw": "hast",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "raw": "made",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "good",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "raw": "haste.",
+          "start": 3.3,
+          "end": 3.62
+        },
+        {
+          "raw": "Come,",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "raw": "we",
+          "start": 4.48,
+          "end": 4.56
+        },
+        {
+          "raw": "will",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "raw": "walk.",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "raw": "There's",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "raw": "other",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "raw": "of",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "raw": "our",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "raw": "friends",
+          "start": 6.3,
+          "end": 6.58
+        },
+        {
+          "raw": "will",
+          "start": 6.58,
+          "end": 6.82
+        },
+        {
+          "raw": "greet",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "raw": "us",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "raw": "here",
+          "start": 7.24,
+          "end": 7.44
+        },
+        {
+          "raw": "anon,",
+          "start": 7.44,
+          "end": 7.8
+        },
+        {
+          "raw": "my",
+          "start": 7.96,
+          "end": 8.06
+        },
+        {
+          "raw": "gentle",
+          "start": 8.06,
+          "end": 8.4
+        },
+        {
+          "raw": "Varrius.",
+          "start": 8.4,
+          "end": 9.02
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 9.64,
+          "end": 10.1
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "I",
+        "thank",
+        "thee,",
+        "Varrius;",
+        "thou",
+        "hast",
+        "made",
+        "good",
+        "haste:",
+        "Come,",
+        "we",
+        "will",
+        "walk.",
+        "There's",
+        "other",
+        "of",
+        "our",
+        "friends",
+        "Will",
+        "greet",
+        "us",
+        "here",
+        "anon,",
+        "my",
+        "gentle",
+        "Varrius.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "I",
+        "thank",
+        "thee,",
+        "Varrius;",
+        "thou",
+        "hast",
+        "made",
+        "good",
+        "haste:",
+        "Come,",
+        "we",
+        "will",
+        "walk.",
+        "There's",
+        "other",
+        "of",
+        "our",
+        "friends",
+        "Will",
+        "greet",
+        "us",
+        "here",
+        "anon,",
+        "my",
+        "gentle",
+        "Varrius.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.08,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Varrius.",
+          "start": 1.86,
+          "end": 2.18,
+          "key": "varrius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 2.56,
+          "end": 2.62,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 2.62,
+          "end": 2.92,
+          "key": "hast",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "made",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.12,
+          "end": 3.3,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "haste.",
+          "start": 3.3,
+          "end": 3.62,
+          "key": "haste",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 4.08,
+          "end": 4.28,
+          "key": "come",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.48,
+          "end": 4.56,
+          "key": "we",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.56,
+          "end": 4.74,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "walk.",
+          "start": 4.74,
+          "end": 5.06,
+          "key": "walk",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 5.68,
+          "end": 5.84,
+          "key": "theres",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 5.84,
+          "end": 6.02,
+          "key": "other",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.02,
+          "end": 6.16,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 6.16,
+          "end": 6.3,
+          "key": "our",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 6.3,
+          "end": 6.58,
+          "key": "friends",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.58,
+          "end": 6.82,
+          "key": "will",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "greet",
+          "start": 6.82,
+          "end": 7.04,
+          "key": "greet",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 7.04,
+          "end": 7.24,
+          "key": "us",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 7.24,
+          "end": 7.44,
+          "key": "here",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "anon,",
+          "start": 7.44,
+          "end": 7.8,
+          "key": "anon",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.96,
+          "end": 8.06,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "gentle",
+          "start": 8.06,
+          "end": 8.4,
+          "key": "gentle",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Varrius.",
+          "start": 8.4,
+          "end": 9.02,
+          "key": "varrius",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 9.64,
+          "end": 10.1,
+          "key": "exeunt",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.94,
+          "end": 1.08
+        },
+        {
+          "text": "thank",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "thee,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "Varrius;",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "text": "thou",
+          "start": 2.56,
+          "end": 2.62
+        },
+        {
+          "text": "hast",
+          "start": 2.62,
+          "end": 2.92
+        },
+        {
+          "text": "made",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "good",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "text": "haste:",
+          "start": 3.3,
+          "end": 3.62
+        },
+        {
+          "text": "Come,",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "text": "we",
+          "start": 4.48,
+          "end": 4.56
+        },
+        {
+          "text": "will",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "text": "walk.",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "text": "There's",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "text": "other",
+          "start": 5.84,
+          "end": 6.02
+        },
+        {
+          "text": "of",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "text": "our",
+          "start": 6.16,
+          "end": 6.3
+        },
+        {
+          "text": "friends",
+          "start": 6.3,
+          "end": 6.58
+        },
+        {
+          "text": "Will",
+          "start": 6.58,
+          "end": 6.82
+        },
+        {
+          "text": "greet",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "text": "us",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "text": "here",
+          "start": 7.24,
+          "end": 7.44
+        },
+        {
+          "text": "anon,",
+          "start": 7.44,
+          "end": 7.8
+        },
+        {
+          "text": "my",
+          "start": 7.96,
+          "end": 8.06
+        },
+        {
+          "text": "gentle",
+          "start": 8.06,
+          "end": 8.4
+        },
+        {
+          "text": "Varrius.",
+          "start": 8.4,
+          "end": 9.02
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 9.64,
+          "end": 10.1
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.6173388809999665
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "81324fd741720575faecbc53e688faf6981a2ea061ca9e7e7428b78962075d2c",
+  "selected_reasons": []
+}

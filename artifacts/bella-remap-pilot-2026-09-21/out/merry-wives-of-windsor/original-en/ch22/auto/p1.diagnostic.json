@@ -1,0 +1,3300 @@
+{
+  "complete": true,
+  "signature": "aa8ce23698c1b26e046da75ad80ef7dfcef907c2cbce314c36f40f85ac153002",
+  "attempts": [
+    {
+      "asr_seconds": 4.559696518999999,
+      "alignment_seconds": 0.002263131000006524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Trib, trib, fairies; come; and remember your parts: be pold, I pray you; follow me into the pit; and when I give the watch-'ords, do as I pid you: come, come; trib, trib. Exeunt._",
+        "hotwords": "I, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, Exeunt._",
+          "start": 0.11,
+          "end": 8.87,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.00024997344007715583
+            },
+            {
+              "text": " Exeunt._",
+              "start": 0.77,
+              "end": 8.87,
+              "probability": 0.2734675932757682
+            }
+          ]
+        },
+        {
+          "text": " Come, come, trib, trib. Exeunt._",
+          "start": 8.87,
+          "end": 11.99,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 8.87,
+              "end": 9.37,
+              "probability": 0.6818397045135498
+            },
+            {
+              "text": " come,",
+              "start": 9.77,
+              "end": 9.77,
+              "probability": 0.9174520373344421
+            },
+            {
+              "text": " trib,",
+              "start": 10.01,
+              "end": 10.11,
+              "probability": 0.17241384088993073
+            },
+            {
+              "text": " trib.",
+              "start": 10.39,
+              "end": 10.51,
+              "probability": 0.9923997521400452
+            },
+            {
+              "text": " Exeunt._",
+              "start": 11.31,
+              "end": 11.99,
+              "probability": 0.5147260919319043
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 0.77,
+          "end": 8.87
+        },
+        {
+          "raw": "Come,",
+          "start": 8.87,
+          "end": 9.37
+        },
+        {
+          "raw": "come,",
+          "start": 9.77,
+          "end": 9.77
+        },
+        {
+          "raw": "trib,",
+          "start": 10.01,
+          "end": 10.11
+        },
+        {
+          "raw": "trib.",
+          "start": 10.39,
+          "end": 10.51
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 11.31,
+          "end": 11.99
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Trib,",
+        "trib,",
+        "fairies;",
+        "come;",
+        "and",
+        "remember",
+        "your",
+        "parts:",
+        "be",
+        "pold,",
+        "I",
+        "pray",
+        "you;",
+        "follow",
+        "me",
+        "into",
+        "the",
+        "pit;",
+        "and",
+        "when",
+        "I",
+        "give",
+        "the",
+        "watch-’ords,",
+        "do",
+        "as",
+        "I",
+        "pid",
+        "you:",
+        "come,",
+        "come;",
+        "trib,",
+        "trib.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Trib,",
+        "trib,",
+        "fairies;",
+        "come;",
+        "and",
+        "remember",
+        "your",
+        "parts:",
+        "be",
+        "pold,",
+        "I",
+        "pray",
+        "you;",
+        "follow",
+        "me",
+        "into",
+        "the",
+        "pit;",
+        "and",
+        "when",
+        "I",
+        "give",
+        "the",
+        "watch-'ords,",
+        "do",
+        "as",
+        "I",
+        "pid",
+        "you:",
+        "come,",
+        "come;",
+        "trib,",
+        "trib.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          11,
+          0,
+          0
+        ],
+        [
+          "equal",
+          11,
+          12,
+          0,
+          1
+        ],
+        [
+          "replace",
+          12,
+          30,
+          1,
+          2
+        ],
+        [
+          "equal",
+          30,
+          35,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          11,
+          0,
+          0
+        ],
+        [
+          "replace",
+          12,
+          30,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.11,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 0.77,
+          "end": 8.87,
+          "key": "exeunt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 8.87,
+          "end": 9.37,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 9.77,
+          "end": 9.77,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "trib,",
+          "start": 10.01,
+          "end": 10.11,
+          "key": "trib",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "trib.",
+          "start": 10.39,
+          "end": 10.51,
+          "key": "trib",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 11.31,
+          "end": 11.99,
+          "key": "exeunt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.0,
+          "end": 0.055
+        },
+        {
+          "text": "Trib,",
+          "start": 0.055,
+          "end": 0.083
+        },
+        {
+          "text": "trib,",
+          "start": 0.083,
+          "end": 0.097
+        },
+        {
+          "text": "fairies;",
+          "start": 0.097,
+          "end": 0.104
+        },
+        {
+          "text": "come;",
+          "start": 0.104,
+          "end": 0.107
+        },
+        {
+          "text": "and",
+          "start": 0.107,
+          "end": 0.108
+        },
+        {
+          "text": "remember",
+          "start": 0.108,
+          "end": 0.109
+        },
+        {
+          "text": "your",
+          "start": 0.109,
+          "end": 0.11
+        },
+        {
+          "text": "parts:",
+          "start": 0.11,
+          "end": 0.11
+        },
+        {
+          "text": "be",
+          "start": 0.11,
+          "end": 0.11
+        },
+        {
+          "text": "pold,",
+          "start": 0.11,
+          "end": 0.11
+        },
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "pray",
+          "start": 0.51,
+          "end": 4.69
+        },
+        {
+          "text": "you;",
+          "start": 4.69,
+          "end": 6.78
+        },
+        {
+          "text": "follow",
+          "start": 6.78,
+          "end": 7.825
+        },
+        {
+          "text": "me",
+          "start": 7.825,
+          "end": 8.348
+        },
+        {
+          "text": "into",
+          "start": 8.348,
+          "end": 8.609
+        },
+        {
+          "text": "the",
+          "start": 8.609,
+          "end": 8.739
+        },
+        {
+          "text": "pit;",
+          "start": 8.739,
+          "end": 8.805
+        },
+        {
+          "text": "and",
+          "start": 8.805,
+          "end": 8.837
+        },
+        {
+          "text": "when",
+          "start": 8.837,
+          "end": 8.854
+        },
+        {
+          "text": "I",
+          "start": 8.854,
+          "end": 8.862
+        },
+        {
+          "text": "give",
+          "start": 8.862,
+          "end": 8.866
+        },
+        {
+          "text": "the",
+          "start": 8.866,
+          "end": 8.868
+        },
+        {
+          "text": "watch-’ords,",
+          "start": 8.868,
+          "end": 8.869
+        },
+        {
+          "text": "do",
+          "start": 8.869,
+          "end": 8.869
+        },
+        {
+          "text": "as",
+          "start": 8.869,
+          "end": 8.869
+        },
+        {
+          "text": "I",
+          "start": 8.869,
+          "end": 8.869
+        },
+        {
+          "text": "pid",
+          "start": 8.869,
+          "end": 8.869
+        },
+        {
+          "text": "you:",
+          "start": 8.869,
+          "end": 8.869
+        },
+        {
+          "text": "come,",
+          "start": 8.87,
+          "end": 9.37
+        },
+        {
+          "text": "come;",
+          "start": 9.77,
+          "end": 9.77
+        },
+        {
+          "text": "trib,",
+          "start": 10.01,
+          "end": 10.11
+        },
+        {
+          "text": "trib.",
+          "start": 10.39,
+          "end": 10.51
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 11.31,
+          "end": 11.99
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.17142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.561987350999999
+    },
+    {
+      "asr_seconds": 4.025854323999994,
+      "alignment_seconds": 0.0015803710000170668,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Exeunt._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Evans, Trib Trib, fairies, come and remember your parts. Be palled, I pray you, follow",
+          "start": 0.11,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.11,
+              "end": 0.73,
+              "probability": 0.5459001064300537
+            },
+            {
+              "text": " Trib",
+              "start": 1.19,
+              "end": 1.21,
+              "probability": 0.7471493482589722
+            },
+            {
+              "text": " Trib,",
+              "start": 1.21,
+              "end": 1.57,
+              "probability": 0.3917063772678375
+            },
+            {
+              "text": " fairies,",
+              "start": 1.85,
+              "end": 2.29,
+              "probability": 0.8426532447338104
+            },
+            {
+              "text": " come",
+              "start": 2.49,
+              "end": 2.55,
+              "probability": 0.8339947462081909
+            },
+            {
+              "text": " and",
+              "start": 2.55,
+              "end": 2.81,
+              "probability": 0.8600417971611023
+            },
+            {
+              "text": " remember",
+              "start": 2.81,
+              "end": 3.07,
+              "probability": 0.989105761051178
+            },
+            {
+              "text": " your",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.9780860543251038
+            },
+            {
+              "text": " parts.",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.9834240078926086
+            },
+            {
+              "text": " Be",
+              "start": 4.03,
+              "end": 4.09,
+              "probability": 0.9777233004570007
+            },
+            {
+              "text": " palled,",
+              "start": 4.09,
+              "end": 4.45,
+              "probability": 0.4661078676581383
+            },
+            {
+              "text": " I",
+              "start": 4.55,
+              "end": 4.63,
+              "probability": 0.9963189363479614
+            },
+            {
+              "text": " pray",
+              "start": 4.63,
+              "end": 4.83,
+              "probability": 0.9934279322624207
+            },
+            {
+              "text": " you,",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.9862280488014221
+            },
+            {
+              "text": " follow",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.9760922193527222
+            }
+          ]
+        },
+        {
+          "text": " me into the pit, and when I give the watchwords, do as I bid you. Come, come, Trib Trib, Exeunt.",
+          "start": 5.27,
+          "end": 11.43,
+          "words": [
+            {
+              "text": " me",
+              "start": 5.27,
+              "end": 5.51,
+              "probability": 0.9894888997077942
+            },
+            {
+              "text": " into",
+              "start": 5.51,
+              "end": 5.65,
+              "probability": 0.9892160892486572
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.79,
+              "probability": 0.9957913160324097
+            },
+            {
+              "text": " pit,",
+              "start": 5.79,
+              "end": 5.97,
+              "probability": 0.8129570484161377
+            },
+            {
+              "text": " and",
+              "start": 6.25,
+              "end": 6.33,
+              "probability": 0.8201038837432861
+            },
+            {
+              "text": " when",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.9792167544364929
+            },
+            {
+              "text": " I",
+              "start": 6.45,
+              "end": 6.61,
+              "probability": 0.9960197806358337
+            },
+            {
+              "text": " give",
+              "start": 6.61,
+              "end": 6.73,
+              "probability": 0.9980165958404541
+            },
+            {
+              "text": " the",
+              "start": 6.73,
+              "end": 6.89,
+              "probability": 0.982235312461853
+            },
+            {
+              "text": " watchwords,",
+              "start": 6.89,
+              "end": 7.39,
+              "probability": 0.7055337876081467
+            },
+            {
+              "text": " do",
+              "start": 7.61,
+              "end": 7.71,
+              "probability": 0.9936221241950989
+            },
+            {
+              "text": " as",
+              "start": 7.71,
+              "end": 7.87,
+              "probability": 0.9983426332473755
+            },
+            {
+              "text": " I",
+              "start": 7.87,
+              "end": 8.03,
+              "probability": 0.9965527057647705
+            },
+            {
+              "text": " bid",
+              "start": 8.03,
+              "end": 8.19,
+              "probability": 0.3632428050041199
+            },
+            {
+              "text": " you.",
+              "start": 8.19,
+              "end": 8.45,
+              "probability": 0.9982323050498962
+            },
+            {
+              "text": " Come,",
+              "start": 9.07,
+              "end": 9.35,
+              "probability": 0.954559862613678
+            },
+            {
+              "text": " come,",
+              "start": 9.69,
+              "end": 9.75,
+              "probability": 0.8724706172943115
+            },
+            {
+              "text": " Trib",
+              "start": 9.99,
+              "end": 10.09,
+              "probability": 0.9602025747299194
+            },
+            {
+              "text": " Trib,",
+              "start": 10.09,
+              "end": 10.43,
+              "probability": 0.8641871213912964
+            },
+            {
+              "text": " Exeunt.",
+              "start": 10.97,
+              "end": 11.43,
+              "probability": 0.44018172410627204
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "raw": "Trib",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "raw": "Trib,",
+          "start": 1.21,
+          "end": 1.57
+        },
+        {
+          "raw": "fairies,",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "raw": "come",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "raw": "remember",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "raw": "your",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "parts.",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "raw": "Be",
+          "start": 4.03,
+          "end": 4.09
+        },
+        {
+          "raw": "palled,",
+          "start": 4.09,
+          "end": 4.45
+        },
+        {
+          "raw": "I",
+          "start": 4.55,
+          "end": 4.63
+        },
+        {
+          "raw": "pray",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "raw": "you,",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "follow",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "me",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "raw": "into",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.79
+        },
+        {
+          "raw": "pit,",
+          "start": 5.79,
+          "end": 5.97
+        },
+        {
+          "raw": "and",
+          "start": 6.25,
+          "end": 6.33
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "I",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "raw": "give",
+          "start": 6.61,
+          "end": 6.73
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.89
+        },
+        {
+          "raw": "watchwords,",
+          "start": 6.89,
+          "end": 7.39
+        },
+        {
+          "raw": "do",
+          "start": 7.61,
+          "end": 7.71
+        },
+        {
+          "raw": "as",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "raw": "I",
+          "start": 7.87,
+          "end": 8.03
+        },
+        {
+          "raw": "bid",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "raw": "you.",
+          "start": 8.19,
+          "end": 8.45
+        },
+        {
+          "raw": "Come,",
+          "start": 9.07,
+          "end": 9.35
+        },
+        {
+          "raw": "come,",
+          "start": 9.69,
+          "end": 9.75
+        },
+        {
+          "raw": "Trib",
+          "start": 9.99,
+          "end": 10.09
+        },
+        {
+          "raw": "Trib,",
+          "start": 10.09,
+          "end": 10.43
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 10.97,
+          "end": 11.43
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Trib,",
+        "trib,",
+        "fairies;",
+        "come;",
+        "and",
+        "remember",
+        "your",
+        "parts:",
+        "be",
+        "pold,",
+        "I",
+        "pray",
+        "you;",
+        "follow",
+        "me",
+        "into",
+        "the",
+        "pit;",
+        "and",
+        "when",
+        "I",
+        "give",
+        "the",
+        "watch-’ords,",
+        "do",
+        "as",
+        "I",
+        "pid",
+        "you:",
+        "come,",
+        "come;",
+        "trib,",
+        "trib.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Trib,",
+        "trib,",
+        "fairies;",
+        "come;",
+        "and",
+        "remember",
+        "your",
+        "parts:",
+        "be",
+        "pold,",
+        "I",
+        "pray",
+        "you;",
+        "follow",
+        "me",
+        "into",
+        "the",
+        "pit;",
+        "and",
+        "when",
+        "I",
+        "give",
+        "the",
+        "watch-'ords,",
+        "do",
+        "as",
+        "I",
+        "pid",
+        "you:",
+        "come,",
+        "come;",
+        "trib,",
+        "trib.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          24,
+          11,
+          24
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "equal",
+          25,
+          28,
+          25,
+          28
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "equal",
+          29,
+          35,
+          29,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.73,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trib",
+          "start": 1.19,
+          "end": 1.21,
+          "key": "trib",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Trib,",
+          "start": 1.21,
+          "end": 1.57,
+          "key": "trib",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fairies,",
+          "start": 1.85,
+          "end": 2.29,
+          "key": "fairies",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.49,
+          "end": 2.55,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.81,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 2.81,
+          "end": 3.07,
+          "key": "remember",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.07,
+          "end": 3.25,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "parts.",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "parts",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 4.03,
+          "end": 4.09,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "palled,",
+          "start": 4.09,
+          "end": 4.45,
+          "key": "palled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.55,
+          "end": 4.63,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 4.63,
+          "end": 4.83,
+          "key": "pray",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 4.83,
+          "end": 5.05,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "follow",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.27,
+          "end": 5.51,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 5.51,
+          "end": 5.65,
+          "key": "into",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.79,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pit,",
+          "start": 5.79,
+          "end": 5.97,
+          "key": "pit",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.25,
+          "end": 6.33,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "when",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.45,
+          "end": 6.61,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 6.61,
+          "end": 6.73,
+          "key": "give",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.89,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "watchwords,",
+          "start": 6.89,
+          "end": 7.39,
+          "key": "watchwords",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 7.61,
+          "end": 7.71,
+          "key": "do",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.71,
+          "end": 7.87,
+          "key": "as",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.87,
+          "end": 8.03,
+          "key": "i",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 8.03,
+          "end": 8.19,
+          "key": "bid",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 8.19,
+          "end": 8.45,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 9.07,
+          "end": 9.35,
+          "key": "come",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 9.69,
+          "end": 9.75,
+          "key": "come",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Trib",
+          "start": 9.99,
+          "end": 10.09,
+          "key": "trib",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Trib,",
+          "start": 10.09,
+          "end": 10.43,
+          "key": "trib",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 10.97,
+          "end": 11.43,
+          "key": "exeunt",
+          "pieces": [
+            34
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "text": "Trib,",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "text": "trib,",
+          "start": 1.21,
+          "end": 1.57
+        },
+        {
+          "text": "fairies;",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "text": "come;",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "text": "and",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "text": "remember",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "text": "your",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "parts:",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "text": "be",
+          "start": 4.03,
+          "end": 4.09
+        },
+        {
+          "text": "pold,",
+          "start": 4.09,
+          "end": 4.32
+        },
+        {
+          "text": "I",
+          "start": 4.55,
+          "end": 4.63
+        },
+        {
+          "text": "pray",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "text": "you;",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "text": "follow",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "me",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "text": "into",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.79
+        },
+        {
+          "text": "pit;",
+          "start": 5.79,
+          "end": 5.97
+        },
+        {
+          "text": "and",
+          "start": 6.25,
+          "end": 6.33
+        },
+        {
+          "text": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "I",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "text": "give",
+          "start": 6.61,
+          "end": 6.73
+        },
+        {
+          "text": "the",
+          "start": 6.73,
+          "end": 6.89
+        },
+        {
+          "text": "watch-’ords,",
+          "start": 6.89,
+          "end": 7.25
+        },
+        {
+          "text": "do",
+          "start": 7.61,
+          "end": 7.71
+        },
+        {
+          "text": "as",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "text": "I",
+          "start": 7.87,
+          "end": 8.03
+        },
+        {
+          "text": "pid",
+          "start": 8.03,
+          "end": 8.11
+        },
+        {
+          "text": "you:",
+          "start": 8.19,
+          "end": 8.45
+        },
+        {
+          "text": "come,",
+          "start": 9.07,
+          "end": 9.35
+        },
+        {
+          "text": "come;",
+          "start": 9.69,
+          "end": 9.75
+        },
+        {
+          "text": "trib,",
+          "start": 9.99,
+          "end": 10.09
+        },
+        {
+          "text": "trib.",
+          "start": 10.09,
+          "end": 10.43
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 10.97,
+          "end": 11.43
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 35,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9142857142857143,
+      "rejection_reasons": [],
+      "seconds": 4.027508984000008
+    },
+    {
+      "asr_seconds": 4.073758322000003,
+      "alignment_seconds": 0.0015746499999806929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Evans, Trib Trib, fairies, come and remember your parts.",
+          "start": 0.11,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.11,
+              "end": 0.73,
+              "probability": 0.5459001064300537
+            },
+            {
+              "text": " Trib",
+              "start": 1.19,
+              "end": 1.21,
+              "probability": 0.7471493482589722
+            },
+            {
+              "text": " Trib,",
+              "start": 1.21,
+              "end": 1.57,
+              "probability": 0.3917063772678375
+            },
+            {
+              "text": " fairies,",
+              "start": 1.85,
+              "end": 2.29,
+              "probability": 0.8426532447338104
+            },
+            {
+              "text": " come",
+              "start": 2.49,
+              "end": 2.55,
+              "probability": 0.8339947462081909
+            },
+            {
+              "text": " and",
+              "start": 2.55,
+              "end": 2.81,
+              "probability": 0.8600417971611023
+            },
+            {
+              "text": " remember",
+              "start": 2.81,
+              "end": 3.07,
+              "probability": 0.989105761051178
+            },
+            {
+              "text": " your",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.9780860543251038
+            },
+            {
+              "text": " parts.",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.9834240078926086
+            }
+          ]
+        },
+        {
+          "text": " Be palled, I pray you, follow me into the pit, and when I give the watch-words, do as I",
+          "start": 4.03,
+          "end": 8.03,
+          "words": [
+            {
+              "text": " Be",
+              "start": 4.03,
+              "end": 4.09,
+              "probability": 0.9777233004570007
+            },
+            {
+              "text": " palled,",
+              "start": 4.09,
+              "end": 4.45,
+              "probability": 0.4661078676581383
+            },
+            {
+              "text": " I",
+              "start": 4.55,
+              "end": 4.63,
+              "probability": 0.9963189363479614
+            },
+            {
+              "text": " pray",
+              "start": 4.63,
+              "end": 4.83,
+              "probability": 0.9934279322624207
+            },
+            {
+              "text": " you,",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.9862280488014221
+            },
+            {
+              "text": " follow",
+              "start": 5.13,
+              "end": 5.27,
+              "probability": 0.9760922193527222
+            },
+            {
+              "text": " me",
+              "start": 5.27,
+              "end": 5.51,
+              "probability": 0.9894888997077942
+            },
+            {
+              "text": " into",
+              "start": 5.51,
+              "end": 5.65,
+              "probability": 0.9892160892486572
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.79,
+              "probability": 0.9957913160324097
+            },
+            {
+              "text": " pit,",
+              "start": 5.79,
+              "end": 5.97,
+              "probability": 0.8129570484161377
+            },
+            {
+              "text": " and",
+              "start": 6.25,
+              "end": 6.33,
+              "probability": 0.8201038837432861
+            },
+            {
+              "text": " when",
+              "start": 6.33,
+              "end": 6.45,
+              "probability": 0.9792167544364929
+            },
+            {
+              "text": " I",
+              "start": 6.45,
+              "end": 6.61,
+              "probability": 0.9960197806358337
+            },
+            {
+              "text": " give",
+              "start": 6.61,
+              "end": 6.73,
+              "probability": 0.9980165958404541
+            },
+            {
+              "text": " the",
+              "start": 6.73,
+              "end": 6.89,
+              "probability": 0.982235312461853
+            },
+            {
+              "text": " watch",
+              "start": 6.89,
+              "end": 7.15,
+              "probability": 0.9741193056106567
+            },
+            {
+              "text": "-words,",
+              "start": 7.15,
+              "end": 7.39,
+              "probability": 0.4164087772369385
+            },
+            {
+              "text": " do",
+              "start": 7.63,
+              "end": 7.71,
+              "probability": 0.9946552515029907
+            },
+            {
+              "text": " as",
+              "start": 7.71,
+              "end": 7.87,
+              "probability": 0.997916042804718
+            },
+            {
+              "text": " I",
+              "start": 7.87,
+              "end": 8.03,
+              "probability": 0.9974631071090698
+            }
+          ]
+        },
+        {
+          "text": " bid you.",
+          "start": 8.03,
+          "end": 8.45,
+          "words": [
+            {
+              "text": " bid",
+              "start": 8.03,
+              "end": 8.19,
+              "probability": 0.3163490295410156
+            },
+            {
+              "text": " you.",
+              "start": 8.19,
+              "end": 8.45,
+              "probability": 0.9981513619422913
+            }
+          ]
+        },
+        {
+          "text": " Come, come, Trib Trib, exeunt.",
+          "start": 9.07,
+          "end": 11.41,
+          "words": [
+            {
+              "text": " Come,",
+              "start": 9.07,
+              "end": 9.35,
+              "probability": 0.9525032043457031
+            },
+            {
+              "text": " come,",
+              "start": 9.69,
+              "end": 9.75,
+              "probability": 0.8808065056800842
+            },
+            {
+              "text": " Trib",
+              "start": 9.97,
+              "end": 10.09,
+              "probability": 0.9568841457366943
+            },
+            {
+              "text": " Trib,",
+              "start": 10.09,
+              "end": 10.43,
+              "probability": 0.8495040535926819
+            },
+            {
+              "text": " exeunt.",
+              "start": 10.97,
+              "end": 11.41,
+              "probability": 0.7119612097740173
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "raw": "Trib",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "raw": "Trib,",
+          "start": 1.21,
+          "end": 1.57
+        },
+        {
+          "raw": "fairies,",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "raw": "come",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "raw": "remember",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "raw": "your",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "parts.",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "raw": "Be",
+          "start": 4.03,
+          "end": 4.09
+        },
+        {
+          "raw": "palled,",
+          "start": 4.09,
+          "end": 4.45
+        },
+        {
+          "raw": "I",
+          "start": 4.55,
+          "end": 4.63
+        },
+        {
+          "raw": "pray",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "raw": "you,",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "follow",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "raw": "me",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "raw": "into",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.79
+        },
+        {
+          "raw": "pit,",
+          "start": 5.79,
+          "end": 5.97
+        },
+        {
+          "raw": "and",
+          "start": 6.25,
+          "end": 6.33
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "raw": "I",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "raw": "give",
+          "start": 6.61,
+          "end": 6.73
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.89
+        },
+        {
+          "raw": "watch",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "raw": "-words,",
+          "start": 7.15,
+          "end": 7.39
+        },
+        {
+          "raw": "do",
+          "start": 7.63,
+          "end": 7.71
+        },
+        {
+          "raw": "as",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "raw": "I",
+          "start": 7.87,
+          "end": 8.03
+        },
+        {
+          "raw": "bid",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "raw": "you.",
+          "start": 8.19,
+          "end": 8.45
+        },
+        {
+          "raw": "Come,",
+          "start": 9.07,
+          "end": 9.35
+        },
+        {
+          "raw": "come,",
+          "start": 9.69,
+          "end": 9.75
+        },
+        {
+          "raw": "Trib",
+          "start": 9.97,
+          "end": 10.09
+        },
+        {
+          "raw": "Trib,",
+          "start": 10.09,
+          "end": 10.43
+        },
+        {
+          "raw": "exeunt.",
+          "start": 10.97,
+          "end": 11.41
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Trib,",
+        "trib,",
+        "fairies;",
+        "come;",
+        "and",
+        "remember",
+        "your",
+        "parts:",
+        "be",
+        "pold,",
+        "I",
+        "pray",
+        "you;",
+        "follow",
+        "me",
+        "into",
+        "the",
+        "pit;",
+        "and",
+        "when",
+        "I",
+        "give",
+        "the",
+        "watch-’ords,",
+        "do",
+        "as",
+        "I",
+        "pid",
+        "you:",
+        "come,",
+        "come;",
+        "trib,",
+        "trib.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Trib,",
+        "trib,",
+        "fairies;",
+        "come;",
+        "and",
+        "remember",
+        "your",
+        "parts:",
+        "be",
+        "pold,",
+        "I",
+        "pray",
+        "you;",
+        "follow",
+        "me",
+        "into",
+        "the",
+        "pit;",
+        "and",
+        "when",
+        "I",
+        "give",
+        "the",
+        "watch-'ords,",
+        "do",
+        "as",
+        "I",
+        "pid",
+        "you:",
+        "come,",
+        "come;",
+        "trib,",
+        "trib.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          24,
+          11,
+          24
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          26
+        ],
+        [
+          "equal",
+          25,
+          28,
+          26,
+          29
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ],
+        [
+          "equal",
+          29,
+          35,
+          30,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          26
+        ],
+        [
+          "replace",
+          28,
+          29,
+          29,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.73,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trib",
+          "start": 1.19,
+          "end": 1.21,
+          "key": "trib",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Trib,",
+          "start": 1.21,
+          "end": 1.57,
+          "key": "trib",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fairies,",
+          "start": 1.85,
+          "end": 2.29,
+          "key": "fairies",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.49,
+          "end": 2.55,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.81,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 2.81,
+          "end": 3.07,
+          "key": "remember",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.07,
+          "end": 3.25,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "parts.",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "parts",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 4.03,
+          "end": 4.09,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "palled,",
+          "start": 4.09,
+          "end": 4.45,
+          "key": "palled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.55,
+          "end": 4.63,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 4.63,
+          "end": 4.83,
+          "key": "pray",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 4.83,
+          "end": 5.05,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 5.13,
+          "end": 5.27,
+          "key": "follow",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.27,
+          "end": 5.51,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 5.51,
+          "end": 5.65,
+          "key": "into",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.79,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pit,",
+          "start": 5.79,
+          "end": 5.97,
+          "key": "pit",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.25,
+          "end": 6.33,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 6.33,
+          "end": 6.45,
+          "key": "when",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.45,
+          "end": 6.61,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 6.61,
+          "end": 6.73,
+          "key": "give",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.89,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 6.89,
+          "end": 7.15,
+          "key": "watch",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "-words,",
+          "start": 7.15,
+          "end": 7.39,
+          "key": "words",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 7.63,
+          "end": 7.71,
+          "key": "do",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 7.71,
+          "end": 7.87,
+          "key": "as",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.87,
+          "end": 8.03,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 8.03,
+          "end": 8.19,
+          "key": "bid",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 8.19,
+          "end": 8.45,
+          "key": "you",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 9.07,
+          "end": 9.35,
+          "key": "come",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 9.69,
+          "end": 9.75,
+          "key": "come",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Trib",
+          "start": 9.97,
+          "end": 10.09,
+          "key": "trib",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Trib,",
+          "start": 10.09,
+          "end": 10.43,
+          "key": "trib",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "exeunt.",
+          "start": 10.97,
+          "end": 11.41,
+          "key": "exeunt",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "text": "Trib,",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "text": "trib,",
+          "start": 1.21,
+          "end": 1.57
+        },
+        {
+          "text": "fairies;",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "text": "come;",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "text": "and",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "text": "remember",
+          "start": 2.81,
+          "end": 3.07
+        },
+        {
+          "text": "your",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "parts:",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "text": "be",
+          "start": 4.03,
+          "end": 4.09
+        },
+        {
+          "text": "pold,",
+          "start": 4.09,
+          "end": 4.32
+        },
+        {
+          "text": "I",
+          "start": 4.55,
+          "end": 4.63
+        },
+        {
+          "text": "pray",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "text": "you;",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "text": "follow",
+          "start": 5.13,
+          "end": 5.27
+        },
+        {
+          "text": "me",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "text": "into",
+          "start": 5.51,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.79
+        },
+        {
+          "text": "pit;",
+          "start": 5.79,
+          "end": 5.97
+        },
+        {
+          "text": "and",
+          "start": 6.25,
+          "end": 6.33
+        },
+        {
+          "text": "when",
+          "start": 6.33,
+          "end": 6.45
+        },
+        {
+          "text": "I",
+          "start": 6.45,
+          "end": 6.61
+        },
+        {
+          "text": "give",
+          "start": 6.61,
+          "end": 6.73
+        },
+        {
+          "text": "the",
+          "start": 6.73,
+          "end": 6.89
+        },
+        {
+          "text": "watch-’ords,",
+          "start": 6.89,
+          "end": 7.26
+        },
+        {
+          "text": "do",
+          "start": 7.63,
+          "end": 7.71
+        },
+        {
+          "text": "as",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "text": "I",
+          "start": 7.87,
+          "end": 8.03
+        },
+        {
+          "text": "pid",
+          "start": 8.03,
+          "end": 8.11
+        },
+        {
+          "text": "you:",
+          "start": 8.19,
+          "end": 8.45
+        },
+        {
+          "text": "come,",
+          "start": 9.07,
+          "end": 9.35
+        },
+        {
+          "text": "come;",
+          "start": 9.69,
+          "end": 9.75
+        },
+        {
+          "text": "trib,",
+          "start": 9.97,
+          "end": 10.09
+        },
+        {
+          "text": "trib.",
+          "start": 10.09,
+          "end": 10.43
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 10.97,
+          "end": 11.41
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 36,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9142857142857143,
+      "rejection_reasons": [],
+      "seconds": 4.075426446999984
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "bbfa4681fd750a58d5f44b60379c6bd8fcaf6fe5d418b9181ab453ca058d446d",
+  "selected_reasons": []
+}

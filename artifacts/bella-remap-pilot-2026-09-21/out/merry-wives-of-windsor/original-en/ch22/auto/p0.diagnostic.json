@@ -1,0 +1,729 @@
+{
+  "complete": true,
+  "signature": "a294ed87a10e7058877883c47fd1627ce504d722e169be6da905b4adbb8accf4",
+  "attempts": [
+    {
+      "asr_seconds": 8.947870489999985,
+      "alignment_seconds": 0.0004594709999992119,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Sir Hugh Evans disguised, with others as Fairies._",
+        "hotwords": "Sir, Hugh, Evans, Fairies._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ender Sir Hugh Evans disguised, with others as Fairies._",
+          "start": 0.14,
+          "end": 4.04,
+          "words": [
+            {
+              "text": " Ender",
+              "start": 0.14,
+              "end": 0.62,
+              "probability": 1.2663840607274324e-05
+            },
+            {
+              "text": " Sir",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.3529294431209564
+            },
+            {
+              "text": " Hugh",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.9833477139472961
+            },
+            {
+              "text": " Evans",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.9940183162689209
+            },
+            {
+              "text": " disguised,",
+              "start": 1.36,
+              "end": 1.84,
+              "probability": 0.7678025364875793
+            },
+            {
+              "text": " with",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.9851768016815186
+            },
+            {
+              "text": " others",
+              "start": 2.48,
+              "end": 2.7,
+              "probability": 0.987687885761261
+            },
+            {
+              "text": " as",
+              "start": 2.7,
+              "end": 2.94,
+              "probability": 0.9924672245979309
+            },
+            {
+              "text": " Fairies._",
+              "start": 2.94,
+              "end": 4.04,
+              "probability": 0.32966441453440964
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ender",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "raw": "Sir",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "Hugh",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "Evans",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "disguised,",
+          "start": 1.36,
+          "end": 1.84
+        },
+        {
+          "raw": "with",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "others",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "raw": "as",
+          "start": 2.7,
+          "end": 2.94
+        },
+        {
+          "raw": "Fairies._",
+          "start": 2.94,
+          "end": 4.04
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "SIR",
+        "HUGH",
+        "EVANS",
+        "disguised,",
+        "with",
+        "others",
+        "as",
+        "Fairies._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Sir",
+        "Hugh",
+        "Evans",
+        "disguised,",
+        "with",
+        "others",
+        "as",
+        "Fairies._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ender",
+          "start": 0.14,
+          "end": 0.62,
+          "key": "ender",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hugh",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "hugh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Evans",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "evans",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "disguised,",
+          "start": 1.36,
+          "end": 1.84,
+          "key": "disguised",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 2.48,
+          "end": 2.7,
+          "key": "others",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.7,
+          "end": 2.94,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fairies._",
+          "start": 2.94,
+          "end": 4.04,
+          "key": "fairies",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.0,
+          "end": 0.31
+        },
+        {
+          "text": "SIR",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "HUGH",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "EVANS",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "disguised,",
+          "start": 1.36,
+          "end": 1.84
+        },
+        {
+          "text": "with",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "others",
+          "start": 2.48,
+          "end": 2.7
+        },
+        {
+          "text": "as",
+          "start": 2.7,
+          "end": 2.94
+        },
+        {
+          "text": "Fairies._",
+          "start": 2.94,
+          "end": 4.04
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 8.948360177999973
+    },
+    {
+      "asr_seconds": 2.5440516730000127,
+      "alignment_seconds": 0.00041910499999175954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sir, Hugh, Evans, Fairies._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Enter Sir Hugh Evans' Disguised, with others as fairies.",
+          "start": 0.14,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.9272812604904175
+            },
+            {
+              "text": " Sir",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9471431374549866
+            },
+            {
+              "text": " Hugh",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.9858032464981079
+            },
+            {
+              "text": " Evans'",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.9945706725120544
+            },
+            {
+              "text": " Disguised,",
+              "start": 1.52,
+              "end": 2.06,
+              "probability": 0.7062782049179077
+            },
+            {
+              "text": " with",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.9860032200813293
+            },
+            {
+              "text": " others",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.9864295721054077
+            },
+            {
+              "text": " as",
+              "start": 2.68,
+              "end": 2.94,
+              "probability": 0.9882100820541382
+            },
+            {
+              "text": " fairies.",
+              "start": 2.94,
+              "end": 3.46,
+              "probability": 0.9647427797317505
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Sir",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "Hugh",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "Evans'",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "Disguised,",
+          "start": 1.52,
+          "end": 2.06
+        },
+        {
+          "raw": "with",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "others",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "as",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "raw": "fairies.",
+          "start": 2.94,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "SIR",
+        "HUGH",
+        "EVANS",
+        "disguised,",
+        "with",
+        "others",
+        "as",
+        "Fairies._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Sir",
+        "Hugh",
+        "Evans",
+        "disguised,",
+        "with",
+        "others",
+        "as",
+        "Fairies._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hugh",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "hugh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Evans'",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "evans",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Disguised,",
+          "start": 1.52,
+          "end": 2.06,
+          "key": "disguised",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.3,
+          "end": 2.48,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "others",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.68,
+          "end": 2.94,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fairies.",
+          "start": 2.94,
+          "end": 3.46,
+          "key": "fairies",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "SIR",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "HUGH",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "EVANS",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "disguised,",
+          "start": 1.52,
+          "end": 2.06
+        },
+        {
+          "text": "with",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "others",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "as",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "text": "Fairies._",
+          "start": 2.94,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.5445019569999943
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "e19f9ff922ac6c1c51cc143c0aed3d45a73176395ede0b7f67e81a6f6de7aaf3",
+  "selected_reasons": []
+}

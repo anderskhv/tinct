@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "7006919ac4ad3519ef4f036c3030623c614eeae7f84eb2003c2590794aad5814",
+  "attempts": [
+    {
+      "asr_seconds": 18.457562011999983,
+      "alignment_seconds": 0.0007693919999951504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Duke in his own habit, and Friar Peter._",
+        "hotwords": "Duke, Friar, Peter._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lecture No. 1",
+          "start": 0.08,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Lecture",
+              "start": 0.08,
+              "end": 2.56,
+              "probability": 0.21318297916172924
+            },
+            {
+              "text": " No.",
+              "start": 2.56,
+              "end": 3.46,
+              "probability": 0.05236127972602844
+            },
+            {
+              "text": " 1",
+              "start": 3.54,
+              "end": 3.54,
+              "probability": 0.21200105547904968
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lecture",
+          "start": 0.08,
+          "end": 2.56
+        },
+        {
+          "raw": "No.",
+          "start": 2.56,
+          "end": 3.46
+        },
+        {
+          "raw": "1",
+          "start": 3.54,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "DUKE",
+        "in",
+        "his",
+        "own",
+        "habit,",
+        "and",
+        "FRIAR",
+        "PETER._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Duke",
+        "in",
+        "his",
+        "own",
+        "habit,",
+        "and",
+        "Friar",
+        "Peter._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          9,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          9,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lecture",
+          "start": 0.08,
+          "end": 2.56,
+          "key": "lecture",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 2.56,
+          "end": 3.46,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "1",
+          "start": 3.54,
+          "end": 3.54,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.0,
+          "end": 1.77
+        },
+        {
+          "text": "DUKE",
+          "start": 1.77,
+          "end": 2.655
+        },
+        {
+          "text": "in",
+          "start": 2.655,
+          "end": 3.098
+        },
+        {
+          "text": "his",
+          "start": 3.098,
+          "end": 3.319
+        },
+        {
+          "text": "own",
+          "start": 3.319,
+          "end": 3.429
+        },
+        {
+          "text": "habit,",
+          "start": 3.429,
+          "end": 3.484
+        },
+        {
+          "text": "and",
+          "start": 3.484,
+          "end": 3.512
+        },
+        {
+          "text": "FRIAR",
+          "start": 3.512,
+          "end": 3.526
+        },
+        {
+          "text": "PETER._",
+          "start": 3.526,
+          "end": 3.533
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 18.458362160999997
+    },
+    {
+      "asr_seconds": 2.3526040090000038,
+      "alignment_seconds": 0.00043761099999528597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Duke, Friar, Peter._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Enter Duke in his own habit, and Friar Peter.",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.8814699053764343
+            },
+            {
+              "text": " Duke",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.9832520484924316
+            },
+            {
+              "text": " in",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.9902011752128601
+            },
+            {
+              "text": " his",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.9981517195701599
+            },
+            {
+              "text": " own",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.9992640614509583
+            },
+            {
+              "text": " habit,",
+              "start": 1.28,
+              "end": 1.7,
+              "probability": 0.9900354743003845
+            },
+            {
+              "text": " and",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.9931285381317139
+            },
+            {
+              "text": " Friar",
+              "start": 2.2,
+              "end": 2.58,
+              "probability": 0.517082629725337
+            },
+            {
+              "text": " Peter.",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.9897240400314331
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Duke",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "in",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "his",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "own",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "habit,",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "Friar",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "raw": "Peter.",
+          "start": 2.58,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "DUKE",
+        "in",
+        "his",
+        "own",
+        "habit,",
+        "and",
+        "FRIAR",
+        "PETER._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Duke",
+        "in",
+        "his",
+        "own",
+        "habit,",
+        "and",
+        "Friar",
+        "Peter._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "duke",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "own",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "habit,",
+          "start": 1.28,
+          "end": 1.7,
+          "key": "habit",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Friar",
+          "start": 2.2,
+          "end": 2.58,
+          "key": "friar",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Peter.",
+          "start": 2.58,
+          "end": 2.78,
+          "key": "peter",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "DUKE",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "in",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "his",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "own",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "habit,",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "FRIAR",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "text": "PETER._",
+          "start": 2.58,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.3530725070000074
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c25485f6eeffc2035eed53335ab31823a1e383360136b6c751b27388216ee611",
+  "selected_reasons": []
+}
