@@ -15,5 +15,31 @@
     "acousticRun": 35595070566,
     "freshProbeWithin300ms": 30,
     "freshProbeMaxDelta": 0.13
+  },
+  {
+    "at": "2026-09-21T12:00:40.701861+00:00",
+    "key": "king-lear/original-en/ch3/words.json",
+    "outcome": "published",
+    "sha256": "326bc38cd664a11b1246f7a555b1751f644bb660fdfbf11551505d21b3503219",
+    "servedSha256": "326bc38cd664a11b1246f7a555b1751f644bb660fdfbf11551505d21b3503219",
+    "verification": {
+      "bookId": "king-lear",
+      "edition": "original-en",
+      "chapter": 3,
+      "ok": true,
+      "failures": [],
+      "paragraphsChecked": 10,
+      "wordsChecked": 233,
+      "worstParagraphRatio": 1,
+      "sidecarBytes": 25139
+    },
+    "audioFilesUnchanged": 10,
+    "textUnchanged": true,
+    "conditionalCreate": true,
+    "appDeployment": false,
+    "readerTestRun": 35596598346,
+    "acousticEvidenceRun": 35596262862,
+    "freshProbeWithin300ms": 30,
+    "freshProbeMaxDelta": 0.29
   }
 ]
