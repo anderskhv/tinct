@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "1a7d7d5c69fb6b17734044c19bf69df0a07840f17ebe209ed1e24ea03933e228",
+  "attempts": [
+    {
+      "asr_seconds": 1.7761869329999627,
+      "alignment_seconds": 0.0004983769999853394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sire, your Majesty's chaise is at Padua, and the boat is ready.\"",
+        "hotwords": "Sire, Majesty's, Padua"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sire, your Majesty's chaise is at Padua, and the boat is ready.",
+          "start": 0.08,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " Sire,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.9032620787620544
+            },
+            {
+              "text": " your",
+              "start": 1.0,
+              "end": 1.08,
+              "probability": 0.6867361068725586
+            },
+            {
+              "text": " Majesty's",
+              "start": 1.08,
+              "end": 1.7,
+              "probability": 0.6017572283744812
+            },
+            {
+              "text": " chaise",
+              "start": 1.7,
+              "end": 2.04,
+              "probability": 0.73765429854393
+            },
+            {
+              "text": " is",
+              "start": 2.04,
+              "end": 2.16,
+              "probability": 0.9366713166236877
+            },
+            {
+              "text": " at",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.9940430521965027
+            },
+            {
+              "text": " Padua,",
+              "start": 2.3,
+              "end": 2.7,
+              "probability": 0.9541043639183044
+            },
+            {
+              "text": " and",
+              "start": 3.12,
+              "end": 3.22,
+              "probability": 0.9924374222755432
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.32,
+              "probability": 0.9959837198257446
+            },
+            {
+              "text": " boat",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.9967038035392761
+            },
+            {
+              "text": " is",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.9988479614257812
+            },
+            {
+              "text": " ready.",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.999056875705719
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sire,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "your",
+          "start": 1.0,
+          "end": 1.08
+        },
+        {
+          "raw": "Majesty's",
+          "start": 1.08,
+          "end": 1.7
+        },
+        {
+          "raw": "chaise",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "raw": "at",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "Padua,",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "raw": "and",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "raw": "boat",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "ready.",
+          "start": 3.68,
+          "end": 3.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Sire,",
+        "your",
+        "Majesty's",
+        "chaise",
+        "is",
+        "at",
+        "Padua,",
+        "and",
+        "the",
+        "boat",
+        "is",
+        "ready.\""
+      ],
+      "acoustic_expected_tokens": [
+        "\"Sire,",
+        "your",
+        "Majesty's",
+        "chaise",
+        "is",
+        "at",
+        "Padua,",
+        "and",
+        "the",
+        "boat",
+        "is",
+        "ready.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sire,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "sire",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.0,
+          "end": 1.08,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Majesty's",
+          "start": 1.08,
+          "end": 1.7,
+          "key": "majestys",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chaise",
+          "start": 1.7,
+          "end": 2.04,
+          "key": "chaise",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.04,
+          "end": 2.16,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Padua,",
+          "start": 2.3,
+          "end": 2.7,
+          "key": "padua",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.12,
+          "end": 3.22,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.32,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boat",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "boat",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ready.",
+          "start": 3.68,
+          "end": 3.94,
+          "key": "ready",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "\"Sire,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "your",
+          "start": 1.0,
+          "end": 1.08
+        },
+        {
+          "text": "Majesty's",
+          "start": 1.08,
+          "end": 1.7
+        },
+        {
+          "text": "chaise",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "text": "is",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "text": "at",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "Padua,",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "text": "and",
+          "start": 3.12,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "text": "boat",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "is",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "ready.\"",
+          "start": 3.68,
+          "end": 3.94
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.7767228449999948
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ebb4ae7458d4566c8fc2c58d0c33a0b77b002b1cb2c89c5c5276121906655d0",
+  "selected_reasons": []
+}

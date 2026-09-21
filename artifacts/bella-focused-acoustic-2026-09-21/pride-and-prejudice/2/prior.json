@@ -1,0 +1,88 @@
+{
+ "bookId": "pride-and-prejudice",
+ "edition": "original-en",
+ "chapter": 2,
+ "editionContentHash": "993a219bf4eb2f0b77032f9f7e3e028f7685c95832b519137e986579ed791341",
+ "voice": "unknown",
+ "manifestStatus": 200,
+ "manifestContentHash": "8ebcbea2b24b91d41c664f7509130c3276652541399f4b88bdb9ff9e58bd43b3",
+ "manifestMetadata": {
+  "chapter": 2,
+  "title": "Chapter 2"
+ },
+ "durationSeconds": 264.175,
+ "wordsStatus": 404,
+ "wordsBytes": null,
+ "readiness": {
+  "bookId": "pride-and-prejudice",
+  "edition": "original-en",
+  "chapter": 2,
+  "textParagraphs": 27,
+  "textParagraphsWithWords": 27,
+  "manifestSpokenParagraphs": 27,
+  "durationSeconds": 262.32,
+  "sampled": [
+   {
+    "file": "p0.mp3",
+    "status": 206,
+    "bytes": 361773
+   },
+   {
+    "file": "p13.mp3",
+    "status": 206,
+    "bytes": 120621
+   },
+   {
+    "file": "p26.mp3",
+    "status": 206,
+    "bytes": 143277
+   }
+  ],
+  "outcome": "ready",
+  "detail": "manifest matches the edition paragraph count"
+ },
+ "state": "timings-missing",
+ "verificationRun": 35587234933,
+ "priorAttempts": [
+  {
+   "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-60/collect-report.json",
+   "record": {
+    "key": "pride-and-prejudice/original-en/ch2",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9962358845671268,
+      "reasons": [
+       {
+        "paragraph": 10,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-60/out/pride-and-prejudice/original-en/ch2/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.986198243412798,
+      "reasons": [
+       {
+        "paragraph": 10,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-60/out/pride-and-prejudice/original-en/ch2/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  }
+ ],
+ "contentHold": null,
+ "nextAction": "stronger-recognition"
+}

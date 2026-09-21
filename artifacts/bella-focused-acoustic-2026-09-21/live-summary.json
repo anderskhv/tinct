@@ -1,0 +1,39 @@
+[
+ {
+  "key": "candide/original-en/ch26",
+  "status": "acoustic-pass",
+  "candidateSha256": "df1d55676aed77f1686147afdf6c2e1a61f41b19a7af96c0aed7c4c4c625f9c5",
+  "within": 30,
+  "maxDelta": 0.15000000000000036
+ },
+ {
+  "key": "pride-and-prejudice/original-en/ch2",
+  "status": "unresolved-recognition",
+  "unresolved": [
+   {
+    "paragraph": 10,
+    "reasons": [
+     "observed_alignment_below_85_percent"
+    ],
+    "text": "\u201cTo-morrow fortnight.\u201d",
+    "heard": [
+     {
+      "raw": "To",
+      "start": 0.05,
+      "end": 0.51
+     },
+     {
+      "raw": "-morrow",
+      "start": 0.51,
+      "end": 0.77
+     },
+     {
+      "raw": "Fortnite.",
+      "start": 0.77,
+      "end": 1.39
+     }
+    ]
+   }
+  ]
+ }
+]

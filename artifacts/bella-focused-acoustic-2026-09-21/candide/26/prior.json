@@ -1,0 +1,138 @@
+{
+ "bookId": "candide",
+ "edition": "original-en",
+ "chapter": 26,
+ "editionContentHash": "fb6a9a535cfbd3afd37a830ebff92d8e0c6c944242fcfb47b12195fff2c7570f",
+ "voice": "unknown",
+ "checkedAt": "2026-09-21T10:55:28.019154+00:00",
+ "manifestStatus": 200,
+ "manifestContentHash": "d71694be82b0502344b3086cf95af7353146c7314260e23dede96ddc950b7512",
+ "manifestMetadata": {
+  "chapter": 26,
+  "title": "Chapter 26 — Of a Supper Which Candide and Martin Took with Six Strangers, and Who They Were"
+ },
+ "durationSeconds": 383.977,
+ "wordsStatus": 404,
+ "wordsBytes": 0,
+ "readiness": {
+  "bookId": "candide",
+  "edition": "original-en",
+  "chapter": 26,
+  "textParagraphs": 35,
+  "textParagraphsWithWords": 35,
+  "manifestSpokenParagraphs": 35,
+  "durationSeconds": 381.93,
+  "sampled": [
+   {
+    "file": "p0.mp3",
+    "status": 206,
+    "bytes": 217389
+   },
+   {
+    "file": "p17.mp3",
+    "status": 206,
+    "bytes": 182829
+   },
+   {
+    "file": "p34.mp3",
+    "status": 206,
+    "bytes": 334125
+   }
+  ],
+  "outcome": "ready",
+  "detail": "manifest matches the edition paragraph count"
+ },
+ "state": "timings-missing",
+ "priorAttempts": [
+  {
+   "path": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/collect-report.json",
+   "record": {
+    "key": "candide/original-en/ch26",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9981900452488688,
+      "reasons": [
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/candide/original-en/ch26/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9755656108597285,
+      "reasons": [
+       {
+        "paragraph": 4,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run3-2026-09-12/pods/tinct-words-run3-1/out/candide/original-en/ch26/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  },
+  {
+   "path": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-66/collect-report.json",
+   "record": {
+    "key": "candide/original-en/ch26",
+    "arms": {
+     "auto": {
+      "status": "rejected",
+      "matchRatio": 0.9981900452488688,
+      "reasons": [
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-66/out/candide/original-en/ch26/auto/words.candidate.json"
+     },
+     "off": {
+      "status": "rejected",
+      "matchRatio": 0.9755656108597285,
+      "reasons": [
+       {
+        "paragraph": 4,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       },
+       {
+        "paragraph": 15,
+        "reasons": [
+         "observed_alignment_below_85_percent"
+        ]
+       }
+      ],
+      "validationErrors": [],
+      "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-66/out/candide/original-en/ch26/off/words.candidate.json"
+     }
+    },
+    "outcome": "excluded",
+    "reason": "no arm passed the gate and sidecar validation"
+   }
+  }
+ ],
+ "contentHold": null,
+ "nextAction": "stronger-recognition"
+}

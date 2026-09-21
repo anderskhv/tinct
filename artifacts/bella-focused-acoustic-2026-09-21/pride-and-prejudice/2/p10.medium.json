@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "72ec801fb5f7d80587bf936304f597634a46fd3fc2624a9f7f5abf85a7e857ea",
+  "attempts": [
+    {
+      "asr_seconds": 6.716086888999996,
+      "alignment_seconds": 0.000576978999987432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To-morrow fortnight.\"",
+        "hotwords": "To-morrow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To-morrow Fortnite.",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.0028606841806322336
+            },
+            {
+              "text": "-morrow",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.5895972922444344
+            },
+            {
+              "text": " Fortnite.",
+              "start": 0.77,
+              "end": 1.39,
+              "probability": 0.7766037980715433
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "-morrow",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "Fortnite.",
+          "start": 0.77,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "“To-morrow",
+        "fortnight.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"To-morrow",
+        "fortnight.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To -morrow",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "tomorrow",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Fortnite.",
+          "start": 0.77,
+          "end": 1.39,
+          "key": "fortnite",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"To-morrow",
+          "heard": "To -morrow",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“To-morrow",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "fortnight.”",
+          "start": 0.77,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.716680408999991
+    },
+    {
+      "asr_seconds": 6.371795789000004,
+      "alignment_seconds": 0.0003152090000071439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "To-morrow"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " To-morrow Fortnite",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.0028606841806322336
+            },
+            {
+              "text": "-morrow",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.5895972922444344
+            },
+            {
+              "text": " Fortnite",
+              "start": 0.77,
+              "end": 1.39,
+              "probability": 0.7766037980715433
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "-morrow",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "Fortnite",
+          "start": 0.77,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "“To-morrow",
+        "fortnight.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"To-morrow",
+        "fortnight.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To -morrow",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "tomorrow",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Fortnite",
+          "start": 0.77,
+          "end": 1.39,
+          "key": "fortnite",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"To-morrow",
+          "heard": "To -morrow",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“To-morrow",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "fortnight.”",
+          "start": 0.77,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.372126197
+    },
+    {
+      "asr_seconds": 6.174165789,
+      "alignment_seconds": 0.0002926180000031309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tomorrow Fortnite",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Tomorrow",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.47597411274909973
+            },
+            {
+              "text": " Fortnite",
+              "start": 0.75,
+              "end": 1.39,
+              "probability": 0.7440067330996195
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tomorrow",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Fortnite",
+          "start": 0.75,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "“To-morrow",
+        "fortnight.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"To-morrow",
+        "fortnight.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tomorrow",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "tomorrow",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fortnite",
+          "start": 0.75,
+          "end": 1.39,
+          "key": "fortnite",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“To-morrow",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "fortnight.”",
+          "start": 0.75,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.174472463000001
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ffb16f8f6fa57cae6b5fe6272dae2be8be4b4f88cb7425cddcd65751b7b8236d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

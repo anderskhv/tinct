@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "67812aaee6ec5ef50fe038317ee95800b429cd6a021014ea3c80c69819b02cf2",
+  "attempts": [
+    {
+      "asr_seconds": 6.807916098000021,
+      "alignment_seconds": 0.0005863390000229174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Your Majesty may depart when you please.\"",
+        "hotwords": "Your, Majesty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Your, Majesty may depart when you please.",
+          "start": 0.02,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Your,",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.8836261630058289
+            },
+            {
+              "text": " Majesty",
+              "start": 0.54,
+              "end": 1.0,
+              "probability": 0.03802751377224922
+            },
+            {
+              "text": " may",
+              "start": 1.0,
+              "end": 1.44,
+              "probability": 0.1395120918750763
+            },
+            {
+              "text": " depart",
+              "start": 1.44,
+              "end": 1.76,
+              "probability": 0.9306040406227112
+            },
+            {
+              "text": " when",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.9877243041992188
+            },
+            {
+              "text": " you",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.9964994192123413
+            },
+            {
+              "text": " please.",
+              "start": 2.06,
+              "end": 2.42,
+              "probability": 0.975651204586029
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your,",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Majesty",
+          "start": 0.54,
+          "end": 1.0
+        },
+        {
+          "raw": "may",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "raw": "depart",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "raw": "when",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "you",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "please.",
+          "start": 2.06,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "\"Your",
+        "Majesty",
+        "may",
+        "depart",
+        "when",
+        "you",
+        "please.\""
+      ],
+      "acoustic_expected_tokens": [
+        "\"Your",
+        "Majesty",
+        "may",
+        "depart",
+        "when",
+        "you",
+        "please.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your,",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Majesty",
+          "start": 0.54,
+          "end": 1.0,
+          "key": "majesty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.0,
+          "end": 1.44,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "depart",
+          "start": 1.44,
+          "end": 1.76,
+          "key": "depart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "when",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "please.",
+          "start": 2.06,
+          "end": 2.42,
+          "key": "please",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "\"Your",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Majesty",
+          "start": 0.54,
+          "end": 1.0
+        },
+        {
+          "text": "may",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "text": "depart",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "text": "when",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "you",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "please.\"",
+          "start": 2.06,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 6.80852362600001
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f74657ba979b5d0f28b77ca4a86cfa42c113b5abd7402668e700077c354f45ed",
+  "selected_reasons": []
+}
