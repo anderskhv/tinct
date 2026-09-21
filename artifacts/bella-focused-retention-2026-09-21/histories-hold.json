@@ -1,1 +1,12 @@
-[]
+{
+ "bookId": "the-histories",
+ "edition": "original-en",
+ "chapter": 1390,
+ "hold": "content",
+ "reason": "content",
+ "nextAction": "resolve-content-hold",
+ "holdUnchanged": true,
+ "source": "artifacts/audio-highlight-cloud-resume-2026-09-16/quarantine.json",
+ "originCommit": "02387ccda5ade092e6ed6bb48567629f1ea9ec35",
+ "finding": "The original quarantine commit calls this an existing content hold and explicitly keeps it held after helper v5. Neither that entry nor the completion ledger records a more specific editorial rationale. The initial preflight used the wrong identifier histories; this record corrects it to the-histories."
+}
