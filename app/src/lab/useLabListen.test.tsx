@@ -102,3 +102,24 @@ it('returns from conversation at the current sentence while ordinary resume stay
   await act(async () => h.result.current.resume(true))
   expect(audio.currentTime).toBe(2)
 })
+
+it('reports and seeks the whole chapter timeline to Media Session', async () => {
+  const handlers = new Map<string, (details: { seekTime?: number }) => void>()
+  const setPositionState = vi.fn()
+  Object.defineProperty(navigator, 'mediaSession', { configurable: true, value: {
+    setActionHandler: (name: string, handler: ((details: { seekTime?: number }) => void) | null) => handler ? handlers.set(name, handler) : handlers.delete(name),
+    setPositionState,
+    metadata: null,
+  } })
+  const h = harness()
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+  expect(h.result.current.chapterDuration).toBe(10)
+  h.audio.currentTime = 2
+  act(() => h.audio.dispatchEvent(new Event('timeupdate')))
+  expect(h.result.current.chapterTime).toBe(2)
+  act(() => handlers.get('seekto')?.({ seekTime: 7 }))
+  expect(h.result.current.clipIndex).toBe(1)
+  expect(h.audio.currentTime).toBe(2)
+  expect(setPositionState).toHaveBeenCalledWith(expect.objectContaining({ duration: 10 }))
+  Reflect.deleteProperty(navigator, 'mediaSession')
+})

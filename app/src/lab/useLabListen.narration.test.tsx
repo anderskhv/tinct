@@ -324,6 +324,8 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(h.audio.play).not.toHaveBeenCalled()
     expect(h.result.current.playing).toBe(false)
     await act(async () => { void h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+    await waitFor(() => expect(h.calls.length).toBe(2))
+    await act(async () => { await h.answer(h.calls[1], { 0: 1 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(1))
   })
 
@@ -359,8 +361,9 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     act(() => h.result.current.pause())
     await waitFor(() => expect(h.calls.length).toBe(2)) // look-ahead round
     act(() => { h.result.current.seek(30) })
+    await waitFor(() => expect(h.calls.length).toBe(3))
     await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
-    await act(async () => { await h.answer(h.calls[1], { 0: 1, 1: 1, 2: 0 }) })
+    await act(async () => { await h.answer(h.calls[2], { 0: 1, 1: 1, 2: 0 }) })
     await act(async () => { await Promise.resolve() })
     await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'idle' }))
     expect(h.audio.play).toHaveBeenCalledTimes(1)
@@ -417,9 +420,10 @@ describe('useLabListen narration pilot (sentence groups)', () => {
     expect(h.result.current.narration).toEqual({ status: 'idle' })
     // Play again: the shell sees a src and resumes; the hook prepares the target instead of replaying chunk 0.
     act(() => { h.result.current.resume() })
+    await waitFor(() => expect(h.calls.length).toBe(3))
     await waitFor(() => expect(h.result.current.narration).toEqual({ status: 'loading', paragraphIndex: 1 }))
     expect(h.audio.play).toHaveBeenCalledTimes(1)
-    await act(async () => { await h.answer(h.calls[1], { 1: 1, 2: 0 }) })
+    await act(async () => { await h.answer(h.calls[2], { 1: 1, 2: 0 }) })
     await waitFor(() => expect(h.audio.play).toHaveBeenCalledTimes(2))
     expect(h.audio.src).toContain('hash-1-0.mp3')
   })

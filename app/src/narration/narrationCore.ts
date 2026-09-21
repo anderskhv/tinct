@@ -23,7 +23,10 @@ export const NARRATION_CACHE_VERSION = 2
 /** Bump when `chunkNarrationTokens` changes where it cuts; chunk audio depends on it. */
 export const NARRATION_CHUNKER_VERSION = 1
 
-export const NARRATION_PROVIDER = 'fish' as const
+export type NarrationProvider = 'fish' | 'google'
+
+/** Production on-demand narration provider. Fish remains readable for its pilot cache. */
+export const NARRATION_PROVIDER: NarrationProvider = 'fish'
 
 /**
  * Narration scope: the library's featured ("popular") shelf, English editions,
@@ -50,7 +53,7 @@ export const NARRATION_SCOPE_BOOK_IDS: readonly string[] = [
 ]
 
 export const NARRATION_PILOT_SCOPE = {
-  bookIds: NARRATION_SCOPE_BOOK_IDS,
+  bookIds: ['*'],
   editionKeyPattern: '^[a-z0-9-]+-en$',
 } as const
 
@@ -87,7 +90,7 @@ export const DEFAULT_NARRATION_SETTINGS: NarrationSynthesisSettings = {
 }
 
 export interface NarrationIdentityInput {
-  provider: typeof NARRATION_PROVIDER
+  provider: NarrationProvider
   model: string
   voiceId: string
   text: string
@@ -95,7 +98,7 @@ export interface NarrationIdentityInput {
 }
 
 export function isPilotScope(bookId: string, editionKey: string, chapter: number): boolean {
-  return NARRATION_SCOPE_BOOK_IDS.includes(bookId)
+  return /^[a-z0-9-]{1,64}$/.test(bookId)
     && /^[a-z0-9-]+-en$/.test(editionKey)
     && Number.isInteger(chapter) && chapter >= 1
 }
@@ -189,10 +192,10 @@ export async function narrationCacheIdentity(input: NarrationIdentityInput): Pro
 }
 
 /** R2 object keys for a cached recording and its explicit edition mapping. */
-export function narrationBlobKeys(hash: string): { audio: string; meta: string } {
+export function narrationBlobKeys(hash: string, provider: NarrationProvider = NARRATION_PROVIDER): { audio: string; meta: string } {
   return {
-    audio: `narration/${NARRATION_PROVIDER}/blob/${hash}.mp3`,
-    meta: `narration/${NARRATION_PROVIDER}/blob/${hash}.json`,
+    audio: `narration/${provider}/blob/${hash}.mp3`,
+    meta: `narration/${provider}/blob/${hash}.json`,
   }
 }
 
@@ -202,17 +205,18 @@ export function narrationMapKey(
   chapter: number,
   voiceKey: string,
   paragraphIndex: number,
+  provider: NarrationProvider = NARRATION_PROVIDER,
 ): string {
-  return `narration/${NARRATION_PROVIDER}/map/${bookId}/${editionKey}/ch${chapter}/${voiceKey}/p${paragraphIndex}.json`
+  return `narration/${provider}/map/${bookId}/${editionKey}/ch${chapter}/${voiceKey}/p${paragraphIndex}.json`
 }
 
-export function narrationMapPrefix(bookId: string, editionKey: string, chapter: number, voiceKey: string): string {
-  return `narration/${NARRATION_PROVIDER}/map/${bookId}/${editionKey}/ch${chapter}/${voiceKey}/`
+export function narrationMapPrefix(bookId: string, editionKey: string, chapter: number, voiceKey: string, provider: NarrationProvider = NARRATION_PROVIDER): string {
+  return `narration/${provider}/map/${bookId}/${editionKey}/ch${chapter}/${voiceKey}/`
 }
 
 /** Public URL (same `/api/audio-file` route as Kokoro audio) for a cached blob. */
-export function narrationAudioPath(hash: string): string {
-  return narrationBlobKeys(hash).audio
+export function narrationAudioPath(hash: string, provider: NarrationProvider = NARRATION_PROVIDER): string {
+  return narrationBlobKeys(hash, provider).audio
 }
 
 // ===== Provider timing → reader token alignment =====
@@ -789,7 +793,7 @@ export function paragraphWordsFromChunks(chunks: Array<{ words: AlignedWord[]; d
 /** `narration/fish/blob/{hash}.json` — one chunk recording's own description. */
 export interface NarrationBlobMeta {
   version: number
-  provider: typeof NARRATION_PROVIDER
+  provider: NarrationProvider
   model: string
   voiceId: string
   voiceKey: string

@@ -44,8 +44,22 @@ function publish(state: LabAuthState) {
   window.dispatchEvent(new CustomEvent<LabAuthState>('tinct:lab-auth-state', { detail: state }))
 }
 
+function installNarrationPreparation(accessToken: string | null) {
+  ;(window as Window & { __tinctPrepareNarration?: (body: unknown) => Promise<void> }).__tinctPrepareNarration = async (body) => {
+    try {
+      await fetch('/api/narration/prepare', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}) },
+        body: JSON.stringify(body),
+        keepalive: true,
+      })
+    } catch { /* speculation never blocks opening the reader */ }
+  }
+}
+
 async function resolveAuthState() {
   if (!supabase) {
+    installNarrationPreparation(null)
     publish({ ready: true, signedIn: false, email: null, name: null })
     return
   }
@@ -55,8 +69,10 @@ async function resolveAuthState() {
     const signedIn = Boolean(data.session?.user)
     if (signedIn) setSignedInCookie()
     else clearSignedInCookie()
+    installNarrationPreparation(data.session?.access_token || null)
     publish({ ready: true, signedIn, email: data.session?.user.email || null, name: displayNameFor(data.session?.user) })
   } catch {
+    installNarrationPreparation(null)
     publish({ ready: true, signedIn: false, email: null, name: null })
   }
 }
@@ -66,12 +82,18 @@ async function resolveAuthState() {
 // resolves. The inline boot script in lab/index.html paints the same hint
 // before this module has loaded.
 const cached = readCachedSupabaseUser()
+if (cached?.email?.trim().toLowerCase() === 'ahvelplund@fastmail.com') {
+  ;(window as Window & { __tinctPrepareNarration?: (_body: unknown) => Promise<void> }).__tinctPrepareNarration = async () => {}
+} else {
+  installNarrationPreparation(null)
+}
 publish({ ready: false, signedIn: labSignedInHint(), email: cached?.email ?? null, name: cached?.name ?? null })
 void resolveAuthState()
 
 if (supabase) {
   supabase.auth.onAuthStateChange((_event, session) => {
     const signedIn = Boolean(session?.user)
+    installNarrationPreparation(session?.access_token || null)
     if (signedIn) setSignedInCookie()
     else clearSignedInCookie()
     publish({ ready: true, signedIn, email: session?.user.email || null, name: displayNameFor(session?.user) })

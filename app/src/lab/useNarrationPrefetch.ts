@@ -6,6 +6,7 @@ export const NARRATION_PREFETCH_PARAGRAPHS = 3
 /** How close to the end of a chapter (in paragraphs) the next chapter starts warming. */
 export const NARRATION_PREFETCH_TAIL = 3
 const MAX_ROUNDS = 12
+export const NARRATION_PREFETCH_TARGET_SECONDS = 45
 
 export interface NarrationPrefetchInput {
   active: boolean
@@ -24,6 +25,11 @@ export interface NarrationPrefetchInput {
 }
 
 function complete(results: NarrationParagraphResult[], indexes: number[]): boolean {
+  const readySeconds = results.reduce((total, result) => {
+    if (result.status !== 'ready' && result.status !== 'partial' && result.status !== 'pending') return total
+    return total + result.chunks.reduce((sum, chunk) => sum + (chunk.ready && typeof chunk.duration === 'number' ? chunk.duration : 0), 0)
+  }, 0)
+  if (readySeconds >= NARRATION_PREFETCH_TARGET_SECONDS) return true
   return indexes.every((index) => {
     const result = results.find(item => item.paragraph === index)
     return result?.status === 'ready' || result?.status === 'failed' || result?.status === 'text_mismatch'
@@ -76,16 +82,8 @@ export function useNarrationPrefetch(input: NarrationPrefetchInput): void {
     return () => { cancelled = true; controller.abort() }
   }
 
-  // The chapter's own opening, on arrival.
-  useEffect(() => {
-    if (!active || !voice) return
-    const key = `${bookId}/${editionKey}/${chapter}/${voice}`
-    if (doneRef.current.has(key)) return
-    return warmChapter(chapter, key)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, voice, bookId, editionKey, chapter])
-
-  // The next chapter's opening, once the reader is near the end of this one.
+  // Only active playback may warm the next chapter. Opening preparation is
+  // owned by the library click and silent reading never schedules synthesis.
   useEffect(() => {
     if (!active || !voice || !nearEnd || nextChapter == null) return
     const key = `${bookId}/${editionKey}/${nextChapter}/${voice}`

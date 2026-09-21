@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { buildVoiceInstructions } from './context'
-import { GROK_VOICE_INSTRUCTIONS } from './grokConfig'
+import { GROK_VOICE_INSTRUCTIONS, grokVoiceFor } from './grokConfig'
 import type { VoiceReaderContext } from './types'
 
 const context: VoiceReaderContext = {
@@ -20,6 +20,11 @@ const context: VoiceReaderContext = {
 }
 
 describe('classic reader voice prompt', () => {
+  it('maps the shared persona only to the approved Grok voices', () => {
+    expect(grokVoiceFor('female')).toBe('ursa')
+    expect(grokVoiceFor('male')).toBe('helios')
+  })
+
   const instructions = buildVoiceInstructions(context)
 
   it('starts with the minimal Tinct prompt and keeps the reference apart from it', () => {

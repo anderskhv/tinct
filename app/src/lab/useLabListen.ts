@@ -34,12 +34,15 @@ export const LAB_FOLLOW_LEAD_SECONDS = 0.08
 
 /** `src` reported while a narration chunk is being prepared: truthy so the shell resumes through the hook, never a URL. */
 export const NARRATION_PENDING_SRC = 'narration:pending'
+export const NARRATION_BUFFER_TARGET_SECONDS = 45
 
 export interface UseLabListenOptions {
   playbackUnavailable?: boolean
   /** V2: cancelled or superseded play requests cannot skip or repaint clips. */
   guardPlaybackRequests?: boolean
   bookId?: string
+  bookTitle?: string
+  chapterTitle?: string
   paragraphs: string[]
   followParagraphs: FollowParagraph[]
   chapterNumber?: number
@@ -375,7 +378,7 @@ export function useLabListen(options: UseLabListenOptions) {
   }, [ensureRound])
 
   /**
-   * Keep the playing paragraph and the next `lookAhead` paragraphs complete,
+   * Keep roughly 45 seconds ready ahead of the actual playhead,
    * one sentence group per round, ahead of playback. One loop at a time; it
    * follows the playing clip as it moves and ends on a tuple change, a stop,
    * or when nothing in the window is missing. Failures here are silent — the
@@ -384,21 +387,25 @@ export function useLabListen(options: UseLabListenOptions) {
   const scheduleNarrationLookAhead = useCallback(() => {
     const narration = optionsRef.current.narration
     if (!narration || narrationLookAheadRef.current) return
-    const generation = narrationRequestRef.current
-    const ahead = Math.max(0, Math.min(narration.lookAhead ?? 2, 3))
     const loop = async () => {
       let idle = 0
       for (let round = 0; round < 60; round += 1) {
-        if (generation !== narrationRequestRef.current && !playingRef.current) return
+        if (!playingRef.current) return
         const current = clipsRef.current[clipIndexRef.current]
         if (!current || current.kind !== 'paragraph') return
         const indexes: number[] = []
-        for (let k = 0; k <= ahead; k += 1) {
-          const paragraphIndex = current.index + k
-          if (!narrationHashesRef.current.has(paragraphIndex)) break
-          if (!paragraphComplete(paragraphIndex)) indexes.push(paragraphIndex)
+        let buffered = 0
+        for (let position = clipIndexRef.current; position < clipsRef.current.length && buffered < NARRATION_BUFFER_TARGET_SECONDS; position += 1) {
+          const clip = clipsRef.current[position]
+          if (clip.kind !== 'paragraph') continue
+          if (clip.url && typeof clip.duration === 'number') {
+            buffered += Math.max(0, clip.duration - (position === clipIndexRef.current ? positionRef.current.time : 0))
+          } else if (!indexes.includes(clip.index)) {
+            indexes.push(clip.index)
+            if (indexes.length >= 3) break
+          }
         }
-        if (indexes.length === 0) return
+        if (buffered >= NARRATION_BUFFER_TARGET_SECONDS || indexes.length === 0) return
         const before = indexes.map(index => narrationPreparedRef.current.get(index)?.chunks.filter(chunk => chunk.ready).length ?? 0).join(',')
         const outcome = await ensureRound(indexes, () => indexes.every(paragraphComplete))
         if (!outcome.ok && outcome.reason === 'cancelled') return
@@ -834,6 +841,8 @@ export function useLabListen(options: UseLabListenOptions) {
   const pause = useCallback(() => {
     playRequestRef.current += 1
     narrationRequestRef.current += 1
+    narrationAbortRef.current?.abort()
+    narrationAbortRef.current = null
     setNarrationState(current => (current.status === 'loading' ? { status: 'idle' } : current))
     audioRef.current?.pause()
     playingRef.current = false
@@ -932,6 +941,78 @@ export function useLabListen(options: UseLabListenOptions) {
     }
   }, [currentTime, ensureAudio, playClip, playing, syncFollow])
 
+  const estimatedClipDuration = useCallback((clip: LabAudioClip): number => {
+    if (typeof clip.duration === 'number' && clip.duration > 0) return clip.duration
+    if (clip.kind === 'title') return 0
+    const text = paragraphsRef.current.find(paragraph => paragraph.index === clip.index)?.text || ''
+    const tokens = text.split(/\s+/).filter(Boolean)
+    const from = clip.chunk?.wordFrom ?? 0
+    const to = clip.chunk?.wordTo && clip.chunk.wordTo > from ? clip.chunk.wordTo : tokens.length
+    const chars = tokens.slice(from, to).join(' ').length || text.length
+    return Math.max(1, chars / 14)
+  }, [])
+
+  const chapterTimeline = (() => {
+    let elapsed = 0
+    let duration = 0
+    let estimated = false
+    clips.forEach((clip, index) => {
+      const clipDuration = estimatedClipDuration(clip)
+      if (!(typeof clip.duration === 'number' && clip.duration > 0)) estimated = true
+      if (index < clipIndex) elapsed += clipDuration
+      else if (index === clipIndex) elapsed += Math.max(0, Math.min(currentTime, clipDuration))
+      duration += clipDuration
+    })
+    return { elapsed, duration, estimated }
+  })()
+
+  const seekChapter = useCallback((seconds: number) => {
+    const all = clipsRef.current
+    if (all.length === 0) return
+    let cursor = 0
+    for (let index = 0; index < all.length; index += 1) {
+      const clip = all[index]
+      const duration = estimatedClipDuration(clip)
+      if (seconds > cursor + duration && index < all.length - 1) { cursor += duration; continue }
+      const local = Math.max(0, Math.min(duration, seconds - cursor))
+      if (clip.kind === 'paragraph' && clip.narration && !clip.url) {
+        const paragraph = paragraphsRef.current.find(item => item.index === clip.index)
+        const tokens = narrationTokens(paragraph?.text || '')
+        const from = clip.chunk?.wordFrom ?? 0
+        const to = clip.chunk?.wordTo && clip.chunk.wordTo > from ? clip.chunk.wordTo : tokens.length
+        const wordIndex = Math.min(Math.max(from, to - 1), from + Math.floor((local / Math.max(1, duration)) * Math.max(1, to - from)))
+        playPlace(clipsRef.current, { paragraphIndex: clip.index, wordIndex }, playing, false)
+      } else {
+        playClip(index, local, playing)
+      }
+      return
+    }
+  }, [estimatedClipDuration, playClip, playPlace, playing])
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined' || !('mediaSession' in navigator) || chapterTimeline.duration <= 0) return
+    const session = navigator.mediaSession
+    try {
+      if (typeof MediaMetadata !== 'undefined') session.metadata = new MediaMetadata({
+        title: options.bookTitle || options.bookId || 'Tinct audiobook',
+        album: options.chapterTitle || `Chapter ${options.chapterNumber ?? 1}`,
+      })
+      session.setActionHandler('play', () => resume())
+      session.setActionHandler('pause', pause)
+      session.setActionHandler('seekbackward', details => seek(-(details.seekOffset || 15)))
+      session.setActionHandler('seekforward', details => seek(details.seekOffset || 30))
+      session.setActionHandler('seekto', details => { if (typeof details.seekTime === 'number') seekChapter(details.seekTime) })
+      session.setPositionState({
+        duration: Math.max(0.001, chapterTimeline.duration),
+        playbackRate: speed,
+        position: Math.max(0, Math.min(chapterTimeline.elapsed, Math.max(0, chapterTimeline.duration - 0.001))),
+      })
+    } catch { /* unsupported action or incomplete metadata */ }
+    return () => {
+      try { session.setActionHandler('play', null); session.setActionHandler('pause', null); session.setActionHandler('seekbackward', null); session.setActionHandler('seekforward', null); session.setActionHandler('seekto', null) } catch { /* unsupported */ }
+    }
+  }, [chapterTimeline.duration, chapterTimeline.elapsed, options.bookId, options.bookTitle, options.chapterNumber, options.chapterTitle, pause, resume, seek, seekChapter, speed])
+
   const cycleSpeed = useCallback(() => {
     setSpeedState((current) => {
       const next = nextHearingSpeed(current)
@@ -964,6 +1045,9 @@ export function useLabListen(options: UseLabListenOptions) {
     src,
     clipIndex,
     currentTime,
+    chapterTime: chapterTimeline.elapsed,
+    chapterDuration: chapterTimeline.duration,
+    chapterDurationEstimated: chapterTimeline.estimated,
     speed,
     narration: narrationState,
     retryNarration,
@@ -975,6 +1059,7 @@ export function useLabListen(options: UseLabListenOptions) {
     resume,
     stop,
     seek,
+    seekChapter,
     cycleSpeed,
     setSpeed,
   }

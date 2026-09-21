@@ -1,7 +1,7 @@
 import { apiUrl } from '../utils/apiUrl'
 import { ASSISTANT_PACE_SPEED, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
 import { VOICE_TOOLS } from './context'
-import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE, GROK_VOICE_MODEL, buildGrokReaderReference, buildGrokVoiceInstructions } from './grokConfig'
+import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE_MODEL, buildGrokReaderReference, buildGrokVoiceInstructions, grokVoiceFor } from './grokConfig'
 import { IDLE_VOICE_SNAPSHOT, type StartVoiceSessionInput, type VoiceSessionCallbacks, type VoiceUiSnapshot } from './session'
 import { LAB_AUDIO_CONSTRAINTS, type AudioPlaybackAnchor, type VoiceReaderContext } from './types'
 import { isBenignRealtimeError } from './v2/voiceV2'
@@ -303,7 +303,7 @@ export class GrokVoiceSessionController {
         this.send({
           type: 'session.update',
           session: {
-            voice: GROK_VOICE,
+            voice: grokVoiceFor(input.voicePersona ?? 'female'),
             instructions: this.instructions,
             turn_detection: { type: 'server_vad' },
             tools: this.sessionTools(input),

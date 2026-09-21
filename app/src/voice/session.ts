@@ -85,6 +85,7 @@ export interface StartVoiceSessionInput {
   /** Native provider web search. Defaults to on. */
   enableSearch?: boolean
   assistantPace?: AssistantPace
+  voicePersona?: 'female' | 'male'
 }
 
 export const IDLE_VOICE_SNAPSHOT: VoiceUiSnapshot = {

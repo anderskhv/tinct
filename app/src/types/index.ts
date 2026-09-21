@@ -321,6 +321,7 @@ export interface UserPreferences {
   /** Languages the reader wants to see editions in. Inferred from browser locale
    * on first visit; filterable inline in BookOnboarding; editable in Settings. */
   readingLanguages: Language[]
+  voicePersona: 'female' | 'male'
 }
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
@@ -341,6 +342,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   feedHidden: false,
   castHidden: false,
   readingLanguages: ['en'],
+  voicePersona: 'female',
 }
 
 export interface ReadingPosition {

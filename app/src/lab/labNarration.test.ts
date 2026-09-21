@@ -29,22 +29,22 @@ describe('narration pilot flag and prefs', () => {
     expect(applyNarrationPilotFlag(DEFAULT_LAB_PREFS, null)).toBe(DEFAULT_LAB_PREFS)
   })
 
-  it('applies only inside the pilot scope and only after opting in', () => {
+  it('uses on-demand narration for English except retained female Bella originals', () => {
     const on = { ...DEFAULT_LAB_PREFS, narrationProvider: 'fish' as const }
     expect(narrationPilotApplies(on, 'odyssey', 'original-en', 1)).toBe(true)
     expect(narrationPilotApplies(on, 'odyssey', 'modern-en', 1)).toBe(true)
     expect(narrationPilotApplies(on, 'odyssey', 'modern-da', 1)).toBe(false)
     expect(narrationPilotApplies(on, 'odyssey', 'original-en', 2)).toBe(true)
     expect(narrationPilotApplies(on, 'bible', 'kjv-en', 1)).toBe(true)
-    expect(narrationPilotApplies(on, 'ulysses', 'original-en', 1)).toBe(false)
-    expect(narrationPilotApplies(DEFAULT_LAB_PREFS, 'odyssey', 'original-en', 1)).toBe(false)
+    expect(narrationPilotApplies(on, 'ulysses', 'original-en', 1)).toBe(true)
+    expect(narrationPilotApplies(DEFAULT_LAB_PREFS, 'frankenstein', 'original-en', 1)).toBe(false)
+    expect(narrationPilotApplies({ ...DEFAULT_LAB_PREFS, voicePersona: 'male' }, 'frankenstein', 'original-en', 1)).toBe(true)
   })
 
-  it('remembers the chosen voice while the server still offers it', () => {
-    const voices = [{ key: 'a', label: 'Nathan' }, { key: 'b', label: 'Abby' }]
-    expect(resolveNarrationVoice({ ...DEFAULT_LAB_PREFS, narrationVoice: 'b' }, voices)).toBe('b')
-    expect(resolveNarrationVoice({ ...DEFAULT_LAB_PREFS, narrationVoice: 'z' }, voices)).toBe('a')
-    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, voices)).toBe('a')
+  it('resolves the shared persona without provider details', () => {
+    const voices = [{ key: 'f', label: 'Female', persona: 'female' as const }, { key: 'm', label: 'Male', persona: 'male' as const }]
+    expect(resolveNarrationVoice({ ...DEFAULT_LAB_PREFS, voicePersona: 'male' }, voices)).toBe('m')
+    expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, voices)).toBe('f')
     expect(resolveNarrationVoice(DEFAULT_LAB_PREFS, [])).toBeNull()
   })
 })

@@ -46,6 +46,7 @@ import {
   narrationMapPrefix,
   narrationTextForParagraph,
   narrationTokens,
+  mp3DurationSeconds,
   paragraphWordsFromChunks,
   parseFishTimestampSse,
   sha256Hex,
@@ -56,14 +57,18 @@ import {
   type NarrationChunk,
   type NarrationMapEntry,
   type NarrationSynthesisSettings,
+  type NarrationProvider,
   type TimingSegment,
   type TokenAlignmentStats,
 } from '../../narration/narrationCore'
+import { usesRetainedBella } from '../../narration/bellaRetention'
 
 export type NarrationEnv = SupabaseEnv & {
   FISH_AUDIO_API_KEY?: string
+  GOOGLE_TTS_API_KEY?: string
   /** '1' switches the pilot routes on; anything else answers "not configured". */
   NARRATION_PILOT?: string
+  NARRATION_PROVIDER?: string
   NARRATION_MODEL?: string
   NARRATION_VOICE_A_ID?: string
   NARRATION_VOICE_A_LABEL?: string
@@ -74,6 +79,7 @@ export type NarrationEnv = SupabaseEnv & {
   NARRATION_MONTHLY_BYTES?: string
   /** Override for tests and mocks; production uses the Fish API origin. */
   NARRATION_FISH_BASE_URL?: string
+  NARRATION_GOOGLE_BASE_URL?: string
   /** Secret for the warm route (pre-generation from a script), never a var. */
   NARRATION_ADMIN_TOKEN?: string
   RATE_LIMIT?: KVNamespace
@@ -91,7 +97,9 @@ export interface NarrationDeps {
 }
 
 export const FISH_API_BASE_URL = 'https://api.fish.audio'
+export const GOOGLE_TTS_BASE_URL = 'https://texttospeech.googleapis.com'
 export const NARRATION_DEFAULT_MODEL = 's2.1-pro'
+export const GOOGLE_NARRATION_MODEL = 'google-tts-v1beta1'
 export const NARRATION_DEFAULT_DAILY_BYTES = 2_000_000   // ≈ $30 / day at $15 per M bytes
 export const NARRATION_DEFAULT_MONTHLY_BYTES = 10_000_000 // ≈ $150 / month
 export const NARRATION_ENSURE_RATE_PER_MINUTE = 60
@@ -109,12 +117,13 @@ export interface NarrationVoice {
   key: string
   id: string
   label: string
+  persona?: 'female' | 'male'
 }
 
 export interface NarrationConfig {
   enabled: boolean
   reason?: 'pilot_off' | 'missing_api_key' | 'missing_voices' | 'missing_bucket'
-  provider: typeof NARRATION_PROVIDER
+  provider: NarrationProvider
   model: string
   voices: NarrationVoice[]
   settings: NarrationSynthesisSettings
@@ -124,20 +133,28 @@ export interface NarrationConfig {
 }
 
 export function narrationConfig(env: NarrationEnv): NarrationConfig {
+  const provider: NarrationProvider = env.NARRATION_PROVIDER === 'google' ? 'google' : 'fish'
   const voices: NarrationVoice[] = []
-  if (env.NARRATION_VOICE_A_ID) voices.push({ key: 'a', id: env.NARRATION_VOICE_A_ID, label: env.NARRATION_VOICE_A_LABEL || 'Voice A' })
-  if (env.NARRATION_VOICE_B_ID) voices.push({ key: 'b', id: env.NARRATION_VOICE_B_ID, label: env.NARRATION_VOICE_B_LABEL || 'Voice B' })
+  if (provider === 'google') {
+    voices.push(
+      { key: 'f', id: 'en-US-Wavenet-F', label: 'Female', persona: 'female' },
+      { key: 'm', id: 'en-US-Wavenet-J', label: 'Male', persona: 'male' },
+    )
+  } else {
+    if (env.NARRATION_VOICE_A_ID) voices.push({ key: 'a', id: env.NARRATION_VOICE_A_ID, label: env.NARRATION_VOICE_A_LABEL || 'Voice A' })
+    if (env.NARRATION_VOICE_B_ID) voices.push({ key: 'b', id: env.NARRATION_VOICE_B_ID, label: env.NARRATION_VOICE_B_LABEL || 'Voice B' })
+  }
   const base = {
-    provider: NARRATION_PROVIDER,
-    model: env.NARRATION_MODEL || NARRATION_DEFAULT_MODEL,
+    provider,
+    model: provider === 'google' ? GOOGLE_NARRATION_MODEL : (env.NARRATION_MODEL || NARRATION_DEFAULT_MODEL),
     voices,
     settings: DEFAULT_NARRATION_SETTINGS,
     dailyBytes: positiveInt(env.NARRATION_DAILY_BYTES, NARRATION_DEFAULT_DAILY_BYTES),
     monthlyBytes: positiveInt(env.NARRATION_MONTHLY_BYTES, NARRATION_DEFAULT_MONTHLY_BYTES),
-    baseUrl: env.NARRATION_FISH_BASE_URL || FISH_API_BASE_URL,
+    baseUrl: provider === 'google' ? (env.NARRATION_GOOGLE_BASE_URL || GOOGLE_TTS_BASE_URL) : (env.NARRATION_FISH_BASE_URL || FISH_API_BASE_URL),
   }
   if (env.NARRATION_PILOT !== '1') return { ...base, enabled: false, reason: 'pilot_off' }
-  if (!env.FISH_AUDIO_API_KEY) return { ...base, enabled: false, reason: 'missing_api_key' }
+  if (provider === 'google' ? !env.GOOGLE_TTS_API_KEY : !env.FISH_AUDIO_API_KEY) return { ...base, enabled: false, reason: 'missing_api_key' }
   if (voices.length === 0) return { ...base, enabled: false, reason: 'missing_voices' }
   if (!env.AUDIO_BUCKET) return { ...base, enabled: false, reason: 'missing_bucket' }
   return { ...base, enabled: true }
@@ -170,6 +187,7 @@ export async function handleNarration(request: Request, env: NarrationEnv, ctx: 
     case 'voices': return handleVoices(request, env)
     case 'chapter': return handleChapter(request, env, deps)
     case 'ensure': return handleEnsure(request, env, ctx, deps, 'reader')
+    case 'prepare': return handleEnsure(request, env, ctx, deps, 'prepare')
     case 'warm': return handleEnsure(request, env, ctx, deps, 'warm')
     case 'usage': return handleUsage(request, env, deps)
     default: return jsonResponse({ error: 'Not found' }, 404, request)
@@ -182,7 +200,7 @@ function publicConfig(config: NarrationConfig) {
     reason: config.reason,
     provider: config.provider,
     model: config.model,
-    voices: config.voices.map(voice => ({ key: voice.key, label: voice.label })),
+    voices: config.voices.map(voice => ({ key: voice.key, label: voice.label, persona: voice.persona })),
     settings: config.settings,
     scope: NARRATION_PILOT_SCOPE,
     cacheVersion: NARRATION_CACHE_VERSION,
@@ -289,19 +307,22 @@ interface ParagraphState {
  * The first chunk that fails ends the prefix; nothing past it is trusted.
  */
 /** Identity hashes for every chunk of a paragraph, computed once per request. */
-async function chunkIdentities(chunks: NarrationChunk[], model: string, voiceId: string, settings: NarrationSynthesisSettings): Promise<string[]> {
-  return Promise.all(chunks.map(chunk => narrationCacheIdentity({ provider: NARRATION_PROVIDER, model, voiceId, text: chunk.text, settings }).then(identity => identity.hash)))
+async function chunkIdentities(chunks: NarrationChunk[], provider: NarrationProvider, model: string, voiceId: string, settings: NarrationSynthesisSettings): Promise<string[]> {
+  return Promise.all(chunks.map(chunk => narrationCacheIdentity({ provider, model, voiceId, text: chunk.text, settings }).then(identity => identity.hash)))
 }
 
 /**
  * One listed recording, only if its meta and audio agree with the live text
  * hash, the chunk layout and each other. Null means missing or torn.
  */
-async function readReadyChunk(bucket: R2Bucket, position: number, expected: NarrationChunk, listedHash: string, textHash: string): Promise<ReadyChunk | null> {
-  const keys = narrationBlobKeys(listedHash)
+async function readReadyChunk(bucket: R2Bucket, provider: NarrationProvider, position: number, expected: NarrationChunk, listedHash: string, _textHash: string): Promise<ReadyChunk | null> {
+  const keys = narrationBlobKeys(listedHash, provider)
   const [meta, head] = await Promise.all([readJsonObject<NarrationBlobMeta>(bucket, keys.meta), withOneRetry(() => bucket.head(keys.audio))])
-  if (!meta || !head || meta.version !== NARRATION_CACHE_VERSION || meta.textHash !== textHash || meta.hash !== listedHash) return null
-  if (meta.chunkIndex !== position || meta.text !== expected.text || !(meta.duration > 0) || head.size !== meta.audioBytes || head.size < 800) return null
+  if (!meta || !head || meta.version !== NARRATION_CACHE_VERSION || meta.provider !== provider || meta.hash !== listedHash) return null
+  // Blob identity is provider/model/voice/settings/chunk text, not paragraph
+  // position. This is what lets unchanged chunks survive a local text edit
+  // and lets identical text share audio across books and editions.
+  if (meta.text !== expected.text || !(meta.duration > 0) || !meta.timingsUsable || !Array.isArray(meta.words) || head.size !== meta.audioBytes || head.size < 800) return null
   return {
     index: position,
     hash: meta.hash,
@@ -319,11 +340,11 @@ function mapEntryMatches(entry: NarrationMapEntry | null, textHash: string, chun
   return !!entry && entry.textHash === textHash && entry.chunkCount === chunkCount && entry.voiceId === voiceId && entry.model === model
 }
 
-async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings, identities?: string[]): Promise<ParagraphState> {
+async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings, identities?: string[]): Promise<ParagraphState> {
   const state: ParagraphState = { textHash, chunks, ready: [] }
   const entry = await readMapEntry(bucket, mapKey)
   if (!mapEntryMatches(entry, textHash, chunks.length, voiceId, model)) return state
-  const hashes = identities ?? await chunkIdentities(chunks, model, voiceId, settings)
+  const hashes = identities ?? await chunkIdentities(chunks, provider, model, voiceId, settings)
   for (let position = 0; position < entry.chunks.length; position += 1) {
     const listed = entry.chunks[position]
     const expected = chunks[position]
@@ -331,7 +352,7 @@ async function readParagraphState(bucket: R2Bucket, mapKey: string, textHash: st
     // The listed recording must be the one this text, model, voice and
     // settings would produce today; any changed setting is a different hash.
     if (listed.hash !== hashes[position]) break
-    const ready = await readReadyChunk(bucket, position, expected, listed.hash, textHash)
+    const ready = await readReadyChunk(bucket, provider, position, expected, listed.hash, textHash)
     if (!ready) break
     state.ready.push(ready)
   }
@@ -357,7 +378,7 @@ function listedChunksForMap(existing: NarrationMapEntry | null, ready: ReadyChun
   return listed
 }
 
-function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined) {
+function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined, provider: NarrationProvider) {
   if (!ready) return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: false as const }
   return {
     index: chunk.index,
@@ -365,8 +386,8 @@ function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined) {
     wordTo: chunk.wordTo,
     ready: true as const,
     hash: ready.hash,
-    audioPath: narrationAudioPath(ready.hash),
-    url: `/api/audio-file?path=${encodeURIComponent(narrationAudioPath(ready.hash))}`,
+    audioPath: narrationAudioPath(ready.hash, provider),
+    url: `/api/audio-file?path=${encodeURIComponent(narrationAudioPath(ready.hash, provider))}`,
     duration: ready.duration,
     words: ready.words,
     alignment: ready.alignment,
@@ -375,7 +396,7 @@ function chunkPayload(chunk: NarrationChunk, ready: ReadyChunk | undefined) {
 }
 
 /** Listing payload from the map alone: what is recorded, not re-validated. */
-function listedParagraphPayload(paragraph: number, textHash: string, chunks: NarrationChunk[], listed: NarrationMapEntry['chunks']) {
+function listedParagraphPayload(paragraph: number, textHash: string, chunks: NarrationChunk[], listed: NarrationMapEntry['chunks'], provider: NarrationProvider) {
   const complete = chunks.length > 0 && listed.length === chunks.length
   return {
     paragraph,
@@ -389,14 +410,14 @@ function listedParagraphPayload(paragraph: number, textHash: string, chunks: Nar
       if (!entry) return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: false as const }
       return {
         index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, ready: true as const, hash: entry.hash,
-        audioPath: narrationAudioPath(entry.hash), url: `/api/audio-file?path=${encodeURIComponent(narrationAudioPath(entry.hash))}`,
+        audioPath: narrationAudioPath(entry.hash, provider), url: `/api/audio-file?path=${encodeURIComponent(narrationAudioPath(entry.hash, provider))}`,
       }
     }),
   }
 }
 
 /** Reader-facing description of a paragraph: its chunk layout and which chunks are playable. */
-function paragraphPayload(paragraph: number, state: ParagraphState, extra: Record<string, unknown> = {}) {
+function paragraphPayload(paragraph: number, state: ParagraphState, provider: NarrationProvider, extra: Record<string, unknown> = {}) {
   const complete = state.chunks.length > 0 && state.ready.length === state.chunks.length
   const status = complete ? 'ready' as const : state.ready.length > 0 ? 'partial' as const : 'pending' as const
   const merged = complete
@@ -409,7 +430,7 @@ function paragraphPayload(paragraph: number, state: ParagraphState, extra: Recor
     textHash: state.textHash,
     chunkCount: state.chunks.length,
     readyChunks: state.ready.length,
-    chunks: state.chunks.map(chunk => chunkPayload(chunk, state.ready[chunk.index])),
+    chunks: state.chunks.map(chunk => chunkPayload(chunk, state.ready[chunk.index], provider)),
     duration: merged?.duration,
     words: allTimed && merged ? merged.words : null,
     timingsUsable: allTimed,
@@ -438,23 +459,23 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   if (!text) return jsonResponse({ error: 'Chapter text unavailable' }, 404, request)
 
   const bucket = env.AUDIO_BUCKET
-  const listed = await bucket.list({ prefix: narrationMapPrefix(scope.bookId, scope.editionKey, scope.chapter, voice.key) })
+  const listed = await bucket.list({ prefix: narrationMapPrefix(scope.bookId, scope.editionKey, scope.chapter, voice.key, config.provider) })
   const present = new Set(listed.objects.map((object: { key: string }) => object.key))
   const paragraphs = await Promise.all(text.paragraphs.map(async (raw, index) => {
     const tokens = narrationTokens(raw)
     const chunks = chunkNarrationTokens(tokens)
     const textHash = await sha256Hex(tokens.join(' '))
-    const mapKey = narrationMapKey(scope.bookId, scope.editionKey, scope.chapter, voice.key, index)
+    const mapKey = narrationMapKey(scope.bookId, scope.editionKey, scope.chapter, voice.key, index, config.provider)
     if (!present.has(mapKey)) return { paragraph: index, status: 'missing' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
     // The listing reports what the map records for today's text, voice and
     // settings; it does not open every blob (a 430-paragraph chapter would
     // exceed the Worker's subrequest budget). The ensure path validates the
     // audio and metadata of each chunk before anything plays.
-    const identities = await chunkIdentities(chunks, config.model, voice.id, config.settings)
+    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
     const entry = await readMapEntry(bucket, mapKey)
     const listedChunks = listedChunksForMap(entry, [], chunks, identities, textHash, voice.id, config.model)
     if (listedChunks.length === 0) return { paragraph: index, status: 'stale' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
-    return listedParagraphPayload(index, textHash, chunks, listedChunks)
+    return listedParagraphPayload(index, textHash, chunks, listedChunks, config.provider)
   }))
   const response = jsonResponse({
     bookId: scope.bookId,
@@ -542,17 +563,17 @@ async function handleUsage(request: Request, env: NarrationEnv, deps: NarrationD
     ceilings: { dailyBytes: config.dailyBytes, monthlyBytes: config.monthlyBytes },
     day, month,
     breaker: { failures: breaker.failures, open: breaker.openUntil > now, openUntil: breaker.openUntil || null },
-    pricing: { usdPerMillionBytes: 15, note: 'Fish s2.1-pro list price; verify against the account statement.' },
+    accounting: { unit: 'utf8_text_bytes', note: 'Operational ceiling only; verify provider billing against the account statement.' },
   }, 200, request)
 }
 
 // ===== Provider =====
 
-export interface FishSynthesisResult {
+export interface NarrationSynthesisResult {
   audio: Uint8Array
   segments: TimingSegment[]
   reportedDuration: number
-  timingsSource: 'with-timestamp' | 'none'
+  timingsSource: 'with-timestamp' | 'ssml-mark' | 'none'
   attempts: number
   providerMs: number
 }
@@ -610,7 +631,7 @@ export async function synthesizeWithFish(input: {
   now: () => number
   /** No attempt starts if it could not finish before this time. */
   deadlineAt?: number
-}): Promise<FishSynthesisResult> {
+}): Promise<NarrationSynthesisResult> {
   const startedAt = input.now()
   const headers = {
     Authorization: `Bearer ${input.apiKey}`,
@@ -678,6 +699,81 @@ export async function synthesizeWithFish(input: {
   throw lastError || new NarrationProviderError('Fish unavailable', 'provider_unavailable')
 }
 
+function xmlEscape(value: string): string {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;')
+}
+
+function decodeBase64(value: string): Uint8Array {
+  const binary = atob(value)
+  const bytes = new Uint8Array(binary.length)
+  for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index)
+  return bytes
+}
+
+/** Google synthesis with a mark immediately before every spoken token. */
+export async function synthesizeWithGoogle(input: {
+  apiKey: string
+  baseUrl: string
+  voiceId: string
+  text: string
+  fetchImpl: typeof fetch
+  sleep: (ms: number) => Promise<void>
+  now: () => number
+  deadlineAt?: number
+}): Promise<NarrationSynthesisResult> {
+  const startedAt = input.now()
+  const tokens = input.text.split(' ').filter(Boolean)
+  const ssml = `<speak>${tokens.map((token, index) => `<mark name="w${index}"/>${xmlEscape(token)}`).join(' ')}</speak>`
+  const body = JSON.stringify({
+    input: { ssml },
+    voice: { languageCode: 'en-US', name: input.voiceId },
+    audioConfig: { audioEncoding: 'MP3' },
+    enableTimePointing: ['SSML_MARK'],
+  })
+  let attempts = 0
+  let lastError: NarrationProviderError | null = null
+  for (let attempt = 0; attempt <= PROVIDER_RETRY_DELAYS_MS.length; attempt += 1) {
+    if (attempt > 0) await input.sleep(PROVIDER_RETRY_DELAYS_MS[attempt - 1])
+    if (input.deadlineAt != null && input.now() + PROVIDER_TIMEOUT_MS > input.deadlineAt && attempts > 0) break
+    attempts += 1
+    const exchange = fetchWithDeadline(input.fetchImpl, `${input.baseUrl}/v1beta1/text:synthesize?key=${encodeURIComponent(input.apiKey)}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body,
+    }, PROVIDER_TIMEOUT_MS)
+    try {
+      let response: Response
+      try { response = await exchange.response } catch (error) {
+        lastError = new NarrationProviderError(`network: ${(error as Error)?.name || 'error'}`, 'provider_unavailable')
+        continue
+      }
+      if (response.status === 401 || response.status === 403) throw new NarrationProviderError('Google rejected the API key or voice', 'provider_auth', response.status)
+      if (response.status === 429 || response.status >= 500) {
+        lastError = new NarrationProviderError(`Google answered ${response.status}`, 'provider_unavailable', response.status)
+        continue
+      }
+      if (!response.ok) throw new NarrationProviderError(`Google answered ${response.status}`, 'provider_rejected', response.status)
+      const payload = await response.json() as { audioContent?: string; timepoints?: Array<{ markName?: string; timeSeconds?: number }> }
+      if (!payload.audioContent) throw new NarrationProviderError('Google returned no audio', 'provider_empty', response.status)
+      const audio = decodeBase64(payload.audioContent)
+      const duration = mp3DurationSeconds(audio) ?? 0
+      const marks = new Map<number, number>()
+      for (const point of payload.timepoints || []) {
+        const match = /^w(\d+)$/.exec(point.markName || '')
+        if (match && typeof point.timeSeconds === 'number' && Number.isFinite(point.timeSeconds)) marks.set(Number(match[1]), point.timeSeconds)
+      }
+      const segments: TimingSegment[] = tokens.flatMap((token, index) => {
+        const start = marks.get(index)
+        if (start == null) return []
+        const end = marks.get(index + 1) ?? duration
+        return [{ text: token, start, end: Math.max(start, end) }]
+      })
+      return { audio, segments, reportedDuration: duration, timingsSource: 'ssml-mark', attempts, providerMs: input.now() - startedAt }
+    } finally {
+      exchange.release()
+    }
+  }
+  throw lastError || new NarrationProviderError('Google unavailable', 'provider_unavailable')
+}
+
 // ===== POST /api/narration/ensure (and /warm) =====
 
 interface EnsureRequestBody {
@@ -688,6 +784,8 @@ interface EnsureRequestBody {
   paragraphs?: Array<{ index?: number; textHash?: string }>
   /** 'next': generate at most one missing chunk, then answer. 'all': everything missing, within the time budget. */
   mode?: 'next' | 'all'
+  /** Initial speculative target. The Worker stops after reaching this much ready audio. */
+  targetSeconds?: number
 }
 
 type EnsureParagraphResult =
@@ -695,11 +793,11 @@ type EnsureParagraphResult =
   | { paragraph: number; status: 'text_mismatch'; textHash: string }
   | { paragraph: number; status: 'failed'; textHash: string; reason: string; retryAfterMs?: number; detail?: string }
 
-async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps, caller: 'reader' | 'warm'): Promise<Response> {
+async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps, caller: 'reader' | 'prepare' | 'warm'): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (caller === 'warm' && !isWarmCaller(request, env)) return jsonResponse({ error: 'Forbidden' }, 403, request)
   const config = narrationConfig(env)
-  if (!config.enabled || !env.AUDIO_BUCKET || !env.FISH_AUDIO_API_KEY) {
+  if (!config.enabled || !env.AUDIO_BUCKET || (config.provider === 'google' ? !env.GOOGLE_TTS_API_KEY : !env.FISH_AUDIO_API_KEY)) {
     return jsonResponse({ error: 'Narration pilot is not configured', reason: config.reason }, 503, request)
   }
   let userId: string
@@ -707,8 +805,11 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     userId = 'warm'
   } else {
     const user = await deps.verifyUser(env, request)
-    if (!user) return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
-    userId = user.id
+    if (caller === 'reader' && !user) return jsonResponse({ error: 'Sign in to prepare narration' }, 401, request)
+    if (caller === 'prepare' && user?.email.trim().toLowerCase() === 'ahvelplund@fastmail.com') {
+      return new Response(null, { status: 204 })
+    }
+    userId = user?.id || `guest:${request.headers.get('cf-connecting-ip') || 'unknown'}`
   }
 
   let body: EnsureRequestBody
@@ -718,17 +819,25 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const chapter = typeof body.chapter === 'number' ? body.chapter : NaN
   const voiceKey = typeof body.voice === 'string' ? body.voice : ''
   const mode: 'next' | 'all' = body.mode === 'all' ? 'all' : 'next'
+  const targetSeconds = caller === 'prepare'
+    ? Math.max(30, Math.min(60, Number(body.targetSeconds) || 45))
+    : Number.POSITIVE_INFINITY
   if (!/^[a-z0-9-]{1,64}$/.test(bookId) || !/^[a-z0-9-]{1,32}$/.test(editionKey) || !Number.isInteger(chapter) || chapter < 1) {
     return jsonResponse({ error: 'Invalid scope' }, 400, request)
   }
   if (!isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
-  const requested = Array.isArray(body.paragraphs) ? body.paragraphs : []
-  if (requested.length === 0 || requested.length > NARRATION_MAX_PARAGRAPHS_PER_REQUEST) {
-    return jsonResponse({ error: `Request 1–${NARRATION_MAX_PARAGRAPHS_PER_REQUEST} paragraphs` }, 400, request)
+  if (caller === 'prepare' && usesRetainedBella(bookId, editionKey, voice.persona ?? 'female')) {
+    return new Response(null, { status: 204 })
   }
-  if (caller === 'reader' && !await deps.checkRateLimit(`narration:${userId}`, env.RATE_LIMIT, NARRATION_ENSURE_RATE_PER_MINUTE)) {
+  const requested = Array.isArray(body.paragraphs) ? body.paragraphs : []
+  const maxParagraphs = caller === 'prepare' ? 8 : NARRATION_MAX_PARAGRAPHS_PER_REQUEST
+  if (requested.length === 0 || requested.length > maxParagraphs) {
+    return jsonResponse({ error: `Request 1–${maxParagraphs} paragraphs` }, 400, request)
+  }
+  const requestLimit = caller === 'prepare' ? 8 : NARRATION_ENSURE_RATE_PER_MINUTE
+  if (caller !== 'warm' && !await deps.checkRateLimit(`narration:${caller}:${userId}`, env.RATE_LIMIT, requestLimit)) {
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
 
@@ -744,6 +853,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
   let generationDone = false
+  let preparedDuration = 0
   // One accounting write per request: concurrent read-modify-writes of the
   // same KV counters would lose increments.
   const usageDelta: UsageCounters = { ...EMPTY_USAGE }
@@ -768,14 +878,21 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       results.push({ paragraph: index, status: 'failed', textHash, reason: 'empty_paragraph' })
       continue
     }
-    const mapKey = narrationMapKey(bookId, editionKey, chapter, voice.key, index)
-    const identities = await chunkIdentities(chunks, config.model, voice.id, config.settings)
-    const state = await readParagraphState(bucket, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
+    const mapKey = narrationMapKey(bookId, editionKey, chapter, voice.key, index, config.provider)
+    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
+    const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
+    preparedDuration += state.ready.reduce((sum, ready) => sum + ready.duration, 0)
+    if (preparedDuration >= targetSeconds) generationDone = true
+    let countedReady = state.ready.length
+    const countNewReadyDuration = () => {
+      preparedDuration += state.ready.slice(countedReady).reduce((sum, ready) => sum + ready.duration, 0)
+      countedReady = state.ready.length
+      if (preparedDuration >= targetSeconds) generationDone = true
+    }
     if (state.ready.length > 0) bump({ requests: 1, cacheHits: 1 })
     let failure: EnsureParagraphResult | null = null
     const extra: Record<string, unknown> = {}
     let adoptedByProbe = 0
-    let wroteMap = false
     const writeMap = async () => {
       // Never shorten the map: keep every chunk the existing entry lists
       // beyond our prefix whose identity still matches today's text.
@@ -795,7 +912,6 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         publishedAt: new Date(now()).toISOString(),
       }
       await bucket.put(mapKey, JSON.stringify(mapEntry), { httpMetadata: { contentType: 'application/json' } })
-      wroteMap = true
       return listed
     }
 
@@ -808,10 +924,11 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       // probe the recording itself before paying for a synthesis. A map that
       // lags its last write, or a miss while validating the prefix, would
       // otherwise cost a synthesis of a chunk that already exists.
-      const present = await readReadyChunk(bucket, chunk.index, chunk, identity.hash, textHash)
+      const present = await readReadyChunk(bucket, config.provider, chunk.index, chunk, identity.hash, textHash)
       if (present) {
         state.ready.push(present)
         adoptedByProbe += 1
+        countNewReadyDuration()
         continue
       }
 
@@ -820,8 +937,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       let locked = false
       try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false }
       if (locked) {
-        const arrived = await waitForChunk(bucket, mapKey, state, voice.id, config.model, config.settings, now, sleep)
-        if (arrived) { extra.waited = true; if (mode === 'next') generationDone = true; continue }
+        const arrived = await waitForChunk(bucket, config.provider, mapKey, state, voice.id, config.model, config.settings, now, sleep)
+        if (arrived) { extra.waited = true; countNewReadyDuration(); if (mode === 'next') generationDone = true; continue }
         extra.retryAfterMs = 1500
         break
       }
@@ -844,22 +961,29 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       try { await kv?.put(lockKey, JSON.stringify({ token: lockToken, at: now(), by: userId.slice(0, 8) }), { expirationTtl: LOCK_TTL_SECONDS }) } catch { /* proceed without a lock */ }
       const generationStartedAt = now()
       try {
-        const synthesis = await synthesizeWithFish({
-          apiKey: env.FISH_AUDIO_API_KEY, baseUrl: config.baseUrl, model: config.model, voiceId: voice.id,
-          text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
-          deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
-        })
+        const synthesis = config.provider === 'google'
+          ? await synthesizeWithGoogle({
+            apiKey: env.GOOGLE_TTS_API_KEY as string, baseUrl: config.baseUrl, voiceId: voice.id,
+            text: chunk.text, fetchImpl, sleep, now,
+            deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
+          })
+          : await synthesizeWithFish({
+            apiKey: env.FISH_AUDIO_API_KEY as string, baseUrl: config.baseUrl, model: config.model, voiceId: voice.id,
+            text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
+            deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
+          })
         const validation = validateNarrationAsset({ text: chunk.text, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
         await recordProviderOutcome(kv, now(), true)
-        if (!validation.ok) {
-          failure = { paragraph: index, status: 'failed', textHash, reason: 'validation_failed', detail: `chunk ${chunk.index}: ${validation.reasons.join(',')} (${validation.duration}s of audio for ${chunk.text.length} chars)` }
+        if (!validation.ok || !validation.timingsUsable) {
+          const reasons = validation.timingsUsable ? validation.reasons : [...validation.reasons, 'timings_incomplete']
+          failure = { paragraph: index, status: 'failed', textHash, reason: 'validation_failed', detail: `chunk ${chunk.index}: ${reasons.join(',')} (${validation.duration}s of audio for ${chunk.text.length} chars)` }
           bump({ requests: 1, failed: 1, bytes: textBytes, providerMs: synthesis.providerMs })
           break
         }
         const generationMs = now() - generationStartedAt
         const meta: NarrationBlobMeta = {
           version: NARRATION_CACHE_VERSION,
-          provider: NARRATION_PROVIDER,
+          provider: config.provider,
           model: config.model,
           voiceId: voice.id,
           voiceKey: voice.key,
@@ -883,12 +1007,12 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           providerSegments: synthesis.segments,
           generationMs,
         }
-        const blobKeys = narrationBlobKeys(identity.hash)
+        const blobKeys = narrationBlobKeys(identity.hash, config.provider)
         // Keys are content-addressed, so a second rendering of the same chunk
         // would overwrite the first and could tear its audio/meta pair. If
         // another generator finished this chunk while we synthesised it, keep
         // theirs and write nothing.
-        const finished = await readReadyChunk(bucket, chunk.index, chunk, identity.hash, textHash)
+        const finished = await readReadyChunk(bucket, config.provider, chunk.index, chunk, identity.hash, textHash)
         if (finished) {
           state.ready.push(finished)
           extra.raced = true
@@ -905,11 +1029,12 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         // Adopt the listed recordings beyond our prefix that validate, so the
         // next chunk we generate is the first one truly missing.
         for (let position = state.ready.length; position < listed.length; position += 1) {
-          const adopted = await readReadyChunk(bucket, position, chunks[position], listed[position].hash, textHash)
+          const adopted = await readReadyChunk(bucket, config.provider, position, chunks[position], listed[position].hash, textHash)
           if (!adopted) break
           state.ready.push(adopted)
         }
         generatedThisRequest += 1
+        countNewReadyDuration()
         bump({ requests: 1, generated: 1, bytes: textBytes, providerMs: synthesis.providerMs })
         extra.source = 'generated'
         extra.generationMs = (typeof extra.generationMs === 'number' ? extra.generationMs : 0) + generationMs
@@ -943,12 +1068,12 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     // the listing and the next request stop treating them as missing.
     if (adoptedByProbe > 0) {
       extra.probed = adoptedByProbe
-      if (!wroteMap) { try { await writeMap() } catch { /* the next generation rewrites the map */ } }
+      try { await writeMap() } catch { /* the next generation rewrites the map */ }
     }
 
     // A failure on a later chunk still leaves the ready prefix playable.
     if (failure && state.ready.length === 0) results.push(failure)
-    else results.push(paragraphPayload(index, state, failure ? { ...extra, failure: { reason: (failure as { reason: string }).reason, detail: (failure as { detail?: string }).detail, retryAfterMs: (failure as { retryAfterMs?: number }).retryAfterMs } } : extra))
+    else results.push(paragraphPayload(index, state, config.provider, failure ? { ...extra, failure: { reason: (failure as { reason: string }).reason, detail: (failure as { detail?: string }).detail, retryAfterMs: (failure as { retryAfterMs?: number }).retryAfterMs } } : extra))
     if (failure && (failure as { reason: string }).reason === 'provider_auth') break
     if (failure && (failure as { reason: string }).reason === 'provider_payment') break
   }
@@ -963,6 +1088,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
 
 async function waitForChunk(
   bucket: R2Bucket,
+  provider: NarrationProvider,
   mapKey: string,
   state: ParagraphState,
   voiceId: string,
@@ -980,7 +1106,7 @@ async function waitForChunk(
     // otherwise cost dozens of subrequests).
     const entry = await readMapEntry(bucket, mapKey)
     if (!entry || entry.chunks.length <= wanted) continue
-    const fresh = await readParagraphState(bucket, mapKey, state.textHash, state.chunks, voiceId, model, settings)
+    const fresh = await readParagraphState(bucket, provider, mapKey, state.textHash, state.chunks, voiceId, model, settings)
     if (fresh.ready.length > wanted) {
       state.ready.splice(0, state.ready.length, ...fresh.ready)
       return true

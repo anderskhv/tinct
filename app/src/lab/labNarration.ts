@@ -1,5 +1,5 @@
 /**
- * Fish Audio narration pilot — reader side.
+ * Provider-neutral English narration — reader side.
  *
  * Opt-in only. `?narration=fish` on a reader route turns the pilot on for this
  * device (persisted in the lab prefs so it survives reloads and edition
@@ -12,6 +12,7 @@
 import { apiUrl } from '../utils/apiUrl'
 import { isPilotScope, narrationTextForParagraph, sha256Hex, type AlignedWord, type TokenAlignmentStats } from '../narration/narrationCore'
 import type { LabPrefs } from './labPrefs'
+import { usesRetainedBella } from '../narration/bellaRetention'
 
 export type NarrationPilotFlag = 'fish' | 'off' | null
 
@@ -35,6 +36,7 @@ export function applyNarrationPilotFlag(prefs: LabPrefs, flag: NarrationPilotFla
 export interface NarrationVoiceOption {
   key: string
   label: string
+  persona?: 'female' | 'male'
 }
 
 export interface NarrationPilotInfo {
@@ -47,14 +49,15 @@ export interface NarrationPilotInfo {
 
 /** True when the reader opted in and the current text is inside the narration scope (featured books, English editions). */
 export function narrationPilotApplies(prefs: LabPrefs, bookId: string, editionKey: string, chapter: number): boolean {
-  return prefs.narrationProvider === 'fish' && isPilotScope(bookId, editionKey, chapter)
+  return isPilotScope(bookId, editionKey, chapter) && !usesRetainedBella(bookId, editionKey, prefs.voicePersona)
 }
 
 /** The voice to narrate with: the stored choice when the server still offers it, else the first voice. */
 export function resolveNarrationVoice(prefs: LabPrefs, voices: NarrationVoiceOption[]): string | null {
   if (voices.length === 0) return null
-  if (prefs.narrationVoice && voices.some(voice => voice.key === prefs.narrationVoice)) return prefs.narrationVoice
-  return voices[0].key
+  return voices.find(voice => voice.persona === prefs.voicePersona)?.key
+    ?? voices.find(voice => voice.key === (prefs.voicePersona === 'female' ? 'f' : 'm'))?.key
+    ?? null
 }
 
 export async function fetchNarrationPilotInfo(fetchImpl: typeof fetch = fetch): Promise<NarrationPilotInfo> {

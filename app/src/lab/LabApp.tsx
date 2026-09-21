@@ -21,6 +21,8 @@ import {
 } from './labNarration'
 import { readSupabaseAccessToken } from './labAuth'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
+import { useVoicePersonaSync } from './useVoicePersonaSync'
+import { usesRetainedBella } from '../narration/bellaRetention'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { LAB_COPY } from './labCopy'
@@ -456,27 +458,34 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     setPrefs(synced)
     writeLabPrefs(synced, appearanceProfile)
   }, [appearanceProfile, book.bookId, bookEditions])
-  // Fish narration pilot (docs/fish-audio-pilot-2026-09-18.md). `?narration=fish`
-  // opts this device in and is remembered; `?narration=off` opts out. Nothing
-  // changes for a reader who never used the flag.
+  const applyRemoteVoicePersona = useCallback((voicePersona: 'female' | 'male') => {
+    setPrefs(current => {
+      if (current.voicePersona === voicePersona) return current
+      const next = { ...current, voicePersona }
+      writeLabPrefs(next, appearanceProfile)
+      return next
+    })
+  }, [appearanceProfile])
+  useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, onRemote: applyRemoteVoicePersona })
+  // English narration is available across the published catalogue. Female
+  // original editions on the verified retention list stay on Bella; all
+  // other tuples resolve to the exact on-demand voice returned by the Worker.
   const narrationFlag = narrationPilotFlag(search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const [narrationInfo, setNarrationInfo] = useState<NarrationPilotInfo | null>(null)
   // Once the pilot has been on during this page load the Settings row stays,
   // so "Off" is reversible without the URL flag.
-  const [narrationRowVisible, setNarrationRowVisible] = useState(prefs.narrationProvider === 'fish')
-  useEffect(() => { if (prefs.narrationProvider === 'fish') setNarrationRowVisible(true) }, [prefs.narrationProvider])
   useEffect(() => {
-    if (prefs.narrationProvider !== 'fish') return
     let cancelled = false
     void fetchNarrationPilotInfo().then((info) => { if (!cancelled) setNarrationInfo(info) })
     return () => { cancelled = true }
-  }, [prefs.narrationProvider])
+  }, [])
   const narrationVoice = narrationInfo ? resolveNarrationVoice(prefs, narrationInfo.voices) : null
   // Narration follows the text on the page: the primary edition, not the
   // Kokoro audio edition, so painted words and spoken words are one text.
   const narrationApplies = narrationInfo?.enabled === true
     && narrationVoice != null
     && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber)
+  const retainedBella = usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)
   const prefsProfileRef = useRef(appearanceProfile)
   useLayoutEffect(() => {
     if (prefsProfileRef.current === appearanceProfile) return
@@ -969,6 +978,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     userId: authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : undefined,
     voiceToolAdapter,
     voiceVersion,
+    voicePersona: prefs.voicePersona,
     onVoiceToolAction: (entry) => {
       setVoiceActions(current => {
         const next = [...current, entry].slice(-20)
@@ -1009,12 +1019,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   )
   const listen = useLabListen({
     guardPlaybackRequests: chromeV2,
-    playbackUnavailable: narrationOption ? false : audioUnavailable,
+    playbackUnavailable: narrationOption || retainedBella ? false : audioUnavailable,
     bookId: listenSource.bookId,
+    bookTitle: book.bookTitle,
+    chapterTitle: book.chapterLabel,
     paragraphs: listenSource.paragraphs,
     followParagraphs: listenSource.followParagraphs,
     chapterNumber: listenSource.chapterNumber,
-    audioEdition: narrationOption ? prefs.primaryEdition : audioEditionKey,
+    audioEdition: narrationOption || retainedBella ? prefs.primaryEdition : audioEditionKey,
     narration: narrationOption,
     playbackSpeed: prefs.audioSpeed,
     onPlaybackSpeedChange: (audioSpeed) => updatePrefs({ ...prefs, audioSpeed }),
@@ -1029,7 +1041,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     ? listen.follow.paragraphIndex
     : (readingPages[readingPageIndex]?.paragraphIndex ?? 0)
   useNarrationPrefetch({
-    active: Boolean(narrationOption) && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
+    active: Boolean(narrationOption) && listen.playing && listenSource.bookId === (book.bookId || 'bible') && listenSource.chapterNumber === book.chapterNumber,
     voice: narrationVoice,
     bookId: book.bookId || 'bible',
     editionKey: prefs.primaryEdition,
@@ -4119,7 +4131,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? handleMobileCompare : handleDesktopCompare)() } }
             : null}
-          narrationPilot={narrationRowVisible ? { info: narrationInfo, voice: prefs.narrationProvider === 'fish' ? narrationVoice : null } : null}
+          narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           returnTo={labBookSignInReturn(signInReturnTo, book.bookId, prefaceVisible || preparationCompanion || Boolean(chapterCoverTitle))}
         />
       )}
@@ -4506,8 +4518,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
           <div className="lab-desktop-audio-track">
             <strong>{book.bookTitle}</strong>
-            <span>{editionLabelFor(audioEditionKey, bookEditions)}</span>
-            <i><b style={{ width: `${Math.max(0, Math.min(100, ((listen.currentTime || 0) / Math.max(1, listen.clips[listen.clipIndex]?.duration || 1)) * 100))}%` }} /></i>
+            <span>{editionLabelFor(narrationOption || retainedBella ? prefs.primaryEdition : audioEditionKey, bookEditions)}</span>
+            <i
+              role="slider"
+              tabIndex={0}
+              aria-label="Chapter position"
+              aria-valuemin={0}
+              aria-valuemax={Math.max(1, Math.round(listen.chapterDuration))}
+              aria-valuenow={Math.round(listen.chapterTime)}
+              aria-valuetext={`${Math.round(listen.chapterTime)} of ${Math.round(listen.chapterDuration)} seconds${listen.chapterDurationEstimated ? ', estimated total' : ''}`}
+              onPointerDown={(event) => {
+                const rect = event.currentTarget.getBoundingClientRect()
+                listen.seekChapter(((event.clientX - rect.left) / Math.max(1, rect.width)) * listen.chapterDuration)
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'ArrowLeft') { event.preventDefault(); listen.seekChapter(Math.max(0, listen.chapterTime - 15)) }
+                if (event.key === 'ArrowRight') { event.preventDefault(); listen.seekChapter(Math.min(listen.chapterDuration, listen.chapterTime + 30)) }
+              }}
+            ><b style={{ width: `${Math.max(0, Math.min(100, (listen.chapterTime / Math.max(1, listen.chapterDuration)) * 100))}%` }} /></i>
           </div>
           {chromeV2 && !listen.playing && <button type="button" className="lab-desktop-audio-dismiss" aria-label="Close audio controls"
             onClick={() => { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" /></svg></button>}
