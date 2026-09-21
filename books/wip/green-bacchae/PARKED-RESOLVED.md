@@ -1,6 +1,27 @@
-# The Bacchae (`bacchae`) — PARKED after 3 correction rounds
+# RESOLVED — historical record only
 
-**Status:** PARKED. Not accepted. Do not register, deploy, or publish.
+> **RESOLVED 2026-09-21. THE BOOK IS NO LONGER PARKED.**
+>
+> Defect R3-1 (the 13 all-caps `TEIRESIAS` occurrences) was fixed, and a
+> round-4 independent confirmation pass by Claude Opus (`claude-opus-5`)
+> verified the fix, re-ran the case-insensitive whole-book proper-noun sweep
+> the round-2 miss called for, and found **zero** further defects. The book
+> was **ACCEPTED** on 2026-09-21 at sha256
+> `19507a56111d7394a028782d42997e75028a0502fec39c97e631f6efc0f799a8`.
+>
+> The live record is `ACCEPTANCE-RECORD.md` in this directory. Everything
+> below is preserved as the round-1-to-round-3 defect history and is **no
+> longer a live status**. In particular: the "Status: PARKED" line, the
+> superseded-record note about `ACCEPTANCE-RECORD.md`, the candidate hash
+> pin, and the "What a round-4 owner must do" section are all now historical
+> and have been discharged.
+
+---
+
+# The Bacchae (`bacchae`) — PARKED after 3 correction rounds *(historical)*
+
+**Status:** ~~PARKED. Not accepted. Do not register, deploy, or publish.~~
+*(superseded — accepted 2026-09-21, see header above)*
 **Parked:** 2026-09-21, by Claude Opus (model id `claude-opus-5`), round-3
 independent adversarial verification.
 
