@@ -2,208 +2,296 @@
 
 **Book id:** `oresteia`
 **Edition:** `modern-en`
-**Accepted (round 1, this record):** 2026-09-21
+**Round 1 (Sonnet):** 2026-09-21 — 13 defects fixed, self-certified clean.
+**Round 2 (independent Opus verification, this record):** 2026-09-21 — **ACCEPTED.**
 **Pool status:** Backup pool book (gate sim 0.614, 4 REAL-HEAVY/22 REAL
 buckets), pulled into the second batch after several primary pool books
 were parked/skipped.
 
-**Model note.** This entire pass — drafting review, blind accessibility
-review, source-based fidelity review, fix application, and whole-book
-re-read — was done in one session by **Claude Sonnet 5** (`claude-sonnet-5`).
-No paid API calls were made. Per the task instructions, this record does
-**not** include a RELEASE-PACKET.md or `accepted-paragraph-hashes.tsv`; a
-separate independent Opus verification pass is expected to run after this
-record and will produce those.
+**Model note.**
+- Round 1 — drafting review, blind accessibility review, source-based
+  fidelity review, fix application, whole-book re-read: **Claude Sonnet 5**
+  (`claude-sonnet-5`).
+- Round 2 — independent adversarial fidelity verification, rebuilt from
+  `source.json` from scratch without reusing round 1's word lists:
+  **Claude Opus** (`claude-opus-5`).
 
-**Staged files:** `books/wip/green-oresteia/source.json` (unmodified,
-locked), `books/wip/green-oresteia/candidate.json` (round-1 corrections
-below), `books/wip/green-oresteia/candidate_readable.txt` (regenerated
-from the final `candidate.json`), `books/wip/green-oresteia/source_readable.txt`
-(reference copy of source), `accessibility-review-1.md`,
-`fidelity-review-1.md` (this round's review artifacts).
+No paid API calls were made in either round. No app, registry, audio, or
+deploy action was taken. This directory only.
 
-**Final file hash (candidate.json, sha256):**
-`958f586d55c2ad850d5cca698eb2e1179673a435eb8a2de8a82e8bcdd3b1235c`
+**Staged files:** `source.json` (unmodified, locked), `candidate.json`
+(round-1 + round-2 corrections), `candidate_readable.txt` (regenerated from
+the final `candidate.json`), `source_readable.txt`, `accessibility-review-1.md`,
+`fidelity-review-1.md`, `accepted-paragraph-hashes.tsv`.
 
-**Source hash (unmodified copy, for reference, sha256):**
+**Accepted file hash (candidate.json, sha256):**
+`8daaaf8606b4e9d24bf6d4e2a759ca4464df42f0d547bf993cb55b91fa36b371`
+
+**Source hash (unmodified, sha256):**
 `c6189c462535c35845f110ed8a4c4fab2ac5be8ca9e5ce0879fc185fea54818c`
 
-No app, registry, audio, or deploy action was taken. This directory only.
+**Hash note.** Round 1 pinned
+`958f586d55c2ad850d5cca698eb2e1179673a435eb8a2de8a82e8bcdd3b1235c`. Round 2
+independently recomputed that hash on the file as received and it **matched**
+— round 1's pin was accurate for its own output. The accepted hash differs
+only because round 2 applied three further corrections (below). The accepted
+hash is pinned to the file state *after* those corrections and *after* their
+re-verification, per `TRANSLATION_PROTOCOL.md` step D.
 
 ---
 
-## Structural completeness gate (run before any review work)
+## Structure (independently re-derived in round 2, not carried over)
 
-Per this task's explicit instruction — two of the last three books
-checked in this batch (Henry V, Macbeth) turned out to have missing
-content in the locked source parse — `source.json` was spot-checked for
-completeness *before* being trusted as the fidelity baseline:
+- 26 chapters and **771 paragraphs** in both files; chapter `number`
+  sequence and per-chapter paragraph counts identical, chapter by chapter:
+  **8**, 34, 21, 14, 36, 16, 26, 17, 83, 71, 3, 8, 41, 19, 63, 6, 105, 4, 9,
+  38, 14, 25, 9, 62, 6, 33.
+- All 26 are real Act/Scene-equivalent reading units (Agamemnon 10, The
+  Libation Bearers 8, The Eumenides 8). No apparatus, collation, editorial
+  or scene-crosswalk chapters.
+- JSON valid in both files; no empty or whitespace-only paragraph.
 
-- Beacon-chain speech (ch. 3): present, all 14 named relay-points in
-  order (Ida → Lemnos → Athos → Macistus → Messapius → Euripus → Asopus →
-  Cithaeron → Gorgopis → Aegiplanctus → Saronic bay → Arachne's peak →
-  the house of Atreus).
-- Purple-carpet scene (ch. 7): present in full.
-- Cassandra's prophecy (ch. 9, 83 paragraphs): present in full.
-- Murder cries and Clytemnestra's confession (ch. 10): present in full,
-  including the three-blow account.
-- Recognition scene, Kommos invocation, matricide dialogue, Furies'
-  pursuit (chs. 13–18): present in full.
-- Furies' binding song and the Areopagus trial with the twelve
-  citizen-judges and the tied vote (chs. 20–24): present in full.
-- Transformation and closing procession (chs. 25–26): present in full.
+**Correction to round 1's record.** Round 1's per-chapter paragraph list
+opened with `10` for chapter 1; the true count is **8**, and round 1's
+printed list sums to 773 rather than 771. The underlying files were always
+correct and aligned — this was a transcription error in the round-1 record
+only, corrected here.
 
-**Verdict: source is structurally complete.** Full detail in
-`fidelity-review-1.md` §0.
+## Source completeness (re-checked in round 2 with different passages)
 
-## Structure (verified against both files)
+Round 2 did not rely on round 1's spot-checks. Independently confirmed
+present and complete: the Watchman's opening speech (ch1); the chorus's
+account of the fleet at Aulis, the thwarting Strymon blast and Iphigenia's
+sacrifice (ch2); Clytemnestra's beacon-relay speech in full, all relay
+points Ida → Lemnos → Athos → Macistus → Messapius → Euripus → Asopus →
+Cithaeron → Gorgopis → Aegiplanctus → the Saronic cape → Arachne's peak →
+the roof of Atreus's sons (ch3 p16); the purple-carpet stichomythia (ch7);
+Cassandra's full prophecy scene (ch9, 83 paragraphs); the three-blow murder
+account and the Thyestean-banquet narration (ch10); Orestes' recognition
+scene with Electra — lock, footprints and woven robe (chs13–14); the Kommos
+(ch15); the matricide stichomythia (ch17); the Furies' binding song (ch21);
+the Areopagus trial with the twelve judges, Apollo's parentage argument and
+Athena's casting vote (ch24); the closing torchlit procession and final
+chant (ch26). **Source is structurally complete.**
 
-- 26 chapters in both files, all real Act/Scene-equivalent reading units
-  by play and structural section (Agamemnon: Prologue, Parodos, First–
-  Fourth Episode, First–Third Stasimon, Exodos — 10 chapters; The
-  Libation Bearers: Prologue, Parodos, First–Third Episode, Kommos,
-  Second Stasimon, Exodos — 8 chapters; The Eumenides: Prologue, Parodos,
-  First–Third Episode, First–Second Stasimon, Exodos — 8 chapters). No
-  apparatus, editorial-note, collation, or scene-crosswalk chapters.
-- Chapter `number` sequence identical between source and candidate.
-- Per-chapter paragraph counts identical, chapter by chapter: 10, 34, 21,
-  14, 36, 16, 26, 17, 83, 71, 3, 8, 41, 19, 63, 6, 105, 4, 9, 38, 14, 25,
-  9, 62, 6, 33 — **771 paragraphs total in both files**, order locked, no
-  empty or whitespace-only paragraph on either side.
-- JSON valid in both files (`python3 -m json.tool`).
+## Round-2 methodology (rebuilt from scratch; round 1's lists not reused)
 
-## Methodology (per this book's specific task instructions, not a
-generic scoped sweep)
+1. **Full non-sampled word-for-word read of all 771 aligned source/candidate
+   paragraph pairs**, read as an interleaved S/C file end to end — not
+   sampled, not packet-scoped.
+2. **Structure + hash re-derivation** from both JSON files directly.
+3. **Compression/content-loss sweep** over all 771 paragraphs by word-count
+   ratio. Lowest ratio in the whole book is **0.82**; only 34 paragraphs
+   fall below 1.00, all by one to three words. Every sub-1.00 paragraph was
+   read in full. No dropped clause, sentence or image found.
+4. **Similarity sweep.** Mean paragraph similarity 0.635 — a genuine
+   rendering, not mechanical modernization. The 64 byte-identical paragraphs
+   are **all stage directions**, which are already plain modern English;
+   `Exeunt`, `Exeunt omnes`, `Re-enter` and `Exit` are preserved throughout
+   (the Merchant-of-Venice `Exeunt`→`Exit` failure class is absent here).
+5. **Erasure sweep (both directions).** Every word form present in source
+   but absent from candidate (904 of them) was enumerated and triaged; every
+   content-bearing one — `losel`, `beldame(s)`, `leech`, `recreant`, `gauds`,
+   `victual`, `teen`, `welter`, `wight`, `batten`, `charnel-scent`, `corse`,
+   `bride-bed`, `marriage-bed`, `spouse`, `banquet`, `babes`, `wanton(s)`,
+   `sucks`, `sucking`, `atridae`/`atrides` — was read at its exact location
+   against its candidate counterpart. All are legitimate synonym
+   substitutions with meaning preserved. The reverse direction (657
+   candidate-only word forms) was also enumerated: all are ordinary
+   modernization vocabulary; no invented content, no imported proper noun,
+   no wording from another translation.
+6. **Independent charged-content register audit**, word list built fresh
+   from this book's own vocabulary (89 terms across violence, sexual/marital,
+   bodily and cannibalism classes), each discrepancy read in full at its
+   location.
+7. **Location-keyed proper-noun/epithet map**, built independently, including
+   epithet variation across the three plays.
+8. **Rare-word / archaic-vocabulary cross-reference** built fresh from the
+   candidate's full 4,515-word vocabulary, read in full.
+9. **Re-derivation of all 13 round-1 fixes** from `source.json` at their exact
+   locations, plus a sibling sweep for every fixed word in both files.
 
-Full detail in `accessibility-review-1.md` and `fidelity-review-1.md`.
-Summary:
+## Round 1's 13 fixes — independently re-verified
 
-1. Full non-sampled read of the entire candidate (all 771 paragraphs) for
-   accessibility, before any source comparison.
-2. Full non-sampled paragraph-by-paragraph comparison against source for
-   fidelity.
-3. Location-keyed proper-noun/epithet cross-reference for 41 names,
-   checked in both directions across all 771 aligned paragraph pairs —
-   built from names actually present in this book, not a preset list.
-4. Rare/archaic-vocabulary cross-reference, built fresh from words
-   actually noticed while reading, swept whole-book before and after
-   fixes.
-5. Charged/violent/sexual-content term-count audit (built from this
-   book's own vocabulary, not a preset list), every discrepancy above
-   tolerance read in full, both directions.
-6. Speaker-tag/OCR-artifact audit across every distinct tag form in
-   source, to separate genuine OCR glitches from deliberate source forms.
-7. A second full whole-book re-read after fixes, specifically hunting for
-   what the scoped checks above would not catch on their own.
+All 13 were re-derived from `source.json` at their exact locations and
+**confirmed correct**: `appanage`, `glozes`, `forsooth`, `puissant`,
+`handselled`, `baulked`+`wried`, `unannealed`, `weird`, `besprinkle`,
+`assoils`, `avouched`, `avaunt`, and the `rapine` fidelity fix.
 
-## Defects found and fixed (round 1) — 13 total
+Specifically on `rapine` (ch5 p3): source reads *"at Fate's judgment-seat the
+robber stands / Condemned of rapine, and his prey is torn / Forth from his
+hands."* "Rapine" here is plunder/violent seizure — the subject is *the
+robber*, the object *his prey torn from his hands*, and the sibling
+occurrence at ch2 p1 ("wrought the rapine fell") is correctly rendered
+"did the savage robbery". Round 2 confirms "plunder" **restores** the
+source's meaning rather than merely swapping a synonym: the candidate's
+earlier "rape" narrowed a general charge of violent theft into a specific
+sexual one the line does not make. The passage's sexual dimension is not
+erased by the fix — the same paragraph still reads "for his guilt and lust".
 
-**12 accessibility defects** (archaic words from the source translation's
-own 1900s diction, left unmodernized against the drafting rule requiring
-difficult period vocabulary to be rebuilt into ordinary contemporary
-wording): `appanage`, `glozes`, `forsooth`, `puissant`, `handselled`,
-`baulked`+`wried` (same paragraph), `unannealed`, `weird` (false-friend
-risk, not just obscurity — modern readers default to "strange," not the
-source's "fate-bound" sense), `besprinkle` (inside a quoted ritual-law
-formula — quoted formulas are not exempt from modernization per the
-drafting rules), `assoils`, `avouched`, `avaunt` (also an internal
-consistency fix — the same word was already correctly modernized to "Get
-out" earlier in the book).
+None of the 12 modernized words was load-bearing: each was checked for a
+deliberate stylistic or ritual function. The one genuine ritual formula
+among them (`besprinkle`, inside the quoted purification law at ch22 p22)
+keeps its quoted-maxim framing and its exact ritual content
+("a suckling creature's blood is sprinkled on him").
 
-**1 fidelity defect:** ch. 5 para. 3, source's "rapine" (plunder/robbery)
-was rendered as "rape," a meaning-narrowing substitution that doesn't
-match the surrounding robber/prey imagery or the sibling occurrence of
-the same source word two chapters earlier (correctly rendered "savage
-robbery"). Fixed to "plunder."
+## Round-2 defects found and fixed — 3 total
 
-Full before/after text, exact locations, and the reasoning for each fix
-are in `fidelity-review-1.md`. All fixes applied with
-`books/content_edit_helpers.py`'s `safe_replace()`, verified with
-`validate_structure()` and `assert_only_changed()` per touched chapter,
-and independently re-read against source after application. A
-second full whole-book re-read after all fixes (step C) found no further
-defects; the archaic-word sweep and proper-noun cross-reference were both
-re-run against the corrected file with clean results.
+Round 1 stated its post-fix sweep found "zero remaining instances of all 12
+flagged words" and that a second whole-book pass "found no further defects".
+Round 2's independent sweep found three live defects.
 
-## Reviewed and judged non-blocking (with reader-centered reasons)
+| # | Ch | Para (0-based) | Source | Round-1 candidate | Corrected to | Class |
+|---|---|---|---|---|---|---|
+| 1 | 9 | 14 | "Cureless, abhorred, that one is plotting here" | "a **curseless**, abhorrent thing…" | "an **incurable**, abhorrent thing…" | fidelity — meaning inversion |
+| 2 | 21 | 3 | "there where thou shalt dree / **The weird** of agony" | "endure the **weird** of agony" | "endure **your fated** agony" | accessibility — missed sibling of a round-1 fix |
+| 3 | 23 | 3 | "**[**O Justice, aid! aid, O ye thrones of Hell!**]**" | brackets dropped | brackets restored | source printed form |
 
-- **Mild period vocabulary still in active modern use**: `hark` (7×,
-  deliberately consistent at moments of alarm/prophecy), `yonder`,
-  `unto`, `meed`, `troth`/`plighted troth`, `dowered`, `wend`,
-  `forthwith`, `ere`, `anon` (2× as the doorway idiom "Anon, anon!"),
-  `whence`. Reason: none of these risks a false reading (unlike `weird`
-  or `baulked`), all remain within ordinary modern reading competence via
-  Bible idiom, historical fiction, or common literary use, and rewriting
-  all of them would flatten the chorus's deliberately formal/ritual
-  register without a corresponding accessibility gain. The drafting
-  rules explicitly allow already-clear wording to stand.
-- **`wanton`/`couch` raw-count drops** (3→1 and 13→8 respectively): both
-  investigated instance-by-instance against source; every "missing"
-  instance is a legitimate synonym substitution with meaning fully
-  preserved (in one case, "coupled with the wolf" for "Couched with the
-  wolf" is arguably *more* explicit about the mating sense, not less).
-  Not a softening — a false alarm from surface word-counting, documented
-  as such rather than silently dismissed.
-- **Apollo's varying epithets** (Loxias / Phoebus / Healer / "king
-  Apollo") kept exactly where source uses each, not homogenized into one
-  form — this is the source's own deliberate variation across the
-  trilogy, not drift.
-- **"Furies" (never "Erinyes")** kept consistent with source throughout;
-  no alternate name invented.
-- **Source's own OCR-era typos** in two speaker tags (`OSESTES`,
-  `CLYTEMNESTSA`) and one case-glitch (`KlLISSA`) corrected to the
-  evident intended spelling — this is fixing a transcription artifact,
-  not altering a deliberate source form; source's own genuine
-  inconsistency (alternating `A NURSE`/`KILISSA` as the speaker tag) is
-  preserved as-is.
-- **Four "Atridae"/"Atrides" → "Atreus's son(s)" glosses**: this Greek
-  patronymic (literally "son of Atreus") is not a form a general modern
-  reader will parse, and the gloss states nothing beyond what the
-  patronymic itself already names — not an invented identification of
-  anything source leaves ambiguous.
+**Why each is narrow and mechanical, not a recurring class:**
 
-## Frank/violent/sexual content — verified at full force, not softened
+1. **ch9 p14 `Cureless` → `curseless`.** A single-character typo that
+   inverts the sense: the source calls the plotted crime *incurable*; the
+   candidate called it *without a curse*, in a speech whose entire point is
+   that the house's curse is compounding. `curseless` appears exactly once
+   in the candidate and nowhere in the source, and it is not an English word
+   in this context. One location, one unambiguous correct reading.
+2. **ch21 p3 `weird`.** Source uses the obsolete noun `weird` (= fate) at
+   exactly two locations, ch21 p3 and ch21 p6. Round 1 fixed p6 ("Weave the
+   weird dance" → "Weave the fateful dance") and missed p3, while reporting
+   the word cleared. This is the partial-fix-of-a-repeated-form shape that
+   hard-parked other books in this batch — but here the class is a single
+   word with exactly two occurrences, one of which was already decided, so
+   the remaining fix is mechanical and the policy was already set by round 1.
+   A whole-book sibling sweep was run for **all** 13 round-1 fixed words in
+   both files: `weird` was the only one with a survivor.
+3. **ch23 p3 brackets.** The source sets certain interjected/quoted cries
+   inside square brackets, distinct from its bracketed stage directions.
+   The candidate preserves those brackets at ch6 p14, ch10 p2 and ch26 p31
+   and dropped them at ch23 p3 alone. Restoring them makes the treatment of
+   the source's own printed form consistent. Punctuation only; no wording
+   changed.
 
-Checked directly against source, not assumed from aggregate counts alone:
-the full three-blow murder account and "sweeter than rain" line (ch. 10),
-Cassandra's visions of the children of Thyestes and her own death
-foretelling (ch. 9), the "seeress and harlot… true paramour" passage and
-Iphigenia's sacrifice account (chs. 2, 10), the Furies' blood-drinking
-threats ("suck it out, red, clotted, gout by gout… waste you living,
-nerve and vein," ch. 21), and Apollo's graphic catalogue of battle
-mutilation (ch. 20, "heads lopped from necks, eyes plucked from their
-sockets… men impaled"). Nothing diluted, nothing euphemized beyond what
-modern vocabulary requires.
+All three were applied with `books/content_edit_helpers.py`'s
+`safe_replace()` (exact-match, fails on missing or ambiguous target),
+validated per touched chapter with `validate_structure()` and
+`assert_only_changed()`, and confirmed book-wide: the set of paragraphs that
+actually changed is exactly `{(9,14), (21,3), (23,3)}` and nothing else.
+JSON re-validated; 26 chapters / 771 paragraphs / no empty paragraph
+re-confirmed against source after the edits; each changed paragraph re-read
+against source with neighbouring context.
 
-## Coverage table
+## Register and frank-content verdict (round 2's own audit)
+
+The dispatch brief's specific risk for this book — choric/lyric passages
+flattened into ordinary conversational prose — **did not materialize.** The
+odes keep an elevated, formal register: apostrophe and vocative order are
+preserved ("O Earth — woe, woe, for you, for me!"), ritual refrains are
+repeated verbatim where source repeats them (the Furies' "Hear the hymn of
+hell" strophe, the "Woe upon you, younger gods!" refrain at ch25 p0/p4, the
+"Ah, sorrow and sorrow! but may the outcome be fair!" parodos refrain),
+inversions are retained where they carry weight ("Of Justice are we
+ministers", "hard at his side are we!", "Bonds not of brass ensnared you"),
+and the grave accents in `stainèd`, `damnèd`, `singèd` are preserved.
+
+**Nothing in the trilogy's dark content is softened.** Verified word for
+word at source: the Thyestean cannibalism, twice — Cassandra's
+"the entrails on which their father fed" (ch9 p44) and Aegisthus's full
+narration including the hidden fingers and feet, the eating, and the
+spewing forth of the foul fragments (ch10 p47); Iphigenia's sacrifice with
+the bit in her mouth and the saffron robe (ch2 p32–33); the three-blow
+murder with the "bubbling jets of gore" and Clytemnestra's "I was glad to
+feel that dew" (ch10 p22); the "seeress and harlot… true prophetess and
+true paramour" passage with the rower's-bench line intact (ch10 p29); the
+Furies' blood-drinking threat, "red, clotted, gout by gout… I will waste you
+living, nerve and vein" (ch21 p3) and "living shall you see your flesh
+become my food" (ch21 p5); Apollo's mutilation catalogue, "heads lopped from
+necks, eyes plucked from their sockets, hacked flesh, the flower of youthful
+seed crushed out… men impaled" (ch20 p16); the incest reference, "the
+brother's couch, the incestuous love that brought forth hatred against the
+ravisher" (ch9 p30); the sexual-violence image "when man's force opens the
+virgin gates" (ch12 p6); the serpent-at-the-breast dream with the teat and
+the clot of blood in the milk (ch15 p50–59); Clytemnestra baring her breast
+to Orestes (ch17 p59); "he died the death the law bids adulterers die"
+(ch17 p92). Charged-term counts run essentially 1:1 source-to-candidate
+across 89 terms, and every divergence was read in context and explained by
+legitimate synonym choice.
+
+## Reviewed and judged non-blocking (round 2, with reasons)
+
+- **`Be steel deep-dyed` (ch5 p22)** → "Steel must run deep with blood
+  before you look to see ill joy or ill fame from any other man — least of
+  all in me!" The candidate supplies the image "with blood" that the
+  source's "deep-dyed" only implies. Left as is: the source line is an
+  obscure adynaton (Clytemnestra naming an impossibility), the candidate
+  preserves that "never" sense and its dramatic irony, and re-rendering it
+  risks making an already-difficult line worse for no fidelity gain.
+  Documented so a future reviewer can re-open the call.
+- **Residual archaic vocabulary — correcting round 1's overstated claim.**
+  Round 1's accessibility review asserted "zero blocking terms remain".
+  That is an overstatement. A fresh sweep of the candidate's full
+  4,515-word vocabulary finds period words round 1 neither fixed nor listed
+  among its documented non-blocking set: `fane`, `laver`, `lustral`,
+  `glaive`, `spilth`, `furze`, `kine`, `bier`, `eyrie`, `obsequies`,
+  `festal`, `coeval`, `imbrued`, `dastard`, `despiteful`, `aweless`,
+  `bethink`, `wroth`, `wont`, `straitly`, `bale`, `alack`, `hist`.
+  **Not treated as blocking, and deliberately not "fixed" by round 2**, for
+  reader-centred reasons: (a) none of these is a fidelity defect — each is
+  the source's own word retained, which is the opposite of the erasure class
+  that parked other books in this batch; (b) none produces a false reading
+  the way `weird` and `baulked` would; (c) several (`laver`, `lustral`,
+  `obsequies`, `festal`, `kine`, `bier`) are the text's ritual and
+  sacrificial register, where a flatter word would cost more than it gains;
+  and (d) the drafting rules set no rewrite-percentage target and allow
+  already-clear wording to stand. What the candidate does do is modernize
+  most of these inconsistently — source→candidate paragraph counts run
+  `fane` 7→4, `bale` 7→1, `spilth` 3→2, `dastard` 2→1, `imbrued` 2→1,
+  `straitly` 2→1, `aweless` 3→2 — i.e. the same word is rebuilt at some
+  locations and kept at others. That inconsistency is an **accessibility
+  polish item, logged here for a future pass**, not an acceptance blocker,
+  and it is recorded rather than silently passed over so the call can be
+  re-opened.
+- **Source's own OCR artifacts** (`OSESTES`, `CLYTEMNESTSA`, `KlLISSA`,
+  `Abhorredd`, `hast'not`, `Mv`, `Chalics`, `flex-mesh`, `tine`) — round 2
+  independently confirmed each is a transcription glitch, not a deliberate
+  source form, and that the candidate's normalization of them does not erase
+  the source's *genuine* `A NURSE`/`KILISSA` speaker-tag alternation, which
+  is preserved.
+
+## Coverage table (round 2)
 
 | Step | Coverage |
 |---|---|
-| Structural-completeness gate | Whole book, before any review work |
-| Accessibility read (candidate-only) | 26/26 chapters, 771/771 paragraphs |
-| Fidelity read (vs. source) | 26/26 chapters, 771/771 paragraphs |
-| Proper-noun/epithet location cross-reference | 771/771 aligned paragraph pairs, 41 names, both directions |
-| Archaic-vocabulary sweep | Whole book, before and after fixes |
-| Charged/violent/sexual-content term audit | Whole book, both directions, every outlier read in full |
-| Speaker-tag/OCR audit | All 24 distinct tag forms in source |
-| Fixes applied | 13/13, each `safe_replace`-scoped, structure-revalidated, `assert_only_changed`-confirmed |
-| Second whole-book re-read (step C) | 26/26 chapters, 771/771 paragraphs, post-fix |
-| Verify + pin | Final structural re-check passed; hash computed on final file |
+| Structure + hash re-derivation | Whole book, from both JSON files directly |
+| Source-completeness re-check | Whole book, passages chosen independently of round 1 |
+| Word-for-word source/candidate read | 26/26 chapters, **771/771** paragraphs, non-sampled |
+| Compression/content-loss sweep | 771/771 paragraphs; all 34 sub-1.00-ratio paragraphs read in full |
+| Erasure sweep (source→candidate) | All 904 missing word forms triaged; all content-bearing ones read at location |
+| Addition sweep (candidate→source) | All 657 candidate-only word forms enumerated |
+| Charged/violent/sexual register audit | 89 terms, whole book, every divergence read in context |
+| Proper-noun / epithet location map | 771/771 aligned pairs, both directions |
+| Rare-word / archaic sweep | Candidate's full 4,515-word vocabulary, read in full |
+| Round-1 fix re-derivation | 13/13 re-derived from source at exact location, plus sibling sweep for each |
+| Fixes applied (round 2) | 3/3, `safe_replace`-scoped, structure-revalidated, changed-set confirmed book-wide |
+| Verify + pin | Final structural re-check passed; hash computed on the post-fix file |
 
 ## Verdict
 
-**ACCEPTED (round 1).** Source confirmed structurally complete before
-review. Structure matches source exactly: 26/26 chapters, 771/771
-paragraphs, aligned, no empty paragraphs, valid JSON. Thirteen defects
-found by a genuinely non-scoped, non-sampled methodology (twelve
-accessibility, one fidelity), all fixed and independently re-verified
-against source at their exact location; a dedicated second pass
-afterward, built specifically to catch what a scoped sweep would miss,
-found nothing further. No dropped content, no epithet erasure, no
-proper-noun loss, no register-softening of violent or sexual material, no
-imported wording from another translation, no invented interpretation.
+**ACCEPTED.** Source confirmed structurally complete by an independent
+re-check. Structure matches source exactly: 26/26 chapters, 771/771
+paragraphs, aligned, no empty paragraphs, valid JSON. Round 1's 13 fixes all
+independently confirmed correct at their exact locations. Round 2's own
+from-scratch sweeps found three further defects — one meaning-inverting typo,
+one missed sibling of a word round 1 had already decided, one dropped bracket
+pair — each narrow, each with a single unambiguous correct answer, each
+fixed and re-verified. They do not constitute a recurring class requiring
+further judgment: the erasure/register-softening pattern that hard-parked
+Merchant of Venice, Merry Wives and Romeo and Juliet is **absent** here, and
+a full non-sampled word-for-word read of every paragraph found no dropped
+content, no imported wording from another translation, no invented
+interpretation, no proper-noun or epithet loss, and no softening anywhere in
+this trilogy's very dark material.
 
 Accepted text is pinned to
-`958f586d55c2ad850d5cca698eb2e1179673a435eb8a2de8a82e8bcdd3b1235c`.
-
-**READY FOR INDEPENDENT VERIFICATION.**
+`8daaaf8606b4e9d24bf6d4e2a759ca4464df42f0d547bf993cb55b91fa36b371`,
+with per-paragraph hashes in `accepted-paragraph-hashes.tsv` (771 rows,
+1-based paragraph numbering).
