@@ -109,8 +109,9 @@ muted headless desktop and phone browsers. See the
   with the modern edition labelled **Tinct Modern English**.
 - Phone titles follow the reading margin; its progress uses the book font at a
   smaller size. Desktop frame and page share paper colour. The centre fold spans the full
-  page with a smooth graduated shadow, a faint reflected edge and soft exterior
-  depth, including short chapter-end and comparison spreads.
+  page with a smooth graduated shadow, a reflected edge visible in dark mode and
+  soft exterior depth, including short chapter-end spreads. Compare uses two thin
+  full-height rules with a quiet vertical **Compare** label.
 - Advanced settings remain reachable within the viewport. Line spacing, paragraph
   spacing and margins use bounded sliders with editable decimal-comma values.
   Restore defaults resets appearance while preserving edition, position and data.
@@ -124,3 +125,17 @@ muted headless desktop and phone browsers. See the
 An isolated admin-only featured-book experiment is tracked in the
 [preview plan](featured-library-preview-2026-09-21.md). It does not replace or
 change the public library; release and acceptance status live in that plan.
+
+## Contents and selection — September 21 follow-up
+
+The chapter picker follows the approved Design 1: a compact tree with gold current
+ancestry, rounded branch ends, pinned breadcrumbs and continuous progress pies
+from saved reading data. Search covers book text and book-scoped chats; chapter
+icons open saved highlights or conversations. Long titles reveal their full text
+on click. The book-title switcher retains Cover/preparation and Full library.
+
+Saved-highlight controls take precedence over definitions. Ctrl/Cmd+C and browser
+Copy work on custom reader selections. Phone selections remain painted when their
+menu opens, including when both edition slots match. Definition cards use only
+the headword as their heading. Multi-paragraph saved ranges retain their exact end.
+[Release evidence and limits](reader-panels-selection-2026-09-21.md).
