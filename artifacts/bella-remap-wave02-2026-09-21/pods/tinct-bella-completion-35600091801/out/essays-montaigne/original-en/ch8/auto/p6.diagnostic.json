@@ -1,0 +1,870 @@
+{
+  "complete": true,
+  "signature": "6ac44bdcc49ab7e8f4d3ff4f6a422009b01d6a81c67f61c9063645bf8fec6c53",
+  "attempts": [
+    {
+      "asr_seconds": 0.7129069324582815,
+      "alignment_seconds": 0.0026612645015120506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The soul that has no established aim loses itself, for, as it is said--",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The soul that has no established aim loses itself, for, as it is said-",
+          "start": 0.02,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.751953125
+            },
+            {
+              "text": " soul",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.935546875
+            },
+            {
+              "text": " that",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " has",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " established",
+              "start": 1.36,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " aim",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.982421875
+            },
+            {
+              "text": " loses",
+              "start": 2.2,
+              "end": 2.52,
+              "probability": 0.970703125
+            },
+            {
+              "text": " itself,",
+              "start": 2.52,
+              "end": 3.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for,",
+              "start": 3.38,
+              "end": 3.74,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " as",
+              "start": 4.12,
+              "end": 4.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 4.18,
+              "end": 4.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 4.28,
+              "end": 4.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " said",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.99951171875
+            },
+            {
+              "text": "-",
+              "start": 4.68,
+              "end": 5.06,
+              "probability": 0.0271453857421875
+            }
+          ]
+        },
+        {
+          "text": " The soul that has no established aim loses itself, for, as it is said-",
+          "start": 5.06,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " The",
+              "start": 5.06,
+              "end": 5.28,
+              "probability": 0.00801849365234375
+            },
+            {
+              "text": " soul",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 6.198883056640625e-06
+            },
+            {
+              "text": " that",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.0286407470703125
+            },
+            {
+              "text": " has",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.023040771484375
+            },
+            {
+              "text": " no",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.022247314453125
+            },
+            {
+              "text": " established",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 3.2186508178710938e-06
+            },
+            {
+              "text": " aim",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.0001819133758544922
+            },
+            {
+              "text": " loses",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 2.0682811737060547e-05
+            },
+            {
+              "text": " itself,",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.005756378173828125
+            },
+            {
+              "text": " for,",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.007350921630859375
+            },
+            {
+              "text": " as",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.052520751953125
+            },
+            {
+              "text": " it",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.2042236328125
+            },
+            {
+              "text": " is",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.28466796875
+            },
+            {
+              "text": " said",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.08013916015625
+            },
+            {
+              "text": "-",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 8.577108383178711e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "soul",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "that",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "has",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "no",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "established",
+          "start": 1.36,
+          "end": 1.92
+        },
+        {
+          "raw": "aim",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "loses",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "raw": "itself,",
+          "start": 2.52,
+          "end": 3.04
+        },
+        {
+          "raw": "for,",
+          "start": 3.38,
+          "end": 3.74
+        },
+        {
+          "raw": "as",
+          "start": 4.12,
+          "end": 4.18
+        },
+        {
+          "raw": "it",
+          "start": 4.18,
+          "end": 4.28
+        },
+        {
+          "raw": "is",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "raw": "said",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "-",
+          "start": 4.68,
+          "end": 5.06
+        },
+        {
+          "raw": "The",
+          "start": 5.06,
+          "end": 5.28
+        },
+        {
+          "raw": "soul",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "that",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "has",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "no",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "established",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "aim",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "loses",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "itself,",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "for,",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "as",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "it",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "is",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "said",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "-",
+          "start": 5.28,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "soul",
+        "that",
+        "has",
+        "no",
+        "established",
+        "aim",
+        "loses",
+        "itself,",
+        "for,",
+        "as",
+        "it",
+        "is",
+        "said--"
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "soul",
+        "that",
+        "has",
+        "no",
+        "established",
+        "aim",
+        "loses",
+        "itself,",
+        "for,",
+        "as",
+        "it",
+        "is",
+        "said--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "insert",
+          14,
+          14,
+          14,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          14,
+          14,
+          14,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "soul",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.78,
+          "end": 0.94,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "established",
+          "start": 1.36,
+          "end": 1.92,
+          "key": "established",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "aim",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "aim",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "loses",
+          "start": 2.2,
+          "end": 2.52,
+          "key": "loses",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "itself,",
+          "start": 2.52,
+          "end": 3.04,
+          "key": "itself",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for,",
+          "start": 3.38,
+          "end": 3.74,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.12,
+          "end": 4.18,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.18,
+          "end": 4.28,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.28,
+          "end": 4.4,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.4,
+          "end": 4.68,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "-",
+          "start": 4.68,
+          "end": 5.06,
+          "key": "",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.06,
+          "end": 5.28,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "soul",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "has",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "no",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "established",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "established",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "aim",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "aim",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "loses",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "loses",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "itself,",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "itself",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for,",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "it",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "is",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "said",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "-",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "soul",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "that",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "has",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "no",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "text": "established",
+          "start": 1.36,
+          "end": 1.92
+        },
+        {
+          "text": "aim",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "loses",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "text": "itself,",
+          "start": 2.52,
+          "end": 3.04
+        },
+        {
+          "text": "for,",
+          "start": 3.38,
+          "end": 3.74
+        },
+        {
+          "text": "as",
+          "start": 4.12,
+          "end": 4.18
+        },
+        {
+          "text": "it",
+          "start": 4.18,
+          "end": 4.28
+        },
+        {
+          "text": "is",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "text": "said--",
+          "start": 4.4,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 30,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7160531422123313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5baf56cd8dfffc99c185672562587e2b0bfc291e88d172570b57ddf8e352f38",
+  "selected_reasons": []
+}

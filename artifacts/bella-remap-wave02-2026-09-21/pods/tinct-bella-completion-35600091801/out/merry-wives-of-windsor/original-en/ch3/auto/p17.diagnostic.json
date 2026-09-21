@@ -1,0 +1,1085 @@
+{
+  "complete": true,
+  "signature": "0f8d638d9a3e5fcbf6b7648e5d0a19316689abd471964fdc77a9f6a18aef858a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3353307284414768,
+      "alignment_seconds": 0.00157246645539999,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Well, sirs, I am almost out at heels.",
+        "hotwords": "Well, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, sirs, I am almost out at heels.",
+          "start": 0.08,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.03472900390625
+            },
+            {
+              "text": " sirs,",
+              "start": 1.06,
+              "end": 1.58,
+              "probability": 0.6287841796875
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " am",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.1568603515625
+            },
+            {
+              "text": " almost",
+              "start": 1.76,
+              "end": 1.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " out",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " at",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.47265625
+            },
+            {
+              "text": " heels.",
+              "start": 2.3,
+              "end": 2.66,
+              "probability": 0.828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "sirs,",
+          "start": 1.06,
+          "end": 1.58
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "raw": "am",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "almost",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "raw": "out",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "at",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "heels.",
+          "start": 2.3,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Well,",
+        "sirs,",
+        "I",
+        "am",
+        "almost",
+        "out",
+        "at",
+        "heels."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Well,",
+        "sirs,",
+        "I",
+        "am",
+        "almost",
+        "out",
+        "at",
+        "heels."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          9,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sirs,",
+          "start": 1.06,
+          "end": 1.58,
+          "key": "sirs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.76,
+          "end": 1.96,
+          "key": "almost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heels.",
+          "start": 2.3,
+          "end": 2.66,
+          "key": "heels",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "Well,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "sirs,",
+          "start": 1.06,
+          "end": 1.58
+        },
+        {
+          "text": "I",
+          "start": 1.64,
+          "end": 1.66
+        },
+        {
+          "text": "am",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "almost",
+          "start": 1.76,
+          "end": 1.96
+        },
+        {
+          "text": "out",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "at",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "heels.",
+          "start": 2.3,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.33705830946564674
+    },
+    {
+      "asr_seconds": 0.2808888964354992,
+      "alignment_seconds": 0.001680552028119564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Well, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Foul well sirs, I'm almost out at heels",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Foul",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.2784423828125
+            },
+            {
+              "text": " well",
+              "start": 0.8,
+              "end": 1.26,
+              "probability": 0.27685546875
+            },
+            {
+              "text": " sirs,",
+              "start": 1.26,
+              "end": 1.6,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " I'm",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " almost",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " heels",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.88720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Foul",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "well",
+          "start": 0.8,
+          "end": 1.26
+        },
+        {
+          "raw": "sirs,",
+          "start": 1.26,
+          "end": 1.6
+        },
+        {
+          "raw": "I'm",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "almost",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "out",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "at",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "heels",
+          "start": 2.32,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Well,",
+        "sirs,",
+        "I",
+        "am",
+        "almost",
+        "out",
+        "at",
+        "heels."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Well,",
+        "sirs,",
+        "I",
+        "am",
+        "almost",
+        "out",
+        "at",
+        "heels."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          9,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Foul",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "foul",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 0.8,
+          "end": 1.26,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sirs,",
+          "start": 1.26,
+          "end": 1.6,
+          "key": "sirs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "im",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "almost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heels",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "heels",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.4
+        },
+        {
+          "text": "Well,",
+          "start": 0.8,
+          "end": 1.26
+        },
+        {
+          "text": "sirs,",
+          "start": 1.26,
+          "end": 1.6
+        },
+        {
+          "text": "I",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "text": "am",
+          "start": 1.68,
+          "end": 1.72
+        },
+        {
+          "text": "almost",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "out",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "at",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "heels.",
+          "start": 2.32,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2827102215960622
+    },
+    {
+      "asr_seconds": 0.307401392608881,
+      "alignment_seconds": 0.0017272932454943657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " FAL, well sirs, I'm almost out at heels.",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " FAL,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.5050048828125
+            },
+            {
+              "text": " well",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.765625
+            },
+            {
+              "text": " sirs,",
+              "start": 1.26,
+              "end": 1.58,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " I'm",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.901611328125
+            },
+            {
+              "text": " almost",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " heels.",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.7119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "FAL,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "well",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "sirs,",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "raw": "I'm",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "almost",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "out",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "at",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "heels.",
+          "start": 2.3,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Well,",
+        "sirs,",
+        "I",
+        "am",
+        "almost",
+        "out",
+        "at",
+        "heels."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Well,",
+        "sirs,",
+        "I",
+        "am",
+        "almost",
+        "out",
+        "at",
+        "heels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          9,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "FAL,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sirs,",
+          "start": 1.26,
+          "end": 1.58,
+          "key": "sirs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "im",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "almost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heels.",
+          "start": 2.3,
+          "end": 2.64,
+          "key": "heels",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Well,",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "sirs,",
+          "start": 1.26,
+          "end": 1.58
+        },
+        {
+          "text": "I",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "am",
+          "start": 1.68,
+          "end": 1.73
+        },
+        {
+          "text": "almost",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "out",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "at",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "heels.",
+          "start": 2.3,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3092717844992876
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "633f63a743dd0cab55f9fd78a264db222a7450820d7f15cae213548a539b0924",
+  "selected_reasons": []
+}

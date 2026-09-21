@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "01b623bac77cf1033f28a55c8af8cdb644fa2b242ce5fd5583a841273c7d188d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2590115061029792,
+      "alignment_seconds": 0.001272697001695633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Ford._ That cannot choose but amaze him.",
+        "hotwords": "Ford._, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs Ford._ That cannot choose but amaze him.",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Mrs",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.55908203125
+            },
+            {
+              "text": " Ford._",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.169189453125
+            },
+            {
+              "text": " That",
+              "start": 1.09,
+              "end": 1.61,
+              "probability": 0.431640625
+            },
+            {
+              "text": " cannot",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.978515625
+            },
+            {
+              "text": " choose",
+              "start": 1.87,
+              "end": 2.25,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " but",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " amaze",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " him.",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Ford._",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "That",
+          "start": 1.09,
+          "end": 1.61
+        },
+        {
+          "raw": "cannot",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "choose",
+          "start": 1.87,
+          "end": 2.25
+        },
+        {
+          "raw": "but",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "amaze",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "him.",
+          "start": 2.83,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "That",
+        "cannot",
+        "choose",
+        "but",
+        "amaze",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "That",
+        "cannot",
+        "choose",
+        "but",
+        "amaze",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ford._",
+          "start": 0.67,
+          "end": 1.09,
+          "key": "ford",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.09,
+          "end": 1.61,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "cannot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "choose",
+          "start": 1.87,
+          "end": 2.25,
+          "key": "choose",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "amaze",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "amaze",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Ford._",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "text": "That",
+          "start": 1.09,
+          "end": 1.61
+        },
+        {
+          "text": "cannot",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "choose",
+          "start": 1.87,
+          "end": 2.25
+        },
+        {
+          "text": "but",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "amaze",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "text": "him.",
+          "start": 2.83,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2604165906086564
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85e0ed25cea69d5f23341a5a69bcf961a129200fa780e06e773adb5fb6f04289",
+  "selected_reasons": []
+}

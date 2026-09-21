@@ -1,0 +1,54 @@
+{
+ "phase": "done",
+ "started": 1789993996.0428216,
+ "setup": {
+  "versions": {
+   "faster-whisper": "1.2.1",
+   "ctranslate2": "4.8.2",
+   "av": "18.1.0"
+  },
+  "commit": "53afd917a50ba040b74ab4ff1b37df7d599ddedb",
+  "model_tree_sha256": "2cb92e2f7d762a12ad0b3b5360cd93f78bb20b7181be86e253db854a29d41572",
+  "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_cupti/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_nvrtc/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cudnn/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cufft/lib:/usr/local/lib/python3.11/dist-packages/nvidia/curand/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusolver/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusparse/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nccl/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvjitlink/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvtx/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+  "gpu": "NVIDIA A40, 46068 MiB, 580.159.04",
+  "cuda_probe": "cuda devices 1\nmodel loaded on cuda\n",
+  "setup_seconds": 23.2
+ },
+ "job": {
+  "started": 1789994019.2849479,
+  "targets": 40,
+  "cohort_exit": 0,
+  "cohort_seconds": 392.5,
+  "cohort_chapters": 40,
+  "cohort_audio_seconds": 8476.9,
+  "align_started": 1789994411.8226454,
+  "command": [
+   "/usr/bin/python3",
+   "/workspace/run/tools/audio-highlight/aligner/trial.py",
+   "--input",
+   "/workspace/run/cohort/cohort.json",
+   "--output",
+   "/workspace/run/out",
+   "--model-path",
+   "/workspace/run/model",
+   "--model-sha256",
+   "2cb92e2f7d762a12ad0b3b5360cd93f78bb20b7181be86e253db854a29d41572",
+   "--device",
+   "cuda",
+   "--compute-type",
+   "float16",
+   "--arms",
+   "auto",
+   "--max-seconds",
+   "1500",
+   "--helper",
+   "v7",
+   "--run"
+  ],
+  "trial_exit": 0,
+  "align_seconds": 891.6,
+  "run_status": "complete",
+  "review_exit": 0,
+  "finished": 1789995465.824606
+ }
+}

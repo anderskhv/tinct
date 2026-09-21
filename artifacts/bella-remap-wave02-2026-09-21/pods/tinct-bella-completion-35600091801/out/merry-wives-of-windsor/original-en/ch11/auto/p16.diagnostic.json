@@ -1,0 +1,1456 @@
+{
+  "complete": true,
+  "signature": "746fcf7794915f0ed25b65bce1feb6d99e71ce22701ed42561db910ef3edfa2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3577304361388087,
+      "alignment_seconds": 0.00209934264421463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Shal._ She's coming; to her, coz. O boy, thou hadst a father!",
+        "hotwords": "She's, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall, she's coming, to her, coz. O boy, thou hadst a father!",
+          "start": 0.02,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.289794921875
+            },
+            {
+              "text": " she's",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.934326171875
+            },
+            {
+              "text": " coming,",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.974609375
+            },
+            {
+              "text": " her,",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " coz.",
+              "start": 2.1,
+              "end": 2.38,
+              "probability": 0.4527444839477539
+            },
+            {
+              "text": " O",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.55859375
+            },
+            {
+              "text": " boy,",
+              "start": 2.82,
+              "end": 3.02,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " thou",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " hadst",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.741943359375
+            },
+            {
+              "text": " a",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " father!",
+              "start": 3.66,
+              "end": 3.9,
+              "probability": 0.82763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "she's",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "coming,",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "her,",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "coz.",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "raw": "O",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "boy,",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "raw": "thou",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "hadst",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "raw": "a",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "father!",
+          "start": 3.66,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "She’s",
+        "coming;",
+        "to",
+        "her,",
+        "coz.",
+        "O",
+        "boy,",
+        "thou",
+        "hadst",
+        "a",
+        "father!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "She's",
+        "coming;",
+        "to",
+        "her,",
+        "coz.",
+        "O",
+        "boy,",
+        "thou",
+        "hadst",
+        "a",
+        "father!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "shes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "coming",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "coz.",
+          "start": 2.1,
+          "end": 2.38,
+          "key": "coz",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.72,
+          "end": 2.82,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "boy,",
+          "start": 2.82,
+          "end": 3.02,
+          "key": "boy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "hadst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "father!",
+          "start": 3.66,
+          "end": 3.9,
+          "key": "father",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "She’s",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "coming;",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "to",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "her,",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "coz.",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "text": "O",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "boy,",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "text": "thou",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "hadst",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "a",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "father!",
+          "start": 3.66,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.36003017984330654
+    },
+    {
+      "asr_seconds": 0.2962047038599849,
+      "alignment_seconds": 0.0021225130185484886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "She's, O"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Shall, she's coming, to her cause, O boy thou hadst a father.",
+          "start": 0.02,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.291015625
+            },
+            {
+              "text": " she's",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.934326171875
+            },
+            {
+              "text": " coming,",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " her",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " cause,",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " O",
+              "start": 2.76,
+              "end": 2.78,
+              "probability": 0.46875
+            },
+            {
+              "text": " boy",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " thou",
+              "start": 3.02,
+              "end": 3.2,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " hadst",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.874755859375
+            },
+            {
+              "text": " a",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " father.",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "she's",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "coming,",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "her",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "raw": "cause,",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "O",
+          "start": 2.76,
+          "end": 2.78
+        },
+        {
+          "raw": "boy",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "thou",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "raw": "hadst",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "raw": "a",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "father.",
+          "start": 3.68,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "She’s",
+        "coming;",
+        "to",
+        "her,",
+        "coz.",
+        "O",
+        "boy,",
+        "thou",
+        "hadst",
+        "a",
+        "father!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "She's",
+        "coming;",
+        "to",
+        "her,",
+        "coz.",
+        "O",
+        "boy,",
+        "thou",
+        "hadst",
+        "a",
+        "father!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          12,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "shes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "coming",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.86,
+          "end": 1.96,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cause,",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "cause",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.76,
+          "end": 2.78,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "boy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.02,
+          "end": 3.2,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "hadst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "father",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "She’s",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "coming;",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "to",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "her,",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "text": "coz.",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "text": "O",
+          "start": 2.76,
+          "end": 2.78
+        },
+        {
+          "text": "boy,",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "thou",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "text": "hadst",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "a",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "father!",
+          "start": 3.68,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2985228290781379
+    },
+    {
+      "asr_seconds": 0.30133695621043444,
+      "alignment_seconds": 0.002138574607670307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shall, she's coming, to her cause, O boy thou hadst a father!",
+          "start": 0.02,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.291015625
+            },
+            {
+              "text": " she's",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.934326171875
+            },
+            {
+              "text": " coming,",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " her",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " cause,",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " O",
+              "start": 2.76,
+              "end": 2.78,
+              "probability": 0.46875
+            },
+            {
+              "text": " boy",
+              "start": 2.78,
+              "end": 3.02,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " thou",
+              "start": 3.02,
+              "end": 3.2,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " hadst",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.874755859375
+            },
+            {
+              "text": " a",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " father!",
+              "start": 3.68,
+              "end": 3.9,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "she's",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "coming,",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "her",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "raw": "cause,",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "O",
+          "start": 2.76,
+          "end": 2.78
+        },
+        {
+          "raw": "boy",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "raw": "thou",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "raw": "hadst",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "raw": "a",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "father!",
+          "start": 3.68,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "She’s",
+        "coming;",
+        "to",
+        "her,",
+        "coz.",
+        "O",
+        "boy,",
+        "thou",
+        "hadst",
+        "a",
+        "father!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "She's",
+        "coming;",
+        "to",
+        "her,",
+        "coz.",
+        "O",
+        "boy,",
+        "thou",
+        "hadst",
+        "a",
+        "father!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          12,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "shes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "coming",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.86,
+          "end": 1.96,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cause,",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "cause",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.76,
+          "end": 2.78,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 2.78,
+          "end": 3.02,
+          "key": "boy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.02,
+          "end": 3.2,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "hadst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "father!",
+          "start": 3.68,
+          "end": 3.9,
+          "key": "father",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "She’s",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "coming;",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "to",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "her,",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "text": "coz.",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "text": "O",
+          "start": 2.76,
+          "end": 2.78
+        },
+        {
+          "text": "boy,",
+          "start": 2.78,
+          "end": 3.02
+        },
+        {
+          "text": "thou",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "text": "hadst",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "a",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "father!",
+          "start": 3.68,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3036716114729643
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f887635177f0ba36ed896f0cace584bdeb497538b4102d16d05288b3e3b1a46",
+  "selected_reasons": []
+}

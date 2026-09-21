@@ -1,0 +1,1989 @@
+{
+  "complete": true,
+  "signature": "506d71293302af08add55ecd7c30aaa8e7d9ab76280c222f2fbb6f3fe595e81b",
+  "attempts": [
+    {
+      "asr_seconds": 0.785863165743649,
+      "alignment_seconds": 0.002784792333841324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Away, I say; time wears: hold up your head, and mince. Exit Mrs Quickly._",
+        "hotwords": "Away, I, Exit, Mrs, Quickly._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Foul, away, I say, time wears, hold up your head, and mince. Exit Mrs Quickly._",
+          "start": 0.08,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Foul,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " away,",
+              "start": 0.88,
+              "end": 1.06,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " say,",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " time",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.65625
+            },
+            {
+              "text": " wears,",
+              "start": 2.0,
+              "end": 2.36,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " hold",
+              "start": 2.8,
+              "end": 2.9,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " up",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " your",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " head,",
+              "start": 3.16,
+              "end": 3.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 3.5,
+              "end": 3.56,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " mince.",
+              "start": 3.56,
+              "end": 3.88,
+              "probability": 0.938720703125
+            },
+            {
+              "text": " Exit",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Mrs",
+              "start": 4.62,
+              "end": 4.9,
+              "probability": 0.0217437744140625
+            },
+            {
+              "text": " Quickly._",
+              "start": 4.9,
+              "end": 5.68,
+              "probability": 0.33750919500986737
+            }
+          ]
+        },
+        {
+          "text": " Foul, away, I say, time wears, hold up your head, and mince.",
+          "start": 5.68,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " Foul,",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.00037992000579833984
+            },
+            {
+              "text": " away,",
+              "start": 5.92,
+              "end": 5.98,
+              "probability": 0.00036072731018066406
+            },
+            {
+              "text": " I",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.0209503173828125
+            },
+            {
+              "text": " say,",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.0092620849609375
+            },
+            {
+              "text": " time",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.0002300739288330078
+            },
+            {
+              "text": " wears,",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 3.319978713989258e-05
+            },
+            {
+              "text": " hold",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.00031566619873046875
+            },
+            {
+              "text": " up",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.008575439453125
+            },
+            {
+              "text": " your",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.034637451171875
+            },
+            {
+              "text": " head,",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.0350341796875
+            },
+            {
+              "text": " and",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.03485107421875
+            },
+            {
+              "text": " mince.",
+              "start": 5.98,
+              "end": 5.98,
+              "probability": 0.0038428902626037598
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Foul,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "away,",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.28
+        },
+        {
+          "raw": "say,",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "time",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "wears,",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "raw": "hold",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "raw": "up",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "your",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "head,",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 3.56
+        },
+        {
+          "raw": "mince.",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "raw": "Exit",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "Mrs",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "raw": "Quickly._",
+          "start": 4.9,
+          "end": 5.68
+        },
+        {
+          "raw": "Foul,",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "raw": "away,",
+          "start": 5.92,
+          "end": 5.98
+        },
+        {
+          "raw": "I",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "say,",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "time",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "wears,",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "hold",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "up",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "your",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "head,",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "and",
+          "start": 5.98,
+          "end": 5.98
+        },
+        {
+          "raw": "mince.",
+          "start": 5.98,
+          "end": 5.98
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Away,",
+        "I",
+        "say;",
+        "time",
+        "wears:",
+        "hold",
+        "up",
+        "your",
+        "head,",
+        "and",
+        "mince.",
+        "[_Exit",
+        "Mrs",
+        "Quickly._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Away,",
+        "I",
+        "say;",
+        "time",
+        "wears:",
+        "hold",
+        "up",
+        "your",
+        "head,",
+        "and",
+        "mince.",
+        "Exit",
+        "Mrs",
+        "Quickly._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ],
+        [
+          "insert",
+          15,
+          15,
+          15,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          15,
+          15,
+          15,
+          27
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Foul,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "foul",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "away,",
+          "start": 0.88,
+          "end": 1.06,
+          "key": "away",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wears,",
+          "start": 2.0,
+          "end": 2.36,
+          "key": "wears",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 2.8,
+          "end": 2.9,
+          "key": "hold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "head,",
+          "start": 3.16,
+          "end": 3.4,
+          "key": "head",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 3.56,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mince.",
+          "start": 3.56,
+          "end": 3.88,
+          "key": "mince",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Exit",
+          "start": 4.4,
+          "end": 4.62,
+          "key": "exit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Mrs",
+          "start": 4.62,
+          "end": 4.9,
+          "key": "mrs",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 4.9,
+          "end": 5.68,
+          "key": "quickly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Foul,",
+          "start": 5.68,
+          "end": 5.88,
+          "key": "foul",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "away,",
+          "start": 5.92,
+          "end": 5.98,
+          "key": "away",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "say",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "time",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "wears,",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "wears",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "hold",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "up",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "your",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "head,",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "head",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "mince.",
+          "start": 5.98,
+          "end": 5.98,
+          "key": "mince",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "Away,",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.28
+        },
+        {
+          "text": "say;",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "text": "time",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "wears:",
+          "start": 2.0,
+          "end": 2.36
+        },
+        {
+          "text": "hold",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "text": "up",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "your",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "head,",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "text": "and",
+          "start": 3.5,
+          "end": 3.56
+        },
+        {
+          "text": "mince.",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "text": "[_Exit",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "Mrs",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "text": "Quickly._",
+          "start": 4.9,
+          "end": 5.68
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 27,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.7890420509502292
+    },
+    {
+      "asr_seconds": 0.4195438977330923,
+      "alignment_seconds": 0.002779453992843628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Away, I, Exit, Mrs, Quickly._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Foul, Away, I say, Time wears, Hold up your head and mince, Exit, Mrs, Quickly._",
+          "start": 0.08,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " Foul,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " Away,",
+              "start": 0.88,
+              "end": 1.06,
+              "probability": 0.127685546875
+            },
+            {
+              "text": " I",
+              "start": 1.24,
+              "end": 1.28,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " say,",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Time",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " wears,",
+              "start": 2.02,
+              "end": 2.34,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " Hold",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " up",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " your",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " head",
+              "start": 3.16,
+              "end": 3.38,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " and",
+              "start": 3.38,
+              "end": 3.54,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " mince,",
+              "start": 3.54,
+              "end": 3.88,
+              "probability": 0.964599609375
+            },
+            {
+              "text": " Exit,",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Mrs,",
+              "start": 4.76,
+              "end": 4.92,
+              "probability": 0.196533203125
+            },
+            {
+              "text": " Quickly._",
+              "start": 5.1,
+              "end": 5.76,
+              "probability": 0.5926107168197632
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Foul,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Away,",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "raw": "say,",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "Time",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "wears,",
+          "start": 2.02,
+          "end": 2.34
+        },
+        {
+          "raw": "Hold",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "up",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "your",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "head",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "raw": "and",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "raw": "mince,",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "raw": "Exit,",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "Mrs,",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "raw": "Quickly._",
+          "start": 5.1,
+          "end": 5.76
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Away,",
+        "I",
+        "say;",
+        "time",
+        "wears:",
+        "hold",
+        "up",
+        "your",
+        "head,",
+        "and",
+        "mince.",
+        "[_Exit",
+        "Mrs",
+        "Quickly._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Away,",
+        "I",
+        "say;",
+        "time",
+        "wears:",
+        "hold",
+        "up",
+        "your",
+        "head,",
+        "and",
+        "mince.",
+        "Exit",
+        "Mrs",
+        "Quickly._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Foul,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "foul",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Away,",
+          "start": 0.88,
+          "end": 1.06,
+          "key": "away",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Time",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wears,",
+          "start": 2.02,
+          "end": 2.34,
+          "key": "wears",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Hold",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "hold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 3.16,
+          "end": 3.38,
+          "key": "head",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.38,
+          "end": 3.54,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mince,",
+          "start": 3.54,
+          "end": 3.88,
+          "key": "mince",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Exit,",
+          "start": 4.4,
+          "end": 4.62,
+          "key": "exit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Mrs,",
+          "start": 4.76,
+          "end": 4.92,
+          "key": "mrs",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 5.1,
+          "end": 5.76,
+          "key": "quickly",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "Away,",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "text": "I",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "text": "say;",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "time",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "wears:",
+          "start": 2.02,
+          "end": 2.34
+        },
+        {
+          "text": "hold",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "up",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "your",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "head,",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "text": "and",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "text": "mince.",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "text": "[_Exit",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "Mrs",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "text": "Quickly._",
+          "start": 5.1,
+          "end": 5.76
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.4225684218108654
+    },
+    {
+      "asr_seconds": 0.35948752984404564,
+      "alignment_seconds": 0.002229900099337101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Foul away I say, time wears, hold up your head and mince, exit misses quickly.",
+          "start": 0.08,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " Foul",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " away",
+              "start": 0.78,
+              "end": 1.04,
+              "probability": 0.57275390625
+            },
+            {
+              "text": " I",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " say,",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " time",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " wears,",
+              "start": 2.02,
+              "end": 2.36,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " hold",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " up",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " head",
+              "start": 3.16,
+              "end": 3.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.4,
+              "end": 3.54,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " mince,",
+              "start": 3.54,
+              "end": 3.88,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " exit",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " misses",
+              "start": 4.62,
+              "end": 4.9,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " quickly.",
+              "start": 4.9,
+              "end": 5.3,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Foul",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "away",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "say,",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "raw": "time",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "wears,",
+          "start": 2.02,
+          "end": 2.36
+        },
+        {
+          "raw": "hold",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "up",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "your",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "head",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "raw": "mince,",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "raw": "exit",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "raw": "misses",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "raw": "quickly.",
+          "start": 4.9,
+          "end": 5.3
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Away,",
+        "I",
+        "say;",
+        "time",
+        "wears:",
+        "hold",
+        "up",
+        "your",
+        "head,",
+        "and",
+        "mince.",
+        "[_Exit",
+        "Mrs",
+        "Quickly._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Away,",
+        "I",
+        "say;",
+        "time",
+        "wears:",
+        "hold",
+        "up",
+        "your",
+        "head,",
+        "and",
+        "mince.",
+        "Exit",
+        "Mrs",
+        "Quickly._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          13,
+          1,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Foul",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "foul",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 0.78,
+          "end": 1.04,
+          "key": "away",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wears,",
+          "start": 2.02,
+          "end": 2.36,
+          "key": "wears",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "hold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 3.16,
+          "end": 3.4,
+          "key": "head",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.4,
+          "end": 3.54,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mince,",
+          "start": 3.54,
+          "end": 3.88,
+          "key": "mince",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "exit",
+          "start": 4.4,
+          "end": 4.62,
+          "key": "exit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "misses",
+          "start": 4.62,
+          "end": 4.9,
+          "key": "misses",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "quickly.",
+          "start": 4.9,
+          "end": 5.3,
+          "key": "quickly",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.39
+        },
+        {
+          "text": "Away,",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "text": "I",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "say;",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "text": "time",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "wears:",
+          "start": 2.02,
+          "end": 2.36
+        },
+        {
+          "text": "hold",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "up",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "your",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "head,",
+          "start": 3.16,
+          "end": 3.4
+        },
+        {
+          "text": "and",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "text": "mince.",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "text": "[_Exit",
+          "start": 4.4,
+          "end": 4.62
+        },
+        {
+          "text": "Mrs",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "text": "Quickly._",
+          "start": 4.9,
+          "end": 5.3
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3619341775774956
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a9605cba0a5a2e0cee8aad5ba1e092ab394ae5ad5ce1c1368c6f3b508140ec0",
+  "selected_reasons": []
+}

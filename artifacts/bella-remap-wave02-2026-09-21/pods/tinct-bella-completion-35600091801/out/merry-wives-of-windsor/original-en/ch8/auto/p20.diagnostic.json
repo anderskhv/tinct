@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "a0a143b1427eb1ef798971620804cbc1b3747545508fc10a042963607a69343f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2810003673657775,
+      "alignment_seconds": 0.0017359601333737373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Pless you from his mercy sake, all of you!",
+        "hotwords": "Pless"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans! Pless you from his mercy sake, all of you!",
+          "start": 0.46,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Evans!",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.732421875
+            },
+            {
+              "text": " Pless",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.47034645080566406
+            },
+            {
+              "text": " you",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " from",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.95703125
+            },
+            {
+              "text": " his",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " mercy",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.927734375
+            },
+            {
+              "text": " sake,",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.26416015625
+            },
+            {
+              "text": " all",
+              "start": 2.6,
+              "end": 2.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 2.68,
+              "end": 2.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you!",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans!",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "Pless",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "from",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "his",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "mercy",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "sake,",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "raw": "all",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "raw": "you!",
+          "start": 2.8,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Pless",
+        "you",
+        "from",
+        "his",
+        "mercy",
+        "sake,",
+        "all",
+        "of",
+        "you!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Pless",
+        "you",
+        "from",
+        "his",
+        "mercy",
+        "sake,",
+        "all",
+        "of",
+        "you!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans!",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pless",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "pless",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mercy",
+          "start": 1.82,
+          "end": 2.16,
+          "key": "mercy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sake,",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "sake",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.6,
+          "end": 2.68,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.8,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "Pless",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "you",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "from",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "his",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "mercy",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "sake,",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "text": "all",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "text": "of",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "text": "you!",
+          "start": 2.8,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2829086957499385
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a63f7f6dee45501fba913e45d500993839b1f3a4b26dbc6e8d87f9659e9c7d3c",
+  "selected_reasons": []
+}

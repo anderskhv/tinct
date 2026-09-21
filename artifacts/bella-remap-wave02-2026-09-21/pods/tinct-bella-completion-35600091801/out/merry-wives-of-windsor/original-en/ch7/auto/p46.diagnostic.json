@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "d1083df1b55e7ff7ce729491232a5372051afd8b9f1a1ae2d549e61044c27347",
+  "attempts": [
+    {
+      "asr_seconds": 0.27360515762120485,
+      "alignment_seconds": 0.001409662887454033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Caius._ By gar, 'tis good; vell said.",
+        "hotwords": "By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caius, by gar, tis good, vell said.",
+          "start": 0.56,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Caius,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.6357294718424479
+            },
+            {
+              "text": " by",
+              "start": 1.1,
+              "end": 1.18,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " gar,",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.0060882568359375
+            },
+            {
+              "text": " tis",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.209259033203125
+            },
+            {
+              "text": " good,",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.806640625
+            },
+            {
+              "text": " vell",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.281341552734375
+            },
+            {
+              "text": " said.",
+              "start": 2.3,
+              "end": 2.44,
+              "probability": 0.5712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caius,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "by",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "raw": "gar,",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "tis",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "good,",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "vell",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "raw": "said.",
+          "start": 2.3,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "_Caius._",
+        "By",
+        "gar,",
+        "’tis",
+        "good;",
+        "vell",
+        "said."
+      ],
+      "acoustic_expected_tokens": [
+        "_Caius._",
+        "By",
+        "gar,",
+        "'tis",
+        "good;",
+        "vell",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caius,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "caius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.1,
+          "end": 1.18,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gar,",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "gar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "tis",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good,",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vell",
+          "start": 2.04,
+          "end": 2.3,
+          "key": "vell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.3,
+          "end": 2.44,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Caius._",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "By",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "text": "gar,",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "’tis",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "good;",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "vell",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "text": "said.",
+          "start": 2.3,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2751401634886861
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6832c07dce0396980de78044ac0557fbfe0340a514299a8268760ab36f886f8b",
+  "selected_reasons": []
+}

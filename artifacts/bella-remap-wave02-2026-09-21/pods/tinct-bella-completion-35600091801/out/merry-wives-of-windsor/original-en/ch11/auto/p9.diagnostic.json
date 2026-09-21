@@ -1,0 +1,1433 @@
+{
+  "complete": true,
+  "signature": "d1bdb8ce2b1d1004e69b9ced6576c65fcbc00283661c54c2c2d9c9741192a201",
+  "attempts": [
+    {
+      "asr_seconds": 0.39911102317273617,
+      "alignment_seconds": 0.0020483508706092834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Shal._ Break their talk, Mistress Quickly: my kinsman shall speak for himself.",
+        "hotwords": "Break, Mistress, Quickly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall, Break their talk, Mistress Quickly, my kinsman shall speak for himself.",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " Break",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.061370849609375
+            },
+            {
+              "text": " their",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.8046875
+            },
+            {
+              "text": " talk,",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " Mistress",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.6640625
+            },
+            {
+              "text": " Quickly,",
+              "start": 2.06,
+              "end": 2.62,
+              "probability": 0.71484375
+            },
+            {
+              "text": " my",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.262451171875
+            },
+            {
+              "text": " kinsman",
+              "start": 3.14,
+              "end": 3.56,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " shall",
+              "start": 3.56,
+              "end": 3.72,
+              "probability": 0.94140625
+            },
+            {
+              "text": " speak",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " for",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " himself.",
+              "start": 4.2,
+              "end": 4.56,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Break",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "their",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "talk,",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "Quickly,",
+          "start": 2.06,
+          "end": 2.62
+        },
+        {
+          "raw": "my",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "kinsman",
+          "start": 3.14,
+          "end": 3.56
+        },
+        {
+          "raw": "shall",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "for",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "himself.",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "Break",
+        "their",
+        "talk,",
+        "Mistress",
+        "Quickly:",
+        "my",
+        "kinsman",
+        "shall",
+        "speak",
+        "for",
+        "himself."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "Break",
+        "their",
+        "talk,",
+        "Mistress",
+        "Quickly:",
+        "my",
+        "kinsman",
+        "shall",
+        "speak",
+        "for",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Break",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "break",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "their",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk,",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "mistress",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Quickly,",
+          "start": 2.06,
+          "end": 2.62,
+          "key": "quickly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kinsman",
+          "start": 3.14,
+          "end": 3.56,
+          "key": "kinsman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.56,
+          "end": 3.72,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "speak",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.0,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 4.2,
+          "end": 4.56,
+          "key": "himself",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Break",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "their",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "talk,",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "Mistress",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "Quickly:",
+          "start": 2.06,
+          "end": 2.62
+        },
+        {
+          "text": "my",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "kinsman",
+          "start": 3.14,
+          "end": 3.56
+        },
+        {
+          "text": "shall",
+          "start": 3.56,
+          "end": 3.72
+        },
+        {
+          "text": "speak",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "for",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "himself.",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.4013571282848716
+    },
+    {
+      "asr_seconds": 0.40090438909828663,
+      "alignment_seconds": 0.0020425720140337944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Break, Mistress, Quickly"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Shall, break their talk, Mistress, Quickly, My kinsman shall speak for himself.",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " break",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " their",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " talk,",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mistress,",
+              "start": 1.84,
+              "end": 2.08,
+              "probability": 0.278076171875
+            },
+            {
+              "text": " Quickly,",
+              "start": 2.26,
+              "end": 2.64,
+              "probability": 0.507904052734375
+            },
+            {
+              "text": " My",
+              "start": 3.0,
+              "end": 3.12,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " kinsman",
+              "start": 3.12,
+              "end": 3.54,
+              "probability": 0.841552734375
+            },
+            {
+              "text": " shall",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " speak",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " himself.",
+              "start": 4.2,
+              "end": 4.56,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "break",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "their",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "talk,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "Mistress,",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "raw": "Quickly,",
+          "start": 2.26,
+          "end": 2.64
+        },
+        {
+          "raw": "My",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "raw": "kinsman",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "raw": "shall",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "for",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "himself.",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "Break",
+        "their",
+        "talk,",
+        "Mistress",
+        "Quickly:",
+        "my",
+        "kinsman",
+        "shall",
+        "speak",
+        "for",
+        "himself."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "Break",
+        "their",
+        "talk,",
+        "Mistress",
+        "Quickly:",
+        "my",
+        "kinsman",
+        "shall",
+        "speak",
+        "for",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          12,
+          1,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "break",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "their",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk,",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mistress,",
+          "start": 1.84,
+          "end": 2.08,
+          "key": "mistress",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Quickly,",
+          "start": 2.26,
+          "end": 2.64,
+          "key": "quickly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.0,
+          "end": 3.12,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kinsman",
+          "start": 3.12,
+          "end": 3.54,
+          "key": "kinsman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.54,
+          "end": 3.72,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "speak",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.0,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 4.2,
+          "end": 4.56,
+          "key": "himself",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Break",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "their",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "talk,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "Mistress",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "text": "Quickly:",
+          "start": 2.26,
+          "end": 2.64
+        },
+        {
+          "text": "my",
+          "start": 3.0,
+          "end": 3.12
+        },
+        {
+          "text": "kinsman",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "text": "shall",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "speak",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "for",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "himself.",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.40307930018752813
+    },
+    {
+      "asr_seconds": 0.3641852764412761,
+      "alignment_seconds": 0.00215024221688509,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shall break their talk mistress quickly my kinsmen shall speak for himself",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " break",
+              "start": 0.7,
+              "end": 1.16,
+              "probability": 0.580078125
+            },
+            {
+              "text": " their",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.978515625
+            },
+            {
+              "text": " talk",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " mistress",
+              "start": 1.7,
+              "end": 2.06,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " quickly",
+              "start": 2.06,
+              "end": 2.54,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " my",
+              "start": 2.54,
+              "end": 3.14,
+              "probability": 0.5625
+            },
+            {
+              "text": " kinsmen",
+              "start": 3.14,
+              "end": 3.54,
+              "probability": 0.864013671875
+            },
+            {
+              "text": " shall",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " speak",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 4.0,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself",
+              "start": 4.2,
+              "end": 4.56,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "break",
+          "start": 0.7,
+          "end": 1.16
+        },
+        {
+          "raw": "their",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "talk",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "mistress",
+          "start": 1.7,
+          "end": 2.06
+        },
+        {
+          "raw": "quickly",
+          "start": 2.06,
+          "end": 2.54
+        },
+        {
+          "raw": "my",
+          "start": 2.54,
+          "end": 3.14
+        },
+        {
+          "raw": "kinsmen",
+          "start": 3.14,
+          "end": 3.54
+        },
+        {
+          "raw": "shall",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "for",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "raw": "himself",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "Break",
+        "their",
+        "talk,",
+        "Mistress",
+        "Quickly:",
+        "my",
+        "kinsman",
+        "shall",
+        "speak",
+        "for",
+        "himself."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "Break",
+        "their",
+        "talk,",
+        "Mistress",
+        "Quickly:",
+        "my",
+        "kinsman",
+        "shall",
+        "speak",
+        "for",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          12,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 0.7,
+          "end": 1.16,
+          "key": "break",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "their",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mistress",
+          "start": 1.7,
+          "end": 2.06,
+          "key": "mistress",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 2.06,
+          "end": 2.54,
+          "key": "quickly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.54,
+          "end": 3.14,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kinsmen",
+          "start": 3.14,
+          "end": 3.54,
+          "key": "kinsmen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.54,
+          "end": 3.72,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 4.0,
+          "key": "speak",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.0,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 4.2,
+          "end": 4.56,
+          "key": "himself",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "Break",
+          "start": 0.7,
+          "end": 1.16
+        },
+        {
+          "text": "their",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "talk,",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "Mistress",
+          "start": 1.7,
+          "end": 2.06
+        },
+        {
+          "text": "Quickly:",
+          "start": 2.06,
+          "end": 2.54
+        },
+        {
+          "text": "my",
+          "start": 2.54,
+          "end": 3.14
+        },
+        {
+          "text": "kinsman",
+          "start": 3.14,
+          "end": 3.34
+        },
+        {
+          "text": "shall",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "speak",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "for",
+          "start": 4.0,
+          "end": 4.2
+        },
+        {
+          "text": "himself.",
+          "start": 4.2,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.36652952525764704
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3dd58ca6a5c694a27324c804a7aa9cfc5ce8027ff94e5fe2d425f4b273aa0e11",
+  "selected_reasons": []
+}

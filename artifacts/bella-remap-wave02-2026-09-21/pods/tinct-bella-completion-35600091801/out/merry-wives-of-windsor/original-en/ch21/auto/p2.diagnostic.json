@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "5f4917cd09deb7abf730b6fd863036cda0769f5b216658ae87f8219a22920732",
+  "attempts": [
+    {
+      "asr_seconds": 0.2990121990442276,
+      "alignment_seconds": 0.001742401160299778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Caius._ I know vat I have to do. Adieu. 5",
+        "hotwords": "I, Adieu"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caius, I know vat I have to do. Adieu. 5",
+          "start": 0.53,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Caius,",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.6435394287109375
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 0.97,
+              "probability": 0.966796875
+            },
+            {
+              "text": " know",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " vat",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.5243682861328125
+            },
+            {
+              "text": " I",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " have",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.9140625
+            },
+            {
+              "text": " to",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.912109375
+            },
+            {
+              "text": " do.",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Adieu.",
+              "start": 2.07,
+              "end": 2.35,
+              "probability": 0.728759765625
+            },
+            {
+              "text": " 5",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.2325439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caius,",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "raw": "know",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "vat",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "have",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "do.",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "Adieu.",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "raw": "5",
+          "start": 2.73,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "_Caius._",
+        "I",
+        "know",
+        "vat",
+        "I",
+        "have",
+        "to",
+        "do.",
+        "Adieu.",
+        "5"
+      ],
+      "acoustic_expected_tokens": [
+        "_Caius._",
+        "I",
+        "know",
+        "vat",
+        "I",
+        "have",
+        "to",
+        "do.",
+        "Adieu.",
+        "5"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caius,",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "caius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 0.97,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vat",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "vat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Adieu.",
+          "start": 2.07,
+          "end": 2.35,
+          "key": "adieu",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "five",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Caius._",
+          "start": 0.53,
+          "end": 0.81
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "text": "know",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "vat",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "I",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "have",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "to",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "do.",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "Adieu.",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "text": "5",
+          "start": 2.73,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3009225083515048
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c236593e4f6ec5d957e8db8238e15d388f1133c1e042359cd35c8d8b59002bfe",
+  "selected_reasons": []
+}

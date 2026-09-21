@@ -1,0 +1,233 @@
+{
+  "complete": true,
+  "signature": "bd9b65f9412e08e16c0a4cda01f317e0f55fab324bc240cfaf36482c7233ea65",
+  "attempts": [
+    {
+      "asr_seconds": 0.3318147351965308,
+      "alignment_seconds": 0.00044491980224847794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Host and Simple._",
+        "hotwords": "Host, Simple._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": "._ Enter Host and Simple._",
+          "start": 0.11,
+          "end": 1.83,
+          "words": [
+            {
+              "text": "._",
+              "start": 0.11,
+              "end": 0.27,
+              "probability": 0.0
+            },
+            {
+              "text": " Enter",
+              "start": 0.27,
+              "end": 0.65,
+              "probability": 0.41357421875
+            },
+            {
+              "text": " Host",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.25634765625
+            },
+            {
+              "text": " and",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.755859375
+            },
+            {
+              "text": " Simple._",
+              "start": 1.21,
+              "end": 1.83,
+              "probability": 0.478118896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "._",
+          "start": 0.11,
+          "end": 0.27
+        },
+        {
+          "raw": "Enter",
+          "start": 0.27,
+          "end": 0.65
+        },
+        {
+          "raw": "Host",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "and",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "Simple._",
+          "start": 1.21,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "HOST",
+        "and",
+        "SIMPLE._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Host",
+        "and",
+        "Simple._"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          4,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "._",
+          "start": 0.11,
+          "end": 0.27,
+          "key": "",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 0.27,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Host",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "host",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Simple._",
+          "start": 1.21,
+          "end": 1.83,
+          "key": "simple",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.27,
+          "end": 0.65
+        },
+        {
+          "text": "HOST",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "text": "and",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "SIMPLE._",
+          "start": 1.21,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33230510726571083
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e744d81074aa774924b65d8c45a25282e5a1c7e642d02bb8ff9c5a52b93ae77",
+  "selected_reasons": []
+}

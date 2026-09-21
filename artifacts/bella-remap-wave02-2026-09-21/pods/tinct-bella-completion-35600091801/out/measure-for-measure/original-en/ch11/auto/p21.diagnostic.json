@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "be730fcced91fcfe1848b20106ca295f9eb20d6821f934cc95093101e4bbcaef",
+  "attempts": [
+    {
+      "asr_seconds": 0.2898716712370515,
+      "alignment_seconds": 0.0013692434877157211,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Isab._ I do desire the like. 50",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Isab, I do desire the like. 50",
+          "start": 0.02,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.55804443359375
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 1.06,
+              "probability": 0.96484375
+            },
+            {
+              "text": " do",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " desire",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " like.",
+              "start": 1.64,
+              "end": 1.94,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " 50",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "desire",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "like.",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "raw": "50",
+          "start": 2.34,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "I",
+        "do",
+        "desire",
+        "the",
+        "like.",
+        "50"
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "I",
+        "do",
+        "desire",
+        "the",
+        "like.",
+        "50"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.06,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "desire",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "like.",
+          "start": 1.64,
+          "end": 1.94,
+          "key": "like",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "50",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "fifty",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "text": "do",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "desire",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "like.",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "text": "50",
+          "start": 2.34,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2913692416623235
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "daa76964503c51675b70fefe30029a7aabef34229cb70e05fd54b8af855ce8a1",
+  "selected_reasons": []
+}

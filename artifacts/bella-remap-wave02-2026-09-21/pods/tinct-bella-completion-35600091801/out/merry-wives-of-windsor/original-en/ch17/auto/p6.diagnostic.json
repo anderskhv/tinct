@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "c3dc2145eb95bbd6a392b6568a8d71f90f36f187ac8219867a232a4f25875d05",
+  "attempts": [
+    {
+      "asr_seconds": 0.2648394238203764,
+      "alignment_seconds": 0.0012486027553677559,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Above How now, mine host!",
+        "hotwords": "Above, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fal, Above, How now, mine host!",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.08563232421875
+            },
+            {
+              "text": " Above,",
+              "start": 0.92,
+              "end": 1.1,
+              "probability": 0.0672607421875
+            },
+            {
+              "text": " How",
+              "start": 1.32,
+              "end": 1.36,
+              "probability": 0.830078125
+            },
+            {
+              "text": " now,",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.10552978515625
+            },
+            {
+              "text": " mine",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.55078125
+            },
+            {
+              "text": " host!",
+              "start": 1.68,
+              "end": 2.0,
+              "probability": 0.82666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Above,",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "raw": "How",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "raw": "now,",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "mine",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "host!",
+          "start": 1.68,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "[_Above_]",
+        "How",
+        "now,",
+        "mine",
+        "host!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Above",
+        "How",
+        "now,",
+        "mine",
+        "host!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Above,",
+          "start": 0.92,
+          "end": 1.1,
+          "key": "above",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.32,
+          "end": 1.36,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "mine",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "host!",
+          "start": 1.68,
+          "end": 2.0,
+          "key": "host",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "[_Above_]",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "text": "How",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "text": "now,",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "mine",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "host!",
+          "start": 1.68,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2662042025476694
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5fe9f327a6aaf2435188f49fe488ed268f4fc090d010b2b60484849701066db",
+  "selected_reasons": []
+}

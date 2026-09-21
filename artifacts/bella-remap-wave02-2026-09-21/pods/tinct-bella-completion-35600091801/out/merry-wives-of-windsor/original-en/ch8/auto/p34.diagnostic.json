@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "35bce8772400b12a6e4ce3095f381c23baa6369159b79db92da31bb476814111",
+  "attempts": [
+    {
+      "asr_seconds": 0.2982291914522648,
+      "alignment_seconds": 0.001356484368443489,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Slen._ Aside O sweet Anne Page! 65",
+        "hotwords": "Aside, O, Anne, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Slen, Aside O sweet Anne Page! 65",
+          "start": 0.11,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Slen,",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.4688720703125
+            },
+            {
+              "text": " Aside",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.037200927734375
+            },
+            {
+              "text": " O",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " sweet",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.005584716796875
+            },
+            {
+              "text": " Anne",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 5.781650543212891e-06
+            },
+            {
+              "text": " Page!",
+              "start": 1.83,
+              "end": 2.15,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " 65",
+              "start": 2.57,
+              "end": 2.99,
+              "probability": 0.76953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "Aside",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "O",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "sweet",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "Anne",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "Page!",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "raw": "65",
+          "start": 2.57,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "_Slen._",
+        "[_Aside_]",
+        "O",
+        "sweet",
+        "Anne",
+        "Page!",
+        "65"
+      ],
+      "acoustic_expected_tokens": [
+        "_Slen._",
+        "Aside",
+        "O",
+        "sweet",
+        "Anne",
+        "Page!",
+        "65"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.85,
+          "key": "slen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aside",
+          "start": 0.97,
+          "end": 1.27,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "sweet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "anne",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Page!",
+          "start": 1.83,
+          "end": 2.15,
+          "key": "page",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "65",
+          "start": 2.57,
+          "end": 2.99,
+          "key": "sixtyfive",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Slen._",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "[_Aside_]",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "O",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "sweet",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "Anne",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "Page!",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "text": "65",
+          "start": 2.57,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29971258249133825
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e81fdbc936b9ae16e535ed0e7de8a4f31d7a855f611ceca79407aa1e8ae2d32",
+  "selected_reasons": []
+}

@@ -1,0 +1,6690 @@
+{
+  "complete": true,
+  "signature": "174ae232f188773b6105d5fbdd016c58fc3e87372311e723a9bca2ef5a43542a",
+  "attempts": [
+    {
+      "asr_seconds": 0.9191794330254197,
+      "alignment_seconds": 0.012294190004467964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fent._ Why, thou must be thyself. He doth object I am too great of birth; And that, my state being gall'd with my expense, 5 I seek to heal it only by his wealth: Besides these, other bars he lays before me,-- My riots past, my wild societies; And tells me 'tis a thing impossible I should love thee but as a property. 10",
+        "hotwords": "Why, I, And, Besides"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, thou must be thyself. He doth object I am too great of birth, And that, my state being gall'd with my expense, 5 I seek to heal it only by his wealth. Besides these, other bars he lays before me, My riots past, my wild societies, And tells me tease a thing impossible I should love thee but as a property. 10",
+          "start": 0.05,
+          "end": 20.71,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.00025773048400878906
+            },
+            {
+              "text": " thou",
+              "start": 1.15,
+              "end": 1.21,
+              "probability": 0.951171875
+            },
+            {
+              "text": " must",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " be",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.8125
+            },
+            {
+              "text": " thyself.",
+              "start": 1.63,
+              "end": 2.19,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " He",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.966796875
+            },
+            {
+              "text": " doth",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " object",
+              "start": 3.03,
+              "end": 3.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 3.41,
+              "end": 3.61,
+              "probability": 0.91796875
+            },
+            {
+              "text": " am",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " too",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " great",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " birth,",
+              "start": 4.39,
+              "end": 4.65,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " And",
+              "start": 4.95,
+              "end": 5.19,
+              "probability": 0.2130126953125
+            },
+            {
+              "text": " that,",
+              "start": 5.19,
+              "end": 5.37,
+              "probability": 0.95703125
+            },
+            {
+              "text": " my",
+              "start": 5.53,
+              "end": 5.57,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " state",
+              "start": 5.57,
+              "end": 5.91,
+              "probability": 0.9453125
+            },
+            {
+              "text": " being",
+              "start": 5.91,
+              "end": 6.23,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " gall'd",
+              "start": 6.23,
+              "end": 6.71,
+              "probability": 0.447021484375
+            },
+            {
+              "text": " with",
+              "start": 6.71,
+              "end": 6.83,
+              "probability": 0.962890625
+            },
+            {
+              "text": " my",
+              "start": 6.83,
+              "end": 7.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " expense,",
+              "start": 7.01,
+              "end": 7.49,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " 5",
+              "start": 7.91,
+              "end": 8.09,
+              "probability": 0.06732177734375
+            },
+            {
+              "text": " I",
+              "start": 8.09,
+              "end": 8.29,
+              "probability": 0.740234375
+            },
+            {
+              "text": " seek",
+              "start": 8.29,
+              "end": 8.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.47,
+              "end": 8.67,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " heal",
+              "start": 8.67,
+              "end": 8.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 8.83,
+              "end": 8.97,
+              "probability": 0.951171875
+            },
+            {
+              "text": " only",
+              "start": 8.97,
+              "end": 9.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 9.41,
+              "end": 9.59,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " wealth.",
+              "start": 9.59,
+              "end": 9.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Besides",
+              "start": 10.53,
+              "end": 10.91,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " these,",
+              "start": 10.91,
+              "end": 11.35,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " other",
+              "start": 11.63,
+              "end": 11.79,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " bars",
+              "start": 11.79,
+              "end": 12.11,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 12.11,
+              "end": 12.29,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " lays",
+              "start": 12.29,
+              "end": 12.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " before",
+              "start": 12.59,
+              "end": 12.93,
+              "probability": 0.41064453125
+            },
+            {
+              "text": " me,",
+              "start": 12.93,
+              "end": 13.17,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " My",
+              "start": 13.29,
+              "end": 13.37,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " riots",
+              "start": 13.37,
+              "end": 13.79,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " past,",
+              "start": 13.79,
+              "end": 14.21,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " my",
+              "start": 14.53,
+              "end": 14.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wild",
+              "start": 14.69,
+              "end": 14.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " societies,",
+              "start": 14.97,
+              "end": 15.57,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " And",
+              "start": 15.93,
+              "end": 16.23,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " tells",
+              "start": 16.23,
+              "end": 16.45,
+              "probability": 0.974609375
+            },
+            {
+              "text": " me",
+              "start": 16.45,
+              "end": 16.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tease",
+              "start": 16.71,
+              "end": 16.95,
+              "probability": 0.195068359375
+            },
+            {
+              "text": " a",
+              "start": 16.95,
+              "end": 17.15,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " thing",
+              "start": 17.15,
+              "end": 17.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " impossible",
+              "start": 17.33,
+              "end": 17.97,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " I",
+              "start": 17.97,
+              "end": 18.21,
+              "probability": 0.68359375
+            },
+            {
+              "text": " should",
+              "start": 18.21,
+              "end": 18.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " love",
+              "start": 18.41,
+              "end": 18.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thee",
+              "start": 18.69,
+              "end": 18.87,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " but",
+              "start": 18.87,
+              "end": 19.03,
+              "probability": 0.900390625
+            },
+            {
+              "text": " as",
+              "start": 19.03,
+              "end": 19.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 19.15,
+              "end": 19.35,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " property.",
+              "start": 19.35,
+              "end": 19.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " 10",
+              "start": 20.53,
+              "end": 20.71,
+              "probability": 0.357666015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "thou",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "raw": "must",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "thyself.",
+          "start": 1.63,
+          "end": 2.19
+        },
+        {
+          "raw": "He",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "doth",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "object",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "raw": "I",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "raw": "am",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "too",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "great",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "of",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "birth,",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "raw": "And",
+          "start": 4.95,
+          "end": 5.19
+        },
+        {
+          "raw": "that,",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "raw": "my",
+          "start": 5.53,
+          "end": 5.57
+        },
+        {
+          "raw": "state",
+          "start": 5.57,
+          "end": 5.91
+        },
+        {
+          "raw": "being",
+          "start": 5.91,
+          "end": 6.23
+        },
+        {
+          "raw": "gall'd",
+          "start": 6.23,
+          "end": 6.71
+        },
+        {
+          "raw": "with",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "raw": "expense,",
+          "start": 7.01,
+          "end": 7.49
+        },
+        {
+          "raw": "5",
+          "start": 7.91,
+          "end": 8.09
+        },
+        {
+          "raw": "I",
+          "start": 8.09,
+          "end": 8.29
+        },
+        {
+          "raw": "seek",
+          "start": 8.29,
+          "end": 8.47
+        },
+        {
+          "raw": "to",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "raw": "heal",
+          "start": 8.67,
+          "end": 8.83
+        },
+        {
+          "raw": "it",
+          "start": 8.83,
+          "end": 8.97
+        },
+        {
+          "raw": "only",
+          "start": 8.97,
+          "end": 9.19
+        },
+        {
+          "raw": "by",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "his",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "raw": "wealth.",
+          "start": 9.59,
+          "end": 9.93
+        },
+        {
+          "raw": "Besides",
+          "start": 10.53,
+          "end": 10.91
+        },
+        {
+          "raw": "these,",
+          "start": 10.91,
+          "end": 11.35
+        },
+        {
+          "raw": "other",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "raw": "bars",
+          "start": 11.79,
+          "end": 12.11
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "raw": "lays",
+          "start": 12.29,
+          "end": 12.59
+        },
+        {
+          "raw": "before",
+          "start": 12.59,
+          "end": 12.93
+        },
+        {
+          "raw": "me,",
+          "start": 12.93,
+          "end": 13.17
+        },
+        {
+          "raw": "My",
+          "start": 13.29,
+          "end": 13.37
+        },
+        {
+          "raw": "riots",
+          "start": 13.37,
+          "end": 13.79
+        },
+        {
+          "raw": "past,",
+          "start": 13.79,
+          "end": 14.21
+        },
+        {
+          "raw": "my",
+          "start": 14.53,
+          "end": 14.69
+        },
+        {
+          "raw": "wild",
+          "start": 14.69,
+          "end": 14.97
+        },
+        {
+          "raw": "societies,",
+          "start": 14.97,
+          "end": 15.57
+        },
+        {
+          "raw": "And",
+          "start": 15.93,
+          "end": 16.23
+        },
+        {
+          "raw": "tells",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "raw": "me",
+          "start": 16.45,
+          "end": 16.71
+        },
+        {
+          "raw": "tease",
+          "start": 16.71,
+          "end": 16.95
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "raw": "thing",
+          "start": 17.15,
+          "end": 17.33
+        },
+        {
+          "raw": "impossible",
+          "start": 17.33,
+          "end": 17.97
+        },
+        {
+          "raw": "I",
+          "start": 17.97,
+          "end": 18.21
+        },
+        {
+          "raw": "should",
+          "start": 18.21,
+          "end": 18.41
+        },
+        {
+          "raw": "love",
+          "start": 18.41,
+          "end": 18.69
+        },
+        {
+          "raw": "thee",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "raw": "but",
+          "start": 18.87,
+          "end": 19.03
+        },
+        {
+          "raw": "as",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "raw": "a",
+          "start": 19.15,
+          "end": 19.35
+        },
+        {
+          "raw": "property.",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "raw": "10",
+          "start": 20.53,
+          "end": 20.71
+        }
+      ],
+      "expected_tokens": [
+        "_Fent._",
+        "Why,",
+        "thou",
+        "must",
+        "be",
+        "thyself.",
+        "He",
+        "doth",
+        "object",
+        "I",
+        "am",
+        "too",
+        "great",
+        "of",
+        "birth;",
+        "And",
+        "that,",
+        "my",
+        "state",
+        "being",
+        "gall’d",
+        "with",
+        "my",
+        "expense,",
+        "5",
+        "I",
+        "seek",
+        "to",
+        "heal",
+        "it",
+        "only",
+        "by",
+        "his",
+        "wealth:",
+        "Besides",
+        "these,",
+        "other",
+        "bars",
+        "he",
+        "lays",
+        "before",
+        "me,--",
+        "My",
+        "riots",
+        "past,",
+        "my",
+        "wild",
+        "societies;",
+        "And",
+        "tells",
+        "me",
+        "’tis",
+        "a",
+        "thing",
+        "impossible",
+        "I",
+        "should",
+        "love",
+        "thee",
+        "but",
+        "as",
+        "a",
+        "property.",
+        "10"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fent._",
+        "Why,",
+        "thou",
+        "must",
+        "be",
+        "thyself.",
+        "He",
+        "doth",
+        "object",
+        "I",
+        "am",
+        "too",
+        "great",
+        "of",
+        "birth;",
+        "And",
+        "that,",
+        "my",
+        "state",
+        "being",
+        "gall'd",
+        "with",
+        "my",
+        "expense,",
+        "5",
+        "I",
+        "seek",
+        "to",
+        "heal",
+        "it",
+        "only",
+        "by",
+        "his",
+        "wealth:",
+        "Besides",
+        "these,",
+        "other",
+        "bars",
+        "he",
+        "lays",
+        "before",
+        "me,--",
+        "My",
+        "riots",
+        "past,",
+        "my",
+        "wild",
+        "societies;",
+        "And",
+        "tells",
+        "me",
+        "'tis",
+        "a",
+        "thing",
+        "impossible",
+        "I",
+        "should",
+        "love",
+        "thee",
+        "but",
+        "as",
+        "a",
+        "property.",
+        "10"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          20,
+          0,
+          19
+        ],
+        [
+          "replace",
+          20,
+          21,
+          19,
+          20
+        ],
+        [
+          "equal",
+          21,
+          51,
+          20,
+          50
+        ],
+        [
+          "replace",
+          51,
+          52,
+          50,
+          51
+        ],
+        [
+          "equal",
+          52,
+          64,
+          51,
+          63
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 62
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          20,
+          21,
+          19,
+          20
+        ],
+        [
+          "replace",
+          51,
+          52,
+          50,
+          51
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.15,
+          "end": 1.21,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thyself.",
+          "start": 1.63,
+          "end": 2.19,
+          "key": "thyself",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.85,
+          "end": 3.03,
+          "key": "doth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "object",
+          "start": 3.03,
+          "end": 3.41,
+          "key": "object",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.41,
+          "end": 3.61,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "too",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "great",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "birth,",
+          "start": 4.39,
+          "end": 4.65,
+          "key": "birth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.95,
+          "end": 5.19,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 5.19,
+          "end": 5.37,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.53,
+          "end": 5.57,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 5.57,
+          "end": 5.91,
+          "key": "state",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 5.91,
+          "end": 6.23,
+          "key": "being",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "gall'd",
+          "start": 6.23,
+          "end": 6.71,
+          "key": "galld",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.71,
+          "end": 6.83,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.01,
+          "key": "my",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "expense,",
+          "start": 7.01,
+          "end": 7.49,
+          "key": "expense",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 7.91,
+          "end": 8.09,
+          "key": "five",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.09,
+          "end": 8.29,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 8.29,
+          "end": 8.47,
+          "key": "seek",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.47,
+          "end": 8.67,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "heal",
+          "start": 8.67,
+          "end": 8.83,
+          "key": "heal",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.83,
+          "end": 8.97,
+          "key": "it",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 8.97,
+          "end": 9.19,
+          "key": "only",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "by",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.41,
+          "end": 9.59,
+          "key": "his",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "wealth.",
+          "start": 9.59,
+          "end": 9.93,
+          "key": "wealth",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Besides",
+          "start": 10.53,
+          "end": 10.91,
+          "key": "besides",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "these,",
+          "start": 10.91,
+          "end": 11.35,
+          "key": "these",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 11.63,
+          "end": 11.79,
+          "key": "other",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "bars",
+          "start": 11.79,
+          "end": 12.11,
+          "key": "bars",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.29,
+          "key": "he",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "lays",
+          "start": 12.29,
+          "end": 12.59,
+          "key": "lays",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 12.59,
+          "end": 12.93,
+          "key": "before",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 12.93,
+          "end": 13.17,
+          "key": "me",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 13.29,
+          "end": 13.37,
+          "key": "my",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "riots",
+          "start": 13.37,
+          "end": 13.79,
+          "key": "riots",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "past,",
+          "start": 13.79,
+          "end": 14.21,
+          "key": "past",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.53,
+          "end": 14.69,
+          "key": "my",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 14.69,
+          "end": 14.97,
+          "key": "wild",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "societies,",
+          "start": 14.97,
+          "end": 15.57,
+          "key": "societies",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 15.93,
+          "end": 16.23,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 16.23,
+          "end": 16.45,
+          "key": "tells",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.45,
+          "end": 16.71,
+          "key": "me",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 16.71,
+          "end": 16.95,
+          "key": "tease",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.15,
+          "key": "a",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 17.15,
+          "end": 17.33,
+          "key": "thing",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 17.33,
+          "end": 17.97,
+          "key": "impossible",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.97,
+          "end": 18.21,
+          "key": "i",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.21,
+          "end": 18.41,
+          "key": "should",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 18.41,
+          "end": 18.69,
+          "key": "love",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 18.69,
+          "end": 18.87,
+          "key": "thee",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 18.87,
+          "end": 19.03,
+          "key": "but",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 19.03,
+          "end": 19.15,
+          "key": "as",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.15,
+          "end": 19.35,
+          "key": "a",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "property.",
+          "start": 19.35,
+          "end": 19.67,
+          "key": "property",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "10",
+          "start": 20.53,
+          "end": 20.71,
+          "key": "ten",
+          "pieces": [
+            62
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fent._",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Why,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "thou",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "text": "must",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "be",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "thyself.",
+          "start": 1.63,
+          "end": 2.19
+        },
+        {
+          "text": "He",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "doth",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "text": "object",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "text": "I",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "text": "am",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "too",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "great",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "of",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "birth;",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "text": "And",
+          "start": 4.95,
+          "end": 5.19
+        },
+        {
+          "text": "that,",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "text": "my",
+          "start": 5.53,
+          "end": 5.57
+        },
+        {
+          "text": "state",
+          "start": 5.57,
+          "end": 5.91
+        },
+        {
+          "text": "being",
+          "start": 5.91,
+          "end": 6.23
+        },
+        {
+          "text": "gall’d",
+          "start": 6.23,
+          "end": 6.47
+        },
+        {
+          "text": "with",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "text": "my",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "text": "expense,",
+          "start": 7.01,
+          "end": 7.49
+        },
+        {
+          "text": "5",
+          "start": 7.91,
+          "end": 8.09
+        },
+        {
+          "text": "I",
+          "start": 8.09,
+          "end": 8.29
+        },
+        {
+          "text": "seek",
+          "start": 8.29,
+          "end": 8.47
+        },
+        {
+          "text": "to",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "text": "heal",
+          "start": 8.67,
+          "end": 8.83
+        },
+        {
+          "text": "it",
+          "start": 8.83,
+          "end": 8.97
+        },
+        {
+          "text": "only",
+          "start": 8.97,
+          "end": 9.19
+        },
+        {
+          "text": "by",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "his",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "text": "wealth:",
+          "start": 9.59,
+          "end": 9.93
+        },
+        {
+          "text": "Besides",
+          "start": 10.53,
+          "end": 10.91
+        },
+        {
+          "text": "these,",
+          "start": 10.91,
+          "end": 11.35
+        },
+        {
+          "text": "other",
+          "start": 11.63,
+          "end": 11.79
+        },
+        {
+          "text": "bars",
+          "start": 11.79,
+          "end": 12.11
+        },
+        {
+          "text": "he",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "text": "lays",
+          "start": 12.29,
+          "end": 12.59
+        },
+        {
+          "text": "before",
+          "start": 12.59,
+          "end": 12.93
+        },
+        {
+          "text": "me,--",
+          "start": 12.93,
+          "end": 13.17
+        },
+        {
+          "text": "My",
+          "start": 13.29,
+          "end": 13.37
+        },
+        {
+          "text": "riots",
+          "start": 13.37,
+          "end": 13.79
+        },
+        {
+          "text": "past,",
+          "start": 13.79,
+          "end": 14.21
+        },
+        {
+          "text": "my",
+          "start": 14.53,
+          "end": 14.69
+        },
+        {
+          "text": "wild",
+          "start": 14.69,
+          "end": 14.97
+        },
+        {
+          "text": "societies;",
+          "start": 14.97,
+          "end": 15.57
+        },
+        {
+          "text": "And",
+          "start": 15.93,
+          "end": 16.23
+        },
+        {
+          "text": "tells",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "text": "me",
+          "start": 16.45,
+          "end": 16.71
+        },
+        {
+          "text": "’tis",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "text": "a",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "text": "thing",
+          "start": 17.15,
+          "end": 17.33
+        },
+        {
+          "text": "impossible",
+          "start": 17.33,
+          "end": 17.97
+        },
+        {
+          "text": "I",
+          "start": 17.97,
+          "end": 18.21
+        },
+        {
+          "text": "should",
+          "start": 18.21,
+          "end": 18.41
+        },
+        {
+          "text": "love",
+          "start": 18.41,
+          "end": 18.69
+        },
+        {
+          "text": "thee",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "text": "but",
+          "start": 18.87,
+          "end": 19.03
+        },
+        {
+          "text": "as",
+          "start": 19.03,
+          "end": 19.15
+        },
+        {
+          "text": "a",
+          "start": 19.15,
+          "end": 19.35
+        },
+        {
+          "text": "property.",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "text": "10",
+          "start": 20.53,
+          "end": 20.71
+        }
+      ],
+      "stats": {
+        "expected_words": 64,
+        "heard_words": 63,
+        "matched_words": 61
+      },
+      "match_ratio": 0.953125,
+      "rejection_reasons": [],
+      "seconds": 0.9324491815641522
+    },
+    {
+      "asr_seconds": 1.8845131173729897,
+      "alignment_seconds": 0.012498014606535435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Why, I, And, Besides"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Fent, why thou must be thyself? He doth object I am too great of birth, and that my state being galled with my expense, five I seek to heal it only by his wealth. Besides these, other bars he lays before me my riots past, my wild societies, and tells me tease a thing impossible I should love thee but as a property. Ten",
+          "start": 0.05,
+          "end": 20.71,
+          "words": [
+            {
+              "text": " Fent,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " why",
+              "start": 0.91,
+              "end": 1.03,
+              "probability": 0.94921875
+            },
+            {
+              "text": " thou",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " must",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " be",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " thyself?",
+              "start": 1.65,
+              "end": 2.17,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " He",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.951171875
+            },
+            {
+              "text": " doth",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " object",
+              "start": 3.05,
+              "end": 3.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.962890625
+            },
+            {
+              "text": " am",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " great",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " birth,",
+              "start": 4.39,
+              "end": 4.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 4.93,
+              "end": 5.19,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " that",
+              "start": 5.19,
+              "end": 5.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " my",
+              "start": 5.37,
+              "end": 5.57,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " state",
+              "start": 5.57,
+              "end": 5.91,
+              "probability": 0.955078125
+            },
+            {
+              "text": " being",
+              "start": 5.91,
+              "end": 6.23,
+              "probability": 0.685546875
+            },
+            {
+              "text": " galled",
+              "start": 6.23,
+              "end": 6.57,
+              "probability": 0.683349609375
+            },
+            {
+              "text": " with",
+              "start": 6.57,
+              "end": 6.83,
+              "probability": 0.974609375
+            },
+            {
+              "text": " my",
+              "start": 6.83,
+              "end": 7.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " expense,",
+              "start": 7.01,
+              "end": 7.49,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " five",
+              "start": 7.93,
+              "end": 8.09,
+              "probability": 0.767578125
+            },
+            {
+              "text": " I",
+              "start": 8.09,
+              "end": 8.31,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " seek",
+              "start": 8.31,
+              "end": 8.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 8.47,
+              "end": 8.67,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " heal",
+              "start": 8.67,
+              "end": 8.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 8.83,
+              "end": 8.97,
+              "probability": 0.98046875
+            },
+            {
+              "text": " only",
+              "start": 8.97,
+              "end": 9.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " by",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 9.41,
+              "end": 9.59,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " wealth.",
+              "start": 9.59,
+              "end": 9.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Besides",
+              "start": 10.53,
+              "end": 10.91,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " these,",
+              "start": 10.91,
+              "end": 11.35,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " other",
+              "start": 11.63,
+              "end": 11.81,
+              "probability": 0.966796875
+            },
+            {
+              "text": " bars",
+              "start": 11.81,
+              "end": 12.11,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " he",
+              "start": 12.11,
+              "end": 12.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " lays",
+              "start": 12.29,
+              "end": 12.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 12.59,
+              "end": 12.95,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " me",
+              "start": 12.95,
+              "end": 13.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 13.17,
+              "end": 13.37,
+              "probability": 0.830078125
+            },
+            {
+              "text": " riots",
+              "start": 13.37,
+              "end": 13.79,
+              "probability": 0.638671875
+            },
+            {
+              "text": " past,",
+              "start": 13.79,
+              "end": 14.21,
+              "probability": 0.951171875
+            },
+            {
+              "text": " my",
+              "start": 14.55,
+              "end": 14.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wild",
+              "start": 14.67,
+              "end": 14.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " societies,",
+              "start": 14.95,
+              "end": 15.57,
+              "probability": 0.96875
+            },
+            {
+              "text": " and",
+              "start": 16.03,
+              "end": 16.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tells",
+              "start": 16.23,
+              "end": 16.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me",
+              "start": 16.43,
+              "end": 16.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tease",
+              "start": 16.71,
+              "end": 16.95,
+              "probability": 0.438720703125
+            },
+            {
+              "text": " a",
+              "start": 16.95,
+              "end": 17.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thing",
+              "start": 17.15,
+              "end": 17.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impossible",
+              "start": 17.33,
+              "end": 17.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 17.97,
+              "end": 18.23,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " should",
+              "start": 18.23,
+              "end": 18.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " love",
+              "start": 18.39,
+              "end": 18.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thee",
+              "start": 18.69,
+              "end": 18.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " but",
+              "start": 18.87,
+              "end": 19.01,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " as",
+              "start": 19.01,
+              "end": 19.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 19.15,
+              "end": 19.35,
+              "probability": 0.990234375
+            },
+            {
+              "text": " property.",
+              "start": 19.35,
+              "end": 19.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Ten",
+              "start": 20.51,
+              "end": 20.71,
+              "probability": 0.5087890625
+            }
+          ]
+        },
+        {
+          "text": " The End.",
+          "start": 20.71,
+          "end": 20.83,
+          "words": [
+            {
+              "text": " The",
+              "start": 20.71,
+              "end": 20.83,
+              "probability": 0.005664825439453125
+            },
+            {
+              "text": " End.",
+              "start": 20.83,
+              "end": 20.83,
+              "probability": 0.00208282470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fent,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "why",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "raw": "thou",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "must",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "thyself?",
+          "start": 1.65,
+          "end": 2.17
+        },
+        {
+          "raw": "He",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "doth",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "object",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "raw": "I",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "am",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "too",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "great",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "of",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "birth,",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "raw": "and",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "raw": "that",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "raw": "my",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "raw": "state",
+          "start": 5.57,
+          "end": 5.91
+        },
+        {
+          "raw": "being",
+          "start": 5.91,
+          "end": 6.23
+        },
+        {
+          "raw": "galled",
+          "start": 6.23,
+          "end": 6.57
+        },
+        {
+          "raw": "with",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "raw": "expense,",
+          "start": 7.01,
+          "end": 7.49
+        },
+        {
+          "raw": "five",
+          "start": 7.93,
+          "end": 8.09
+        },
+        {
+          "raw": "I",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "raw": "seek",
+          "start": 8.31,
+          "end": 8.47
+        },
+        {
+          "raw": "to",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "raw": "heal",
+          "start": 8.67,
+          "end": 8.83
+        },
+        {
+          "raw": "it",
+          "start": 8.83,
+          "end": 8.97
+        },
+        {
+          "raw": "only",
+          "start": 8.97,
+          "end": 9.19
+        },
+        {
+          "raw": "by",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "his",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "raw": "wealth.",
+          "start": 9.59,
+          "end": 9.93
+        },
+        {
+          "raw": "Besides",
+          "start": 10.53,
+          "end": 10.91
+        },
+        {
+          "raw": "these,",
+          "start": 10.91,
+          "end": 11.35
+        },
+        {
+          "raw": "other",
+          "start": 11.63,
+          "end": 11.81
+        },
+        {
+          "raw": "bars",
+          "start": 11.81,
+          "end": 12.11
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "raw": "lays",
+          "start": 12.29,
+          "end": 12.59
+        },
+        {
+          "raw": "before",
+          "start": 12.59,
+          "end": 12.95
+        },
+        {
+          "raw": "me",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "raw": "my",
+          "start": 13.17,
+          "end": 13.37
+        },
+        {
+          "raw": "riots",
+          "start": 13.37,
+          "end": 13.79
+        },
+        {
+          "raw": "past,",
+          "start": 13.79,
+          "end": 14.21
+        },
+        {
+          "raw": "my",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "raw": "wild",
+          "start": 14.67,
+          "end": 14.95
+        },
+        {
+          "raw": "societies,",
+          "start": 14.95,
+          "end": 15.57
+        },
+        {
+          "raw": "and",
+          "start": 16.03,
+          "end": 16.23
+        },
+        {
+          "raw": "tells",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "raw": "me",
+          "start": 16.43,
+          "end": 16.71
+        },
+        {
+          "raw": "tease",
+          "start": 16.71,
+          "end": 16.95
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "raw": "thing",
+          "start": 17.15,
+          "end": 17.33
+        },
+        {
+          "raw": "impossible",
+          "start": 17.33,
+          "end": 17.97
+        },
+        {
+          "raw": "I",
+          "start": 17.97,
+          "end": 18.23
+        },
+        {
+          "raw": "should",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "raw": "love",
+          "start": 18.39,
+          "end": 18.69
+        },
+        {
+          "raw": "thee",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "raw": "but",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "raw": "as",
+          "start": 19.01,
+          "end": 19.15
+        },
+        {
+          "raw": "a",
+          "start": 19.15,
+          "end": 19.35
+        },
+        {
+          "raw": "property.",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "raw": "Ten",
+          "start": 20.51,
+          "end": 20.71
+        },
+        {
+          "raw": "The",
+          "start": 20.71,
+          "end": 20.83
+        },
+        {
+          "raw": "End.",
+          "start": 20.83,
+          "end": 20.83
+        }
+      ],
+      "expected_tokens": [
+        "_Fent._",
+        "Why,",
+        "thou",
+        "must",
+        "be",
+        "thyself.",
+        "He",
+        "doth",
+        "object",
+        "I",
+        "am",
+        "too",
+        "great",
+        "of",
+        "birth;",
+        "And",
+        "that,",
+        "my",
+        "state",
+        "being",
+        "gall’d",
+        "with",
+        "my",
+        "expense,",
+        "5",
+        "I",
+        "seek",
+        "to",
+        "heal",
+        "it",
+        "only",
+        "by",
+        "his",
+        "wealth:",
+        "Besides",
+        "these,",
+        "other",
+        "bars",
+        "he",
+        "lays",
+        "before",
+        "me,--",
+        "My",
+        "riots",
+        "past,",
+        "my",
+        "wild",
+        "societies;",
+        "And",
+        "tells",
+        "me",
+        "’tis",
+        "a",
+        "thing",
+        "impossible",
+        "I",
+        "should",
+        "love",
+        "thee",
+        "but",
+        "as",
+        "a",
+        "property.",
+        "10"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fent._",
+        "Why,",
+        "thou",
+        "must",
+        "be",
+        "thyself.",
+        "He",
+        "doth",
+        "object",
+        "I",
+        "am",
+        "too",
+        "great",
+        "of",
+        "birth;",
+        "And",
+        "that,",
+        "my",
+        "state",
+        "being",
+        "gall'd",
+        "with",
+        "my",
+        "expense,",
+        "5",
+        "I",
+        "seek",
+        "to",
+        "heal",
+        "it",
+        "only",
+        "by",
+        "his",
+        "wealth:",
+        "Besides",
+        "these,",
+        "other",
+        "bars",
+        "he",
+        "lays",
+        "before",
+        "me,--",
+        "My",
+        "riots",
+        "past,",
+        "my",
+        "wild",
+        "societies;",
+        "And",
+        "tells",
+        "me",
+        "'tis",
+        "a",
+        "thing",
+        "impossible",
+        "I",
+        "should",
+        "love",
+        "thee",
+        "but",
+        "as",
+        "a",
+        "property.",
+        "10"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ],
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          64,
+          52,
+          64
+        ],
+        [
+          "insert",
+          64,
+          64,
+          64,
+          66
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "insert",
+          64,
+          64,
+          64,
+          66
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fent,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "fent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.91,
+          "end": 1.03,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thyself?",
+          "start": 1.65,
+          "end": 2.17,
+          "key": "thyself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "doth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "object",
+          "start": 3.05,
+          "end": 3.39,
+          "key": "object",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "am",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.77,
+          "end": 3.99,
+          "key": "too",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "great",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "birth,",
+          "start": 4.39,
+          "end": 4.63,
+          "key": "birth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.93,
+          "end": 5.19,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.19,
+          "end": 5.37,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.37,
+          "end": 5.57,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 5.57,
+          "end": 5.91,
+          "key": "state",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 5.91,
+          "end": 6.23,
+          "key": "being",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "galled",
+          "start": 6.23,
+          "end": 6.57,
+          "key": "galled",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.57,
+          "end": 6.83,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.01,
+          "key": "my",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "expense,",
+          "start": 7.01,
+          "end": 7.49,
+          "key": "expense",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 7.93,
+          "end": 8.09,
+          "key": "five",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.09,
+          "end": 8.31,
+          "key": "i",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 8.31,
+          "end": 8.47,
+          "key": "seek",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.47,
+          "end": 8.67,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "heal",
+          "start": 8.67,
+          "end": 8.83,
+          "key": "heal",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.83,
+          "end": 8.97,
+          "key": "it",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 8.97,
+          "end": 9.19,
+          "key": "only",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "by",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.41,
+          "end": 9.59,
+          "key": "his",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "wealth.",
+          "start": 9.59,
+          "end": 9.93,
+          "key": "wealth",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Besides",
+          "start": 10.53,
+          "end": 10.91,
+          "key": "besides",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "these,",
+          "start": 10.91,
+          "end": 11.35,
+          "key": "these",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 11.63,
+          "end": 11.81,
+          "key": "other",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "bars",
+          "start": 11.81,
+          "end": 12.11,
+          "key": "bars",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.29,
+          "key": "he",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lays",
+          "start": 12.29,
+          "end": 12.59,
+          "key": "lays",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 12.59,
+          "end": 12.95,
+          "key": "before",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 12.95,
+          "end": 13.17,
+          "key": "me",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.17,
+          "end": 13.37,
+          "key": "my",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "riots",
+          "start": 13.37,
+          "end": 13.79,
+          "key": "riots",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "past,",
+          "start": 13.79,
+          "end": 14.21,
+          "key": "past",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.55,
+          "end": 14.67,
+          "key": "my",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 14.67,
+          "end": 14.95,
+          "key": "wild",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "societies,",
+          "start": 14.95,
+          "end": 15.57,
+          "key": "societies",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.03,
+          "end": 16.23,
+          "key": "and",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 16.23,
+          "end": 16.43,
+          "key": "tells",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.43,
+          "end": 16.71,
+          "key": "me",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 16.71,
+          "end": 16.95,
+          "key": "tease",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.15,
+          "key": "a",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 17.15,
+          "end": 17.33,
+          "key": "thing",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 17.33,
+          "end": 17.97,
+          "key": "impossible",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.97,
+          "end": 18.23,
+          "key": "i",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.23,
+          "end": 18.39,
+          "key": "should",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 18.39,
+          "end": 18.69,
+          "key": "love",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 18.69,
+          "end": 18.87,
+          "key": "thee",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 18.87,
+          "end": 19.01,
+          "key": "but",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 19.01,
+          "end": 19.15,
+          "key": "as",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.15,
+          "end": 19.35,
+          "key": "a",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "property.",
+          "start": 19.35,
+          "end": 19.67,
+          "key": "property",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Ten",
+          "start": 20.51,
+          "end": 20.71,
+          "key": "ten",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 20.71,
+          "end": 20.83,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "End.",
+          "start": 20.83,
+          "end": 20.83,
+          "key": "end",
+          "pieces": [
+            65
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fent._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Why,",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "text": "thou",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "must",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "be",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "thyself.",
+          "start": 1.65,
+          "end": 2.17
+        },
+        {
+          "text": "He",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "doth",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "object",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "text": "I",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "am",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "too",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "great",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "of",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "birth;",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "text": "And",
+          "start": 4.93,
+          "end": 5.19
+        },
+        {
+          "text": "that,",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "text": "my",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "text": "state",
+          "start": 5.57,
+          "end": 5.91
+        },
+        {
+          "text": "being",
+          "start": 5.91,
+          "end": 6.23
+        },
+        {
+          "text": "gall’d",
+          "start": 6.23,
+          "end": 6.57
+        },
+        {
+          "text": "with",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "text": "my",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "text": "expense,",
+          "start": 7.01,
+          "end": 7.49
+        },
+        {
+          "text": "5",
+          "start": 7.93,
+          "end": 8.09
+        },
+        {
+          "text": "I",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "text": "seek",
+          "start": 8.31,
+          "end": 8.47
+        },
+        {
+          "text": "to",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "text": "heal",
+          "start": 8.67,
+          "end": 8.83
+        },
+        {
+          "text": "it",
+          "start": 8.83,
+          "end": 8.97
+        },
+        {
+          "text": "only",
+          "start": 8.97,
+          "end": 9.19
+        },
+        {
+          "text": "by",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "his",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "text": "wealth:",
+          "start": 9.59,
+          "end": 9.93
+        },
+        {
+          "text": "Besides",
+          "start": 10.53,
+          "end": 10.91
+        },
+        {
+          "text": "these,",
+          "start": 10.91,
+          "end": 11.35
+        },
+        {
+          "text": "other",
+          "start": 11.63,
+          "end": 11.81
+        },
+        {
+          "text": "bars",
+          "start": 11.81,
+          "end": 12.11
+        },
+        {
+          "text": "he",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "text": "lays",
+          "start": 12.29,
+          "end": 12.59
+        },
+        {
+          "text": "before",
+          "start": 12.59,
+          "end": 12.95
+        },
+        {
+          "text": "me,--",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "text": "My",
+          "start": 13.17,
+          "end": 13.37
+        },
+        {
+          "text": "riots",
+          "start": 13.37,
+          "end": 13.79
+        },
+        {
+          "text": "past,",
+          "start": 13.79,
+          "end": 14.21
+        },
+        {
+          "text": "my",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "text": "wild",
+          "start": 14.67,
+          "end": 14.95
+        },
+        {
+          "text": "societies;",
+          "start": 14.95,
+          "end": 15.57
+        },
+        {
+          "text": "And",
+          "start": 16.03,
+          "end": 16.23
+        },
+        {
+          "text": "tells",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "text": "me",
+          "start": 16.43,
+          "end": 16.71
+        },
+        {
+          "text": "’tis",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "text": "a",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "text": "thing",
+          "start": 17.15,
+          "end": 17.33
+        },
+        {
+          "text": "impossible",
+          "start": 17.33,
+          "end": 17.97
+        },
+        {
+          "text": "I",
+          "start": 17.97,
+          "end": 18.23
+        },
+        {
+          "text": "should",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "text": "love",
+          "start": 18.39,
+          "end": 18.69
+        },
+        {
+          "text": "thee",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "text": "but",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "text": "as",
+          "start": 19.01,
+          "end": 19.15
+        },
+        {
+          "text": "a",
+          "start": 19.15,
+          "end": 19.35
+        },
+        {
+          "text": "property.",
+          "start": 19.35,
+          "end": 19.67
+        },
+        {
+          "text": "10",
+          "start": 20.51,
+          "end": 20.71
+        }
+      ],
+      "stats": {
+        "expected_words": 64,
+        "heard_words": 66,
+        "matched_words": 63
+      },
+      "match_ratio": 0.984375,
+      "rejection_reasons": [],
+      "seconds": 1.8980595581233501
+    },
+    {
+      "asr_seconds": 1.0220334362238646,
+      "alignment_seconds": 0.005004214122891426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fent, why thou must be thyself.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Fent,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.740478515625
+            },
+            {
+              "text": " why",
+              "start": 0.91,
+              "end": 1.03,
+              "probability": 0.94921875
+            },
+            {
+              "text": " thou",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.896484375
+            },
+            {
+              "text": " must",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " be",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.9375
+            },
+            {
+              "text": " thyself.",
+              "start": 1.65,
+              "end": 2.17,
+              "probability": 0.992431640625
+            }
+          ]
+        },
+        {
+          "text": " He doth object I am too great of birth, and that my state being galled with my expense,",
+          "start": 2.71,
+          "end": 7.49,
+          "words": [
+            {
+              "text": " He",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " doth",
+              "start": 2.87,
+              "end": 3.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " object",
+              "start": 3.05,
+              "end": 3.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.962890625
+            },
+            {
+              "text": " am",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " too",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " great",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " birth,",
+              "start": 4.39,
+              "end": 4.63,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 4.95,
+              "end": 5.19,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " that",
+              "start": 5.19,
+              "end": 5.37,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 5.37,
+              "end": 5.57,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " state",
+              "start": 5.57,
+              "end": 5.91,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " being",
+              "start": 5.91,
+              "end": 6.21,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " galled",
+              "start": 6.21,
+              "end": 6.57,
+              "probability": 0.689453125
+            },
+            {
+              "text": " with",
+              "start": 6.57,
+              "end": 6.83,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " my",
+              "start": 6.83,
+              "end": 7.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " expense,",
+              "start": 7.01,
+              "end": 7.49,
+              "probability": 0.82666015625
+            }
+          ]
+        },
+        {
+          "text": " five I seek to heal it only by his wealth.",
+          "start": 7.93,
+          "end": 9.93,
+          "words": [
+            {
+              "text": " five",
+              "start": 7.93,
+              "end": 8.09,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " I",
+              "start": 8.09,
+              "end": 8.31,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " seek",
+              "start": 8.31,
+              "end": 8.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.47,
+              "end": 8.67,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " heal",
+              "start": 8.67,
+              "end": 8.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 8.83,
+              "end": 8.97,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " only",
+              "start": 8.97,
+              "end": 9.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " by",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 9.41,
+              "end": 9.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " wealth.",
+              "start": 9.59,
+              "end": 9.93,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Besides these, other bars he lays before me my riots past, my wild societies, and tells",
+          "start": 10.53,
+          "end": 16.43,
+          "words": [
+            {
+              "text": " Besides",
+              "start": 10.53,
+              "end": 10.91,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " these,",
+              "start": 10.91,
+              "end": 11.35,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " other",
+              "start": 11.65,
+              "end": 11.81,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " bars",
+              "start": 11.81,
+              "end": 12.11,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " he",
+              "start": 12.11,
+              "end": 12.29,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lays",
+              "start": 12.29,
+              "end": 12.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 12.59,
+              "end": 12.95,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " me",
+              "start": 12.95,
+              "end": 13.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 13.17,
+              "end": 13.37,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " riots",
+              "start": 13.37,
+              "end": 13.79,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " past,",
+              "start": 13.79,
+              "end": 14.21,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " my",
+              "start": 14.55,
+              "end": 14.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wild",
+              "start": 14.67,
+              "end": 14.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " societies,",
+              "start": 14.95,
+              "end": 15.57,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " and",
+              "start": 16.03,
+              "end": 16.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tells",
+              "start": 16.23,
+              "end": 16.43,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " me tease a thing impossible I should love thee but as a property.",
+          "start": 16.43,
+          "end": 19.67,
+          "words": [
+            {
+              "text": " me",
+              "start": 16.43,
+              "end": 16.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tease",
+              "start": 16.71,
+              "end": 16.95,
+              "probability": 0.455810546875
+            },
+            {
+              "text": " a",
+              "start": 16.95,
+              "end": 17.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thing",
+              "start": 17.15,
+              "end": 17.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " impossible",
+              "start": 17.33,
+              "end": 17.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 17.97,
+              "end": 18.23,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " should",
+              "start": 18.23,
+              "end": 18.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " love",
+              "start": 18.39,
+              "end": 18.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 18.69,
+              "end": 18.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " but",
+              "start": 18.87,
+              "end": 19.01,
+              "probability": 0.986328125
+            },
+            {
+              "text": " as",
+              "start": 19.01,
+              "end": 19.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 19.15,
+              "end": 19.33,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " property.",
+              "start": 19.33,
+              "end": 19.67,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Ten.",
+          "start": 20.53,
+          "end": 20.71,
+          "words": [
+            {
+              "text": " Ten.",
+              "start": 20.53,
+              "end": 20.71,
+              "probability": 0.56396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fent,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "why",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "raw": "thou",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "must",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "thyself.",
+          "start": 1.65,
+          "end": 2.17
+        },
+        {
+          "raw": "He",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "doth",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "raw": "object",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "raw": "I",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "am",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "too",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "great",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "of",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "birth,",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "raw": "and",
+          "start": 4.95,
+          "end": 5.19
+        },
+        {
+          "raw": "that",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "raw": "my",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "raw": "state",
+          "start": 5.57,
+          "end": 5.91
+        },
+        {
+          "raw": "being",
+          "start": 5.91,
+          "end": 6.21
+        },
+        {
+          "raw": "galled",
+          "start": 6.21,
+          "end": 6.57
+        },
+        {
+          "raw": "with",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "raw": "expense,",
+          "start": 7.01,
+          "end": 7.49
+        },
+        {
+          "raw": "five",
+          "start": 7.93,
+          "end": 8.09
+        },
+        {
+          "raw": "I",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "raw": "seek",
+          "start": 8.31,
+          "end": 8.47
+        },
+        {
+          "raw": "to",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "raw": "heal",
+          "start": 8.67,
+          "end": 8.83
+        },
+        {
+          "raw": "it",
+          "start": 8.83,
+          "end": 8.97
+        },
+        {
+          "raw": "only",
+          "start": 8.97,
+          "end": 9.19
+        },
+        {
+          "raw": "by",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "his",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "raw": "wealth.",
+          "start": 9.59,
+          "end": 9.93
+        },
+        {
+          "raw": "Besides",
+          "start": 10.53,
+          "end": 10.91
+        },
+        {
+          "raw": "these,",
+          "start": 10.91,
+          "end": 11.35
+        },
+        {
+          "raw": "other",
+          "start": 11.65,
+          "end": 11.81
+        },
+        {
+          "raw": "bars",
+          "start": 11.81,
+          "end": 12.11
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "raw": "lays",
+          "start": 12.29,
+          "end": 12.59
+        },
+        {
+          "raw": "before",
+          "start": 12.59,
+          "end": 12.95
+        },
+        {
+          "raw": "me",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "raw": "my",
+          "start": 13.17,
+          "end": 13.37
+        },
+        {
+          "raw": "riots",
+          "start": 13.37,
+          "end": 13.79
+        },
+        {
+          "raw": "past,",
+          "start": 13.79,
+          "end": 14.21
+        },
+        {
+          "raw": "my",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "raw": "wild",
+          "start": 14.67,
+          "end": 14.95
+        },
+        {
+          "raw": "societies,",
+          "start": 14.95,
+          "end": 15.57
+        },
+        {
+          "raw": "and",
+          "start": 16.03,
+          "end": 16.23
+        },
+        {
+          "raw": "tells",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "raw": "me",
+          "start": 16.43,
+          "end": 16.71
+        },
+        {
+          "raw": "tease",
+          "start": 16.71,
+          "end": 16.95
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "raw": "thing",
+          "start": 17.15,
+          "end": 17.33
+        },
+        {
+          "raw": "impossible",
+          "start": 17.33,
+          "end": 17.97
+        },
+        {
+          "raw": "I",
+          "start": 17.97,
+          "end": 18.23
+        },
+        {
+          "raw": "should",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "raw": "love",
+          "start": 18.39,
+          "end": 18.69
+        },
+        {
+          "raw": "thee",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "raw": "but",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "raw": "as",
+          "start": 19.01,
+          "end": 19.15
+        },
+        {
+          "raw": "a",
+          "start": 19.15,
+          "end": 19.33
+        },
+        {
+          "raw": "property.",
+          "start": 19.33,
+          "end": 19.67
+        },
+        {
+          "raw": "Ten.",
+          "start": 20.53,
+          "end": 20.71
+        }
+      ],
+      "expected_tokens": [
+        "_Fent._",
+        "Why,",
+        "thou",
+        "must",
+        "be",
+        "thyself.",
+        "He",
+        "doth",
+        "object",
+        "I",
+        "am",
+        "too",
+        "great",
+        "of",
+        "birth;",
+        "And",
+        "that,",
+        "my",
+        "state",
+        "being",
+        "gall’d",
+        "with",
+        "my",
+        "expense,",
+        "5",
+        "I",
+        "seek",
+        "to",
+        "heal",
+        "it",
+        "only",
+        "by",
+        "his",
+        "wealth:",
+        "Besides",
+        "these,",
+        "other",
+        "bars",
+        "he",
+        "lays",
+        "before",
+        "me,--",
+        "My",
+        "riots",
+        "past,",
+        "my",
+        "wild",
+        "societies;",
+        "And",
+        "tells",
+        "me",
+        "’tis",
+        "a",
+        "thing",
+        "impossible",
+        "I",
+        "should",
+        "love",
+        "thee",
+        "but",
+        "as",
+        "a",
+        "property.",
+        "10"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fent._",
+        "Why,",
+        "thou",
+        "must",
+        "be",
+        "thyself.",
+        "He",
+        "doth",
+        "object",
+        "I",
+        "am",
+        "too",
+        "great",
+        "of",
+        "birth;",
+        "And",
+        "that,",
+        "my",
+        "state",
+        "being",
+        "gall'd",
+        "with",
+        "my",
+        "expense,",
+        "5",
+        "I",
+        "seek",
+        "to",
+        "heal",
+        "it",
+        "only",
+        "by",
+        "his",
+        "wealth:",
+        "Besides",
+        "these,",
+        "other",
+        "bars",
+        "he",
+        "lays",
+        "before",
+        "me,--",
+        "My",
+        "riots",
+        "past,",
+        "my",
+        "wild",
+        "societies;",
+        "And",
+        "tells",
+        "me",
+        "'tis",
+        "a",
+        "thing",
+        "impossible",
+        "I",
+        "should",
+        "love",
+        "thee",
+        "but",
+        "as",
+        "a",
+        "property.",
+        "10"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ],
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          64,
+          52,
+          64
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          51,
+          52,
+          51,
+          52
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fent,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "fent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.91,
+          "end": 1.03,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thyself.",
+          "start": 1.65,
+          "end": 2.17,
+          "key": "thyself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.87,
+          "end": 3.05,
+          "key": "doth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "object",
+          "start": 3.05,
+          "end": 3.39,
+          "key": "object",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "am",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.77,
+          "end": 3.99,
+          "key": "too",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "great",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "birth,",
+          "start": 4.39,
+          "end": 4.63,
+          "key": "birth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.95,
+          "end": 5.19,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.19,
+          "end": 5.37,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.37,
+          "end": 5.57,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 5.57,
+          "end": 5.91,
+          "key": "state",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 5.91,
+          "end": 6.21,
+          "key": "being",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "galled",
+          "start": 6.21,
+          "end": 6.57,
+          "key": "galled",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.57,
+          "end": 6.83,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.83,
+          "end": 7.01,
+          "key": "my",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "expense,",
+          "start": 7.01,
+          "end": 7.49,
+          "key": "expense",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 7.93,
+          "end": 8.09,
+          "key": "five",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.09,
+          "end": 8.31,
+          "key": "i",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 8.31,
+          "end": 8.47,
+          "key": "seek",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.47,
+          "end": 8.67,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "heal",
+          "start": 8.67,
+          "end": 8.83,
+          "key": "heal",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.83,
+          "end": 8.97,
+          "key": "it",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 8.97,
+          "end": 9.19,
+          "key": "only",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "by",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.41,
+          "end": 9.59,
+          "key": "his",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "wealth.",
+          "start": 9.59,
+          "end": 9.93,
+          "key": "wealth",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Besides",
+          "start": 10.53,
+          "end": 10.91,
+          "key": "besides",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "these,",
+          "start": 10.91,
+          "end": 11.35,
+          "key": "these",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 11.65,
+          "end": 11.81,
+          "key": "other",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "bars",
+          "start": 11.81,
+          "end": 12.11,
+          "key": "bars",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.11,
+          "end": 12.29,
+          "key": "he",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "lays",
+          "start": 12.29,
+          "end": 12.59,
+          "key": "lays",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 12.59,
+          "end": 12.95,
+          "key": "before",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 12.95,
+          "end": 13.17,
+          "key": "me",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.17,
+          "end": 13.37,
+          "key": "my",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "riots",
+          "start": 13.37,
+          "end": 13.79,
+          "key": "riots",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "past,",
+          "start": 13.79,
+          "end": 14.21,
+          "key": "past",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 14.55,
+          "end": 14.67,
+          "key": "my",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "wild",
+          "start": 14.67,
+          "end": 14.95,
+          "key": "wild",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "societies,",
+          "start": 14.95,
+          "end": 15.57,
+          "key": "societies",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.03,
+          "end": 16.23,
+          "key": "and",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 16.23,
+          "end": 16.43,
+          "key": "tells",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.43,
+          "end": 16.71,
+          "key": "me",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 16.71,
+          "end": 16.95,
+          "key": "tease",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.15,
+          "key": "a",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 17.15,
+          "end": 17.33,
+          "key": "thing",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "impossible",
+          "start": 17.33,
+          "end": 17.97,
+          "key": "impossible",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.97,
+          "end": 18.23,
+          "key": "i",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.23,
+          "end": 18.39,
+          "key": "should",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 18.39,
+          "end": 18.69,
+          "key": "love",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 18.69,
+          "end": 18.87,
+          "key": "thee",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 18.87,
+          "end": 19.01,
+          "key": "but",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 19.01,
+          "end": 19.15,
+          "key": "as",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.15,
+          "end": 19.33,
+          "key": "a",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "property.",
+          "start": 19.33,
+          "end": 19.67,
+          "key": "property",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Ten.",
+          "start": 20.53,
+          "end": 20.71,
+          "key": "ten",
+          "pieces": [
+            63
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fent._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Why,",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "text": "thou",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "must",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "be",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "thyself.",
+          "start": 1.65,
+          "end": 2.17
+        },
+        {
+          "text": "He",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "doth",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "text": "object",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "text": "I",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "am",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "too",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "great",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "of",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "birth;",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "text": "And",
+          "start": 4.95,
+          "end": 5.19
+        },
+        {
+          "text": "that,",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "text": "my",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "text": "state",
+          "start": 5.57,
+          "end": 5.91
+        },
+        {
+          "text": "being",
+          "start": 5.91,
+          "end": 6.21
+        },
+        {
+          "text": "gall’d",
+          "start": 6.21,
+          "end": 6.57
+        },
+        {
+          "text": "with",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "text": "my",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "text": "expense,",
+          "start": 7.01,
+          "end": 7.49
+        },
+        {
+          "text": "5",
+          "start": 7.93,
+          "end": 8.09
+        },
+        {
+          "text": "I",
+          "start": 8.09,
+          "end": 8.31
+        },
+        {
+          "text": "seek",
+          "start": 8.31,
+          "end": 8.47
+        },
+        {
+          "text": "to",
+          "start": 8.47,
+          "end": 8.67
+        },
+        {
+          "text": "heal",
+          "start": 8.67,
+          "end": 8.83
+        },
+        {
+          "text": "it",
+          "start": 8.83,
+          "end": 8.97
+        },
+        {
+          "text": "only",
+          "start": 8.97,
+          "end": 9.19
+        },
+        {
+          "text": "by",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "his",
+          "start": 9.41,
+          "end": 9.59
+        },
+        {
+          "text": "wealth:",
+          "start": 9.59,
+          "end": 9.93
+        },
+        {
+          "text": "Besides",
+          "start": 10.53,
+          "end": 10.91
+        },
+        {
+          "text": "these,",
+          "start": 10.91,
+          "end": 11.35
+        },
+        {
+          "text": "other",
+          "start": 11.65,
+          "end": 11.81
+        },
+        {
+          "text": "bars",
+          "start": 11.81,
+          "end": 12.11
+        },
+        {
+          "text": "he",
+          "start": 12.11,
+          "end": 12.29
+        },
+        {
+          "text": "lays",
+          "start": 12.29,
+          "end": 12.59
+        },
+        {
+          "text": "before",
+          "start": 12.59,
+          "end": 12.95
+        },
+        {
+          "text": "me,--",
+          "start": 12.95,
+          "end": 13.17
+        },
+        {
+          "text": "My",
+          "start": 13.17,
+          "end": 13.37
+        },
+        {
+          "text": "riots",
+          "start": 13.37,
+          "end": 13.79
+        },
+        {
+          "text": "past,",
+          "start": 13.79,
+          "end": 14.21
+        },
+        {
+          "text": "my",
+          "start": 14.55,
+          "end": 14.67
+        },
+        {
+          "text": "wild",
+          "start": 14.67,
+          "end": 14.95
+        },
+        {
+          "text": "societies;",
+          "start": 14.95,
+          "end": 15.57
+        },
+        {
+          "text": "And",
+          "start": 16.03,
+          "end": 16.23
+        },
+        {
+          "text": "tells",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "text": "me",
+          "start": 16.43,
+          "end": 16.71
+        },
+        {
+          "text": "’tis",
+          "start": 16.71,
+          "end": 16.83
+        },
+        {
+          "text": "a",
+          "start": 16.95,
+          "end": 17.15
+        },
+        {
+          "text": "thing",
+          "start": 17.15,
+          "end": 17.33
+        },
+        {
+          "text": "impossible",
+          "start": 17.33,
+          "end": 17.97
+        },
+        {
+          "text": "I",
+          "start": 17.97,
+          "end": 18.23
+        },
+        {
+          "text": "should",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "text": "love",
+          "start": 18.39,
+          "end": 18.69
+        },
+        {
+          "text": "thee",
+          "start": 18.69,
+          "end": 18.87
+        },
+        {
+          "text": "but",
+          "start": 18.87,
+          "end": 19.01
+        },
+        {
+          "text": "as",
+          "start": 19.01,
+          "end": 19.15
+        },
+        {
+          "text": "a",
+          "start": 19.15,
+          "end": 19.33
+        },
+        {
+          "text": "property.",
+          "start": 19.33,
+          "end": 19.67
+        },
+        {
+          "text": "10",
+          "start": 20.53,
+          "end": 20.71
+        }
+      ],
+      "stats": {
+        "expected_words": 64,
+        "heard_words": 64,
+        "matched_words": 63
+      },
+      "match_ratio": 0.984375,
+      "rejection_reasons": [],
+      "seconds": 1.0274355160072446
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "d8685f4ff745868c7e21f3cfc5e058fe7ba7838e3b9bebc0c7fced3063dba4ee",
+  "selected_reasons": []
+}

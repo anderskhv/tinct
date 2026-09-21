@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "7b1e93a9106ab09b8e23feb239a24ba38541a4c147efff7e973854d939ca7454",
+  "attempts": [
+    {
+      "asr_seconds": 0.19759784545749426,
+      "alignment_seconds": 0.0010382700711488724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ When must he die?",
+        "hotwords": "When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, when must he die?",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.849609375
+            },
+            {
+              "text": " when",
+              "start": 1.07,
+              "end": 1.13,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " must",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " die?",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "when",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "raw": "must",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "he",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "die?",
+          "start": 1.47,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "When",
+        "must",
+        "he",
+        "die?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "When",
+        "must",
+        "he",
+        "die?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.07,
+          "end": 1.13,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "die?",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "die",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "When",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "text": "must",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "he",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "die?",
+          "start": 1.47,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19873336236923933
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3ff1a4555e837e0b096ca876f195278dbb788d2b885abfee37fa761717a8ce6",
+  "selected_reasons": []
+}

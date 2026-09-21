@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "86f5b36482abfe5af69eb86dd1d321e26fa8289cc00f4bee501eb8dca3e45d5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.25707155372947454,
+      "alignment_seconds": 0.0011519631370902061,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Mine host of the Garter!",
+        "hotwords": "Mine, Garter"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fal, Mine host of the Garter!",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.0177764892578125
+            },
+            {
+              "text": " Mine",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.1649169921875
+            },
+            {
+              "text": " host",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.130126953125
+            },
+            {
+              "text": " of",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Garter!",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Mine",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "host",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "Garter!",
+          "start": 1.8,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Mine",
+        "host",
+        "of",
+        "the",
+        "Garter!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Mine",
+        "host",
+        "of",
+        "the",
+        "Garter!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mine",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "mine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "host",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "host",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Garter!",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "garter",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Mine",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "host",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "text": "of",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "the",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "Garter!",
+          "start": 1.8,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2583435457199812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b816536eb8f7c4445f5af2189ded2f59d11cfe9b0fe105d9814713592396c434",
+  "selected_reasons": []
+}

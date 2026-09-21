@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "7cac9d1ee4de89a2d3c12470ea1916f4ce5111b215e5317eb5a65ec62d29e70f",
+  "attempts": [
+    {
+      "asr_seconds": 0.20152664929628372,
+      "alignment_seconds": 0.0008217757567763329,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Will._ A stone.",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will. A stone.",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Will.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " A",
+              "start": 1.02,
+              "end": 1.1,
+              "probability": 0.5009765625
+            },
+            {
+              "text": " stone.",
+              "start": 1.1,
+              "end": 1.44,
+              "probability": 0.6083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "A",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "raw": "stone.",
+          "start": 1.1,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "_Will._",
+        "A",
+        "stone."
+      ],
+      "acoustic_expected_tokens": [
+        "_Will._",
+        "A",
+        "stone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will.",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.02,
+          "end": 1.1,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stone.",
+          "start": 1.1,
+          "end": 1.44,
+          "key": "stone",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Will._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "A",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "text": "stone.",
+          "start": 1.1,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2024221383035183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "30855f4644f608476f71c89b87b7a95d461d44fbbb459eb08b266cc89312800a",
+  "selected_reasons": []
+}

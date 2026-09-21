@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "76187d0fec24d84199a7100bcfb58d1c3f7f77f2c7085b15112e3bbf6680afb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.31975235138088465,
+      "alignment_seconds": 0.0014571789652109146,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Quia etiam bene proficientes animos tentare non cessat.\"",
+        "hotwords": "Quia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quia etiam bene proficientes animos tentare non cessat.",
+          "start": 0.08,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Quia",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.4276123046875
+            },
+            {
+              "text": " etiam",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.013797760009765625
+            },
+            {
+              "text": " bene",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.01751708984375
+            },
+            {
+              "text": " proficientes",
+              "start": 1.32,
+              "end": 1.96,
+              "probability": 0.046600341796875
+            },
+            {
+              "text": " animos",
+              "start": 1.96,
+              "end": 2.36,
+              "probability": 0.953369140625
+            },
+            {
+              "text": " tentare",
+              "start": 2.36,
+              "end": 2.8,
+              "probability": 0.28054237365722656
+            },
+            {
+              "text": " non",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.9765625
+            },
+            {
+              "text": " cessat.",
+              "start": 3.0,
+              "end": 3.52,
+              "probability": 0.39171648025512695
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quia",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "etiam",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "bene",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "proficientes",
+          "start": 1.32,
+          "end": 1.96
+        },
+        {
+          "raw": "animos",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "raw": "tentare",
+          "start": 2.36,
+          "end": 2.8
+        },
+        {
+          "raw": "non",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "cessat.",
+          "start": 3.0,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "“Quia",
+        "etiam",
+        "bene",
+        "proficientes",
+        "animos",
+        "tentare",
+        "non",
+        "cessat.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Quia",
+        "etiam",
+        "bene",
+        "proficientes",
+        "animos",
+        "tentare",
+        "non",
+        "cessat.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quia",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "quia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "etiam",
+          "start": 0.7,
+          "end": 1.04,
+          "key": "etiam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bene",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "bene",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "proficientes",
+          "start": 1.32,
+          "end": 1.96,
+          "key": "proficientes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "animos",
+          "start": 1.96,
+          "end": 2.36,
+          "key": "animos",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tentare",
+          "start": 2.36,
+          "end": 2.8,
+          "key": "tentare",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "non",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "non",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cessat.",
+          "start": 3.0,
+          "end": 3.52,
+          "key": "cessat",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Quia",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "etiam",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "bene",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "proficientes",
+          "start": 1.32,
+          "end": 1.96
+        },
+        {
+          "text": "animos",
+          "start": 1.96,
+          "end": 2.36
+        },
+        {
+          "text": "tentare",
+          "start": 2.36,
+          "end": 2.8
+        },
+        {
+          "text": "non",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "cessat.”",
+          "start": 3.0,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3213506266474724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "65869d2013bcf8c9e377be0663226cf13ea6dd9523a5b134cbeb19b234aa9bf8",
+  "selected_reasons": []
+}

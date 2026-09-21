@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "db1d8d6e2c2c296d666fede101020bf64fad8dc6505040993b556f97d7ad7baf",
+  "attempts": [
+    {
+      "asr_seconds": 0.4061375027522445,
+      "alignment_seconds": 0.002506555989384651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Nym._ With both the humours, I: I will discuss the humour of this love to Page.",
+        "hotwords": "With, I, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nym, with both the humours, I, I will discuss the humour of this love to Page.",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Nym,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.5523681640625
+            },
+            {
+              "text": " with",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " both",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.900390625
+            },
+            {
+              "text": " humours,",
+              "start": 1.81,
+              "end": 2.19,
+              "probability": 0.57513427734375
+            },
+            {
+              "text": " I,",
+              "start": 2.45,
+              "end": 2.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 2.87,
+              "end": 3.05,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " will",
+              "start": 3.05,
+              "end": 3.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " discuss",
+              "start": 3.15,
+              "end": 3.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.45,
+              "end": 3.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " humour",
+              "start": 3.71,
+              "end": 3.93,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " love",
+              "start": 4.25,
+              "end": 4.55,
+              "probability": 0.958984375
+            },
+            {
+              "text": " to",
+              "start": 4.55,
+              "end": 4.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Page.",
+              "start": 4.75,
+              "end": 5.03,
+              "probability": 0.2169189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nym,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "with",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "both",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "humours,",
+          "start": 1.81,
+          "end": 2.19
+        },
+        {
+          "raw": "I,",
+          "start": 2.45,
+          "end": 2.47
+        },
+        {
+          "raw": "I",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "raw": "will",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "raw": "discuss",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "raw": "humour",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "this",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "love",
+          "start": 4.25,
+          "end": 4.55
+        },
+        {
+          "raw": "to",
+          "start": 4.55,
+          "end": 4.75
+        },
+        {
+          "raw": "Page.",
+          "start": 4.75,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "_Nym._",
+        "With",
+        "both",
+        "the",
+        "humours,",
+        "I:",
+        "I",
+        "will",
+        "discuss",
+        "the",
+        "humour",
+        "of",
+        "this",
+        "love",
+        "to",
+        "Page."
+      ],
+      "acoustic_expected_tokens": [
+        "_Nym._",
+        "With",
+        "both",
+        "the",
+        "humours,",
+        "I:",
+        "I",
+        "will",
+        "discuss",
+        "the",
+        "humour",
+        "of",
+        "this",
+        "love",
+        "to",
+        "Page."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nym,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "nym",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "both",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "humours,",
+          "start": 1.81,
+          "end": 2.19,
+          "key": "humours",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 2.45,
+          "end": 2.47,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.87,
+          "end": 3.05,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.05,
+          "end": 3.15,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "discuss",
+          "start": 3.15,
+          "end": 3.45,
+          "key": "discuss",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.71,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "humour",
+          "start": 3.71,
+          "end": 3.93,
+          "key": "humour",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 4.25,
+          "end": 4.55,
+          "key": "love",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.55,
+          "end": 4.75,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 4.75,
+          "end": 5.03,
+          "key": "page",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Nym._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "With",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "both",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "the",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "humours,",
+          "start": 1.81,
+          "end": 2.19
+        },
+        {
+          "text": "I:",
+          "start": 2.45,
+          "end": 2.47
+        },
+        {
+          "text": "I",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "text": "will",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "text": "discuss",
+          "start": 3.15,
+          "end": 3.45
+        },
+        {
+          "text": "the",
+          "start": 3.45,
+          "end": 3.71
+        },
+        {
+          "text": "humour",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "this",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "love",
+          "start": 4.25,
+          "end": 4.55
+        },
+        {
+          "text": "to",
+          "start": 4.55,
+          "end": 4.75
+        },
+        {
+          "text": "Page.",
+          "start": 4.75,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40890432987362146
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "43533c1fd7efdd0e8d77ed4592eb57c2a5719da8b89a665869f197ef956219c2",
+  "selected_reasons": []
+}

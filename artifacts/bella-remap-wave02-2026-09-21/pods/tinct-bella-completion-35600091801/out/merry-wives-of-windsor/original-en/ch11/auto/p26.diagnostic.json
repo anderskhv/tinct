@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "922ccf499a3f2eeb8866532dd38c98c4e61bde81fd2fc69f8d93ae0c22736d6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.27610658295452595,
+      "alignment_seconds": 0.0010566040873527527,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Slen._ Now, good Mistress Anne,--",
+        "hotwords": "Now, Mistress, Anne"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Slen, now, good Mistress Anne.",
+          "start": 0.11,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Slen,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " now,",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.978515625
+            },
+            {
+              "text": " good",
+              "start": 1.45,
+              "end": 1.51,
+              "probability": 0.4287109375
+            },
+            {
+              "text": " Mistress",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.2283935546875
+            },
+            {
+              "text": " Anne.",
+              "start": 1.81,
+              "end": 2.17,
+              "probability": 0.80908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "now,",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "good",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.81,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "_Slen._",
+        "Now,",
+        "good",
+        "Mistress",
+        "Anne,--"
+      ],
+      "acoustic_expected_tokens": [
+        "_Slen._",
+        "Now,",
+        "good",
+        "Mistress",
+        "Anne,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "slen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.45,
+          "end": 1.51,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.51,
+          "end": 1.81,
+          "key": "mistress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.81,
+          "end": 2.17,
+          "key": "anne",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Slen._",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "Now,",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "good",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "text": "Mistress",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "text": "Anne,--",
+          "start": 1.81,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27726408280432224
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ff8b14f722ba6c98b99c63dbb2cf6f3ffc454fe90839f20d52dcb529696a6c1",
+  "selected_reasons": []
+}

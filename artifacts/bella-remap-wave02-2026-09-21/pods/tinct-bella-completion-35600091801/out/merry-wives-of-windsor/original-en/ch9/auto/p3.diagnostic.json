@@ -1,0 +1,1127 @@
+{
+  "complete": true,
+  "signature": "96ba86e01559af7556f0a9133650e486cc19767812f5de3bd67afcf4a3da3b60",
+  "attempts": [
+    {
+      "asr_seconds": 0.35926919151097536,
+      "alignment_seconds": 0.0025054579600691795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ O, you are a flattering boy: now I see you'll be a courtier.",
+        "hotwords": "Page._, O, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " M. Page._, O, you are a flattering boy, now I see you'll be a courtier.",
+          "start": 0.05,
+          "end": 4.53,
+          "words": [
+            {
+              "text": " M.",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.00208282470703125
+            },
+            {
+              "text": " Page._,",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.3466797471046448
+            },
+            {
+              "text": " O,",
+              "start": 1.73,
+              "end": 1.75,
+              "probability": 0.03656005859375
+            },
+            {
+              "text": " you",
+              "start": 1.83,
+              "end": 1.91,
+              "probability": 0.931640625
+            },
+            {
+              "text": " are",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " flattering",
+              "start": 2.21,
+              "end": 2.53,
+              "probability": 0.96484375
+            },
+            {
+              "text": " boy,",
+              "start": 2.53,
+              "end": 2.91,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " now",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.8984375
+            },
+            {
+              "text": " I",
+              "start": 3.43,
+              "end": 3.59,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " see",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you'll",
+              "start": 3.75,
+              "end": 3.89,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " be",
+              "start": 3.89,
+              "end": 3.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.99,
+              "end": 4.15,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " courtier.",
+              "start": 4.15,
+              "end": 4.53,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "M.",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "O,",
+          "start": 1.73,
+          "end": 1.75
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "raw": "are",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "flattering",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "raw": "boy,",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "raw": "now",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "raw": "see",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "you'll",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "raw": "be",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "raw": "a",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "raw": "courtier.",
+          "start": 4.15,
+          "end": 4.53
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "O,",
+        "you",
+        "are",
+        "a",
+        "flattering",
+        "boy:",
+        "now",
+        "I",
+        "see",
+        "you’ll",
+        "be",
+        "a",
+        "courtier."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "O,",
+        "you",
+        "are",
+        "a",
+        "flattering",
+        "boy:",
+        "now",
+        "I",
+        "see",
+        "you'll",
+        "be",
+        "a",
+        "courtier."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "M.",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "m",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.29,
+          "end": 1.61,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.73,
+          "end": 1.75,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 1.91,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.21,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "flattering",
+          "start": 2.21,
+          "end": 2.53,
+          "key": "flattering",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "boy,",
+          "start": 2.53,
+          "end": 2.91,
+          "key": "boy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.59,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.59,
+          "end": 3.75,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 3.75,
+          "end": 3.89,
+          "key": "youll",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.89,
+          "end": 3.99,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.99,
+          "end": 4.15,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "courtier.",
+          "start": 4.15,
+          "end": 4.53,
+          "key": "courtier",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "Page._",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "text": "O,",
+          "start": 1.73,
+          "end": 1.75
+        },
+        {
+          "text": "you",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "text": "are",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "a",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "flattering",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "text": "boy:",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "text": "now",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "I",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "text": "see",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "you’ll",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "text": "be",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "text": "a",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "text": "courtier.",
+          "start": 4.15,
+          "end": 4.53
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3620073040947318
+    },
+    {
+      "asr_seconds": 0.366858160123229,
+      "alignment_seconds": 0.002413109876215458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Page._, O, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Mrs. Page, O, you are a flattering boy. Now I see you'll be a courtier.",
+          "start": 0.05,
+          "end": 4.51,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.312744140625
+            },
+            {
+              "text": " Page,",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.8828125
+            },
+            {
+              "text": " O,",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.00153350830078125
+            },
+            {
+              "text": " you",
+              "start": 1.83,
+              "end": 1.91,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " are",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.982421875
+            },
+            {
+              "text": " flattering",
+              "start": 2.21,
+              "end": 2.53,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " boy.",
+              "start": 2.53,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Now",
+              "start": 3.29,
+              "end": 3.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 3.43,
+              "end": 3.59,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " see",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you'll",
+              "start": 3.75,
+              "end": 3.89,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " be",
+              "start": 3.89,
+              "end": 3.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 3.97,
+              "end": 4.15,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " courtier.",
+              "start": 4.15,
+              "end": 4.51,
+              "probability": 0.982177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Page,",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "O,",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "raw": "are",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "flattering",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "raw": "boy.",
+          "start": 2.53,
+          "end": 2.93
+        },
+        {
+          "raw": "Now",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "raw": "see",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "you'll",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "raw": "be",
+          "start": 3.89,
+          "end": 3.97
+        },
+        {
+          "raw": "a",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "raw": "courtier.",
+          "start": 4.15,
+          "end": 4.51
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "O,",
+        "you",
+        "are",
+        "a",
+        "flattering",
+        "boy:",
+        "now",
+        "I",
+        "see",
+        "you’ll",
+        "be",
+        "a",
+        "courtier."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "O,",
+        "you",
+        "are",
+        "a",
+        "flattering",
+        "boy:",
+        "now",
+        "I",
+        "see",
+        "you'll",
+        "be",
+        "a",
+        "courtier."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 1.91,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.21,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "flattering",
+          "start": 2.21,
+          "end": 2.53,
+          "key": "flattering",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 2.53,
+          "end": 2.93,
+          "key": "boy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 3.29,
+          "end": 3.43,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.43,
+          "end": 3.59,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.59,
+          "end": 3.75,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 3.75,
+          "end": 3.89,
+          "key": "youll",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.89,
+          "end": 3.97,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.97,
+          "end": 4.15,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "courtier.",
+          "start": 4.15,
+          "end": 4.51,
+          "key": "courtier",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Page._",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "O,",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "you",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "text": "are",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "a",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "flattering",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "text": "boy:",
+          "start": 2.53,
+          "end": 2.93
+        },
+        {
+          "text": "now",
+          "start": 3.29,
+          "end": 3.43
+        },
+        {
+          "text": "I",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "text": "see",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "you’ll",
+          "start": 3.75,
+          "end": 3.89
+        },
+        {
+          "text": "be",
+          "start": 3.89,
+          "end": 3.97
+        },
+        {
+          "text": "a",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "text": "courtier.",
+          "start": 4.15,
+          "end": 4.51
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36950576957315207
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "a9cb286c1e5a04722d970784c70347bf158b3ec855ddbee3d0b544097e18b458",
+  "selected_reasons": []
+}

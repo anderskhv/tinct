@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "71c6512eebe7bb47e2fd673e3709d72b30d1eaaac0bffee19ed96071eb2136c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20412925723940134,
+      "alignment_seconds": 0.000812034122645855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Lucio._ But speedily.",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucio. But speedily.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Lucio.",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.900390625
+            },
+            {
+              "text": " But",
+              "start": 1.19,
+              "end": 1.23,
+              "probability": 0.908203125
+            },
+            {
+              "text": " speedily.",
+              "start": 1.23,
+              "end": 1.75,
+              "probability": 0.963623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucio.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "But",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "raw": "speedily.",
+          "start": 1.23,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "_Lucio._",
+        "But",
+        "speedily."
+      ],
+      "acoustic_expected_tokens": [
+        "_Lucio._",
+        "But",
+        "speedily."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucio.",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "lucio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.19,
+          "end": 1.23,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "speedily.",
+          "start": 1.23,
+          "end": 1.75,
+          "key": "speedily",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Lucio._",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "But",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "text": "speedily.",
+          "start": 1.23,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20501312240958214
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f43dcda1d72f0d02825de6cd8261f11ec00317ebddfbc24fee76a1d140aabd3a",
+  "selected_reasons": []
+}

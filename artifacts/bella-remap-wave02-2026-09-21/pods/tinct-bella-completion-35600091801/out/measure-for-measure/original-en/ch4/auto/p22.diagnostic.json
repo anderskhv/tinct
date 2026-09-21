@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "0ff3dcc25cb82641f940908804078f612940d68a6ba104017208301218e690cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.21736485045403242,
+      "alignment_seconds": 0.0010519707575440407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Isab._ O, let him marry her.",
+        "hotwords": "O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Isab, O, let him marry her.",
+          "start": 0.02,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.6363525390625
+            },
+            {
+              "text": " O,",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " let",
+              "start": 1.44,
+              "end": 1.5,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " him",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.947265625
+            },
+            {
+              "text": " marry",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " her.",
+              "start": 1.84,
+              "end": 2.12,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "O,",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "let",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "raw": "him",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "marry",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "her.",
+          "start": 1.84,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "O,",
+        "let",
+        "him",
+        "marry",
+        "her."
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "O,",
+        "let",
+        "him",
+        "marry",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.44,
+          "end": 1.5,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "marry",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "marry",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 1.84,
+          "end": 2.12,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "O,",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "let",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "text": "him",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "marry",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "her.",
+          "start": 1.84,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21853147633373737
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48435d51054741e0dd4d3e78c29ce6af92d1444e3959bdc4d40eb5748032b8f2",
+  "selected_reasons": []
+}

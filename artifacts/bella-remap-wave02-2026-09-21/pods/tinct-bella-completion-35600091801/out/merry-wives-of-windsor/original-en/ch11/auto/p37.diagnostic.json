@@ -1,0 +1,759 @@
+{
+  "complete": true,
+  "signature": "a0474f19b50c44551140e8bce3128f011ddd505d5b9bfb43504b0047e10fa3b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.4915215000510216,
+      "alignment_seconds": 0.0027039777487516403,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Page._ No, good Master Fenton. Come, Master Shallow; come, son Slender, in. Knowing my mind, you wrong me, Master Fenton. 75",
+        "hotwords": "No, Master, Fenton, Shallow, Slender, Knowing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Page, no, good Master Fenton. Come, Master Shallow, come, son Slender, in. Knowing my mind, you wrong me, Master Fenton. 75",
+          "start": 0.0,
+          "end": 9.16,
+          "words": [
+            {
+              "text": " Page,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.427001953125
+            },
+            {
+              "text": " no,",
+              "start": 1.12,
+              "end": 1.26,
+              "probability": 0.908203125
+            },
+            {
+              "text": " good",
+              "start": 1.46,
+              "end": 1.52,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " Master",
+              "start": 1.52,
+              "end": 1.88,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Fenton.",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " Come,",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Master",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.984375
+            },
+            {
+              "text": " Shallow,",
+              "start": 3.5,
+              "end": 3.96,
+              "probability": 0.986083984375
+            },
+            {
+              "text": " come,",
+              "start": 4.32,
+              "end": 4.5,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " son",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.1248779296875
+            },
+            {
+              "text": " Slender,",
+              "start": 4.84,
+              "end": 5.28,
+              "probability": 0.912109375
+            },
+            {
+              "text": " in.",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Knowing",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 6.3,
+              "end": 6.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mind,",
+              "start": 6.48,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 6.98,
+              "end": 7.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wrong",
+              "start": 7.04,
+              "end": 7.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me,",
+              "start": 7.24,
+              "end": 7.48,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " Master",
+              "start": 7.74,
+              "end": 7.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Fenton.",
+              "start": 7.84,
+              "end": 8.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " 75",
+              "start": 8.76,
+              "end": 9.16,
+              "probability": 0.33544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Page,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "no,",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "raw": "good",
+          "start": 1.46,
+          "end": 1.52
+        },
+        {
+          "raw": "Master",
+          "start": 1.52,
+          "end": 1.88
+        },
+        {
+          "raw": "Fenton.",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "raw": "Come,",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "Master",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "Shallow,",
+          "start": 3.5,
+          "end": 3.96
+        },
+        {
+          "raw": "come,",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "raw": "son",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "Slender,",
+          "start": 4.84,
+          "end": 5.28
+        },
+        {
+          "raw": "in.",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "Knowing",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "raw": "my",
+          "start": 6.3,
+          "end": 6.48
+        },
+        {
+          "raw": "mind,",
+          "start": 6.48,
+          "end": 6.84
+        },
+        {
+          "raw": "you",
+          "start": 6.98,
+          "end": 7.04
+        },
+        {
+          "raw": "wrong",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "raw": "me,",
+          "start": 7.24,
+          "end": 7.48
+        },
+        {
+          "raw": "Master",
+          "start": 7.74,
+          "end": 7.84
+        },
+        {
+          "raw": "Fenton.",
+          "start": 7.84,
+          "end": 8.28
+        },
+        {
+          "raw": "75",
+          "start": 8.76,
+          "end": 9.16
+        }
+      ],
+      "expected_tokens": [
+        "_Page._",
+        "No,",
+        "good",
+        "Master",
+        "Fenton.",
+        "Come,",
+        "Master",
+        "Shallow;",
+        "come,",
+        "son",
+        "Slender,",
+        "in.",
+        "Knowing",
+        "my",
+        "mind,",
+        "you",
+        "wrong",
+        "me,",
+        "Master",
+        "Fenton.",
+        "75"
+      ],
+      "acoustic_expected_tokens": [
+        "_Page._",
+        "No,",
+        "good",
+        "Master",
+        "Fenton.",
+        "Come,",
+        "Master",
+        "Shallow;",
+        "come,",
+        "son",
+        "Slender,",
+        "in.",
+        "Knowing",
+        "my",
+        "mind,",
+        "you",
+        "wrong",
+        "me,",
+        "Master",
+        "Fenton.",
+        "75"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Page,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "page",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.12,
+          "end": 1.26,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.46,
+          "end": 1.52,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.52,
+          "end": 1.88,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fenton.",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "fenton",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 2.96,
+          "end": 3.12,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "master",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shallow,",
+          "start": 3.5,
+          "end": 3.96,
+          "key": "shallow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 4.32,
+          "end": 4.5,
+          "key": "come",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 4.66,
+          "end": 4.84,
+          "key": "son",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Slender,",
+          "start": 4.84,
+          "end": 5.28,
+          "key": "slender",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 5.42,
+          "end": 5.6,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Knowing",
+          "start": 6.0,
+          "end": 6.3,
+          "key": "knowing",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.3,
+          "end": 6.48,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mind,",
+          "start": 6.48,
+          "end": 6.84,
+          "key": "mind",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.98,
+          "end": 7.04,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wrong",
+          "start": 7.04,
+          "end": 7.24,
+          "key": "wrong",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 7.24,
+          "end": 7.48,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 7.74,
+          "end": 7.84,
+          "key": "master",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Fenton.",
+          "start": 7.84,
+          "end": 8.28,
+          "key": "fenton",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "75",
+          "start": 8.76,
+          "end": 9.16,
+          "key": "seventyfive",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Page._",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "No,",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "text": "good",
+          "start": 1.46,
+          "end": 1.52
+        },
+        {
+          "text": "Master",
+          "start": 1.52,
+          "end": 1.88
+        },
+        {
+          "text": "Fenton.",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "text": "Come,",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "Master",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "Shallow;",
+          "start": 3.5,
+          "end": 3.96
+        },
+        {
+          "text": "come,",
+          "start": 4.32,
+          "end": 4.5
+        },
+        {
+          "text": "son",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "text": "Slender,",
+          "start": 4.84,
+          "end": 5.28
+        },
+        {
+          "text": "in.",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "text": "Knowing",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "text": "my",
+          "start": 6.3,
+          "end": 6.48
+        },
+        {
+          "text": "mind,",
+          "start": 6.48,
+          "end": 6.84
+        },
+        {
+          "text": "you",
+          "start": 6.98,
+          "end": 7.04
+        },
+        {
+          "text": "wrong",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "text": "me,",
+          "start": 7.24,
+          "end": 7.48
+        },
+        {
+          "text": "Master",
+          "start": 7.74,
+          "end": 7.84
+        },
+        {
+          "text": "Fenton.",
+          "start": 7.84,
+          "end": 8.28
+        },
+        {
+          "text": "75",
+          "start": 8.76,
+          "end": 9.16
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4944842681288719
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8134195124d6eadddf9a1436bcde2f96ec2f302370215231fe58283991ef6c22",
+  "selected_reasons": []
+}

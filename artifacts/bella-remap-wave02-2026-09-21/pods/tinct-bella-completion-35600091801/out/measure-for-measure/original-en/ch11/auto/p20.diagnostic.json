@@ -1,0 +1,528 @@
+{
+  "complete": true,
+  "signature": "c2766d264499f2b795864673a6bc1a76a56049d7c8989c00ec5a750ab6e482ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.33616356644779444,
+      "alignment_seconds": 0.0021692663431167603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I pray you, be acquainted with this maid; She comes to do you good.",
+        "hotwords": "I, She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I pray you, be acquainted with this maid, She comes to do you good.",
+          "start": 0.11,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " pray",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you,",
+              "start": 0.81,
+              "end": 1.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " acquainted",
+              "start": 1.41,
+              "end": 1.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " maid,",
+              "start": 2.11,
+              "end": 2.45,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " She",
+              "start": 2.87,
+              "end": 3.01,
+              "probability": 0.0251007080078125
+            },
+            {
+              "text": " comes",
+              "start": 3.01,
+              "end": 3.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 3.25,
+              "end": 3.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good.",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "pray",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "you,",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "raw": "be",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "acquainted",
+          "start": 1.41,
+          "end": 1.75
+        },
+        {
+          "raw": "with",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "this",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "maid,",
+          "start": 2.11,
+          "end": 2.45
+        },
+        {
+          "raw": "She",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "raw": "comes",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "you",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "good.",
+          "start": 3.71,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "acquainted",
+        "with",
+        "this",
+        "maid;",
+        "She",
+        "comes",
+        "to",
+        "do",
+        "you",
+        "good."
+      ],
+      "acoustic_expected_tokens": [
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "acquainted",
+        "with",
+        "this",
+        "maid;",
+        "She",
+        "comes",
+        "to",
+        "do",
+        "you",
+        "good."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 0.55,
+          "end": 0.81,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.81,
+          "end": 1.09,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "acquainted",
+          "start": 1.41,
+          "end": 1.75,
+          "key": "acquainted",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "maid,",
+          "start": 2.11,
+          "end": 2.45,
+          "key": "maid",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.87,
+          "end": 3.01,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 3.01,
+          "end": 3.25,
+          "key": "comes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.25,
+          "end": 3.43,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "good.",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "good",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "pray",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "you,",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "be",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "acquainted",
+          "start": 1.41,
+          "end": 1.75
+        },
+        {
+          "text": "with",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "this",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "maid;",
+          "start": 2.11,
+          "end": 2.45
+        },
+        {
+          "text": "She",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "text": "comes",
+          "start": 3.01,
+          "end": 3.25
+        },
+        {
+          "text": "to",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "text": "do",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "you",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "good.",
+          "start": 3.71,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3385636117309332
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f9eb9bb1ff68c4b276498dbce31dfae04d9498255be4123ad3b04fb4c5cb98b",
+  "selected_reasons": []
+}

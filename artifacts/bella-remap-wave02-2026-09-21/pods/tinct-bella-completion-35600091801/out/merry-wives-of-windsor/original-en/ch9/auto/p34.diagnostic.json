@@ -1,0 +1,750 @@
+{
+  "complete": true,
+  "signature": "10292cfae1b7cac9b726b0917bcb2f87ff2ba43956000e2f08a9fcdb3283eb22",
+  "attempts": [
+    {
+      "asr_seconds": 0.44614068791270256,
+      "alignment_seconds": 0.0031990986317396164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ford._ Aside I think I shall drink in pipe-wine first with him; I'll make him dance. Will you go, gentles?",
+        "hotwords": "Aside, I, I'll, Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ford, aside, I think I shall drink in pipe-wine first with him. I'll make him dance. Will you go, gentles?",
+          "start": 0.08,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " Ford,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " aside,",
+              "start": 1.06,
+              "end": 1.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " think",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " shall",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " drink",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " pipe",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.75244140625
+            },
+            {
+              "text": "-wine",
+              "start": 2.98,
+              "end": 3.18,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " first",
+              "start": 3.18,
+              "end": 3.5,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " with",
+              "start": 3.5,
+              "end": 3.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him.",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I'll",
+              "start": 4.16,
+              "end": 4.34,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " make",
+              "start": 4.34,
+              "end": 4.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dance.",
+              "start": 4.62,
+              "end": 5.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Will",
+              "start": 5.66,
+              "end": 5.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 5.78,
+              "end": 5.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go,",
+              "start": 5.88,
+              "end": 6.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gentles?",
+              "start": 6.3,
+              "end": 6.7,
+              "probability": 0.5582275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "aside,",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "think",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "I",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "shall",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "drink",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "in",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "pipe",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "-wine",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "raw": "first",
+          "start": 3.18,
+          "end": 3.5
+        },
+        {
+          "raw": "with",
+          "start": 3.5,
+          "end": 3.72
+        },
+        {
+          "raw": "him.",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "I'll",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "raw": "make",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "raw": "him",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "dance.",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "raw": "Will",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "raw": "you",
+          "start": 5.78,
+          "end": 5.88
+        },
+        {
+          "raw": "go,",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "raw": "gentles?",
+          "start": 6.3,
+          "end": 6.7
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "[_Aside_]",
+        "I",
+        "think",
+        "I",
+        "shall",
+        "drink",
+        "in",
+        "pipe-wine",
+        "first",
+        "with",
+        "him;",
+        "I’ll",
+        "make",
+        "him",
+        "dance.",
+        "Will",
+        "you",
+        "go,",
+        "gentles?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Ford._",
+        "Aside",
+        "I",
+        "think",
+        "I",
+        "shall",
+        "drink",
+        "in",
+        "pipe-wine",
+        "first",
+        "with",
+        "him;",
+        "I'll",
+        "make",
+        "him",
+        "dance.",
+        "Will",
+        "you",
+        "go,",
+        "gentles?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "ford",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aside,",
+          "start": 1.06,
+          "end": 1.38,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.88,
+          "end": 2.0,
+          "key": "think",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "drink",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pipe -wine",
+          "start": 2.7,
+          "end": 3.18,
+          "key": "pipewine",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 3.18,
+          "end": 3.5,
+          "key": "first",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.5,
+          "end": 3.72,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.72,
+          "end": 3.9,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 4.16,
+          "end": 4.34,
+          "key": "ill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.34,
+          "end": 4.48,
+          "key": "make",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dance.",
+          "start": 4.62,
+          "end": 5.06,
+          "key": "dance",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 5.66,
+          "end": 5.78,
+          "key": "will",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.78,
+          "end": 5.88,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 5.88,
+          "end": 6.1,
+          "key": "go",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "gentles?",
+          "start": 6.3,
+          "end": 6.7,
+          "key": "gentles",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 8,
+          "text": "pipe-wine",
+          "heard": "pipe -wine",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.7,
+          "end": 3.18
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "[_Aside_]",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "text": "I",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "think",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "I",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "shall",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "drink",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "in",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "pipe-wine",
+          "start": 2.7,
+          "end": 3.18
+        },
+        {
+          "text": "first",
+          "start": 3.18,
+          "end": 3.5
+        },
+        {
+          "text": "with",
+          "start": 3.5,
+          "end": 3.72
+        },
+        {
+          "text": "him;",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "I’ll",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "text": "make",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "text": "him",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "dance.",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "text": "Will",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "text": "you",
+          "start": 5.78,
+          "end": 5.88
+        },
+        {
+          "text": "go,",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "text": "gentles?",
+          "start": 6.3,
+          "end": 6.7
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4496183032169938
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1c171a1519f7cd05bb7664c084cba6b6720c5188b3edc36c38d0f07d093c71e",
+  "selected_reasons": []
+}

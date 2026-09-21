@@ -1,0 +1,627 @@
+{
+  "complete": true,
+  "signature": "bfde6abfbd6f8f672d2d129720883068d4fb2684f37a71aa465d4d1ea54fd1fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.439759261906147,
+      "alignment_seconds": 0.002392686903476715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Ford._ Marry, this is our device; 40 That Falstaff at that oak shall meet with us.",
+        "hotwords": "Ford._, Marry, Falstaff"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs Ford._, Marry, this is our device, 40 That Falstaff at that oak shall meet with us.",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Mrs",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " Ford._,",
+              "start": 0.69,
+              "end": 1.71,
+              "probability": 0.05126953125
+            },
+            {
+              "text": " Marry,",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.5013008117675781
+            },
+            {
+              "text": " this",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " is",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " device,",
+              "start": 2.57,
+              "end": 3.01,
+              "probability": 0.978515625
+            },
+            {
+              "text": " 40",
+              "start": 3.49,
+              "end": 3.67,
+              "probability": 0.350830078125
+            },
+            {
+              "text": " That",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.02569580078125
+            },
+            {
+              "text": " Falstaff",
+              "start": 3.89,
+              "end": 4.49,
+              "probability": 0.4677581787109375
+            },
+            {
+              "text": " at",
+              "start": 4.49,
+              "end": 4.69,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " that",
+              "start": 4.69,
+              "end": 4.89,
+              "probability": 0.43798828125
+            },
+            {
+              "text": " oak",
+              "start": 4.89,
+              "end": 5.09,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " shall",
+              "start": 5.09,
+              "end": 5.27,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " meet",
+              "start": 5.27,
+              "end": 5.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 5.45,
+              "end": 5.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " us.",
+              "start": 5.59,
+              "end": 5.89,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Ford._,",
+          "start": 0.69,
+          "end": 1.71
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "this",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "is",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "our",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "device,",
+          "start": 2.57,
+          "end": 3.01
+        },
+        {
+          "raw": "40",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "raw": "That",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "Falstaff",
+          "start": 3.89,
+          "end": 4.49
+        },
+        {
+          "raw": "at",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "raw": "that",
+          "start": 4.69,
+          "end": 4.89
+        },
+        {
+          "raw": "oak",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "raw": "shall",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "raw": "meet",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "raw": "with",
+          "start": 5.45,
+          "end": 5.59
+        },
+        {
+          "raw": "us.",
+          "start": 5.59,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "Marry,",
+        "this",
+        "is",
+        "our",
+        "device;",
+        "40",
+        "That",
+        "Falstaff",
+        "at",
+        "that",
+        "oak",
+        "shall",
+        "meet",
+        "with",
+        "us."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "Marry,",
+        "this",
+        "is",
+        "our",
+        "device;",
+        "40",
+        "That",
+        "Falstaff",
+        "at",
+        "that",
+        "oak",
+        "shall",
+        "meet",
+        "with",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ford._,",
+          "start": 0.69,
+          "end": 1.71,
+          "key": "ford",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "marry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.43,
+          "end": 2.57,
+          "key": "our",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "device,",
+          "start": 2.57,
+          "end": 3.01,
+          "key": "device",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "40",
+          "start": 3.49,
+          "end": 3.67,
+          "key": "forty",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.67,
+          "end": 3.89,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Falstaff",
+          "start": 3.89,
+          "end": 4.49,
+          "key": "falstaff",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.49,
+          "end": 4.69,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.69,
+          "end": 4.89,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "oak",
+          "start": 4.89,
+          "end": 5.09,
+          "key": "oak",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.09,
+          "end": 5.27,
+          "key": "shall",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 5.27,
+          "end": 5.45,
+          "key": "meet",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.45,
+          "end": 5.59,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 5.59,
+          "end": 5.89,
+          "key": "us",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Ford._",
+          "start": 0.69,
+          "end": 1.71
+        },
+        {
+          "text": "Marry,",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "this",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "is",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "our",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "device;",
+          "start": 2.57,
+          "end": 3.01
+        },
+        {
+          "text": "40",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "text": "That",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "Falstaff",
+          "start": 3.89,
+          "end": 4.49
+        },
+        {
+          "text": "at",
+          "start": 4.49,
+          "end": 4.69
+        },
+        {
+          "text": "that",
+          "start": 4.69,
+          "end": 4.89
+        },
+        {
+          "text": "oak",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "text": "shall",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "text": "meet",
+          "start": 5.27,
+          "end": 5.45
+        },
+        {
+          "text": "with",
+          "start": 5.45,
+          "end": 5.59
+        },
+        {
+          "text": "us.",
+          "start": 5.59,
+          "end": 5.89
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4423799691721797
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38a937c069dc84c5a94565d401eae6a8bd685d1db18675f9d350a9c3605c6f3d",
+  "selected_reasons": []
+}

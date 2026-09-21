@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "25166b236dee784fd9f02df55077ddafa673754fce08f7c0475b44a06282f5b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2148174662142992,
+      "alignment_seconds": 0.0007711192592978477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Will._ Two. 20",
+        "hotwords": "Two"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will. Two. 20",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Will.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.3876953125
+            },
+            {
+              "text": " Two.",
+              "start": 1.05,
+              "end": 1.15,
+              "probability": 0.02587890625
+            },
+            {
+              "text": " 20",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.1107177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Two.",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "raw": "20",
+          "start": 1.43,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "_Will._",
+        "Two.",
+        "20"
+      ],
+      "acoustic_expected_tokens": [
+        "_Will._",
+        "Two.",
+        "20"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Two.",
+          "start": 1.05,
+          "end": 1.15,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "20",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "twenty",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Will._",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Two.",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "text": "20",
+          "start": 1.43,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21568289399147034
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d69a00c8712edb8eb16d23f1574e1330f2bfc9dbf6260837bb2a763630e85600",
+  "selected_reasons": []
+}

@@ -1,0 +1,6208 @@
+{
+  "complete": true,
+  "signature": "38127394a16306ba0eb1dd315b2193be8f1d2095ec5744301b195ad679333675",
+  "attempts": [
+    {
+      "asr_seconds": 0.9592699212953448,
+      "alignment_seconds": 0.005010509863495827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Lucio._ It is true. 30 I would not--though 'tis my familiar sin With maids to seem the lapwing, and to jest, Tongue far from heart--play with all virgins so: I hold you as a thing ensky'd and sainted; By your renouncement, an immortal spirit; 35 And to be talk'd with in sincerity, As with a saint.",
+        "hotwords": "It, I, Tongue, By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucio, it is true. 30 I would not, though, tease my familiar sin With maids to seem the lapwing, and to jest, Tongue far from heart-play with all virgins so, I hold you as a thing ensky'd and sainted, By your renouncement, an immortal spirit, 35 And to be talk'd with in sincerity, As with a saint.",
+          "start": 0.02,
+          "end": 19.66,
+          "words": [
+            {
+              "text": " Lucio,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.72265625
+            },
+            {
+              "text": " it",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " true.",
+              "start": 1.38,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " 30",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.0117340087890625
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " would",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not,",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " though,",
+              "start": 3.36,
+              "end": 3.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tease",
+              "start": 3.56,
+              "end": 3.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 3.78,
+              "end": 4.02,
+              "probability": 0.8125
+            },
+            {
+              "text": " familiar",
+              "start": 4.02,
+              "end": 4.46,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sin",
+              "start": 4.46,
+              "end": 4.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " With",
+              "start": 4.84,
+              "end": 5.06,
+              "probability": 0.166259765625
+            },
+            {
+              "text": " maids",
+              "start": 5.06,
+              "end": 5.54,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 5.54,
+              "end": 5.64,
+              "probability": 0.712890625
+            },
+            {
+              "text": " seem",
+              "start": 5.64,
+              "end": 5.8,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " the",
+              "start": 5.8,
+              "end": 6.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lapwing,",
+              "start": 6.0,
+              "end": 6.44,
+              "probability": 0.587646484375
+            },
+            {
+              "text": " and",
+              "start": 6.72,
+              "end": 6.96,
+              "probability": 0.826171875
+            },
+            {
+              "text": " to",
+              "start": 6.96,
+              "end": 7.12,
+              "probability": 0.97265625
+            },
+            {
+              "text": " jest,",
+              "start": 7.12,
+              "end": 7.5,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Tongue",
+              "start": 7.84,
+              "end": 8.12,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " far",
+              "start": 8.12,
+              "end": 8.34,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " from",
+              "start": 8.34,
+              "end": 8.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heart",
+              "start": 8.58,
+              "end": 8.86,
+              "probability": 0.9755859375
+            },
+            {
+              "text": "-play",
+              "start": 8.86,
+              "end": 9.1,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " with",
+              "start": 9.1,
+              "end": 9.32,
+              "probability": 0.775390625
+            },
+            {
+              "text": " all",
+              "start": 9.32,
+              "end": 9.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " virgins",
+              "start": 9.62,
+              "end": 10.02,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " so,",
+              "start": 10.02,
+              "end": 10.34,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " I",
+              "start": 10.56,
+              "end": 11.06,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " hold",
+              "start": 11.06,
+              "end": 11.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 11.26,
+              "end": 11.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " as",
+              "start": 11.42,
+              "end": 11.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 11.54,
+              "end": 11.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thing",
+              "start": 11.68,
+              "end": 11.86,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " ensky'd",
+              "start": 11.86,
+              "end": 12.58,
+              "probability": 0.15671793619791666
+            },
+            {
+              "text": " and",
+              "start": 12.58,
+              "end": 12.78,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " sainted,",
+              "start": 12.78,
+              "end": 13.2,
+              "probability": 0.970703125
+            },
+            {
+              "text": " By",
+              "start": 13.62,
+              "end": 13.9,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " your",
+              "start": 13.9,
+              "end": 14.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " renouncement,",
+              "start": 14.06,
+              "end": 14.74,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " an",
+              "start": 14.82,
+              "end": 14.92,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " immortal",
+              "start": 14.92,
+              "end": 15.32,
+              "probability": 0.98828125
+            },
+            {
+              "text": " spirit,",
+              "start": 15.32,
+              "end": 15.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " 35",
+              "start": 16.46,
+              "end": 16.84,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " And",
+              "start": 16.84,
+              "end": 17.22,
+              "probability": 0.591796875
+            },
+            {
+              "text": " to",
+              "start": 17.22,
+              "end": 17.3,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " be",
+              "start": 17.3,
+              "end": 17.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " talk'd",
+              "start": 17.54,
+              "end": 17.82,
+              "probability": 0.6549072265625
+            },
+            {
+              "text": " with",
+              "start": 17.82,
+              "end": 17.96,
+              "probability": 0.935546875
+            },
+            {
+              "text": " in",
+              "start": 17.96,
+              "end": 18.14,
+              "probability": 0.01409912109375
+            },
+            {
+              "text": " sincerity,",
+              "start": 18.14,
+              "end": 18.62,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " As",
+              "start": 18.92,
+              "end": 19.12,
+              "probability": 0.003936767578125
+            },
+            {
+              "text": " with",
+              "start": 19.12,
+              "end": 19.26,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 19.26,
+              "end": 19.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " saint.",
+              "start": 19.46,
+              "end": 19.66,
+              "probability": 0.9453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucio,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "true.",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "raw": "30",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "would",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "not,",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "though,",
+          "start": 3.36,
+          "end": 3.38
+        },
+        {
+          "raw": "tease",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "raw": "my",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "raw": "familiar",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "raw": "sin",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "raw": "With",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "raw": "maids",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "raw": "to",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "raw": "seem",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "raw": "the",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "raw": "lapwing,",
+          "start": 6.0,
+          "end": 6.44
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "raw": "to",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "raw": "jest,",
+          "start": 7.12,
+          "end": 7.5
+        },
+        {
+          "raw": "Tongue",
+          "start": 7.84,
+          "end": 8.12
+        },
+        {
+          "raw": "far",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "raw": "from",
+          "start": 8.34,
+          "end": 8.58
+        },
+        {
+          "raw": "heart",
+          "start": 8.58,
+          "end": 8.86
+        },
+        {
+          "raw": "-play",
+          "start": 8.86,
+          "end": 9.1
+        },
+        {
+          "raw": "with",
+          "start": 9.1,
+          "end": 9.32
+        },
+        {
+          "raw": "all",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "raw": "virgins",
+          "start": 9.62,
+          "end": 10.02
+        },
+        {
+          "raw": "so,",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "raw": "I",
+          "start": 10.56,
+          "end": 11.06
+        },
+        {
+          "raw": "hold",
+          "start": 11.06,
+          "end": 11.26
+        },
+        {
+          "raw": "you",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "raw": "as",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "raw": "a",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "raw": "thing",
+          "start": 11.68,
+          "end": 11.86
+        },
+        {
+          "raw": "ensky'd",
+          "start": 11.86,
+          "end": 12.58
+        },
+        {
+          "raw": "and",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "raw": "sainted,",
+          "start": 12.78,
+          "end": 13.2
+        },
+        {
+          "raw": "By",
+          "start": 13.62,
+          "end": 13.9
+        },
+        {
+          "raw": "your",
+          "start": 13.9,
+          "end": 14.06
+        },
+        {
+          "raw": "renouncement,",
+          "start": 14.06,
+          "end": 14.74
+        },
+        {
+          "raw": "an",
+          "start": 14.82,
+          "end": 14.92
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.32,
+          "end": 15.82
+        },
+        {
+          "raw": "35",
+          "start": 16.46,
+          "end": 16.84
+        },
+        {
+          "raw": "And",
+          "start": 16.84,
+          "end": 17.22
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "raw": "be",
+          "start": 17.3,
+          "end": 17.54
+        },
+        {
+          "raw": "talk'd",
+          "start": 17.54,
+          "end": 17.82
+        },
+        {
+          "raw": "with",
+          "start": 17.82,
+          "end": 17.96
+        },
+        {
+          "raw": "in",
+          "start": 17.96,
+          "end": 18.14
+        },
+        {
+          "raw": "sincerity,",
+          "start": 18.14,
+          "end": 18.62
+        },
+        {
+          "raw": "As",
+          "start": 18.92,
+          "end": 19.12
+        },
+        {
+          "raw": "with",
+          "start": 19.12,
+          "end": 19.26
+        },
+        {
+          "raw": "a",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "raw": "saint.",
+          "start": 19.46,
+          "end": 19.66
+        }
+      ],
+      "expected_tokens": [
+        "_Lucio._",
+        "It",
+        "is",
+        "true.",
+        "30",
+        "I",
+        "would",
+        "not--though",
+        "'tis",
+        "my",
+        "familiar",
+        "sin",
+        "With",
+        "maids",
+        "to",
+        "seem",
+        "the",
+        "lapwing,",
+        "and",
+        "to",
+        "jest,",
+        "Tongue",
+        "far",
+        "from",
+        "heart--play",
+        "with",
+        "all",
+        "virgins",
+        "so:",
+        "I",
+        "hold",
+        "you",
+        "as",
+        "a",
+        "thing",
+        "ensky'd",
+        "and",
+        "sainted;",
+        "By",
+        "your",
+        "renouncement,",
+        "an",
+        "immortal",
+        "spirit;",
+        "35",
+        "And",
+        "to",
+        "be",
+        "talk'd",
+        "with",
+        "in",
+        "sincerity,",
+        "As",
+        "with",
+        "a",
+        "saint."
+      ],
+      "acoustic_expected_tokens": [
+        "_Lucio._",
+        "It",
+        "is",
+        "true.",
+        "30",
+        "I",
+        "would",
+        "not--though",
+        "'tis",
+        "my",
+        "familiar",
+        "sin",
+        "With",
+        "maids",
+        "to",
+        "seem",
+        "the",
+        "lapwing,",
+        "and",
+        "to",
+        "jest,",
+        "Tongue",
+        "far",
+        "from",
+        "heart--play",
+        "with",
+        "all",
+        "virgins",
+        "so:",
+        "I",
+        "hold",
+        "you",
+        "as",
+        "a",
+        "thing",
+        "ensky'd",
+        "and",
+        "sainted;",
+        "By",
+        "your",
+        "renouncement,",
+        "an",
+        "immortal",
+        "spirit;",
+        "35",
+        "And",
+        "to",
+        "be",
+        "talk'd",
+        "with",
+        "in",
+        "sincerity,",
+        "As",
+        "with",
+        "a",
+        "saint."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          35,
+          9,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "equal",
+          36,
+          48,
+          36,
+          48
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          49
+        ],
+        [
+          "equal",
+          49,
+          56,
+          49,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "replace",
+          48,
+          49,
+          48,
+          49
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucio,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "lucio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.38,
+          "end": 1.74,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "thirty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not, though,",
+          "start": 2.98,
+          "end": 3.38,
+          "key": "notthough",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.56,
+          "end": 3.78,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.78,
+          "end": 4.02,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "familiar",
+          "start": 4.02,
+          "end": 4.46,
+          "key": "familiar",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sin",
+          "start": 4.46,
+          "end": 4.84,
+          "key": "sin",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 4.84,
+          "end": 5.06,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "maids",
+          "start": 5.06,
+          "end": 5.54,
+          "key": "maids",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.54,
+          "end": 5.64,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 5.64,
+          "end": 5.8,
+          "key": "seem",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.8,
+          "end": 6.0,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lapwing,",
+          "start": 6.0,
+          "end": 6.44,
+          "key": "lapwing",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.96,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.96,
+          "end": 7.12,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "jest,",
+          "start": 7.12,
+          "end": 7.5,
+          "key": "jest",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Tongue",
+          "start": 7.84,
+          "end": 8.12,
+          "key": "tongue",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 8.12,
+          "end": 8.34,
+          "key": "far",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.34,
+          "end": 8.58,
+          "key": "from",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "heart -play",
+          "start": 8.58,
+          "end": 9.1,
+          "key": "heartplay",
+          "pieces": [
+            25,
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.1,
+          "end": 9.32,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 9.32,
+          "end": 9.62,
+          "key": "all",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "virgins",
+          "start": 9.62,
+          "end": 10.02,
+          "key": "virgins",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 10.02,
+          "end": 10.34,
+          "key": "so",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.56,
+          "end": 11.06,
+          "key": "i",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 11.06,
+          "end": 11.26,
+          "key": "hold",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.26,
+          "end": 11.42,
+          "key": "you",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.42,
+          "end": 11.54,
+          "key": "as",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.54,
+          "end": 11.68,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 11.68,
+          "end": 11.86,
+          "key": "thing",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "ensky'd",
+          "start": 11.86,
+          "end": 12.58,
+          "key": "enskyd",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.58,
+          "end": 12.78,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "sainted,",
+          "start": 12.78,
+          "end": 13.2,
+          "key": "sainted",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 13.62,
+          "end": 13.9,
+          "key": "by",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 13.9,
+          "end": 14.06,
+          "key": "your",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "renouncement,",
+          "start": 14.06,
+          "end": 14.74,
+          "key": "renouncement",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 14.82,
+          "end": 14.92,
+          "key": "an",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32,
+          "key": "immortal",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.32,
+          "end": 15.82,
+          "key": "spirit",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "35",
+          "start": 16.46,
+          "end": 16.84,
+          "key": "thirtyfive",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 16.84,
+          "end": 17.22,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.3,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 17.3,
+          "end": 17.54,
+          "key": "be",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "talk'd",
+          "start": 17.54,
+          "end": 17.82,
+          "key": "talkd",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 17.82,
+          "end": 17.96,
+          "key": "with",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 17.96,
+          "end": 18.14,
+          "key": "in",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "sincerity,",
+          "start": 18.14,
+          "end": 18.62,
+          "key": "sincerity",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 18.92,
+          "end": 19.12,
+          "key": "as",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.12,
+          "end": 19.26,
+          "key": "with",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.26,
+          "end": 19.46,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "saint.",
+          "start": 19.46,
+          "end": 19.66,
+          "key": "saint",
+          "pieces": [
+            57
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "not--though",
+          "heard": "not, though,",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.98,
+          "end": 3.38
+        },
+        {
+          "expected_index": 24,
+          "text": "heart--play",
+          "heard": "heart -play",
+          "heard_indexes": [
+            25,
+            26
+          ],
+          "start": 8.58,
+          "end": 9.1
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Lucio._",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "It",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "true.",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "text": "30",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "would",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "not--though",
+          "start": 2.98,
+          "end": 3.38
+        },
+        {
+          "text": "'tis",
+          "start": 3.38,
+          "end": 3.58
+        },
+        {
+          "text": "my",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "text": "familiar",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "text": "sin",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "text": "With",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "text": "maids",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "text": "to",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "text": "seem",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "text": "the",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "text": "lapwing,",
+          "start": 6.0,
+          "end": 6.44
+        },
+        {
+          "text": "and",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "text": "to",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "text": "jest,",
+          "start": 7.12,
+          "end": 7.5
+        },
+        {
+          "text": "Tongue",
+          "start": 7.84,
+          "end": 8.12
+        },
+        {
+          "text": "far",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "text": "from",
+          "start": 8.34,
+          "end": 8.58
+        },
+        {
+          "text": "heart--play",
+          "start": 8.58,
+          "end": 9.1
+        },
+        {
+          "text": "with",
+          "start": 9.1,
+          "end": 9.32
+        },
+        {
+          "text": "all",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "text": "virgins",
+          "start": 9.62,
+          "end": 10.02
+        },
+        {
+          "text": "so:",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "text": "I",
+          "start": 10.56,
+          "end": 11.06
+        },
+        {
+          "text": "hold",
+          "start": 11.06,
+          "end": 11.26
+        },
+        {
+          "text": "you",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "text": "as",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "text": "a",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "text": "thing",
+          "start": 11.68,
+          "end": 11.86
+        },
+        {
+          "text": "ensky'd",
+          "start": 11.86,
+          "end": 12.22
+        },
+        {
+          "text": "and",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "text": "sainted;",
+          "start": 12.78,
+          "end": 13.2
+        },
+        {
+          "text": "By",
+          "start": 13.62,
+          "end": 13.9
+        },
+        {
+          "text": "your",
+          "start": 13.9,
+          "end": 14.06
+        },
+        {
+          "text": "renouncement,",
+          "start": 14.06,
+          "end": 14.74
+        },
+        {
+          "text": "an",
+          "start": 14.82,
+          "end": 14.92
+        },
+        {
+          "text": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "text": "spirit;",
+          "start": 15.32,
+          "end": 15.82
+        },
+        {
+          "text": "35",
+          "start": 16.46,
+          "end": 16.84
+        },
+        {
+          "text": "And",
+          "start": 16.84,
+          "end": 17.22
+        },
+        {
+          "text": "to",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "text": "be",
+          "start": 17.3,
+          "end": 17.54
+        },
+        {
+          "text": "talk'd",
+          "start": 17.54,
+          "end": 17.68
+        },
+        {
+          "text": "with",
+          "start": 17.82,
+          "end": 17.96
+        },
+        {
+          "text": "in",
+          "start": 17.96,
+          "end": 18.14
+        },
+        {
+          "text": "sincerity,",
+          "start": 18.14,
+          "end": 18.62
+        },
+        {
+          "text": "As",
+          "start": 18.92,
+          "end": 19.12
+        },
+        {
+          "text": "with",
+          "start": 19.12,
+          "end": 19.26
+        },
+        {
+          "text": "a",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "text": "saint.",
+          "start": 19.46,
+          "end": 19.66
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 53
+      },
+      "match_ratio": 0.9464285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.9646545462310314
+    },
+    {
+      "asr_seconds": 0.9042577622458339,
+      "alignment_seconds": 0.005141258239746094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "It, I, Tongue, By"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lucio, it is true. Thirty I would not, though, tease my familiar sin with maids to seem the",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Lucio,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.72265625
+            },
+            {
+              "text": " it",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " true.",
+              "start": 1.38,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Thirty",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " would",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not,",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " though,",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tease",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 3.78,
+              "end": 4.02,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " familiar",
+              "start": 4.02,
+              "end": 4.46,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sin",
+              "start": 4.46,
+              "end": 4.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " with",
+              "start": 4.84,
+              "end": 5.06,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " maids",
+              "start": 5.06,
+              "end": 5.54,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " to",
+              "start": 5.54,
+              "end": 5.64,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " seem",
+              "start": 5.64,
+              "end": 5.8,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " the",
+              "start": 5.8,
+              "end": 6.0,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " lap-wing, and to jest, tongue far from heart-play with all virgins so. I hold you as a thing",
+          "start": 6.0,
+          "end": 11.86,
+          "words": [
+            {
+              "text": " lap",
+              "start": 6.0,
+              "end": 6.2,
+              "probability": 0.97265625
+            },
+            {
+              "text": "-wing,",
+              "start": 6.2,
+              "end": 6.42,
+              "probability": 0.834228515625
+            },
+            {
+              "text": " and",
+              "start": 6.72,
+              "end": 6.96,
+              "probability": 0.92578125
+            },
+            {
+              "text": " to",
+              "start": 6.96,
+              "end": 7.14,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " jest,",
+              "start": 7.14,
+              "end": 7.5,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " tongue",
+              "start": 7.86,
+              "end": 8.02,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " far",
+              "start": 8.02,
+              "end": 8.32,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " from",
+              "start": 8.32,
+              "end": 8.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heart",
+              "start": 8.56,
+              "end": 8.84,
+              "probability": 0.984375
+            },
+            {
+              "text": "-play",
+              "start": 8.84,
+              "end": 9.12,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " with",
+              "start": 9.12,
+              "end": 9.32,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " all",
+              "start": 9.32,
+              "end": 9.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " virgins",
+              "start": 9.62,
+              "end": 10.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so.",
+              "start": 10.02,
+              "end": 10.34,
+              "probability": 0.96875
+            },
+            {
+              "text": " I",
+              "start": 10.66,
+              "end": 11.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hold",
+              "start": 11.06,
+              "end": 11.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 11.26,
+              "end": 11.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 11.42,
+              "end": 11.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 11.54,
+              "end": 11.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thing",
+              "start": 11.68,
+              "end": 11.86,
+              "probability": 0.9609375
+            }
+          ]
+        },
+        {
+          "text": " enskied and sainted, by your renouncement an immortal spirit, thirty-five and to be talked",
+          "start": 11.86,
+          "end": 17.74,
+          "words": [
+            {
+              "text": " enskied",
+              "start": 11.86,
+              "end": 12.56,
+              "probability": 0.8387044270833334
+            },
+            {
+              "text": " and",
+              "start": 12.56,
+              "end": 12.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sainted,",
+              "start": 12.76,
+              "end": 13.2,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " by",
+              "start": 13.68,
+              "end": 13.92,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " your",
+              "start": 13.92,
+              "end": 14.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " renouncement",
+              "start": 14.04,
+              "end": 14.74,
+              "probability": 0.9913736979166666
+            },
+            {
+              "text": " an",
+              "start": 14.74,
+              "end": 14.92,
+              "probability": 0.908203125
+            },
+            {
+              "text": " immortal",
+              "start": 14.92,
+              "end": 15.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " spirit,",
+              "start": 15.32,
+              "end": 15.86,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thirty",
+              "start": 16.48,
+              "end": 16.64,
+              "probability": 0.9501953125
+            },
+            {
+              "text": "-five",
+              "start": 16.64,
+              "end": 17.02,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " and",
+              "start": 17.02,
+              "end": 17.22,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " to",
+              "start": 17.22,
+              "end": 17.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 17.3,
+              "end": 17.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " talked",
+              "start": 17.52,
+              "end": 17.74,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " with insincerity as with a saint.",
+          "start": 17.74,
+          "end": 19.7,
+          "words": [
+            {
+              "text": " with",
+              "start": 17.74,
+              "end": 17.96,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " insincerity",
+              "start": 17.96,
+              "end": 18.62,
+              "probability": 0.940673828125
+            },
+            {
+              "text": " as",
+              "start": 18.62,
+              "end": 19.1,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " with",
+              "start": 19.1,
+              "end": 19.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 19.26,
+              "end": 19.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " saint.",
+              "start": 19.46,
+              "end": 19.7,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucio,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "true.",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "raw": "Thirty",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "would",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "not,",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "though,",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "tease",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "my",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "raw": "familiar",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "raw": "sin",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "raw": "with",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "raw": "maids",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "raw": "to",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "raw": "seem",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "raw": "the",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "raw": "lap",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "raw": "-wing,",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "raw": "to",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "raw": "jest,",
+          "start": 7.14,
+          "end": 7.5
+        },
+        {
+          "raw": "tongue",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "raw": "far",
+          "start": 8.02,
+          "end": 8.32
+        },
+        {
+          "raw": "from",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "raw": "heart",
+          "start": 8.56,
+          "end": 8.84
+        },
+        {
+          "raw": "-play",
+          "start": 8.84,
+          "end": 9.12
+        },
+        {
+          "raw": "with",
+          "start": 9.12,
+          "end": 9.32
+        },
+        {
+          "raw": "all",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "raw": "virgins",
+          "start": 9.62,
+          "end": 10.02
+        },
+        {
+          "raw": "so.",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "raw": "I",
+          "start": 10.66,
+          "end": 11.06
+        },
+        {
+          "raw": "hold",
+          "start": 11.06,
+          "end": 11.26
+        },
+        {
+          "raw": "you",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "raw": "as",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "raw": "a",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "raw": "thing",
+          "start": 11.68,
+          "end": 11.86
+        },
+        {
+          "raw": "enskied",
+          "start": 11.86,
+          "end": 12.56
+        },
+        {
+          "raw": "and",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "raw": "sainted,",
+          "start": 12.76,
+          "end": 13.2
+        },
+        {
+          "raw": "by",
+          "start": 13.68,
+          "end": 13.92
+        },
+        {
+          "raw": "your",
+          "start": 13.92,
+          "end": 14.04
+        },
+        {
+          "raw": "renouncement",
+          "start": 14.04,
+          "end": 14.74
+        },
+        {
+          "raw": "an",
+          "start": 14.74,
+          "end": 14.92
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.32,
+          "end": 15.86
+        },
+        {
+          "raw": "thirty",
+          "start": 16.48,
+          "end": 16.64
+        },
+        {
+          "raw": "-five",
+          "start": 16.64,
+          "end": 17.02
+        },
+        {
+          "raw": "and",
+          "start": 17.02,
+          "end": 17.22
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "raw": "be",
+          "start": 17.3,
+          "end": 17.52
+        },
+        {
+          "raw": "talked",
+          "start": 17.52,
+          "end": 17.74
+        },
+        {
+          "raw": "with",
+          "start": 17.74,
+          "end": 17.96
+        },
+        {
+          "raw": "insincerity",
+          "start": 17.96,
+          "end": 18.62
+        },
+        {
+          "raw": "as",
+          "start": 18.62,
+          "end": 19.1
+        },
+        {
+          "raw": "with",
+          "start": 19.1,
+          "end": 19.26
+        },
+        {
+          "raw": "a",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "raw": "saint.",
+          "start": 19.46,
+          "end": 19.7
+        }
+      ],
+      "expected_tokens": [
+        "_Lucio._",
+        "It",
+        "is",
+        "true.",
+        "30",
+        "I",
+        "would",
+        "not--though",
+        "'tis",
+        "my",
+        "familiar",
+        "sin",
+        "With",
+        "maids",
+        "to",
+        "seem",
+        "the",
+        "lapwing,",
+        "and",
+        "to",
+        "jest,",
+        "Tongue",
+        "far",
+        "from",
+        "heart--play",
+        "with",
+        "all",
+        "virgins",
+        "so:",
+        "I",
+        "hold",
+        "you",
+        "as",
+        "a",
+        "thing",
+        "ensky'd",
+        "and",
+        "sainted;",
+        "By",
+        "your",
+        "renouncement,",
+        "an",
+        "immortal",
+        "spirit;",
+        "35",
+        "And",
+        "to",
+        "be",
+        "talk'd",
+        "with",
+        "in",
+        "sincerity,",
+        "As",
+        "with",
+        "a",
+        "saint."
+      ],
+      "acoustic_expected_tokens": [
+        "_Lucio._",
+        "It",
+        "is",
+        "true.",
+        "30",
+        "I",
+        "would",
+        "not--though",
+        "'tis",
+        "my",
+        "familiar",
+        "sin",
+        "With",
+        "maids",
+        "to",
+        "seem",
+        "the",
+        "lapwing,",
+        "and",
+        "to",
+        "jest,",
+        "Tongue",
+        "far",
+        "from",
+        "heart--play",
+        "with",
+        "all",
+        "virgins",
+        "so:",
+        "I",
+        "hold",
+        "you",
+        "as",
+        "a",
+        "thing",
+        "ensky'd",
+        "and",
+        "sainted;",
+        "By",
+        "your",
+        "renouncement,",
+        "an",
+        "immortal",
+        "spirit;",
+        "35",
+        "And",
+        "to",
+        "be",
+        "talk'd",
+        "with",
+        "in",
+        "sincerity,",
+        "As",
+        "with",
+        "a",
+        "saint."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          35,
+          9,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "equal",
+          36,
+          44,
+          36,
+          44
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          46
+        ],
+        [
+          "equal",
+          45,
+          50,
+          46,
+          51
+        ],
+        [
+          "replace",
+          50,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          56,
+          52,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          46
+        ],
+        [
+          "replace",
+          50,
+          52,
+          51,
+          52
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucio,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "lucio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.38,
+          "end": 1.74,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thirty",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "thirty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not, though,",
+          "start": 2.98,
+          "end": 3.4,
+          "key": "notthough",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.78,
+          "end": 4.02,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "familiar",
+          "start": 4.02,
+          "end": 4.46,
+          "key": "familiar",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sin",
+          "start": 4.46,
+          "end": 4.84,
+          "key": "sin",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.84,
+          "end": 5.06,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "maids",
+          "start": 5.06,
+          "end": 5.54,
+          "key": "maids",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.54,
+          "end": 5.64,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 5.64,
+          "end": 5.8,
+          "key": "seem",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.8,
+          "end": 6.0,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lap -wing,",
+          "start": 6.0,
+          "end": 6.42,
+          "key": "lapwing",
+          "pieces": [
+            18,
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.96,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.96,
+          "end": 7.14,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "jest,",
+          "start": 7.14,
+          "end": 7.5,
+          "key": "jest",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 7.86,
+          "end": 8.02,
+          "key": "tongue",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 8.02,
+          "end": 8.32,
+          "key": "far",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.32,
+          "end": 8.56,
+          "key": "from",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "heart -play",
+          "start": 8.56,
+          "end": 9.12,
+          "key": "heartplay",
+          "pieces": [
+            26,
+            27
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.12,
+          "end": 9.32,
+          "key": "with",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 9.32,
+          "end": 9.62,
+          "key": "all",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "virgins",
+          "start": 9.62,
+          "end": 10.02,
+          "key": "virgins",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 10.02,
+          "end": 10.34,
+          "key": "so",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.66,
+          "end": 11.06,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 11.06,
+          "end": 11.26,
+          "key": "hold",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.26,
+          "end": 11.42,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.42,
+          "end": 11.54,
+          "key": "as",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.54,
+          "end": 11.68,
+          "key": "a",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 11.68,
+          "end": 11.86,
+          "key": "thing",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "enskied",
+          "start": 11.86,
+          "end": 12.56,
+          "key": "enskied",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.56,
+          "end": 12.76,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "sainted,",
+          "start": 12.76,
+          "end": 13.2,
+          "key": "sainted",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 13.68,
+          "end": 13.92,
+          "key": "by",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 13.92,
+          "end": 14.04,
+          "key": "your",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "renouncement",
+          "start": 14.04,
+          "end": 14.74,
+          "key": "renouncement",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 14.74,
+          "end": 14.92,
+          "key": "an",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32,
+          "key": "immortal",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.32,
+          "end": 15.86,
+          "key": "spirit",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "thirty",
+          "start": 16.48,
+          "end": 16.64,
+          "key": "thirty",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "-five",
+          "start": 16.64,
+          "end": 17.02,
+          "key": "five",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.02,
+          "end": 17.22,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.3,
+          "key": "to",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 17.3,
+          "end": 17.52,
+          "key": "be",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "talked",
+          "start": 17.52,
+          "end": 17.74,
+          "key": "talked",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 17.74,
+          "end": 17.96,
+          "key": "with",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "insincerity",
+          "start": 17.96,
+          "end": 18.62,
+          "key": "insincerity",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 18.62,
+          "end": 19.1,
+          "key": "as",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.1,
+          "end": 19.26,
+          "key": "with",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.26,
+          "end": 19.46,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "saint.",
+          "start": 19.46,
+          "end": 19.7,
+          "key": "saint",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "not--though",
+          "heard": "not, though,",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "expected_index": 17,
+          "text": "lapwing,",
+          "heard": "lap -wing,",
+          "heard_indexes": [
+            18,
+            19
+          ],
+          "start": 6.0,
+          "end": 6.42
+        },
+        {
+          "expected_index": 24,
+          "text": "heart--play",
+          "heard": "heart -play",
+          "heard_indexes": [
+            26,
+            27
+          ],
+          "start": 8.56,
+          "end": 9.12
+        }
+      ],
+      "groups": [
+        {
+          "heard_index": 51,
+          "heard": "insincerity",
+          "expected_indexes": [
+            50,
+            51
+          ],
+          "text": "in sincerity,",
+          "start": 17.96,
+          "end": 18.62
+        }
+      ],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Lucio._",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "It",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "true.",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "text": "30",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "would",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "not--though",
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "text": "'tis",
+          "start": 3.4,
+          "end": 3.59
+        },
+        {
+          "text": "my",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "text": "familiar",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "text": "sin",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "text": "With",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "text": "maids",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "text": "to",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "text": "seem",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "text": "the",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "text": "lapwing,",
+          "start": 6.0,
+          "end": 6.42
+        },
+        {
+          "text": "and",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "text": "to",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "text": "jest,",
+          "start": 7.14,
+          "end": 7.5
+        },
+        {
+          "text": "Tongue",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "text": "far",
+          "start": 8.02,
+          "end": 8.32
+        },
+        {
+          "text": "from",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "text": "heart--play",
+          "start": 8.56,
+          "end": 9.12
+        },
+        {
+          "text": "with",
+          "start": 9.12,
+          "end": 9.32
+        },
+        {
+          "text": "all",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "text": "virgins",
+          "start": 9.62,
+          "end": 10.02
+        },
+        {
+          "text": "so:",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "text": "I",
+          "start": 10.66,
+          "end": 11.06
+        },
+        {
+          "text": "hold",
+          "start": 11.06,
+          "end": 11.26
+        },
+        {
+          "text": "you",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "text": "as",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "text": "a",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "text": "thing",
+          "start": 11.68,
+          "end": 11.86
+        },
+        {
+          "text": "ensky'd",
+          "start": 11.86,
+          "end": 12.21
+        },
+        {
+          "text": "and",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "text": "sainted;",
+          "start": 12.76,
+          "end": 13.2
+        },
+        {
+          "text": "By",
+          "start": 13.68,
+          "end": 13.92
+        },
+        {
+          "text": "your",
+          "start": 13.92,
+          "end": 14.04
+        },
+        {
+          "text": "renouncement,",
+          "start": 14.04,
+          "end": 14.74
+        },
+        {
+          "text": "an",
+          "start": 14.74,
+          "end": 14.92
+        },
+        {
+          "text": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "text": "spirit;",
+          "start": 15.32,
+          "end": 15.86
+        },
+        {
+          "text": "35",
+          "start": 15.86,
+          "end": 16.44
+        },
+        {
+          "text": "And",
+          "start": 17.02,
+          "end": 17.22
+        },
+        {
+          "text": "to",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "text": "be",
+          "start": 17.3,
+          "end": 17.52
+        },
+        {
+          "text": "talk'd",
+          "start": 17.52,
+          "end": 17.74
+        },
+        {
+          "text": "with",
+          "start": 17.74,
+          "end": 17.96
+        },
+        {
+          "text": "in",
+          "start": 17.96,
+          "end": 18.08
+        },
+        {
+          "text": "sincerity,",
+          "start": 18.08,
+          "end": 18.62
+        },
+        {
+          "text": "As",
+          "start": 18.62,
+          "end": 19.1
+        },
+        {
+          "text": "with",
+          "start": 19.1,
+          "end": 19.26
+        },
+        {
+          "text": "a",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "text": "saint.",
+          "start": 19.46,
+          "end": 19.7
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 53
+      },
+      "match_ratio": 0.9464285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.9097868213430047
+    },
+    {
+      "asr_seconds": 0.9067142158746719,
+      "alignment_seconds": 0.005789252929389477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucio, it is true. Thirty I would not, though, tease my familiar sin with maids to seem the",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " Lucio,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.72265625
+            },
+            {
+              "text": " it",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " true.",
+              "start": 1.38,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Thirty",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " would",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not,",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " though,",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tease",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 3.78,
+              "end": 4.02,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " familiar",
+              "start": 4.02,
+              "end": 4.46,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sin",
+              "start": 4.46,
+              "end": 4.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " with",
+              "start": 4.84,
+              "end": 5.06,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " maids",
+              "start": 5.06,
+              "end": 5.54,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " to",
+              "start": 5.54,
+              "end": 5.64,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " seem",
+              "start": 5.64,
+              "end": 5.8,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " the",
+              "start": 5.8,
+              "end": 6.0,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " lap-wing, and to jest, tongue far from heart-play with all virgins so. I hold you as a thing",
+          "start": 6.0,
+          "end": 11.86,
+          "words": [
+            {
+              "text": " lap",
+              "start": 6.0,
+              "end": 6.2,
+              "probability": 0.97265625
+            },
+            {
+              "text": "-wing,",
+              "start": 6.2,
+              "end": 6.42,
+              "probability": 0.834228515625
+            },
+            {
+              "text": " and",
+              "start": 6.72,
+              "end": 6.96,
+              "probability": 0.92578125
+            },
+            {
+              "text": " to",
+              "start": 6.96,
+              "end": 7.14,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " jest,",
+              "start": 7.14,
+              "end": 7.5,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " tongue",
+              "start": 7.86,
+              "end": 8.02,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " far",
+              "start": 8.02,
+              "end": 8.32,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " from",
+              "start": 8.32,
+              "end": 8.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heart",
+              "start": 8.56,
+              "end": 8.84,
+              "probability": 0.984375
+            },
+            {
+              "text": "-play",
+              "start": 8.84,
+              "end": 9.12,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " with",
+              "start": 9.12,
+              "end": 9.32,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " all",
+              "start": 9.32,
+              "end": 9.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " virgins",
+              "start": 9.62,
+              "end": 10.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so.",
+              "start": 10.02,
+              "end": 10.34,
+              "probability": 0.96875
+            },
+            {
+              "text": " I",
+              "start": 10.66,
+              "end": 11.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hold",
+              "start": 11.06,
+              "end": 11.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 11.26,
+              "end": 11.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 11.42,
+              "end": 11.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 11.54,
+              "end": 11.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thing",
+              "start": 11.68,
+              "end": 11.86,
+              "probability": 0.9609375
+            }
+          ]
+        },
+        {
+          "text": " enskied and sainted, by your renouncement an immortal spirit, thirty-five and to be",
+          "start": 11.86,
+          "end": 17.52,
+          "words": [
+            {
+              "text": " enskied",
+              "start": 11.86,
+              "end": 12.56,
+              "probability": 0.8387044270833334
+            },
+            {
+              "text": " and",
+              "start": 12.56,
+              "end": 12.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sainted,",
+              "start": 12.76,
+              "end": 13.2,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " by",
+              "start": 13.68,
+              "end": 13.92,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " your",
+              "start": 13.92,
+              "end": 14.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " renouncement",
+              "start": 14.04,
+              "end": 14.74,
+              "probability": 0.9913736979166666
+            },
+            {
+              "text": " an",
+              "start": 14.74,
+              "end": 14.92,
+              "probability": 0.908203125
+            },
+            {
+              "text": " immortal",
+              "start": 14.92,
+              "end": 15.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " spirit,",
+              "start": 15.32,
+              "end": 15.86,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thirty",
+              "start": 16.48,
+              "end": 16.64,
+              "probability": 0.9501953125
+            },
+            {
+              "text": "-five",
+              "start": 16.64,
+              "end": 17.02,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " and",
+              "start": 17.02,
+              "end": 17.22,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " to",
+              "start": 17.22,
+              "end": 17.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 17.3,
+              "end": 17.52,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " talked with insincerity as with a saint.",
+          "start": 17.52,
+          "end": 19.7,
+          "words": [
+            {
+              "text": " talked",
+              "start": 17.52,
+              "end": 17.74,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " with",
+              "start": 17.74,
+              "end": 17.96,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " insincerity",
+              "start": 17.96,
+              "end": 18.62,
+              "probability": 0.940673828125
+            },
+            {
+              "text": " as",
+              "start": 18.62,
+              "end": 19.1,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " with",
+              "start": 19.1,
+              "end": 19.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 19.26,
+              "end": 19.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " saint.",
+              "start": 19.46,
+              "end": 19.7,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucio,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "true.",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "raw": "Thirty",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "would",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "not,",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "though,",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "tease",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "my",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "raw": "familiar",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "raw": "sin",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "raw": "with",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "raw": "maids",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "raw": "to",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "raw": "seem",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "raw": "the",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "raw": "lap",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "raw": "-wing,",
+          "start": 6.2,
+          "end": 6.42
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "raw": "to",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "raw": "jest,",
+          "start": 7.14,
+          "end": 7.5
+        },
+        {
+          "raw": "tongue",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "raw": "far",
+          "start": 8.02,
+          "end": 8.32
+        },
+        {
+          "raw": "from",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "raw": "heart",
+          "start": 8.56,
+          "end": 8.84
+        },
+        {
+          "raw": "-play",
+          "start": 8.84,
+          "end": 9.12
+        },
+        {
+          "raw": "with",
+          "start": 9.12,
+          "end": 9.32
+        },
+        {
+          "raw": "all",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "raw": "virgins",
+          "start": 9.62,
+          "end": 10.02
+        },
+        {
+          "raw": "so.",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "raw": "I",
+          "start": 10.66,
+          "end": 11.06
+        },
+        {
+          "raw": "hold",
+          "start": 11.06,
+          "end": 11.26
+        },
+        {
+          "raw": "you",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "raw": "as",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "raw": "a",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "raw": "thing",
+          "start": 11.68,
+          "end": 11.86
+        },
+        {
+          "raw": "enskied",
+          "start": 11.86,
+          "end": 12.56
+        },
+        {
+          "raw": "and",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "raw": "sainted,",
+          "start": 12.76,
+          "end": 13.2
+        },
+        {
+          "raw": "by",
+          "start": 13.68,
+          "end": 13.92
+        },
+        {
+          "raw": "your",
+          "start": 13.92,
+          "end": 14.04
+        },
+        {
+          "raw": "renouncement",
+          "start": 14.04,
+          "end": 14.74
+        },
+        {
+          "raw": "an",
+          "start": 14.74,
+          "end": 14.92
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.32,
+          "end": 15.86
+        },
+        {
+          "raw": "thirty",
+          "start": 16.48,
+          "end": 16.64
+        },
+        {
+          "raw": "-five",
+          "start": 16.64,
+          "end": 17.02
+        },
+        {
+          "raw": "and",
+          "start": 17.02,
+          "end": 17.22
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "raw": "be",
+          "start": 17.3,
+          "end": 17.52
+        },
+        {
+          "raw": "talked",
+          "start": 17.52,
+          "end": 17.74
+        },
+        {
+          "raw": "with",
+          "start": 17.74,
+          "end": 17.96
+        },
+        {
+          "raw": "insincerity",
+          "start": 17.96,
+          "end": 18.62
+        },
+        {
+          "raw": "as",
+          "start": 18.62,
+          "end": 19.1
+        },
+        {
+          "raw": "with",
+          "start": 19.1,
+          "end": 19.26
+        },
+        {
+          "raw": "a",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "raw": "saint.",
+          "start": 19.46,
+          "end": 19.7
+        }
+      ],
+      "expected_tokens": [
+        "_Lucio._",
+        "It",
+        "is",
+        "true.",
+        "30",
+        "I",
+        "would",
+        "not--though",
+        "'tis",
+        "my",
+        "familiar",
+        "sin",
+        "With",
+        "maids",
+        "to",
+        "seem",
+        "the",
+        "lapwing,",
+        "and",
+        "to",
+        "jest,",
+        "Tongue",
+        "far",
+        "from",
+        "heart--play",
+        "with",
+        "all",
+        "virgins",
+        "so:",
+        "I",
+        "hold",
+        "you",
+        "as",
+        "a",
+        "thing",
+        "ensky'd",
+        "and",
+        "sainted;",
+        "By",
+        "your",
+        "renouncement,",
+        "an",
+        "immortal",
+        "spirit;",
+        "35",
+        "And",
+        "to",
+        "be",
+        "talk'd",
+        "with",
+        "in",
+        "sincerity,",
+        "As",
+        "with",
+        "a",
+        "saint."
+      ],
+      "acoustic_expected_tokens": [
+        "_Lucio._",
+        "It",
+        "is",
+        "true.",
+        "30",
+        "I",
+        "would",
+        "not--though",
+        "'tis",
+        "my",
+        "familiar",
+        "sin",
+        "With",
+        "maids",
+        "to",
+        "seem",
+        "the",
+        "lapwing,",
+        "and",
+        "to",
+        "jest,",
+        "Tongue",
+        "far",
+        "from",
+        "heart--play",
+        "with",
+        "all",
+        "virgins",
+        "so:",
+        "I",
+        "hold",
+        "you",
+        "as",
+        "a",
+        "thing",
+        "ensky'd",
+        "and",
+        "sainted;",
+        "By",
+        "your",
+        "renouncement,",
+        "an",
+        "immortal",
+        "spirit;",
+        "35",
+        "And",
+        "to",
+        "be",
+        "talk'd",
+        "with",
+        "in",
+        "sincerity,",
+        "As",
+        "with",
+        "a",
+        "saint."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          35,
+          9,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "equal",
+          36,
+          44,
+          36,
+          44
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          46
+        ],
+        [
+          "equal",
+          45,
+          50,
+          46,
+          51
+        ],
+        [
+          "replace",
+          50,
+          52,
+          51,
+          52
+        ],
+        [
+          "equal",
+          52,
+          56,
+          52,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          35,
+          36,
+          35,
+          36
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          46
+        ],
+        [
+          "replace",
+          50,
+          52,
+          51,
+          52
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucio,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "lucio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.38,
+          "end": 1.74,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thirty",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "thirty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not, though,",
+          "start": 2.98,
+          "end": 3.4,
+          "key": "notthough",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.78,
+          "end": 4.02,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "familiar",
+          "start": 4.02,
+          "end": 4.46,
+          "key": "familiar",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sin",
+          "start": 4.46,
+          "end": 4.84,
+          "key": "sin",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.84,
+          "end": 5.06,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "maids",
+          "start": 5.06,
+          "end": 5.54,
+          "key": "maids",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.54,
+          "end": 5.64,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 5.64,
+          "end": 5.8,
+          "key": "seem",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.8,
+          "end": 6.0,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lap -wing,",
+          "start": 6.0,
+          "end": 6.42,
+          "key": "lapwing",
+          "pieces": [
+            18,
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.72,
+          "end": 6.96,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.96,
+          "end": 7.14,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "jest,",
+          "start": 7.14,
+          "end": 7.5,
+          "key": "jest",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 7.86,
+          "end": 8.02,
+          "key": "tongue",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 8.02,
+          "end": 8.32,
+          "key": "far",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.32,
+          "end": 8.56,
+          "key": "from",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "heart -play",
+          "start": 8.56,
+          "end": 9.12,
+          "key": "heartplay",
+          "pieces": [
+            26,
+            27
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.12,
+          "end": 9.32,
+          "key": "with",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 9.32,
+          "end": 9.62,
+          "key": "all",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "virgins",
+          "start": 9.62,
+          "end": 10.02,
+          "key": "virgins",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 10.02,
+          "end": 10.34,
+          "key": "so",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.66,
+          "end": 11.06,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 11.06,
+          "end": 11.26,
+          "key": "hold",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.26,
+          "end": 11.42,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.42,
+          "end": 11.54,
+          "key": "as",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.54,
+          "end": 11.68,
+          "key": "a",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 11.68,
+          "end": 11.86,
+          "key": "thing",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "enskied",
+          "start": 11.86,
+          "end": 12.56,
+          "key": "enskied",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.56,
+          "end": 12.76,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "sainted,",
+          "start": 12.76,
+          "end": 13.2,
+          "key": "sainted",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 13.68,
+          "end": 13.92,
+          "key": "by",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 13.92,
+          "end": 14.04,
+          "key": "your",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "renouncement",
+          "start": 14.04,
+          "end": 14.74,
+          "key": "renouncement",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 14.74,
+          "end": 14.92,
+          "key": "an",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "immortal",
+          "start": 14.92,
+          "end": 15.32,
+          "key": "immortal",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 15.32,
+          "end": 15.86,
+          "key": "spirit",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "thirty",
+          "start": 16.48,
+          "end": 16.64,
+          "key": "thirty",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "-five",
+          "start": 16.64,
+          "end": 17.02,
+          "key": "five",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.02,
+          "end": 17.22,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.3,
+          "key": "to",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 17.3,
+          "end": 17.52,
+          "key": "be",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "talked",
+          "start": 17.52,
+          "end": 17.74,
+          "key": "talked",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 17.74,
+          "end": 17.96,
+          "key": "with",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "insincerity",
+          "start": 17.96,
+          "end": 18.62,
+          "key": "insincerity",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 18.62,
+          "end": 19.1,
+          "key": "as",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.1,
+          "end": 19.26,
+          "key": "with",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.26,
+          "end": 19.46,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "saint.",
+          "start": 19.46,
+          "end": 19.7,
+          "key": "saint",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "not--though",
+          "heard": "not, though,",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "expected_index": 17,
+          "text": "lapwing,",
+          "heard": "lap -wing,",
+          "heard_indexes": [
+            18,
+            19
+          ],
+          "start": 6.0,
+          "end": 6.42
+        },
+        {
+          "expected_index": 24,
+          "text": "heart--play",
+          "heard": "heart -play",
+          "heard_indexes": [
+            26,
+            27
+          ],
+          "start": 8.56,
+          "end": 9.12
+        }
+      ],
+      "groups": [
+        {
+          "heard_index": 51,
+          "heard": "insincerity",
+          "expected_indexes": [
+            50,
+            51
+          ],
+          "text": "in sincerity,",
+          "start": 17.96,
+          "end": 18.62
+        }
+      ],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Lucio._",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "It",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "is",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "true.",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "text": "30",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "would",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "not--though",
+          "start": 2.98,
+          "end": 3.4
+        },
+        {
+          "text": "'tis",
+          "start": 3.4,
+          "end": 3.59
+        },
+        {
+          "text": "my",
+          "start": 3.78,
+          "end": 4.02
+        },
+        {
+          "text": "familiar",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "text": "sin",
+          "start": 4.46,
+          "end": 4.84
+        },
+        {
+          "text": "With",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "text": "maids",
+          "start": 5.06,
+          "end": 5.54
+        },
+        {
+          "text": "to",
+          "start": 5.54,
+          "end": 5.64
+        },
+        {
+          "text": "seem",
+          "start": 5.64,
+          "end": 5.8
+        },
+        {
+          "text": "the",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "text": "lapwing,",
+          "start": 6.0,
+          "end": 6.42
+        },
+        {
+          "text": "and",
+          "start": 6.72,
+          "end": 6.96
+        },
+        {
+          "text": "to",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "text": "jest,",
+          "start": 7.14,
+          "end": 7.5
+        },
+        {
+          "text": "Tongue",
+          "start": 7.86,
+          "end": 8.02
+        },
+        {
+          "text": "far",
+          "start": 8.02,
+          "end": 8.32
+        },
+        {
+          "text": "from",
+          "start": 8.32,
+          "end": 8.56
+        },
+        {
+          "text": "heart--play",
+          "start": 8.56,
+          "end": 9.12
+        },
+        {
+          "text": "with",
+          "start": 9.12,
+          "end": 9.32
+        },
+        {
+          "text": "all",
+          "start": 9.32,
+          "end": 9.62
+        },
+        {
+          "text": "virgins",
+          "start": 9.62,
+          "end": 10.02
+        },
+        {
+          "text": "so:",
+          "start": 10.02,
+          "end": 10.34
+        },
+        {
+          "text": "I",
+          "start": 10.66,
+          "end": 11.06
+        },
+        {
+          "text": "hold",
+          "start": 11.06,
+          "end": 11.26
+        },
+        {
+          "text": "you",
+          "start": 11.26,
+          "end": 11.42
+        },
+        {
+          "text": "as",
+          "start": 11.42,
+          "end": 11.54
+        },
+        {
+          "text": "a",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "text": "thing",
+          "start": 11.68,
+          "end": 11.86
+        },
+        {
+          "text": "ensky'd",
+          "start": 11.86,
+          "end": 12.21
+        },
+        {
+          "text": "and",
+          "start": 12.56,
+          "end": 12.76
+        },
+        {
+          "text": "sainted;",
+          "start": 12.76,
+          "end": 13.2
+        },
+        {
+          "text": "By",
+          "start": 13.68,
+          "end": 13.92
+        },
+        {
+          "text": "your",
+          "start": 13.92,
+          "end": 14.04
+        },
+        {
+          "text": "renouncement,",
+          "start": 14.04,
+          "end": 14.74
+        },
+        {
+          "text": "an",
+          "start": 14.74,
+          "end": 14.92
+        },
+        {
+          "text": "immortal",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "text": "spirit;",
+          "start": 15.32,
+          "end": 15.86
+        },
+        {
+          "text": "35",
+          "start": 15.86,
+          "end": 16.44
+        },
+        {
+          "text": "And",
+          "start": 17.02,
+          "end": 17.22
+        },
+        {
+          "text": "to",
+          "start": 17.22,
+          "end": 17.3
+        },
+        {
+          "text": "be",
+          "start": 17.3,
+          "end": 17.52
+        },
+        {
+          "text": "talk'd",
+          "start": 17.52,
+          "end": 17.74
+        },
+        {
+          "text": "with",
+          "start": 17.74,
+          "end": 17.96
+        },
+        {
+          "text": "in",
+          "start": 17.96,
+          "end": 18.08
+        },
+        {
+          "text": "sincerity,",
+          "start": 18.08,
+          "end": 18.62
+        },
+        {
+          "text": "As",
+          "start": 18.62,
+          "end": 19.1
+        },
+        {
+          "text": "with",
+          "start": 19.1,
+          "end": 19.26
+        },
+        {
+          "text": "a",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "text": "saint.",
+          "start": 19.46,
+          "end": 19.7
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 53
+      },
+      "match_ratio": 0.9464285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.9129420584067702
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3db5bfcb7341363fb0b008c74fe3376fa464755ae82e55aad09a1e4014e3512b",
+  "selected_reasons": []
+}

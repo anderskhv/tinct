@@ -1,0 +1,1133 @@
+{
+  "complete": true,
+  "signature": "f16910bb12c2e9e3dcdaad8fa2892f9a6f5c4f4547bdb7a081dfd7d34fb43e03",
+  "attempts": [
+    {
+      "asr_seconds": 0.726290337741375,
+      "alignment_seconds": 0.001726953312754631,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[\"He who lives everywhere, lives nowhere.\"--Martial, vii. 73.]",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He who lives everywhere, lives nowhere.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.2474365234375
+            },
+            {
+              "text": " who",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.95703125
+            },
+            {
+              "text": " lives",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " everywhere,",
+              "start": 0.95,
+              "end": 1.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lives",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.982421875
+            },
+            {
+              "text": " nowhere.",
+              "start": 1.77,
+              "end": 2.23,
+              "probability": 0.966796875
+            }
+          ]
+        },
+        {
+          "text": " Marshall, vii. 73.",
+          "start": 2.23,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " Marshall,",
+              "start": 2.23,
+              "end": 3.13,
+              "probability": 0.04034423828125
+            },
+            {
+              "text": " vii.",
+              "start": 3.31,
+              "end": 3.77,
+              "probability": 0.040051937103271484
+            },
+            {
+              "text": " 73.",
+              "start": 4.29,
+              "end": 4.71,
+              "probability": 0.849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "who",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "lives",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "everywhere,",
+          "start": 0.95,
+          "end": 1.43
+        },
+        {
+          "raw": "lives",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "nowhere.",
+          "start": 1.77,
+          "end": 2.23
+        },
+        {
+          "raw": "Marshall,",
+          "start": 2.23,
+          "end": 3.13
+        },
+        {
+          "raw": "vii.",
+          "start": 3.31,
+          "end": 3.77
+        },
+        {
+          "raw": "73.",
+          "start": 4.29,
+          "end": 4.71
+        }
+      ],
+      "expected_tokens": [
+        "[“He",
+        "who",
+        "lives",
+        "everywhere,",
+        "lives",
+        "nowhere.”--Martial,",
+        "vii.",
+        "73.]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"He",
+        "who",
+        "lives",
+        "everywhere,",
+        "lives",
+        "nowhere.\"--Martial,",
+        "vii.",
+        "73.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "lives",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "everywhere,",
+          "start": 0.95,
+          "end": 1.43,
+          "key": "everywhere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "lives",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nowhere.",
+          "start": 1.77,
+          "end": 2.23,
+          "key": "nowhere",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Marshall,",
+          "start": 2.23,
+          "end": 3.13,
+          "key": "marshall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "vii.",
+          "start": 3.31,
+          "end": 3.77,
+          "key": "vii",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "73.",
+          "start": 4.29,
+          "end": 4.71,
+          "key": "seventythree",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "who",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "lives",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "everywhere,",
+          "start": 0.95,
+          "end": 1.43
+        },
+        {
+          "text": "lives",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "nowhere.”--Martial,",
+          "start": 1.77,
+          "end": 2.54
+        },
+        {
+          "text": "vii.",
+          "start": 3.31,
+          "end": 3.77
+        },
+        {
+          "text": "73.]",
+          "start": 4.29,
+          "end": 4.71
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.7281681057065725
+    },
+    {
+      "asr_seconds": 0.38213262241333723,
+      "alignment_seconds": 0.0018725879490375519,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "He"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He who lives everywhere lives nowhere",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.2474365234375
+            },
+            {
+              "text": " who",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.95703125
+            },
+            {
+              "text": " lives",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " everywhere",
+              "start": 0.95,
+              "end": 1.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lives",
+              "start": 1.41,
+              "end": 1.77,
+              "probability": 0.673828125
+            },
+            {
+              "text": " nowhere",
+              "start": 1.77,
+              "end": 2.25,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " Marshall Roman 773",
+          "start": 2.25,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Marshall",
+              "start": 2.25,
+              "end": 3.19,
+              "probability": 0.00817108154296875
+            },
+            {
+              "text": " Roman",
+              "start": 3.19,
+              "end": 3.47,
+              "probability": 0.62109375
+            },
+            {
+              "text": " 773",
+              "start": 3.47,
+              "end": 4.75,
+              "probability": 0.72607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "who",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "lives",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "everywhere",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "raw": "lives",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "raw": "nowhere",
+          "start": 1.77,
+          "end": 2.25
+        },
+        {
+          "raw": "Marshall",
+          "start": 2.25,
+          "end": 3.19
+        },
+        {
+          "raw": "Roman",
+          "start": 3.19,
+          "end": 3.47
+        },
+        {
+          "raw": "773",
+          "start": 3.47,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "[“He",
+        "who",
+        "lives",
+        "everywhere,",
+        "lives",
+        "nowhere.”--Martial,",
+        "vii.",
+        "73.]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"He",
+        "who",
+        "lives",
+        "everywhere,",
+        "lives",
+        "nowhere.\"--Martial,",
+        "vii.",
+        "73.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          8,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          8,
+          5,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "lives",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "everywhere",
+          "start": 0.95,
+          "end": 1.41,
+          "key": "everywhere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 1.41,
+          "end": 1.77,
+          "key": "lives",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nowhere",
+          "start": 1.77,
+          "end": 2.25,
+          "key": "nowhere",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Marshall",
+          "start": 2.25,
+          "end": 3.19,
+          "key": "marshall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 3.19,
+          "end": 3.47,
+          "key": "roman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "773",
+          "start": 3.47,
+          "end": 4.75,
+          "key": "773",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "who",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "lives",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "everywhere,",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "text": "lives",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "text": "nowhere.”--Martial,",
+          "start": 1.77,
+          "end": 3.26
+        },
+        {
+          "text": "vii.",
+          "start": 3.26,
+          "end": 4.005
+        },
+        {
+          "text": "73.]",
+          "start": 4.005,
+          "end": 4.377
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3841573689132929
+    },
+    {
+      "asr_seconds": 0.4537240266799927,
+      "alignment_seconds": 0.0015700748190283775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He who lives everywhere lives nowhere.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.2476806640625
+            },
+            {
+              "text": " who",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.95703125
+            },
+            {
+              "text": " lives",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " everywhere",
+              "start": 0.95,
+              "end": 1.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lives",
+              "start": 1.41,
+              "end": 1.77,
+              "probability": 0.673828125
+            },
+            {
+              "text": " nowhere.",
+              "start": 1.77,
+              "end": 2.25,
+              "probability": 0.97607421875
+            }
+          ]
+        },
+        {
+          "text": " Marshall, Romans 7, 73.",
+          "start": 2.87,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Marshall,",
+              "start": 2.87,
+              "end": 3.19,
+              "probability": 0.055084228515625
+            },
+            {
+              "text": " Romans",
+              "start": 3.31,
+              "end": 3.51,
+              "probability": 0.740234375
+            },
+            {
+              "text": " 7,",
+              "start": 3.51,
+              "end": 3.83,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " 73.",
+              "start": 4.29,
+              "end": 4.73,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "who",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "lives",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "everywhere",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "raw": "lives",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "raw": "nowhere.",
+          "start": 1.77,
+          "end": 2.25
+        },
+        {
+          "raw": "Marshall,",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "raw": "Romans",
+          "start": 3.31,
+          "end": 3.51
+        },
+        {
+          "raw": "7,",
+          "start": 3.51,
+          "end": 3.83
+        },
+        {
+          "raw": "73.",
+          "start": 4.29,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "[“He",
+        "who",
+        "lives",
+        "everywhere,",
+        "lives",
+        "nowhere.”--Martial,",
+        "vii.",
+        "73.]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"He",
+        "who",
+        "lives",
+        "everywhere,",
+        "lives",
+        "nowhere.\"--Martial,",
+        "vii.",
+        "73.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          9
+        ],
+        [
+          "equal",
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          7,
+          5,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "lives",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "everywhere",
+          "start": 0.95,
+          "end": 1.41,
+          "key": "everywhere",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 1.41,
+          "end": 1.77,
+          "key": "lives",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nowhere.",
+          "start": 1.77,
+          "end": 2.25,
+          "key": "nowhere",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Marshall,",
+          "start": 2.87,
+          "end": 3.19,
+          "key": "marshall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Romans",
+          "start": 3.31,
+          "end": 3.51,
+          "key": "romans",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "7,",
+          "start": 3.51,
+          "end": 3.83,
+          "key": "seven",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "73.",
+          "start": 4.29,
+          "end": 4.73,
+          "key": "seventythree",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "who",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "lives",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "everywhere,",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "text": "lives",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "text": "nowhere.”--Martial,",
+          "start": 1.77,
+          "end": 3.03
+        },
+        {
+          "text": "vii.",
+          "start": 3.03,
+          "end": 3.66
+        },
+        {
+          "text": "73.]",
+          "start": 4.29,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4554647598415613
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a13b63510c783ad05f51f75eb141d6381bc55090458517b74afe076ae3b27b77",
+  "selected_reasons": []
+}

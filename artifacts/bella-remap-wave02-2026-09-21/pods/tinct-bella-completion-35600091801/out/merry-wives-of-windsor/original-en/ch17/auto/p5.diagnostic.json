@@ -1,0 +1,1155 @@
+{
+  "complete": true,
+  "signature": "28012f79e8d7ebfb279f9be537a127052b8ac6ca4e25744841ee578a7f1bbcbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.6126547027379274,
+      "alignment_seconds": 0.0037270747125148773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Ha! a fat woman! the knight may be robbed: I'll call. --Bully knight! bully Sir John! speak from thy lungs military: art thou there? it is thine host, thine Ephesian, 15 calls.",
+        "hotwords": "Ha, I'll, Sir, John, Ephesian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, Ha! a fat woman! the knight may be robbed. I'll call. Bully knight! bully Sir John! speak from thy lungs military! art thou there? it is thine host, thine Ephesian, 15 calls.",
+          "start": 0.05,
+          "end": 11.77,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.443603515625
+            },
+            {
+              "text": " Ha!",
+              "start": 0.89,
+              "end": 1.01,
+              "probability": 0.1680908203125
+            },
+            {
+              "text": " a",
+              "start": 1.23,
+              "end": 1.27,
+              "probability": 0.476318359375
+            },
+            {
+              "text": " fat",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " woman!",
+              "start": 1.45,
+              "end": 1.75,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.2227783203125
+            },
+            {
+              "text": " knight",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.009246826171875
+            },
+            {
+              "text": " may",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " robbed.",
+              "start": 2.75,
+              "end": 3.07,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " I'll",
+              "start": 3.29,
+              "end": 3.47,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " call.",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Bully",
+              "start": 4.19,
+              "end": 4.47,
+              "probability": 0.97265625
+            },
+            {
+              "text": " knight!",
+              "start": 4.47,
+              "end": 4.79,
+              "probability": 0.479248046875
+            },
+            {
+              "text": " bully",
+              "start": 5.19,
+              "end": 5.33,
+              "probability": 0.18115234375
+            },
+            {
+              "text": " Sir",
+              "start": 5.33,
+              "end": 5.59,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " John!",
+              "start": 5.59,
+              "end": 6.01,
+              "probability": 0.9921875
+            },
+            {
+              "text": " speak",
+              "start": 6.49,
+              "end": 6.61,
+              "probability": 0.5078125
+            },
+            {
+              "text": " from",
+              "start": 6.61,
+              "end": 6.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thy",
+              "start": 6.85,
+              "end": 6.95,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " lungs",
+              "start": 6.95,
+              "end": 7.21,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " military!",
+              "start": 7.21,
+              "end": 7.79,
+              "probability": 0.673828125
+            },
+            {
+              "text": " art",
+              "start": 8.03,
+              "end": 8.13,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " thou",
+              "start": 8.13,
+              "end": 8.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " there?",
+              "start": 8.37,
+              "end": 8.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " it",
+              "start": 9.15,
+              "end": 9.25,
+              "probability": 0.326904296875
+            },
+            {
+              "text": " is",
+              "start": 9.25,
+              "end": 9.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thine",
+              "start": 9.43,
+              "end": 9.65,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " host,",
+              "start": 9.65,
+              "end": 10.03,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " thine",
+              "start": 10.23,
+              "end": 10.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ephesian,",
+              "start": 10.33,
+              "end": 10.91,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " 15",
+              "start": 11.01,
+              "end": 11.27,
+              "probability": 0.044830322265625
+            },
+            {
+              "text": " calls.",
+              "start": 11.27,
+              "end": 11.77,
+              "probability": 0.8154296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Ha!",
+          "start": 0.89,
+          "end": 1.01
+        },
+        {
+          "raw": "a",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "raw": "fat",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "woman!",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "knight",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "may",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "be",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "robbed.",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "raw": "I'll",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "raw": "call.",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "Bully",
+          "start": 4.19,
+          "end": 4.47
+        },
+        {
+          "raw": "knight!",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "raw": "bully",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "raw": "Sir",
+          "start": 5.33,
+          "end": 5.59
+        },
+        {
+          "raw": "John!",
+          "start": 5.59,
+          "end": 6.01
+        },
+        {
+          "raw": "speak",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "raw": "from",
+          "start": 6.61,
+          "end": 6.85
+        },
+        {
+          "raw": "thy",
+          "start": 6.85,
+          "end": 6.95
+        },
+        {
+          "raw": "lungs",
+          "start": 6.95,
+          "end": 7.21
+        },
+        {
+          "raw": "military!",
+          "start": 7.21,
+          "end": 7.79
+        },
+        {
+          "raw": "art",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "raw": "thou",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "raw": "there?",
+          "start": 8.37,
+          "end": 8.65
+        },
+        {
+          "raw": "it",
+          "start": 9.15,
+          "end": 9.25
+        },
+        {
+          "raw": "is",
+          "start": 9.25,
+          "end": 9.43
+        },
+        {
+          "raw": "thine",
+          "start": 9.43,
+          "end": 9.65
+        },
+        {
+          "raw": "host,",
+          "start": 9.65,
+          "end": 10.03
+        },
+        {
+          "raw": "thine",
+          "start": 10.23,
+          "end": 10.33
+        },
+        {
+          "raw": "Ephesian,",
+          "start": 10.33,
+          "end": 10.91
+        },
+        {
+          "raw": "15",
+          "start": 11.01,
+          "end": 11.27
+        },
+        {
+          "raw": "calls.",
+          "start": 11.27,
+          "end": 11.77
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Ha!",
+        "a",
+        "fat",
+        "woman!",
+        "the",
+        "knight",
+        "may",
+        "be",
+        "robbed:",
+        "I’ll",
+        "call.",
+        "--Bully",
+        "knight!",
+        "bully",
+        "Sir",
+        "John!",
+        "speak",
+        "from",
+        "thy",
+        "lungs",
+        "military:",
+        "art",
+        "thou",
+        "there?",
+        "it",
+        "is",
+        "thine",
+        "host,",
+        "thine",
+        "Ephesian,",
+        "15",
+        "calls."
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Ha!",
+        "a",
+        "fat",
+        "woman!",
+        "the",
+        "knight",
+        "may",
+        "be",
+        "robbed:",
+        "I'll",
+        "call.",
+        "--Bully",
+        "knight!",
+        "bully",
+        "Sir",
+        "John!",
+        "speak",
+        "from",
+        "thy",
+        "lungs",
+        "military:",
+        "art",
+        "thou",
+        "there?",
+        "it",
+        "is",
+        "thine",
+        "host,",
+        "thine",
+        "Ephesian,",
+        "15",
+        "calls."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ha!",
+          "start": 0.89,
+          "end": 1.01,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.23,
+          "end": 1.27,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fat",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "fat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "woman!",
+          "start": 1.45,
+          "end": 1.75,
+          "key": "woman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "knight",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "knight",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.31,
+          "end": 2.53,
+          "key": "may",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "robbed.",
+          "start": 2.75,
+          "end": 3.07,
+          "key": "robbed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.29,
+          "end": 3.47,
+          "key": "ill",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "call.",
+          "start": 3.47,
+          "end": 3.75,
+          "key": "call",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Bully",
+          "start": 4.19,
+          "end": 4.47,
+          "key": "bully",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "knight!",
+          "start": 4.47,
+          "end": 4.79,
+          "key": "knight",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 5.19,
+          "end": 5.33,
+          "key": "bully",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 5.33,
+          "end": 5.59,
+          "key": "sir",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "John!",
+          "start": 5.59,
+          "end": 6.01,
+          "key": "john",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 6.49,
+          "end": 6.61,
+          "key": "speak",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.61,
+          "end": 6.85,
+          "key": "from",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.85,
+          "end": 6.95,
+          "key": "thy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "lungs",
+          "start": 6.95,
+          "end": 7.21,
+          "key": "lungs",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "military!",
+          "start": 7.21,
+          "end": 7.79,
+          "key": "military",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 8.03,
+          "end": 8.13,
+          "key": "art",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 8.13,
+          "end": 8.37,
+          "key": "thou",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 8.37,
+          "end": 8.65,
+          "key": "there",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 9.15,
+          "end": 9.25,
+          "key": "it",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.25,
+          "end": 9.43,
+          "key": "is",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 9.43,
+          "end": 9.65,
+          "key": "thine",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "host,",
+          "start": 9.65,
+          "end": 10.03,
+          "key": "host",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 10.23,
+          "end": 10.33,
+          "key": "thine",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Ephesian,",
+          "start": 10.33,
+          "end": 10.91,
+          "key": "ephesian",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "15",
+          "start": 11.01,
+          "end": 11.27,
+          "key": "fifteen",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "calls.",
+          "start": 11.27,
+          "end": 11.77,
+          "key": "calls",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Ha!",
+          "start": 0.89,
+          "end": 1.01
+        },
+        {
+          "text": "a",
+          "start": 1.23,
+          "end": 1.27
+        },
+        {
+          "text": "fat",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "woman!",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "knight",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "may",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "be",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "text": "robbed:",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "text": "I’ll",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "text": "call.",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "--Bully",
+          "start": 4.19,
+          "end": 4.47
+        },
+        {
+          "text": "knight!",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "text": "bully",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "text": "Sir",
+          "start": 5.33,
+          "end": 5.59
+        },
+        {
+          "text": "John!",
+          "start": 5.59,
+          "end": 6.01
+        },
+        {
+          "text": "speak",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "text": "from",
+          "start": 6.61,
+          "end": 6.85
+        },
+        {
+          "text": "thy",
+          "start": 6.85,
+          "end": 6.95
+        },
+        {
+          "text": "lungs",
+          "start": 6.95,
+          "end": 7.21
+        },
+        {
+          "text": "military:",
+          "start": 7.21,
+          "end": 7.79
+        },
+        {
+          "text": "art",
+          "start": 8.03,
+          "end": 8.13
+        },
+        {
+          "text": "thou",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "text": "there?",
+          "start": 8.37,
+          "end": 8.65
+        },
+        {
+          "text": "it",
+          "start": 9.15,
+          "end": 9.25
+        },
+        {
+          "text": "is",
+          "start": 9.25,
+          "end": 9.43
+        },
+        {
+          "text": "thine",
+          "start": 9.43,
+          "end": 9.65
+        },
+        {
+          "text": "host,",
+          "start": 9.65,
+          "end": 10.03
+        },
+        {
+          "text": "thine",
+          "start": 10.23,
+          "end": 10.33
+        },
+        {
+          "text": "Ephesian,",
+          "start": 10.33,
+          "end": 10.91
+        },
+        {
+          "text": "15",
+          "start": 11.01,
+          "end": 11.27
+        },
+        {
+          "text": "calls.",
+          "start": 11.27,
+          "end": 11.77
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6167008988559246
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "500da90c10a8e3c77450a075be8c1e49088ed7e4548933129b83ff6a9a1bfd07",
+  "selected_reasons": []
+}

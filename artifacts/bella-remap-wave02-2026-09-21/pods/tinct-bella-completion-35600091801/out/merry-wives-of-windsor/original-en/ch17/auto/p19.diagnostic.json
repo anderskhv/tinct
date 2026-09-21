@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "3141da8fbdb03a823e4c872c50af3085d1e514c1fb2f66ac1ac68c92ab0b6936",
+  "attempts": [
+    {
+      "asr_seconds": 0.29995681066066027,
+      "alignment_seconds": 0.0013026800006628036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Sim._ I may not conceal them, sir.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sim, I may not conceal them, sir.",
+          "start": 0.11,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Sim,",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.744140625
+            },
+            {
+              "text": " I",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " may",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " conceal",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " them,",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sir.",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.85595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sim,",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "may",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "not",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "conceal",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "raw": "them,",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "sir.",
+          "start": 1.97,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "_Sim._",
+        "I",
+        "may",
+        "not",
+        "conceal",
+        "them,",
+        "sir."
+      ],
+      "acoustic_expected_tokens": [
+        "_Sim._",
+        "I",
+        "may",
+        "not",
+        "conceal",
+        "them,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sim,",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "sim",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.09,
+          "end": 1.19,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "conceal",
+          "start": 1.33,
+          "end": 1.67,
+          "key": "conceal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Sim._",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "I",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "may",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "not",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "conceal",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "text": "them,",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "sir.",
+          "start": 1.97,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30144815891981125
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "612370d3e22cc0f0d147017474aa4692e1fbef7a8a734835908703acdf35d08d",
+  "selected_reasons": []
+}

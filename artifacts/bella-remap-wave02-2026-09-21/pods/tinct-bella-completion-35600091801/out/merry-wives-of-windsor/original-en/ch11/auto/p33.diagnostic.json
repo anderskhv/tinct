@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "6a7c6309cd68210ea82f49e24d38b882b8b0633e298c04a747ff963b10f3b28d",
+  "attempts": [
+    {
+      "asr_seconds": 0.4235536903142929,
+      "alignment_seconds": 0.0014780573546886444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fent._ Nay, Master Page, be not impatient. 70",
+        "hotwords": "Nay, Master, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fent, Nay, Master Page, be not impatient. 70",
+          "start": 0.08,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Fent,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.36749267578125
+            },
+            {
+              "text": " Nay,",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.05279541015625
+            },
+            {
+              "text": " Master",
+              "start": 1.32,
+              "end": 1.56,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " Page,",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.69140625
+            },
+            {
+              "text": " be",
+              "start": 2.0,
+              "end": 2.04,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " not",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " impatient.",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " 70",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.18359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fent,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "Master",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "raw": "Page,",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "be",
+          "start": 2.0,
+          "end": 2.04
+        },
+        {
+          "raw": "not",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "impatient.",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "raw": "70",
+          "start": 3.28,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "_Fent._",
+        "Nay,",
+        "Master",
+        "Page,",
+        "be",
+        "not",
+        "impatient.",
+        "70"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fent._",
+        "Nay,",
+        "Master",
+        "Page,",
+        "be",
+        "not",
+        "impatient.",
+        "70"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fent,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "fent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.32,
+          "end": 1.56,
+          "key": "master",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "page",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.0,
+          "end": 2.04,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "impatient.",
+          "start": 2.18,
+          "end": 2.64,
+          "key": "impatient",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "70",
+          "start": 3.28,
+          "end": 3.54,
+          "key": "seventy",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fent._",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Nay,",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "Master",
+          "start": 1.32,
+          "end": 1.56
+        },
+        {
+          "text": "Page,",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "be",
+          "start": 2.0,
+          "end": 2.04
+        },
+        {
+          "text": "not",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "impatient.",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "text": "70",
+          "start": 3.28,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42517094034701586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cae6e048b3d61b067d199f2c229da4256bba6694a40cfd3f5033459b4d90e293",
+  "selected_reasons": []
+}

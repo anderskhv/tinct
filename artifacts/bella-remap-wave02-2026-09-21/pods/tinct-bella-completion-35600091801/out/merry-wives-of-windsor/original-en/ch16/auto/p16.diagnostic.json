@@ -1,0 +1,792 @@
+{
+  "complete": true,
+  "signature": "594aac6f82dc7c851adc705bcc905d8cbb0b9a0ea31add5fa54efd64b8bb8bfa",
+  "attempts": [
+    {
+      "asr_seconds": 0.393237316980958,
+      "alignment_seconds": 0.0029122009873390198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Ford._ And till he tell the truth, Let the supposed fairies pinch him sound, 60 And burn him with their tapers.",
+        "hotwords": "Ford._, And, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs Ford._, And till he tell the truth, Let the supposed fairies pinch him sound, 60 And burn him with their tapers.",
+          "start": 0.02,
+          "end": 7.36,
+          "words": [
+            {
+              "text": " Mrs",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.151123046875
+            },
+            {
+              "text": " Ford._,",
+              "start": 0.7,
+              "end": 1.68,
+              "probability": 0.08624270558357239
+            },
+            {
+              "text": " And",
+              "start": 1.82,
+              "end": 1.82,
+              "probability": 0.0004169940948486328
+            },
+            {
+              "text": " till",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " he",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " tell",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " truth,",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Let",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.1585693359375
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " supposed",
+              "start": 3.36,
+              "end": 3.82,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " fairies",
+              "start": 3.82,
+              "end": 4.32,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " pinch",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " him",
+              "start": 4.56,
+              "end": 4.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sound,",
+              "start": 4.74,
+              "end": 5.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " 60",
+              "start": 5.56,
+              "end": 5.92,
+              "probability": 0.00963592529296875
+            },
+            {
+              "text": " And",
+              "start": 5.92,
+              "end": 6.2,
+              "probability": 0.2421875
+            },
+            {
+              "text": " burn",
+              "start": 6.2,
+              "end": 6.46,
+              "probability": 0.990234375
+            },
+            {
+              "text": " him",
+              "start": 6.46,
+              "end": 6.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 6.62,
+              "end": 6.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " their",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tapers.",
+              "start": 6.94,
+              "end": 7.36,
+              "probability": 0.990478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Ford._,",
+          "start": 0.7,
+          "end": 1.68
+        },
+        {
+          "raw": "And",
+          "start": 1.82,
+          "end": 1.82
+        },
+        {
+          "raw": "till",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "he",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "tell",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "truth,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "Let",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "raw": "supposed",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "raw": "fairies",
+          "start": 3.82,
+          "end": 4.32
+        },
+        {
+          "raw": "pinch",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "raw": "him",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "raw": "sound,",
+          "start": 4.74,
+          "end": 5.18
+        },
+        {
+          "raw": "60",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "raw": "And",
+          "start": 5.92,
+          "end": 6.2
+        },
+        {
+          "raw": "burn",
+          "start": 6.2,
+          "end": 6.46
+        },
+        {
+          "raw": "him",
+          "start": 6.46,
+          "end": 6.62
+        },
+        {
+          "raw": "with",
+          "start": 6.62,
+          "end": 6.8
+        },
+        {
+          "raw": "their",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "tapers.",
+          "start": 6.94,
+          "end": 7.36
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "And",
+        "till",
+        "he",
+        "tell",
+        "the",
+        "truth,",
+        "Let",
+        "the",
+        "supposed",
+        "fairies",
+        "pinch",
+        "him",
+        "sound,",
+        "60",
+        "And",
+        "burn",
+        "him",
+        "with",
+        "their",
+        "tapers."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "And",
+        "till",
+        "he",
+        "tell",
+        "the",
+        "truth,",
+        "Let",
+        "the",
+        "supposed",
+        "fairies",
+        "pinch",
+        "him",
+        "sound,",
+        "60",
+        "And",
+        "burn",
+        "him",
+        "with",
+        "their",
+        "tapers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ford._,",
+          "start": 0.7,
+          "end": 1.68,
+          "key": "ford",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.82,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "till",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 2.4,
+          "end": 2.76,
+          "key": "truth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "let",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.36,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "supposed",
+          "start": 3.36,
+          "end": 3.82,
+          "key": "supposed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fairies",
+          "start": 3.82,
+          "end": 4.32,
+          "key": "fairies",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pinch",
+          "start": 4.32,
+          "end": 4.56,
+          "key": "pinch",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.56,
+          "end": 4.74,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sound,",
+          "start": 4.74,
+          "end": 5.18,
+          "key": "sound",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "60",
+          "start": 5.56,
+          "end": 5.92,
+          "key": "sixty",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.92,
+          "end": 6.2,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "burn",
+          "start": 6.2,
+          "end": 6.46,
+          "key": "burn",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.46,
+          "end": 6.62,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.62,
+          "end": 6.8,
+          "key": "with",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.8,
+          "end": 6.94,
+          "key": "their",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "tapers.",
+          "start": 6.94,
+          "end": 7.36,
+          "key": "tapers",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Ford._",
+          "start": 0.7,
+          "end": 1.68
+        },
+        {
+          "text": "And",
+          "start": 1.82,
+          "end": 1.82
+        },
+        {
+          "text": "till",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "he",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "tell",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "the",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "truth,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "Let",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "text": "supposed",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "text": "fairies",
+          "start": 3.82,
+          "end": 4.32
+        },
+        {
+          "text": "pinch",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "text": "him",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "text": "sound,",
+          "start": 4.74,
+          "end": 5.18
+        },
+        {
+          "text": "60",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "text": "And",
+          "start": 5.92,
+          "end": 6.2
+        },
+        {
+          "text": "burn",
+          "start": 6.2,
+          "end": 6.46
+        },
+        {
+          "text": "him",
+          "start": 6.46,
+          "end": 6.62
+        },
+        {
+          "text": "with",
+          "start": 6.62,
+          "end": 6.8
+        },
+        {
+          "text": "their",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "tapers.",
+          "start": 6.94,
+          "end": 7.36
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3964206203818321
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff593c67080b4eb2d526a9e8cbb789cf941c24841c9aa1b03d76d14209d7d8a7",
+  "selected_reasons": []
+}

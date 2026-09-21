@@ -1,0 +1,374 @@
+{
+  "complete": true,
+  "signature": "c76863516e03aa3649f7f2ce8f49f7a7c3927c7b6c420ba96df5c821014059af",
+  "attempts": [
+    {
+      "asr_seconds": 0.6745116552338004,
+      "alignment_seconds": 0.0010190298780798912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Mistress Quickly._",
+        "hotwords": "Mistress, Quickly._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Mistress Quickly._",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Mistress",
+              "start": 0.67,
+              "end": 1.07,
+              "probability": 0.1571044921875
+            },
+            {
+              "text": " Quickly._",
+              "start": 1.07,
+              "end": 1.85,
+              "probability": 0.3369038899739583
+            }
+          ]
+        },
+        {
+          "text": " Enter Mistress Quickly._",
+          "start": 1.85,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 1.704692840576172e-05
+            },
+            {
+              "text": " Mistress",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 2.384185791015625e-07
+            },
+            {
+              "text": " Quickly._",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 0.1511570413907369
+            }
+          ]
+        },
+        {
+          "text": " Enter Mistress Quickly._ Enter Mistress Quickly._",
+          "start": 2.13,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 1.615285873413086e-05
+            },
+            {
+              "text": " Mistress",
+              "start": 2.13,
+              "end": 2.13,
+              "probability": 1.7881393432617188e-07
+            },
+            {
+              "text": " Quickly._",
+              "start": 2.13,
+              "end": 2.15,
+              "probability": 0.1380560795466105
+            },
+            {
+              "text": " Enter",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.0012731552124023438
+            },
+            {
+              "text": " Mistress",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.428466796875
+            },
+            {
+              "text": " Quickly._",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.685546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Mistress",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "raw": "Quickly._",
+          "start": 1.07,
+          "end": 1.85
+        },
+        {
+          "raw": "Enter",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "Enter",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.13,
+          "end": 2.13
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.13,
+          "end": 2.15
+        },
+        {
+          "raw": "Enter",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.15,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "MISTRESS",
+        "QUICKLY._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Mistress",
+        "Quickly._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 0.67,
+          "end": 1.07,
+          "key": "mistress",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 1.07,
+          "end": 1.85,
+          "key": "quickly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "mistress",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "quickly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "enter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.13,
+          "end": 2.13,
+          "key": "mistress",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.13,
+          "end": 2.15,
+          "key": "quickly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "enter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "mistress",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "quickly",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "MISTRESS",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "text": "QUICKLY._",
+          "start": 1.07,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 12,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6757258204743266
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35a40e37e7fd2dfd5c8bb1b3e6fd8d338baafd35325b2652e25541c5514e2097",
+  "selected_reasons": []
+}

@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "6460c9b6c0e61029bce654ba5f063527372802ee1d80c901c1182727e0ceafae",
+  "attempts": [
+    {
+      "asr_seconds": 0.34274337254464626,
+      "alignment_seconds": 0.0016015628352761269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Quantum curs potest et ars doloris Desiit fingere Caelius podagram.\"",
+        "hotwords": "Quantum, Desiit, Caelius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quantum curs potest et ars doloris Desiit fingere Caelius podagram.",
+          "start": 0.05,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " Quantum",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.720703125
+            },
+            {
+              "text": " curs",
+              "start": 0.73,
+              "end": 1.15,
+              "probability": 0.006237030029296875
+            },
+            {
+              "text": " potest",
+              "start": 1.15,
+              "end": 2.03,
+              "probability": 0.202117919921875
+            },
+            {
+              "text": " et",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.2041015625
+            },
+            {
+              "text": " ars",
+              "start": 2.19,
+              "end": 2.57,
+              "probability": 0.5687255859375
+            },
+            {
+              "text": " doloris",
+              "start": 2.57,
+              "end": 2.99,
+              "probability": 0.35531870524088544
+            },
+            {
+              "text": " Desiit",
+              "start": 2.99,
+              "end": 3.53,
+              "probability": 0.14024035135904947
+            },
+            {
+              "text": " fingere",
+              "start": 3.53,
+              "end": 3.93,
+              "probability": 0.14645564556121826
+            },
+            {
+              "text": " Caelius",
+              "start": 3.93,
+              "end": 4.39,
+              "probability": 0.5852254231770834
+            },
+            {
+              "text": " podagram.",
+              "start": 4.39,
+              "end": 4.87,
+              "probability": 0.0384063720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quantum",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "curs",
+          "start": 0.73,
+          "end": 1.15
+        },
+        {
+          "raw": "potest",
+          "start": 1.15,
+          "end": 2.03
+        },
+        {
+          "raw": "et",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "ars",
+          "start": 2.19,
+          "end": 2.57
+        },
+        {
+          "raw": "doloris",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "raw": "Desiit",
+          "start": 2.99,
+          "end": 3.53
+        },
+        {
+          "raw": "fingere",
+          "start": 3.53,
+          "end": 3.93
+        },
+        {
+          "raw": "Caelius",
+          "start": 3.93,
+          "end": 4.39
+        },
+        {
+          "raw": "podagram.",
+          "start": 4.39,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "“Quantum",
+        "curs",
+        "potest",
+        "et",
+        "ars",
+        "doloris",
+        "Desiit",
+        "fingere",
+        "Caelius",
+        "podagram.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Quantum",
+        "curs",
+        "potest",
+        "et",
+        "ars",
+        "doloris",
+        "Desiit",
+        "fingere",
+        "Caelius",
+        "podagram.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quantum",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "quantum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "curs",
+          "start": 0.73,
+          "end": 1.15,
+          "key": "curs",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "potest",
+          "start": 1.15,
+          "end": 2.03,
+          "key": "potest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 2.03,
+          "end": 2.19,
+          "key": "et",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ars",
+          "start": 2.19,
+          "end": 2.57,
+          "key": "ars",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doloris",
+          "start": 2.57,
+          "end": 2.99,
+          "key": "doloris",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Desiit",
+          "start": 2.99,
+          "end": 3.53,
+          "key": "desiit",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fingere",
+          "start": 3.53,
+          "end": 3.93,
+          "key": "fingere",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Caelius",
+          "start": 3.93,
+          "end": 4.39,
+          "key": "caelius",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "podagram.",
+          "start": 4.39,
+          "end": 4.87,
+          "key": "podagram",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Quantum",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "curs",
+          "start": 0.73,
+          "end": 1.15
+        },
+        {
+          "text": "potest",
+          "start": 1.15,
+          "end": 2.03
+        },
+        {
+          "text": "et",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "ars",
+          "start": 2.19,
+          "end": 2.57
+        },
+        {
+          "text": "doloris",
+          "start": 2.57,
+          "end": 2.99
+        },
+        {
+          "text": "Desiit",
+          "start": 2.99,
+          "end": 3.53
+        },
+        {
+          "text": "fingere",
+          "start": 3.53,
+          "end": 3.93
+        },
+        {
+          "text": "Caelius",
+          "start": 3.93,
+          "end": 4.39
+        },
+        {
+          "text": "podagram.”",
+          "start": 4.39,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3444929551333189
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "833283f96fb7e6ce4767ddbf95596b186ff15e2d59e7108574663a764495fe75",
+  "selected_reasons": []
+}

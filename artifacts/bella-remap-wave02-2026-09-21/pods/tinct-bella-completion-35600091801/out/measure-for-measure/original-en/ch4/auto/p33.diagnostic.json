@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "1424bddb3e579e272840281209884ff8d2a5ebff7a8bfb94913a6db49c5e7294",
+  "attempts": [
+    {
+      "asr_seconds": 0.25705540366470814,
+      "alignment_seconds": 0.0012805592268705368,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Lucio._ I take my leave of you.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucio, I take my leave of you.",
+          "start": 0.55,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Lucio,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.884765625
+            },
+            {
+              "text": " I",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " take",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " leave",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucio,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "take",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "my",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "leave",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "of",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "you.",
+          "start": 2.03,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "_Lucio._",
+        "I",
+        "take",
+        "my",
+        "leave",
+        "of",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "_Lucio._",
+        "I",
+        "take",
+        "my",
+        "leave",
+        "of",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucio,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "lucio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "leave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.91,
+          "end": 2.03,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Lucio._",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "I",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "take",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "my",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "leave",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "of",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "text": "you.",
+          "start": 2.03,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2584619950503111
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd67e69f5ef7b9291658dcf14decb860b3883d033d126724ca23f4d3db381aee",
+  "selected_reasons": []
+}

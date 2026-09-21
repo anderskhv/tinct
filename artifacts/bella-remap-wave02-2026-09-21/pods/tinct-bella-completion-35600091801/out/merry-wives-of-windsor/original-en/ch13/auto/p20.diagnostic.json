@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "352d4eb1e19d625afe9129c9081fda26933eace7fb61c5505b658835420ea73f",
+  "attempts": [
+    {
+      "asr_seconds": 0.20519536174833775,
+      "alignment_seconds": 0.0005859276279807091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Will._ A pebble.",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will, a pebble.",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Will,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.48779296875
+            },
+            {
+              "text": " a",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " pebble.",
+              "start": 1.14,
+              "end": 1.5,
+              "probability": 0.9762369791666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "a",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "pebble.",
+          "start": 1.14,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "_Will._",
+        "A",
+        "pebble."
+      ],
+      "acoustic_expected_tokens": [
+        "_Will._",
+        "A",
+        "pebble."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pebble.",
+          "start": 1.14,
+          "end": 1.5,
+          "key": "pebble",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Will._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "A",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "pebble.",
+          "start": 1.14,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2058379426598549
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "98bd48fb4e61ab35bf46b37f4f065810cb74ef01d3ab938a03084a6d236fde3e",
+  "selected_reasons": []
+}

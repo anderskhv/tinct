@@ -1,1 +1,680 @@
-[]
+[
+ {
+  "key": "essays-montaigne/original-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9939024390243902,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch10/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9939024390243902
+ },
+ {
+  "key": "essays-montaigne/original-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9885057471264368,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch14/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9885057471264368
+ },
+ {
+  "key": "essays-montaigne/original-en/ch32",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9940476190476191,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch32/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9940476190476191
+ },
+ {
+  "key": "essays-montaigne/original-en/ch34",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9942084942084942,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch34/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9942084942084942
+ },
+ {
+  "key": "essays-montaigne/original-en/ch41",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.987758945386064,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch41/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.987758945386064
+ },
+ {
+  "key": "essays-montaigne/original-en/ch43",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9882352941176471,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch43/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "essays-montaigne/original-en/ch44",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9948186528497409,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch44/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9948186528497409
+ },
+ {
+  "key": "essays-montaigne/original-en/ch45",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9893617021276596,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch45/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9893617021276596
+ },
+ {
+  "key": "essays-montaigne/original-en/ch52",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch52/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "essays-montaigne/original-en/ch53",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9940828402366864,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch53/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9940828402366864
+ },
+ {
+  "key": "essays-montaigne/original-en/ch57",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.994142259414226,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch57/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.994142259414226
+ },
+ {
+  "key": "essays-montaigne/original-en/ch61",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9922222222222222,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch61/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9922222222222222
+ },
+ {
+  "key": "essays-montaigne/original-en/ch71",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.996996996996997,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch71/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.996996996996997
+ },
+ {
+  "key": "essays-montaigne/original-en/ch79",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9980544747081712,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch79/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9980544747081712
+ },
+ {
+  "key": "essays-montaigne/original-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9977628635346756,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch8/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9977628635346756
+ },
+ {
+  "key": "essays-montaigne/original-en/ch81",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9924357034795764,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch81/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9924357034795764
+ },
+ {
+  "key": "essays-montaigne/original-en/ch82",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9879518072289156,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch82/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9879518072289156
+ },
+ {
+  "key": "essays-montaigne/original-en/ch83",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/essays-montaigne/original-en/ch83/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "measure-for-measure/original-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.984081041968162,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch1/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "measure-for-measure/original-en/ch11",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9938931297709923,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch11/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9938931297709923
+ },
+ {
+  "key": "measure-for-measure/original-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9893992932862191,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch14/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9893992932862191
+ },
+ {
+  "key": "measure-for-measure/original-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9923076923076923,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch15/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9923076923076923
+ },
+ {
+  "key": "measure-for-measure/original-en/ch16",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9655172413793104,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch16/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9655172413793104
+ },
+ {
+  "key": "measure-for-measure/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9786324786324786,
+    "reasons": [
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch3/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "measure-for-measure/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9881422924901185,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch4/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9881422924901185
+ },
+ {
+  "key": "measure-for-measure/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9651474530831099,
+    "reasons": [
+     {
+      "paragraph": 12,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/measure-for-measure/original-en/ch7/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch11",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9861995753715499,
+    "reasons": [
+     {
+      "paragraph": 11,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch11/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9814814814814815,
+    "reasons": [
+     {
+      "paragraph": 30,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 32,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch13/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch15/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch16",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.987389659520807,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch16/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.987389659520807
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9805068226120858,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch17/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9805068226120858
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch18",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9805194805194806,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch18/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9805194805194806
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch19",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.975177304964539,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch19/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.975177304964539
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9824561403508771,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch2/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch20",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9761904761904762,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch20/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9761904761904762
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch21",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9861751152073732,
+    "reasons": [
+     {
+      "paragraph": 8,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch21/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9892215568862276,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch3/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9892215568862276
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.992,
+    "reasons": [
+     {
+      "paragraph": 13,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 39,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch7/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch8",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": null,
+    "reasons": [
+     {
+      "paragraph": 45,
+      "reasons": [
+       "processing_invariant_error"
+      ]
+     }
+    ],
+    "validationErrors": null,
+    "sidecar": null
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "merry-wives-of-windsor/original-en/ch9",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9844961240310077,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/bella-remap-wave02-2026-09-21/pods/tinct-bella-completion-35600091801/out/merry-wives-of-windsor/original-en/ch9/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9844961240310077
+ }
+]

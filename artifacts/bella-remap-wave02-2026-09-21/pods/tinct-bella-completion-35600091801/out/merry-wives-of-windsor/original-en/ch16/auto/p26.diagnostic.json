@@ -1,0 +1,528 @@
+{
+  "complete": true,
+  "signature": "a2498fc9e469b63f31bc8f842ffd8d7c7a8628946ac20c41267ced0c24a7777d",
+  "attempts": [
+    {
+      "asr_seconds": 0.39385741110891104,
+      "alignment_seconds": 0.002243359573185444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ Go, Mistress Ford, Send quickly to Sir John, to know his mind.",
+        "hotwords": "Page._, Go, Mistress, Ford, Send, Sir, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs. Page._, Go, Mistress Ford, Send quickly to Sir John, to know his mind.",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " Page._,",
+              "start": 1.35,
+              "end": 1.75,
+              "probability": 0.4025879204273224
+            },
+            {
+              "text": " Go,",
+              "start": 1.89,
+              "end": 1.89,
+              "probability": 0.461181640625
+            },
+            {
+              "text": " Mistress",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Ford,",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Send",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.19677734375
+            },
+            {
+              "text": " quickly",
+              "start": 3.03,
+              "end": 3.35,
+              "probability": 0.9140625
+            },
+            {
+              "text": " to",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Sir",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " John,",
+              "start": 3.67,
+              "end": 4.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.23,
+              "end": 4.37,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " know",
+              "start": 4.37,
+              "end": 4.49,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " his",
+              "start": 4.49,
+              "end": 4.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " mind.",
+              "start": 4.67,
+              "end": 5.05,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "raw": "Go,",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "Ford,",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "Send",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "quickly",
+          "start": 3.03,
+          "end": 3.35
+        },
+        {
+          "raw": "to",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "Sir",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "John,",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "raw": "to",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "raw": "know",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "raw": "his",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "raw": "mind.",
+          "start": 4.67,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Go,",
+        "Mistress",
+        "Ford,",
+        "Send",
+        "quickly",
+        "to",
+        "Sir",
+        "John,",
+        "to",
+        "know",
+        "his",
+        "mind."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Go,",
+        "Mistress",
+        "Ford,",
+        "Send",
+        "quickly",
+        "to",
+        "Sir",
+        "John,",
+        "to",
+        "know",
+        "his",
+        "mind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.35,
+          "end": 1.75,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 1.89,
+          "end": 1.89,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "mistress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ford,",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "ford",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Send",
+          "start": 2.81,
+          "end": 3.03,
+          "key": "send",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 3.03,
+          "end": 3.35,
+          "key": "quickly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 3.53,
+          "end": 3.67,
+          "key": "sir",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "John,",
+          "start": 3.67,
+          "end": 4.05,
+          "key": "john",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.23,
+          "end": 4.37,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.37,
+          "end": 4.49,
+          "key": "know",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.49,
+          "end": 4.67,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 4.67,
+          "end": 5.05,
+          "key": "mind",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Page._",
+          "start": 1.35,
+          "end": 1.75
+        },
+        {
+          "text": "Go,",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "text": "Mistress",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "Ford,",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "Send",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "quickly",
+          "start": 3.03,
+          "end": 3.35
+        },
+        {
+          "text": "to",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "Sir",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "John,",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "text": "to",
+          "start": 4.23,
+          "end": 4.37
+        },
+        {
+          "text": "know",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "his",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "text": "mind.",
+          "start": 4.67,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3963282145559788
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ad1559d9c35431250e9dfaaa53110a53c825fc9ac7b5a05b18e2e41a52981e7",
+  "selected_reasons": []
+}

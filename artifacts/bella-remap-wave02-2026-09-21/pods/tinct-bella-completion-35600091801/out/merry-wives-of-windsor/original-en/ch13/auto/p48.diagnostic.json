@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "102ef24b6aac82d44cc9d704e85442cdf903c5f66dc0b4caf5b7e6c1a7a83796",
+  "attempts": [
+    {
+      "asr_seconds": 0.385325251147151,
+      "alignment_seconds": 0.001862633042037487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ He is a good sprag memory. Farewell, Mistress 75 Page.",
+        "hotwords": "He, Farewell, Mistress, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, He is a good sprag memory. Farewell, Mistress 75 Page.",
+          "start": 0.08,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.431884765625
+            },
+            {
+              "text": " He",
+              "start": 0.98,
+              "end": 1.04,
+              "probability": 0.06658935546875
+            },
+            {
+              "text": " is",
+              "start": 1.04,
+              "end": 1.12,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " a",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " good",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " sprag",
+              "start": 1.38,
+              "end": 1.8,
+              "probability": 0.516937255859375
+            },
+            {
+              "text": " memory.",
+              "start": 1.8,
+              "end": 2.22,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Farewell,",
+              "start": 2.84,
+              "end": 3.26,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Mistress",
+              "start": 3.54,
+              "end": 3.62,
+              "probability": 0.0616455078125
+            },
+            {
+              "text": " 75",
+              "start": 3.62,
+              "end": 4.16,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " Page.",
+              "start": 4.16,
+              "end": 4.62,
+              "probability": 0.410400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "He",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "raw": "is",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "raw": "a",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "good",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "sprag",
+          "start": 1.38,
+          "end": 1.8
+        },
+        {
+          "raw": "memory.",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "raw": "Farewell,",
+          "start": 2.84,
+          "end": 3.26
+        },
+        {
+          "raw": "Mistress",
+          "start": 3.54,
+          "end": 3.62
+        },
+        {
+          "raw": "75",
+          "start": 3.62,
+          "end": 4.16
+        },
+        {
+          "raw": "Page.",
+          "start": 4.16,
+          "end": 4.62
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "He",
+        "is",
+        "a",
+        "good",
+        "sprag",
+        "memory.",
+        "Farewell,",
+        "Mistress",
+        "75",
+        "Page."
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "He",
+        "is",
+        "a",
+        "good",
+        "sprag",
+        "memory.",
+        "Farewell,",
+        "Mistress",
+        "75",
+        "Page."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 0.98,
+          "end": 1.04,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.04,
+          "end": 1.12,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sprag",
+          "start": 1.38,
+          "end": 1.8,
+          "key": "sprag",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "memory.",
+          "start": 1.8,
+          "end": 2.22,
+          "key": "memory",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Farewell,",
+          "start": 2.84,
+          "end": 3.26,
+          "key": "farewell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 3.54,
+          "end": 3.62,
+          "key": "mistress",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "75",
+          "start": 3.62,
+          "end": 4.16,
+          "key": "seventyfive",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 4.16,
+          "end": 4.62,
+          "key": "page",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "He",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "is",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "text": "a",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "text": "good",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "sprag",
+          "start": 1.38,
+          "end": 1.8
+        },
+        {
+          "text": "memory.",
+          "start": 1.8,
+          "end": 2.22
+        },
+        {
+          "text": "Farewell,",
+          "start": 2.84,
+          "end": 3.26
+        },
+        {
+          "text": "Mistress",
+          "start": 3.54,
+          "end": 3.62
+        },
+        {
+          "text": "75",
+          "start": 3.62,
+          "end": 4.16
+        },
+        {
+          "text": "Page.",
+          "start": 4.16,
+          "end": 4.62
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38736714608967304
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "709bcc04885a10dd081b9020ad7ac05da59d29fce3c1d4bbb14986e893abece0",
+  "selected_reasons": []
+}

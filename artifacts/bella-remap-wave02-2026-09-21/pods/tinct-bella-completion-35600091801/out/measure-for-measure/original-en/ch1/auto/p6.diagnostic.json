@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "278334cd966402acb874007ceadfc5f183a1fdeace6fb7218ddab9ba620599c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1978708766400814,
+      "alignment_seconds": 0.0006838049739599228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Angelo._",
+        "hotwords": "Angelo._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Angelo._",
+          "start": 0.11,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Angelo._",
+              "start": 0.69,
+              "end": 1.33,
+              "probability": 0.0124664306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "Angelo._",
+          "start": 0.69,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "ANGELO._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Angelo._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Angelo._",
+          "start": 0.69,
+          "end": 1.33,
+          "key": "angelo",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "ANGELO._",
+          "start": 0.69,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19861208740621805
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b20fd217a227e24ce34bac3bf8a29caff92299865cb97168fe4c031a294dfe9c",
+  "selected_reasons": []
+}

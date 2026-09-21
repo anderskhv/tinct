@@ -1,0 +1,4290 @@
+{
+  "complete": true,
+  "signature": "ed86ba472705d5d9f4eb06bff72856d7094444af3d5ef1357feb7e058fcae2a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.7206153934821486,
+      "alignment_seconds": 0.006963697262108326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ What say you to young Master Fenton? he capers, he dances, he has eyes of youth, he writes verses, he speaks holiday, he smells April and May: he will carry't, he will carry't; 'tis in his buttons; he will carry't. 60",
+        "hotwords": "What, Master, Fenton, April, May"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What, Master, Fenton? he capers, he dances, he has eyes of youth, he writes verses, he speaks holiday, he smells April and May. He will carry't, he will carry't.",
+          "start": 0.05,
+          "end": 14.77,
+          "words": [
+            {
+              "text": " What,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.0020618438720703125
+            },
+            {
+              "text": " Master,",
+              "start": 0.69,
+              "end": 1.67,
+              "probability": 0.00021982192993164062
+            },
+            {
+              "text": " Fenton?",
+              "start": 2.29,
+              "end": 2.65,
+              "probability": 0.49383997917175293
+            },
+            {
+              "text": " he",
+              "start": 2.75,
+              "end": 3.23,
+              "probability": 0.0020122528076171875
+            },
+            {
+              "text": " capers,",
+              "start": 3.23,
+              "end": 3.71,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " he",
+              "start": 3.83,
+              "end": 3.89,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " dances,",
+              "start": 3.89,
+              "end": 4.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " he",
+              "start": 4.71,
+              "end": 4.77,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " has",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.984375
+            },
+            {
+              "text": " eyes",
+              "start": 4.93,
+              "end": 5.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 5.21,
+              "end": 5.41,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " youth,",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 5.85,
+              "end": 5.91,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " writes",
+              "start": 5.91,
+              "end": 6.17,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " verses,",
+              "start": 6.17,
+              "end": 6.55,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " he",
+              "start": 6.81,
+              "end": 6.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " speaks",
+              "start": 6.89,
+              "end": 7.15,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " holiday,",
+              "start": 7.15,
+              "end": 7.55,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " he",
+              "start": 7.77,
+              "end": 7.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " smells",
+              "start": 7.85,
+              "end": 8.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " April",
+              "start": 8.21,
+              "end": 8.61,
+              "probability": 0.958984375
+            },
+            {
+              "text": " and",
+              "start": 8.61,
+              "end": 8.79,
+              "probability": 0.923828125
+            },
+            {
+              "text": " May.",
+              "start": 8.79,
+              "end": 9.11,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " He",
+              "start": 9.57,
+              "end": 9.63,
+              "probability": 0.88671875
+            },
+            {
+              "text": " will",
+              "start": 9.63,
+              "end": 9.81,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " carry't,",
+              "start": 9.81,
+              "end": 10.23,
+              "probability": 0.0019071996212005615
+            },
+            {
+              "text": " he",
+              "start": 10.33,
+              "end": 10.33,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " will",
+              "start": 10.33,
+              "end": 10.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " carry't.",
+              "start": 10.49,
+              "end": 14.77,
+              "probability": 0.9072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Master,",
+          "start": 0.69,
+          "end": 1.67
+        },
+        {
+          "raw": "Fenton?",
+          "start": 2.29,
+          "end": 2.65
+        },
+        {
+          "raw": "he",
+          "start": 2.75,
+          "end": 3.23
+        },
+        {
+          "raw": "capers,",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "raw": "he",
+          "start": 3.83,
+          "end": 3.89
+        },
+        {
+          "raw": "dances,",
+          "start": 3.89,
+          "end": 4.33
+        },
+        {
+          "raw": "he",
+          "start": 4.71,
+          "end": 4.77
+        },
+        {
+          "raw": "has",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "eyes",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "raw": "of",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "raw": "youth,",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "he",
+          "start": 5.85,
+          "end": 5.91
+        },
+        {
+          "raw": "writes",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "raw": "verses,",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "raw": "he",
+          "start": 6.81,
+          "end": 6.89
+        },
+        {
+          "raw": "speaks",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "raw": "holiday,",
+          "start": 7.15,
+          "end": 7.55
+        },
+        {
+          "raw": "he",
+          "start": 7.77,
+          "end": 7.85
+        },
+        {
+          "raw": "smells",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "raw": "April",
+          "start": 8.21,
+          "end": 8.61
+        },
+        {
+          "raw": "and",
+          "start": 8.61,
+          "end": 8.79
+        },
+        {
+          "raw": "May.",
+          "start": 8.79,
+          "end": 9.11
+        },
+        {
+          "raw": "He",
+          "start": 9.57,
+          "end": 9.63
+        },
+        {
+          "raw": "will",
+          "start": 9.63,
+          "end": 9.81
+        },
+        {
+          "raw": "carry't,",
+          "start": 9.81,
+          "end": 10.23
+        },
+        {
+          "raw": "he",
+          "start": 10.33,
+          "end": 10.33
+        },
+        {
+          "raw": "will",
+          "start": 10.33,
+          "end": 10.49
+        },
+        {
+          "raw": "carry't.",
+          "start": 10.49,
+          "end": 14.77
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "What",
+        "say",
+        "you",
+        "to",
+        "young",
+        "Master",
+        "Fenton?",
+        "he",
+        "capers,",
+        "he",
+        "dances,",
+        "he",
+        "has",
+        "eyes",
+        "of",
+        "youth,",
+        "he",
+        "writes",
+        "verses,",
+        "he",
+        "speaks",
+        "holiday,",
+        "he",
+        "smells",
+        "April",
+        "and",
+        "May:",
+        "he",
+        "will",
+        "carry’t,",
+        "he",
+        "will",
+        "carry’t;",
+        "’tis",
+        "in",
+        "his",
+        "buttons;",
+        "he",
+        "will",
+        "carry’t.",
+        "60"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "What",
+        "say",
+        "you",
+        "to",
+        "young",
+        "Master",
+        "Fenton?",
+        "he",
+        "capers,",
+        "he",
+        "dances,",
+        "he",
+        "has",
+        "eyes",
+        "of",
+        "youth,",
+        "he",
+        "writes",
+        "verses,",
+        "he",
+        "speaks",
+        "holiday,",
+        "he",
+        "smells",
+        "April",
+        "and",
+        "May:",
+        "he",
+        "will",
+        "carry't,",
+        "he",
+        "will",
+        "carry't;",
+        "'tis",
+        "in",
+        "his",
+        "buttons;",
+        "he",
+        "will",
+        "carry't.",
+        "60"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          2,
+          0,
+          1
+        ],
+        [
+          "delete",
+          2,
+          6,
+          1,
+          1
+        ],
+        [
+          "equal",
+          6,
+          34,
+          1,
+          29
+        ],
+        [
+          "delete",
+          34,
+          42,
+          29,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "delete",
+          2,
+          6,
+          1,
+          1
+        ],
+        [
+          "delete",
+          34,
+          42,
+          29,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Master,",
+          "start": 0.69,
+          "end": 1.67,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fenton?",
+          "start": 2.29,
+          "end": 2.65,
+          "key": "fenton",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.75,
+          "end": 3.23,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "capers,",
+          "start": 3.23,
+          "end": 3.71,
+          "key": "capers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.83,
+          "end": 3.89,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dances,",
+          "start": 3.89,
+          "end": 4.33,
+          "key": "dances",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.71,
+          "end": 4.77,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "has",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 4.93,
+          "end": 5.21,
+          "key": "eyes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.21,
+          "end": 5.41,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 5.41,
+          "end": 5.65,
+          "key": "youth",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.85,
+          "end": 5.91,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "writes",
+          "start": 5.91,
+          "end": 6.17,
+          "key": "writes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "verses,",
+          "start": 6.17,
+          "end": 6.55,
+          "key": "verses",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.81,
+          "end": 6.89,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 6.89,
+          "end": 7.15,
+          "key": "speaks",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "holiday,",
+          "start": 7.15,
+          "end": 7.55,
+          "key": "holiday",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.77,
+          "end": 7.85,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "smells",
+          "start": 7.85,
+          "end": 8.21,
+          "key": "smells",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "April",
+          "start": 8.21,
+          "end": 8.61,
+          "key": "april",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.61,
+          "end": 8.79,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "May.",
+          "start": 8.79,
+          "end": 9.11,
+          "key": "may",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 9.57,
+          "end": 9.63,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 9.63,
+          "end": 9.81,
+          "key": "will",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "carry't,",
+          "start": 9.81,
+          "end": 10.23,
+          "key": "carryt",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.33,
+          "end": 10.33,
+          "key": "he",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 10.33,
+          "end": 10.49,
+          "key": "will",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "carry't.",
+          "start": 10.49,
+          "end": 14.77,
+          "key": "carryt",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "What",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "say",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "you",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "young",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "Master",
+          "start": 0.69,
+          "end": 1.67
+        },
+        {
+          "text": "Fenton?",
+          "start": 2.29,
+          "end": 2.65
+        },
+        {
+          "text": "he",
+          "start": 2.75,
+          "end": 3.23
+        },
+        {
+          "text": "capers,",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "text": "he",
+          "start": 3.83,
+          "end": 3.89
+        },
+        {
+          "text": "dances,",
+          "start": 3.89,
+          "end": 4.33
+        },
+        {
+          "text": "he",
+          "start": 4.71,
+          "end": 4.77
+        },
+        {
+          "text": "has",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "eyes",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "text": "of",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "text": "youth,",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "he",
+          "start": 5.85,
+          "end": 5.91
+        },
+        {
+          "text": "writes",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "text": "verses,",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "text": "he",
+          "start": 6.81,
+          "end": 6.89
+        },
+        {
+          "text": "speaks",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "text": "holiday,",
+          "start": 7.15,
+          "end": 7.55
+        },
+        {
+          "text": "he",
+          "start": 7.77,
+          "end": 7.85
+        },
+        {
+          "text": "smells",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "text": "April",
+          "start": 8.21,
+          "end": 8.61
+        },
+        {
+          "text": "and",
+          "start": 8.61,
+          "end": 8.79
+        },
+        {
+          "text": "May:",
+          "start": 8.79,
+          "end": 9.11
+        },
+        {
+          "text": "he",
+          "start": 9.57,
+          "end": 9.63
+        },
+        {
+          "text": "will",
+          "start": 9.63,
+          "end": 9.81
+        },
+        {
+          "text": "carry’t,",
+          "start": 9.81,
+          "end": 10.23
+        },
+        {
+          "text": "he",
+          "start": 10.33,
+          "end": 10.33
+        },
+        {
+          "text": "will",
+          "start": 10.33,
+          "end": 10.49
+        },
+        {
+          "text": "carry’t;",
+          "start": 10.49,
+          "end": 14.77
+        },
+        {
+          "text": "’tis",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "in",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "his",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "buttons;",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "he",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "will",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "carry’t.",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "60",
+          "start": 14.77,
+          "end": 14.77
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 29,
+        "matched_words": 29
+      },
+      "match_ratio": 0.6904761904761905,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.7280063778162003
+    },
+    {
+      "asr_seconds": 0.7410833751782775,
+      "alignment_seconds": 0.0037946943193674088,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What, Master, Fenton, April, May"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Host, what say you to young Master Fenton? He capers, he dances, he has eyes of youth, he writes verses, he speaks holiday, he smells April and May. He will caret, he will caret. Tease in his buttons, he will caret. Sixty.",
+          "start": 0.05,
+          "end": 14.03,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " what",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " say",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.98828125
+            },
+            {
+              "text": " young",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Master",
+              "start": 1.77,
+              "end": 2.15,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " Fenton?",
+              "start": 2.15,
+              "end": 2.57,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " He",
+              "start": 3.15,
+              "end": 3.23,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " capers,",
+              "start": 3.23,
+              "end": 3.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " he",
+              "start": 3.81,
+              "end": 3.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " dances,",
+              "start": 3.89,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 4.69,
+              "end": 4.77,
+              "probability": 0.9453125
+            },
+            {
+              "text": " has",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eyes",
+              "start": 4.93,
+              "end": 5.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 5.21,
+              "end": 5.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " youth,",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 5.85,
+              "end": 5.91,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " writes",
+              "start": 5.91,
+              "end": 6.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " verses,",
+              "start": 6.17,
+              "end": 6.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 6.79,
+              "end": 6.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " speaks",
+              "start": 6.89,
+              "end": 7.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " holiday,",
+              "start": 7.15,
+              "end": 7.55,
+              "probability": 0.9609375
+            },
+            {
+              "text": " he",
+              "start": 7.77,
+              "end": 7.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " smells",
+              "start": 7.85,
+              "end": 8.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " April",
+              "start": 8.21,
+              "end": 8.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 8.61,
+              "end": 8.79,
+              "probability": 0.947265625
+            },
+            {
+              "text": " May.",
+              "start": 8.79,
+              "end": 9.11,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " He",
+              "start": 9.55,
+              "end": 9.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " will",
+              "start": 9.65,
+              "end": 9.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " caret,",
+              "start": 9.79,
+              "end": 10.19,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " he",
+              "start": 10.29,
+              "end": 10.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 10.33,
+              "end": 10.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caret.",
+              "start": 10.51,
+              "end": 11.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Tease",
+              "start": 11.43,
+              "end": 11.65,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " in",
+              "start": 11.65,
+              "end": 11.77,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " his",
+              "start": 11.77,
+              "end": 11.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " buttons,",
+              "start": 11.89,
+              "end": 12.25,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " he",
+              "start": 12.41,
+              "end": 12.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 12.49,
+              "end": 12.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caret.",
+              "start": 12.67,
+              "end": 13.19,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " Sixty.",
+              "start": 13.75,
+              "end": 14.03,
+              "probability": 0.914306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "say",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "you",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "young",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "Master",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "raw": "Fenton?",
+          "start": 2.15,
+          "end": 2.57
+        },
+        {
+          "raw": "He",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "raw": "capers,",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "raw": "he",
+          "start": 3.81,
+          "end": 3.89
+        },
+        {
+          "raw": "dances,",
+          "start": 3.89,
+          "end": 4.31
+        },
+        {
+          "raw": "he",
+          "start": 4.69,
+          "end": 4.77
+        },
+        {
+          "raw": "has",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "eyes",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "raw": "of",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "raw": "youth,",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "he",
+          "start": 5.85,
+          "end": 5.91
+        },
+        {
+          "raw": "writes",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "raw": "verses,",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "raw": "he",
+          "start": 6.79,
+          "end": 6.89
+        },
+        {
+          "raw": "speaks",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "raw": "holiday,",
+          "start": 7.15,
+          "end": 7.55
+        },
+        {
+          "raw": "he",
+          "start": 7.77,
+          "end": 7.85
+        },
+        {
+          "raw": "smells",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "raw": "April",
+          "start": 8.21,
+          "end": 8.61
+        },
+        {
+          "raw": "and",
+          "start": 8.61,
+          "end": 8.79
+        },
+        {
+          "raw": "May.",
+          "start": 8.79,
+          "end": 9.11
+        },
+        {
+          "raw": "He",
+          "start": 9.55,
+          "end": 9.65
+        },
+        {
+          "raw": "will",
+          "start": 9.65,
+          "end": 9.79
+        },
+        {
+          "raw": "caret,",
+          "start": 9.79,
+          "end": 10.19
+        },
+        {
+          "raw": "he",
+          "start": 10.29,
+          "end": 10.33
+        },
+        {
+          "raw": "will",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "raw": "caret.",
+          "start": 10.51,
+          "end": 11.21
+        },
+        {
+          "raw": "Tease",
+          "start": 11.43,
+          "end": 11.65
+        },
+        {
+          "raw": "in",
+          "start": 11.65,
+          "end": 11.77
+        },
+        {
+          "raw": "his",
+          "start": 11.77,
+          "end": 11.89
+        },
+        {
+          "raw": "buttons,",
+          "start": 11.89,
+          "end": 12.25
+        },
+        {
+          "raw": "he",
+          "start": 12.41,
+          "end": 12.49
+        },
+        {
+          "raw": "will",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "raw": "caret.",
+          "start": 12.67,
+          "end": 13.19
+        },
+        {
+          "raw": "Sixty.",
+          "start": 13.75,
+          "end": 14.03
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "What",
+        "say",
+        "you",
+        "to",
+        "young",
+        "Master",
+        "Fenton?",
+        "he",
+        "capers,",
+        "he",
+        "dances,",
+        "he",
+        "has",
+        "eyes",
+        "of",
+        "youth,",
+        "he",
+        "writes",
+        "verses,",
+        "he",
+        "speaks",
+        "holiday,",
+        "he",
+        "smells",
+        "April",
+        "and",
+        "May:",
+        "he",
+        "will",
+        "carry’t,",
+        "he",
+        "will",
+        "carry’t;",
+        "’tis",
+        "in",
+        "his",
+        "buttons;",
+        "he",
+        "will",
+        "carry’t.",
+        "60"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "What",
+        "say",
+        "you",
+        "to",
+        "young",
+        "Master",
+        "Fenton?",
+        "he",
+        "capers,",
+        "he",
+        "dances,",
+        "he",
+        "has",
+        "eyes",
+        "of",
+        "youth,",
+        "he",
+        "writes",
+        "verses,",
+        "he",
+        "speaks",
+        "holiday,",
+        "he",
+        "smells",
+        "April",
+        "and",
+        "May:",
+        "he",
+        "will",
+        "carry't,",
+        "he",
+        "will",
+        "carry't;",
+        "'tis",
+        "in",
+        "his",
+        "buttons;",
+        "he",
+        "will",
+        "carry't.",
+        "60"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "equal",
+          31,
+          33,
+          31,
+          33
+        ],
+        [
+          "replace",
+          33,
+          35,
+          33,
+          35
+        ],
+        [
+          "equal",
+          35,
+          40,
+          35,
+          40
+        ],
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ],
+        [
+          "equal",
+          41,
+          42,
+          41,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "replace",
+          33,
+          35,
+          33,
+          35
+        ],
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "young",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.77,
+          "end": 2.15,
+          "key": "master",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Fenton?",
+          "start": 2.15,
+          "end": 2.57,
+          "key": "fenton",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.15,
+          "end": 3.23,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "capers,",
+          "start": 3.23,
+          "end": 3.71,
+          "key": "capers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.81,
+          "end": 3.89,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dances,",
+          "start": 3.89,
+          "end": 4.31,
+          "key": "dances",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.69,
+          "end": 4.77,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "has",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 4.93,
+          "end": 5.21,
+          "key": "eyes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.21,
+          "end": 5.41,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 5.41,
+          "end": 5.65,
+          "key": "youth",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.85,
+          "end": 5.91,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "writes",
+          "start": 5.91,
+          "end": 6.17,
+          "key": "writes",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "verses,",
+          "start": 6.17,
+          "end": 6.55,
+          "key": "verses",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.79,
+          "end": 6.89,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 6.89,
+          "end": 7.15,
+          "key": "speaks",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "holiday,",
+          "start": 7.15,
+          "end": 7.55,
+          "key": "holiday",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.77,
+          "end": 7.85,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "smells",
+          "start": 7.85,
+          "end": 8.21,
+          "key": "smells",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "April",
+          "start": 8.21,
+          "end": 8.61,
+          "key": "april",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.61,
+          "end": 8.79,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "May.",
+          "start": 8.79,
+          "end": 9.11,
+          "key": "may",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 9.55,
+          "end": 9.65,
+          "key": "he",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 9.65,
+          "end": 9.79,
+          "key": "will",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "caret,",
+          "start": 9.79,
+          "end": 10.19,
+          "key": "caret",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.29,
+          "end": 10.33,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 10.33,
+          "end": 10.51,
+          "key": "will",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "caret.",
+          "start": 10.51,
+          "end": 11.21,
+          "key": "caret",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 11.43,
+          "end": 11.65,
+          "key": "tease",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.65,
+          "end": 11.77,
+          "key": "in",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 11.77,
+          "end": 11.89,
+          "key": "his",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "buttons,",
+          "start": 11.89,
+          "end": 12.25,
+          "key": "buttons",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.41,
+          "end": 12.49,
+          "key": "he",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 12.49,
+          "end": 12.67,
+          "key": "will",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "caret.",
+          "start": 12.67,
+          "end": 13.19,
+          "key": "caret",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Sixty.",
+          "start": 13.75,
+          "end": 14.03,
+          "key": "sixty",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "What",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "say",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "you",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "to",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "young",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "Master",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "text": "Fenton?",
+          "start": 2.15,
+          "end": 2.57
+        },
+        {
+          "text": "he",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "text": "capers,",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "text": "he",
+          "start": 3.81,
+          "end": 3.89
+        },
+        {
+          "text": "dances,",
+          "start": 3.89,
+          "end": 4.31
+        },
+        {
+          "text": "he",
+          "start": 4.69,
+          "end": 4.77
+        },
+        {
+          "text": "has",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "eyes",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "text": "of",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "text": "youth,",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "he",
+          "start": 5.85,
+          "end": 5.91
+        },
+        {
+          "text": "writes",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "text": "verses,",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "text": "he",
+          "start": 6.79,
+          "end": 6.89
+        },
+        {
+          "text": "speaks",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "text": "holiday,",
+          "start": 7.15,
+          "end": 7.55
+        },
+        {
+          "text": "he",
+          "start": 7.77,
+          "end": 7.85
+        },
+        {
+          "text": "smells",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "text": "April",
+          "start": 8.21,
+          "end": 8.61
+        },
+        {
+          "text": "and",
+          "start": 8.61,
+          "end": 8.79
+        },
+        {
+          "text": "May:",
+          "start": 8.79,
+          "end": 9.11
+        },
+        {
+          "text": "he",
+          "start": 9.55,
+          "end": 9.65
+        },
+        {
+          "text": "will",
+          "start": 9.65,
+          "end": 9.79
+        },
+        {
+          "text": "carry’t,",
+          "start": 9.79,
+          "end": 10.04
+        },
+        {
+          "text": "he",
+          "start": 10.29,
+          "end": 10.33
+        },
+        {
+          "text": "will",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "text": "carry’t;",
+          "start": 10.51,
+          "end": 11.08
+        },
+        {
+          "text": "’tis",
+          "start": 11.08,
+          "end": 11.365
+        },
+        {
+          "text": "in",
+          "start": 11.65,
+          "end": 11.77
+        },
+        {
+          "text": "his",
+          "start": 11.77,
+          "end": 11.89
+        },
+        {
+          "text": "buttons;",
+          "start": 11.89,
+          "end": 12.25
+        },
+        {
+          "text": "he",
+          "start": 12.41,
+          "end": 12.49
+        },
+        {
+          "text": "will",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "text": "carry’t.",
+          "start": 12.67,
+          "end": 13.21
+        },
+        {
+          "text": "60",
+          "start": 13.75,
+          "end": 14.03
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 38
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.7451802268624306
+    },
+    {
+      "asr_seconds": 0.8351937802508473,
+      "alignment_seconds": 0.004629266448318958,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Host, what say you to young Master Fenton?",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " what",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " say",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.98828125
+            },
+            {
+              "text": " young",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Master",
+              "start": 1.77,
+              "end": 2.15,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " Fenton?",
+              "start": 2.15,
+              "end": 2.57,
+              "probability": 0.991943359375
+            }
+          ]
+        },
+        {
+          "text": " He capers, he dances, he has eyes of youth, he writes verses, he speaks holiday, he smells",
+          "start": 3.15,
+          "end": 8.21,
+          "words": [
+            {
+              "text": " He",
+              "start": 3.15,
+              "end": 3.23,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " capers,",
+              "start": 3.23,
+              "end": 3.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " he",
+              "start": 3.81,
+              "end": 3.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " dances,",
+              "start": 3.89,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 4.69,
+              "end": 4.77,
+              "probability": 0.9453125
+            },
+            {
+              "text": " has",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " eyes",
+              "start": 4.93,
+              "end": 5.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 5.21,
+              "end": 5.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " youth,",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 5.85,
+              "end": 5.91,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " writes",
+              "start": 5.91,
+              "end": 6.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " verses,",
+              "start": 6.17,
+              "end": 6.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 6.79,
+              "end": 6.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " speaks",
+              "start": 6.89,
+              "end": 7.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " holiday,",
+              "start": 7.15,
+              "end": 7.55,
+              "probability": 0.9609375
+            },
+            {
+              "text": " he",
+              "start": 7.77,
+              "end": 7.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " smells",
+              "start": 7.85,
+              "end": 8.21,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " April and May.",
+          "start": 8.21,
+          "end": 9.11,
+          "words": [
+            {
+              "text": " April",
+              "start": 8.21,
+              "end": 8.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 8.61,
+              "end": 8.79,
+              "probability": 0.947265625
+            },
+            {
+              "text": " May.",
+              "start": 8.79,
+              "end": 9.11,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " He will caret, he will caret.",
+          "start": 9.55,
+          "end": 11.21,
+          "words": [
+            {
+              "text": " He",
+              "start": 9.55,
+              "end": 9.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " will",
+              "start": 9.65,
+              "end": 9.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " caret,",
+              "start": 9.79,
+              "end": 10.19,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " he",
+              "start": 10.29,
+              "end": 10.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 10.33,
+              "end": 10.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caret.",
+              "start": 10.51,
+              "end": 11.21,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " Tease in his buttons, he will caret.",
+          "start": 11.43,
+          "end": 13.19,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 11.43,
+              "end": 11.65,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " in",
+              "start": 11.65,
+              "end": 11.77,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " his",
+              "start": 11.77,
+              "end": 11.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " buttons,",
+              "start": 11.89,
+              "end": 12.25,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " he",
+              "start": 12.41,
+              "end": 12.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 12.49,
+              "end": 12.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " caret.",
+              "start": 12.67,
+              "end": 13.19,
+              "probability": 0.985107421875
+            }
+          ]
+        },
+        {
+          "text": " Sixty.",
+          "start": 13.75,
+          "end": 14.03,
+          "words": [
+            {
+              "text": " Sixty.",
+              "start": 13.75,
+              "end": 14.03,
+              "probability": 0.914306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "say",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "you",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "young",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "Master",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "raw": "Fenton?",
+          "start": 2.15,
+          "end": 2.57
+        },
+        {
+          "raw": "He",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "raw": "capers,",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "raw": "he",
+          "start": 3.81,
+          "end": 3.89
+        },
+        {
+          "raw": "dances,",
+          "start": 3.89,
+          "end": 4.31
+        },
+        {
+          "raw": "he",
+          "start": 4.69,
+          "end": 4.77
+        },
+        {
+          "raw": "has",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "eyes",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "raw": "of",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "raw": "youth,",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "he",
+          "start": 5.85,
+          "end": 5.91
+        },
+        {
+          "raw": "writes",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "raw": "verses,",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "raw": "he",
+          "start": 6.79,
+          "end": 6.89
+        },
+        {
+          "raw": "speaks",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "raw": "holiday,",
+          "start": 7.15,
+          "end": 7.55
+        },
+        {
+          "raw": "he",
+          "start": 7.77,
+          "end": 7.85
+        },
+        {
+          "raw": "smells",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "raw": "April",
+          "start": 8.21,
+          "end": 8.61
+        },
+        {
+          "raw": "and",
+          "start": 8.61,
+          "end": 8.79
+        },
+        {
+          "raw": "May.",
+          "start": 8.79,
+          "end": 9.11
+        },
+        {
+          "raw": "He",
+          "start": 9.55,
+          "end": 9.65
+        },
+        {
+          "raw": "will",
+          "start": 9.65,
+          "end": 9.79
+        },
+        {
+          "raw": "caret,",
+          "start": 9.79,
+          "end": 10.19
+        },
+        {
+          "raw": "he",
+          "start": 10.29,
+          "end": 10.33
+        },
+        {
+          "raw": "will",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "raw": "caret.",
+          "start": 10.51,
+          "end": 11.21
+        },
+        {
+          "raw": "Tease",
+          "start": 11.43,
+          "end": 11.65
+        },
+        {
+          "raw": "in",
+          "start": 11.65,
+          "end": 11.77
+        },
+        {
+          "raw": "his",
+          "start": 11.77,
+          "end": 11.89
+        },
+        {
+          "raw": "buttons,",
+          "start": 11.89,
+          "end": 12.25
+        },
+        {
+          "raw": "he",
+          "start": 12.41,
+          "end": 12.49
+        },
+        {
+          "raw": "will",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "raw": "caret.",
+          "start": 12.67,
+          "end": 13.19
+        },
+        {
+          "raw": "Sixty.",
+          "start": 13.75,
+          "end": 14.03
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "What",
+        "say",
+        "you",
+        "to",
+        "young",
+        "Master",
+        "Fenton?",
+        "he",
+        "capers,",
+        "he",
+        "dances,",
+        "he",
+        "has",
+        "eyes",
+        "of",
+        "youth,",
+        "he",
+        "writes",
+        "verses,",
+        "he",
+        "speaks",
+        "holiday,",
+        "he",
+        "smells",
+        "April",
+        "and",
+        "May:",
+        "he",
+        "will",
+        "carry’t,",
+        "he",
+        "will",
+        "carry’t;",
+        "’tis",
+        "in",
+        "his",
+        "buttons;",
+        "he",
+        "will",
+        "carry’t.",
+        "60"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "What",
+        "say",
+        "you",
+        "to",
+        "young",
+        "Master",
+        "Fenton?",
+        "he",
+        "capers,",
+        "he",
+        "dances,",
+        "he",
+        "has",
+        "eyes",
+        "of",
+        "youth,",
+        "he",
+        "writes",
+        "verses,",
+        "he",
+        "speaks",
+        "holiday,",
+        "he",
+        "smells",
+        "April",
+        "and",
+        "May:",
+        "he",
+        "will",
+        "carry't,",
+        "he",
+        "will",
+        "carry't;",
+        "'tis",
+        "in",
+        "his",
+        "buttons;",
+        "he",
+        "will",
+        "carry't.",
+        "60"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "equal",
+          31,
+          33,
+          31,
+          33
+        ],
+        [
+          "replace",
+          33,
+          35,
+          33,
+          35
+        ],
+        [
+          "equal",
+          35,
+          40,
+          35,
+          40
+        ],
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ],
+        [
+          "equal",
+          41,
+          42,
+          41,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "replace",
+          33,
+          35,
+          33,
+          35
+        ],
+        [
+          "replace",
+          40,
+          41,
+          40,
+          41
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "young",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.77,
+          "end": 2.15,
+          "key": "master",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Fenton?",
+          "start": 2.15,
+          "end": 2.57,
+          "key": "fenton",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.15,
+          "end": 3.23,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "capers,",
+          "start": 3.23,
+          "end": 3.71,
+          "key": "capers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.81,
+          "end": 3.89,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dances,",
+          "start": 3.89,
+          "end": 4.31,
+          "key": "dances",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.69,
+          "end": 4.77,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "has",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 4.93,
+          "end": 5.21,
+          "key": "eyes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.21,
+          "end": 5.41,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 5.41,
+          "end": 5.65,
+          "key": "youth",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.85,
+          "end": 5.91,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "writes",
+          "start": 5.91,
+          "end": 6.17,
+          "key": "writes",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "verses,",
+          "start": 6.17,
+          "end": 6.55,
+          "key": "verses",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.79,
+          "end": 6.89,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 6.89,
+          "end": 7.15,
+          "key": "speaks",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "holiday,",
+          "start": 7.15,
+          "end": 7.55,
+          "key": "holiday",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.77,
+          "end": 7.85,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "smells",
+          "start": 7.85,
+          "end": 8.21,
+          "key": "smells",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "April",
+          "start": 8.21,
+          "end": 8.61,
+          "key": "april",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.61,
+          "end": 8.79,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "May.",
+          "start": 8.79,
+          "end": 9.11,
+          "key": "may",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 9.55,
+          "end": 9.65,
+          "key": "he",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 9.65,
+          "end": 9.79,
+          "key": "will",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "caret,",
+          "start": 9.79,
+          "end": 10.19,
+          "key": "caret",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.29,
+          "end": 10.33,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 10.33,
+          "end": 10.51,
+          "key": "will",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "caret.",
+          "start": 10.51,
+          "end": 11.21,
+          "key": "caret",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 11.43,
+          "end": 11.65,
+          "key": "tease",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.65,
+          "end": 11.77,
+          "key": "in",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 11.77,
+          "end": 11.89,
+          "key": "his",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "buttons,",
+          "start": 11.89,
+          "end": 12.25,
+          "key": "buttons",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.41,
+          "end": 12.49,
+          "key": "he",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 12.49,
+          "end": 12.67,
+          "key": "will",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "caret.",
+          "start": 12.67,
+          "end": 13.19,
+          "key": "caret",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Sixty.",
+          "start": 13.75,
+          "end": 14.03,
+          "key": "sixty",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "What",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "say",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "you",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "to",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "young",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "Master",
+          "start": 1.77,
+          "end": 2.15
+        },
+        {
+          "text": "Fenton?",
+          "start": 2.15,
+          "end": 2.57
+        },
+        {
+          "text": "he",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "text": "capers,",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "text": "he",
+          "start": 3.81,
+          "end": 3.89
+        },
+        {
+          "text": "dances,",
+          "start": 3.89,
+          "end": 4.31
+        },
+        {
+          "text": "he",
+          "start": 4.69,
+          "end": 4.77
+        },
+        {
+          "text": "has",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "eyes",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "text": "of",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "text": "youth,",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "he",
+          "start": 5.85,
+          "end": 5.91
+        },
+        {
+          "text": "writes",
+          "start": 5.91,
+          "end": 6.17
+        },
+        {
+          "text": "verses,",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "text": "he",
+          "start": 6.79,
+          "end": 6.89
+        },
+        {
+          "text": "speaks",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "text": "holiday,",
+          "start": 7.15,
+          "end": 7.55
+        },
+        {
+          "text": "he",
+          "start": 7.77,
+          "end": 7.85
+        },
+        {
+          "text": "smells",
+          "start": 7.85,
+          "end": 8.21
+        },
+        {
+          "text": "April",
+          "start": 8.21,
+          "end": 8.61
+        },
+        {
+          "text": "and",
+          "start": 8.61,
+          "end": 8.79
+        },
+        {
+          "text": "May:",
+          "start": 8.79,
+          "end": 9.11
+        },
+        {
+          "text": "he",
+          "start": 9.55,
+          "end": 9.65
+        },
+        {
+          "text": "will",
+          "start": 9.65,
+          "end": 9.79
+        },
+        {
+          "text": "carry’t,",
+          "start": 9.79,
+          "end": 10.04
+        },
+        {
+          "text": "he",
+          "start": 10.29,
+          "end": 10.33
+        },
+        {
+          "text": "will",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "text": "carry’t;",
+          "start": 10.51,
+          "end": 11.08
+        },
+        {
+          "text": "’tis",
+          "start": 11.08,
+          "end": 11.365
+        },
+        {
+          "text": "in",
+          "start": 11.65,
+          "end": 11.77
+        },
+        {
+          "text": "his",
+          "start": 11.77,
+          "end": 11.89
+        },
+        {
+          "text": "buttons;",
+          "start": 11.89,
+          "end": 12.25
+        },
+        {
+          "text": "he",
+          "start": 12.41,
+          "end": 12.49
+        },
+        {
+          "text": "will",
+          "start": 12.49,
+          "end": 12.67
+        },
+        {
+          "text": "carry’t.",
+          "start": 12.67,
+          "end": 13.21
+        },
+        {
+          "text": "60",
+          "start": 13.75,
+          "end": 14.03
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 38
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.840200886130333
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "9777428ad3d6cc6b055bc35f0ca9e0413ab0cc3ccb2fe3b8935843873231584e",
+  "selected_reasons": []
+}

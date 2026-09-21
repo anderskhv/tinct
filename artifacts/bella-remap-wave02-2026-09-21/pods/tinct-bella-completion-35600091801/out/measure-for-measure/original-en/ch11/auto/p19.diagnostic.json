@@ -1,0 +1,169 @@
+{
+  "complete": true,
+  "signature": "fe399a15d59445010bbd4894f8bc51627e4ccca2e22d61ac607f5b8f74e5f3e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.21020335890352726,
+      "alignment_seconds": 0.0008815117180347443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Re-enter Mariana._",
+        "hotwords": "Mariana._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": "._ Re-enter Mariana._",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": "._",
+              "start": 0.05,
+              "end": 0.05,
+              "probability": 0.0
+            },
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.058135986328125
+            },
+            {
+              "text": "-enter",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.720703125
+            },
+            {
+              "text": " Mariana._",
+              "start": 0.73,
+              "end": 1.77,
+              "probability": 0.55670166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "._",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "Mariana._",
+          "start": 0.73,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "_Re-enter",
+        "MARIANA._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Re-enter",
+        "Mariana._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "._ Re -enter",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Mariana._",
+          "start": 0.73,
+          "end": 1.77,
+          "key": "mariana",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "_Re-enter",
+          "heard": "._ Re -enter",
+          "heard_indexes": [
+            0,
+            1,
+            2
+          ],
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Re-enter",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "MARIANA._",
+          "start": 0.73,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21117268782109022
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78ed75c4eb534e3fa606005af9915b07551c71c9046d65323e9040a7980863b2",
+  "selected_reasons": []
+}

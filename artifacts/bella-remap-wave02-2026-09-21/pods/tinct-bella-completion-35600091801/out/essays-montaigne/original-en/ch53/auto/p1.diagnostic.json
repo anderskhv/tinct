@@ -1,0 +1,660 @@
+{
+  "complete": true,
+  "signature": "1488aad67f5b69249d664eb090c8d15eb4f82e17f4e7e55374b6b8cfef0f9ae5",
+  "attempts": [
+    {
+      "asr_seconds": 0.5139240268617868,
+      "alignment_seconds": 0.001719050109386444,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Dum abest quod avemus, id exsuperare videtur Caetera; post aliud, quum contigit illud, avemus, Et sitis aequa tenet.\"",
+        "hotwords": "Dum, Caetera, Et"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dum abest quod avemus, id exsuperare videtur Caetera, post aliud, quum contigit illud, avemus, Et sitis aequa tenet.",
+          "start": 0.05,
+          "end": 8.63,
+          "words": [
+            {
+              "text": " Dum",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.029144287109375
+            },
+            {
+              "text": " abest",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.47730913758277893
+            },
+            {
+              "text": " quod",
+              "start": 0.95,
+              "end": 1.35,
+              "probability": 0.7001953125
+            },
+            {
+              "text": " avemus,",
+              "start": 1.35,
+              "end": 1.87,
+              "probability": 0.3203175862630208
+            },
+            {
+              "text": " id",
+              "start": 2.23,
+              "end": 2.29,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " exsuperare",
+              "start": 2.29,
+              "end": 2.99,
+              "probability": 0.1975682576497396
+            },
+            {
+              "text": " videtur",
+              "start": 2.99,
+              "end": 3.47,
+              "probability": 0.19386863708496094
+            },
+            {
+              "text": " Caetera,",
+              "start": 3.47,
+              "end": 4.01,
+              "probability": 0.49497445424397785
+            },
+            {
+              "text": " post",
+              "start": 4.41,
+              "end": 4.61,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " aliud,",
+              "start": 4.61,
+              "end": 5.17,
+              "probability": 0.5058135986328125
+            },
+            {
+              "text": " quum",
+              "start": 5.37,
+              "end": 5.51,
+              "probability": 0.6077880859375
+            },
+            {
+              "text": " contigit",
+              "start": 5.51,
+              "end": 5.99,
+              "probability": 0.6297200520833334
+            },
+            {
+              "text": " illud,",
+              "start": 5.99,
+              "end": 6.39,
+              "probability": 0.4934723377227783
+            },
+            {
+              "text": " avemus,",
+              "start": 6.71,
+              "end": 7.11,
+              "probability": 0.8800455729166666
+            },
+            {
+              "text": " Et",
+              "start": 7.39,
+              "end": 7.45,
+              "probability": 0.0016660690307617188
+            },
+            {
+              "text": " sitis",
+              "start": 7.45,
+              "end": 7.95,
+              "probability": 0.4063720703125
+            },
+            {
+              "text": " aequa",
+              "start": 7.95,
+              "end": 8.35,
+              "probability": 0.33909447987874347
+            },
+            {
+              "text": " tenet.",
+              "start": 8.35,
+              "end": 8.63,
+              "probability": 0.6888427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dum",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "abest",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "quod",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "raw": "avemus,",
+          "start": 1.35,
+          "end": 1.87
+        },
+        {
+          "raw": "id",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "raw": "exsuperare",
+          "start": 2.29,
+          "end": 2.99
+        },
+        {
+          "raw": "videtur",
+          "start": 2.99,
+          "end": 3.47
+        },
+        {
+          "raw": "Caetera,",
+          "start": 3.47,
+          "end": 4.01
+        },
+        {
+          "raw": "post",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "raw": "aliud,",
+          "start": 4.61,
+          "end": 5.17
+        },
+        {
+          "raw": "quum",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "raw": "contigit",
+          "start": 5.51,
+          "end": 5.99
+        },
+        {
+          "raw": "illud,",
+          "start": 5.99,
+          "end": 6.39
+        },
+        {
+          "raw": "avemus,",
+          "start": 6.71,
+          "end": 7.11
+        },
+        {
+          "raw": "Et",
+          "start": 7.39,
+          "end": 7.45
+        },
+        {
+          "raw": "sitis",
+          "start": 7.45,
+          "end": 7.95
+        },
+        {
+          "raw": "aequa",
+          "start": 7.95,
+          "end": 8.35
+        },
+        {
+          "raw": "tenet.",
+          "start": 8.35,
+          "end": 8.63
+        }
+      ],
+      "expected_tokens": [
+        "“Dum",
+        "abest",
+        "quod",
+        "avemus,",
+        "id",
+        "exsuperare",
+        "videtur",
+        "Caetera;",
+        "post",
+        "aliud,",
+        "quum",
+        "contigit",
+        "illud,",
+        "avemus,",
+        "Et",
+        "sitis",
+        "aequa",
+        "tenet.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Dum",
+        "abest",
+        "quod",
+        "avemus,",
+        "id",
+        "exsuperare",
+        "videtur",
+        "Caetera;",
+        "post",
+        "aliud,",
+        "quum",
+        "contigit",
+        "illud,",
+        "avemus,",
+        "Et",
+        "sitis",
+        "aequa",
+        "tenet.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dum",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "dum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "abest",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "abest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quod",
+          "start": 0.95,
+          "end": 1.35,
+          "key": "quod",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "avemus,",
+          "start": 1.35,
+          "end": 1.87,
+          "key": "avemus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "id",
+          "start": 2.23,
+          "end": 2.29,
+          "key": "id",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "exsuperare",
+          "start": 2.29,
+          "end": 2.99,
+          "key": "exsuperare",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "videtur",
+          "start": 2.99,
+          "end": 3.47,
+          "key": "videtur",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Caetera,",
+          "start": 3.47,
+          "end": 4.01,
+          "key": "caetera",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "post",
+          "start": 4.41,
+          "end": 4.61,
+          "key": "post",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "aliud,",
+          "start": 4.61,
+          "end": 5.17,
+          "key": "aliud",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "quum",
+          "start": 5.37,
+          "end": 5.51,
+          "key": "quum",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "contigit",
+          "start": 5.51,
+          "end": 5.99,
+          "key": "contigit",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "illud,",
+          "start": 5.99,
+          "end": 6.39,
+          "key": "illud",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "avemus,",
+          "start": 6.71,
+          "end": 7.11,
+          "key": "avemus",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Et",
+          "start": 7.39,
+          "end": 7.45,
+          "key": "et",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sitis",
+          "start": 7.45,
+          "end": 7.95,
+          "key": "sitis",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "aequa",
+          "start": 7.95,
+          "end": 8.35,
+          "key": "aequa",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "tenet.",
+          "start": 8.35,
+          "end": 8.63,
+          "key": "tenet",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Dum",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "abest",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "quod",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "text": "avemus,",
+          "start": 1.35,
+          "end": 1.87
+        },
+        {
+          "text": "id",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "text": "exsuperare",
+          "start": 2.29,
+          "end": 2.99
+        },
+        {
+          "text": "videtur",
+          "start": 2.99,
+          "end": 3.47
+        },
+        {
+          "text": "Caetera;",
+          "start": 3.47,
+          "end": 4.01
+        },
+        {
+          "text": "post",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "text": "aliud,",
+          "start": 4.61,
+          "end": 5.17
+        },
+        {
+          "text": "quum",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "text": "contigit",
+          "start": 5.51,
+          "end": 5.99
+        },
+        {
+          "text": "illud,",
+          "start": 5.99,
+          "end": 6.39
+        },
+        {
+          "text": "avemus,",
+          "start": 6.71,
+          "end": 7.11
+        },
+        {
+          "text": "Et",
+          "start": 7.39,
+          "end": 7.45
+        },
+        {
+          "text": "sitis",
+          "start": 7.45,
+          "end": 7.95
+        },
+        {
+          "text": "aequa",
+          "start": 7.95,
+          "end": 8.35
+        },
+        {
+          "text": "tenet.”",
+          "start": 8.35,
+          "end": 8.63
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5158123830333352
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3832823403dedc5b2d7c24f59bef30cb62486a687a4d5659d03b49c856418bb6",
+  "selected_reasons": []
+}

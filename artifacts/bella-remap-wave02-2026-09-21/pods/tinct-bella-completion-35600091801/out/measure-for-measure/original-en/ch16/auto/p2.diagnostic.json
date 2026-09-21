@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "f0fa59c51b22e2f3fe817d0e5cf59afebea9d9783988df7999a41ddb6309735c",
+  "attempts": [
+    {
+      "asr_seconds": 0.20776436384767294,
+      "alignment_seconds": 0.000722736120223999,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mari._ Be ruled by him.",
+        "hotwords": "Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " MARI. Be ruled by him.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " MARI.",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.49880218505859375
+            },
+            {
+              "text": " Be",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " ruled",
+              "start": 1.21,
+              "end": 1.41,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " by",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "MARI.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Be",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "ruled",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "raw": "by",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "him.",
+          "start": 1.69,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "_Mari._",
+        "Be",
+        "ruled",
+        "by",
+        "him."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mari._",
+        "Be",
+        "ruled",
+        "by",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "MARI.",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "mari",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ruled",
+          "start": 1.21,
+          "end": 1.41,
+          "key": "ruled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mari._",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Be",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "ruled",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "text": "by",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "him.",
+          "start": 1.69,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20855241548269987
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa54936fff3857c02e21ce8d5f657da6dbee43f1e9c20c93a68efd530db29bef",
+  "selected_reasons": []
+}

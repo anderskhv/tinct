@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "7e86060f9ef5e50f42b7d6507a090d106784f51399892e58fbaedae5f9412a42",
+  "attempts": [
+    {
+      "asr_seconds": 0.427635982632637,
+      "alignment_seconds": 0.0019823284819722176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ I pray you, have your remembrance, child; accusativo, hung, hang, hog.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, I pray you, have your remembrance, child, accusativo, hung, hang, hog.",
+          "start": 0.08,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.2489013671875
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " pray",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you,",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 1.8,
+              "end": 1.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " your",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " remembrance,",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " child,",
+              "start": 2.62,
+              "end": 2.94,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " accusativo,",
+              "start": 3.54,
+              "end": 4.08,
+              "probability": 0.5364176432291666
+            },
+            {
+              "text": " hung,",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " hang,",
+              "start": 4.62,
+              "end": 4.8,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " hog.",
+              "start": 5.0,
+              "end": 5.18,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "pray",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "you,",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "have",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "remembrance,",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "raw": "child,",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "raw": "accusativo,",
+          "start": 3.54,
+          "end": 4.08
+        },
+        {
+          "raw": "hung,",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "hang,",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "raw": "hog.",
+          "start": 5.0,
+          "end": 5.18
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "I",
+        "pray",
+        "you,",
+        "have",
+        "your",
+        "remembrance,",
+        "child;",
+        "accusativo,",
+        "hung,",
+        "hang,",
+        "hog."
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "I",
+        "pray",
+        "you,",
+        "have",
+        "your",
+        "remembrance,",
+        "child;",
+        "accusativo,",
+        "hung,",
+        "hang,",
+        "hog."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.8,
+          "end": 1.86,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "remembrance,",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "remembrance",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "child,",
+          "start": 2.62,
+          "end": 2.94,
+          "key": "child",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "accusativo,",
+          "start": 3.54,
+          "end": 4.08,
+          "key": "accusativo",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hung,",
+          "start": 4.2,
+          "end": 4.42,
+          "key": "hung",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hang,",
+          "start": 4.62,
+          "end": 4.8,
+          "key": "hang",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hog.",
+          "start": 5.0,
+          "end": 5.18,
+          "key": "hog",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "pray",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "you,",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "have",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "text": "your",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "remembrance,",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "text": "child;",
+          "start": 2.62,
+          "end": 2.94
+        },
+        {
+          "text": "accusativo,",
+          "start": 3.54,
+          "end": 4.08
+        },
+        {
+          "text": "hung,",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "hang,",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "text": "hog.",
+          "start": 5.0,
+          "end": 5.18
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42980996053665876
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3df2a110a793513039c63ef1d17e25a6b1940bfc94a2112727b0a0eb565d6f0d",
+  "selected_reasons": []
+}

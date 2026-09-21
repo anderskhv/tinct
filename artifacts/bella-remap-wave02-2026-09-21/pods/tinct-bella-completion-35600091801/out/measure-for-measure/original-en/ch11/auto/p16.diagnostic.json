@@ -1,0 +1,495 @@
+{
+  "complete": true,
+  "signature": "71ead261c76d9fb756800a596290561fc5c553be572db41d96a8db8c8d6ba834",
+  "attempts": [
+    {
+      "asr_seconds": 0.3368953689932823,
+      "alignment_seconds": 0.0021127648651599884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ Are there no other tokens Between you 'greed concerning her observance? 40",
+        "hotwords": "Are, Between"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, are there no other tokens Between you greed concerning her observance? 40",
+          "start": 0.08,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.6953125
+            },
+            {
+              "text": " are",
+              "start": 1.2,
+              "end": 1.24,
+              "probability": 0.982421875
+            },
+            {
+              "text": " there",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " no",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " other",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tokens",
+              "start": 1.68,
+              "end": 2.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Between",
+              "start": 2.02,
+              "end": 2.34,
+              "probability": 3.528594970703125e-05
+            },
+            {
+              "text": " you",
+              "start": 2.34,
+              "end": 2.6,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " greed",
+              "start": 2.6,
+              "end": 3.02,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " concerning",
+              "start": 3.02,
+              "end": 3.48,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " her",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " observance?",
+              "start": 3.7,
+              "end": 4.38,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " 40",
+              "start": 4.86,
+              "end": 5.06,
+              "probability": 0.603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "are",
+          "start": 1.2,
+          "end": 1.24
+        },
+        {
+          "raw": "there",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "no",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "other",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "tokens",
+          "start": 1.68,
+          "end": 2.02
+        },
+        {
+          "raw": "Between",
+          "start": 2.02,
+          "end": 2.34
+        },
+        {
+          "raw": "you",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "raw": "greed",
+          "start": 2.6,
+          "end": 3.02
+        },
+        {
+          "raw": "concerning",
+          "start": 3.02,
+          "end": 3.48
+        },
+        {
+          "raw": "her",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "observance?",
+          "start": 3.7,
+          "end": 4.38
+        },
+        {
+          "raw": "40",
+          "start": 4.86,
+          "end": 5.06
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "Are",
+        "there",
+        "no",
+        "other",
+        "tokens",
+        "Between",
+        "you",
+        "'greed",
+        "concerning",
+        "her",
+        "observance?",
+        "40"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "Are",
+        "there",
+        "no",
+        "other",
+        "tokens",
+        "Between",
+        "you",
+        "'greed",
+        "concerning",
+        "her",
+        "observance?",
+        "40"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.2,
+          "end": 1.24,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "other",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tokens",
+          "start": 1.68,
+          "end": 2.02,
+          "key": "tokens",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Between",
+          "start": 2.02,
+          "end": 2.34,
+          "key": "between",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.34,
+          "end": 2.6,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "greed",
+          "start": 2.6,
+          "end": 3.02,
+          "key": "greed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "concerning",
+          "start": 3.02,
+          "end": 3.48,
+          "key": "concerning",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "observance?",
+          "start": 3.7,
+          "end": 4.38,
+          "key": "observance",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "40",
+          "start": 4.86,
+          "end": 5.06,
+          "key": "forty",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Are",
+          "start": 1.2,
+          "end": 1.24
+        },
+        {
+          "text": "there",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "text": "no",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "other",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "tokens",
+          "start": 1.68,
+          "end": 2.02
+        },
+        {
+          "text": "Between",
+          "start": 2.02,
+          "end": 2.34
+        },
+        {
+          "text": "you",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "text": "'greed",
+          "start": 2.6,
+          "end": 3.02
+        },
+        {
+          "text": "concerning",
+          "start": 3.02,
+          "end": 3.48
+        },
+        {
+          "text": "her",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "observance?",
+          "start": 3.7,
+          "end": 4.38
+        },
+        {
+          "text": "40",
+          "start": 4.86,
+          "end": 5.06
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3392190085723996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0117a37366accdff7d92e8e6b3b4ba916b8efa2ed79ba093340df4bde803ef04",
+  "selected_reasons": []
+}

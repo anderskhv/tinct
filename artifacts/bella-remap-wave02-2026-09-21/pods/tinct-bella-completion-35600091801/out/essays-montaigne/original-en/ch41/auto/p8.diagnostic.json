@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "3e0a97b395f6b6655dacf7d122ff7dab7ef360b955249fc6682787650487ca85",
+  "attempts": [
+    {
+      "asr_seconds": 0.3859658958390355,
+      "alignment_seconds": 0.0015619061887264252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Semper enim quod postremum adjectum est, id rem totam videtur traxisse.\"",
+        "hotwords": "Semper"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Semper enim quod postremum adjectum est, id rem totam videtur traxisse.",
+          "start": 0.11,
+          "end": 5.15,
+          "words": [
+            {
+              "text": " Semper",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.897705078125
+            },
+            {
+              "text": " enim",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.52008056640625
+            },
+            {
+              "text": " quod",
+              "start": 1.11,
+              "end": 1.49,
+              "probability": 0.6033935546875
+            },
+            {
+              "text": " postremum",
+              "start": 1.49,
+              "end": 2.07,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " adjectum",
+              "start": 2.07,
+              "end": 2.55,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " est,",
+              "start": 2.55,
+              "end": 2.85,
+              "probability": 0.97265625
+            },
+            {
+              "text": " id",
+              "start": 3.33,
+              "end": 3.41,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " rem",
+              "start": 3.41,
+              "end": 3.69,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " totam",
+              "start": 3.69,
+              "end": 4.15,
+              "probability": 0.33635616302490234
+            },
+            {
+              "text": " videtur",
+              "start": 4.15,
+              "end": 4.57,
+              "probability": 0.18213176727294922
+            },
+            {
+              "text": " traxisse.",
+              "start": 4.57,
+              "end": 5.15,
+              "probability": 0.4977214535077413
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Semper",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "enim",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "raw": "quod",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "raw": "postremum",
+          "start": 1.49,
+          "end": 2.07
+        },
+        {
+          "raw": "adjectum",
+          "start": 2.07,
+          "end": 2.55
+        },
+        {
+          "raw": "est,",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "raw": "id",
+          "start": 3.33,
+          "end": 3.41
+        },
+        {
+          "raw": "rem",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "raw": "totam",
+          "start": 3.69,
+          "end": 4.15
+        },
+        {
+          "raw": "videtur",
+          "start": 4.15,
+          "end": 4.57
+        },
+        {
+          "raw": "traxisse.",
+          "start": 4.57,
+          "end": 5.15
+        }
+      ],
+      "expected_tokens": [
+        "“Semper",
+        "enim",
+        "quod",
+        "postremum",
+        "adjectum",
+        "est,",
+        "id",
+        "rem",
+        "totam",
+        "videtur",
+        "traxisse.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Semper",
+        "enim",
+        "quod",
+        "postremum",
+        "adjectum",
+        "est,",
+        "id",
+        "rem",
+        "totam",
+        "videtur",
+        "traxisse.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Semper",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "semper",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "enim",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "enim",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quod",
+          "start": 1.11,
+          "end": 1.49,
+          "key": "quod",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "postremum",
+          "start": 1.49,
+          "end": 2.07,
+          "key": "postremum",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "adjectum",
+          "start": 2.07,
+          "end": 2.55,
+          "key": "adjectum",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "est,",
+          "start": 2.55,
+          "end": 2.85,
+          "key": "est",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "id",
+          "start": 3.33,
+          "end": 3.41,
+          "key": "id",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rem",
+          "start": 3.41,
+          "end": 3.69,
+          "key": "rem",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "totam",
+          "start": 3.69,
+          "end": 4.15,
+          "key": "totam",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "videtur",
+          "start": 4.15,
+          "end": 4.57,
+          "key": "videtur",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "traxisse.",
+          "start": 4.57,
+          "end": 5.15,
+          "key": "traxisse",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Semper",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "enim",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "text": "quod",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "text": "postremum",
+          "start": 1.49,
+          "end": 2.07
+        },
+        {
+          "text": "adjectum",
+          "start": 2.07,
+          "end": 2.55
+        },
+        {
+          "text": "est,",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "text": "id",
+          "start": 3.33,
+          "end": 3.41
+        },
+        {
+          "text": "rem",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "text": "totam",
+          "start": 3.69,
+          "end": 4.15
+        },
+        {
+          "text": "videtur",
+          "start": 4.15,
+          "end": 4.57
+        },
+        {
+          "text": "traxisse.”",
+          "start": 4.57,
+          "end": 5.15
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38767144549638033
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ea53cc6465c99fdc7233682cb49c2603cef2429a8e050cb1b1a115f0dc102d3",
+  "selected_reasons": []
+}

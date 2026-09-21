@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "41ff50f5606b8b897489c5d3685c6741b5ea5675e0afb9127b9aeb04920c0b71",
+  "attempts": [
+    {
+      "asr_seconds": 0.3461891543120146,
+      "alignment_seconds": 0.001112496480345726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Discard, bully Hercules; cashier: let them wag; trot, trot.",
+        "hotwords": "Discard, Hercules"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, discard bully Hercules, cashier. Let them wag, trot, trot.",
+          "start": 0.08,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " discard",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " bully",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.509765625
+            },
+            {
+              "text": " Hercules,",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " cashier.",
+              "start": 2.52,
+              "end": 2.96,
+              "probability": 0.6378173828125
+            },
+            {
+              "text": " Let",
+              "start": 3.38,
+              "end": 3.44,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " them",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wag,",
+              "start": 3.56,
+              "end": 3.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " trot,",
+              "start": 4.08,
+              "end": 4.34,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " trot.",
+              "start": 4.38,
+              "end": 4.76,
+              "probability": 0.998291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "discard",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "bully",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "Hercules,",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "raw": "cashier.",
+          "start": 2.52,
+          "end": 2.96
+        },
+        {
+          "raw": "Let",
+          "start": 3.38,
+          "end": 3.44
+        },
+        {
+          "raw": "them",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "wag,",
+          "start": 3.56,
+          "end": 3.96
+        },
+        {
+          "raw": "trot,",
+          "start": 4.08,
+          "end": 4.34
+        },
+        {
+          "raw": "trot.",
+          "start": 4.38,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Discard,",
+        "bully",
+        "Hercules;",
+        "cashier:",
+        "let",
+        "them",
+        "wag;",
+        "trot,",
+        "trot."
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Discard,",
+        "bully",
+        "Hercules;",
+        "cashier:",
+        "let",
+        "them",
+        "wag;",
+        "trot,",
+        "trot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "discard",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "discard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "bully",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hercules,",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "hercules",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cashier.",
+          "start": 2.52,
+          "end": 2.96,
+          "key": "cashier",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.38,
+          "end": 3.44,
+          "key": "let",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wag,",
+          "start": 3.56,
+          "end": 3.96,
+          "key": "wag",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "trot,",
+          "start": 4.08,
+          "end": 4.34,
+          "key": "trot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "trot.",
+          "start": 4.38,
+          "end": 4.76,
+          "key": "trot",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Discard,",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "bully",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "Hercules;",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "text": "cashier:",
+          "start": 2.52,
+          "end": 2.96
+        },
+        {
+          "text": "let",
+          "start": 3.38,
+          "end": 3.44
+        },
+        {
+          "text": "them",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "wag;",
+          "start": 3.56,
+          "end": 3.96
+        },
+        {
+          "text": "trot,",
+          "start": 4.08,
+          "end": 4.34
+        },
+        {
+          "text": "trot.",
+          "start": 4.38,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34740534890443087
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b202d366526f652aaf3dd6c90466a721597a6e0a91e1366edc997fe28f32f737",
+  "selected_reasons": []
+}

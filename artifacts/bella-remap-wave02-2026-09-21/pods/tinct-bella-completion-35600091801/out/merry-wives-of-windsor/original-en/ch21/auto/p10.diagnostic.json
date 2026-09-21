@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "936cc49b62e4024707cb3df0ad55ca84c552f9489c365ec42ed12be96645d0da",
+  "attempts": [
+    {
+      "asr_seconds": 0.519753759726882,
+      "alignment_seconds": 0.0023008882999420166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Ford._ The hour draws on. To the oak, to the oak! Exeunt._",
+        "hotwords": "Ford._, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Mrs Ford._ The hour draws on. To the oak, to the oak! Exeunt._",
+          "start": 0.05,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " \"_Mrs",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.47363314032554626
+            },
+            {
+              "text": " Ford._",
+              "start": 0.67,
+              "end": 1.29,
+              "probability": 0.11165618896484375
+            },
+            {
+              "text": " The",
+              "start": 1.29,
+              "end": 1.41,
+              "probability": 0.362060546875
+            },
+            {
+              "text": " hour",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.951171875
+            },
+            {
+              "text": " draws",
+              "start": 1.59,
+              "end": 1.91,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " on.",
+              "start": 1.91,
+              "end": 2.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " To",
+              "start": 2.49,
+              "end": 2.59,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " the",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.970703125
+            },
+            {
+              "text": " oak,",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.8359375
+            },
+            {
+              "text": " to",
+              "start": 2.99,
+              "end": 3.03,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " oak!",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Exeunt._",
+              "start": 3.79,
+              "end": 4.13,
+              "probability": 0.47133636474609375
+            }
+          ]
+        },
+        {
+          "text": " The hour draws on. To the oak! Exeunt._",
+          "start": 4.13,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " The",
+              "start": 4.13,
+              "end": 4.37,
+              "probability": 0.007007598876953125
+            },
+            {
+              "text": " hour",
+              "start": 4.37,
+              "end": 4.53,
+              "probability": 0.00011909008026123047
+            },
+            {
+              "text": " draws",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 2.7418136596679688e-06
+            },
+            {
+              "text": " on.",
+              "start": 4.53,
+              "end": 4.53,
+              "probability": 0.0187530517578125
+            },
+            {
+              "text": " To",
+              "start": 4.53,
+              "end": 4.57,
+              "probability": 0.004547119140625
+            },
+            {
+              "text": " the",
+              "start": 4.57,
+              "end": 4.57,
+              "probability": 0.134521484375
+            },
+            {
+              "text": " oak!",
+              "start": 4.57,
+              "end": 4.57,
+              "probability": 1.2099742889404297e-05
+            },
+            {
+              "text": " Exeunt._",
+              "start": 4.57,
+              "end": 4.57,
+              "probability": 0.010382965207099915
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Mrs",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Ford._",
+          "start": 0.67,
+          "end": 1.29
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "raw": "hour",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "draws",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "raw": "on.",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "raw": "To",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "oak,",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "to",
+          "start": 2.99,
+          "end": 3.03
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "oak!",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 3.79,
+          "end": 4.13
+        },
+        {
+          "raw": "The",
+          "start": 4.13,
+          "end": 4.37
+        },
+        {
+          "raw": "hour",
+          "start": 4.37,
+          "end": 4.53
+        },
+        {
+          "raw": "draws",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "on.",
+          "start": 4.53,
+          "end": 4.53
+        },
+        {
+          "raw": "To",
+          "start": 4.53,
+          "end": 4.57
+        },
+        {
+          "raw": "the",
+          "start": 4.57,
+          "end": 4.57
+        },
+        {
+          "raw": "oak!",
+          "start": 4.57,
+          "end": 4.57
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 4.57,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "The",
+        "hour",
+        "draws",
+        "on.",
+        "To",
+        "the",
+        "oak,",
+        "to",
+        "the",
+        "oak!",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Ford._",
+        "The",
+        "hour",
+        "draws",
+        "on.",
+        "To",
+        "the",
+        "oak,",
+        "to",
+        "the",
+        "oak!",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "insert",
+          13,
+          13,
+          13,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          13,
+          13,
+          13,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Mrs",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ford._",
+          "start": 0.67,
+          "end": 1.29,
+          "key": "ford",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.29,
+          "end": 1.41,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hour",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "hour",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "draws",
+          "start": 1.59,
+          "end": 1.91,
+          "key": "draws",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.91,
+          "end": 2.25,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.49,
+          "end": 2.59,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "oak,",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "oak",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.99,
+          "end": 3.03,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "oak!",
+          "start": 3.19,
+          "end": 3.41,
+          "key": "oak",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 3.79,
+          "end": 4.13,
+          "key": "exeunt",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.13,
+          "end": 4.37,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hour",
+          "start": 4.37,
+          "end": 4.53,
+          "key": "hour",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "draws",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "draws",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 4.53,
+          "end": 4.53,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 4.53,
+          "end": 4.57,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.57,
+          "end": 4.57,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "oak!",
+          "start": 4.57,
+          "end": 4.57,
+          "key": "oak",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 4.57,
+          "end": 4.57,
+          "key": "exeunt",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Ford._",
+          "start": 0.67,
+          "end": 1.29
+        },
+        {
+          "text": "The",
+          "start": 1.29,
+          "end": 1.41
+        },
+        {
+          "text": "hour",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "draws",
+          "start": 1.59,
+          "end": 1.91
+        },
+        {
+          "text": "on.",
+          "start": 1.91,
+          "end": 2.25
+        },
+        {
+          "text": "To",
+          "start": 2.49,
+          "end": 2.59
+        },
+        {
+          "text": "the",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "oak,",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "to",
+          "start": 2.99,
+          "end": 3.03
+        },
+        {
+          "text": "the",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "oak!",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 3.79,
+          "end": 4.13
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 21,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5224156528711319
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3270ec6433da51cc09a151a4f7c768e0f1bec29565bd53e84385bb39b358e259",
+  "selected_reasons": []
+}

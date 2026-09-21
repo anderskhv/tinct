@@ -1,0 +1,759 @@
+{
+  "complete": true,
+  "signature": "96f7737272221af5b60a8048d56ee0ca6dec59335bf559484e73b25ef4cba295",
+  "attempts": [
+    {
+      "asr_seconds": 0.4977522734552622,
+      "alignment_seconds": 0.00274474173784256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Sim._ No weapons, sir. There comes my master, Master Shallow, and another gentleman, from Frogmore, 30 over the stile, this way.",
+        "hotwords": "No, There, Shallow, Frogmore"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sim, no weapons, sir. There comes my master, Master Shallow, and another gentleman, from Frogmore, 30 over the stile, this way.",
+          "start": 0.08,
+          "end": 8.22,
+          "words": [
+            {
+              "text": " Sim,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.4140625
+            },
+            {
+              "text": " no",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.9765625
+            },
+            {
+              "text": " weapons,",
+              "start": 1.08,
+              "end": 1.44,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " sir.",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " There",
+              "start": 2.34,
+              "end": 2.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " comes",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " master,",
+              "start": 2.9,
+              "end": 3.36,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " Master",
+              "start": 3.68,
+              "end": 3.96,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " Shallow,",
+              "start": 3.96,
+              "end": 4.4,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " and",
+              "start": 4.66,
+              "end": 4.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " another",
+              "start": 4.76,
+              "end": 5.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gentleman,",
+              "start": 5.0,
+              "end": 5.48,
+              "probability": 0.955078125
+            },
+            {
+              "text": " from",
+              "start": 5.64,
+              "end": 5.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Frogmore,",
+              "start": 5.76,
+              "end": 6.32,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " 30",
+              "start": 6.7,
+              "end": 6.88,
+              "probability": 0.052947998046875
+            },
+            {
+              "text": " over",
+              "start": 6.88,
+              "end": 7.16,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " the",
+              "start": 7.16,
+              "end": 7.32,
+              "probability": 0.98828125
+            },
+            {
+              "text": " stile,",
+              "start": 7.32,
+              "end": 7.72,
+              "probability": 0.55078125
+            },
+            {
+              "text": " this",
+              "start": 7.8,
+              "end": 7.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " way.",
+              "start": 7.92,
+              "end": 8.22,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sim,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "no",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "weapons,",
+          "start": 1.08,
+          "end": 1.44
+        },
+        {
+          "raw": "sir.",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "There",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "raw": "comes",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "raw": "my",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "master,",
+          "start": 2.9,
+          "end": 3.36
+        },
+        {
+          "raw": "Master",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "raw": "Shallow,",
+          "start": 3.96,
+          "end": 4.4
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 4.76
+        },
+        {
+          "raw": "another",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "raw": "gentleman,",
+          "start": 5.0,
+          "end": 5.48
+        },
+        {
+          "raw": "from",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "raw": "Frogmore,",
+          "start": 5.76,
+          "end": 6.32
+        },
+        {
+          "raw": "30",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "raw": "over",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "raw": "the",
+          "start": 7.16,
+          "end": 7.32
+        },
+        {
+          "raw": "stile,",
+          "start": 7.32,
+          "end": 7.72
+        },
+        {
+          "raw": "this",
+          "start": 7.8,
+          "end": 7.92
+        },
+        {
+          "raw": "way.",
+          "start": 7.92,
+          "end": 8.22
+        }
+      ],
+      "expected_tokens": [
+        "_Sim._",
+        "No",
+        "weapons,",
+        "sir.",
+        "There",
+        "comes",
+        "my",
+        "master,",
+        "Master",
+        "Shallow,",
+        "and",
+        "another",
+        "gentleman,",
+        "from",
+        "Frogmore,",
+        "30",
+        "over",
+        "the",
+        "stile,",
+        "this",
+        "way."
+      ],
+      "acoustic_expected_tokens": [
+        "_Sim._",
+        "No",
+        "weapons,",
+        "sir.",
+        "There",
+        "comes",
+        "my",
+        "master,",
+        "Master",
+        "Shallow,",
+        "and",
+        "another",
+        "gentleman,",
+        "from",
+        "Frogmore,",
+        "30",
+        "over",
+        "the",
+        "stile,",
+        "this",
+        "way."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sim,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "sim",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.96,
+          "end": 1.08,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "weapons,",
+          "start": 1.08,
+          "end": 1.44,
+          "key": "weapons",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.34,
+          "end": 2.44,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.44,
+          "end": 2.68,
+          "key": "comes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.68,
+          "end": 2.9,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "master,",
+          "start": 2.9,
+          "end": 3.36,
+          "key": "master",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 3.68,
+          "end": 3.96,
+          "key": "master",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Shallow,",
+          "start": 3.96,
+          "end": 4.4,
+          "key": "shallow",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 4.76,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 4.76,
+          "end": 5.0,
+          "key": "another",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 5.0,
+          "end": 5.48,
+          "key": "gentleman",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.64,
+          "end": 5.76,
+          "key": "from",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Frogmore,",
+          "start": 5.76,
+          "end": 6.32,
+          "key": "frogmore",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 6.7,
+          "end": 6.88,
+          "key": "thirty",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 6.88,
+          "end": 7.16,
+          "key": "over",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.16,
+          "end": 7.32,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "stile,",
+          "start": 7.32,
+          "end": 7.72,
+          "key": "stile",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 7.8,
+          "end": 7.92,
+          "key": "this",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 7.92,
+          "end": 8.22,
+          "key": "way",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Sim._",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "No",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "weapons,",
+          "start": 1.08,
+          "end": 1.44
+        },
+        {
+          "text": "sir.",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "There",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "text": "comes",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "text": "my",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "master,",
+          "start": 2.9,
+          "end": 3.36
+        },
+        {
+          "text": "Master",
+          "start": 3.68,
+          "end": 3.96
+        },
+        {
+          "text": "Shallow,",
+          "start": 3.96,
+          "end": 4.4
+        },
+        {
+          "text": "and",
+          "start": 4.66,
+          "end": 4.76
+        },
+        {
+          "text": "another",
+          "start": 4.76,
+          "end": 5.0
+        },
+        {
+          "text": "gentleman,",
+          "start": 5.0,
+          "end": 5.48
+        },
+        {
+          "text": "from",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "text": "Frogmore,",
+          "start": 5.76,
+          "end": 6.32
+        },
+        {
+          "text": "30",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "text": "over",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "text": "the",
+          "start": 7.16,
+          "end": 7.32
+        },
+        {
+          "text": "stile,",
+          "start": 7.32,
+          "end": 7.72
+        },
+        {
+          "text": "this",
+          "start": 7.8,
+          "end": 7.92
+        },
+        {
+          "text": "way.",
+          "start": 7.92,
+          "end": 8.22
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5007508462294936
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b587f382b34f28ee03615a6265802f21bf8ccf297793f145f5d529f8eb1c3b07",
+  "selected_reasons": []
+}

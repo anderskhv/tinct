@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "f788cfb1d7a34a4e5551566425f4adf577584d38c5576dae8e0586b6cba3fbc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.23124174121767282,
+      "alignment_seconds": 0.0008471421897411346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Will._ Accusativo, hinc.",
+        "hotwords": "Accusativo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will, accusativo, hinc.",
+          "start": 0.02,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Will,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.452392578125
+            },
+            {
+              "text": " accusativo,",
+              "start": 1.14,
+              "end": 1.58,
+              "probability": 0.4482625325520833
+            },
+            {
+              "text": " hinc.",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.3552060127258301
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "accusativo,",
+          "start": 1.14,
+          "end": 1.58
+        },
+        {
+          "raw": "hinc.",
+          "start": 1.7,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "_Will._",
+        "Accusativo,",
+        "hinc."
+      ],
+      "acoustic_expected_tokens": [
+        "_Will._",
+        "Accusativo,",
+        "hinc."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "accusativo,",
+          "start": 1.14,
+          "end": 1.58,
+          "key": "accusativo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hinc.",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "hinc",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Will._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Accusativo,",
+          "start": 1.14,
+          "end": 1.58
+        },
+        {
+          "text": "hinc.",
+          "start": 1.7,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23216116055846214
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c184c2f315b98ac9a17c1363e71c46040c86f9c185f5bc81a804206d0b70e7b9",
+  "selected_reasons": []
+}

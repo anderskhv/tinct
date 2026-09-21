@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "36a987da2dbf98fca8d25d169cd209644a59393f901d1233209f1eaf71023f5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3689811071380973,
+      "alignment_seconds": 0.0025025494396686554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Master Fenton, talk not to me; my mind is heavy: I will give over all.",
+        "hotwords": "Master, Fenton, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, Master Fenton, talk not to me, my mind is heavy, I will give over all.",
+          "start": 0.08,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " Master",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " Fenton,",
+              "start": 1.56,
+              "end": 1.98,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " talk",
+              "start": 2.14,
+              "end": 2.28,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " not",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.955078125
+            },
+            {
+              "text": " to",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 3.24,
+              "end": 3.34,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " mind",
+              "start": 3.34,
+              "end": 3.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heavy,",
+              "start": 3.76,
+              "end": 3.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 4.24,
+              "end": 4.32,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " will",
+              "start": 4.32,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " give",
+              "start": 4.42,
+              "end": 4.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " over",
+              "start": 4.58,
+              "end": 4.82,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " all.",
+              "start": 4.82,
+              "end": 5.16,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Master",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "raw": "Fenton,",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "raw": "talk",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "raw": "not",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "to",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "me,",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.34
+        },
+        {
+          "raw": "mind",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "raw": "is",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "heavy,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "raw": "I",
+          "start": 4.24,
+          "end": 4.32
+        },
+        {
+          "raw": "will",
+          "start": 4.32,
+          "end": 4.42
+        },
+        {
+          "raw": "give",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "raw": "over",
+          "start": 4.58,
+          "end": 4.82
+        },
+        {
+          "raw": "all.",
+          "start": 4.82,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Master",
+        "Fenton,",
+        "talk",
+        "not",
+        "to",
+        "me;",
+        "my",
+        "mind",
+        "is",
+        "heavy:",
+        "I",
+        "will",
+        "give",
+        "over",
+        "all."
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Master",
+        "Fenton,",
+        "talk",
+        "not",
+        "to",
+        "me;",
+        "my",
+        "mind",
+        "is",
+        "heavy:",
+        "I",
+        "will",
+        "give",
+        "over",
+        "all."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fenton,",
+          "start": 1.56,
+          "end": 1.98,
+          "key": "fenton",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 2.14,
+          "end": 2.28,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.68,
+          "end": 2.84,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.34,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 3.34,
+          "end": 3.58,
+          "key": "mind",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heavy,",
+          "start": 3.76,
+          "end": 3.98,
+          "key": "heavy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.24,
+          "end": 4.32,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.32,
+          "end": 4.42,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 4.42,
+          "end": 4.58,
+          "key": "give",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 4.58,
+          "end": 4.82,
+          "key": "over",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 4.82,
+          "end": 5.16,
+          "key": "all",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Master",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "text": "Fenton,",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "text": "talk",
+          "start": 2.14,
+          "end": 2.28
+        },
+        {
+          "text": "not",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "to",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "me;",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "my",
+          "start": 3.24,
+          "end": 3.34
+        },
+        {
+          "text": "mind",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "text": "is",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "heavy:",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "text": "I",
+          "start": 4.24,
+          "end": 4.32
+        },
+        {
+          "text": "will",
+          "start": 4.32,
+          "end": 4.42
+        },
+        {
+          "text": "give",
+          "start": 4.42,
+          "end": 4.58
+        },
+        {
+          "text": "over",
+          "start": 4.58,
+          "end": 4.82
+        },
+        {
+          "text": "all.",
+          "start": 4.82,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37173733580857515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4dd46b2f42f1811a748b088119dec56972ee16784e0cbeb0dc94e6b09b73aa07",
+  "selected_reasons": []
+}

@@ -1,0 +1,387 @@
+{
+  "complete": true,
+  "signature": "024259d0876ae27bfa4838885a4a7a479557f86378bdc743e5ddf6ea6587034c",
+  "attempts": [
+    {
+      "asr_seconds": 0.32066975720226765,
+      "alignment_seconds": 0.001730162650346756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ What says my bully-rook? speak scholarly and wisely.",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, what says my bully-rook? speak scholarly and wisely.",
+          "start": 0.08,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " what",
+              "start": 1.08,
+              "end": 1.16,
+              "probability": 0.763671875
+            },
+            {
+              "text": " says",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " my",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bully",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.87744140625
+            },
+            {
+              "text": "-rook?",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.6617228190104166
+            },
+            {
+              "text": " speak",
+              "start": 2.42,
+              "end": 2.58,
+              "probability": 0.1011962890625
+            },
+            {
+              "text": " scholarly",
+              "start": 2.58,
+              "end": 3.12,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " wisely.",
+              "start": 3.4,
+              "end": 3.78,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "what",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "raw": "says",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "my",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "bully",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "-rook?",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "speak",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "raw": "scholarly",
+          "start": 2.58,
+          "end": 3.12
+        },
+        {
+          "raw": "and",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "wisely.",
+          "start": 3.4,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "What",
+        "says",
+        "my",
+        "bully-rook?",
+        "speak",
+        "scholarly",
+        "and",
+        "wisely."
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "What",
+        "says",
+        "my",
+        "bully-rook?",
+        "speak",
+        "scholarly",
+        "and",
+        "wisely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.08,
+          "end": 1.16,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bully -rook?",
+          "start": 1.5,
+          "end": 2.02,
+          "key": "bullyrook",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.42,
+          "end": 2.58,
+          "key": "speak",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "scholarly",
+          "start": 2.58,
+          "end": 3.12,
+          "key": "scholarly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wisely.",
+          "start": 3.4,
+          "end": 3.78,
+          "key": "wisely",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "bully-rook?",
+          "heard": "bully -rook?",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.5,
+          "end": 2.02
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "What",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "text": "says",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "my",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "bully-rook?",
+          "start": 1.5,
+          "end": 2.02
+        },
+        {
+          "text": "speak",
+          "start": 2.42,
+          "end": 2.58
+        },
+        {
+          "text": "scholarly",
+          "start": 2.58,
+          "end": 3.12
+        },
+        {
+          "text": "and",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "wisely.",
+          "start": 3.4,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3226353917270899
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "334fa04e0cbbaca02ddcbe289e419d1a21ece4a77cf434ae1c5904ce8875a824",
+  "selected_reasons": []
+}

@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "219067f5e93c54745eaad533d74afddee01c7a74ed23f3af31895875ba32bc34",
+  "attempts": [
+    {
+      "asr_seconds": 0.3784313416108489,
+      "alignment_seconds": 0.001318546012043953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Falstaff and Mistress Quickly._",
+        "hotwords": "Falstaff, Mistress, Quickly._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Falstaff and Mistress Quickly._",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.478759765625
+            },
+            {
+              "text": " Falstaff",
+              "start": 0.64,
+              "end": 1.2,
+              "probability": 0.62286376953125
+            },
+            {
+              "text": " and",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Mistress",
+              "start": 1.44,
+              "end": 1.76,
+              "probability": 0.85546875
+            },
+            {
+              "text": " Quickly._",
+              "start": 1.76,
+              "end": 2.78,
+              "probability": 0.34886423746744794
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Falstaff",
+          "start": 0.64,
+          "end": 1.2
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "raw": "Quickly._",
+          "start": 1.76,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "FALSTAFF",
+        "and",
+        "MISTRESS",
+        "QUICKLY._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Falstaff",
+        "and",
+        "Mistress",
+        "Quickly._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Falstaff",
+          "start": 0.64,
+          "end": 1.2,
+          "key": "falstaff",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.44,
+          "end": 1.76,
+          "key": "mistress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 1.76,
+          "end": 2.78,
+          "key": "quickly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "FALSTAFF",
+          "start": 0.64,
+          "end": 1.2
+        },
+        {
+          "text": "and",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "MISTRESS",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "text": "QUICKLY._",
+          "start": 1.76,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37985315825790167
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f63714093439c7484dbba12aa70c3052ccb05a908986266894944a4bf0a4ffb9",
+  "selected_reasons": []
+}

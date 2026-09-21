@@ -1,0 +1,1714 @@
+{
+  "complete": true,
+  "signature": "6f862ec9ef38356791544c85d250a819238d9339ea0c11fa750d814bbf38f8ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.40460457373410463,
+      "alignment_seconds": 0.0024382174015045166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Shal._ What, the sword and the word! do you study 40 them both, master parson?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall, what, the sword and the word! do you study 40 them both, master parson?",
+          "start": 0.02,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.40185546875
+            },
+            {
+              "text": " what,",
+              "start": 1.0,
+              "end": 1.08,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " the",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.982421875
+            },
+            {
+              "text": " sword",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " word!",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.04705810546875
+            },
+            {
+              "text": " you",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.990234375
+            },
+            {
+              "text": " study",
+              "start": 2.9,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " 40",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.12841796875
+            },
+            {
+              "text": " them",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " both,",
+              "start": 3.6,
+              "end": 3.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " master",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.1729736328125
+            },
+            {
+              "text": " parson?",
+              "start": 4.32,
+              "end": 4.76,
+              "probability": 0.6700439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "what,",
+          "start": 1.0,
+          "end": 1.08
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "sword",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "word!",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "do",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "study",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "raw": "40",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "them",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "both,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "raw": "master",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "parson?",
+          "start": 4.32,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "What,",
+        "the",
+        "sword",
+        "and",
+        "the",
+        "word!",
+        "do",
+        "you",
+        "study",
+        "40",
+        "them",
+        "both,",
+        "master",
+        "parson?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "What,",
+        "the",
+        "sword",
+        "and",
+        "the",
+        "word!",
+        "do",
+        "you",
+        "study",
+        "40",
+        "them",
+        "both,",
+        "master",
+        "parson?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what,",
+          "start": 1.0,
+          "end": 1.08,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "sword",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "word!",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "word",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "study",
+          "start": 2.9,
+          "end": 3.12,
+          "key": "study",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "40",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "forty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 3.6,
+          "end": 3.92,
+          "key": "both",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "master",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "parson?",
+          "start": 4.32,
+          "end": 4.76,
+          "key": "parson",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "What,",
+          "start": 1.0,
+          "end": 1.08
+        },
+        {
+          "text": "the",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "sword",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "and",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "word!",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "do",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "you",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "study",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "text": "40",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "them",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "both,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "text": "master",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "parson?",
+          "start": 4.32,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.40727988723665476
+    },
+    {
+      "asr_seconds": 0.39359687361866236,
+      "alignment_seconds": 0.002477371133863926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Shall what the sword and the word? Do you study forty them both, Master Parson?",
+          "start": 0.02,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.40283203125
+            },
+            {
+              "text": " what",
+              "start": 0.72,
+              "end": 1.06,
+              "probability": 0.26904296875
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sword",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " word?",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Do",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " you",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " study",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " forty",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " them",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " both,",
+              "start": 3.6,
+              "end": 3.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Master",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.90625
+            },
+            {
+              "text": " Parson?",
+              "start": 4.34,
+              "end": 4.76,
+              "probability": 0.925537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "what",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "sword",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "word?",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "Do",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "study",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "forty",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "them",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "both,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "raw": "Master",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "Parson?",
+          "start": 4.34,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "What,",
+        "the",
+        "sword",
+        "and",
+        "the",
+        "word!",
+        "do",
+        "you",
+        "study",
+        "40",
+        "them",
+        "both,",
+        "master",
+        "parson?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "What,",
+        "the",
+        "sword",
+        "and",
+        "the",
+        "word!",
+        "do",
+        "you",
+        "study",
+        "40",
+        "them",
+        "both,",
+        "master",
+        "parson?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.72,
+          "end": 1.06,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "sword",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "word?",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "word",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.88,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "study",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "study",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "forty",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "forty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 3.6,
+          "end": 3.92,
+          "key": "both",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "master",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Parson?",
+          "start": 4.34,
+          "end": 4.76,
+          "key": "parson",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "What,",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "sword",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "and",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "word!",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "do",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "you",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "study",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "40",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "them",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "both,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "text": "master",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "parson?",
+          "start": 4.34,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.39632151275873184
+    },
+    {
+      "asr_seconds": 0.4023416619747877,
+      "alignment_seconds": 0.0024667102843523026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shall, what the sword and the word?",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.40283203125
+            },
+            {
+              "text": " what",
+              "start": 1.0,
+              "end": 1.06,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " sword",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " and",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " word?",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Do you study forty them both, Master Parson?",
+          "start": 2.6,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " Do",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " you",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " study",
+              "start": 2.9,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forty",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " them",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " both,",
+              "start": 3.6,
+              "end": 3.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Master",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " Parson?",
+              "start": 4.34,
+              "end": 4.76,
+              "probability": 0.937744140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "what",
+          "start": 1.0,
+          "end": 1.06
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "sword",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "word?",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "Do",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "study",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "raw": "forty",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "them",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "both,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "raw": "Master",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "Parson?",
+          "start": 4.34,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "What,",
+        "the",
+        "sword",
+        "and",
+        "the",
+        "word!",
+        "do",
+        "you",
+        "study",
+        "40",
+        "them",
+        "both,",
+        "master",
+        "parson?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "What,",
+        "the",
+        "sword",
+        "and",
+        "the",
+        "word!",
+        "do",
+        "you",
+        "study",
+        "40",
+        "them",
+        "both,",
+        "master",
+        "parson?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.0,
+          "end": 1.06,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "sword",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "word?",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "word",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "study",
+          "start": 2.9,
+          "end": 3.12,
+          "key": "study",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "forty",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "forty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "both,",
+          "start": 3.6,
+          "end": 3.92,
+          "key": "both",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "master",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Parson?",
+          "start": 4.34,
+          "end": 4.76,
+          "key": "parson",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "What,",
+          "start": 1.0,
+          "end": 1.06
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "sword",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "and",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "word!",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "do",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "you",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "study",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "text": "40",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "them",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "both,",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "text": "master",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "parson?",
+          "start": 4.34,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.40504656732082367
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0db9acfd2c7b9da4a322dc66e984233cc61ef0f89b65ce671d5eafdfb6f8b9f7",
+  "selected_reasons": []
+}

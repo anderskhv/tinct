@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "6ca8b6a3bb58093ed12c97f385be5469a21a1d90a6a3c067e3c9dea0dbe8083a",
+  "attempts": [
+    {
+      "asr_seconds": 0.19673363585025072,
+      "alignment_seconds": 0.0007789600640535355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Will._ Genitive case!",
+        "hotwords": "Genitive"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will, Genitive case!",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Will,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.487060546875
+            },
+            {
+              "text": " Genitive",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.6732177734375
+            },
+            {
+              "text": " case!",
+              "start": 1.4,
+              "end": 1.68,
+              "probability": 0.2088623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Genitive",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "case!",
+          "start": 1.4,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "_Will._",
+        "Genitive",
+        "case!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Will._",
+        "Genitive",
+        "case!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Genitive",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "genitive",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "case!",
+          "start": 1.4,
+          "end": 1.68,
+          "key": "case",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Will._",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Genitive",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "case!",
+          "start": 1.4,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19758415780961514
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b9f7f6372835ccc2303ba40d8d79e8996043c3d9bb8b4ed70ee05908a0f806b1",
+  "selected_reasons": []
+}

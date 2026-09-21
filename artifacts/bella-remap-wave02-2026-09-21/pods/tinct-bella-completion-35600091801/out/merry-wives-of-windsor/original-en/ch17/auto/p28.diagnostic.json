@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "98e0bf39af55568b83980ad1253f4277e5781d29342001a4e49aaf480c072fdc",
+  "attempts": [
+    {
+      "asr_seconds": 0.4023481020703912,
+      "alignment_seconds": 0.002567807212471962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Thou art clerkly, thou art clerkly, Sir John. Was there a wise woman with thee?",
+        "hotwords": "Sir, John, Was"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, thou art clerkly, thou art clerkly, Sir John. Was there a wise woman with thee?",
+          "start": 0.08,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.6552734375
+            },
+            {
+              "text": " thou",
+              "start": 1.26,
+              "end": 1.3,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " art",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " clerkly,",
+              "start": 1.6,
+              "end": 2.02,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " thou",
+              "start": 2.12,
+              "end": 2.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " art",
+              "start": 2.18,
+              "end": 2.52,
+              "probability": 0.97265625
+            },
+            {
+              "text": " clerkly,",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " Sir",
+              "start": 2.98,
+              "end": 3.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " John.",
+              "start": 3.06,
+              "end": 3.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Was",
+              "start": 3.88,
+              "end": 3.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " there",
+              "start": 3.98,
+              "end": 4.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 4.08,
+              "end": 4.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wise",
+              "start": 4.26,
+              "end": 4.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " woman",
+              "start": 4.54,
+              "end": 4.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " with",
+              "start": 4.8,
+              "end": 5.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thee?",
+              "start": 5.0,
+              "end": 5.28,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "thou",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "raw": "art",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "clerkly,",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "raw": "thou",
+          "start": 2.12,
+          "end": 2.18
+        },
+        {
+          "raw": "art",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "raw": "clerkly,",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "Sir",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "raw": "John.",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "raw": "Was",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "raw": "there",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "raw": "a",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "raw": "wise",
+          "start": 4.26,
+          "end": 4.54
+        },
+        {
+          "raw": "woman",
+          "start": 4.54,
+          "end": 4.8
+        },
+        {
+          "raw": "with",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "raw": "thee?",
+          "start": 5.0,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Thou",
+        "art",
+        "clerkly,",
+        "thou",
+        "art",
+        "clerkly,",
+        "Sir",
+        "John.",
+        "Was",
+        "there",
+        "a",
+        "wise",
+        "woman",
+        "with",
+        "thee?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Thou",
+        "art",
+        "clerkly,",
+        "thou",
+        "art",
+        "clerkly,",
+        "Sir",
+        "John.",
+        "Was",
+        "there",
+        "a",
+        "wise",
+        "woman",
+        "with",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.26,
+          "end": 1.3,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "art",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "clerkly,",
+          "start": 1.6,
+          "end": 2.02,
+          "key": "clerkly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.12,
+          "end": 2.18,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.18,
+          "end": 2.52,
+          "key": "art",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clerkly,",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "clerkly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.98,
+          "end": 3.06,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "John.",
+          "start": 3.06,
+          "end": 3.42,
+          "key": "john",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 3.88,
+          "end": 3.98,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.98,
+          "end": 4.08,
+          "key": "there",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.08,
+          "end": 4.26,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wise",
+          "start": 4.26,
+          "end": 4.54,
+          "key": "wise",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 4.54,
+          "end": 4.8,
+          "key": "woman",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.8,
+          "end": 5.0,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 5.0,
+          "end": 5.28,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Thou",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "text": "art",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "clerkly,",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "text": "thou",
+          "start": 2.12,
+          "end": 2.18
+        },
+        {
+          "text": "art",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "text": "clerkly,",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "Sir",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "text": "John.",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "text": "Was",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "text": "there",
+          "start": 3.98,
+          "end": 4.08
+        },
+        {
+          "text": "a",
+          "start": 4.08,
+          "end": 4.26
+        },
+        {
+          "text": "wise",
+          "start": 4.26,
+          "end": 4.54
+        },
+        {
+          "text": "woman",
+          "start": 4.54,
+          "end": 4.8
+        },
+        {
+          "text": "with",
+          "start": 4.8,
+          "end": 5.0
+        },
+        {
+          "text": "thee?",
+          "start": 5.0,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4051584145054221
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e3989dc501d2ec854b844c5db66523a4e198f7da4dd078540f362ae70f1af2c",
+  "selected_reasons": []
+}

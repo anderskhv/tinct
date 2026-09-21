@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "99078a57b86c477b6ec7716012c51b37b526b0b2a22be1aeee4d813011dbedcc",
+  "attempts": [
+    {
+      "asr_seconds": 0.2933582179248333,
+      "alignment_seconds": 0.001432080753147602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Isab._ And have you nuns no farther privileges?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Isab, and have you nuns no farther privileges?",
+          "start": 0.02,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.47296142578125
+            },
+            {
+              "text": " and",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " have",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.974609375
+            },
+            {
+              "text": " you",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " nuns",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.939453125
+            },
+            {
+              "text": " no",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.11669921875
+            },
+            {
+              "text": " farther",
+              "start": 2.1,
+              "end": 2.38,
+              "probability": 0.919921875
+            },
+            {
+              "text": " privileges?",
+              "start": 2.38,
+              "end": 2.88,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "and",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "you",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "nuns",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "no",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "farther",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "raw": "privileges?",
+          "start": 2.38,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "And",
+        "have",
+        "you",
+        "nuns",
+        "no",
+        "farther",
+        "privileges?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "And",
+        "have",
+        "you",
+        "nuns",
+        "no",
+        "farther",
+        "privileges?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nuns",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "nuns",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "farther",
+          "start": 2.1,
+          "end": 2.38,
+          "key": "farther",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "privileges?",
+          "start": 2.38,
+          "end": 2.88,
+          "key": "privileges",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "And",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "have",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "you",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "nuns",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "no",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "farther",
+          "start": 2.1,
+          "end": 2.38
+        },
+        {
+          "text": "privileges?",
+          "start": 2.38,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2949283588677645
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca4adf7556248ac6ae743ebb55541cda4ceca50d0aca493211301671731c7921",
+  "selected_reasons": []
+}

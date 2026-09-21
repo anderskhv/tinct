@@ -1,0 +1,300 @@
+{
+  "complete": true,
+  "signature": "af85955a02b7aab0d468008c9d6721e2156388c563927cb3359a50374194bc88",
+  "attempts": [
+    {
+      "asr_seconds": 0.5111377285793424,
+      "alignment_seconds": 0.0010215649381279945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Sir Hugh Evans._",
+        "hotwords": "Sir, Hugh, Evans._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Sir Hugh Evans._",
+          "start": 0.11,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Sir",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Hugh",
+              "start": 0.87,
+              "end": 1.07,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Evans._",
+              "start": 1.07,
+              "end": 1.61,
+              "probability": 0.497802734375
+            }
+          ]
+        },
+        {
+          "text": " Enter Sir Hugh Evans._",
+          "start": 1.61,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 1.61,
+              "end": 2.07,
+              "probability": 1.3709068298339844e-05
+            },
+            {
+              "text": " Sir",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 4.470348358154297e-06
+            },
+            {
+              "text": " Hugh",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 0.00040149688720703125
+            },
+            {
+              "text": " Evans._",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 0.00021511316299438477
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Sir",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "Hugh",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "raw": "Evans._",
+          "start": 1.07,
+          "end": 1.61
+        },
+        {
+          "raw": "Enter",
+          "start": 1.61,
+          "end": 2.07
+        },
+        {
+          "raw": "Sir",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "raw": "Hugh",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "raw": "Evans._",
+          "start": 2.07,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "SIR",
+        "HUGH",
+        "EVANS._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Sir",
+        "Hugh",
+        "Evans._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hugh",
+          "start": 0.87,
+          "end": 1.07,
+          "key": "hugh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Evans._",
+          "start": 1.07,
+          "end": 1.61,
+          "key": "evans",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.61,
+          "end": 2.07,
+          "key": "enter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Hugh",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "hugh",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Evans._",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "evans",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "SIR",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "HUGH",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "text": "EVANS._",
+          "start": 1.07,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 8,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5123150199651718
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c26f378f957b2fb07cf8ed403c67a88743e8e5d69a75281f5eae019a40c490c3",
+  "selected_reasons": []
+}

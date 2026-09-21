@@ -1,0 +1,968 @@
+{
+  "complete": true,
+  "signature": "b474ccd0d98292cc36d87646d2d47c8479bdef164a928a2a48b0fab6392ad334",
+  "attempts": [
+    {
+      "asr_seconds": 0.2884611776098609,
+      "alignment_seconds": 0.0013845833018422127,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Escal._ I'll wait upon your honour. Exeunt._",
+        "hotwords": "I'll, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eskal, I'll wait upon your honour. Exeunt._",
+          "start": 0.18,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Eskal,",
+              "start": 0.18,
+              "end": 0.86,
+              "probability": 0.068267822265625
+            },
+            {
+              "text": " I'll",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " wait",
+              "start": 1.16,
+              "end": 1.22,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " upon",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " your",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " honour.",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.1455078125
+            },
+            {
+              "text": " Exeunt._",
+              "start": 2.28,
+              "end": 2.72,
+              "probability": 0.5989990383386612
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eskal,",
+          "start": 0.18,
+          "end": 0.86
+        },
+        {
+          "raw": "I'll",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "wait",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "raw": "upon",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "your",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "honour.",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.28,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "_Escal._",
+        "I'll",
+        "wait",
+        "upon",
+        "your",
+        "honour.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Escal._",
+        "I'll",
+        "wait",
+        "upon",
+        "your",
+        "honour.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eskal,",
+          "start": 0.18,
+          "end": 0.86,
+          "key": "eskal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 1.16,
+          "end": 1.22,
+          "key": "wait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "honour.",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "honour",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.28,
+          "end": 2.72,
+          "key": "exeunt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Escal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "I'll",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "wait",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "text": "upon",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "your",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "honour.",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 2.28,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2899843780323863
+    },
+    {
+      "asr_seconds": 0.3004195261746645,
+      "alignment_seconds": 0.001432281918823719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I'll, Exeunt._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Eskel, I'll wait upon your honor. Exeunt._",
+          "start": 0.18,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Eskel,",
+              "start": 0.18,
+              "end": 0.82,
+              "probability": 0.514129638671875
+            },
+            {
+              "text": " I'll",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " wait",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " upon",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " your",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " honor.",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " Exeunt._",
+              "start": 2.28,
+              "end": 2.72,
+              "probability": 0.6136474758386612
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eskel,",
+          "start": 0.18,
+          "end": 0.82
+        },
+        {
+          "raw": "I'll",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "wait",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "upon",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "your",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "honor.",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.28,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "_Escal._",
+        "I'll",
+        "wait",
+        "upon",
+        "your",
+        "honour.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Escal._",
+        "I'll",
+        "wait",
+        "upon",
+        "your",
+        "honour.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eskel,",
+          "start": 0.18,
+          "end": 0.82,
+          "key": "eskel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "wait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "honor.",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "honor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.28,
+          "end": 2.72,
+          "key": "exeunt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Escal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "I'll",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "wait",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "text": "upon",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "your",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "honour.",
+          "start": 1.58,
+          "end": 1.93
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 2.28,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30198041070252657
+    },
+    {
+      "asr_seconds": 0.315511018037796,
+      "alignment_seconds": 0.0014270953834056854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Eskel, I'll wait upon your honor.",
+          "start": 0.18,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Eskel,",
+              "start": 0.18,
+              "end": 0.82,
+              "probability": 0.514129638671875
+            },
+            {
+              "text": " I'll",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " wait",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " upon",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " your",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " honor.",
+              "start": 1.58,
+              "end": 1.86,
+              "probability": 0.8388671875
+            }
+          ]
+        },
+        {
+          "text": " Exeunt.",
+          "start": 2.12,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Exeunt.",
+              "start": 2.12,
+              "end": 2.56,
+              "probability": 0.8181966145833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eskel,",
+          "start": 0.18,
+          "end": 0.82
+        },
+        {
+          "raw": "I'll",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "wait",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "upon",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "your",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "honor.",
+          "start": 1.58,
+          "end": 1.86
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 2.12,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "_Escal._",
+        "I'll",
+        "wait",
+        "upon",
+        "your",
+        "honour.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Escal._",
+        "I'll",
+        "wait",
+        "upon",
+        "your",
+        "honour.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eskel,",
+          "start": 0.18,
+          "end": 0.82,
+          "key": "eskel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "wait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "honor.",
+          "start": 1.58,
+          "end": 1.86,
+          "key": "honor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 2.12,
+          "end": 2.56,
+          "key": "exeunt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Escal._",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "I'll",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "wait",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "text": "upon",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "your",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "honour.",
+          "start": 1.58,
+          "end": 1.85
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 2.12,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3170654186978936
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e32dcad93db5f71fa9ad7d970ffeddb083a039458996f6e1cd094b520a8ebb5c",
+  "selected_reasons": []
+}

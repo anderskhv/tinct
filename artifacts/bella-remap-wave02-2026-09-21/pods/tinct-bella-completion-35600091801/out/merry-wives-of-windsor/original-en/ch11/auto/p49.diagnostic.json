@@ -1,0 +1,750 @@
+{
+  "complete": true,
+  "signature": "2a89326d48a198629eea695c373240c45ace3b757a7bb15f03e3fac09c2a8f07",
+  "attempts": [
+    {
+      "asr_seconds": 0.43269943818449974,
+      "alignment_seconds": 0.003391895443201065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fent._ I thank thee; and I pray thee, once to-night Give my sweet Nan this ring: there's for thy pains.",
+        "hotwords": "I, Give, Nan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fent, I thank thee. And I pray thee, once to-night Give my sweet Nan this ring. There's for thy pains.",
+          "start": 0.08,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Fent,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.798828125
+            },
+            {
+              "text": " I",
+              "start": 0.94,
+              "end": 1.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thank",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thee.",
+              "start": 1.24,
+              "end": 1.52,
+              "probability": 0.94921875
+            },
+            {
+              "text": " And",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " I",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " pray",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee,",
+              "start": 2.38,
+              "end": 2.68,
+              "probability": 0.98828125
+            },
+            {
+              "text": " once",
+              "start": 2.8,
+              "end": 2.86,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.210205078125
+            },
+            {
+              "text": "-night",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " Give",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.023529052734375
+            },
+            {
+              "text": " my",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " sweet",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Nan",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.48876953125
+            },
+            {
+              "text": " this",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ring.",
+              "start": 4.42,
+              "end": 4.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " There's",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.9765625
+            },
+            {
+              "text": " for",
+              "start": 5.44,
+              "end": 5.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thy",
+              "start": 5.54,
+              "end": 5.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " pains.",
+              "start": 5.7,
+              "end": 6.16,
+              "probability": 0.93701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fent,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.02
+        },
+        {
+          "raw": "thank",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "thee.",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "raw": "And",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "I",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "pray",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "thee,",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "raw": "once",
+          "start": 2.8,
+          "end": 2.86
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "-night",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "Give",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "my",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "sweet",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "raw": "Nan",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "this",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "ring.",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "raw": "There's",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "for",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "raw": "thy",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "raw": "pains.",
+          "start": 5.7,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "_Fent._",
+        "I",
+        "thank",
+        "thee;",
+        "and",
+        "I",
+        "pray",
+        "thee,",
+        "once",
+        "to-night",
+        "Give",
+        "my",
+        "sweet",
+        "Nan",
+        "this",
+        "ring:",
+        "there’s",
+        "for",
+        "thy",
+        "pains."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fent._",
+        "I",
+        "thank",
+        "thee;",
+        "and",
+        "I",
+        "pray",
+        "thee,",
+        "once",
+        "to-night",
+        "Give",
+        "my",
+        "sweet",
+        "Nan",
+        "this",
+        "ring:",
+        "there's",
+        "for",
+        "thy",
+        "pains."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fent,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "fent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.02,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 1.24,
+          "end": 1.52,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "pray",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.38,
+          "end": 2.68,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 2.8,
+          "end": 2.86,
+          "key": "once",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to -night",
+          "start": 2.86,
+          "end": 3.2,
+          "key": "tonight",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "give",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 3.62,
+          "end": 3.96,
+          "key": "sweet",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Nan",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "nan",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.2,
+          "end": 4.42,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ring.",
+          "start": 4.42,
+          "end": 4.72,
+          "key": "ring",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "theres",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.44,
+          "end": 5.54,
+          "key": "for",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.54,
+          "end": 5.7,
+          "key": "thy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "pains.",
+          "start": 5.7,
+          "end": 6.16,
+          "key": "pains",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "to-night",
+          "heard": "to -night",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 2.86,
+          "end": 3.2
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fent._",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 0.94,
+          "end": 1.02
+        },
+        {
+          "text": "thank",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "thee;",
+          "start": 1.24,
+          "end": 1.52
+        },
+        {
+          "text": "and",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "I",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "pray",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "thee,",
+          "start": 2.38,
+          "end": 2.68
+        },
+        {
+          "text": "once",
+          "start": 2.8,
+          "end": 2.86
+        },
+        {
+          "text": "to-night",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "text": "Give",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "my",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "sweet",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "text": "Nan",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "this",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "ring:",
+          "start": 4.42,
+          "end": 4.72
+        },
+        {
+          "text": "there’s",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "for",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "text": "thy",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "text": "pains.",
+          "start": 5.7,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.436412968672812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6a81915db33b80f643c09d2ab76d96310504d28c8dfcf19449b50ef270b5d4f",
+  "selected_reasons": []
+}

@@ -1,0 +1,3467 @@
+{
+  "complete": true,
+  "signature": "dc527b76c7094ac6a97ae0bb352e281ca053076280cadb25ce5e850a083d0990",
+  "attempts": [
+    {
+      "asr_seconds": 0.6223227586597204,
+      "alignment_seconds": 0.005141282454133034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Isab._ Besides, he tells me that, if peradventure 5 He speak against me on the adverse side, I should not think it strange; for 'tis a physic That's bitter to sweet end.",
+        "hotwords": "Besides, I, That's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Besides, he tells me that, if peradventure 5 He speak against me on the adverse side, I should not think it strange, for tease a physic That's bitter to sweet end.",
+          "start": 0.05,
+          "end": 11.09,
+          "words": [
+            {
+              "text": " Besides,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.00016069412231445312
+            },
+            {
+              "text": " he",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " tells",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 2.37,
+              "end": 2.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that,",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " if",
+              "start": 3.09,
+              "end": 3.23,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " peradventure",
+              "start": 3.23,
+              "end": 3.85,
+              "probability": 0.6426518758138021
+            },
+            {
+              "text": " 5",
+              "start": 3.85,
+              "end": 4.21,
+              "probability": 0.1129150390625
+            },
+            {
+              "text": " He",
+              "start": 4.21,
+              "end": 4.45,
+              "probability": 0.003215789794921875
+            },
+            {
+              "text": " speak",
+              "start": 4.45,
+              "end": 4.73,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " against",
+              "start": 4.73,
+              "end": 4.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 4.97,
+              "end": 5.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 5.23,
+              "end": 5.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 5.35,
+              "end": 5.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " adverse",
+              "start": 5.51,
+              "end": 5.79,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " side,",
+              "start": 5.79,
+              "end": 6.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 6.63,
+              "end": 6.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " should",
+              "start": 6.81,
+              "end": 6.95,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " not",
+              "start": 6.95,
+              "end": 7.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " think",
+              "start": 7.17,
+              "end": 7.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 7.39,
+              "end": 7.53,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " strange,",
+              "start": 7.53,
+              "end": 8.09,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " for",
+              "start": 8.49,
+              "end": 8.77,
+              "probability": 0.1077880859375
+            },
+            {
+              "text": " tease",
+              "start": 8.77,
+              "end": 9.11,
+              "probability": 0.231689453125
+            },
+            {
+              "text": " a",
+              "start": 9.11,
+              "end": 9.33,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " physic",
+              "start": 9.33,
+              "end": 9.59,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " That's",
+              "start": 9.59,
+              "end": 10.01,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " bitter",
+              "start": 10.01,
+              "end": 10.19,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " to",
+              "start": 10.19,
+              "end": 10.43,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " sweet",
+              "start": 10.43,
+              "end": 10.67,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " end.",
+              "start": 10.67,
+              "end": 11.09,
+              "probability": 0.8466796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Besides,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "he",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "tells",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "me",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "raw": "that,",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "if",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "raw": "peradventure",
+          "start": 3.23,
+          "end": 3.85
+        },
+        {
+          "raw": "5",
+          "start": 3.85,
+          "end": 4.21
+        },
+        {
+          "raw": "He",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "raw": "speak",
+          "start": 4.45,
+          "end": 4.73
+        },
+        {
+          "raw": "against",
+          "start": 4.73,
+          "end": 4.97
+        },
+        {
+          "raw": "me",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "raw": "on",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "raw": "the",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "raw": "adverse",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "raw": "side,",
+          "start": 5.79,
+          "end": 6.25
+        },
+        {
+          "raw": "I",
+          "start": 6.63,
+          "end": 6.81
+        },
+        {
+          "raw": "should",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "raw": "not",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "raw": "think",
+          "start": 7.17,
+          "end": 7.39
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.53
+        },
+        {
+          "raw": "strange,",
+          "start": 7.53,
+          "end": 8.09
+        },
+        {
+          "raw": "for",
+          "start": 8.49,
+          "end": 8.77
+        },
+        {
+          "raw": "tease",
+          "start": 8.77,
+          "end": 9.11
+        },
+        {
+          "raw": "a",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "raw": "physic",
+          "start": 9.33,
+          "end": 9.59
+        },
+        {
+          "raw": "That's",
+          "start": 9.59,
+          "end": 10.01
+        },
+        {
+          "raw": "bitter",
+          "start": 10.01,
+          "end": 10.19
+        },
+        {
+          "raw": "to",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "raw": "sweet",
+          "start": 10.43,
+          "end": 10.67
+        },
+        {
+          "raw": "end.",
+          "start": 10.67,
+          "end": 11.09
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "Besides,",
+        "he",
+        "tells",
+        "me",
+        "that,",
+        "if",
+        "peradventure",
+        "5",
+        "He",
+        "speak",
+        "against",
+        "me",
+        "on",
+        "the",
+        "adverse",
+        "side,",
+        "I",
+        "should",
+        "not",
+        "think",
+        "it",
+        "strange;",
+        "for",
+        "'tis",
+        "a",
+        "physic",
+        "That's",
+        "bitter",
+        "to",
+        "sweet",
+        "end."
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "Besides,",
+        "he",
+        "tells",
+        "me",
+        "that,",
+        "if",
+        "peradventure",
+        "5",
+        "He",
+        "speak",
+        "against",
+        "me",
+        "on",
+        "the",
+        "adverse",
+        "side,",
+        "I",
+        "should",
+        "not",
+        "think",
+        "it",
+        "strange;",
+        "for",
+        "'tis",
+        "a",
+        "physic",
+        "That's",
+        "bitter",
+        "to",
+        "sweet",
+        "end."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          24,
+          0,
+          23
+        ],
+        [
+          "replace",
+          24,
+          25,
+          23,
+          24
+        ],
+        [
+          "equal",
+          25,
+          32,
+          24,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          24,
+          25,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Besides,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "besides",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.97,
+          "end": 2.07,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "tells",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.37,
+          "end": 2.57,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 2.57,
+          "end": 2.87,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.09,
+          "end": 3.23,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "peradventure",
+          "start": 3.23,
+          "end": 3.85,
+          "key": "peradventure",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 3.85,
+          "end": 4.21,
+          "key": "five",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.21,
+          "end": 4.45,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.45,
+          "end": 4.73,
+          "key": "speak",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.73,
+          "end": 4.97,
+          "key": "against",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.97,
+          "end": 5.23,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.23,
+          "end": 5.35,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.35,
+          "end": 5.51,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "adverse",
+          "start": 5.51,
+          "end": 5.79,
+          "key": "adverse",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "side,",
+          "start": 5.79,
+          "end": 6.25,
+          "key": "side",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.63,
+          "end": 6.81,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 6.81,
+          "end": 6.95,
+          "key": "should",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.95,
+          "end": 7.17,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 7.17,
+          "end": 7.39,
+          "key": "think",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.53,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 7.53,
+          "end": 8.09,
+          "key": "strange",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.49,
+          "end": 8.77,
+          "key": "for",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 8.77,
+          "end": 9.11,
+          "key": "tease",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.11,
+          "end": 9.33,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "physic",
+          "start": 9.33,
+          "end": 9.59,
+          "key": "physic",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 9.59,
+          "end": 10.01,
+          "key": "thats",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bitter",
+          "start": 10.01,
+          "end": 10.19,
+          "key": "bitter",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.19,
+          "end": 10.43,
+          "key": "to",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 10.43,
+          "end": 10.67,
+          "key": "sweet",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "end.",
+          "start": 10.67,
+          "end": 11.09,
+          "key": "end",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Besides,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "he",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "tells",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "me",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "text": "that,",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "text": "if",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "text": "peradventure",
+          "start": 3.23,
+          "end": 3.85
+        },
+        {
+          "text": "5",
+          "start": 3.85,
+          "end": 4.21
+        },
+        {
+          "text": "He",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "text": "speak",
+          "start": 4.45,
+          "end": 4.73
+        },
+        {
+          "text": "against",
+          "start": 4.73,
+          "end": 4.97
+        },
+        {
+          "text": "me",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "text": "on",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "text": "the",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "text": "adverse",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "side,",
+          "start": 5.79,
+          "end": 6.25
+        },
+        {
+          "text": "I",
+          "start": 6.63,
+          "end": 6.81
+        },
+        {
+          "text": "should",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "text": "not",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "text": "think",
+          "start": 7.17,
+          "end": 7.39
+        },
+        {
+          "text": "it",
+          "start": 7.39,
+          "end": 7.53
+        },
+        {
+          "text": "strange;",
+          "start": 7.53,
+          "end": 8.09
+        },
+        {
+          "text": "for",
+          "start": 8.49,
+          "end": 8.77
+        },
+        {
+          "text": "'tis",
+          "start": 8.77,
+          "end": 8.94
+        },
+        {
+          "text": "a",
+          "start": 9.11,
+          "end": 9.33
+        },
+        {
+          "text": "physic",
+          "start": 9.33,
+          "end": 9.59
+        },
+        {
+          "text": "That's",
+          "start": 9.59,
+          "end": 10.01
+        },
+        {
+          "text": "bitter",
+          "start": 10.01,
+          "end": 10.19
+        },
+        {
+          "text": "to",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "text": "sweet",
+          "start": 10.43,
+          "end": 10.67
+        },
+        {
+          "text": "end.",
+          "start": 10.67,
+          "end": 11.09
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 31,
+        "matched_words": 30
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.6279262844473124
+    },
+    {
+      "asr_seconds": 0.5490668918937445,
+      "alignment_seconds": 0.004041073843836784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Besides, I, That's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Isab, besides, he tells me that, if per Adventure 5 he speak against me on the adverse side,",
+          "start": 0.05,
+          "end": 6.27,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6505126953125
+            },
+            {
+              "text": " besides,",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " he",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tells",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that,",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 3.11,
+              "end": 3.23,
+              "probability": 0.982421875
+            },
+            {
+              "text": " per",
+              "start": 3.23,
+              "end": 3.45,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Adventure",
+              "start": 3.45,
+              "end": 3.83,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " 5",
+              "start": 3.83,
+              "end": 4.21,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " he",
+              "start": 4.21,
+              "end": 4.45,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " speak",
+              "start": 4.45,
+              "end": 4.73,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " against",
+              "start": 4.73,
+              "end": 4.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 4.99,
+              "end": 5.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 5.23,
+              "end": 5.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.35,
+              "end": 5.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " adverse",
+              "start": 5.51,
+              "end": 5.79,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " side,",
+              "start": 5.79,
+              "end": 6.27,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I should not think it strange, for T's a physic that's bitter to sweet end.",
+          "start": 6.67,
+          "end": 11.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.67,
+              "end": 6.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " should",
+              "start": 6.81,
+              "end": 6.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 6.95,
+              "end": 7.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " think",
+              "start": 7.17,
+              "end": 7.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 7.39,
+              "end": 7.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " strange,",
+              "start": 7.51,
+              "end": 8.07,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " for",
+              "start": 8.53,
+              "end": 8.77,
+              "probability": 0.88671875
+            },
+            {
+              "text": " T's",
+              "start": 8.77,
+              "end": 9.15,
+              "probability": 0.57049560546875
+            },
+            {
+              "text": " a",
+              "start": 9.15,
+              "end": 9.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " physic",
+              "start": 9.33,
+              "end": 9.61,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " that's",
+              "start": 9.61,
+              "end": 10.01,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " bitter",
+              "start": 10.01,
+              "end": 10.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 10.21,
+              "end": 10.43,
+              "probability": 0.9765625
+            },
+            {
+              "text": " sweet",
+              "start": 10.43,
+              "end": 10.69,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " end.",
+              "start": 10.69,
+              "end": 11.09,
+              "probability": 0.91552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "besides,",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "raw": "he",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "tells",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "me",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "raw": "that,",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "if",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "raw": "per",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "raw": "Adventure",
+          "start": 3.45,
+          "end": 3.83
+        },
+        {
+          "raw": "5",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "raw": "he",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "raw": "speak",
+          "start": 4.45,
+          "end": 4.73
+        },
+        {
+          "raw": "against",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "raw": "me",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "raw": "on",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "raw": "the",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "raw": "adverse",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "raw": "side,",
+          "start": 5.79,
+          "end": 6.27
+        },
+        {
+          "raw": "I",
+          "start": 6.67,
+          "end": 6.81
+        },
+        {
+          "raw": "should",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "raw": "not",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "raw": "think",
+          "start": 7.17,
+          "end": 7.39
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.51
+        },
+        {
+          "raw": "strange,",
+          "start": 7.51,
+          "end": 8.07
+        },
+        {
+          "raw": "for",
+          "start": 8.53,
+          "end": 8.77
+        },
+        {
+          "raw": "T's",
+          "start": 8.77,
+          "end": 9.15
+        },
+        {
+          "raw": "a",
+          "start": 9.15,
+          "end": 9.33
+        },
+        {
+          "raw": "physic",
+          "start": 9.33,
+          "end": 9.61
+        },
+        {
+          "raw": "that's",
+          "start": 9.61,
+          "end": 10.01
+        },
+        {
+          "raw": "bitter",
+          "start": 10.01,
+          "end": 10.21
+        },
+        {
+          "raw": "to",
+          "start": 10.21,
+          "end": 10.43
+        },
+        {
+          "raw": "sweet",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "raw": "end.",
+          "start": 10.69,
+          "end": 11.09
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "Besides,",
+        "he",
+        "tells",
+        "me",
+        "that,",
+        "if",
+        "peradventure",
+        "5",
+        "He",
+        "speak",
+        "against",
+        "me",
+        "on",
+        "the",
+        "adverse",
+        "side,",
+        "I",
+        "should",
+        "not",
+        "think",
+        "it",
+        "strange;",
+        "for",
+        "'tis",
+        "a",
+        "physic",
+        "That's",
+        "bitter",
+        "to",
+        "sweet",
+        "end."
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "Besides,",
+        "he",
+        "tells",
+        "me",
+        "that,",
+        "if",
+        "peradventure",
+        "5",
+        "He",
+        "speak",
+        "against",
+        "me",
+        "on",
+        "the",
+        "adverse",
+        "side,",
+        "I",
+        "should",
+        "not",
+        "think",
+        "it",
+        "strange;",
+        "for",
+        "'tis",
+        "a",
+        "physic",
+        "That's",
+        "bitter",
+        "to",
+        "sweet",
+        "end."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "equal",
+          25,
+          32,
+          25,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "besides,",
+          "start": 1.21,
+          "end": 1.55,
+          "key": "besides",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "tells",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.11,
+          "end": 3.23,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "per Adventure",
+          "start": 3.23,
+          "end": 3.83,
+          "key": "peradventure",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 3.83,
+          "end": 4.21,
+          "key": "five",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.21,
+          "end": 4.45,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.45,
+          "end": 4.73,
+          "key": "speak",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.73,
+          "end": 4.99,
+          "key": "against",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.99,
+          "end": 5.23,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.23,
+          "end": 5.35,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.35,
+          "end": 5.51,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "adverse",
+          "start": 5.51,
+          "end": 5.79,
+          "key": "adverse",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "side,",
+          "start": 5.79,
+          "end": 6.27,
+          "key": "side",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.67,
+          "end": 6.81,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 6.81,
+          "end": 6.95,
+          "key": "should",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.95,
+          "end": 7.17,
+          "key": "not",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 7.17,
+          "end": 7.39,
+          "key": "think",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.51,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 7.51,
+          "end": 8.07,
+          "key": "strange",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.53,
+          "end": 8.77,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "T's",
+          "start": 8.77,
+          "end": 9.15,
+          "key": "ts",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.15,
+          "end": 9.33,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "physic",
+          "start": 9.33,
+          "end": 9.61,
+          "key": "physic",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 9.61,
+          "end": 10.01,
+          "key": "thats",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bitter",
+          "start": 10.01,
+          "end": 10.21,
+          "key": "bitter",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.21,
+          "end": 10.43,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 10.43,
+          "end": 10.69,
+          "key": "sweet",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "end.",
+          "start": 10.69,
+          "end": 11.09,
+          "key": "end",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "peradventure",
+          "heard": "per Adventure",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 3.23,
+          "end": 3.83
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Besides,",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "text": "he",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "tells",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "me",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "text": "that,",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "if",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "text": "peradventure",
+          "start": 3.23,
+          "end": 3.83
+        },
+        {
+          "text": "5",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "text": "He",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "text": "speak",
+          "start": 4.45,
+          "end": 4.73
+        },
+        {
+          "text": "against",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "text": "me",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "text": "on",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "text": "the",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "text": "adverse",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "side,",
+          "start": 5.79,
+          "end": 6.27
+        },
+        {
+          "text": "I",
+          "start": 6.67,
+          "end": 6.81
+        },
+        {
+          "text": "should",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "text": "not",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "text": "think",
+          "start": 7.17,
+          "end": 7.39
+        },
+        {
+          "text": "it",
+          "start": 7.39,
+          "end": 7.51
+        },
+        {
+          "text": "strange;",
+          "start": 7.51,
+          "end": 8.07
+        },
+        {
+          "text": "for",
+          "start": 8.53,
+          "end": 8.77
+        },
+        {
+          "text": "'tis",
+          "start": 8.77,
+          "end": 8.96
+        },
+        {
+          "text": "a",
+          "start": 9.15,
+          "end": 9.33
+        },
+        {
+          "text": "physic",
+          "start": 9.33,
+          "end": 9.61
+        },
+        {
+          "text": "That's",
+          "start": 9.61,
+          "end": 10.01
+        },
+        {
+          "text": "bitter",
+          "start": 10.01,
+          "end": 10.21
+        },
+        {
+          "text": "to",
+          "start": 10.21,
+          "end": 10.43
+        },
+        {
+          "text": "sweet",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "text": "end.",
+          "start": 10.69,
+          "end": 11.09
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 31
+      },
+      "match_ratio": 0.96875,
+      "rejection_reasons": [],
+      "seconds": 0.5534539315849543
+    },
+    {
+      "asr_seconds": 0.5945918513461947,
+      "alignment_seconds": 0.0031615374609827995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Isab, besides, he tells me that, if per Adventure 5 he speak against me on the adverse side,",
+          "start": 0.05,
+          "end": 6.27,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.6505126953125
+            },
+            {
+              "text": " besides,",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " he",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tells",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that,",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " if",
+              "start": 3.11,
+              "end": 3.23,
+              "probability": 0.982421875
+            },
+            {
+              "text": " per",
+              "start": 3.23,
+              "end": 3.45,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Adventure",
+              "start": 3.45,
+              "end": 3.83,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " 5",
+              "start": 3.83,
+              "end": 4.21,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " he",
+              "start": 4.21,
+              "end": 4.45,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " speak",
+              "start": 4.45,
+              "end": 4.73,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " against",
+              "start": 4.73,
+              "end": 4.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 4.99,
+              "end": 5.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 5.23,
+              "end": 5.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.35,
+              "end": 5.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " adverse",
+              "start": 5.51,
+              "end": 5.79,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " side,",
+              "start": 5.79,
+              "end": 6.27,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I should not think it strange, for T's a physic that's bitter to sweet end.",
+          "start": 6.67,
+          "end": 11.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.67,
+              "end": 6.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " should",
+              "start": 6.81,
+              "end": 6.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 6.95,
+              "end": 7.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " think",
+              "start": 7.17,
+              "end": 7.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 7.39,
+              "end": 7.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " strange,",
+              "start": 7.51,
+              "end": 8.07,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " for",
+              "start": 8.53,
+              "end": 8.77,
+              "probability": 0.88671875
+            },
+            {
+              "text": " T's",
+              "start": 8.77,
+              "end": 9.15,
+              "probability": 0.57049560546875
+            },
+            {
+              "text": " a",
+              "start": 9.15,
+              "end": 9.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " physic",
+              "start": 9.33,
+              "end": 9.61,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " that's",
+              "start": 9.61,
+              "end": 10.01,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " bitter",
+              "start": 10.01,
+              "end": 10.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 10.21,
+              "end": 10.43,
+              "probability": 0.9765625
+            },
+            {
+              "text": " sweet",
+              "start": 10.43,
+              "end": 10.69,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " end.",
+              "start": 10.69,
+              "end": 11.09,
+              "probability": 0.91552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "besides,",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "raw": "he",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "tells",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "me",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "raw": "that,",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "if",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "raw": "per",
+          "start": 3.23,
+          "end": 3.45
+        },
+        {
+          "raw": "Adventure",
+          "start": 3.45,
+          "end": 3.83
+        },
+        {
+          "raw": "5",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "raw": "he",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "raw": "speak",
+          "start": 4.45,
+          "end": 4.73
+        },
+        {
+          "raw": "against",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "raw": "me",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "raw": "on",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "raw": "the",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "raw": "adverse",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "raw": "side,",
+          "start": 5.79,
+          "end": 6.27
+        },
+        {
+          "raw": "I",
+          "start": 6.67,
+          "end": 6.81
+        },
+        {
+          "raw": "should",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "raw": "not",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "raw": "think",
+          "start": 7.17,
+          "end": 7.39
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.51
+        },
+        {
+          "raw": "strange,",
+          "start": 7.51,
+          "end": 8.07
+        },
+        {
+          "raw": "for",
+          "start": 8.53,
+          "end": 8.77
+        },
+        {
+          "raw": "T's",
+          "start": 8.77,
+          "end": 9.15
+        },
+        {
+          "raw": "a",
+          "start": 9.15,
+          "end": 9.33
+        },
+        {
+          "raw": "physic",
+          "start": 9.33,
+          "end": 9.61
+        },
+        {
+          "raw": "that's",
+          "start": 9.61,
+          "end": 10.01
+        },
+        {
+          "raw": "bitter",
+          "start": 10.01,
+          "end": 10.21
+        },
+        {
+          "raw": "to",
+          "start": 10.21,
+          "end": 10.43
+        },
+        {
+          "raw": "sweet",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "raw": "end.",
+          "start": 10.69,
+          "end": 11.09
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "Besides,",
+        "he",
+        "tells",
+        "me",
+        "that,",
+        "if",
+        "peradventure",
+        "5",
+        "He",
+        "speak",
+        "against",
+        "me",
+        "on",
+        "the",
+        "adverse",
+        "side,",
+        "I",
+        "should",
+        "not",
+        "think",
+        "it",
+        "strange;",
+        "for",
+        "'tis",
+        "a",
+        "physic",
+        "That's",
+        "bitter",
+        "to",
+        "sweet",
+        "end."
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "Besides,",
+        "he",
+        "tells",
+        "me",
+        "that,",
+        "if",
+        "peradventure",
+        "5",
+        "He",
+        "speak",
+        "against",
+        "me",
+        "on",
+        "the",
+        "adverse",
+        "side,",
+        "I",
+        "should",
+        "not",
+        "think",
+        "it",
+        "strange;",
+        "for",
+        "'tis",
+        "a",
+        "physic",
+        "That's",
+        "bitter",
+        "to",
+        "sweet",
+        "end."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "equal",
+          25,
+          32,
+          25,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "besides,",
+          "start": 1.21,
+          "end": 1.55,
+          "key": "besides",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tells",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "tells",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.11,
+          "end": 3.23,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "per Adventure",
+          "start": 3.23,
+          "end": 3.83,
+          "key": "peradventure",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 3.83,
+          "end": 4.21,
+          "key": "five",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.21,
+          "end": 4.45,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.45,
+          "end": 4.73,
+          "key": "speak",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.73,
+          "end": 4.99,
+          "key": "against",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.99,
+          "end": 5.23,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.23,
+          "end": 5.35,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.35,
+          "end": 5.51,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "adverse",
+          "start": 5.51,
+          "end": 5.79,
+          "key": "adverse",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "side,",
+          "start": 5.79,
+          "end": 6.27,
+          "key": "side",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.67,
+          "end": 6.81,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 6.81,
+          "end": 6.95,
+          "key": "should",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.95,
+          "end": 7.17,
+          "key": "not",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 7.17,
+          "end": 7.39,
+          "key": "think",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.39,
+          "end": 7.51,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 7.51,
+          "end": 8.07,
+          "key": "strange",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.53,
+          "end": 8.77,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "T's",
+          "start": 8.77,
+          "end": 9.15,
+          "key": "ts",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.15,
+          "end": 9.33,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "physic",
+          "start": 9.33,
+          "end": 9.61,
+          "key": "physic",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 9.61,
+          "end": 10.01,
+          "key": "thats",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bitter",
+          "start": 10.01,
+          "end": 10.21,
+          "key": "bitter",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.21,
+          "end": 10.43,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 10.43,
+          "end": 10.69,
+          "key": "sweet",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "end.",
+          "start": 10.69,
+          "end": 11.09,
+          "key": "end",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "peradventure",
+          "heard": "per Adventure",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 3.23,
+          "end": 3.83
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Besides,",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "text": "he",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "tells",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "me",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "text": "that,",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "if",
+          "start": 3.11,
+          "end": 3.23
+        },
+        {
+          "text": "peradventure",
+          "start": 3.23,
+          "end": 3.83
+        },
+        {
+          "text": "5",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "text": "He",
+          "start": 4.21,
+          "end": 4.45
+        },
+        {
+          "text": "speak",
+          "start": 4.45,
+          "end": 4.73
+        },
+        {
+          "text": "against",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "text": "me",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "text": "on",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "text": "the",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "text": "adverse",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "side,",
+          "start": 5.79,
+          "end": 6.27
+        },
+        {
+          "text": "I",
+          "start": 6.67,
+          "end": 6.81
+        },
+        {
+          "text": "should",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "text": "not",
+          "start": 6.95,
+          "end": 7.17
+        },
+        {
+          "text": "think",
+          "start": 7.17,
+          "end": 7.39
+        },
+        {
+          "text": "it",
+          "start": 7.39,
+          "end": 7.51
+        },
+        {
+          "text": "strange;",
+          "start": 7.51,
+          "end": 8.07
+        },
+        {
+          "text": "for",
+          "start": 8.53,
+          "end": 8.77
+        },
+        {
+          "text": "'tis",
+          "start": 8.77,
+          "end": 8.96
+        },
+        {
+          "text": "a",
+          "start": 9.15,
+          "end": 9.33
+        },
+        {
+          "text": "physic",
+          "start": 9.33,
+          "end": 9.61
+        },
+        {
+          "text": "That's",
+          "start": 9.61,
+          "end": 10.01
+        },
+        {
+          "text": "bitter",
+          "start": 10.01,
+          "end": 10.21
+        },
+        {
+          "text": "to",
+          "start": 10.21,
+          "end": 10.43
+        },
+        {
+          "text": "sweet",
+          "start": 10.43,
+          "end": 10.69
+        },
+        {
+          "text": "end.",
+          "start": 10.69,
+          "end": 11.09
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 31
+      },
+      "match_ratio": 0.96875,
+      "rejection_reasons": [],
+      "seconds": 0.5980368247255683
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "451f4ab1339976d5f1a8211fd397f8087187fac6a1717b1d2e7fc7859f79c101",
+  "selected_reasons": []
+}

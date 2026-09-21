@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "4fb7426ffad636f22662bcfa7c5ad1e84c03fff344d31cd16641cd364781fd27",
+  "attempts": [
+    {
+      "asr_seconds": 0.38179233111441135,
+      "alignment_seconds": 0.0018408475443720818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Pist._ He hath studied her will, and translated her will, 45 out of honesty into English.",
+        "hotwords": "He, English"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pist. He hath studied her will, and translated her will, 45 out of honesty into English.",
+          "start": 0.05,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " Pist.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.418487548828125
+            },
+            {
+              "text": " He",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " hath",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.0091552734375
+            },
+            {
+              "text": " studied",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will,",
+              "start": 1.93,
+              "end": 2.23,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " and",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " translated",
+              "start": 2.61,
+              "end": 3.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " her",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will,",
+              "start": 3.39,
+              "end": 3.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " 45",
+              "start": 4.17,
+              "end": 4.55,
+              "probability": 0.0248565673828125
+            },
+            {
+              "text": " out",
+              "start": 4.55,
+              "end": 4.89,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " of",
+              "start": 4.89,
+              "end": 5.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " honesty",
+              "start": 5.03,
+              "end": 5.43,
+              "probability": 0.9609375
+            },
+            {
+              "text": " into",
+              "start": 5.43,
+              "end": 5.67,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " English.",
+              "start": 5.67,
+              "end": 6.07,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pist.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "He",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "studied",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "her",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "will,",
+          "start": 1.93,
+          "end": 2.23
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "translated",
+          "start": 2.61,
+          "end": 3.13
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "will,",
+          "start": 3.39,
+          "end": 3.75
+        },
+        {
+          "raw": "45",
+          "start": 4.17,
+          "end": 4.55
+        },
+        {
+          "raw": "out",
+          "start": 4.55,
+          "end": 4.89
+        },
+        {
+          "raw": "of",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "raw": "honesty",
+          "start": 5.03,
+          "end": 5.43
+        },
+        {
+          "raw": "into",
+          "start": 5.43,
+          "end": 5.67
+        },
+        {
+          "raw": "English.",
+          "start": 5.67,
+          "end": 6.07
+        }
+      ],
+      "expected_tokens": [
+        "_Pist._",
+        "He",
+        "hath",
+        "studied",
+        "her",
+        "will,",
+        "and",
+        "translated",
+        "her",
+        "will,",
+        "45",
+        "out",
+        "of",
+        "honesty",
+        "into",
+        "English."
+      ],
+      "acoustic_expected_tokens": [
+        "_Pist._",
+        "He",
+        "hath",
+        "studied",
+        "her",
+        "will,",
+        "and",
+        "translated",
+        "her",
+        "will,",
+        "45",
+        "out",
+        "of",
+        "honesty",
+        "into",
+        "English."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pist.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "pist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "studied",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "studied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.93,
+          "end": 2.23,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "translated",
+          "start": 2.61,
+          "end": 3.13,
+          "key": "translated",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 3.39,
+          "end": 3.75,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "45",
+          "start": 4.17,
+          "end": 4.55,
+          "key": "fortyfive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.55,
+          "end": 4.89,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.89,
+          "end": 5.03,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "honesty",
+          "start": 5.03,
+          "end": 5.43,
+          "key": "honesty",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 5.43,
+          "end": 5.67,
+          "key": "into",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "English.",
+          "start": 5.67,
+          "end": 6.07,
+          "key": "english",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Pist._",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "He",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "hath",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "studied",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "her",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "will,",
+          "start": 1.93,
+          "end": 2.23
+        },
+        {
+          "text": "and",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "translated",
+          "start": 2.61,
+          "end": 3.13
+        },
+        {
+          "text": "her",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "will,",
+          "start": 3.39,
+          "end": 3.75
+        },
+        {
+          "text": "45",
+          "start": 4.17,
+          "end": 4.55
+        },
+        {
+          "text": "out",
+          "start": 4.55,
+          "end": 4.89
+        },
+        {
+          "text": "of",
+          "start": 4.89,
+          "end": 5.03
+        },
+        {
+          "text": "honesty",
+          "start": 5.03,
+          "end": 5.43
+        },
+        {
+          "text": "into",
+          "start": 5.43,
+          "end": 5.67
+        },
+        {
+          "text": "English.",
+          "start": 5.67,
+          "end": 6.07
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3838279526680708
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a726fe96c7e0362ad970e54d34a390f02e792733b74941b0da625487839684dc",
+  "selected_reasons": []
+}

@@ -1,0 +1,99 @@
+{
+  "complete": true,
+  "signature": "f23eeacc8aec2f5625453542bf7fb07f2e580aa09b1f1c132dc821189ffaa628",
+  "attempts": [
+    {
+      "asr_seconds": 0.17471790593117476,
+      "alignment_seconds": 0.0004717111587524414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt._",
+        "hotwords": "Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt._",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Exeunt._",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.5195312649011612
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt._",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt._",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[_Exeunt._",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17524317651987076
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3d085350163ceaf68be968df132c7d037d1e5ef6effe965daa6c7866284cfe59",
+  "selected_reasons": []
+}

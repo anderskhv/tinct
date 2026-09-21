@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "a51e2264f983b0febf51a0eda77346c202d8cd8cc6df48d7ba8e3e0f795438d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.30139528308063745,
+      "alignment_seconds": 0.0016368664801120758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Escal._ Lead forth and bring you back in happiness! 75",
+        "hotwords": "Lead"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Escal, lead forth and bring you back in happiness! 75",
+          "start": 0.14,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Escal,",
+              "start": 0.14,
+              "end": 0.86,
+              "probability": 0.47320556640625
+            },
+            {
+              "text": " lead",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " forth",
+              "start": 1.24,
+              "end": 1.5,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " and",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " bring",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " happiness!",
+              "start": 2.26,
+              "end": 2.72,
+              "probability": 0.935546875
+            },
+            {
+              "text": " 75",
+              "start": 3.24,
+              "end": 3.66,
+              "probability": 0.29638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Escal,",
+          "start": 0.14,
+          "end": 0.86
+        },
+        {
+          "raw": "lead",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "forth",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "bring",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "back",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "in",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "happiness!",
+          "start": 2.26,
+          "end": 2.72
+        },
+        {
+          "raw": "75",
+          "start": 3.24,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "_Escal._",
+        "Lead",
+        "forth",
+        "and",
+        "bring",
+        "you",
+        "back",
+        "in",
+        "happiness!",
+        "75"
+      ],
+      "acoustic_expected_tokens": [
+        "_Escal._",
+        "Lead",
+        "forth",
+        "and",
+        "bring",
+        "you",
+        "back",
+        "in",
+        "happiness!",
+        "75"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Escal,",
+          "start": 0.14,
+          "end": 0.86,
+          "key": "escal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lead",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "lead",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 1.24,
+          "end": 1.5,
+          "key": "forth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "bring",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "back",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "happiness!",
+          "start": 2.26,
+          "end": 2.72,
+          "key": "happiness",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "75",
+          "start": 3.24,
+          "end": 3.66,
+          "key": "seventyfive",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Escal._",
+          "start": 0.14,
+          "end": 0.86
+        },
+        {
+          "text": "Lead",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "text": "forth",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "text": "and",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "bring",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "you",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "back",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "in",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "happiness!",
+          "start": 2.26,
+          "end": 2.72
+        },
+        {
+          "text": "75",
+          "start": 3.24,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30319917760789394
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "828c8c850c14f375956e2fdef2895710470c50d48e38c3908bac667ff094057b",
+  "selected_reasons": []
+}

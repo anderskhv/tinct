@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "4815a7183dc6eb54cf430e826abe77649f9ed9ad3e546d4bac5b093f0e962f36",
+  "attempts": [
+    {
+      "asr_seconds": 0.3125232858583331,
+      "alignment_seconds": 0.000985010527074337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Isabella and Mariana._",
+        "hotwords": "Isabella, Mariana._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Isabella and Mariana._",
+          "start": 0.14,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.483154296875
+            },
+            {
+              "text": " Isabella",
+              "start": 0.64,
+              "end": 1.1,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " and",
+              "start": 1.1,
+              "end": 1.54,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " Mariana._",
+              "start": 1.54,
+              "end": 2.22,
+              "probability": 0.5653788248697916
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Isabella",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "raw": "Mariana._",
+          "start": 1.54,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "ISABELLA",
+        "and",
+        "MARIANA._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Isabella",
+        "and",
+        "Mariana._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Isabella",
+          "start": 0.64,
+          "end": 1.1,
+          "key": "isabella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.54,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mariana._",
+          "start": 1.54,
+          "end": 2.22,
+          "key": "mariana",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "ISABELLA",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "text": "MARIANA._",
+          "start": 1.54,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.313593746162951
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7aac95c76461036888defeb74e3da2923c744a254e60f93678cc500b085795b6",
+  "selected_reasons": []
+}

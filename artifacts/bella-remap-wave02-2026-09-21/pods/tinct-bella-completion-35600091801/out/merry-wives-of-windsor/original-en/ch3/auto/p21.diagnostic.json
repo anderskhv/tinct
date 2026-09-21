@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "9b12969d845d08d5a55ea544323cf7806c237867405f042b37627c763e4ebb1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.28958417754620314,
+      "alignment_seconds": 0.0015275022014975548,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Which of you know Ford of this town?",
+        "hotwords": "Which, Ford"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " FAL, which of you know Ford of this town?",
+          "start": 0.48,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " FAL,",
+              "start": 0.48,
+              "end": 0.76,
+              "probability": 0.34271240234375
+            },
+            {
+              "text": " which",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.87109375
+            },
+            {
+              "text": " of",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " know",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Ford",
+              "start": 1.52,
+              "end": 1.8,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " of",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " this",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " town?",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "FAL,",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "raw": "which",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "of",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "know",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "Ford",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "raw": "of",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "this",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "town?",
+          "start": 2.06,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Which",
+        "of",
+        "you",
+        "know",
+        "Ford",
+        "of",
+        "this",
+        "town?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Which",
+        "of",
+        "you",
+        "know",
+        "Ford",
+        "of",
+        "this",
+        "town?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "FAL,",
+          "start": 0.48,
+          "end": 0.76,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "which",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ford",
+          "start": 1.52,
+          "end": 1.8,
+          "key": "ford",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "town?",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "town",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "Which",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "of",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "you",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "know",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "Ford",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "text": "of",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "this",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "town?",
+          "start": 2.06,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2912748595699668
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0e6914fa817052c39f9b248939ca7588e8b95f5be1a6b6f1c202efabba5136e4",
+  "selected_reasons": []
+}

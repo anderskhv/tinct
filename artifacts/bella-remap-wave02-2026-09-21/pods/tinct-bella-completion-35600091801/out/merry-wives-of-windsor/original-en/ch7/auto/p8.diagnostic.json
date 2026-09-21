@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "69804ac2efdae18b968ef4cc2f6d8404b1cb3a349b3c8508ece15802baece659",
+  "attempts": [
+    {
+      "asr_seconds": 0.23566414043307304,
+      "alignment_seconds": 0.0010699853301048279,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Rug._ Alas, sir, I cannot fence.",
+        "hotwords": "Alas, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rug! Alas, sir, I cannot fence.",
+          "start": 0.02,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Rug!",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.472900390625
+            },
+            {
+              "text": " Alas,",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.368408203125
+            },
+            {
+              "text": " sir,",
+              "start": 1.54,
+              "end": 1.56,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " I",
+              "start": 1.7,
+              "end": 1.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " cannot",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fence.",
+              "start": 1.92,
+              "end": 2.32,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug!",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "sir,",
+          "start": 1.54,
+          "end": 1.56
+        },
+        {
+          "raw": "I",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "raw": "cannot",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "fence.",
+          "start": 1.92,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "_Rug._",
+        "Alas,",
+        "sir,",
+        "I",
+        "cannot",
+        "fence."
+      ],
+      "acoustic_expected_tokens": [
+        "_Rug._",
+        "Alas,",
+        "sir,",
+        "I",
+        "cannot",
+        "fence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug!",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alas,",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "alas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.54,
+          "end": 1.56,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.7,
+          "end": 1.7,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "cannot",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fence.",
+          "start": 1.92,
+          "end": 2.32,
+          "key": "fence",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Rug._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Alas,",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "sir,",
+          "start": 1.54,
+          "end": 1.56
+        },
+        {
+          "text": "I",
+          "start": 1.7,
+          "end": 1.7
+        },
+        {
+          "text": "cannot",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "fence.",
+          "start": 1.92,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23684067092835903
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "53e8b01c61aa0365e9014cf72d44149b4c79365b61361e7f54ab2f9aaf7c9f5e",
+  "selected_reasons": []
+}

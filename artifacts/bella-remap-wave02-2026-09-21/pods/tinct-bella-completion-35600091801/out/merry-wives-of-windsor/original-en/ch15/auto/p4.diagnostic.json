@@ -1,0 +1,2804 @@
+{
+  "complete": true,
+  "signature": "c37950ccd44ee34bb0781cb764b4158db5fab84a70627a24ae03f61d74c8b970",
+  "attempts": [
+    {
+      "asr_seconds": 0.7829154264181852,
+      "alignment_seconds": 0.007179558277130127,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ They shall have my horses; but I'll make them pay; I'll sauce them: they have had my house a week at command; I have turned away my other guests: they must 10 come off; I'll sauce them. Come. Exeunt._",
+        "hotwords": "I'll, I, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come. Exeunt._",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Come.",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 4.696846008300781e-05
+            },
+            {
+              "text": " Exeunt._",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.6212158352136612
+            }
+          ]
+        },
+        {
+          "text": " They shall have my horses, but I'll make them pay, I'll sauce them. They have had my house a week at command, I have turned away my other guests, they must 10 come off, I'll sauce them. Come. Exeunt._",
+          "start": 1.97,
+          "end": 12.59,
+          "words": [
+            {
+              "text": " They",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.01558685302734375
+            },
+            {
+              "text": " shall",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 6.496906280517578e-05
+            },
+            {
+              "text": " have",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.060455322265625
+            },
+            {
+              "text": " my",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.02545166015625
+            },
+            {
+              "text": " horses,",
+              "start": 2.15,
+              "end": 2.15,
+              "probability": 0.004428863525390625
+            },
+            {
+              "text": " but",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " I'll",
+              "start": 2.37,
+              "end": 2.55,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " make",
+              "start": 2.55,
+              "end": 2.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " them",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pay,",
+              "start": 2.85,
+              "end": 3.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I'll",
+              "start": 3.43,
+              "end": 3.67,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " sauce",
+              "start": 3.67,
+              "end": 3.87,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " them.",
+              "start": 3.87,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " They",
+              "start": 4.53,
+              "end": 4.65,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " have",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.98828125
+            },
+            {
+              "text": " had",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " my",
+              "start": 4.89,
+              "end": 5.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " house",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 5.31,
+              "end": 5.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " week",
+              "start": 5.49,
+              "end": 5.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 5.63,
+              "end": 5.81,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " command,",
+              "start": 5.81,
+              "end": 6.19,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I",
+              "start": 6.75,
+              "end": 6.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " have",
+              "start": 6.81,
+              "end": 6.93,
+              "probability": 0.98046875
+            },
+            {
+              "text": " turned",
+              "start": 6.93,
+              "end": 7.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " away",
+              "start": 7.13,
+              "end": 7.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 7.35,
+              "end": 7.55,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " other",
+              "start": 7.55,
+              "end": 7.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " guests,",
+              "start": 7.73,
+              "end": 8.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " they",
+              "start": 8.49,
+              "end": 8.59,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " must",
+              "start": 8.59,
+              "end": 8.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " 10",
+              "start": 8.75,
+              "end": 8.99,
+              "probability": 0.0224151611328125
+            },
+            {
+              "text": " come",
+              "start": 8.99,
+              "end": 9.19,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " off,",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I'll",
+              "start": 9.65,
+              "end": 9.83,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " sauce",
+              "start": 9.83,
+              "end": 10.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " them.",
+              "start": 10.05,
+              "end": 10.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Come.",
+              "start": 10.93,
+              "end": 11.19,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Exeunt._",
+              "start": 12.19,
+              "end": 12.59,
+              "probability": 0.614135816693306
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "They",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "shall",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "have",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "my",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "horses,",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "I'll",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "raw": "make",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "raw": "them",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "pay,",
+          "start": 2.85,
+          "end": 3.21
+        },
+        {
+          "raw": "I'll",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "raw": "sauce",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "raw": "them.",
+          "start": 3.87,
+          "end": 4.15
+        },
+        {
+          "raw": "They",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "had",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "my",
+          "start": 4.89,
+          "end": 5.07
+        },
+        {
+          "raw": "house",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "a",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "raw": "week",
+          "start": 5.49,
+          "end": 5.63
+        },
+        {
+          "raw": "at",
+          "start": 5.63,
+          "end": 5.81
+        },
+        {
+          "raw": "command,",
+          "start": 5.81,
+          "end": 6.19
+        },
+        {
+          "raw": "I",
+          "start": 6.75,
+          "end": 6.81
+        },
+        {
+          "raw": "have",
+          "start": 6.81,
+          "end": 6.93
+        },
+        {
+          "raw": "turned",
+          "start": 6.93,
+          "end": 7.13
+        },
+        {
+          "raw": "away",
+          "start": 7.13,
+          "end": 7.35
+        },
+        {
+          "raw": "my",
+          "start": 7.35,
+          "end": 7.55
+        },
+        {
+          "raw": "other",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "raw": "guests,",
+          "start": 7.73,
+          "end": 8.19
+        },
+        {
+          "raw": "they",
+          "start": 8.49,
+          "end": 8.59
+        },
+        {
+          "raw": "must",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "raw": "10",
+          "start": 8.75,
+          "end": 8.99
+        },
+        {
+          "raw": "come",
+          "start": 8.99,
+          "end": 9.19
+        },
+        {
+          "raw": "off,",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "raw": "I'll",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "raw": "sauce",
+          "start": 9.83,
+          "end": 10.05
+        },
+        {
+          "raw": "them.",
+          "start": 10.05,
+          "end": 10.35
+        },
+        {
+          "raw": "Come.",
+          "start": 10.93,
+          "end": 11.19
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 12.19,
+          "end": 12.59
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "They",
+        "shall",
+        "have",
+        "my",
+        "horses;",
+        "but",
+        "I’ll",
+        "make",
+        "them",
+        "pay;",
+        "I’ll",
+        "sauce",
+        "them:",
+        "they",
+        "have",
+        "had",
+        "my",
+        "house",
+        "a",
+        "week",
+        "at",
+        "command;",
+        "I",
+        "have",
+        "turned",
+        "away",
+        "my",
+        "other",
+        "guests:",
+        "they",
+        "must",
+        "10",
+        "come",
+        "off;",
+        "I’ll",
+        "sauce",
+        "them.",
+        "Come.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "They",
+        "shall",
+        "have",
+        "my",
+        "horses;",
+        "but",
+        "I'll",
+        "make",
+        "them",
+        "pay;",
+        "I'll",
+        "sauce",
+        "them:",
+        "they",
+        "have",
+        "had",
+        "my",
+        "house",
+        "a",
+        "week",
+        "at",
+        "command;",
+        "I",
+        "have",
+        "turned",
+        "away",
+        "my",
+        "other",
+        "guests:",
+        "they",
+        "must",
+        "10",
+        "come",
+        "off;",
+        "I'll",
+        "sauce",
+        "them.",
+        "Come.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          40,
+          2,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come.",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "exeunt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "horses,",
+          "start": 2.15,
+          "end": 2.15,
+          "key": "horses",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.37,
+          "end": 2.55,
+          "key": "ill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.55,
+          "end": 2.69,
+          "key": "make",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pay,",
+          "start": 2.85,
+          "end": 3.21,
+          "key": "pay",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.43,
+          "end": 3.67,
+          "key": "ill",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sauce",
+          "start": 3.67,
+          "end": 3.87,
+          "key": "sauce",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 3.87,
+          "end": 4.15,
+          "key": "them",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 4.53,
+          "end": 4.65,
+          "key": "they",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "have",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.75,
+          "end": 4.89,
+          "key": "had",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.89,
+          "end": 5.07,
+          "key": "my",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 5.07,
+          "end": 5.31,
+          "key": "house",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.31,
+          "end": 5.49,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "week",
+          "start": 5.49,
+          "end": 5.63,
+          "key": "week",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.63,
+          "end": 5.81,
+          "key": "at",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "command,",
+          "start": 5.81,
+          "end": 6.19,
+          "key": "command",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.75,
+          "end": 6.81,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.81,
+          "end": 6.93,
+          "key": "have",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 6.93,
+          "end": 7.13,
+          "key": "turned",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 7.13,
+          "end": 7.35,
+          "key": "away",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.35,
+          "end": 7.55,
+          "key": "my",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 7.55,
+          "end": 7.73,
+          "key": "other",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "guests,",
+          "start": 7.73,
+          "end": 8.19,
+          "key": "guests",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 8.49,
+          "end": 8.59,
+          "key": "they",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 8.59,
+          "end": 8.75,
+          "key": "must",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "10",
+          "start": 8.75,
+          "end": 8.99,
+          "key": "ten",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.99,
+          "end": 9.19,
+          "key": "come",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "off,",
+          "start": 9.19,
+          "end": 9.47,
+          "key": "off",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 9.65,
+          "end": 9.83,
+          "key": "ill",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "sauce",
+          "start": 9.83,
+          "end": 10.05,
+          "key": "sauce",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 10.05,
+          "end": 10.35,
+          "key": "them",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Come.",
+          "start": 10.93,
+          "end": 11.19,
+          "key": "come",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 12.19,
+          "end": 12.59,
+          "key": "exeunt",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.0,
+          "end": 0.985
+        },
+        {
+          "text": "They",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "text": "shall",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "text": "have",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "text": "my",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "text": "horses;",
+          "start": 2.15,
+          "end": 2.15
+        },
+        {
+          "text": "but",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "I’ll",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "text": "make",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "text": "them",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "pay;",
+          "start": 2.85,
+          "end": 3.21
+        },
+        {
+          "text": "I’ll",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "text": "sauce",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "text": "them:",
+          "start": 3.87,
+          "end": 4.15
+        },
+        {
+          "text": "they",
+          "start": 4.53,
+          "end": 4.65
+        },
+        {
+          "text": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "had",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "my",
+          "start": 4.89,
+          "end": 5.07
+        },
+        {
+          "text": "house",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "a",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "text": "week",
+          "start": 5.49,
+          "end": 5.63
+        },
+        {
+          "text": "at",
+          "start": 5.63,
+          "end": 5.81
+        },
+        {
+          "text": "command;",
+          "start": 5.81,
+          "end": 6.19
+        },
+        {
+          "text": "I",
+          "start": 6.75,
+          "end": 6.81
+        },
+        {
+          "text": "have",
+          "start": 6.81,
+          "end": 6.93
+        },
+        {
+          "text": "turned",
+          "start": 6.93,
+          "end": 7.13
+        },
+        {
+          "text": "away",
+          "start": 7.13,
+          "end": 7.35
+        },
+        {
+          "text": "my",
+          "start": 7.35,
+          "end": 7.55
+        },
+        {
+          "text": "other",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "text": "guests:",
+          "start": 7.73,
+          "end": 8.19
+        },
+        {
+          "text": "they",
+          "start": 8.49,
+          "end": 8.59
+        },
+        {
+          "text": "must",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "text": "10",
+          "start": 8.75,
+          "end": 8.99
+        },
+        {
+          "text": "come",
+          "start": 8.99,
+          "end": 9.19
+        },
+        {
+          "text": "off;",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "text": "I’ll",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "text": "sauce",
+          "start": 9.83,
+          "end": 10.05
+        },
+        {
+          "text": "them.",
+          "start": 10.05,
+          "end": 10.35
+        },
+        {
+          "text": "Come.",
+          "start": 10.93,
+          "end": 11.19
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 12.19,
+          "end": 12.59
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 41,
+        "matched_words": 39
+      },
+      "match_ratio": 0.975,
+      "rejection_reasons": [],
+      "seconds": 0.7906982293352485
+    },
+    {
+      "asr_seconds": 0.6596380956470966,
+      "alignment_seconds": 0.004506707191467285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I'll, I, Exeunt._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Host, they shall have my horses, But I'll make them pay, I'll sauce them. They have had my house a week at command. I have turned away my other guests. They must ten come off, I'll sauce them. Come, Exeunt._",
+          "start": 0.05,
+          "end": 12.43,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " they",
+              "start": 0.99,
+              "end": 1.11,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " shall",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " horses,",
+              "start": 1.63,
+              "end": 2.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " But",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.12176513671875
+            },
+            {
+              "text": " I'll",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " make",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pay,",
+              "start": 2.85,
+              "end": 3.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I'll",
+              "start": 3.39,
+              "end": 3.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sauce",
+              "start": 3.67,
+              "end": 3.87,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " them.",
+              "start": 3.87,
+              "end": 4.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " They",
+              "start": 4.55,
+              "end": 4.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 4.89,
+              "end": 5.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " house",
+              "start": 5.05,
+              "end": 5.29,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 5.29,
+              "end": 5.49,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " week",
+              "start": 5.49,
+              "end": 5.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 5.61,
+              "end": 5.81,
+              "probability": 0.970703125
+            },
+            {
+              "text": " command.",
+              "start": 5.81,
+              "end": 6.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 6.71,
+              "end": 6.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " turned",
+              "start": 6.93,
+              "end": 7.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " away",
+              "start": 7.15,
+              "end": 7.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 7.35,
+              "end": 7.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " other",
+              "start": 7.55,
+              "end": 7.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " guests.",
+              "start": 7.73,
+              "end": 8.17,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " They",
+              "start": 8.47,
+              "end": 8.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " must",
+              "start": 8.59,
+              "end": 8.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ten",
+              "start": 8.75,
+              "end": 8.99,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " come",
+              "start": 8.99,
+              "end": 9.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " off,",
+              "start": 9.21,
+              "end": 9.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I'll",
+              "start": 9.63,
+              "end": 9.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sauce",
+              "start": 9.85,
+              "end": 10.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " them.",
+              "start": 10.05,
+              "end": 10.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Come,",
+              "start": 10.95,
+              "end": 11.17,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Exeunt._",
+              "start": 11.65,
+              "end": 12.43,
+              "probability": 0.46429353952407837
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "they",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "raw": "shall",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "have",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "my",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "horses,",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "raw": "But",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "I'll",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "make",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "them",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "pay,",
+          "start": 2.85,
+          "end": 3.21
+        },
+        {
+          "raw": "I'll",
+          "start": 3.39,
+          "end": 3.67
+        },
+        {
+          "raw": "sauce",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "raw": "them.",
+          "start": 3.87,
+          "end": 4.15
+        },
+        {
+          "raw": "They",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "had",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "my",
+          "start": 4.89,
+          "end": 5.05
+        },
+        {
+          "raw": "house",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "raw": "a",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "raw": "week",
+          "start": 5.49,
+          "end": 5.61
+        },
+        {
+          "raw": "at",
+          "start": 5.61,
+          "end": 5.81
+        },
+        {
+          "raw": "command.",
+          "start": 5.81,
+          "end": 6.21
+        },
+        {
+          "raw": "I",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "raw": "have",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "turned",
+          "start": 6.93,
+          "end": 7.15
+        },
+        {
+          "raw": "away",
+          "start": 7.15,
+          "end": 7.35
+        },
+        {
+          "raw": "my",
+          "start": 7.35,
+          "end": 7.55
+        },
+        {
+          "raw": "other",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "raw": "guests.",
+          "start": 7.73,
+          "end": 8.17
+        },
+        {
+          "raw": "They",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "raw": "must",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "raw": "ten",
+          "start": 8.75,
+          "end": 8.99
+        },
+        {
+          "raw": "come",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "raw": "off,",
+          "start": 9.21,
+          "end": 9.47
+        },
+        {
+          "raw": "I'll",
+          "start": 9.63,
+          "end": 9.85
+        },
+        {
+          "raw": "sauce",
+          "start": 9.85,
+          "end": 10.05
+        },
+        {
+          "raw": "them.",
+          "start": 10.05,
+          "end": 10.35
+        },
+        {
+          "raw": "Come,",
+          "start": 10.95,
+          "end": 11.17
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 11.65,
+          "end": 12.43
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "They",
+        "shall",
+        "have",
+        "my",
+        "horses;",
+        "but",
+        "I’ll",
+        "make",
+        "them",
+        "pay;",
+        "I’ll",
+        "sauce",
+        "them:",
+        "they",
+        "have",
+        "had",
+        "my",
+        "house",
+        "a",
+        "week",
+        "at",
+        "command;",
+        "I",
+        "have",
+        "turned",
+        "away",
+        "my",
+        "other",
+        "guests:",
+        "they",
+        "must",
+        "10",
+        "come",
+        "off;",
+        "I’ll",
+        "sauce",
+        "them.",
+        "Come.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "They",
+        "shall",
+        "have",
+        "my",
+        "horses;",
+        "but",
+        "I'll",
+        "make",
+        "them",
+        "pay;",
+        "I'll",
+        "sauce",
+        "them:",
+        "they",
+        "have",
+        "had",
+        "my",
+        "house",
+        "a",
+        "week",
+        "at",
+        "command;",
+        "I",
+        "have",
+        "turned",
+        "away",
+        "my",
+        "other",
+        "guests:",
+        "they",
+        "must",
+        "10",
+        "come",
+        "off;",
+        "I'll",
+        "sauce",
+        "them.",
+        "Come.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.99,
+          "end": 1.11,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "horses,",
+          "start": 1.63,
+          "end": 2.05,
+          "key": "horses",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.27,
+          "end": 2.37,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.37,
+          "end": 2.53,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "make",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "them",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pay,",
+          "start": 2.85,
+          "end": 3.21,
+          "key": "pay",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.39,
+          "end": 3.67,
+          "key": "ill",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sauce",
+          "start": 3.67,
+          "end": 3.87,
+          "key": "sauce",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 3.87,
+          "end": 4.15,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 4.55,
+          "end": 4.65,
+          "key": "they",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "have",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.75,
+          "end": 4.89,
+          "key": "had",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.89,
+          "end": 5.05,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 5.05,
+          "end": 5.29,
+          "key": "house",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.29,
+          "end": 5.49,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "week",
+          "start": 5.49,
+          "end": 5.61,
+          "key": "week",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.61,
+          "end": 5.81,
+          "key": "at",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "command.",
+          "start": 5.81,
+          "end": 6.21,
+          "key": "command",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.71,
+          "end": 6.83,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.83,
+          "end": 6.93,
+          "key": "have",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 6.93,
+          "end": 7.15,
+          "key": "turned",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 7.15,
+          "end": 7.35,
+          "key": "away",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.35,
+          "end": 7.55,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 7.55,
+          "end": 7.73,
+          "key": "other",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "guests.",
+          "start": 7.73,
+          "end": 8.17,
+          "key": "guests",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 8.47,
+          "end": 8.59,
+          "key": "they",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 8.59,
+          "end": 8.75,
+          "key": "must",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 8.75,
+          "end": 8.99,
+          "key": "ten",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.99,
+          "end": 9.21,
+          "key": "come",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "off,",
+          "start": 9.21,
+          "end": 9.47,
+          "key": "off",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 9.63,
+          "end": 9.85,
+          "key": "ill",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "sauce",
+          "start": 9.85,
+          "end": 10.05,
+          "key": "sauce",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 10.05,
+          "end": 10.35,
+          "key": "them",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 10.95,
+          "end": 11.17,
+          "key": "come",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 11.65,
+          "end": 12.43,
+          "key": "exeunt",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "They",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "text": "shall",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "have",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "my",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "horses;",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "text": "but",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "I’ll",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "make",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "them",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "pay;",
+          "start": 2.85,
+          "end": 3.21
+        },
+        {
+          "text": "I’ll",
+          "start": 3.39,
+          "end": 3.67
+        },
+        {
+          "text": "sauce",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "text": "them:",
+          "start": 3.87,
+          "end": 4.15
+        },
+        {
+          "text": "they",
+          "start": 4.55,
+          "end": 4.65
+        },
+        {
+          "text": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "had",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "my",
+          "start": 4.89,
+          "end": 5.05
+        },
+        {
+          "text": "house",
+          "start": 5.05,
+          "end": 5.29
+        },
+        {
+          "text": "a",
+          "start": 5.29,
+          "end": 5.49
+        },
+        {
+          "text": "week",
+          "start": 5.49,
+          "end": 5.61
+        },
+        {
+          "text": "at",
+          "start": 5.61,
+          "end": 5.81
+        },
+        {
+          "text": "command;",
+          "start": 5.81,
+          "end": 6.21
+        },
+        {
+          "text": "I",
+          "start": 6.71,
+          "end": 6.83
+        },
+        {
+          "text": "have",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "turned",
+          "start": 6.93,
+          "end": 7.15
+        },
+        {
+          "text": "away",
+          "start": 7.15,
+          "end": 7.35
+        },
+        {
+          "text": "my",
+          "start": 7.35,
+          "end": 7.55
+        },
+        {
+          "text": "other",
+          "start": 7.55,
+          "end": 7.73
+        },
+        {
+          "text": "guests:",
+          "start": 7.73,
+          "end": 8.17
+        },
+        {
+          "text": "they",
+          "start": 8.47,
+          "end": 8.59
+        },
+        {
+          "text": "must",
+          "start": 8.59,
+          "end": 8.75
+        },
+        {
+          "text": "10",
+          "start": 8.75,
+          "end": 8.99
+        },
+        {
+          "text": "come",
+          "start": 8.99,
+          "end": 9.21
+        },
+        {
+          "text": "off;",
+          "start": 9.21,
+          "end": 9.47
+        },
+        {
+          "text": "I’ll",
+          "start": 9.63,
+          "end": 9.85
+        },
+        {
+          "text": "sauce",
+          "start": 9.85,
+          "end": 10.05
+        },
+        {
+          "text": "them.",
+          "start": 10.05,
+          "end": 10.35
+        },
+        {
+          "text": "Come.",
+          "start": 10.95,
+          "end": 11.17
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 11.65,
+          "end": 12.43
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 40,
+        "matched_words": 40
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6645471882075071
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "b2ec2a1ffcb6062adf846c0ce8b4b87627d112af8133a58a4f14c754d8f45d91",
+  "selected_reasons": []
+}

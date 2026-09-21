@@ -1,0 +1,693 @@
+{
+  "complete": true,
+  "signature": "1a5317326cca51911b7606e67dc30fff1e0d96fbeb100eded622778853ac65d8",
+  "attempts": [
+    {
+      "asr_seconds": 0.4582159472629428,
+      "alignment_seconds": 0.003042507916688919,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Isab._ Little have you to say When you depart from him, but, soft and low, 'Remember now my brother.'",
+        "hotwords": "Little, When, Remember"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Isab, Little have you to say When you depart from him, but, soft and low, Remember now my brother.",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.56475830078125
+            },
+            {
+              "text": " Little",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.01444244384765625
+            },
+            {
+              "text": " have",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " say",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " When",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.06951904296875
+            },
+            {
+              "text": " you",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.994140625
+            },
+            {
+              "text": " depart",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " from",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " him,",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " but,",
+              "start": 3.14,
+              "end": 3.3,
+              "probability": 0.1727294921875
+            },
+            {
+              "text": " soft",
+              "start": 3.54,
+              "end": 3.76,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " and",
+              "start": 3.76,
+              "end": 4.02,
+              "probability": 0.98046875
+            },
+            {
+              "text": " low,",
+              "start": 4.02,
+              "end": 4.3,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Remember",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " now",
+              "start": 5.04,
+              "end": 5.3,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " my",
+              "start": 5.3,
+              "end": 5.54,
+              "probability": 0.79296875
+            },
+            {
+              "text": " brother.",
+              "start": 5.54,
+              "end": 5.82,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "Little",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "say",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "When",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "depart",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "from",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "him,",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "but,",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "raw": "soft",
+          "start": 3.54,
+          "end": 3.76
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "raw": "low,",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "raw": "Remember",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "raw": "now",
+          "start": 5.04,
+          "end": 5.3
+        },
+        {
+          "raw": "my",
+          "start": 5.3,
+          "end": 5.54
+        },
+        {
+          "raw": "brother.",
+          "start": 5.54,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "Little",
+        "have",
+        "you",
+        "to",
+        "say",
+        "When",
+        "you",
+        "depart",
+        "from",
+        "him,",
+        "but,",
+        "soft",
+        "and",
+        "low,",
+        "'Remember",
+        "now",
+        "my",
+        "brother.'"
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "Little",
+        "have",
+        "you",
+        "to",
+        "say",
+        "When",
+        "you",
+        "depart",
+        "from",
+        "him,",
+        "but,",
+        "soft",
+        "and",
+        "low,",
+        "'Remember",
+        "now",
+        "my",
+        "brother.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Little",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "little",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "when",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "depart",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "depart",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.54,
+          "end": 2.8,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but,",
+          "start": 3.14,
+          "end": 3.3,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "soft",
+          "start": 3.54,
+          "end": 3.76,
+          "key": "soft",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.02,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "low,",
+          "start": 4.02,
+          "end": 4.3,
+          "key": "low",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Remember",
+          "start": 4.8,
+          "end": 5.04,
+          "key": "remember",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 5.04,
+          "end": 5.3,
+          "key": "now",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.3,
+          "end": 5.54,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "brother.",
+          "start": 5.54,
+          "end": 5.82,
+          "key": "brother",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "Little",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "text": "have",
+          "start": 1.38,
+          "end": 1.56
+        },
+        {
+          "text": "you",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "say",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "When",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "you",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "depart",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "from",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "text": "him,",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "but,",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "text": "soft",
+          "start": 3.54,
+          "end": 3.76
+        },
+        {
+          "text": "and",
+          "start": 3.76,
+          "end": 4.02
+        },
+        {
+          "text": "low,",
+          "start": 4.02,
+          "end": 4.3
+        },
+        {
+          "text": "'Remember",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "now",
+          "start": 5.04,
+          "end": 5.3
+        },
+        {
+          "text": "my",
+          "start": 5.3,
+          "end": 5.54
+        },
+        {
+          "text": "brother.'",
+          "start": 5.54,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4615988973528147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "67fc52a8a7459e85272cdd05c7e361afa6d92fbb38aa1026984b6bd5fc5a8af1",
+  "selected_reasons": []
+}

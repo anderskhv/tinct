@@ -1,0 +1,963 @@
+{
+  "complete": true,
+  "signature": "7957790c5f9b8a6a00e3c0a0a74c2194e1518a5ae409e57e65fd28ca9a7758c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2924793753772974,
+      "alignment_seconds": 0.001506716012954712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fri. T._ May your grace speak of it?",
+        "hotwords": "T._, May"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " T._, T._ May your grace speak of it?",
+          "start": 0.58,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " T._,",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 7.808208465576172e-06
+            },
+            {
+              "text": " T._",
+              "start": 0.92,
+              "end": 1.26,
+              "probability": 0.14337158203125
+            },
+            {
+              "text": " May",
+              "start": 1.26,
+              "end": 1.3,
+              "probability": 0.0212554931640625
+            },
+            {
+              "text": " your",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " grace",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " speak",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it?",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "T._,",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "T._",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "raw": "May",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "raw": "your",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "grace",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "speak",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "it?",
+          "start": 2.04,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "_Fri.",
+        "T._",
+        "May",
+        "your",
+        "grace",
+        "speak",
+        "of",
+        "it?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fri.",
+        "T._",
+        "May",
+        "your",
+        "grace",
+        "speak",
+        "of",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "T._,",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "T._",
+          "start": 0.92,
+          "end": 1.26,
+          "key": "t",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 1.26,
+          "end": 1.3,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "grace",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "speak",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fri.",
+          "start": 0.0,
+          "end": 0.46
+        },
+        {
+          "text": "T._",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "text": "May",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "text": "your",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "grace",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "speak",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "of",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "it?",
+          "start": 2.04,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.29413058422505856
+    },
+    {
+      "asr_seconds": 0.25049476977437735,
+      "alignment_seconds": 0.0014185085892677307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "T._, May"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " your grace speak of it.",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " your",
+              "start": 0.08,
+              "end": 1.1,
+              "probability": 7.790327072143555e-05
+            },
+            {
+              "text": " grace",
+              "start": 1.1,
+              "end": 1.62,
+              "probability": 0.814453125
+            },
+            {
+              "text": " speak",
+              "start": 1.62,
+              "end": 1.9,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " of",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it.",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "your",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "raw": "grace",
+          "start": 1.1,
+          "end": 1.62
+        },
+        {
+          "raw": "speak",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "_Fri.",
+        "T._",
+        "May",
+        "your",
+        "grace",
+        "speak",
+        "of",
+        "it?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fri.",
+        "T._",
+        "May",
+        "your",
+        "grace",
+        "speak",
+        "of",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          8,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "your",
+          "start": 0.08,
+          "end": 1.1,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 1.1,
+          "end": 1.62,
+          "key": "grace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.62,
+          "end": 1.9,
+          "key": "speak",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.3,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fri.",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "T._",
+          "start": 0.04,
+          "end": 0.06
+        },
+        {
+          "text": "May",
+          "start": 0.06,
+          "end": 0.07
+        },
+        {
+          "text": "your",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "text": "grace",
+          "start": 1.1,
+          "end": 1.62
+        },
+        {
+          "text": "speak",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "text": "of",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "it?",
+          "start": 2.04,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2520295362919569
+    },
+    {
+      "asr_seconds": 0.263047699816525,
+      "alignment_seconds": 0.001494668424129486,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fry!",
+          "start": 0.08,
+          "end": 0.7,
+          "words": [
+            {
+              "text": " Fry!",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.4541015625
+            }
+          ]
+        },
+        {
+          "text": " T-may your grace speak of it.",
+          "start": 1.06,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " T",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.452392578125
+            },
+            {
+              "text": "-may",
+              "start": 1.16,
+              "end": 1.3,
+              "probability": 0.37005615234375
+            },
+            {
+              "text": " your",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.7890625
+            },
+            {
+              "text": " grace",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " speak",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fry!",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "T",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "raw": "-may",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "raw": "your",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "grace",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "speak",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "_Fri.",
+        "T._",
+        "May",
+        "your",
+        "grace",
+        "speak",
+        "of",
+        "it?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fri.",
+        "T._",
+        "May",
+        "your",
+        "grace",
+        "speak",
+        "of",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fry!",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "fry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "t",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-may",
+          "start": 1.16,
+          "end": 1.3,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "grace",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "speak",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fri.",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "T._",
+          "start": 1.06,
+          "end": 1.16
+        },
+        {
+          "text": "May",
+          "start": 1.16,
+          "end": 1.3
+        },
+        {
+          "text": "your",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "grace",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "speak",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "of",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "it?",
+          "start": 2.04,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2646848503500223
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54826074fb06397c8d93ac7bab6fbc8948deecaf85731c5bf974f175859fe394",
+  "selected_reasons": []
+}

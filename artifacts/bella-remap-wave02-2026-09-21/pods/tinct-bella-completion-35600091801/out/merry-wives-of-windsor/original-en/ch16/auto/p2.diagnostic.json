@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "546d1b1260162d0afdc0bac6b962d220f89edc417b5d1ddde0b7037dacf6d18d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3165771793574095,
+      "alignment_seconds": 0.0019045677036046982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Page._ And did he send you both these letters at an instant?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Page? And did he send you both these letters at an instant?",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Page?",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " And",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " did",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": " he",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " send",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " both",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " these",
+              "start": 2.23,
+              "end": 2.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " letters",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " an",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " instant?",
+              "start": 3.15,
+              "end": 3.49,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Page?",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "And",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "did",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "he",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "send",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "both",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "these",
+          "start": 2.23,
+          "end": 2.51
+        },
+        {
+          "raw": "letters",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "at",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "an",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "instant?",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "_Page._",
+        "And",
+        "did",
+        "he",
+        "send",
+        "you",
+        "both",
+        "these",
+        "letters",
+        "at",
+        "an",
+        "instant?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Page._",
+        "And",
+        "did",
+        "he",
+        "send",
+        "you",
+        "both",
+        "these",
+        "letters",
+        "at",
+        "an",
+        "instant?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Page?",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "page",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "send",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "both",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.23,
+          "end": 2.51,
+          "key": "these",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "letters",
+          "start": 2.51,
+          "end": 2.83,
+          "key": "letters",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "an",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "instant?",
+          "start": 3.15,
+          "end": 3.49,
+          "key": "instant",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Page._",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "And",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "did",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "he",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "send",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "you",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "both",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "these",
+          "start": 2.23,
+          "end": 2.51
+        },
+        {
+          "text": "letters",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "at",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "an",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "instant?",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31867601722478867
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "797260253d56cafe054c7dee6793537370ee5629ec40ad487f1201b36725229a",
+  "selected_reasons": []
+}

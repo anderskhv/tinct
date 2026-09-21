@@ -1,0 +1,669 @@
+{
+  "complete": true,
+  "signature": "640064182896d7edff29456737bcac8c14ad7655d8dbb9f8a13a500364766d16",
+  "attempts": [
+    {
+      "asr_seconds": 0.5020387452095747,
+      "alignment_seconds": 0.0025182077661156654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Melodious birds sing madrigals-- Whenas I sat in Pabylon-- And a thousand vagram posies. To shallow &c.",
+        "hotwords": "Melodious, Whenas, I, Pabylon, And, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Melodious birds sing madrigals- Whenas I sat in Pabylon And a thousand vagram posies. To shallow &c.",
+          "start": 0.05,
+          "end": 6.97,
+          "words": [
+            {
+              "text": " Melodious",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.8610026041666666
+            },
+            {
+              "text": " birds",
+              "start": 0.93,
+              "end": 1.25,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " sing",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " madrigals",
+              "start": 1.57,
+              "end": 2.15,
+              "probability": 0.7124837239583334
+            },
+            {
+              "text": "-",
+              "start": 2.15,
+              "end": 2.23,
+              "probability": 0.0177459716796875
+            },
+            {
+              "text": " Whenas",
+              "start": 2.23,
+              "end": 2.53,
+              "probability": 0.46073782444000244
+            },
+            {
+              "text": " I",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " sat",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Pabylon",
+              "start": 3.15,
+              "end": 3.55,
+              "probability": 0.348172664642334
+            },
+            {
+              "text": " And",
+              "start": 3.55,
+              "end": 3.85,
+              "probability": 0.401123046875
+            },
+            {
+              "text": " a",
+              "start": 3.85,
+              "end": 4.05,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thousand",
+              "start": 4.05,
+              "end": 4.37,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " vagram",
+              "start": 4.37,
+              "end": 4.77,
+              "probability": 0.3993988037109375
+            },
+            {
+              "text": " posies.",
+              "start": 4.77,
+              "end": 5.41,
+              "probability": 0.775634765625
+            },
+            {
+              "text": " To",
+              "start": 5.91,
+              "end": 6.01,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " shallow",
+              "start": 6.01,
+              "end": 6.41,
+              "probability": 0.4853515625
+            },
+            {
+              "text": " &c.",
+              "start": 6.41,
+              "end": 6.97,
+              "probability": 0.0021319985389709473
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Melodious",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "birds",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "raw": "sing",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "madrigals",
+          "start": 1.57,
+          "end": 2.15
+        },
+        {
+          "raw": "-",
+          "start": 2.15,
+          "end": 2.23
+        },
+        {
+          "raw": "Whenas",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "sat",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "Pabylon",
+          "start": 3.15,
+          "end": 3.55
+        },
+        {
+          "raw": "And",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "raw": "a",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "raw": "thousand",
+          "start": 4.05,
+          "end": 4.37
+        },
+        {
+          "raw": "vagram",
+          "start": 4.37,
+          "end": 4.77
+        },
+        {
+          "raw": "posies.",
+          "start": 4.77,
+          "end": 5.41
+        },
+        {
+          "raw": "To",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "raw": "shallow",
+          "start": 6.01,
+          "end": 6.41
+        },
+        {
+          "raw": "&c.",
+          "start": 6.41,
+          "end": 6.97
+        }
+      ],
+      "expected_tokens": [
+        "Melodious",
+        "birds",
+        "sing",
+        "madrigals--",
+        "Whenas",
+        "I",
+        "sat",
+        "in",
+        "Pabylon--",
+        "And",
+        "a",
+        "thousand",
+        "vagram",
+        "posies.",
+        "To",
+        "shallow",
+        "&c."
+      ],
+      "acoustic_expected_tokens": [
+        "Melodious",
+        "birds",
+        "sing",
+        "madrigals--",
+        "Whenas",
+        "I",
+        "sat",
+        "in",
+        "Pabylon--",
+        "And",
+        "a",
+        "thousand",
+        "vagram",
+        "posies.",
+        "To",
+        "shallow",
+        "&c."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          17,
+          5,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Melodious",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "melodious",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "birds",
+          "start": 0.93,
+          "end": 1.25,
+          "key": "birds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sing",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "sing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madrigals",
+          "start": 1.57,
+          "end": 2.15,
+          "key": "madrigals",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-",
+          "start": 2.15,
+          "end": 2.23,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Whenas",
+          "start": 2.23,
+          "end": 2.53,
+          "key": "whenas",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "sat",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pabylon",
+          "start": 3.15,
+          "end": 3.55,
+          "key": "pabylon",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.55,
+          "end": 3.85,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.85,
+          "end": 4.05,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 4.05,
+          "end": 4.37,
+          "key": "thousand",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "vagram",
+          "start": 4.37,
+          "end": 4.77,
+          "key": "vagram",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "posies.",
+          "start": 4.77,
+          "end": 5.41,
+          "key": "posies",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 5.91,
+          "end": 6.01,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "shallow",
+          "start": 6.01,
+          "end": 6.41,
+          "key": "shallow",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "&c.",
+          "start": 6.41,
+          "end": 6.97,
+          "key": "c",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Melodious",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "birds",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "text": "sing",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "madrigals--",
+          "start": 1.57,
+          "end": 2.15
+        },
+        {
+          "text": "Whenas",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "text": "I",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "sat",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "text": "in",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "Pabylon--",
+          "start": 3.15,
+          "end": 3.55
+        },
+        {
+          "text": "And",
+          "start": 3.55,
+          "end": 3.85
+        },
+        {
+          "text": "a",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "text": "thousand",
+          "start": 4.05,
+          "end": 4.37
+        },
+        {
+          "text": "vagram",
+          "start": 4.37,
+          "end": 4.77
+        },
+        {
+          "text": "posies.",
+          "start": 4.77,
+          "end": 5.41
+        },
+        {
+          "text": "To",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "text": "shallow",
+          "start": 6.01,
+          "end": 6.41
+        },
+        {
+          "text": "&c.",
+          "start": 6.41,
+          "end": 6.97
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5048020835965872
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3920f9f9e549d09f753e942de1c9c7a91379896bb4d53de1b671db1ae8233fab",
+  "selected_reasons": []
+}

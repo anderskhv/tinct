@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "791adcab7e2416e89144e9ffb3f8fd514f68725480d7a83b3b976ea23dff35e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.27320809103548527,
+      "alignment_seconds": 0.0012823091819882393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ What are they? let us know.",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " FAL. What are they? let us know.",
+          "start": 0.42,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " FAL.",
+              "start": 0.42,
+              "end": 0.74,
+              "probability": 0.3851318359375
+            },
+            {
+              "text": " What",
+              "start": 0.92,
+              "end": 0.96,
+              "probability": 0.943359375
+            },
+            {
+              "text": " are",
+              "start": 0.96,
+              "end": 1.06,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " they?",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " let",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.0104827880859375
+            },
+            {
+              "text": " us",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know.",
+              "start": 1.78,
+              "end": 2.06,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "FAL.",
+          "start": 0.42,
+          "end": 0.74
+        },
+        {
+          "raw": "What",
+          "start": 0.92,
+          "end": 0.96
+        },
+        {
+          "raw": "are",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "raw": "they?",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "let",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "us",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "know.",
+          "start": 1.78,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "What",
+        "are",
+        "they?",
+        "let",
+        "us",
+        "know."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "What",
+        "are",
+        "they?",
+        "let",
+        "us",
+        "know."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "FAL.",
+          "start": 0.42,
+          "end": 0.74,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 0.92,
+          "end": 0.96,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.96,
+          "end": 1.06,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they?",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.56,
+          "end": 1.64,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 1.78,
+          "end": 2.06,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.42,
+          "end": 0.74
+        },
+        {
+          "text": "What",
+          "start": 0.92,
+          "end": 0.96
+        },
+        {
+          "text": "are",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "text": "they?",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "let",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "us",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "know.",
+          "start": 1.78,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2746271686628461
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ac5bfdef7773acbcb83f31569af585345bf3273731366ffc0a7a1d3d1bf70ac",
+  "selected_reasons": []
+}

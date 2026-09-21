@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "ee73ba5978b42d3a2ed0d185a9fd513324b131e03f2f49f859936fa3af18406a",
+  "attempts": [
+    {
+      "asr_seconds": 0.39567094575613737,
+      "alignment_seconds": 0.0011500902473926544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Page, Shallow, and Slender._",
+        "hotwords": "Page, Shallow, Slender._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Page, Shallow, and Slender._",
+          "start": 0.14,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.14,
+              "end": 0.62,
+              "probability": 0.473388671875
+            },
+            {
+              "text": " Page,",
+              "start": 0.62,
+              "end": 1.06,
+              "probability": 0.37060546875
+            },
+            {
+              "text": " Shallow,",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " and",
+              "start": 1.86,
+              "end": 1.92,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Slender._",
+              "start": 1.92,
+              "end": 2.42,
+              "probability": 0.6679789225260416
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "raw": "Page,",
+          "start": 0.62,
+          "end": 1.06
+        },
+        {
+          "raw": "Shallow,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "and",
+          "start": 1.86,
+          "end": 1.92
+        },
+        {
+          "raw": "Slender._",
+          "start": 1.92,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "PAGE,",
+        "SHALLOW,",
+        "and",
+        "SLENDER._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Page,",
+        "Shallow,",
+        "and",
+        "Slender._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.62,
+          "end": 1.06,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Shallow,",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "shallow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.86,
+          "end": 1.92,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Slender._",
+          "start": 1.92,
+          "end": 2.42,
+          "key": "slender",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "text": "PAGE,",
+          "start": 0.62,
+          "end": 1.06
+        },
+        {
+          "text": "SHALLOW,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "and",
+          "start": 1.86,
+          "end": 1.92
+        },
+        {
+          "text": "SLENDER._",
+          "start": 1.92,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3969227857887745
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c9f3b570007c356f74a3df5d71b79b324692c78c022c07737098baf616be865f",
+  "selected_reasons": []
+}

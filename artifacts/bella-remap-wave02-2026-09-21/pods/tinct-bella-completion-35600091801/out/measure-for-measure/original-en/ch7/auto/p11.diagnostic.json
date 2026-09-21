@@ -1,0 +1,792 @@
+{
+  "complete": true,
+  "signature": "c6c391289230c2d72167115932cdc4845f39e0f4a386d7102f84affe92dc2acb",
+  "attempts": [
+    {
+      "asr_seconds": 0.43286301102489233,
+      "alignment_seconds": 0.003204723820090294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ I'll teach you how you shall arraign your conscience, And try your penitence, if it be sound, Or hollowly put on.",
+        "hotwords": "I'll, And, Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, I'll teach you how you shall arraign your conscience, And try your penitence, if it be sound, Or hollowly put on.",
+          "start": 0.02,
+          "end": 7.06,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.83984375
+            },
+            {
+              "text": " I'll",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.978515625
+            },
+            {
+              "text": " teach",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " how",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shall",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " arraign",
+              "start": 2.28,
+              "end": 2.56,
+              "probability": 0.908447265625
+            },
+            {
+              "text": " your",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " conscience,",
+              "start": 2.74,
+              "end": 3.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " And",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.002178192138671875
+            },
+            {
+              "text": " try",
+              "start": 3.8,
+              "end": 4.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 4.04,
+              "end": 4.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " penitence,",
+              "start": 4.22,
+              "end": 4.8,
+              "probability": 0.9899088541666666
+            },
+            {
+              "text": " if",
+              "start": 4.88,
+              "end": 4.96,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " it",
+              "start": 4.96,
+              "end": 5.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sound,",
+              "start": 5.18,
+              "end": 5.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Or",
+              "start": 6.06,
+              "end": 6.2,
+              "probability": 0.5048828125
+            },
+            {
+              "text": " hollowly",
+              "start": 6.2,
+              "end": 6.64,
+              "probability": 0.717041015625
+            },
+            {
+              "text": " put",
+              "start": 6.64,
+              "end": 6.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on.",
+              "start": 6.76,
+              "end": 7.06,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "I'll",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "teach",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "how",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "shall",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "arraign",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "raw": "your",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "conscience,",
+          "start": 2.74,
+          "end": 3.24
+        },
+        {
+          "raw": "And",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "try",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "raw": "your",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "raw": "penitence,",
+          "start": 4.22,
+          "end": 4.8
+        },
+        {
+          "raw": "if",
+          "start": 4.88,
+          "end": 4.96
+        },
+        {
+          "raw": "it",
+          "start": 4.96,
+          "end": 5.04
+        },
+        {
+          "raw": "be",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "sound,",
+          "start": 5.18,
+          "end": 5.62
+        },
+        {
+          "raw": "Or",
+          "start": 6.06,
+          "end": 6.2
+        },
+        {
+          "raw": "hollowly",
+          "start": 6.2,
+          "end": 6.64
+        },
+        {
+          "raw": "put",
+          "start": 6.64,
+          "end": 6.76
+        },
+        {
+          "raw": "on.",
+          "start": 6.76,
+          "end": 7.06
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "I'll",
+        "teach",
+        "you",
+        "how",
+        "you",
+        "shall",
+        "arraign",
+        "your",
+        "conscience,",
+        "And",
+        "try",
+        "your",
+        "penitence,",
+        "if",
+        "it",
+        "be",
+        "sound,",
+        "Or",
+        "hollowly",
+        "put",
+        "on."
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "I'll",
+        "teach",
+        "you",
+        "how",
+        "you",
+        "shall",
+        "arraign",
+        "your",
+        "conscience,",
+        "And",
+        "try",
+        "your",
+        "penitence,",
+        "if",
+        "it",
+        "be",
+        "sound,",
+        "Or",
+        "hollowly",
+        "put",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "teach",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "shall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "arraign",
+          "start": 2.28,
+          "end": 2.56,
+          "key": "arraign",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "conscience,",
+          "start": 2.74,
+          "end": 3.24,
+          "key": "conscience",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.56,
+          "end": 3.8,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "try",
+          "start": 3.8,
+          "end": 4.04,
+          "key": "try",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.04,
+          "end": 4.22,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "penitence,",
+          "start": 4.22,
+          "end": 4.8,
+          "key": "penitence",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.88,
+          "end": 4.96,
+          "key": "if",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.96,
+          "end": 5.04,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "be",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sound,",
+          "start": 5.18,
+          "end": 5.62,
+          "key": "sound",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 6.06,
+          "end": 6.2,
+          "key": "or",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "hollowly",
+          "start": 6.2,
+          "end": 6.64,
+          "key": "hollowly",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 6.64,
+          "end": 6.76,
+          "key": "put",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 6.76,
+          "end": 7.06,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "I'll",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "teach",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "you",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "how",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "you",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "shall",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "arraign",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "text": "your",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "conscience,",
+          "start": 2.74,
+          "end": 3.24
+        },
+        {
+          "text": "And",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "text": "try",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "text": "your",
+          "start": 4.04,
+          "end": 4.22
+        },
+        {
+          "text": "penitence,",
+          "start": 4.22,
+          "end": 4.8
+        },
+        {
+          "text": "if",
+          "start": 4.88,
+          "end": 4.96
+        },
+        {
+          "text": "it",
+          "start": 4.96,
+          "end": 5.04
+        },
+        {
+          "text": "be",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "sound,",
+          "start": 5.18,
+          "end": 5.62
+        },
+        {
+          "text": "Or",
+          "start": 6.06,
+          "end": 6.2
+        },
+        {
+          "text": "hollowly",
+          "start": 6.2,
+          "end": 6.64
+        },
+        {
+          "text": "put",
+          "start": 6.64,
+          "end": 6.76
+        },
+        {
+          "text": "on.",
+          "start": 6.76,
+          "end": 7.06
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4363601841032505
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f8e436897abc75e8039a693c32c54e784543e11c981cffcdf90af4d75ae44c1",
+  "selected_reasons": []
+}

@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "ee797094ab4195f0818a5e2a64bfe5cc0242c57368f09547745437cfecda27e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.32716603111475706,
+      "alignment_seconds": 0.0018923543393611908,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ford._ That will be excellent. I'll go and buy them vizards.",
+        "hotwords": "That, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ford, that will be excellent. I'll go and buy them vizards.",
+          "start": 0.08,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " Ford,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.509765625
+            },
+            {
+              "text": " that",
+              "start": 1.06,
+              "end": 1.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " will",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " excellent.",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I'll",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " go",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " buy",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 3.0,
+              "end": 3.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " vizards.",
+              "start": 3.18,
+              "end": 3.6,
+              "probability": 0.29034423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "that",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "raw": "will",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "be",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "excellent.",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "raw": "I'll",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "go",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "and",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "buy",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "them",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "raw": "vizards.",
+          "start": 3.18,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "That",
+        "will",
+        "be",
+        "excellent.",
+        "I’ll",
+        "go",
+        "and",
+        "buy",
+        "them",
+        "vizards."
+      ],
+      "acoustic_expected_tokens": [
+        "_Ford._",
+        "That",
+        "will",
+        "be",
+        "excellent.",
+        "I'll",
+        "go",
+        "and",
+        "buy",
+        "them",
+        "vizards."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "ford",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.06,
+          "end": 1.18,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "excellent.",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "excellent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "ill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "buy",
+          "start": 2.84,
+          "end": 3.0,
+          "key": "buy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.0,
+          "end": 3.18,
+          "key": "them",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "vizards.",
+          "start": 3.18,
+          "end": 3.6,
+          "key": "vizards",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "That",
+          "start": 1.06,
+          "end": 1.18
+        },
+        {
+          "text": "will",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "be",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "excellent.",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "text": "I’ll",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "go",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "and",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "buy",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "them",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "text": "vizards.",
+          "start": 3.18,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3292357102036476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fb36fca790363df9239f21aa3e510244bdaa9ddf0cef07d1267180b4a00ae387",
+  "selected_reasons": []
+}

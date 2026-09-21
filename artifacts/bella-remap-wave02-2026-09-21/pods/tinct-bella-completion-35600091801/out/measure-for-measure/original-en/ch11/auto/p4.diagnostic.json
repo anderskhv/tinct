@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "c03e2dd658857627c23041c5941211f35c40cc2e1ed25cfe47d32598c30592f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.26667253486812115,
+      "alignment_seconds": 0.0010185642167925835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Duke disguised as before._",
+        "hotwords": "Duke"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Duke disguised as before.",
+          "start": 0.11,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " Duke",
+              "start": 0.63,
+              "end": 0.91,
+              "probability": 0.900390625
+            },
+            {
+              "text": " disguised",
+              "start": 0.91,
+              "end": 1.39,
+              "probability": 0.849609375
+            },
+            {
+              "text": " as",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before.",
+              "start": 1.63,
+              "end": 1.97,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Duke",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "raw": "disguised",
+          "start": 0.91,
+          "end": 1.39
+        },
+        {
+          "raw": "as",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "before.",
+          "start": 1.63,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "DUKE",
+        "disguised",
+        "as",
+        "before._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Duke",
+        "disguised",
+        "as",
+        "before._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 0.63,
+          "end": 0.91,
+          "key": "duke",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disguised",
+          "start": 0.91,
+          "end": 1.39,
+          "key": "disguised",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "before.",
+          "start": 1.63,
+          "end": 1.97,
+          "key": "before",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "DUKE",
+          "start": 0.63,
+          "end": 0.91
+        },
+        {
+          "text": "disguised",
+          "start": 0.91,
+          "end": 1.39
+        },
+        {
+          "text": "as",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "before._",
+          "start": 1.63,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2677813721820712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3985581ac8df56a15333ee023af27663420142dee3e66320359c77b43561fb5e",
+  "selected_reasons": []
+}

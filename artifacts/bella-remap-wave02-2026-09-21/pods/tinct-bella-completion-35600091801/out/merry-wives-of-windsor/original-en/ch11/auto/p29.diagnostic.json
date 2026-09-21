@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "c9fb39f328d0ae20da39644b277d3ba444a4500fd20e73d896951d6b64880072",
+  "attempts": [
+    {
+      "asr_seconds": 0.3229599539190531,
+      "alignment_seconds": 0.001850132830440998,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Anne._ I mean, Master Slender, what would you with me? 60",
+        "hotwords": "I, Master, Slender"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, I mean Master Slender, what would you with me? 60",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.32177734375
+            },
+            {
+              "text": " I",
+              "start": 0.95,
+              "end": 1.03,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " mean",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Master",
+              "start": 1.19,
+              "end": 1.57,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " Slender,",
+              "start": 1.57,
+              "end": 1.99,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " what",
+              "start": 2.11,
+              "end": 2.17,
+              "probability": 0.978515625
+            },
+            {
+              "text": " would",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 2.27,
+              "end": 2.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 2.35,
+              "end": 2.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me?",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " 60",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.33740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "raw": "mean",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "Master",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "raw": "Slender,",
+          "start": 1.57,
+          "end": 1.99
+        },
+        {
+          "raw": "what",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "raw": "would",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "raw": "me?",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "raw": "60",
+          "start": 3.15,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "_Anne._",
+        "I",
+        "mean,",
+        "Master",
+        "Slender,",
+        "what",
+        "would",
+        "you",
+        "with",
+        "me?",
+        "60"
+      ],
+      "acoustic_expected_tokens": [
+        "_Anne._",
+        "I",
+        "mean,",
+        "Master",
+        "Slender,",
+        "what",
+        "would",
+        "you",
+        "with",
+        "me?",
+        "60"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.03,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "mean",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.19,
+          "end": 1.57,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Slender,",
+          "start": 1.57,
+          "end": 1.99,
+          "key": "slender",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.11,
+          "end": 2.17,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.35,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.35,
+          "end": 2.49,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "60",
+          "start": 3.15,
+          "end": 3.39,
+          "key": "sixty",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Anne._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "I",
+          "start": 0.95,
+          "end": 1.03
+        },
+        {
+          "text": "mean,",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "Master",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "text": "Slender,",
+          "start": 1.57,
+          "end": 1.99
+        },
+        {
+          "text": "what",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "text": "would",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "you",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "text": "with",
+          "start": 2.35,
+          "end": 2.49
+        },
+        {
+          "text": "me?",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "text": "60",
+          "start": 3.15,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32499144598841667
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b650b242bb947b98f1316a8d510988656402989cbbe6a782a96f91094f7a58ea",
+  "selected_reasons": []
+}

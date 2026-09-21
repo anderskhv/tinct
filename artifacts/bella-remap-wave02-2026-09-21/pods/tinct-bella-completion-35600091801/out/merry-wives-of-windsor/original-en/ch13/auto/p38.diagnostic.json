@@ -1,0 +1,255 @@
+{
+  "complete": true,
+  "signature": "884b757cfecf83ed4a024c780e9b087ce59baa39536a7111bd5d201e3db32868",
+  "attempts": [
+    {
+      "asr_seconds": 0.3172321654856205,
+      "alignment_seconds": 0.0012519266456365585,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Will._ Genitive,--horum, harum, horum. 55",
+        "hotwords": "Genitive,--horum"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will, Genitive,-horum, harum, horum. 55",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Will,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.408203125
+            },
+            {
+              "text": " Genitive,",
+              "start": 1.17,
+              "end": 1.55,
+              "probability": 0.753662109375
+            },
+            {
+              "text": "-horum,",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.2520743211110433
+            },
+            {
+              "text": " harum,",
+              "start": 1.93,
+              "end": 2.19,
+              "probability": 0.49090003967285156
+            },
+            {
+              "text": " horum.",
+              "start": 2.33,
+              "end": 2.67,
+              "probability": 0.70703125
+            },
+            {
+              "text": " 55",
+              "start": 2.99,
+              "end": 3.33,
+              "probability": 0.8671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Genitive,",
+          "start": 1.17,
+          "end": 1.55
+        },
+        {
+          "raw": "-horum,",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "harum,",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "raw": "horum.",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "raw": "55",
+          "start": 2.99,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "_Will._",
+        "Genitive,--horum,",
+        "harum,",
+        "horum.",
+        "55"
+      ],
+      "acoustic_expected_tokens": [
+        "_Will._",
+        "Genitive,--horum,",
+        "harum,",
+        "horum.",
+        "55"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Genitive, -horum,",
+          "start": 1.17,
+          "end": 1.87,
+          "key": "genitivehorum",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "harum,",
+          "start": 1.93,
+          "end": 2.19,
+          "key": "harum",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "horum.",
+          "start": 2.33,
+          "end": 2.67,
+          "key": "horum",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "55",
+          "start": 2.99,
+          "end": 3.33,
+          "key": "fiftyfive",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Genitive,--horum,",
+          "heard": "Genitive, -horum,",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.17,
+          "end": 1.87
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Will._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Genitive,--horum,",
+          "start": 1.17,
+          "end": 1.87
+        },
+        {
+          "text": "harum,",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "text": "horum.",
+          "start": 2.33,
+          "end": 2.67
+        },
+        {
+          "text": "55",
+          "start": 2.99,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31859582383185625
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41cc95b7ebe8592a4584808cc8bb15a2f28b7e66054b1ab8c33ec15f0b7c778c",
+  "selected_reasons": []
+}

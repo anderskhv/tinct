@@ -1,0 +1,995 @@
+{
+  "complete": true,
+  "signature": "b14f471e4e5d4f2eb7a5b6101decb58fc099a02e7dd2fc43c27bd37e0aa7642b",
+  "attempts": [
+    {
+      "asr_seconds": 0.33830972108989954,
+      "alignment_seconds": 0.002161760814487934,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ By your leave, sir: I am sick till I see her.",
+        "hotwords": "Page._, By, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Page._, By your leave, sir, I am sick till I see her.",
+          "start": 0.05,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.0007119178771972656
+            },
+            {
+              "text": " Page._,",
+              "start": 1.19,
+              "end": 1.55,
+              "probability": 0.4831543266773224
+            },
+            {
+              "text": " By",
+              "start": 1.55,
+              "end": 1.61,
+              "probability": 0.07452392578125
+            },
+            {
+              "text": " your",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " leave,",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sir,",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " I",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " am",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sick",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " till",
+              "start": 2.99,
+              "end": 3.17,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " I",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " see",
+              "start": 3.31,
+              "end": 3.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her.",
+              "start": 3.53,
+              "end": 3.77,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "raw": "By",
+          "start": 1.55,
+          "end": 1.61
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "leave,",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "sir,",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "am",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "sick",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "till",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "raw": "see",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "raw": "her.",
+          "start": 3.53,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "By",
+        "your",
+        "leave,",
+        "sir:",
+        "I",
+        "am",
+        "sick",
+        "till",
+        "I",
+        "see",
+        "her."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "By",
+        "your",
+        "leave,",
+        "sir:",
+        "I",
+        "am",
+        "sick",
+        "till",
+        "I",
+        "see",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          13,
+          1,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.19,
+          "end": 1.55,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 1.55,
+          "end": 1.61,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leave,",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "leave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "am",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "sick",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.99,
+          "end": 3.17,
+          "key": "till",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.31,
+          "end": 3.53,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.53,
+          "end": 3.77,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.0,
+          "end": 0.595
+        },
+        {
+          "text": "Page._",
+          "start": 1.19,
+          "end": 1.55
+        },
+        {
+          "text": "By",
+          "start": 1.55,
+          "end": 1.61
+        },
+        {
+          "text": "your",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "leave,",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "sir:",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "I",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "am",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "sick",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "till",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "text": "I",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "text": "see",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "text": "her.",
+          "start": 3.53,
+          "end": 3.77
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.34068045299500227
+    },
+    {
+      "asr_seconds": 0.34405858535319567,
+      "alignment_seconds": 0.002092489041388035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Page._, By, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Mrs. Page, by your leave, sir, I am sick till I see her.",
+          "start": 0.05,
+          "end": 3.75,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.279052734375
+            },
+            {
+              "text": " Page,",
+              "start": 0.87,
+              "end": 1.07,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " by",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.95703125
+            },
+            {
+              "text": " your",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " leave,",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sir,",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.896484375
+            },
+            {
+              "text": " I",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " am",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sick",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " till",
+              "start": 2.99,
+              "end": 3.17,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " I",
+              "start": 3.17,
+              "end": 3.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " see",
+              "start": 3.33,
+              "end": 3.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her.",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Page,",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "raw": "by",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "your",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "leave,",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "sir,",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "am",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "sick",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "till",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "raw": "see",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "raw": "her.",
+          "start": 3.53,
+          "end": 3.75
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "By",
+        "your",
+        "leave,",
+        "sir:",
+        "I",
+        "am",
+        "sick",
+        "till",
+        "I",
+        "see",
+        "her."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "By",
+        "your",
+        "leave,",
+        "sir:",
+        "I",
+        "am",
+        "sick",
+        "till",
+        "I",
+        "see",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.87,
+          "end": 1.07,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leave,",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "leave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "am",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "sick",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.99,
+          "end": 3.17,
+          "key": "till",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.17,
+          "end": 3.33,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.33,
+          "end": 3.53,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Page._",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "text": "By",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "your",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "leave,",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "sir:",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "I",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "am",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "sick",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "till",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "text": "I",
+          "start": 3.17,
+          "end": 3.33
+        },
+        {
+          "text": "see",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "text": "her.",
+          "start": 3.53,
+          "end": 3.75
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3463570671156049
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "44e9bae9b8be1f6a47f5f757358524e420e5a046fbaf24afca0b6c1512d769ec",
+  "selected_reasons": []
+}

@@ -1,0 +1,5393 @@
+{
+  "complete": true,
+  "signature": "00ef2a859baa7f2492527456cfbe7bf196a166a5d53dee7b5ea17ad376034c23",
+  "attempts": [
+    {
+      "asr_seconds": 1.4063201555982232,
+      "alignment_seconds": 0.009471334517002106,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Quick._ Sir, let me speak with you in your chamber: you shall hear how things go; and, I warrant, to your content. Here is a letter will say somewhat. Good hearts, 115 what ado here is to bring you together! Sure, one of you does not serve heaven well, that you are so crossed.",
+        "hotwords": "Sir, I, Good, Sure"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good hearts, 115 what ado here is to bring you together! Sure, one of you does not serve heaven well, that you are so crossed.",
+          "start": 8.6,
+          "end": 16.68,
+          "words": [
+            {
+              "text": " Good",
+              "start": 8.6,
+              "end": 9.06,
+              "probability": 0.00075531005859375
+            },
+            {
+              "text": " hearts,",
+              "start": 9.06,
+              "end": 9.52,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " 115",
+              "start": 9.96,
+              "end": 10.66,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " what",
+              "start": 10.66,
+              "end": 11.0,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " ado",
+              "start": 11.0,
+              "end": 11.24,
+              "probability": 0.348876953125
+            },
+            {
+              "text": " here",
+              "start": 11.24,
+              "end": 11.6,
+              "probability": 0.95703125
+            },
+            {
+              "text": " is",
+              "start": 11.6,
+              "end": 11.76,
+              "probability": 0.9453125
+            },
+            {
+              "text": " to",
+              "start": 11.76,
+              "end": 11.92,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " bring",
+              "start": 11.92,
+              "end": 12.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 12.08,
+              "end": 12.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " together!",
+              "start": 12.26,
+              "end": 12.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Sure,",
+              "start": 13.34,
+              "end": 13.56,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " one",
+              "start": 13.8,
+              "end": 13.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 13.88,
+              "end": 13.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 13.96,
+              "end": 14.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " does",
+              "start": 14.06,
+              "end": 14.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 14.2,
+              "end": 14.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " serve",
+              "start": 14.42,
+              "end": 14.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " heaven",
+              "start": 14.72,
+              "end": 15.02,
+              "probability": 0.720703125
+            },
+            {
+              "text": " well,",
+              "start": 15.02,
+              "end": 15.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 15.46,
+              "end": 15.58,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " you",
+              "start": 15.58,
+              "end": 15.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " are",
+              "start": 15.74,
+              "end": 15.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 15.96,
+              "end": 16.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " crossed.",
+              "start": 16.12,
+              "end": 16.68,
+              "probability": 0.8994140625
+            }
+          ]
+        },
+        {
+          "text": " Good hearts, 115 what ado here is to bring you together!",
+          "start": 16.68,
+          "end": 17.22,
+          "words": [
+            {
+              "text": " Good",
+              "start": 16.68,
+              "end": 16.68,
+              "probability": 0.00136566162109375
+            },
+            {
+              "text": " hearts,",
+              "start": 16.68,
+              "end": 16.68,
+              "probability": 1.1920928955078125e-07
+            },
+            {
+              "text": " 115",
+              "start": 16.68,
+              "end": 17.22,
+              "probability": 2.86102294921875e-06
+            },
+            {
+              "text": " what",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 7.146596908569336e-05
+            },
+            {
+              "text": " ado",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 3.516674041748047e-06
+            },
+            {
+              "text": " here",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 0.0003135204315185547
+            },
+            {
+              "text": " is",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 0.0269927978515625
+            },
+            {
+              "text": " to",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 0.01534271240234375
+            },
+            {
+              "text": " bring",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 0.0008053779602050781
+            },
+            {
+              "text": " you",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 0.08575439453125
+            },
+            {
+              "text": " together!",
+              "start": 17.22,
+              "end": 17.22,
+              "probability": 0.004364013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 8.6,
+          "end": 9.06
+        },
+        {
+          "raw": "hearts,",
+          "start": 9.06,
+          "end": 9.52
+        },
+        {
+          "raw": "115",
+          "start": 9.96,
+          "end": 10.66
+        },
+        {
+          "raw": "what",
+          "start": 10.66,
+          "end": 11.0
+        },
+        {
+          "raw": "ado",
+          "start": 11.0,
+          "end": 11.24
+        },
+        {
+          "raw": "here",
+          "start": 11.24,
+          "end": 11.6
+        },
+        {
+          "raw": "is",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "raw": "to",
+          "start": 11.76,
+          "end": 11.92
+        },
+        {
+          "raw": "bring",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "raw": "you",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "raw": "together!",
+          "start": 12.26,
+          "end": 12.68
+        },
+        {
+          "raw": "Sure,",
+          "start": 13.34,
+          "end": 13.56
+        },
+        {
+          "raw": "one",
+          "start": 13.8,
+          "end": 13.88
+        },
+        {
+          "raw": "of",
+          "start": 13.88,
+          "end": 13.96
+        },
+        {
+          "raw": "you",
+          "start": 13.96,
+          "end": 14.06
+        },
+        {
+          "raw": "does",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "raw": "not",
+          "start": 14.2,
+          "end": 14.42
+        },
+        {
+          "raw": "serve",
+          "start": 14.42,
+          "end": 14.72
+        },
+        {
+          "raw": "heaven",
+          "start": 14.72,
+          "end": 15.02
+        },
+        {
+          "raw": "well,",
+          "start": 15.02,
+          "end": 15.34
+        },
+        {
+          "raw": "that",
+          "start": 15.46,
+          "end": 15.58
+        },
+        {
+          "raw": "you",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "raw": "are",
+          "start": 15.74,
+          "end": 15.96
+        },
+        {
+          "raw": "so",
+          "start": 15.96,
+          "end": 16.12
+        },
+        {
+          "raw": "crossed.",
+          "start": 16.12,
+          "end": 16.68
+        },
+        {
+          "raw": "Good",
+          "start": 16.68,
+          "end": 16.68
+        },
+        {
+          "raw": "hearts,",
+          "start": 16.68,
+          "end": 16.68
+        },
+        {
+          "raw": "115",
+          "start": 16.68,
+          "end": 17.22
+        },
+        {
+          "raw": "what",
+          "start": 17.22,
+          "end": 17.22
+        },
+        {
+          "raw": "ado",
+          "start": 17.22,
+          "end": 17.22
+        },
+        {
+          "raw": "here",
+          "start": 17.22,
+          "end": 17.22
+        },
+        {
+          "raw": "is",
+          "start": 17.22,
+          "end": 17.22
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.22
+        },
+        {
+          "raw": "bring",
+          "start": 17.22,
+          "end": 17.22
+        },
+        {
+          "raw": "you",
+          "start": 17.22,
+          "end": 17.22
+        },
+        {
+          "raw": "together!",
+          "start": 17.22,
+          "end": 17.22
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "Sir,",
+        "let",
+        "me",
+        "speak",
+        "with",
+        "you",
+        "in",
+        "your",
+        "chamber:",
+        "you",
+        "shall",
+        "hear",
+        "how",
+        "things",
+        "go;",
+        "and,",
+        "I",
+        "warrant,",
+        "to",
+        "your",
+        "content.",
+        "Here",
+        "is",
+        "a",
+        "letter",
+        "will",
+        "say",
+        "somewhat.",
+        "Good",
+        "hearts,",
+        "115",
+        "what",
+        "ado",
+        "here",
+        "is",
+        "to",
+        "bring",
+        "you",
+        "together!",
+        "Sure,",
+        "one",
+        "of",
+        "you",
+        "does",
+        "not",
+        "serve",
+        "heaven",
+        "well,",
+        "that",
+        "you",
+        "are",
+        "so",
+        "crossed."
+      ],
+      "acoustic_expected_tokens": [
+        "_Quick._",
+        "Sir,",
+        "let",
+        "me",
+        "speak",
+        "with",
+        "you",
+        "in",
+        "your",
+        "chamber:",
+        "you",
+        "shall",
+        "hear",
+        "how",
+        "things",
+        "go;",
+        "and,",
+        "I",
+        "warrant,",
+        "to",
+        "your",
+        "content.",
+        "Here",
+        "is",
+        "a",
+        "letter",
+        "will",
+        "say",
+        "somewhat.",
+        "Good",
+        "hearts,",
+        "115",
+        "what",
+        "ado",
+        "here",
+        "is",
+        "to",
+        "bring",
+        "you",
+        "together!",
+        "Sure,",
+        "one",
+        "of",
+        "you",
+        "does",
+        "not",
+        "serve",
+        "heaven",
+        "well,",
+        "that",
+        "you",
+        "are",
+        "so",
+        "crossed."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          29,
+          0,
+          0
+        ],
+        [
+          "equal",
+          29,
+          54,
+          0,
+          25
+        ],
+        [
+          "insert",
+          54,
+          54,
+          25,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          29,
+          0,
+          0
+        ],
+        [
+          "insert",
+          54,
+          54,
+          25,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 8.6,
+          "end": 9.06,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hearts,",
+          "start": 9.06,
+          "end": 9.52,
+          "key": "hearts",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "115",
+          "start": 9.96,
+          "end": 10.66,
+          "key": "115",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 10.66,
+          "end": 11.0,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ado",
+          "start": 11.0,
+          "end": 11.24,
+          "key": "ado",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 11.24,
+          "end": 11.6,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.6,
+          "end": 11.76,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.76,
+          "end": 11.92,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 11.92,
+          "end": 12.08,
+          "key": "bring",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 12.08,
+          "end": 12.26,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "together!",
+          "start": 12.26,
+          "end": 12.68,
+          "key": "together",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Sure,",
+          "start": 13.34,
+          "end": 13.56,
+          "key": "sure",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 13.8,
+          "end": 13.88,
+          "key": "one",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.88,
+          "end": 13.96,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 13.96,
+          "end": 14.06,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 14.06,
+          "end": 14.2,
+          "key": "does",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 14.2,
+          "end": 14.42,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 14.42,
+          "end": 14.72,
+          "key": "serve",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 14.72,
+          "end": 15.02,
+          "key": "heaven",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 15.02,
+          "end": 15.34,
+          "key": "well",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.46,
+          "end": 15.58,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.58,
+          "end": 15.74,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 15.74,
+          "end": 15.96,
+          "key": "are",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 15.96,
+          "end": 16.12,
+          "key": "so",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "crossed.",
+          "start": 16.12,
+          "end": 16.68,
+          "key": "crossed",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 16.68,
+          "end": 16.68,
+          "key": "good",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hearts,",
+          "start": 16.68,
+          "end": 16.68,
+          "key": "hearts",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "115",
+          "start": 16.68,
+          "end": 17.22,
+          "key": "115",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "what",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "ado",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "ado",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "here",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "is",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "bring",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "together!",
+          "start": 17.22,
+          "end": 17.22,
+          "key": "together",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.0,
+          "end": 4.3
+        },
+        {
+          "text": "Sir,",
+          "start": 4.3,
+          "end": 6.45
+        },
+        {
+          "text": "let",
+          "start": 6.45,
+          "end": 7.525
+        },
+        {
+          "text": "me",
+          "start": 7.525,
+          "end": 8.062
+        },
+        {
+          "text": "speak",
+          "start": 8.062,
+          "end": 8.331
+        },
+        {
+          "text": "with",
+          "start": 8.331,
+          "end": 8.465
+        },
+        {
+          "text": "you",
+          "start": 8.465,
+          "end": 8.532
+        },
+        {
+          "text": "in",
+          "start": 8.532,
+          "end": 8.566
+        },
+        {
+          "text": "your",
+          "start": 8.566,
+          "end": 8.583
+        },
+        {
+          "text": "chamber:",
+          "start": 8.583,
+          "end": 8.591
+        },
+        {
+          "text": "you",
+          "start": 8.591,
+          "end": 8.595
+        },
+        {
+          "text": "shall",
+          "start": 8.595,
+          "end": 8.598
+        },
+        {
+          "text": "hear",
+          "start": 8.598,
+          "end": 8.599
+        },
+        {
+          "text": "how",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "things",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "go;",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "and,",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "I",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "warrant,",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "to",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "your",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "content.",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "Here",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "is",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "a",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "letter",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "will",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "say",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "somewhat.",
+          "start": 8.599,
+          "end": 8.599
+        },
+        {
+          "text": "Good",
+          "start": 8.6,
+          "end": 9.06
+        },
+        {
+          "text": "hearts,",
+          "start": 9.06,
+          "end": 9.52
+        },
+        {
+          "text": "115",
+          "start": 9.96,
+          "end": 10.66
+        },
+        {
+          "text": "what",
+          "start": 10.66,
+          "end": 11.0
+        },
+        {
+          "text": "ado",
+          "start": 11.0,
+          "end": 11.24
+        },
+        {
+          "text": "here",
+          "start": 11.24,
+          "end": 11.6
+        },
+        {
+          "text": "is",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "text": "to",
+          "start": 11.76,
+          "end": 11.92
+        },
+        {
+          "text": "bring",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "text": "you",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "text": "together!",
+          "start": 12.26,
+          "end": 12.68
+        },
+        {
+          "text": "Sure,",
+          "start": 13.34,
+          "end": 13.56
+        },
+        {
+          "text": "one",
+          "start": 13.8,
+          "end": 13.88
+        },
+        {
+          "text": "of",
+          "start": 13.88,
+          "end": 13.96
+        },
+        {
+          "text": "you",
+          "start": 13.96,
+          "end": 14.06
+        },
+        {
+          "text": "does",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "text": "not",
+          "start": 14.2,
+          "end": 14.42
+        },
+        {
+          "text": "serve",
+          "start": 14.42,
+          "end": 14.72
+        },
+        {
+          "text": "heaven",
+          "start": 14.72,
+          "end": 15.02
+        },
+        {
+          "text": "well,",
+          "start": 15.02,
+          "end": 15.34
+        },
+        {
+          "text": "that",
+          "start": 15.46,
+          "end": 15.58
+        },
+        {
+          "text": "you",
+          "start": 15.58,
+          "end": 15.74
+        },
+        {
+          "text": "are",
+          "start": 15.74,
+          "end": 15.96
+        },
+        {
+          "text": "so",
+          "start": 15.96,
+          "end": 16.12
+        },
+        {
+          "text": "crossed.",
+          "start": 16.12,
+          "end": 16.68
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 36,
+        "matched_words": 25
+      },
+      "match_ratio": 0.46296296296296297,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.4163156105205417
+    },
+    {
+      "asr_seconds": 0.8139458745718002,
+      "alignment_seconds": 0.0059361206367611885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sir, I, Good, Sure"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Quick, sir, let me speak with you in your chamber. You shall hear how things go, and I warrant to your content.",
+          "start": 0.02,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " Quick,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.384033203125
+            },
+            {
+              "text": " sir,",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.884765625
+            },
+            {
+              "text": " let",
+              "start": 1.2,
+              "end": 1.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speak",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " your",
+              "start": 2.1,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chamber.",
+              "start": 2.22,
+              "end": 2.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " You",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shall",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hear",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " how",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " things",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " go,",
+              "start": 3.96,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.68,
+              "end": 4.86,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 4.86,
+              "end": 5.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " warrant",
+              "start": 5.06,
+              "end": 5.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " your",
+              "start": 5.58,
+              "end": 5.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " content.",
+              "start": 5.72,
+              "end": 6.16,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Here is a letter we'll say somewhat. Good hearts,",
+          "start": 6.84,
+          "end": 9.52,
+          "words": [
+            {
+              "text": " Here",
+              "start": 6.84,
+              "end": 6.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 6.94,
+              "end": 7.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 7.06,
+              "end": 7.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " letter",
+              "start": 7.22,
+              "end": 7.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we'll",
+              "start": 7.44,
+              "end": 7.72,
+              "probability": 0.892578125
+            },
+            {
+              "text": " say",
+              "start": 7.72,
+              "end": 7.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " somewhat.",
+              "start": 7.88,
+              "end": 8.36,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " Good",
+              "start": 8.98,
+              "end": 9.12,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " hearts,",
+              "start": 9.12,
+              "end": 9.52,
+              "probability": 0.9091796875
+            }
+          ]
+        },
+        {
+          "text": " 115 what adieu here is to bring you together. Sure, one of you does not serve heaven well that you are so crossed.",
+          "start": 10.2,
+          "end": 16.66,
+          "words": [
+            {
+              "text": " 115",
+              "start": 10.2,
+              "end": 10.64,
+              "probability": 0.5009765625
+            },
+            {
+              "text": " what",
+              "start": 10.64,
+              "end": 11.0,
+              "probability": 0.45947265625
+            },
+            {
+              "text": " adieu",
+              "start": 11.0,
+              "end": 11.32,
+              "probability": 0.6009521484375
+            },
+            {
+              "text": " here",
+              "start": 11.32,
+              "end": 11.58,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 11.58,
+              "end": 11.76,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 11.76,
+              "end": 11.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bring",
+              "start": 11.92,
+              "end": 12.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 12.08,
+              "end": 12.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " together.",
+              "start": 12.26,
+              "end": 12.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Sure,",
+              "start": 13.32,
+              "end": 13.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " one",
+              "start": 13.8,
+              "end": 13.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 13.88,
+              "end": 13.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 13.96,
+              "end": 14.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " does",
+              "start": 14.06,
+              "end": 14.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 14.2,
+              "end": 14.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " serve",
+              "start": 14.42,
+              "end": 14.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heaven",
+              "start": 14.74,
+              "end": 15.02,
+              "probability": 0.828125
+            },
+            {
+              "text": " well",
+              "start": 15.02,
+              "end": 15.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 15.32,
+              "end": 15.56,
+              "probability": 0.875
+            },
+            {
+              "text": " you",
+              "start": 15.56,
+              "end": 15.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 15.74,
+              "end": 15.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 15.96,
+              "end": 16.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " crossed.",
+              "start": 16.12,
+              "end": 16.66,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quick,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "sir,",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "let",
+          "start": 1.2,
+          "end": 1.26
+        },
+        {
+          "raw": "me",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "speak",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "in",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "your",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "raw": "chamber.",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "raw": "You",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "shall",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "hear",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "how",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "things",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "go,",
+          "start": 3.96,
+          "end": 4.32
+        },
+        {
+          "raw": "and",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "raw": "I",
+          "start": 4.86,
+          "end": 5.06
+        },
+        {
+          "raw": "warrant",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "your",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "raw": "content.",
+          "start": 5.72,
+          "end": 6.16
+        },
+        {
+          "raw": "Here",
+          "start": 6.84,
+          "end": 6.94
+        },
+        {
+          "raw": "is",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "raw": "a",
+          "start": 7.06,
+          "end": 7.22
+        },
+        {
+          "raw": "letter",
+          "start": 7.22,
+          "end": 7.44
+        },
+        {
+          "raw": "we'll",
+          "start": 7.44,
+          "end": 7.72
+        },
+        {
+          "raw": "say",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "raw": "somewhat.",
+          "start": 7.88,
+          "end": 8.36
+        },
+        {
+          "raw": "Good",
+          "start": 8.98,
+          "end": 9.12
+        },
+        {
+          "raw": "hearts,",
+          "start": 9.12,
+          "end": 9.52
+        },
+        {
+          "raw": "115",
+          "start": 10.2,
+          "end": 10.64
+        },
+        {
+          "raw": "what",
+          "start": 10.64,
+          "end": 11.0
+        },
+        {
+          "raw": "adieu",
+          "start": 11.0,
+          "end": 11.32
+        },
+        {
+          "raw": "here",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "raw": "is",
+          "start": 11.58,
+          "end": 11.76
+        },
+        {
+          "raw": "to",
+          "start": 11.76,
+          "end": 11.92
+        },
+        {
+          "raw": "bring",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "raw": "you",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "raw": "together.",
+          "start": 12.26,
+          "end": 12.64
+        },
+        {
+          "raw": "Sure,",
+          "start": 13.32,
+          "end": 13.58
+        },
+        {
+          "raw": "one",
+          "start": 13.8,
+          "end": 13.88
+        },
+        {
+          "raw": "of",
+          "start": 13.88,
+          "end": 13.96
+        },
+        {
+          "raw": "you",
+          "start": 13.96,
+          "end": 14.06
+        },
+        {
+          "raw": "does",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "raw": "not",
+          "start": 14.2,
+          "end": 14.42
+        },
+        {
+          "raw": "serve",
+          "start": 14.42,
+          "end": 14.74
+        },
+        {
+          "raw": "heaven",
+          "start": 14.74,
+          "end": 15.02
+        },
+        {
+          "raw": "well",
+          "start": 15.02,
+          "end": 15.32
+        },
+        {
+          "raw": "that",
+          "start": 15.32,
+          "end": 15.56
+        },
+        {
+          "raw": "you",
+          "start": 15.56,
+          "end": 15.74
+        },
+        {
+          "raw": "are",
+          "start": 15.74,
+          "end": 15.96
+        },
+        {
+          "raw": "so",
+          "start": 15.96,
+          "end": 16.12
+        },
+        {
+          "raw": "crossed.",
+          "start": 16.12,
+          "end": 16.66
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "Sir,",
+        "let",
+        "me",
+        "speak",
+        "with",
+        "you",
+        "in",
+        "your",
+        "chamber:",
+        "you",
+        "shall",
+        "hear",
+        "how",
+        "things",
+        "go;",
+        "and,",
+        "I",
+        "warrant,",
+        "to",
+        "your",
+        "content.",
+        "Here",
+        "is",
+        "a",
+        "letter",
+        "will",
+        "say",
+        "somewhat.",
+        "Good",
+        "hearts,",
+        "115",
+        "what",
+        "ado",
+        "here",
+        "is",
+        "to",
+        "bring",
+        "you",
+        "together!",
+        "Sure,",
+        "one",
+        "of",
+        "you",
+        "does",
+        "not",
+        "serve",
+        "heaven",
+        "well,",
+        "that",
+        "you",
+        "are",
+        "so",
+        "crossed."
+      ],
+      "acoustic_expected_tokens": [
+        "_Quick._",
+        "Sir,",
+        "let",
+        "me",
+        "speak",
+        "with",
+        "you",
+        "in",
+        "your",
+        "chamber:",
+        "you",
+        "shall",
+        "hear",
+        "how",
+        "things",
+        "go;",
+        "and,",
+        "I",
+        "warrant,",
+        "to",
+        "your",
+        "content.",
+        "Here",
+        "is",
+        "a",
+        "letter",
+        "will",
+        "say",
+        "somewhat.",
+        "Good",
+        "hearts,",
+        "115",
+        "what",
+        "ado",
+        "here",
+        "is",
+        "to",
+        "bring",
+        "you",
+        "together!",
+        "Sure,",
+        "one",
+        "of",
+        "you",
+        "does",
+        "not",
+        "serve",
+        "heaven",
+        "well,",
+        "that",
+        "you",
+        "are",
+        "so",
+        "crossed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "equal",
+          27,
+          33,
+          27,
+          33
+        ],
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ],
+        [
+          "equal",
+          34,
+          54,
+          34,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quick,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "quick",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.2,
+          "end": 1.26,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "speak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.1,
+          "end": 2.22,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chamber.",
+          "start": 2.22,
+          "end": 2.58,
+          "key": "chamber",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "shall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "hear",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "how",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "things",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 3.96,
+          "end": 4.32,
+          "key": "go",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.68,
+          "end": 4.86,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.86,
+          "end": 5.06,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 5.06,
+          "end": 5.34,
+          "key": "warrant",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.58,
+          "end": 5.72,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 5.72,
+          "end": 6.16,
+          "key": "content",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 6.84,
+          "end": 6.94,
+          "key": "here",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.94,
+          "end": 7.06,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.06,
+          "end": 7.22,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 7.22,
+          "end": 7.44,
+          "key": "letter",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 7.44,
+          "end": 7.72,
+          "key": "well",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 7.72,
+          "end": 7.88,
+          "key": "say",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "somewhat.",
+          "start": 7.88,
+          "end": 8.36,
+          "key": "somewhat",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 8.98,
+          "end": 9.12,
+          "key": "good",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hearts,",
+          "start": 9.12,
+          "end": 9.52,
+          "key": "hearts",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "115",
+          "start": 10.2,
+          "end": 10.64,
+          "key": "115",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 10.64,
+          "end": 11.0,
+          "key": "what",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "adieu",
+          "start": 11.0,
+          "end": 11.32,
+          "key": "adieu",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 11.32,
+          "end": 11.58,
+          "key": "here",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.58,
+          "end": 11.76,
+          "key": "is",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.76,
+          "end": 11.92,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 11.92,
+          "end": 12.08,
+          "key": "bring",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 12.08,
+          "end": 12.26,
+          "key": "you",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "together.",
+          "start": 12.26,
+          "end": 12.64,
+          "key": "together",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Sure,",
+          "start": 13.32,
+          "end": 13.58,
+          "key": "sure",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 13.8,
+          "end": 13.88,
+          "key": "one",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.88,
+          "end": 13.96,
+          "key": "of",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 13.96,
+          "end": 14.06,
+          "key": "you",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 14.06,
+          "end": 14.2,
+          "key": "does",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 14.2,
+          "end": 14.42,
+          "key": "not",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 14.42,
+          "end": 14.74,
+          "key": "serve",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 14.74,
+          "end": 15.02,
+          "key": "heaven",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 15.02,
+          "end": 15.32,
+          "key": "well",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.32,
+          "end": 15.56,
+          "key": "that",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.56,
+          "end": 15.74,
+          "key": "you",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 15.74,
+          "end": 15.96,
+          "key": "are",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 15.96,
+          "end": 16.12,
+          "key": "so",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "crossed.",
+          "start": 16.12,
+          "end": 16.66,
+          "key": "crossed",
+          "pieces": [
+            53
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Sir,",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "let",
+          "start": 1.2,
+          "end": 1.26
+        },
+        {
+          "text": "me",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "speak",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "with",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "you",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "in",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "your",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "text": "chamber:",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "text": "you",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "shall",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "hear",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "how",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "things",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "go;",
+          "start": 3.96,
+          "end": 4.32
+        },
+        {
+          "text": "and,",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "text": "I",
+          "start": 4.86,
+          "end": 5.06
+        },
+        {
+          "text": "warrant,",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "your",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "text": "content.",
+          "start": 5.72,
+          "end": 6.16
+        },
+        {
+          "text": "Here",
+          "start": 6.84,
+          "end": 6.94
+        },
+        {
+          "text": "is",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "text": "a",
+          "start": 7.06,
+          "end": 7.22
+        },
+        {
+          "text": "letter",
+          "start": 7.22,
+          "end": 7.44
+        },
+        {
+          "text": "will",
+          "start": 7.44,
+          "end": 7.58
+        },
+        {
+          "text": "say",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "text": "somewhat.",
+          "start": 7.88,
+          "end": 8.36
+        },
+        {
+          "text": "Good",
+          "start": 8.98,
+          "end": 9.12
+        },
+        {
+          "text": "hearts,",
+          "start": 9.12,
+          "end": 9.52
+        },
+        {
+          "text": "115",
+          "start": 10.2,
+          "end": 10.64
+        },
+        {
+          "text": "what",
+          "start": 10.64,
+          "end": 11.0
+        },
+        {
+          "text": "ado",
+          "start": 11.0,
+          "end": 11.16
+        },
+        {
+          "text": "here",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "text": "is",
+          "start": 11.58,
+          "end": 11.76
+        },
+        {
+          "text": "to",
+          "start": 11.76,
+          "end": 11.92
+        },
+        {
+          "text": "bring",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "text": "you",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "text": "together!",
+          "start": 12.26,
+          "end": 12.64
+        },
+        {
+          "text": "Sure,",
+          "start": 13.32,
+          "end": 13.58
+        },
+        {
+          "text": "one",
+          "start": 13.8,
+          "end": 13.88
+        },
+        {
+          "text": "of",
+          "start": 13.88,
+          "end": 13.96
+        },
+        {
+          "text": "you",
+          "start": 13.96,
+          "end": 14.06
+        },
+        {
+          "text": "does",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "text": "not",
+          "start": 14.2,
+          "end": 14.42
+        },
+        {
+          "text": "serve",
+          "start": 14.42,
+          "end": 14.74
+        },
+        {
+          "text": "heaven",
+          "start": 14.74,
+          "end": 15.02
+        },
+        {
+          "text": "well,",
+          "start": 15.02,
+          "end": 15.32
+        },
+        {
+          "text": "that",
+          "start": 15.32,
+          "end": 15.56
+        },
+        {
+          "text": "you",
+          "start": 15.56,
+          "end": 15.74
+        },
+        {
+          "text": "are",
+          "start": 15.74,
+          "end": 15.96
+        },
+        {
+          "text": "so",
+          "start": 15.96,
+          "end": 16.12
+        },
+        {
+          "text": "crossed.",
+          "start": 16.12,
+          "end": 16.66
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 54,
+        "matched_words": 52
+      },
+      "match_ratio": 0.9629629629629629,
+      "rejection_reasons": [],
+      "seconds": 0.8203550549224019
+    },
+    {
+      "asr_seconds": 0.8198694558814168,
+      "alignment_seconds": 0.0062445979565382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quick, sir, let me speak with you in your chamber.",
+          "start": 0.02,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Quick,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.384033203125
+            },
+            {
+              "text": " sir,",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.884765625
+            },
+            {
+              "text": " let",
+              "start": 1.2,
+              "end": 1.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speak",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " your",
+              "start": 2.1,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chamber.",
+              "start": 2.22,
+              "end": 2.58,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " You shall hear how things go, and I warrant to your content.",
+          "start": 3.0,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " You",
+              "start": 3.0,
+              "end": 3.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shall",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hear",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " how",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " things",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " go,",
+              "start": 3.96,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.68,
+              "end": 4.86,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 4.86,
+              "end": 5.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " warrant",
+              "start": 5.06,
+              "end": 5.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " your",
+              "start": 5.58,
+              "end": 5.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " content.",
+              "start": 5.72,
+              "end": 6.16,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Here is a letter we'll say somewhat.",
+          "start": 6.84,
+          "end": 8.36,
+          "words": [
+            {
+              "text": " Here",
+              "start": 6.84,
+              "end": 6.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 6.94,
+              "end": 7.06,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 7.06,
+              "end": 7.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " letter",
+              "start": 7.22,
+              "end": 7.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we'll",
+              "start": 7.44,
+              "end": 7.72,
+              "probability": 0.892333984375
+            },
+            {
+              "text": " say",
+              "start": 7.72,
+              "end": 7.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " somewhat.",
+              "start": 7.88,
+              "end": 8.36,
+              "probability": 0.95654296875
+            }
+          ]
+        },
+        {
+          "text": " Good hearts, one hundred fifteen, what a do here is to bring you together.",
+          "start": 8.98,
+          "end": 12.64,
+          "words": [
+            {
+              "text": " Good",
+              "start": 8.98,
+              "end": 9.12,
+              "probability": 0.958984375
+            },
+            {
+              "text": " hearts,",
+              "start": 9.12,
+              "end": 9.52,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " one",
+              "start": 9.98,
+              "end": 10.06,
+              "probability": 0.452392578125
+            },
+            {
+              "text": " hundred",
+              "start": 10.06,
+              "end": 10.3,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " fifteen,",
+              "start": 10.3,
+              "end": 10.74,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " what",
+              "start": 10.96,
+              "end": 11.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 11.0,
+              "end": 11.14,
+              "probability": 0.3701171875
+            },
+            {
+              "text": " do",
+              "start": 11.14,
+              "end": 11.32,
+              "probability": 0.49560546875
+            },
+            {
+              "text": " here",
+              "start": 11.32,
+              "end": 11.58,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " is",
+              "start": 11.58,
+              "end": 11.78,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 11.78,
+              "end": 11.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bring",
+              "start": 11.92,
+              "end": 12.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 12.08,
+              "end": 12.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " together.",
+              "start": 12.26,
+              "end": 12.64,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Sure, one of you does not serve heaven well that you are so crossed.",
+          "start": 13.32,
+          "end": 16.66,
+          "words": [
+            {
+              "text": " Sure,",
+              "start": 13.32,
+              "end": 13.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " one",
+              "start": 13.8,
+              "end": 13.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 13.88,
+              "end": 13.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 13.96,
+              "end": 14.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " does",
+              "start": 14.06,
+              "end": 14.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 14.2,
+              "end": 14.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " serve",
+              "start": 14.42,
+              "end": 14.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " heaven",
+              "start": 14.72,
+              "end": 15.02,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " well",
+              "start": 15.02,
+              "end": 15.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 15.32,
+              "end": 15.56,
+              "probability": 0.794921875
+            },
+            {
+              "text": " you",
+              "start": 15.56,
+              "end": 15.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 15.74,
+              "end": 15.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " so",
+              "start": 15.96,
+              "end": 16.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " crossed.",
+              "start": 16.12,
+              "end": 16.66,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quick,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "sir,",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "let",
+          "start": 1.2,
+          "end": 1.26
+        },
+        {
+          "raw": "me",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "speak",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "in",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "your",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "raw": "chamber.",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "raw": "You",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "raw": "shall",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "hear",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "how",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "things",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "go,",
+          "start": 3.96,
+          "end": 4.32
+        },
+        {
+          "raw": "and",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "raw": "I",
+          "start": 4.86,
+          "end": 5.06
+        },
+        {
+          "raw": "warrant",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "your",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "raw": "content.",
+          "start": 5.72,
+          "end": 6.16
+        },
+        {
+          "raw": "Here",
+          "start": 6.84,
+          "end": 6.94
+        },
+        {
+          "raw": "is",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "raw": "a",
+          "start": 7.06,
+          "end": 7.22
+        },
+        {
+          "raw": "letter",
+          "start": 7.22,
+          "end": 7.44
+        },
+        {
+          "raw": "we'll",
+          "start": 7.44,
+          "end": 7.72
+        },
+        {
+          "raw": "say",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "raw": "somewhat.",
+          "start": 7.88,
+          "end": 8.36
+        },
+        {
+          "raw": "Good",
+          "start": 8.98,
+          "end": 9.12
+        },
+        {
+          "raw": "hearts,",
+          "start": 9.12,
+          "end": 9.52
+        },
+        {
+          "raw": "one",
+          "start": 9.98,
+          "end": 10.06
+        },
+        {
+          "raw": "hundred",
+          "start": 10.06,
+          "end": 10.3
+        },
+        {
+          "raw": "fifteen,",
+          "start": 10.3,
+          "end": 10.74
+        },
+        {
+          "raw": "what",
+          "start": 10.96,
+          "end": 11.0
+        },
+        {
+          "raw": "a",
+          "start": 11.0,
+          "end": 11.14
+        },
+        {
+          "raw": "do",
+          "start": 11.14,
+          "end": 11.32
+        },
+        {
+          "raw": "here",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "raw": "is",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "raw": "to",
+          "start": 11.78,
+          "end": 11.92
+        },
+        {
+          "raw": "bring",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "raw": "you",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "raw": "together.",
+          "start": 12.26,
+          "end": 12.64
+        },
+        {
+          "raw": "Sure,",
+          "start": 13.32,
+          "end": 13.58
+        },
+        {
+          "raw": "one",
+          "start": 13.8,
+          "end": 13.88
+        },
+        {
+          "raw": "of",
+          "start": 13.88,
+          "end": 13.96
+        },
+        {
+          "raw": "you",
+          "start": 13.96,
+          "end": 14.06
+        },
+        {
+          "raw": "does",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "raw": "not",
+          "start": 14.2,
+          "end": 14.42
+        },
+        {
+          "raw": "serve",
+          "start": 14.42,
+          "end": 14.72
+        },
+        {
+          "raw": "heaven",
+          "start": 14.72,
+          "end": 15.02
+        },
+        {
+          "raw": "well",
+          "start": 15.02,
+          "end": 15.32
+        },
+        {
+          "raw": "that",
+          "start": 15.32,
+          "end": 15.56
+        },
+        {
+          "raw": "you",
+          "start": 15.56,
+          "end": 15.74
+        },
+        {
+          "raw": "are",
+          "start": 15.74,
+          "end": 15.96
+        },
+        {
+          "raw": "so",
+          "start": 15.96,
+          "end": 16.12
+        },
+        {
+          "raw": "crossed.",
+          "start": 16.12,
+          "end": 16.66
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "Sir,",
+        "let",
+        "me",
+        "speak",
+        "with",
+        "you",
+        "in",
+        "your",
+        "chamber:",
+        "you",
+        "shall",
+        "hear",
+        "how",
+        "things",
+        "go;",
+        "and,",
+        "I",
+        "warrant,",
+        "to",
+        "your",
+        "content.",
+        "Here",
+        "is",
+        "a",
+        "letter",
+        "will",
+        "say",
+        "somewhat.",
+        "Good",
+        "hearts,",
+        "115",
+        "what",
+        "ado",
+        "here",
+        "is",
+        "to",
+        "bring",
+        "you",
+        "together!",
+        "Sure,",
+        "one",
+        "of",
+        "you",
+        "does",
+        "not",
+        "serve",
+        "heaven",
+        "well,",
+        "that",
+        "you",
+        "are",
+        "so",
+        "crossed."
+      ],
+      "acoustic_expected_tokens": [
+        "_Quick._",
+        "Sir,",
+        "let",
+        "me",
+        "speak",
+        "with",
+        "you",
+        "in",
+        "your",
+        "chamber:",
+        "you",
+        "shall",
+        "hear",
+        "how",
+        "things",
+        "go;",
+        "and,",
+        "I",
+        "warrant,",
+        "to",
+        "your",
+        "content.",
+        "Here",
+        "is",
+        "a",
+        "letter",
+        "will",
+        "say",
+        "somewhat.",
+        "Good",
+        "hearts,",
+        "115",
+        "what",
+        "ado",
+        "here",
+        "is",
+        "to",
+        "bring",
+        "you",
+        "together!",
+        "Sure,",
+        "one",
+        "of",
+        "you",
+        "does",
+        "not",
+        "serve",
+        "heaven",
+        "well,",
+        "that",
+        "you",
+        "are",
+        "so",
+        "crossed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "equal",
+          27,
+          31,
+          27,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          34
+        ],
+        [
+          "equal",
+          32,
+          54,
+          34,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quick,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "quick",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.2,
+          "end": 1.26,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "speak",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.1,
+          "end": 2.22,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chamber.",
+          "start": 2.22,
+          "end": 2.58,
+          "key": "chamber",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.0,
+          "end": 3.14,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "shall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "hear",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "how",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "things",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 3.96,
+          "end": 4.32,
+          "key": "go",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.68,
+          "end": 4.86,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.86,
+          "end": 5.06,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 5.06,
+          "end": 5.34,
+          "key": "warrant",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.58,
+          "end": 5.72,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 5.72,
+          "end": 6.16,
+          "key": "content",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 6.84,
+          "end": 6.94,
+          "key": "here",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.94,
+          "end": 7.06,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.06,
+          "end": 7.22,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 7.22,
+          "end": 7.44,
+          "key": "letter",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 7.44,
+          "end": 7.72,
+          "key": "well",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 7.72,
+          "end": 7.88,
+          "key": "say",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "somewhat.",
+          "start": 7.88,
+          "end": 8.36,
+          "key": "somewhat",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 8.98,
+          "end": 9.12,
+          "key": "good",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hearts,",
+          "start": 9.12,
+          "end": 9.52,
+          "key": "hearts",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 9.98,
+          "end": 10.06,
+          "key": "one",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 10.06,
+          "end": 10.3,
+          "key": "hundred",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "fifteen,",
+          "start": 10.3,
+          "end": 10.74,
+          "key": "fifteen",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 10.96,
+          "end": 11.0,
+          "key": "what",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a do",
+          "start": 11.0,
+          "end": 11.32,
+          "key": "ado",
+          "pieces": [
+            35,
+            36
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 11.32,
+          "end": 11.58,
+          "key": "here",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.58,
+          "end": 11.78,
+          "key": "is",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.78,
+          "end": 11.92,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 11.92,
+          "end": 12.08,
+          "key": "bring",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 12.08,
+          "end": 12.26,
+          "key": "you",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "together.",
+          "start": 12.26,
+          "end": 12.64,
+          "key": "together",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Sure,",
+          "start": 13.32,
+          "end": 13.58,
+          "key": "sure",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 13.8,
+          "end": 13.88,
+          "key": "one",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.88,
+          "end": 13.96,
+          "key": "of",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 13.96,
+          "end": 14.06,
+          "key": "you",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 14.06,
+          "end": 14.2,
+          "key": "does",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 14.2,
+          "end": 14.42,
+          "key": "not",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 14.42,
+          "end": 14.72,
+          "key": "serve",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 14.72,
+          "end": 15.02,
+          "key": "heaven",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 15.02,
+          "end": 15.32,
+          "key": "well",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 15.32,
+          "end": 15.56,
+          "key": "that",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.56,
+          "end": 15.74,
+          "key": "you",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 15.74,
+          "end": 15.96,
+          "key": "are",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 15.96,
+          "end": 16.12,
+          "key": "so",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "crossed.",
+          "start": 16.12,
+          "end": 16.66,
+          "key": "crossed",
+          "pieces": [
+            56
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 33,
+          "text": "ado",
+          "heard": "a do",
+          "heard_indexes": [
+            35,
+            36
+          ],
+          "start": 11.0,
+          "end": 11.32
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Sir,",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "let",
+          "start": 1.2,
+          "end": 1.26
+        },
+        {
+          "text": "me",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "speak",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "with",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "you",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "in",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "your",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "text": "chamber:",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "text": "you",
+          "start": 3.0,
+          "end": 3.14
+        },
+        {
+          "text": "shall",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "hear",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "how",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "things",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "go;",
+          "start": 3.96,
+          "end": 4.32
+        },
+        {
+          "text": "and,",
+          "start": 4.68,
+          "end": 4.86
+        },
+        {
+          "text": "I",
+          "start": 4.86,
+          "end": 5.06
+        },
+        {
+          "text": "warrant,",
+          "start": 5.06,
+          "end": 5.34
+        },
+        {
+          "text": "to",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "your",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "text": "content.",
+          "start": 5.72,
+          "end": 6.16
+        },
+        {
+          "text": "Here",
+          "start": 6.84,
+          "end": 6.94
+        },
+        {
+          "text": "is",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "text": "a",
+          "start": 7.06,
+          "end": 7.22
+        },
+        {
+          "text": "letter",
+          "start": 7.22,
+          "end": 7.44
+        },
+        {
+          "text": "will",
+          "start": 7.44,
+          "end": 7.58
+        },
+        {
+          "text": "say",
+          "start": 7.72,
+          "end": 7.88
+        },
+        {
+          "text": "somewhat.",
+          "start": 7.88,
+          "end": 8.36
+        },
+        {
+          "text": "Good",
+          "start": 8.98,
+          "end": 9.12
+        },
+        {
+          "text": "hearts,",
+          "start": 9.12,
+          "end": 9.52
+        },
+        {
+          "text": "115",
+          "start": 9.52,
+          "end": 10.24
+        },
+        {
+          "text": "what",
+          "start": 10.96,
+          "end": 11.0
+        },
+        {
+          "text": "ado",
+          "start": 11.0,
+          "end": 11.32
+        },
+        {
+          "text": "here",
+          "start": 11.32,
+          "end": 11.58
+        },
+        {
+          "text": "is",
+          "start": 11.58,
+          "end": 11.78
+        },
+        {
+          "text": "to",
+          "start": 11.78,
+          "end": 11.92
+        },
+        {
+          "text": "bring",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "text": "you",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "text": "together!",
+          "start": 12.26,
+          "end": 12.64
+        },
+        {
+          "text": "Sure,",
+          "start": 13.32,
+          "end": 13.58
+        },
+        {
+          "text": "one",
+          "start": 13.8,
+          "end": 13.88
+        },
+        {
+          "text": "of",
+          "start": 13.88,
+          "end": 13.96
+        },
+        {
+          "text": "you",
+          "start": 13.96,
+          "end": 14.06
+        },
+        {
+          "text": "does",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "text": "not",
+          "start": 14.2,
+          "end": 14.42
+        },
+        {
+          "text": "serve",
+          "start": 14.42,
+          "end": 14.72
+        },
+        {
+          "text": "heaven",
+          "start": 14.72,
+          "end": 15.02
+        },
+        {
+          "text": "well,",
+          "start": 15.02,
+          "end": 15.32
+        },
+        {
+          "text": "that",
+          "start": 15.32,
+          "end": 15.56
+        },
+        {
+          "text": "you",
+          "start": 15.56,
+          "end": 15.74
+        },
+        {
+          "text": "are",
+          "start": 15.74,
+          "end": 15.96
+        },
+        {
+          "text": "so",
+          "start": 15.96,
+          "end": 16.12
+        },
+        {
+          "text": "crossed.",
+          "start": 16.12,
+          "end": 16.66
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 56,
+        "matched_words": 52
+      },
+      "match_ratio": 0.9629629629629629,
+      "rejection_reasons": [],
+      "seconds": 0.8266085842624307
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "41cf9689eed1083733f2f5808e6f080c2c286c7ccc3f6e7566ce734821519aab",
+  "selected_reasons": []
+}

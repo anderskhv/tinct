@@ -1,0 +1,1149 @@
+{
+  "complete": true,
+  "signature": "3189161b098d5c4d487750f742d8fb809e4498f28c3da4000f499743d179408f",
+  "attempts": [
+    {
+      "asr_seconds": 0.7407991839572787,
+      "alignment_seconds": 0.003769221715629101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "La fama, ch'invaghisce a un dolce suono Gli superbi mortali, et par si bella, E un eco, un sogno, anzi d'un sogno un'ombra, Ch'ad ogni vento si dilegua a sgombra.\"",
+        "hotwords": "La, Gli, E, Ch'ad"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " La fama, ch'invaghisce a un dolce suono Gli superbi mortali, et par si bella, E un eco, un sogno, anzi d'un sogno un'ombra, Ch'ad ogni vento si dilegua a sgombra.",
+          "start": 0.05,
+          "end": 13.15,
+          "words": [
+            {
+              "text": " La",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.328857421875
+            },
+            {
+              "text": " fama,",
+              "start": 0.61,
+              "end": 1.17,
+              "probability": 0.54010009765625
+            },
+            {
+              "text": " ch",
+              "start": 1.35,
+              "end": 1.35,
+              "probability": 0.0723876953125
+            },
+            {
+              "text": "'invaghisce",
+              "start": 1.35,
+              "end": 2.05,
+              "probability": 0.20193281173706054
+            },
+            {
+              "text": " a",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.001071929931640625
+            },
+            {
+              "text": " un",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.068359375
+            },
+            {
+              "text": " dolce",
+              "start": 2.31,
+              "end": 2.65,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " suono",
+              "start": 2.65,
+              "end": 3.07,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " Gli",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.09970760345458984
+            },
+            {
+              "text": " superbi",
+              "start": 3.45,
+              "end": 3.93,
+              "probability": 0.392913818359375
+            },
+            {
+              "text": " mortali,",
+              "start": 3.93,
+              "end": 4.55,
+              "probability": 0.11187744140625
+            },
+            {
+              "text": " et",
+              "start": 5.05,
+              "end": 5.11,
+              "probability": 0.94140625
+            },
+            {
+              "text": " par",
+              "start": 5.11,
+              "end": 5.33,
+              "probability": 0.1949462890625
+            },
+            {
+              "text": " si",
+              "start": 5.33,
+              "end": 5.53,
+              "probability": 0.07147216796875
+            },
+            {
+              "text": " bella,",
+              "start": 5.53,
+              "end": 6.01,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " E",
+              "start": 6.41,
+              "end": 6.45,
+              "probability": 0.0074005126953125
+            },
+            {
+              "text": " un",
+              "start": 6.45,
+              "end": 6.65,
+              "probability": 0.49560546875
+            },
+            {
+              "text": " eco,",
+              "start": 6.65,
+              "end": 6.95,
+              "probability": 0.7421875
+            },
+            {
+              "text": " un",
+              "start": 7.43,
+              "end": 7.55,
+              "probability": 0.271484375
+            },
+            {
+              "text": " sogno,",
+              "start": 7.55,
+              "end": 8.15,
+              "probability": 0.9200846354166666
+            },
+            {
+              "text": " anzi",
+              "start": 8.65,
+              "end": 8.83,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " d",
+              "start": 8.83,
+              "end": 8.97,
+              "probability": 0.329833984375
+            },
+            {
+              "text": "'un",
+              "start": 8.97,
+              "end": 9.13,
+              "probability": 0.5623779296875
+            },
+            {
+              "text": " sogno",
+              "start": 9.13,
+              "end": 9.51,
+              "probability": 0.9969075520833334
+            },
+            {
+              "text": " un",
+              "start": 9.51,
+              "end": 9.65,
+              "probability": 0.0885009765625
+            },
+            {
+              "text": "'ombra,",
+              "start": 9.65,
+              "end": 10.13,
+              "probability": 0.5908203125
+            },
+            {
+              "text": " Ch",
+              "start": 10.51,
+              "end": 10.61,
+              "probability": 0.0123748779296875
+            },
+            {
+              "text": "'ad",
+              "start": 10.61,
+              "end": 10.99,
+              "probability": 0.77734375
+            },
+            {
+              "text": " ogni",
+              "start": 10.99,
+              "end": 11.39,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " vento",
+              "start": 11.39,
+              "end": 11.77,
+              "probability": 0.953857421875
+            },
+            {
+              "text": " si",
+              "start": 11.77,
+              "end": 11.93,
+              "probability": 0.68359375
+            },
+            {
+              "text": " dilegua",
+              "start": 11.93,
+              "end": 12.55,
+              "probability": 0.3499834934870402
+            },
+            {
+              "text": " a",
+              "start": 12.55,
+              "end": 12.65,
+              "probability": 0.0020904541015625
+            },
+            {
+              "text": " sgombra.",
+              "start": 12.65,
+              "end": 13.15,
+              "probability": 0.5223274230957031
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "La",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "fama,",
+          "start": 0.61,
+          "end": 1.17
+        },
+        {
+          "raw": "ch",
+          "start": 1.35,
+          "end": 1.35
+        },
+        {
+          "raw": "'invaghisce",
+          "start": 1.35,
+          "end": 2.05
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "un",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "dolce",
+          "start": 2.31,
+          "end": 2.65
+        },
+        {
+          "raw": "suono",
+          "start": 2.65,
+          "end": 3.07
+        },
+        {
+          "raw": "Gli",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "superbi",
+          "start": 3.45,
+          "end": 3.93
+        },
+        {
+          "raw": "mortali,",
+          "start": 3.93,
+          "end": 4.55
+        },
+        {
+          "raw": "et",
+          "start": 5.05,
+          "end": 5.11
+        },
+        {
+          "raw": "par",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "raw": "si",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "raw": "bella,",
+          "start": 5.53,
+          "end": 6.01
+        },
+        {
+          "raw": "E",
+          "start": 6.41,
+          "end": 6.45
+        },
+        {
+          "raw": "un",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "raw": "eco,",
+          "start": 6.65,
+          "end": 6.95
+        },
+        {
+          "raw": "un",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "raw": "sogno,",
+          "start": 7.55,
+          "end": 8.15
+        },
+        {
+          "raw": "anzi",
+          "start": 8.65,
+          "end": 8.83
+        },
+        {
+          "raw": "d",
+          "start": 8.83,
+          "end": 8.97
+        },
+        {
+          "raw": "'un",
+          "start": 8.97,
+          "end": 9.13
+        },
+        {
+          "raw": "sogno",
+          "start": 9.13,
+          "end": 9.51
+        },
+        {
+          "raw": "un",
+          "start": 9.51,
+          "end": 9.65
+        },
+        {
+          "raw": "'ombra,",
+          "start": 9.65,
+          "end": 10.13
+        },
+        {
+          "raw": "Ch",
+          "start": 10.51,
+          "end": 10.61
+        },
+        {
+          "raw": "'ad",
+          "start": 10.61,
+          "end": 10.99
+        },
+        {
+          "raw": "ogni",
+          "start": 10.99,
+          "end": 11.39
+        },
+        {
+          "raw": "vento",
+          "start": 11.39,
+          "end": 11.77
+        },
+        {
+          "raw": "si",
+          "start": 11.77,
+          "end": 11.93
+        },
+        {
+          "raw": "dilegua",
+          "start": 11.93,
+          "end": 12.55
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.65
+        },
+        {
+          "raw": "sgombra.",
+          "start": 12.65,
+          "end": 13.15
+        }
+      ],
+      "expected_tokens": [
+        "La",
+        "fama,",
+        "ch’invaghisce",
+        "a",
+        "un",
+        "dolce",
+        "suono",
+        "Gli",
+        "superbi",
+        "mortali,",
+        "et",
+        "par",
+        "si",
+        "bella,",
+        "E",
+        "un",
+        "eco,",
+        "un",
+        "sogno,",
+        "anzi",
+        "d’un",
+        "sogno",
+        "un’ombra,",
+        "Ch’ad",
+        "ogni",
+        "vento",
+        "si",
+        "dilegua",
+        "a",
+        "sgombra.”"
+      ],
+      "acoustic_expected_tokens": [
+        "La",
+        "fama,",
+        "ch'invaghisce",
+        "a",
+        "un",
+        "dolce",
+        "suono",
+        "Gli",
+        "superbi",
+        "mortali,",
+        "et",
+        "par",
+        "si",
+        "bella,",
+        "E",
+        "un",
+        "eco,",
+        "un",
+        "sogno,",
+        "anzi",
+        "d'un",
+        "sogno",
+        "un'ombra,",
+        "Ch'ad",
+        "ogni",
+        "vento",
+        "si",
+        "dilegua",
+        "a",
+        "sgombra.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "La",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "la",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fama,",
+          "start": 0.61,
+          "end": 1.17,
+          "key": "fama",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ch 'invaghisce",
+          "start": 1.35,
+          "end": 2.05,
+          "key": "chinvaghisce",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "un",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dolce",
+          "start": 2.31,
+          "end": 2.65,
+          "key": "dolce",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "suono",
+          "start": 2.65,
+          "end": 3.07,
+          "key": "suono",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Gli",
+          "start": 3.07,
+          "end": 3.45,
+          "key": "gli",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "superbi",
+          "start": 3.45,
+          "end": 3.93,
+          "key": "superbi",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mortali,",
+          "start": 3.93,
+          "end": 4.55,
+          "key": "mortali",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 5.05,
+          "end": 5.11,
+          "key": "et",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "par",
+          "start": 5.11,
+          "end": 5.33,
+          "key": "par",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "si",
+          "start": 5.33,
+          "end": 5.53,
+          "key": "si",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bella,",
+          "start": 5.53,
+          "end": 6.01,
+          "key": "bella",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "E",
+          "start": 6.41,
+          "end": 6.45,
+          "key": "e",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 6.45,
+          "end": 6.65,
+          "key": "un",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "eco,",
+          "start": 6.65,
+          "end": 6.95,
+          "key": "eco",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 7.43,
+          "end": 7.55,
+          "key": "un",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sogno,",
+          "start": 7.55,
+          "end": 8.15,
+          "key": "sogno",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "anzi",
+          "start": 8.65,
+          "end": 8.83,
+          "key": "anzi",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "d 'un",
+          "start": 8.83,
+          "end": 9.13,
+          "key": "dun",
+          "pieces": [
+            21,
+            22
+          ]
+        },
+        {
+          "raw": "sogno",
+          "start": 9.13,
+          "end": 9.51,
+          "key": "sogno",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "un 'ombra,",
+          "start": 9.51,
+          "end": 10.13,
+          "key": "unombra",
+          "pieces": [
+            24,
+            25
+          ]
+        },
+        {
+          "raw": "Ch 'ad",
+          "start": 10.51,
+          "end": 10.99,
+          "key": "chad",
+          "pieces": [
+            26,
+            27
+          ]
+        },
+        {
+          "raw": "ogni",
+          "start": 10.99,
+          "end": 11.39,
+          "key": "ogni",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "vento",
+          "start": 11.39,
+          "end": 11.77,
+          "key": "vento",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "si",
+          "start": 11.77,
+          "end": 11.93,
+          "key": "si",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "dilegua",
+          "start": 11.93,
+          "end": 12.55,
+          "key": "dilegua",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.55,
+          "end": 12.65,
+          "key": "a",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "sgombra.",
+          "start": 12.65,
+          "end": 13.15,
+          "key": "sgombra",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "ch'invaghisce",
+          "heard": "ch 'invaghisce",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 1.35,
+          "end": 2.05
+        },
+        {
+          "expected_index": 20,
+          "text": "d'un",
+          "heard": "d 'un",
+          "heard_indexes": [
+            21,
+            22
+          ],
+          "start": 8.83,
+          "end": 9.13
+        },
+        {
+          "expected_index": 22,
+          "text": "un'ombra,",
+          "heard": "un 'ombra,",
+          "heard_indexes": [
+            24,
+            25
+          ],
+          "start": 9.51,
+          "end": 10.13
+        },
+        {
+          "expected_index": 23,
+          "text": "Ch'ad",
+          "heard": "Ch 'ad",
+          "heard_indexes": [
+            26,
+            27
+          ],
+          "start": 10.51,
+          "end": 10.99
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "La",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "fama,",
+          "start": 0.61,
+          "end": 1.17
+        },
+        {
+          "text": "ch’invaghisce",
+          "start": 1.35,
+          "end": 2.05
+        },
+        {
+          "text": "a",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "un",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "dolce",
+          "start": 2.31,
+          "end": 2.65
+        },
+        {
+          "text": "suono",
+          "start": 2.65,
+          "end": 3.07
+        },
+        {
+          "text": "Gli",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "text": "superbi",
+          "start": 3.45,
+          "end": 3.93
+        },
+        {
+          "text": "mortali,",
+          "start": 3.93,
+          "end": 4.55
+        },
+        {
+          "text": "et",
+          "start": 5.05,
+          "end": 5.11
+        },
+        {
+          "text": "par",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "text": "si",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "text": "bella,",
+          "start": 5.53,
+          "end": 6.01
+        },
+        {
+          "text": "E",
+          "start": 6.41,
+          "end": 6.45
+        },
+        {
+          "text": "un",
+          "start": 6.45,
+          "end": 6.65
+        },
+        {
+          "text": "eco,",
+          "start": 6.65,
+          "end": 6.95
+        },
+        {
+          "text": "un",
+          "start": 7.43,
+          "end": 7.55
+        },
+        {
+          "text": "sogno,",
+          "start": 7.55,
+          "end": 8.15
+        },
+        {
+          "text": "anzi",
+          "start": 8.65,
+          "end": 8.83
+        },
+        {
+          "text": "d’un",
+          "start": 8.83,
+          "end": 9.13
+        },
+        {
+          "text": "sogno",
+          "start": 9.13,
+          "end": 9.51
+        },
+        {
+          "text": "un’ombra,",
+          "start": 9.51,
+          "end": 10.13
+        },
+        {
+          "text": "Ch’ad",
+          "start": 10.51,
+          "end": 10.99
+        },
+        {
+          "text": "ogni",
+          "start": 10.99,
+          "end": 11.39
+        },
+        {
+          "text": "vento",
+          "start": 11.39,
+          "end": 11.77
+        },
+        {
+          "text": "si",
+          "start": 11.77,
+          "end": 11.93
+        },
+        {
+          "text": "dilegua",
+          "start": 11.93,
+          "end": 12.55
+        },
+        {
+          "text": "a",
+          "start": 12.55,
+          "end": 12.65
+        },
+        {
+          "text": "sgombra.”",
+          "start": 12.65,
+          "end": 13.15
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 30,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7448990372940898
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a06297b2bee81d48b805ecaa18c8c7871255e0544890249600afb39b08bde5b4",
+  "selected_reasons": []
+}

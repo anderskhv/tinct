@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "e2c780c9a6942c05f26c23bfa8bd3285662d5effc23261d6e599e4f218580aae",
+  "attempts": [
+    {
+      "asr_seconds": 0.21486394479870796,
+      "alignment_seconds": 0.001050376333296299,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Where is mine host?",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, where is mine host?",
+          "start": 0.11,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " where",
+              "start": 1.17,
+              "end": 1.25,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " is",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.59130859375
+            },
+            {
+              "text": " mine",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " host?",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "where",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "raw": "is",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "mine",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "host?",
+          "start": 1.59,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Where",
+        "is",
+        "mine",
+        "host?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Where",
+        "is",
+        "mine",
+        "host?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.17,
+          "end": 1.25,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "mine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "host?",
+          "start": 1.59,
+          "end": 1.89,
+          "key": "host",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "Where",
+          "start": 1.17,
+          "end": 1.25
+        },
+        {
+          "text": "is",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "mine",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "host?",
+          "start": 1.59,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21601222082972527
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0382d0a50e7897fad94507955764d6c079b0354573fccbe0e85d544116d982e7",
+  "selected_reasons": []
+}

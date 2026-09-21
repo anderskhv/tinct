@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "7ff3b42edc033e2298cbddd38becc134a16c1db9878aa03568b87d4ba2e0a806",
+  "attempts": [
+    {
+      "asr_seconds": 0.27318011317402124,
+      "alignment_seconds": 0.0013220040127635002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Nym._ I thank thee for that humour.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nym, I thank thee for that humour.",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Nym,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.47802734375
+            },
+            {
+              "text": " I",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " thank",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thee",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " for",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " humour.",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.21728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nym,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "thank",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "thee",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "for",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "that",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "humour.",
+          "start": 1.84,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "_Nym._",
+        "I",
+        "thank",
+        "thee",
+        "for",
+        "that",
+        "humour."
+      ],
+      "acoustic_expected_tokens": [
+        "_Nym._",
+        "I",
+        "thank",
+        "thee",
+        "for",
+        "that",
+        "humour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nym,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "nym",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "humour.",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "humour",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Nym._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "thank",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "thee",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "for",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "that",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "humour.",
+          "start": 1.84,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27463673893362284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54116db0398bb4e61092a4778cec43b203bcfc2e19da23ee57965d7df1031be7",
+  "selected_reasons": []
+}

@@ -1,0 +1,895 @@
+{
+  "complete": true,
+  "signature": "37905dcaa9c28e3ff1d3a63723c8dfd10458e69f0a0b91365ec664d7b97a34e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.27670363150537014,
+      "alignment_seconds": 0.0011584777384996414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Nym._ By welkin and her star! 85",
+        "hotwords": "By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By welkin and her star! 85",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.00047087669372558594
+            },
+            {
+              "text": " welkin",
+              "start": 0.71,
+              "end": 1.43,
+              "probability": 0.4830322265625
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " her",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.9765625
+            },
+            {
+              "text": " star!",
+              "start": 1.67,
+              "end": 2.03,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " 85",
+              "start": 2.29,
+              "end": 2.61,
+              "probability": 0.4345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "welkin",
+          "start": 0.71,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "star!",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "raw": "85",
+          "start": 2.29,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "_Nym._",
+        "By",
+        "welkin",
+        "and",
+        "her",
+        "star!",
+        "85"
+      ],
+      "acoustic_expected_tokens": [
+        "_Nym._",
+        "By",
+        "welkin",
+        "and",
+        "her",
+        "star!",
+        "85"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          7,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "welkin",
+          "start": 0.71,
+          "end": 1.43,
+          "key": "welkin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "star!",
+          "start": 1.67,
+          "end": 2.03,
+          "key": "star",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "85",
+          "start": 2.29,
+          "end": 2.61,
+          "key": "eightyfive",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Nym._",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "By",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "welkin",
+          "start": 0.71,
+          "end": 1.43
+        },
+        {
+          "text": "and",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "her",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "star!",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "text": "85",
+          "start": 2.29,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.2779704490676522
+    },
+    {
+      "asr_seconds": 0.2948436290025711,
+      "alignment_seconds": 0.0014069359749555588,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "By"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " nymn, by welkin and her star, 85",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " nymn,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.4885915120442708
+            },
+            {
+              "text": " by",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.951171875
+            },
+            {
+              "text": " welkin",
+              "start": 1.07,
+              "end": 1.41,
+              "probability": 0.80078125
+            },
+            {
+              "text": " and",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " her",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " star,",
+              "start": 1.63,
+              "end": 1.99,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " 85",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "nymn,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "by",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "welkin",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "raw": "and",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "star,",
+          "start": 1.63,
+          "end": 1.99
+        },
+        {
+          "raw": "85",
+          "start": 2.27,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "_Nym._",
+        "By",
+        "welkin",
+        "and",
+        "her",
+        "star!",
+        "85"
+      ],
+      "acoustic_expected_tokens": [
+        "_Nym._",
+        "By",
+        "welkin",
+        "and",
+        "her",
+        "star!",
+        "85"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "nymn,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "nymn",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "welkin",
+          "start": 1.07,
+          "end": 1.41,
+          "key": "welkin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "star,",
+          "start": 1.63,
+          "end": 1.99,
+          "key": "star",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "85",
+          "start": 2.27,
+          "end": 2.59,
+          "key": "eightyfive",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Nym._",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "By",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "welkin",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "text": "and",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "her",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "star!",
+          "start": 1.63,
+          "end": 1.99
+        },
+        {
+          "text": "85",
+          "start": 2.27,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.29637638479471207
+    },
+    {
+      "asr_seconds": 0.3150587333366275,
+      "alignment_seconds": 0.0014160750433802605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nim, by Welkin and her star, 85",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Nim,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.451416015625
+            },
+            {
+              "text": " by",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Welkin",
+              "start": 1.07,
+              "end": 1.41,
+              "probability": 0.814453125
+            },
+            {
+              "text": " and",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " her",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.91015625
+            },
+            {
+              "text": " star,",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " 85",
+              "start": 2.29,
+              "end": 2.61,
+              "probability": 0.91357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nim,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "by",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "Welkin",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "raw": "and",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "star,",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "raw": "85",
+          "start": 2.29,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "_Nym._",
+        "By",
+        "welkin",
+        "and",
+        "her",
+        "star!",
+        "85"
+      ],
+      "acoustic_expected_tokens": [
+        "_Nym._",
+        "By",
+        "welkin",
+        "and",
+        "her",
+        "star!",
+        "85"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nim,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "nim",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Welkin",
+          "start": 1.07,
+          "end": 1.41,
+          "key": "welkin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "star,",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "star",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "85",
+          "start": 2.29,
+          "end": 2.61,
+          "key": "eightyfive",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Nym._",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "By",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "welkin",
+          "start": 1.07,
+          "end": 1.41
+        },
+        {
+          "text": "and",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "her",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "star!",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "text": "85",
+          "start": 2.29,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.3166017094627023
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8abc3685c3125029ba125a6394b7c12a1f246343aa3d43881c3f88bb45a05cbe",
+  "selected_reasons": []
+}

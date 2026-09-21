@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "43c33263e0fb7e4aea6ab575fb6fdadb13643159f876e92303f12a4d3f630d6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2926247837021947,
+      "alignment_seconds": 0.0007666535675525665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Ay, marry, was it, muscle-shell: what would you 25 with her?",
+        "hotwords": "Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fal, Ay, marry, was it, muscle-shell, what would you 25 with her?",
+          "start": 0.08,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.017669677734375
+            },
+            {
+              "text": " Ay,",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.00788116455078125
+            },
+            {
+              "text": " marry,",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.0004584789276123047
+            },
+            {
+              "text": " was",
+              "start": 1.72,
+              "end": 1.8,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " it,",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " muscle",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.77392578125
+            },
+            {
+              "text": "-shell,",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.56707763671875
+            },
+            {
+              "text": " what",
+              "start": 3.12,
+              "end": 3.2,
+              "probability": 0.896484375
+            },
+            {
+              "text": " would",
+              "start": 3.2,
+              "end": 3.3,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " you",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " 25",
+              "start": 3.42,
+              "end": 3.82,
+              "probability": 0.10125732421875
+            },
+            {
+              "text": " with",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " her?",
+              "start": 4.06,
+              "end": 4.26,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "marry,",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "was",
+          "start": 1.72,
+          "end": 1.8
+        },
+        {
+          "raw": "it,",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "muscle",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "-shell,",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "what",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "raw": "would",
+          "start": 3.2,
+          "end": 3.3
+        },
+        {
+          "raw": "you",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "25",
+          "start": 3.42,
+          "end": 3.82
+        },
+        {
+          "raw": "with",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "raw": "her?",
+          "start": 4.06,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Ay,",
+        "marry,",
+        "was",
+        "it,",
+        "muscle-shell:",
+        "what",
+        "would",
+        "you",
+        "25",
+        "with",
+        "her?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Ay,",
+        "marry,",
+        "was",
+        "it,",
+        "muscle-shell:",
+        "what",
+        "would",
+        "you",
+        "25",
+        "with",
+        "her?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "marry,",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "marry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.72,
+          "end": 1.8,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "muscle -shell,",
+          "start": 2.1,
+          "end": 2.6,
+          "key": "muscleshell",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.12,
+          "end": 3.2,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.2,
+          "end": 3.3,
+          "key": "would",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.3,
+          "end": 3.42,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "25",
+          "start": 3.42,
+          "end": 3.82,
+          "key": "twentyfive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.82,
+          "end": 4.06,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her?",
+          "start": 4.06,
+          "end": 4.26,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "muscle-shell:",
+          "heard": "muscle -shell,",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 2.1,
+          "end": 2.6
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Ay,",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "marry,",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "was",
+          "start": 1.72,
+          "end": 1.8
+        },
+        {
+          "text": "it,",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "muscle-shell:",
+          "start": 2.1,
+          "end": 2.6
+        },
+        {
+          "text": "what",
+          "start": 3.12,
+          "end": 3.2
+        },
+        {
+          "text": "would",
+          "start": 3.2,
+          "end": 3.3
+        },
+        {
+          "text": "you",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "25",
+          "start": 3.42,
+          "end": 3.82
+        },
+        {
+          "text": "with",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "text": "her?",
+          "start": 4.06,
+          "end": 4.26
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29344033543020487
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "358f58a29c3becb8663187af5a5b26151b9598d7b24b873b6c56a6a8db92512a",
+  "selected_reasons": []
+}

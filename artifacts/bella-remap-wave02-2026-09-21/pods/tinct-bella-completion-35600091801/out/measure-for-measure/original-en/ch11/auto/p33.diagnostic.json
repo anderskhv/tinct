@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "310f41f929802c27b6da81f42426eb34cc0c35f6998c69075cc589b6c0d04141",
+  "attempts": [
+    {
+      "asr_seconds": 0.21893498208373785,
+      "alignment_seconds": 0.0009751683101058006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mari._ Fear me not.",
+        "hotwords": "Fear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mari. Fear me not.",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Mari.",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " Fear",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " me",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.845703125
+            },
+            {
+              "text": " not.",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mari.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Fear",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "me",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "not.",
+          "start": 1.32,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "_Mari._",
+        "Fear",
+        "me",
+        "not."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mari._",
+        "Fear",
+        "me",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mari.",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "mari",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fear",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "fear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mari._",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Fear",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "me",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "not.",
+          "start": 1.32,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21999769285321236
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "452a8722fe9829e47b1700322f76b7d492f8e4b8bab416c6645612e2d9549a01",
+  "selected_reasons": []
+}

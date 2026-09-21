@@ -1,0 +1,353 @@
+{
+  "complete": true,
+  "signature": "433ae8aff4aaa82b0203f9870ccad678adef2d9a7568f0bd6547bf4ae5579360",
+  "attempts": [
+    {
+      "asr_seconds": 0.45838266517966986,
+      "alignment_seconds": 0.0012026391923427582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exeunt Page, Shal., and Slen._",
+        "hotwords": "Exeunt, Page, Shal, Slen._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Page, Shal, and Slen._",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " Page,",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " Shal,",
+              "start": 1.43,
+              "end": 1.43,
+              "probability": 0.0017452239990234375
+            },
+            {
+              "text": " and",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.76953125
+            },
+            {
+              "text": " Slen._",
+              "start": 1.87,
+              "end": 2.65,
+              "probability": 0.3179525136947632
+            }
+          ]
+        },
+        {
+          "text": " Exeunt, Page, Shal, and Slen._",
+          "start": 2.65,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 2.65,
+              "end": 2.65,
+              "probability": 0.008357465267181396
+            },
+            {
+              "text": " Page,",
+              "start": 2.69,
+              "end": 2.69,
+              "probability": 4.0471553802490234e-05
+            },
+            {
+              "text": " Shal,",
+              "start": 2.69,
+              "end": 2.69,
+              "probability": 3.0994415283203125e-06
+            },
+            {
+              "text": " and",
+              "start": 2.69,
+              "end": 2.69,
+              "probability": 0.00958251953125
+            },
+            {
+              "text": " Slen._",
+              "start": 2.69,
+              "end": 2.69,
+              "probability": 0.0003543694814046224
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Page,",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "Shal,",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "Slen._",
+          "start": 1.87,
+          "end": 2.65
+        },
+        {
+          "raw": "Exeunt,",
+          "start": 2.65,
+          "end": 2.65
+        },
+        {
+          "raw": "Page,",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "raw": "Shal,",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "raw": "Slen._",
+          "start": 2.69,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Page,",
+        "Shal.,",
+        "and",
+        "Slen._"
+      ],
+      "acoustic_expected_tokens": [
+        "Exeunt",
+        "Page,",
+        "Shal.,",
+        "and",
+        "Slen._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.91,
+          "end": 1.09,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Shal,",
+          "start": 1.43,
+          "end": 1.43,
+          "key": "shal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Slen._",
+          "start": 1.87,
+          "end": 2.65,
+          "key": "slen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Exeunt,",
+          "start": 2.65,
+          "end": 2.65,
+          "key": "exeunt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 2.69,
+          "end": 2.69,
+          "key": "page",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shal,",
+          "start": 2.69,
+          "end": 2.69,
+          "key": "shal",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.69,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Slen._",
+          "start": 2.69,
+          "end": 2.69,
+          "key": "slen",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Page,",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "Shal.,",
+          "start": 1.43,
+          "end": 1.43
+        },
+        {
+          "text": "and",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "Slen._",
+          "start": 1.87,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45975533314049244
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4ea2906a8a0013ba849d37666aad39e30f0dd555fd0a1818799421137c59b9e",
+  "selected_reasons": []
+}

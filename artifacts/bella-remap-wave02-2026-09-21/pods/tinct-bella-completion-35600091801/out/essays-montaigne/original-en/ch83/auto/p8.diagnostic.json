@@ -1,0 +1,473 @@
+{
+  "complete": true,
+  "signature": "e69433628c498cb678aa67f1456ec727dc1f2b9c936e791938cc3f0ef95c6cae",
+  "attempts": [
+    {
+      "asr_seconds": 0.9081313507631421,
+      "alignment_seconds": 0.0014657964929938316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Converso pollice vulgi, Quemlibet occidunt populariter.\"",
+        "hotwords": "Converso, Quemlibet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Converso pollice vulgi, Quemlibet occidunt populariter",
+          "start": 0.05,
+          "end": 4.09,
+          "words": [
+            {
+              "text": " Converso",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.53973388671875
+            },
+            {
+              "text": " pollice",
+              "start": 1.03,
+              "end": 1.49,
+              "probability": 0.0335693359375
+            },
+            {
+              "text": " vulgi,",
+              "start": 1.49,
+              "end": 1.93,
+              "probability": 0.408935546875
+            },
+            {
+              "text": " Quemlibet",
+              "start": 2.37,
+              "end": 2.81,
+              "probability": 0.6839599609375
+            },
+            {
+              "text": " occidunt",
+              "start": 2.81,
+              "end": 3.33,
+              "probability": 0.3843994140625
+            },
+            {
+              "text": " populariter",
+              "start": 3.33,
+              "end": 4.09,
+              "probability": 0.19488525390625
+            }
+          ]
+        },
+        {
+          "text": " Quemlibet occidunt populariter",
+          "start": 4.09,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " Quemlibet",
+              "start": 4.09,
+              "end": 4.11,
+              "probability": 0.0016241073608398438
+            },
+            {
+              "text": " occidunt",
+              "start": 4.11,
+              "end": 4.13,
+              "probability": 0.00040775537490844727
+            },
+            {
+              "text": " populariter",
+              "start": 4.13,
+              "end": 4.19,
+              "probability": 5.9932470321655273e-05
+            }
+          ]
+        },
+        {
+          "text": " Quemlibet occidunt populariter Quemlibet occidunt populariter",
+          "start": 4.19,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Quemlibet",
+              "start": 4.19,
+              "end": 4.27,
+              "probability": 0.003296956419944763
+            },
+            {
+              "text": " occidunt",
+              "start": 4.27,
+              "end": 4.27,
+              "probability": 0.00037940343221028644
+            },
+            {
+              "text": " populariter",
+              "start": 4.27,
+              "end": 4.27,
+              "probability": 3.936886787414551e-05
+            },
+            {
+              "text": " Quemlibet",
+              "start": 4.27,
+              "end": 4.73,
+              "probability": 0.49694931507110596
+            },
+            {
+              "text": " occidunt",
+              "start": 4.73,
+              "end": 4.73,
+              "probability": 0.7664388020833334
+            },
+            {
+              "text": " populariter",
+              "start": 4.73,
+              "end": 4.73,
+              "probability": 0.84765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Converso",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "pollice",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "raw": "vulgi,",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 2.37,
+          "end": 2.81
+        },
+        {
+          "raw": "occidunt",
+          "start": 2.81,
+          "end": 3.33
+        },
+        {
+          "raw": "populariter",
+          "start": 3.33,
+          "end": 4.09
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 4.09,
+          "end": 4.11
+        },
+        {
+          "raw": "occidunt",
+          "start": 4.11,
+          "end": 4.13
+        },
+        {
+          "raw": "populariter",
+          "start": 4.13,
+          "end": 4.19
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 4.19,
+          "end": 4.27
+        },
+        {
+          "raw": "occidunt",
+          "start": 4.27,
+          "end": 4.27
+        },
+        {
+          "raw": "populariter",
+          "start": 4.27,
+          "end": 4.27
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 4.27,
+          "end": 4.73
+        },
+        {
+          "raw": "occidunt",
+          "start": 4.73,
+          "end": 4.73
+        },
+        {
+          "raw": "populariter",
+          "start": 4.73,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "“Converso",
+        "pollice",
+        "vulgi,",
+        "Quemlibet",
+        "occidunt",
+        "populariter.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Converso",
+        "pollice",
+        "vulgi,",
+        "Quemlibet",
+        "occidunt",
+        "populariter.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Converso",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "converso",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pollice",
+          "start": 1.03,
+          "end": 1.49,
+          "key": "pollice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vulgi,",
+          "start": 1.49,
+          "end": 1.93,
+          "key": "vulgi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 2.37,
+          "end": 2.81,
+          "key": "quemlibet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "occidunt",
+          "start": 2.81,
+          "end": 3.33,
+          "key": "occidunt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "populariter",
+          "start": 3.33,
+          "end": 4.09,
+          "key": "populariter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 4.09,
+          "end": 4.11,
+          "key": "quemlibet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "occidunt",
+          "start": 4.11,
+          "end": 4.13,
+          "key": "occidunt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "populariter",
+          "start": 4.13,
+          "end": 4.19,
+          "key": "populariter",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 4.19,
+          "end": 4.27,
+          "key": "quemlibet",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "occidunt",
+          "start": 4.27,
+          "end": 4.27,
+          "key": "occidunt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "populariter",
+          "start": 4.27,
+          "end": 4.27,
+          "key": "populariter",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Quemlibet",
+          "start": 4.27,
+          "end": 4.73,
+          "key": "quemlibet",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "occidunt",
+          "start": 4.73,
+          "end": 4.73,
+          "key": "occidunt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "populariter",
+          "start": 4.73,
+          "end": 4.73,
+          "key": "populariter",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Converso",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "pollice",
+          "start": 1.03,
+          "end": 1.49
+        },
+        {
+          "text": "vulgi,",
+          "start": 1.49,
+          "end": 1.93
+        },
+        {
+          "text": "Quemlibet",
+          "start": 2.37,
+          "end": 2.81
+        },
+        {
+          "text": "occidunt",
+          "start": 2.81,
+          "end": 3.33
+        },
+        {
+          "text": "populariter.”",
+          "start": 3.33,
+          "end": 4.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 15,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9098307164385915
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "22150ee5c5b2fb7d35f07723495394361ad5b5434d12860d59be596abf4edefb",
+  "selected_reasons": []
+}

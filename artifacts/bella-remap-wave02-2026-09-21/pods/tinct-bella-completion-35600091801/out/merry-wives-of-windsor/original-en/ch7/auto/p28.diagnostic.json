@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "b17db6838cfa0af8a0c22aebb762c48c013fc08e9059f297df2074d49bccacb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.4283305937424302,
+      "alignment_seconds": 0.001984555274248123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Mock-water, in our English tongue, is valour, bully. 55",
+        "hotwords": "Mock-water, English"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, mock-water, in our English tongue, is valour, bully. 55",
+          "start": 0.08,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " mock",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.33251953125
+            },
+            {
+              "text": "-water,",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.55743408203125
+            },
+            {
+              "text": " in",
+              "start": 1.8,
+              "end": 1.84,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " our",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " English",
+              "start": 1.98,
+              "end": 2.22,
+              "probability": 0.966796875
+            },
+            {
+              "text": " tongue,",
+              "start": 2.22,
+              "end": 2.54,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 2.66,
+              "end": 2.76,
+              "probability": 0.970703125
+            },
+            {
+              "text": " valour,",
+              "start": 2.76,
+              "end": 3.16,
+              "probability": 0.36712646484375
+            },
+            {
+              "text": " bully.",
+              "start": 3.24,
+              "end": 3.4,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " 55",
+              "start": 3.88,
+              "end": 4.18,
+              "probability": 0.39453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "mock",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "-water,",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 1.84
+        },
+        {
+          "raw": "our",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "English",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "raw": "tongue,",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "raw": "is",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "raw": "valour,",
+          "start": 2.76,
+          "end": 3.16
+        },
+        {
+          "raw": "bully.",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "raw": "55",
+          "start": 3.88,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Mock-water,",
+        "in",
+        "our",
+        "English",
+        "tongue,",
+        "is",
+        "valour,",
+        "bully.",
+        "55"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Mock-water,",
+        "in",
+        "our",
+        "English",
+        "tongue,",
+        "is",
+        "valour,",
+        "bully.",
+        "55"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mock -water,",
+          "start": 1.22,
+          "end": 1.68,
+          "key": "mockwater",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 1.84,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "English",
+          "start": 1.98,
+          "end": 2.22,
+          "key": "english",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tongue,",
+          "start": 2.22,
+          "end": 2.54,
+          "key": "tongue",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.66,
+          "end": 2.76,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "valour,",
+          "start": 2.76,
+          "end": 3.16,
+          "key": "valour",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bully.",
+          "start": 3.24,
+          "end": 3.4,
+          "key": "bully",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "55",
+          "start": 3.88,
+          "end": 4.18,
+          "key": "fiftyfive",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Mock-water,",
+          "heard": "mock -water,",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.22,
+          "end": 1.68
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Mock-water,",
+          "start": 1.22,
+          "end": 1.68
+        },
+        {
+          "text": "in",
+          "start": 1.8,
+          "end": 1.84
+        },
+        {
+          "text": "our",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "English",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "text": "tongue,",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "text": "is",
+          "start": 2.66,
+          "end": 2.76
+        },
+        {
+          "text": "valour,",
+          "start": 2.76,
+          "end": 3.16
+        },
+        {
+          "text": "bully.",
+          "start": 3.24,
+          "end": 3.4
+        },
+        {
+          "text": "55",
+          "start": 3.88,
+          "end": 4.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.430494099855423
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "03750304badcee04f7485422dcb62e046721718d71c763ca657522f1ee79a2a8",
+  "selected_reasons": []
+}

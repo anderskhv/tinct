@@ -1,0 +1,693 @@
+{
+  "complete": true,
+  "signature": "6ca1ed83de4ec11ad1e463a68ed81f425cb35a272509de747e97b4a7f3be115d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3808564729988575,
+      "alignment_seconds": 0.002694757655262947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ang._ 'Tis so with me. Let us withdraw together, And we may soon our satisfaction have Touching that point.",
+        "hotwords": "Tis, Let, And, Touching"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ang, Tis so with me. Let us withdraw together, And we may soon our satisfaction have Touching that point.",
+          "start": 0.02,
+          "end": 6.42,
+          "words": [
+            {
+              "text": " Ang,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " Tis",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.007699489593505859
+            },
+            {
+              "text": " so",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " with",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me.",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Let",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.984375
+            },
+            {
+              "text": " us",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " withdraw",
+              "start": 2.74,
+              "end": 3.06,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " together,",
+              "start": 3.06,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " And",
+              "start": 3.78,
+              "end": 3.88,
+              "probability": 0.0036945343017578125
+            },
+            {
+              "text": " we",
+              "start": 3.88,
+              "end": 3.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " may",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " soon",
+              "start": 4.2,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 4.34,
+              "end": 4.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " satisfaction",
+              "start": 4.54,
+              "end": 5.18,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " have",
+              "start": 5.18,
+              "end": 5.44,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " Touching",
+              "start": 5.44,
+              "end": 5.88,
+              "probability": 0.5089340209960938
+            },
+            {
+              "text": " that",
+              "start": 5.88,
+              "end": 6.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " point.",
+              "start": 6.08,
+              "end": 6.42,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ang,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Tis",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "raw": "so",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "with",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "me.",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "Let",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "us",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "withdraw",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "raw": "together,",
+          "start": 3.06,
+          "end": 3.5
+        },
+        {
+          "raw": "And",
+          "start": 3.78,
+          "end": 3.88
+        },
+        {
+          "raw": "we",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "raw": "may",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "soon",
+          "start": 4.2,
+          "end": 4.34
+        },
+        {
+          "raw": "our",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "raw": "satisfaction",
+          "start": 4.54,
+          "end": 5.18
+        },
+        {
+          "raw": "have",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "raw": "Touching",
+          "start": 5.44,
+          "end": 5.88
+        },
+        {
+          "raw": "that",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "raw": "point.",
+          "start": 6.08,
+          "end": 6.42
+        }
+      ],
+      "expected_tokens": [
+        "_Ang._",
+        "'Tis",
+        "so",
+        "with",
+        "me.",
+        "Let",
+        "us",
+        "withdraw",
+        "together,",
+        "And",
+        "we",
+        "may",
+        "soon",
+        "our",
+        "satisfaction",
+        "have",
+        "Touching",
+        "that",
+        "point."
+      ],
+      "acoustic_expected_tokens": [
+        "_Ang._",
+        "'Tis",
+        "so",
+        "with",
+        "me.",
+        "Let",
+        "us",
+        "withdraw",
+        "together,",
+        "And",
+        "we",
+        "may",
+        "soon",
+        "our",
+        "satisfaction",
+        "have",
+        "Touching",
+        "that",
+        "point."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ang,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "ang",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.68,
+          "end": 1.94,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "let",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "withdraw",
+          "start": 2.74,
+          "end": 3.06,
+          "key": "withdraw",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "together,",
+          "start": 3.06,
+          "end": 3.5,
+          "key": "together",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.78,
+          "end": 3.88,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.88,
+          "end": 3.98,
+          "key": "we",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.98,
+          "end": 4.2,
+          "key": "may",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "soon",
+          "start": 4.2,
+          "end": 4.34,
+          "key": "soon",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.34,
+          "end": 4.54,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "satisfaction",
+          "start": 4.54,
+          "end": 5.18,
+          "key": "satisfaction",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.18,
+          "end": 5.44,
+          "key": "have",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Touching",
+          "start": 5.44,
+          "end": 5.88,
+          "key": "touching",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.88,
+          "end": 6.08,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "point.",
+          "start": 6.08,
+          "end": 6.42,
+          "key": "point",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Ang._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "'Tis",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "text": "so",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "with",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "me.",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "Let",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "us",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "withdraw",
+          "start": 2.74,
+          "end": 3.06
+        },
+        {
+          "text": "together,",
+          "start": 3.06,
+          "end": 3.5
+        },
+        {
+          "text": "And",
+          "start": 3.78,
+          "end": 3.88
+        },
+        {
+          "text": "we",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "text": "may",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "soon",
+          "start": 4.2,
+          "end": 4.34
+        },
+        {
+          "text": "our",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "text": "satisfaction",
+          "start": 4.54,
+          "end": 5.18
+        },
+        {
+          "text": "have",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "Touching",
+          "start": 5.44,
+          "end": 5.88
+        },
+        {
+          "text": "that",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "text": "point.",
+          "start": 6.08,
+          "end": 6.42
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38381014205515385
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7dd7ea0aaa4bbfd1e41a1dfd5b1a68174795af6c718c596b9e07e2cba2402f5c",
+  "selected_reasons": []
+}

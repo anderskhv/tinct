@@ -1,0 +1,6318 @@
+{
+  "complete": true,
+  "signature": "5c1efb93abbe4642f37689d70960b547712525755e79878afd161df712b5d184",
+  "attempts": [
+    {
+      "asr_seconds": 1.0494658686220646,
+      "alignment_seconds": 0.01200465951114893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Nay, it is petter yet. Give her this letter; for it is a 'oman that altogether's acquaintance with Mistress Anne Page: and the letter is, to desire and require her to solicit your master's desires to Mistress Anne Page. I pray you, be gone: I will make an end of my dinner; 10 there's pippins and cheese to come. Exeunt._",
+        "hotwords": "Nay, Give, Mistress, Anne, Page, I, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nay, it is petter yet. Give her this letter, for it is a omon that altogether's acquaintance with Mistress Anne Page. And the letter is, to desire and require her to solicit your master's desires to Mistress Anne Page. I pray you, be gone. I will make an end of my dinner. 10 there's pippins and cheese to come. Exeunt._",
+          "start": 0.11,
+          "end": 21.49,
+          "words": [
+            {
+              "text": " Nay,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 1.2278556823730469e-05
+            },
+            {
+              "text": " it",
+              "start": 1.59,
+              "end": 1.63,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " petter",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.483062744140625
+            },
+            {
+              "text": " yet.",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Give",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " her",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " letter,",
+              "start": 3.51,
+              "end": 3.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " it",
+              "start": 4.37,
+              "end": 4.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 4.47,
+              "end": 4.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 4.57,
+              "end": 4.75,
+              "probability": 0.77734375
+            },
+            {
+              "text": " omon",
+              "start": 4.75,
+              "end": 5.13,
+              "probability": 0.23370361328125
+            },
+            {
+              "text": " that",
+              "start": 5.13,
+              "end": 5.39,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " altogether's",
+              "start": 5.39,
+              "end": 6.17,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " acquaintance",
+              "start": 6.17,
+              "end": 6.59,
+              "probability": 0.984375
+            },
+            {
+              "text": " with",
+              "start": 6.59,
+              "end": 6.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Mistress",
+              "start": 6.91,
+              "end": 7.23,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Anne",
+              "start": 7.23,
+              "end": 7.51,
+              "probability": 0.802734375
+            },
+            {
+              "text": " Page.",
+              "start": 7.51,
+              "end": 7.91,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " And",
+              "start": 8.45,
+              "end": 8.55,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 8.55,
+              "end": 8.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " letter",
+              "start": 8.69,
+              "end": 8.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is,",
+              "start": 8.89,
+              "end": 9.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 9.37,
+              "end": 9.41,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " desire",
+              "start": 9.41,
+              "end": 9.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 9.85,
+              "end": 10.13,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " require",
+              "start": 10.13,
+              "end": 10.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " her",
+              "start": 10.57,
+              "end": 10.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 10.81,
+              "end": 11.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " solicit",
+              "start": 11.01,
+              "end": 11.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 11.35,
+              "end": 11.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " master's",
+              "start": 11.61,
+              "end": 12.21,
+              "probability": 0.888427734375
+            },
+            {
+              "text": " desires",
+              "start": 12.21,
+              "end": 12.63,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 12.63,
+              "end": 12.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mistress",
+              "start": 12.93,
+              "end": 13.21,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Anne",
+              "start": 13.21,
+              "end": 13.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Page.",
+              "start": 13.57,
+              "end": 13.97,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 14.65,
+              "end": 14.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " pray",
+              "start": 14.75,
+              "end": 14.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you,",
+              "start": 14.95,
+              "end": 15.23,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 15.39,
+              "end": 15.45,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " gone.",
+              "start": 15.45,
+              "end": 15.77,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " I",
+              "start": 16.21,
+              "end": 16.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 16.31,
+              "end": 16.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " make",
+              "start": 16.43,
+              "end": 16.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 16.59,
+              "end": 16.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " end",
+              "start": 16.73,
+              "end": 16.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 16.87,
+              "end": 17.01,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 17.01,
+              "end": 17.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dinner.",
+              "start": 17.17,
+              "end": 17.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " 10",
+              "start": 17.95,
+              "end": 18.09,
+              "probability": 0.129150390625
+            },
+            {
+              "text": " there's",
+              "start": 18.09,
+              "end": 18.45,
+              "probability": 0.802978515625
+            },
+            {
+              "text": " pippins",
+              "start": 18.45,
+              "end": 18.85,
+              "probability": 0.8484700520833334
+            },
+            {
+              "text": " and",
+              "start": 18.85,
+              "end": 19.03,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " cheese",
+              "start": 19.03,
+              "end": 19.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 19.31,
+              "end": 19.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " come.",
+              "start": 19.49,
+              "end": 19.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Exeunt._",
+              "start": 20.93,
+              "end": 21.49,
+              "probability": 0.6256103962659836
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nay,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "it",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "petter",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "yet.",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "Give",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "this",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "letter,",
+          "start": 3.51,
+          "end": 3.91
+        },
+        {
+          "raw": "for",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "it",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "raw": "omon",
+          "start": 4.75,
+          "end": 5.13
+        },
+        {
+          "raw": "that",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "raw": "altogether's",
+          "start": 5.39,
+          "end": 6.17
+        },
+        {
+          "raw": "acquaintance",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "raw": "with",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "raw": "Mistress",
+          "start": 6.91,
+          "end": 7.23
+        },
+        {
+          "raw": "Anne",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "raw": "Page.",
+          "start": 7.51,
+          "end": 7.91
+        },
+        {
+          "raw": "And",
+          "start": 8.45,
+          "end": 8.55
+        },
+        {
+          "raw": "the",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "raw": "letter",
+          "start": 8.69,
+          "end": 8.89
+        },
+        {
+          "raw": "is,",
+          "start": 8.89,
+          "end": 9.21
+        },
+        {
+          "raw": "to",
+          "start": 9.37,
+          "end": 9.41
+        },
+        {
+          "raw": "desire",
+          "start": 9.41,
+          "end": 9.85
+        },
+        {
+          "raw": "and",
+          "start": 9.85,
+          "end": 10.13
+        },
+        {
+          "raw": "require",
+          "start": 10.13,
+          "end": 10.57
+        },
+        {
+          "raw": "her",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "raw": "to",
+          "start": 10.81,
+          "end": 11.01
+        },
+        {
+          "raw": "solicit",
+          "start": 11.01,
+          "end": 11.35
+        },
+        {
+          "raw": "your",
+          "start": 11.35,
+          "end": 11.61
+        },
+        {
+          "raw": "master's",
+          "start": 11.61,
+          "end": 12.21
+        },
+        {
+          "raw": "desires",
+          "start": 12.21,
+          "end": 12.63
+        },
+        {
+          "raw": "to",
+          "start": 12.63,
+          "end": 12.93
+        },
+        {
+          "raw": "Mistress",
+          "start": 12.93,
+          "end": 13.21
+        },
+        {
+          "raw": "Anne",
+          "start": 13.21,
+          "end": 13.57
+        },
+        {
+          "raw": "Page.",
+          "start": 13.57,
+          "end": 13.97
+        },
+        {
+          "raw": "I",
+          "start": 14.65,
+          "end": 14.75
+        },
+        {
+          "raw": "pray",
+          "start": 14.75,
+          "end": 14.95
+        },
+        {
+          "raw": "you,",
+          "start": 14.95,
+          "end": 15.23
+        },
+        {
+          "raw": "be",
+          "start": 15.39,
+          "end": 15.45
+        },
+        {
+          "raw": "gone.",
+          "start": 15.45,
+          "end": 15.77
+        },
+        {
+          "raw": "I",
+          "start": 16.21,
+          "end": 16.31
+        },
+        {
+          "raw": "will",
+          "start": 16.31,
+          "end": 16.43
+        },
+        {
+          "raw": "make",
+          "start": 16.43,
+          "end": 16.59
+        },
+        {
+          "raw": "an",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "raw": "end",
+          "start": 16.73,
+          "end": 16.87
+        },
+        {
+          "raw": "of",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "raw": "my",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "raw": "dinner.",
+          "start": 17.17,
+          "end": 17.53
+        },
+        {
+          "raw": "10",
+          "start": 17.95,
+          "end": 18.09
+        },
+        {
+          "raw": "there's",
+          "start": 18.09,
+          "end": 18.45
+        },
+        {
+          "raw": "pippins",
+          "start": 18.45,
+          "end": 18.85
+        },
+        {
+          "raw": "and",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "raw": "cheese",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.49
+        },
+        {
+          "raw": "come.",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 20.93,
+          "end": 21.49
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Nay,",
+        "it",
+        "is",
+        "petter",
+        "yet.",
+        "Give",
+        "her",
+        "this",
+        "letter;",
+        "for",
+        "it",
+        "is",
+        "a",
+        "’oman",
+        "that",
+        "altogether’s",
+        "acquaintance",
+        "with",
+        "Mistress",
+        "Anne",
+        "Page:",
+        "and",
+        "the",
+        "letter",
+        "is,",
+        "to",
+        "desire",
+        "and",
+        "require",
+        "her",
+        "to",
+        "solicit",
+        "your",
+        "master’s",
+        "desires",
+        "to",
+        "Mistress",
+        "Anne",
+        "Page.",
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "gone:",
+        "I",
+        "will",
+        "make",
+        "an",
+        "end",
+        "of",
+        "my",
+        "dinner;",
+        "10",
+        "there’s",
+        "pippins",
+        "and",
+        "cheese",
+        "to",
+        "come.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Nay,",
+        "it",
+        "is",
+        "petter",
+        "yet.",
+        "Give",
+        "her",
+        "this",
+        "letter;",
+        "for",
+        "it",
+        "is",
+        "a",
+        "'oman",
+        "that",
+        "altogether's",
+        "acquaintance",
+        "with",
+        "Mistress",
+        "Anne",
+        "Page:",
+        "and",
+        "the",
+        "letter",
+        "is,",
+        "to",
+        "desire",
+        "and",
+        "require",
+        "her",
+        "to",
+        "solicit",
+        "your",
+        "master's",
+        "desires",
+        "to",
+        "Mistress",
+        "Anne",
+        "Page.",
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "gone:",
+        "I",
+        "will",
+        "make",
+        "an",
+        "end",
+        "of",
+        "my",
+        "dinner;",
+        "10",
+        "there's",
+        "pippins",
+        "and",
+        "cheese",
+        "to",
+        "come.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          14,
+          0,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "equal",
+          15,
+          61,
+          14,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nay,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "nay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.59,
+          "end": 1.63,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "petter",
+          "start": 1.83,
+          "end": 2.17,
+          "key": "petter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "letter,",
+          "start": 3.51,
+          "end": 3.91,
+          "key": "letter",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.37,
+          "end": 4.47,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.57,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.75,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "omon",
+          "start": 4.75,
+          "end": 5.13,
+          "key": "omon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.13,
+          "end": 5.39,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "altogether's",
+          "start": 5.39,
+          "end": 6.17,
+          "key": "altogethers",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "acquaintance",
+          "start": 6.17,
+          "end": 6.59,
+          "key": "acquaintance",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.59,
+          "end": 6.91,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 6.91,
+          "end": 7.23,
+          "key": "mistress",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 7.23,
+          "end": 7.51,
+          "key": "anne",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 7.51,
+          "end": 7.91,
+          "key": "page",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.45,
+          "end": 8.55,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.55,
+          "end": 8.69,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 8.69,
+          "end": 8.89,
+          "key": "letter",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 8.89,
+          "end": 9.21,
+          "key": "is",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.37,
+          "end": 9.41,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 9.41,
+          "end": 9.85,
+          "key": "desire",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.85,
+          "end": 10.13,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "require",
+          "start": 10.13,
+          "end": 10.57,
+          "key": "require",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 10.57,
+          "end": 10.81,
+          "key": "her",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.81,
+          "end": 11.01,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "solicit",
+          "start": 11.01,
+          "end": 11.35,
+          "key": "solicit",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.35,
+          "end": 11.61,
+          "key": "your",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "master's",
+          "start": 11.61,
+          "end": 12.21,
+          "key": "masters",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "desires",
+          "start": 12.21,
+          "end": 12.63,
+          "key": "desires",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.63,
+          "end": 12.93,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 12.93,
+          "end": 13.21,
+          "key": "mistress",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 13.21,
+          "end": 13.57,
+          "key": "anne",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 13.57,
+          "end": 13.97,
+          "key": "page",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.65,
+          "end": 14.75,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 14.75,
+          "end": 14.95,
+          "key": "pray",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 14.95,
+          "end": 15.23,
+          "key": "you",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.39,
+          "end": 15.45,
+          "key": "be",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 15.45,
+          "end": 15.77,
+          "key": "gone",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.21,
+          "end": 16.31,
+          "key": "i",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 16.31,
+          "end": 16.43,
+          "key": "will",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 16.43,
+          "end": 16.59,
+          "key": "make",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 16.59,
+          "end": 16.73,
+          "key": "an",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 16.73,
+          "end": 16.87,
+          "key": "end",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.87,
+          "end": 17.01,
+          "key": "of",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.01,
+          "end": 17.17,
+          "key": "my",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "dinner.",
+          "start": 17.17,
+          "end": 17.53,
+          "key": "dinner",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "10",
+          "start": 17.95,
+          "end": 18.09,
+          "key": "ten",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 18.09,
+          "end": 18.45,
+          "key": "theres",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "pippins",
+          "start": 18.45,
+          "end": 18.85,
+          "key": "pippins",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.85,
+          "end": 19.03,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "cheese",
+          "start": 19.03,
+          "end": 19.31,
+          "key": "cheese",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.49,
+          "key": "to",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 19.49,
+          "end": 19.83,
+          "key": "come",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 20.93,
+          "end": 21.49,
+          "key": "exeunt",
+          "pieces": [
+            59
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.0,
+          "end": 0.055
+        },
+        {
+          "text": "Nay,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "it",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "text": "is",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "petter",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "yet.",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "Give",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "her",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "this",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "letter;",
+          "start": 3.51,
+          "end": 3.91
+        },
+        {
+          "text": "for",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "it",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "text": "is",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "text": "a",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "text": "’oman",
+          "start": 4.75,
+          "end": 4.94
+        },
+        {
+          "text": "that",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "text": "altogether’s",
+          "start": 5.39,
+          "end": 6.17
+        },
+        {
+          "text": "acquaintance",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "text": "with",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "text": "Mistress",
+          "start": 6.91,
+          "end": 7.23
+        },
+        {
+          "text": "Anne",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "text": "Page:",
+          "start": 7.51,
+          "end": 7.91
+        },
+        {
+          "text": "and",
+          "start": 8.45,
+          "end": 8.55
+        },
+        {
+          "text": "the",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "text": "letter",
+          "start": 8.69,
+          "end": 8.89
+        },
+        {
+          "text": "is,",
+          "start": 8.89,
+          "end": 9.21
+        },
+        {
+          "text": "to",
+          "start": 9.37,
+          "end": 9.41
+        },
+        {
+          "text": "desire",
+          "start": 9.41,
+          "end": 9.85
+        },
+        {
+          "text": "and",
+          "start": 9.85,
+          "end": 10.13
+        },
+        {
+          "text": "require",
+          "start": 10.13,
+          "end": 10.57
+        },
+        {
+          "text": "her",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "text": "to",
+          "start": 10.81,
+          "end": 11.01
+        },
+        {
+          "text": "solicit",
+          "start": 11.01,
+          "end": 11.35
+        },
+        {
+          "text": "your",
+          "start": 11.35,
+          "end": 11.61
+        },
+        {
+          "text": "master’s",
+          "start": 11.61,
+          "end": 12.21
+        },
+        {
+          "text": "desires",
+          "start": 12.21,
+          "end": 12.63
+        },
+        {
+          "text": "to",
+          "start": 12.63,
+          "end": 12.93
+        },
+        {
+          "text": "Mistress",
+          "start": 12.93,
+          "end": 13.21
+        },
+        {
+          "text": "Anne",
+          "start": 13.21,
+          "end": 13.57
+        },
+        {
+          "text": "Page.",
+          "start": 13.57,
+          "end": 13.97
+        },
+        {
+          "text": "I",
+          "start": 14.65,
+          "end": 14.75
+        },
+        {
+          "text": "pray",
+          "start": 14.75,
+          "end": 14.95
+        },
+        {
+          "text": "you,",
+          "start": 14.95,
+          "end": 15.23
+        },
+        {
+          "text": "be",
+          "start": 15.39,
+          "end": 15.45
+        },
+        {
+          "text": "gone:",
+          "start": 15.45,
+          "end": 15.77
+        },
+        {
+          "text": "I",
+          "start": 16.21,
+          "end": 16.31
+        },
+        {
+          "text": "will",
+          "start": 16.31,
+          "end": 16.43
+        },
+        {
+          "text": "make",
+          "start": 16.43,
+          "end": 16.59
+        },
+        {
+          "text": "an",
+          "start": 16.59,
+          "end": 16.73
+        },
+        {
+          "text": "end",
+          "start": 16.73,
+          "end": 16.87
+        },
+        {
+          "text": "of",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "text": "my",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "text": "dinner;",
+          "start": 17.17,
+          "end": 17.53
+        },
+        {
+          "text": "10",
+          "start": 17.95,
+          "end": 18.09
+        },
+        {
+          "text": "there’s",
+          "start": 18.09,
+          "end": 18.45
+        },
+        {
+          "text": "pippins",
+          "start": 18.45,
+          "end": 18.85
+        },
+        {
+          "text": "and",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "text": "cheese",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "text": "to",
+          "start": 19.31,
+          "end": 19.49
+        },
+        {
+          "text": "come.",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 20.93,
+          "end": 21.49
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 60,
+        "matched_words": 59
+      },
+      "match_ratio": 0.9672131147540983,
+      "rejection_reasons": [],
+      "seconds": 1.0624063713476062
+    },
+    {
+      "asr_seconds": 1.1803125459700823,
+      "alignment_seconds": 0.011983820237219334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Nay, Give, Mistress, Anne, Page, I, Exeunt._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Evans, nay, it is better yet. Give her this letter, for it is a Oman that altogethers acquaintance with Mistress Anne Page, and the letter is to desire and require her to solicit your master's desires to Mistress Anne Page. I pray you, be gone. I will make an end of my dinner, ten there's pippins and cheese to come. Exeunt._",
+          "start": 0.11,
+          "end": 21.49,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.368896484375
+            },
+            {
+              "text": " nay,",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " it",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " better",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.48046875
+            },
+            {
+              "text": " yet.",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Give",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " her",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " letter,",
+              "start": 3.51,
+              "end": 3.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it",
+              "start": 4.37,
+              "end": 4.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 4.47,
+              "end": 4.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 4.57,
+              "end": 4.75,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " Oman",
+              "start": 4.75,
+              "end": 5.11,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " that",
+              "start": 5.11,
+              "end": 5.39,
+              "probability": 0.982421875
+            },
+            {
+              "text": " altogethers",
+              "start": 5.39,
+              "end": 6.17,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " acquaintance",
+              "start": 6.17,
+              "end": 6.59,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " with",
+              "start": 6.59,
+              "end": 6.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Mistress",
+              "start": 6.91,
+              "end": 7.23,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " Anne",
+              "start": 7.23,
+              "end": 7.51,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " Page,",
+              "start": 7.51,
+              "end": 7.91,
+              "probability": 0.90625
+            },
+            {
+              "text": " and",
+              "start": 8.31,
+              "end": 8.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 8.55,
+              "end": 8.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " letter",
+              "start": 8.69,
+              "end": 8.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 8.87,
+              "end": 9.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " desire",
+              "start": 9.41,
+              "end": 9.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 9.85,
+              "end": 10.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " require",
+              "start": 10.13,
+              "end": 10.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 10.57,
+              "end": 10.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 10.81,
+              "end": 11.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " solicit",
+              "start": 11.01,
+              "end": 11.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 11.35,
+              "end": 11.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " master's",
+              "start": 11.63,
+              "end": 12.21,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " desires",
+              "start": 12.21,
+              "end": 12.63,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 12.63,
+              "end": 12.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mistress",
+              "start": 12.93,
+              "end": 13.21,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Anne",
+              "start": 13.21,
+              "end": 13.57,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Page.",
+              "start": 13.57,
+              "end": 13.97,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 14.63,
+              "end": 14.75,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " pray",
+              "start": 14.75,
+              "end": 14.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you,",
+              "start": 14.95,
+              "end": 15.23,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 15.39,
+              "end": 15.45,
+              "probability": 0.837890625
+            },
+            {
+              "text": " gone.",
+              "start": 15.45,
+              "end": 15.79,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " I",
+              "start": 16.21,
+              "end": 16.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 16.31,
+              "end": 16.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " make",
+              "start": 16.43,
+              "end": 16.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 16.59,
+              "end": 16.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " end",
+              "start": 16.75,
+              "end": 16.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 16.87,
+              "end": 17.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 17.01,
+              "end": 17.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dinner,",
+              "start": 17.17,
+              "end": 17.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ten",
+              "start": 17.95,
+              "end": 18.09,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " there's",
+              "start": 18.09,
+              "end": 18.47,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " pippins",
+              "start": 18.47,
+              "end": 18.85,
+              "probability": 0.8577473958333334
+            },
+            {
+              "text": " and",
+              "start": 18.85,
+              "end": 19.03,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " cheese",
+              "start": 19.03,
+              "end": 19.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 19.31,
+              "end": 19.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " come.",
+              "start": 19.49,
+              "end": 19.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Exeunt._",
+              "start": 20.93,
+              "end": 21.49,
+              "probability": 0.640014722943306
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "nay,",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "it",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "better",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "yet.",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "Give",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "this",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "letter,",
+          "start": 3.51,
+          "end": 3.89
+        },
+        {
+          "raw": "for",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "it",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "raw": "Oman",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "raw": "that",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "raw": "altogethers",
+          "start": 5.39,
+          "end": 6.17
+        },
+        {
+          "raw": "acquaintance",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "raw": "with",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "raw": "Mistress",
+          "start": 6.91,
+          "end": 7.23
+        },
+        {
+          "raw": "Anne",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "raw": "Page,",
+          "start": 7.51,
+          "end": 7.91
+        },
+        {
+          "raw": "and",
+          "start": 8.31,
+          "end": 8.55
+        },
+        {
+          "raw": "the",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "raw": "letter",
+          "start": 8.69,
+          "end": 8.87
+        },
+        {
+          "raw": "is",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "raw": "to",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "desire",
+          "start": 9.41,
+          "end": 9.85
+        },
+        {
+          "raw": "and",
+          "start": 9.85,
+          "end": 10.13
+        },
+        {
+          "raw": "require",
+          "start": 10.13,
+          "end": 10.57
+        },
+        {
+          "raw": "her",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "raw": "to",
+          "start": 10.81,
+          "end": 11.01
+        },
+        {
+          "raw": "solicit",
+          "start": 11.01,
+          "end": 11.35
+        },
+        {
+          "raw": "your",
+          "start": 11.35,
+          "end": 11.63
+        },
+        {
+          "raw": "master's",
+          "start": 11.63,
+          "end": 12.21
+        },
+        {
+          "raw": "desires",
+          "start": 12.21,
+          "end": 12.63
+        },
+        {
+          "raw": "to",
+          "start": 12.63,
+          "end": 12.93
+        },
+        {
+          "raw": "Mistress",
+          "start": 12.93,
+          "end": 13.21
+        },
+        {
+          "raw": "Anne",
+          "start": 13.21,
+          "end": 13.57
+        },
+        {
+          "raw": "Page.",
+          "start": 13.57,
+          "end": 13.97
+        },
+        {
+          "raw": "I",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "raw": "pray",
+          "start": 14.75,
+          "end": 14.95
+        },
+        {
+          "raw": "you,",
+          "start": 14.95,
+          "end": 15.23
+        },
+        {
+          "raw": "be",
+          "start": 15.39,
+          "end": 15.45
+        },
+        {
+          "raw": "gone.",
+          "start": 15.45,
+          "end": 15.79
+        },
+        {
+          "raw": "I",
+          "start": 16.21,
+          "end": 16.31
+        },
+        {
+          "raw": "will",
+          "start": 16.31,
+          "end": 16.43
+        },
+        {
+          "raw": "make",
+          "start": 16.43,
+          "end": 16.59
+        },
+        {
+          "raw": "an",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "raw": "end",
+          "start": 16.75,
+          "end": 16.87
+        },
+        {
+          "raw": "of",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "raw": "my",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "raw": "dinner,",
+          "start": 17.17,
+          "end": 17.55
+        },
+        {
+          "raw": "ten",
+          "start": 17.95,
+          "end": 18.09
+        },
+        {
+          "raw": "there's",
+          "start": 18.09,
+          "end": 18.47
+        },
+        {
+          "raw": "pippins",
+          "start": 18.47,
+          "end": 18.85
+        },
+        {
+          "raw": "and",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "raw": "cheese",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.49
+        },
+        {
+          "raw": "come.",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 20.93,
+          "end": 21.49
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Nay,",
+        "it",
+        "is",
+        "petter",
+        "yet.",
+        "Give",
+        "her",
+        "this",
+        "letter;",
+        "for",
+        "it",
+        "is",
+        "a",
+        "’oman",
+        "that",
+        "altogether’s",
+        "acquaintance",
+        "with",
+        "Mistress",
+        "Anne",
+        "Page:",
+        "and",
+        "the",
+        "letter",
+        "is,",
+        "to",
+        "desire",
+        "and",
+        "require",
+        "her",
+        "to",
+        "solicit",
+        "your",
+        "master’s",
+        "desires",
+        "to",
+        "Mistress",
+        "Anne",
+        "Page.",
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "gone:",
+        "I",
+        "will",
+        "make",
+        "an",
+        "end",
+        "of",
+        "my",
+        "dinner;",
+        "10",
+        "there’s",
+        "pippins",
+        "and",
+        "cheese",
+        "to",
+        "come.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Nay,",
+        "it",
+        "is",
+        "petter",
+        "yet.",
+        "Give",
+        "her",
+        "this",
+        "letter;",
+        "for",
+        "it",
+        "is",
+        "a",
+        "'oman",
+        "that",
+        "altogether's",
+        "acquaintance",
+        "with",
+        "Mistress",
+        "Anne",
+        "Page:",
+        "and",
+        "the",
+        "letter",
+        "is,",
+        "to",
+        "desire",
+        "and",
+        "require",
+        "her",
+        "to",
+        "solicit",
+        "your",
+        "master's",
+        "desires",
+        "to",
+        "Mistress",
+        "Anne",
+        "Page.",
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "gone:",
+        "I",
+        "will",
+        "make",
+        "an",
+        "end",
+        "of",
+        "my",
+        "dinner;",
+        "10",
+        "there's",
+        "pippins",
+        "and",
+        "cheese",
+        "to",
+        "come.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          61,
+          5,
+          61
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay,",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.81,
+          "end": 2.09,
+          "key": "better",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 2.09,
+          "end": 2.47,
+          "key": "yet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "letter,",
+          "start": 3.51,
+          "end": 3.89,
+          "key": "letter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.37,
+          "end": 4.47,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.57,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.75,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Oman",
+          "start": 4.75,
+          "end": 5.11,
+          "key": "oman",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.11,
+          "end": 5.39,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "altogethers",
+          "start": 5.39,
+          "end": 6.17,
+          "key": "altogethers",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "acquaintance",
+          "start": 6.17,
+          "end": 6.59,
+          "key": "acquaintance",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.59,
+          "end": 6.91,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 6.91,
+          "end": 7.23,
+          "key": "mistress",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 7.23,
+          "end": 7.51,
+          "key": "anne",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 7.51,
+          "end": 7.91,
+          "key": "page",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.31,
+          "end": 8.55,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.55,
+          "end": 8.69,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 8.69,
+          "end": 8.87,
+          "key": "letter",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.87,
+          "end": 9.19,
+          "key": "is",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 9.41,
+          "end": 9.85,
+          "key": "desire",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.85,
+          "end": 10.13,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "require",
+          "start": 10.13,
+          "end": 10.57,
+          "key": "require",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 10.57,
+          "end": 10.81,
+          "key": "her",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.81,
+          "end": 11.01,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "solicit",
+          "start": 11.01,
+          "end": 11.35,
+          "key": "solicit",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.35,
+          "end": 11.63,
+          "key": "your",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "master's",
+          "start": 11.63,
+          "end": 12.21,
+          "key": "masters",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "desires",
+          "start": 12.21,
+          "end": 12.63,
+          "key": "desires",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.63,
+          "end": 12.93,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 12.93,
+          "end": 13.21,
+          "key": "mistress",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 13.21,
+          "end": 13.57,
+          "key": "anne",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 13.57,
+          "end": 13.97,
+          "key": "page",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.63,
+          "end": 14.75,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 14.75,
+          "end": 14.95,
+          "key": "pray",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 14.95,
+          "end": 15.23,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.39,
+          "end": 15.45,
+          "key": "be",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 15.45,
+          "end": 15.79,
+          "key": "gone",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.21,
+          "end": 16.31,
+          "key": "i",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 16.31,
+          "end": 16.43,
+          "key": "will",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 16.43,
+          "end": 16.59,
+          "key": "make",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 16.59,
+          "end": 16.75,
+          "key": "an",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 16.75,
+          "end": 16.87,
+          "key": "end",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.87,
+          "end": 17.01,
+          "key": "of",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.01,
+          "end": 17.17,
+          "key": "my",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "dinner,",
+          "start": 17.17,
+          "end": 17.55,
+          "key": "dinner",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 17.95,
+          "end": 18.09,
+          "key": "ten",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 18.09,
+          "end": 18.47,
+          "key": "theres",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "pippins",
+          "start": 18.47,
+          "end": 18.85,
+          "key": "pippins",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.85,
+          "end": 19.03,
+          "key": "and",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "cheese",
+          "start": 19.03,
+          "end": 19.31,
+          "key": "cheese",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.49,
+          "key": "to",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 19.49,
+          "end": 19.83,
+          "key": "come",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 20.93,
+          "end": 21.49,
+          "key": "exeunt",
+          "pieces": [
+            60
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "Nay,",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "it",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "text": "is",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "petter",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "yet.",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "Give",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "her",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "this",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "letter;",
+          "start": 3.51,
+          "end": 3.89
+        },
+        {
+          "text": "for",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "it",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "text": "is",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "text": "a",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "text": "’oman",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "text": "that",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "text": "altogether’s",
+          "start": 5.39,
+          "end": 6.17
+        },
+        {
+          "text": "acquaintance",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "text": "with",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "text": "Mistress",
+          "start": 6.91,
+          "end": 7.23
+        },
+        {
+          "text": "Anne",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "text": "Page:",
+          "start": 7.51,
+          "end": 7.91
+        },
+        {
+          "text": "and",
+          "start": 8.31,
+          "end": 8.55
+        },
+        {
+          "text": "the",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "text": "letter",
+          "start": 8.69,
+          "end": 8.87
+        },
+        {
+          "text": "is,",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "text": "to",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "desire",
+          "start": 9.41,
+          "end": 9.85
+        },
+        {
+          "text": "and",
+          "start": 9.85,
+          "end": 10.13
+        },
+        {
+          "text": "require",
+          "start": 10.13,
+          "end": 10.57
+        },
+        {
+          "text": "her",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "text": "to",
+          "start": 10.81,
+          "end": 11.01
+        },
+        {
+          "text": "solicit",
+          "start": 11.01,
+          "end": 11.35
+        },
+        {
+          "text": "your",
+          "start": 11.35,
+          "end": 11.63
+        },
+        {
+          "text": "master’s",
+          "start": 11.63,
+          "end": 12.21
+        },
+        {
+          "text": "desires",
+          "start": 12.21,
+          "end": 12.63
+        },
+        {
+          "text": "to",
+          "start": 12.63,
+          "end": 12.93
+        },
+        {
+          "text": "Mistress",
+          "start": 12.93,
+          "end": 13.21
+        },
+        {
+          "text": "Anne",
+          "start": 13.21,
+          "end": 13.57
+        },
+        {
+          "text": "Page.",
+          "start": 13.57,
+          "end": 13.97
+        },
+        {
+          "text": "I",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "text": "pray",
+          "start": 14.75,
+          "end": 14.95
+        },
+        {
+          "text": "you,",
+          "start": 14.95,
+          "end": 15.23
+        },
+        {
+          "text": "be",
+          "start": 15.39,
+          "end": 15.45
+        },
+        {
+          "text": "gone:",
+          "start": 15.45,
+          "end": 15.79
+        },
+        {
+          "text": "I",
+          "start": 16.21,
+          "end": 16.31
+        },
+        {
+          "text": "will",
+          "start": 16.31,
+          "end": 16.43
+        },
+        {
+          "text": "make",
+          "start": 16.43,
+          "end": 16.59
+        },
+        {
+          "text": "an",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "text": "end",
+          "start": 16.75,
+          "end": 16.87
+        },
+        {
+          "text": "of",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "text": "my",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "text": "dinner;",
+          "start": 17.17,
+          "end": 17.55
+        },
+        {
+          "text": "10",
+          "start": 17.95,
+          "end": 18.09
+        },
+        {
+          "text": "there’s",
+          "start": 18.09,
+          "end": 18.47
+        },
+        {
+          "text": "pippins",
+          "start": 18.47,
+          "end": 18.85
+        },
+        {
+          "text": "and",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "text": "cheese",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "text": "to",
+          "start": 19.31,
+          "end": 19.49
+        },
+        {
+          "text": "come.",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 20.93,
+          "end": 21.49
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 61,
+        "matched_words": 60
+      },
+      "match_ratio": 0.9836065573770492,
+      "rejection_reasons": [],
+      "seconds": 1.1932454807683825
+    },
+    {
+      "asr_seconds": 1.0086812442168593,
+      "alignment_seconds": 0.005650161765515804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Evans, nay, it is better yet.",
+          "start": 0.11,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.368896484375
+            },
+            {
+              "text": " nay,",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " it",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " is",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " better",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.48046875
+            },
+            {
+              "text": " yet.",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Give her this letter, for it is a Oman that altogether's acquaintance with Mistress",
+          "start": 3.05,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " Give",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " her",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " letter,",
+              "start": 3.51,
+              "end": 3.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it",
+              "start": 4.37,
+              "end": 4.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 4.47,
+              "end": 4.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 4.57,
+              "end": 4.75,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " Oman",
+              "start": 4.75,
+              "end": 5.11,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " that",
+              "start": 5.11,
+              "end": 5.39,
+              "probability": 0.982421875
+            },
+            {
+              "text": " altogether's",
+              "start": 5.39,
+              "end": 6.17,
+              "probability": 0.527099609375
+            },
+            {
+              "text": " acquaintance",
+              "start": 6.17,
+              "end": 6.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " with",
+              "start": 6.59,
+              "end": 6.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mistress",
+              "start": 6.91,
+              "end": 7.23,
+              "probability": 0.8056640625
+            }
+          ]
+        },
+        {
+          "text": " Anne Page, and the letter is to desire and require her to solicit your master's desires",
+          "start": 7.23,
+          "end": 12.63,
+          "words": [
+            {
+              "text": " Anne",
+              "start": 7.23,
+              "end": 7.51,
+              "probability": 0.783203125
+            },
+            {
+              "text": " Page,",
+              "start": 7.51,
+              "end": 7.91,
+              "probability": 0.90625
+            },
+            {
+              "text": " and",
+              "start": 8.31,
+              "end": 8.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 8.55,
+              "end": 8.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " letter",
+              "start": 8.69,
+              "end": 8.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 8.87,
+              "end": 9.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 9.19,
+              "end": 9.41,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " desire",
+              "start": 9.41,
+              "end": 9.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 9.85,
+              "end": 10.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " require",
+              "start": 10.13,
+              "end": 10.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 10.57,
+              "end": 10.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 10.81,
+              "end": 11.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " solicit",
+              "start": 11.01,
+              "end": 11.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 11.35,
+              "end": 11.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " master's",
+              "start": 11.63,
+              "end": 12.21,
+              "probability": 0.865478515625
+            },
+            {
+              "text": " desires",
+              "start": 12.21,
+              "end": 12.63,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " to Mistress Anne Page.",
+          "start": 12.63,
+          "end": 13.97,
+          "words": [
+            {
+              "text": " to",
+              "start": 12.63,
+              "end": 12.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mistress",
+              "start": 12.93,
+              "end": 13.21,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Anne",
+              "start": 13.21,
+              "end": 13.57,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Page.",
+              "start": 13.57,
+              "end": 13.97,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " I pray you, be gone.",
+          "start": 14.63,
+          "end": 15.79,
+          "words": [
+            {
+              "text": " I",
+              "start": 14.63,
+              "end": 14.75,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " pray",
+              "start": 14.75,
+              "end": 14.95,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you,",
+              "start": 14.95,
+              "end": 15.23,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 15.39,
+              "end": 15.45,
+              "probability": 0.849609375
+            },
+            {
+              "text": " gone.",
+              "start": 15.45,
+              "end": 15.79,
+              "probability": 0.9423828125
+            }
+          ]
+        },
+        {
+          "text": " I will make an end of my dinner, ten there's pippins and cheese to come.",
+          "start": 16.19,
+          "end": 19.83,
+          "words": [
+            {
+              "text": " I",
+              "start": 16.19,
+              "end": 16.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 16.31,
+              "end": 16.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " make",
+              "start": 16.43,
+              "end": 16.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 16.59,
+              "end": 16.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " end",
+              "start": 16.75,
+              "end": 16.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 16.87,
+              "end": 17.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 17.01,
+              "end": 17.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dinner,",
+              "start": 17.17,
+              "end": 17.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ten",
+              "start": 17.95,
+              "end": 18.09,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " there's",
+              "start": 18.09,
+              "end": 18.47,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " pippins",
+              "start": 18.47,
+              "end": 18.85,
+              "probability": 0.85546875
+            },
+            {
+              "text": " and",
+              "start": 18.85,
+              "end": 19.03,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " cheese",
+              "start": 19.03,
+              "end": 19.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 19.31,
+              "end": 19.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " come.",
+              "start": 19.49,
+              "end": 19.83,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Exeunt.",
+          "start": 20.45,
+          "end": 20.95,
+          "words": [
+            {
+              "text": " Exeunt.",
+              "start": 20.45,
+              "end": 20.95,
+              "probability": 0.8518880208333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "nay,",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "it",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "better",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "yet.",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "Give",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "this",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "letter,",
+          "start": 3.51,
+          "end": 3.89
+        },
+        {
+          "raw": "for",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "it",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "raw": "Oman",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "raw": "that",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "raw": "altogether's",
+          "start": 5.39,
+          "end": 6.17
+        },
+        {
+          "raw": "acquaintance",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "raw": "with",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "raw": "Mistress",
+          "start": 6.91,
+          "end": 7.23
+        },
+        {
+          "raw": "Anne",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "raw": "Page,",
+          "start": 7.51,
+          "end": 7.91
+        },
+        {
+          "raw": "and",
+          "start": 8.31,
+          "end": 8.55
+        },
+        {
+          "raw": "the",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "raw": "letter",
+          "start": 8.69,
+          "end": 8.87
+        },
+        {
+          "raw": "is",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "raw": "to",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "raw": "desire",
+          "start": 9.41,
+          "end": 9.85
+        },
+        {
+          "raw": "and",
+          "start": 9.85,
+          "end": 10.13
+        },
+        {
+          "raw": "require",
+          "start": 10.13,
+          "end": 10.57
+        },
+        {
+          "raw": "her",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "raw": "to",
+          "start": 10.81,
+          "end": 11.01
+        },
+        {
+          "raw": "solicit",
+          "start": 11.01,
+          "end": 11.35
+        },
+        {
+          "raw": "your",
+          "start": 11.35,
+          "end": 11.63
+        },
+        {
+          "raw": "master's",
+          "start": 11.63,
+          "end": 12.21
+        },
+        {
+          "raw": "desires",
+          "start": 12.21,
+          "end": 12.63
+        },
+        {
+          "raw": "to",
+          "start": 12.63,
+          "end": 12.93
+        },
+        {
+          "raw": "Mistress",
+          "start": 12.93,
+          "end": 13.21
+        },
+        {
+          "raw": "Anne",
+          "start": 13.21,
+          "end": 13.57
+        },
+        {
+          "raw": "Page.",
+          "start": 13.57,
+          "end": 13.97
+        },
+        {
+          "raw": "I",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "raw": "pray",
+          "start": 14.75,
+          "end": 14.95
+        },
+        {
+          "raw": "you,",
+          "start": 14.95,
+          "end": 15.23
+        },
+        {
+          "raw": "be",
+          "start": 15.39,
+          "end": 15.45
+        },
+        {
+          "raw": "gone.",
+          "start": 15.45,
+          "end": 15.79
+        },
+        {
+          "raw": "I",
+          "start": 16.19,
+          "end": 16.31
+        },
+        {
+          "raw": "will",
+          "start": 16.31,
+          "end": 16.43
+        },
+        {
+          "raw": "make",
+          "start": 16.43,
+          "end": 16.59
+        },
+        {
+          "raw": "an",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "raw": "end",
+          "start": 16.75,
+          "end": 16.87
+        },
+        {
+          "raw": "of",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "raw": "my",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "raw": "dinner,",
+          "start": 17.17,
+          "end": 17.55
+        },
+        {
+          "raw": "ten",
+          "start": 17.95,
+          "end": 18.09
+        },
+        {
+          "raw": "there's",
+          "start": 18.09,
+          "end": 18.47
+        },
+        {
+          "raw": "pippins",
+          "start": 18.47,
+          "end": 18.85
+        },
+        {
+          "raw": "and",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "raw": "cheese",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.49
+        },
+        {
+          "raw": "come.",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 20.45,
+          "end": 20.95
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Nay,",
+        "it",
+        "is",
+        "petter",
+        "yet.",
+        "Give",
+        "her",
+        "this",
+        "letter;",
+        "for",
+        "it",
+        "is",
+        "a",
+        "’oman",
+        "that",
+        "altogether’s",
+        "acquaintance",
+        "with",
+        "Mistress",
+        "Anne",
+        "Page:",
+        "and",
+        "the",
+        "letter",
+        "is,",
+        "to",
+        "desire",
+        "and",
+        "require",
+        "her",
+        "to",
+        "solicit",
+        "your",
+        "master’s",
+        "desires",
+        "to",
+        "Mistress",
+        "Anne",
+        "Page.",
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "gone:",
+        "I",
+        "will",
+        "make",
+        "an",
+        "end",
+        "of",
+        "my",
+        "dinner;",
+        "10",
+        "there’s",
+        "pippins",
+        "and",
+        "cheese",
+        "to",
+        "come.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Nay,",
+        "it",
+        "is",
+        "petter",
+        "yet.",
+        "Give",
+        "her",
+        "this",
+        "letter;",
+        "for",
+        "it",
+        "is",
+        "a",
+        "'oman",
+        "that",
+        "altogether's",
+        "acquaintance",
+        "with",
+        "Mistress",
+        "Anne",
+        "Page:",
+        "and",
+        "the",
+        "letter",
+        "is,",
+        "to",
+        "desire",
+        "and",
+        "require",
+        "her",
+        "to",
+        "solicit",
+        "your",
+        "master's",
+        "desires",
+        "to",
+        "Mistress",
+        "Anne",
+        "Page.",
+        "I",
+        "pray",
+        "you,",
+        "be",
+        "gone:",
+        "I",
+        "will",
+        "make",
+        "an",
+        "end",
+        "of",
+        "my",
+        "dinner;",
+        "10",
+        "there's",
+        "pippins",
+        "and",
+        "cheese",
+        "to",
+        "come.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          61,
+          5,
+          61
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay,",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.81,
+          "end": 2.09,
+          "key": "better",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yet.",
+          "start": 2.09,
+          "end": 2.47,
+          "key": "yet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "give",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "letter,",
+          "start": 3.51,
+          "end": 3.89,
+          "key": "letter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.37,
+          "end": 4.47,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.47,
+          "end": 4.57,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.75,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Oman",
+          "start": 4.75,
+          "end": 5.11,
+          "key": "oman",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.11,
+          "end": 5.39,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "altogether's",
+          "start": 5.39,
+          "end": 6.17,
+          "key": "altogethers",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "acquaintance",
+          "start": 6.17,
+          "end": 6.59,
+          "key": "acquaintance",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.59,
+          "end": 6.91,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 6.91,
+          "end": 7.23,
+          "key": "mistress",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 7.23,
+          "end": 7.51,
+          "key": "anne",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 7.51,
+          "end": 7.91,
+          "key": "page",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.31,
+          "end": 8.55,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.55,
+          "end": 8.69,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 8.69,
+          "end": 8.87,
+          "key": "letter",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.87,
+          "end": 9.19,
+          "key": "is",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.19,
+          "end": 9.41,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 9.41,
+          "end": 9.85,
+          "key": "desire",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.85,
+          "end": 10.13,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "require",
+          "start": 10.13,
+          "end": 10.57,
+          "key": "require",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 10.57,
+          "end": 10.81,
+          "key": "her",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.81,
+          "end": 11.01,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "solicit",
+          "start": 11.01,
+          "end": 11.35,
+          "key": "solicit",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.35,
+          "end": 11.63,
+          "key": "your",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "master's",
+          "start": 11.63,
+          "end": 12.21,
+          "key": "masters",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "desires",
+          "start": 12.21,
+          "end": 12.63,
+          "key": "desires",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.63,
+          "end": 12.93,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 12.93,
+          "end": 13.21,
+          "key": "mistress",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 13.21,
+          "end": 13.57,
+          "key": "anne",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 13.57,
+          "end": 13.97,
+          "key": "page",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.63,
+          "end": 14.75,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 14.75,
+          "end": 14.95,
+          "key": "pray",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 14.95,
+          "end": 15.23,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.39,
+          "end": 15.45,
+          "key": "be",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "gone.",
+          "start": 15.45,
+          "end": 15.79,
+          "key": "gone",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.19,
+          "end": 16.31,
+          "key": "i",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 16.31,
+          "end": 16.43,
+          "key": "will",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 16.43,
+          "end": 16.59,
+          "key": "make",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 16.59,
+          "end": 16.75,
+          "key": "an",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 16.75,
+          "end": 16.87,
+          "key": "end",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.87,
+          "end": 17.01,
+          "key": "of",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.01,
+          "end": 17.17,
+          "key": "my",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "dinner,",
+          "start": 17.17,
+          "end": 17.55,
+          "key": "dinner",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 17.95,
+          "end": 18.09,
+          "key": "ten",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 18.09,
+          "end": 18.47,
+          "key": "theres",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "pippins",
+          "start": 18.47,
+          "end": 18.85,
+          "key": "pippins",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 18.85,
+          "end": 19.03,
+          "key": "and",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "cheese",
+          "start": 19.03,
+          "end": 19.31,
+          "key": "cheese",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.31,
+          "end": 19.49,
+          "key": "to",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 19.49,
+          "end": 19.83,
+          "key": "come",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 20.45,
+          "end": 20.95,
+          "key": "exeunt",
+          "pieces": [
+            60
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "Nay,",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "it",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "text": "is",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "petter",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "yet.",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "Give",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "her",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "this",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "letter;",
+          "start": 3.51,
+          "end": 3.89
+        },
+        {
+          "text": "for",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "it",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "text": "is",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "text": "a",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "text": "’oman",
+          "start": 4.75,
+          "end": 5.11
+        },
+        {
+          "text": "that",
+          "start": 5.11,
+          "end": 5.39
+        },
+        {
+          "text": "altogether’s",
+          "start": 5.39,
+          "end": 6.17
+        },
+        {
+          "text": "acquaintance",
+          "start": 6.17,
+          "end": 6.59
+        },
+        {
+          "text": "with",
+          "start": 6.59,
+          "end": 6.91
+        },
+        {
+          "text": "Mistress",
+          "start": 6.91,
+          "end": 7.23
+        },
+        {
+          "text": "Anne",
+          "start": 7.23,
+          "end": 7.51
+        },
+        {
+          "text": "Page:",
+          "start": 7.51,
+          "end": 7.91
+        },
+        {
+          "text": "and",
+          "start": 8.31,
+          "end": 8.55
+        },
+        {
+          "text": "the",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "text": "letter",
+          "start": 8.69,
+          "end": 8.87
+        },
+        {
+          "text": "is,",
+          "start": 8.87,
+          "end": 9.19
+        },
+        {
+          "text": "to",
+          "start": 9.19,
+          "end": 9.41
+        },
+        {
+          "text": "desire",
+          "start": 9.41,
+          "end": 9.85
+        },
+        {
+          "text": "and",
+          "start": 9.85,
+          "end": 10.13
+        },
+        {
+          "text": "require",
+          "start": 10.13,
+          "end": 10.57
+        },
+        {
+          "text": "her",
+          "start": 10.57,
+          "end": 10.81
+        },
+        {
+          "text": "to",
+          "start": 10.81,
+          "end": 11.01
+        },
+        {
+          "text": "solicit",
+          "start": 11.01,
+          "end": 11.35
+        },
+        {
+          "text": "your",
+          "start": 11.35,
+          "end": 11.63
+        },
+        {
+          "text": "master’s",
+          "start": 11.63,
+          "end": 12.21
+        },
+        {
+          "text": "desires",
+          "start": 12.21,
+          "end": 12.63
+        },
+        {
+          "text": "to",
+          "start": 12.63,
+          "end": 12.93
+        },
+        {
+          "text": "Mistress",
+          "start": 12.93,
+          "end": 13.21
+        },
+        {
+          "text": "Anne",
+          "start": 13.21,
+          "end": 13.57
+        },
+        {
+          "text": "Page.",
+          "start": 13.57,
+          "end": 13.97
+        },
+        {
+          "text": "I",
+          "start": 14.63,
+          "end": 14.75
+        },
+        {
+          "text": "pray",
+          "start": 14.75,
+          "end": 14.95
+        },
+        {
+          "text": "you,",
+          "start": 14.95,
+          "end": 15.23
+        },
+        {
+          "text": "be",
+          "start": 15.39,
+          "end": 15.45
+        },
+        {
+          "text": "gone:",
+          "start": 15.45,
+          "end": 15.79
+        },
+        {
+          "text": "I",
+          "start": 16.19,
+          "end": 16.31
+        },
+        {
+          "text": "will",
+          "start": 16.31,
+          "end": 16.43
+        },
+        {
+          "text": "make",
+          "start": 16.43,
+          "end": 16.59
+        },
+        {
+          "text": "an",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "text": "end",
+          "start": 16.75,
+          "end": 16.87
+        },
+        {
+          "text": "of",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "text": "my",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "text": "dinner;",
+          "start": 17.17,
+          "end": 17.55
+        },
+        {
+          "text": "10",
+          "start": 17.95,
+          "end": 18.09
+        },
+        {
+          "text": "there’s",
+          "start": 18.09,
+          "end": 18.47
+        },
+        {
+          "text": "pippins",
+          "start": 18.47,
+          "end": 18.85
+        },
+        {
+          "text": "and",
+          "start": 18.85,
+          "end": 19.03
+        },
+        {
+          "text": "cheese",
+          "start": 19.03,
+          "end": 19.31
+        },
+        {
+          "text": "to",
+          "start": 19.31,
+          "end": 19.49
+        },
+        {
+          "text": "come.",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 20.45,
+          "end": 20.95
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 61,
+        "matched_words": 60
+      },
+      "match_ratio": 0.9836065573770492,
+      "rejection_reasons": [],
+      "seconds": 1.0147347440943122
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "0e34396d60126918665a468f09569d30b6f51abc8759d7d2ca1712f675c2c5d7",
+  "selected_reasons": []
+}

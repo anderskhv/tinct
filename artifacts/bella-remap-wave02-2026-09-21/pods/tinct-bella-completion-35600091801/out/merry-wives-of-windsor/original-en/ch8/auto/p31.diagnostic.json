@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "b936ceaaea54bca109772f2ac581da89e3227d8b66450459e1396e373a4454ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.20795802678912878,
+      "alignment_seconds": 0.0006742700934410095,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Page._ Why?",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Page, Why?",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Page,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " Why?",
+              "start": 0.93,
+              "end": 1.21,
+              "probability": 0.11749267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Page,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Why?",
+          "start": 0.93,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "_Page._",
+        "Why?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Page._",
+        "Why?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Page,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "page",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why?",
+          "start": 0.93,
+          "end": 1.21,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Page._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Why?",
+          "start": 0.93,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2086937054991722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa88d4c2c952dcd9cdcbecab565065c055b4ae60da5065f38207fbfa26cbfdcd",
+  "selected_reasons": []
+}

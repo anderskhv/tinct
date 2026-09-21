@@ -1,0 +1,2756 @@
+{
+  "complete": true,
+  "signature": "bc880d88a8c956f4c6e8403557ae9275a037bafee66cbadc33ccf547cdc1a307",
+  "attempts": [
+    {
+      "asr_seconds": 0.4630039716139436,
+      "alignment_seconds": 0.0033982396125793457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ There rest. Your partner, as I hear, must die to-morrow, And I am going with instruction to him. Grace go with you, _Benedicite!_ Exit._",
+        "hotwords": "There, Your, I, And, Grace, Exit._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, there rest. Your partner, as I hear, must die to-morrow, And I am going with instruction to him.",
+          "start": 0.08,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.83984375
+            },
+            {
+              "text": " there",
+              "start": 0.98,
+              "end": 1.04,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " rest.",
+              "start": 1.04,
+              "end": 1.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Your",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " partner,",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " as",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hear,",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " must",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.56,
+              "end": 3.68,
+              "probability": 0.051727294921875
+            },
+            {
+              "text": "-morrow,",
+              "start": 3.68,
+              "end": 3.98,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " And",
+              "start": 4.24,
+              "end": 4.28,
+              "probability": 0.0027904510498046875
+            },
+            {
+              "text": " I",
+              "start": 4.28,
+              "end": 4.38,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " am",
+              "start": 4.38,
+              "end": 4.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " going",
+              "start": 4.52,
+              "end": 4.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " instruction",
+              "start": 4.9,
+              "end": 5.4,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " to",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him.",
+              "start": 5.64,
+              "end": 5.9,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Grace go with you, Benedictite! Exit._",
+          "start": 6.54,
+          "end": 9.44,
+          "words": [
+            {
+              "text": " Grace",
+              "start": 6.54,
+              "end": 6.8,
+              "probability": 0.984375
+            },
+            {
+              "text": " go",
+              "start": 6.8,
+              "end": 7.02,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " with",
+              "start": 7.02,
+              "end": 7.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Benedictite!",
+              "start": 7.58,
+              "end": 8.14,
+              "probability": 0.10540962219238281
+            },
+            {
+              "text": " Exit._",
+              "start": 8.98,
+              "end": 9.44,
+              "probability": 0.36401376128196716
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "there",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "raw": "rest.",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "raw": "Your",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "partner,",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "hear,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "must",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "die",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "to",
+          "start": 3.56,
+          "end": 3.68
+        },
+        {
+          "raw": "-morrow,",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "raw": "And",
+          "start": 4.24,
+          "end": 4.28
+        },
+        {
+          "raw": "I",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "raw": "am",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "raw": "going",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "raw": "with",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "instruction",
+          "start": 4.9,
+          "end": 5.4
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "him.",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "raw": "Grace",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "raw": "go",
+          "start": 6.8,
+          "end": 7.02
+        },
+        {
+          "raw": "with",
+          "start": 7.02,
+          "end": 7.18
+        },
+        {
+          "raw": "you,",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "Benedictite!",
+          "start": 7.58,
+          "end": 8.14
+        },
+        {
+          "raw": "Exit._",
+          "start": 8.98,
+          "end": 9.44
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "There",
+        "rest.",
+        "Your",
+        "partner,",
+        "as",
+        "I",
+        "hear,",
+        "must",
+        "die",
+        "to-morrow,",
+        "And",
+        "I",
+        "am",
+        "going",
+        "with",
+        "instruction",
+        "to",
+        "him.",
+        "Grace",
+        "go",
+        "with",
+        "you,",
+        "_Benedicite!_",
+        "[_Exit._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "There",
+        "rest.",
+        "Your",
+        "partner,",
+        "as",
+        "I",
+        "hear,",
+        "must",
+        "die",
+        "to-morrow,",
+        "And",
+        "I",
+        "am",
+        "going",
+        "with",
+        "instruction",
+        "to",
+        "him.",
+        "Grace",
+        "go",
+        "with",
+        "you,",
+        "_Benedicite!_",
+        "Exit._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          25,
+          24,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.98,
+          "end": 1.04,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rest.",
+          "start": 1.04,
+          "end": 1.46,
+          "key": "rest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "partner,",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "partner",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hear,",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "hear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 3.32,
+          "end": 3.56,
+          "key": "die",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to -morrow,",
+          "start": 3.56,
+          "end": 3.98,
+          "key": "tomorrow",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.24,
+          "end": 4.28,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.28,
+          "end": 4.38,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.38,
+          "end": 4.52,
+          "key": "am",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 4.52,
+          "end": 4.7,
+          "key": "going",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "instruction",
+          "start": 4.9,
+          "end": 5.4,
+          "key": "instruction",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.64,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.64,
+          "end": 5.9,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 6.54,
+          "end": 6.8,
+          "key": "grace",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 6.8,
+          "end": 7.02,
+          "key": "go",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.02,
+          "end": 7.18,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "you",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Benedictite!",
+          "start": 7.58,
+          "end": 8.14,
+          "key": "benedictite",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Exit._",
+          "start": 8.98,
+          "end": 9.44,
+          "key": "exit",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "to-morrow,",
+          "heard": "to -morrow,",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.56,
+          "end": 3.98
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "There",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "rest.",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "text": "Your",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "partner,",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "text": "as",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "hear,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "must",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "die",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "to-morrow,",
+          "start": 3.56,
+          "end": 3.98
+        },
+        {
+          "text": "And",
+          "start": 4.24,
+          "end": 4.28
+        },
+        {
+          "text": "I",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "text": "am",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "text": "going",
+          "start": 4.52,
+          "end": 4.7
+        },
+        {
+          "text": "with",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "instruction",
+          "start": 4.9,
+          "end": 5.4
+        },
+        {
+          "text": "to",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "him.",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "text": "Grace",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "text": "go",
+          "start": 6.8,
+          "end": 7.02
+        },
+        {
+          "text": "with",
+          "start": 7.02,
+          "end": 7.18
+        },
+        {
+          "text": "you,",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "_Benedicite!_",
+          "start": 7.42,
+          "end": 8.2
+        },
+        {
+          "text": "[_Exit._",
+          "start": 8.98,
+          "end": 9.44
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 24
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.4667077222838998
+    },
+    {
+      "asr_seconds": 0.4727632775902748,
+      "alignment_seconds": 0.0032295091077685356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "There, Your, I, And, Grace, Exit._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Duke, there rest. Your partner, as I hear, must die tomorrow, and I am going with instruction to him. Grace go with you, benedicty. Exit.",
+          "start": 0.08,
+          "end": 8.76,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.83984375
+            },
+            {
+              "text": " there",
+              "start": 0.98,
+              "end": 1.04,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " rest.",
+              "start": 1.04,
+              "end": 1.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Your",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " partner,",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " as",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hear,",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " must",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tomorrow,",
+              "start": 3.56,
+              "end": 3.96,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " and",
+              "start": 3.96,
+              "end": 4.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 4.26,
+              "end": 4.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " am",
+              "start": 4.38,
+              "end": 4.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " going",
+              "start": 4.5,
+              "end": 4.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " instruction",
+              "start": 4.9,
+              "end": 5.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 5.64,
+              "end": 5.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Grace",
+              "start": 6.54,
+              "end": 6.8,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " go",
+              "start": 6.8,
+              "end": 7.02,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " with",
+              "start": 7.02,
+              "end": 7.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " benedicty.",
+              "start": 7.56,
+              "end": 8.18,
+              "probability": 0.75531005859375
+            },
+            {
+              "text": " Exit.",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.8369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "there",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "raw": "rest.",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "raw": "Your",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "partner,",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "hear,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "must",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "die",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "tomorrow,",
+          "start": 3.56,
+          "end": 3.96
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "raw": "am",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "raw": "going",
+          "start": 4.5,
+          "end": 4.7
+        },
+        {
+          "raw": "with",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "instruction",
+          "start": 4.9,
+          "end": 5.4
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "him.",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "raw": "Grace",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "raw": "go",
+          "start": 6.8,
+          "end": 7.02
+        },
+        {
+          "raw": "with",
+          "start": 7.02,
+          "end": 7.18
+        },
+        {
+          "raw": "you,",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "benedicty.",
+          "start": 7.56,
+          "end": 8.18
+        },
+        {
+          "raw": "Exit.",
+          "start": 8.52,
+          "end": 8.76
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "There",
+        "rest.",
+        "Your",
+        "partner,",
+        "as",
+        "I",
+        "hear,",
+        "must",
+        "die",
+        "to-morrow,",
+        "And",
+        "I",
+        "am",
+        "going",
+        "with",
+        "instruction",
+        "to",
+        "him.",
+        "Grace",
+        "go",
+        "with",
+        "you,",
+        "_Benedicite!_",
+        "[_Exit._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "There",
+        "rest.",
+        "Your",
+        "partner,",
+        "as",
+        "I",
+        "hear,",
+        "must",
+        "die",
+        "to-morrow,",
+        "And",
+        "I",
+        "am",
+        "going",
+        "with",
+        "instruction",
+        "to",
+        "him.",
+        "Grace",
+        "go",
+        "with",
+        "you,",
+        "_Benedicite!_",
+        "Exit._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          25,
+          24,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.98,
+          "end": 1.04,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rest.",
+          "start": 1.04,
+          "end": 1.46,
+          "key": "rest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "partner,",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "partner",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hear,",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "hear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 3.32,
+          "end": 3.56,
+          "key": "die",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tomorrow,",
+          "start": 3.56,
+          "end": 3.96,
+          "key": "tomorrow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.26,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.38,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.38,
+          "end": 4.5,
+          "key": "am",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 4.5,
+          "end": 4.7,
+          "key": "going",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "instruction",
+          "start": 4.9,
+          "end": 5.4,
+          "key": "instruction",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.64,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.64,
+          "end": 5.9,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 6.54,
+          "end": 6.8,
+          "key": "grace",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 6.8,
+          "end": 7.02,
+          "key": "go",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.02,
+          "end": 7.18,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "you",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "benedicty.",
+          "start": 7.56,
+          "end": 8.18,
+          "key": "benedicty",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Exit.",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "exit",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "There",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "rest.",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "text": "Your",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "partner,",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "text": "as",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "hear,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "must",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "die",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "to-morrow,",
+          "start": 3.56,
+          "end": 3.96
+        },
+        {
+          "text": "And",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "text": "I",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "text": "am",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "text": "going",
+          "start": 4.5,
+          "end": 4.7
+        },
+        {
+          "text": "with",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "instruction",
+          "start": 4.9,
+          "end": 5.4
+        },
+        {
+          "text": "to",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "him.",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "text": "Grace",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "text": "go",
+          "start": 6.8,
+          "end": 7.02
+        },
+        {
+          "text": "with",
+          "start": 7.02,
+          "end": 7.18
+        },
+        {
+          "text": "you,",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "_Benedicite!_",
+          "start": 7.42,
+          "end": 7.97
+        },
+        {
+          "text": "[_Exit._",
+          "start": 8.52,
+          "end": 8.76
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 24
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.4762830352410674
+    },
+    {
+      "asr_seconds": 0.6281863767653704,
+      "alignment_seconds": 0.003259166143834591,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, there rest. Your partner, as I hear, must die tomorrow, and I am going with instruction",
+          "start": 0.08,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " there",
+              "start": 0.98,
+              "end": 1.04,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " rest.",
+              "start": 1.04,
+              "end": 1.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Your",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " partner,",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " as",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hear,",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " must",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tomorrow,",
+              "start": 3.56,
+              "end": 3.96,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " and",
+              "start": 3.96,
+              "end": 4.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 4.26,
+              "end": 4.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " am",
+              "start": 4.38,
+              "end": 4.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " going",
+              "start": 4.5,
+              "end": 4.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " instruction",
+              "start": 4.9,
+              "end": 5.4,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " to him. Grace go with you, Benedicity. Exit.",
+          "start": 5.4,
+          "end": 8.76,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 5.64,
+              "end": 5.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Grace",
+              "start": 6.54,
+              "end": 6.8,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " go",
+              "start": 6.8,
+              "end": 7.02,
+              "probability": 0.802734375
+            },
+            {
+              "text": " with",
+              "start": 7.02,
+              "end": 7.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Benedicity.",
+              "start": 7.58,
+              "end": 8.1,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " Exit.",
+              "start": 8.52,
+              "end": 8.76,
+              "probability": 0.900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "there",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "raw": "rest.",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "raw": "Your",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "partner,",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "hear,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "must",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "die",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "tomorrow,",
+          "start": 3.56,
+          "end": 3.96
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "raw": "am",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "raw": "going",
+          "start": 4.5,
+          "end": 4.7
+        },
+        {
+          "raw": "with",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "instruction",
+          "start": 4.9,
+          "end": 5.4
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "him.",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "raw": "Grace",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "raw": "go",
+          "start": 6.8,
+          "end": 7.02
+        },
+        {
+          "raw": "with",
+          "start": 7.02,
+          "end": 7.18
+        },
+        {
+          "raw": "you,",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "Benedicity.",
+          "start": 7.58,
+          "end": 8.1
+        },
+        {
+          "raw": "Exit.",
+          "start": 8.52,
+          "end": 8.76
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "There",
+        "rest.",
+        "Your",
+        "partner,",
+        "as",
+        "I",
+        "hear,",
+        "must",
+        "die",
+        "to-morrow,",
+        "And",
+        "I",
+        "am",
+        "going",
+        "with",
+        "instruction",
+        "to",
+        "him.",
+        "Grace",
+        "go",
+        "with",
+        "you,",
+        "_Benedicite!_",
+        "[_Exit._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "There",
+        "rest.",
+        "Your",
+        "partner,",
+        "as",
+        "I",
+        "hear,",
+        "must",
+        "die",
+        "to-morrow,",
+        "And",
+        "I",
+        "am",
+        "going",
+        "with",
+        "instruction",
+        "to",
+        "him.",
+        "Grace",
+        "go",
+        "with",
+        "you,",
+        "_Benedicite!_",
+        "Exit._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ],
+        [
+          "equal",
+          24,
+          25,
+          24,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.98,
+          "end": 1.04,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rest.",
+          "start": 1.04,
+          "end": 1.46,
+          "key": "rest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "partner,",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "partner",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hear,",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "hear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 3.32,
+          "end": 3.56,
+          "key": "die",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tomorrow,",
+          "start": 3.56,
+          "end": 3.96,
+          "key": "tomorrow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.26,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.38,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.38,
+          "end": 4.5,
+          "key": "am",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 4.5,
+          "end": 4.7,
+          "key": "going",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "instruction",
+          "start": 4.9,
+          "end": 5.4,
+          "key": "instruction",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.4,
+          "end": 5.64,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.64,
+          "end": 5.9,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 6.54,
+          "end": 6.8,
+          "key": "grace",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 6.8,
+          "end": 7.02,
+          "key": "go",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.02,
+          "end": 7.18,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "you",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Benedicity.",
+          "start": 7.58,
+          "end": 8.1,
+          "key": "benedicity",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Exit.",
+          "start": 8.52,
+          "end": 8.76,
+          "key": "exit",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "There",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "rest.",
+          "start": 1.04,
+          "end": 1.46
+        },
+        {
+          "text": "Your",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "partner,",
+          "start": 2.06,
+          "end": 2.44
+        },
+        {
+          "text": "as",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "hear,",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "must",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "die",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "to-morrow,",
+          "start": 3.56,
+          "end": 3.96
+        },
+        {
+          "text": "And",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "text": "I",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "text": "am",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "text": "going",
+          "start": 4.5,
+          "end": 4.7
+        },
+        {
+          "text": "with",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "instruction",
+          "start": 4.9,
+          "end": 5.4
+        },
+        {
+          "text": "to",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "him.",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "text": "Grace",
+          "start": 6.54,
+          "end": 6.8
+        },
+        {
+          "text": "go",
+          "start": 6.8,
+          "end": 7.02
+        },
+        {
+          "text": "with",
+          "start": 7.02,
+          "end": 7.18
+        },
+        {
+          "text": "you,",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "_Benedicite!_",
+          "start": 7.42,
+          "end": 7.97
+        },
+        {
+          "text": "[_Exit._",
+          "start": 8.52,
+          "end": 8.76
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 24
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.6317401025444269
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "83e19d930555727fc55f964882a9f6963b40e4b235bef6fc04efc5c19ed33618",
+  "selected_reasons": []
+}

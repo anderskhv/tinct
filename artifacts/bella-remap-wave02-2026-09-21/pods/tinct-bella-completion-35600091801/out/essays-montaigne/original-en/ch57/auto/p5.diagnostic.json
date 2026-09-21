@@ -1,0 +1,863 @@
+{
+  "complete": true,
+  "signature": "172be19ace401b621172b432100b13a346d3f3b5e5444c0046003758ab383b9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.7631455296650529,
+      "alignment_seconds": 0.0028060218319296837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[\"If the thorn does not prick at its birth, 'twill hardly ever prick at all.\"]",
+        "hotwords": "If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " [\"If the thorn does not prick at its birth, twill hardly ever prick at all.\"",
+          "start": 0.02,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " [\"If",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.4643615484237671
+            },
+            {
+              "text": " the",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.9921875
+            },
+            {
+              "text": " thorn",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.8828125
+            },
+            {
+              "text": " does",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " not",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " prick",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.970703125
+            },
+            {
+              "text": " at",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " its",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " birth,",
+              "start": 2.04,
+              "end": 2.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " twill",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.525543212890625
+            },
+            {
+              "text": " hardly",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ever",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " prick",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all.\"",
+              "start": 4.06,
+              "end": 4.34,
+              "probability": 0.91748046875
+            }
+          ]
+        },
+        {
+          "text": " [\"If the thorn does prick at its birth, twill hardly ever prick at all.\"",
+          "start": 4.34,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " [\"If",
+              "start": 4.34,
+              "end": 4.92,
+              "probability": 0.0007068812847137451
+            },
+            {
+              "text": " the",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.05633544921875
+            },
+            {
+              "text": " thorn",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 6.020069122314453e-06
+            },
+            {
+              "text": " does",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.01074981689453125
+            },
+            {
+              "text": " prick",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 5.9604644775390625e-06
+            },
+            {
+              "text": " at",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.0026302337646484375
+            },
+            {
+              "text": " its",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.01458740234375
+            },
+            {
+              "text": " birth,",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.003192901611328125
+            },
+            {
+              "text": " twill",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.00891941785812378
+            },
+            {
+              "text": " hardly",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 1.2278556823730469e-05
+            },
+            {
+              "text": " ever",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.01221466064453125
+            },
+            {
+              "text": " prick",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.00016117095947265625
+            },
+            {
+              "text": " at",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.07293701171875
+            },
+            {
+              "text": " all.\"",
+              "start": 4.92,
+              "end": 4.92,
+              "probability": 0.25908660888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "[\"If",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "thorn",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "does",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "raw": "not",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "prick",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "at",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "its",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "birth,",
+          "start": 2.04,
+          "end": 2.42
+        },
+        {
+          "raw": "twill",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "hardly",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "ever",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "prick",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "at",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "all.\"",
+          "start": 4.06,
+          "end": 4.34
+        },
+        {
+          "raw": "[\"If",
+          "start": 4.34,
+          "end": 4.92
+        },
+        {
+          "raw": "the",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "thorn",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "does",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "prick",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "at",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "its",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "birth,",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "twill",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "hardly",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "ever",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "prick",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "at",
+          "start": 4.92,
+          "end": 4.92
+        },
+        {
+          "raw": "all.\"",
+          "start": 4.92,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "[“If",
+        "the",
+        "thorn",
+        "does",
+        "not",
+        "prick",
+        "at",
+        "its",
+        "birth,",
+        "‘twill",
+        "hardly",
+        "ever",
+        "prick",
+        "at",
+        "all.”]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"If",
+        "the",
+        "thorn",
+        "does",
+        "not",
+        "prick",
+        "at",
+        "its",
+        "birth,",
+        "'twill",
+        "hardly",
+        "ever",
+        "prick",
+        "at",
+        "all.\"]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "insert",
+          15,
+          15,
+          15,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          15,
+          15,
+          15,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "[\"If",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thorn",
+          "start": 0.74,
+          "end": 1.08,
+          "key": "thorn",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "does",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prick",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "prick",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "its",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "birth,",
+          "start": 2.04,
+          "end": 2.42,
+          "key": "birth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "twill",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "twill",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "hardly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 3.36,
+          "end": 3.68,
+          "key": "ever",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "prick",
+          "start": 3.68,
+          "end": 3.92,
+          "key": "prick",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "all.\"",
+          "start": 4.06,
+          "end": 4.34,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "[\"If",
+          "start": 4.34,
+          "end": 4.92,
+          "key": "if",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thorn",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "thorn",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "does",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "prick",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "prick",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "at",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "its",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "birth,",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "birth",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "twill",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "twill",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "hardly",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "ever",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "prick",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "prick",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "at",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "all.\"",
+          "start": 4.92,
+          "end": 4.92,
+          "key": "all",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“If",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "the",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "thorn",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "text": "does",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "text": "not",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "prick",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "at",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "its",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "birth,",
+          "start": 2.04,
+          "end": 2.42
+        },
+        {
+          "text": "‘twill",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "hardly",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "ever",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "text": "prick",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "at",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "all.”]",
+          "start": 4.06,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 29,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7664523171260953
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f1acd6d65d75a574ba382e4f34c0cfe650c98bc8d87b80e88a7e2fafad05613e",
+  "selected_reasons": []
+}

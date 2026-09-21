@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "2b166e37212111cb42982972660229e535adaf2deb7e46f1bcf96ce66c27cd90",
+  "attempts": [
+    {
+      "asr_seconds": 0.7721460834145546,
+      "alignment_seconds": 0.0006763963028788567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Ford._",
+        "hotwords": "Ford._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Ford.",
+          "start": 0.14,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.68,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Ford.",
+              "start": 0.68,
+              "end": 1.08,
+              "probability": 0.430908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "raw": "Ford.",
+          "start": 0.68,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "FORD._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Ford._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ford.",
+          "start": 0.68,
+          "end": 1.08,
+          "key": "ford",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "text": "FORD._",
+          "start": 0.68,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7728806482627988
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f2fdb895060ce6fcc0187f46339baf9b639181c6617469326a873446c028eaf",
+  "selected_reasons": []
+}

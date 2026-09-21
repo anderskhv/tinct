@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "e7c371b1073d7362f8ee67b52553d8f712b4629be2bd12a71edd1dc9d97b7578",
+  "attempts": [
+    {
+      "asr_seconds": 0.2778271893039346,
+      "alignment_seconds": 0.0012075724080204964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Prov._ 'Tis pity of him. Exeunt._",
+        "hotwords": "Tis, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prov. Tis pity of him. Exeunt._",
+          "start": 0.53,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Prov.",
+              "start": 0.53,
+              "end": 0.95,
+              "probability": 0.035491943359375
+            },
+            {
+              "text": " Tis",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.16448974609375
+            },
+            {
+              "text": " pity",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " of",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " him.",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Exeunt._",
+              "start": 2.15,
+              "end": 2.57,
+              "probability": 0.5296020805835724
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prov.",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "raw": "Tis",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "pity",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "of",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "him.",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.15,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "_Prov._",
+        "'Tis",
+        "pity",
+        "of",
+        "him.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Prov._",
+        "'Tis",
+        "pity",
+        "of",
+        "him.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Prov.",
+          "start": 0.53,
+          "end": 0.95,
+          "key": "prov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pity",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "pity",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.15,
+          "end": 2.57,
+          "key": "exeunt",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Prov._",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "text": "'Tis",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "pity",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "of",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "him.",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 2.15,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27914803475141525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "442b70486f4d2195c7bdca7d1e80ec90c70196bc597d725a87faceea5da7d5a4",
+  "selected_reasons": []
+}

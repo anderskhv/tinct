@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "9a4af34285c303c81c8b28ea843a50fd07c79cd909c682d0513e66548eb6f309",
+  "attempts": [
+    {
+      "asr_seconds": 0.2350739799439907,
+      "alignment_seconds": 0.0012853555381298065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ Look where he comes. 25",
+        "hotwords": "Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, look where he comes. 25",
+          "start": 0.02,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.71875
+            },
+            {
+              "text": " look",
+              "start": 0.9,
+              "end": 0.98,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " where",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " comes.",
+              "start": 1.28,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " 25",
+              "start": 2.0,
+              "end": 2.32,
+              "probability": 0.31103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "look",
+          "start": 0.9,
+          "end": 0.98
+        },
+        {
+          "raw": "where",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "comes.",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "raw": "25",
+          "start": 2.0,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "Look",
+        "where",
+        "he",
+        "comes.",
+        "25"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "Look",
+        "where",
+        "he",
+        "comes.",
+        "25"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.9,
+          "end": 0.98,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "comes.",
+          "start": 1.28,
+          "end": 1.58,
+          "key": "comes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "25",
+          "start": 2.0,
+          "end": 2.32,
+          "key": "twentyfive",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Look",
+          "start": 0.9,
+          "end": 0.98
+        },
+        {
+          "text": "where",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "he",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "comes.",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "text": "25",
+          "start": 2.0,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2364726271480322
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f63231a901af78a53283985726f240485019b8696ed1ac8a64a3e309159a71c",
+  "selected_reasons": []
+}

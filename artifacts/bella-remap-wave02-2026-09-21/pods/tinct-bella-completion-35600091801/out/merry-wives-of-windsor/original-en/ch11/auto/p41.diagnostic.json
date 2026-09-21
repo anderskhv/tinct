@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "687e8a0adf73cd24189b900a88b95067dd6c2a487b3885ef8ad90c0d599b76cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2737788874655962,
+      "alignment_seconds": 0.0016866251826286316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Anne._ Good mother, do not marry me to yond fool.",
+        "hotwords": "Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, good mother, do not marry me to yond fool.",
+          "start": 0.34,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.34,
+              "end": 0.74,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " good",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " mother,",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " do",
+              "start": 1.68,
+              "end": 1.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marry",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 2.12,
+              "end": 2.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 2.3,
+              "end": 2.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " yond",
+              "start": 2.44,
+              "end": 2.72,
+              "probability": 0.656982421875
+            },
+            {
+              "text": " fool.",
+              "start": 2.72,
+              "end": 3.0,
+              "probability": 0.83349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.34,
+          "end": 0.74
+        },
+        {
+          "raw": "good",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "mother,",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "do",
+          "start": 1.68,
+          "end": 1.72
+        },
+        {
+          "raw": "not",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "marry",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "me",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "raw": "yond",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "raw": "fool.",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "_Anne._",
+        "Good",
+        "mother,",
+        "do",
+        "not",
+        "marry",
+        "me",
+        "to",
+        "yond",
+        "fool."
+      ],
+      "acoustic_expected_tokens": [
+        "_Anne._",
+        "Good",
+        "mother,",
+        "do",
+        "not",
+        "marry",
+        "me",
+        "to",
+        "yond",
+        "fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.34,
+          "end": 0.74,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mother,",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "mother",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.68,
+          "end": 1.72,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "marry",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "marry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.12,
+          "end": 2.3,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.44,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yond",
+          "start": 2.44,
+          "end": 2.72,
+          "key": "yond",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 2.72,
+          "end": 3.0,
+          "key": "fool",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Anne._",
+          "start": 0.34,
+          "end": 0.74
+        },
+        {
+          "text": "Good",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "mother,",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "do",
+          "start": 1.68,
+          "end": 1.72
+        },
+        {
+          "text": "not",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "marry",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "me",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "text": "to",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "text": "yond",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "text": "fool.",
+          "start": 2.72,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2756370482966304
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b68b5ed5a6bc62a71b8819b968e0062a5af33c2bc596ff0f57ce15c0fc18883c",
+  "selected_reasons": []
+}

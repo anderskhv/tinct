@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "f79aca38b62a417495070832a3e1ef29765d9d2c0c6bdcb1c4a766f17af39dc7",
+  "attempts": [
+    {
+      "asr_seconds": 0.21675725281238556,
+      "alignment_seconds": 0.001000833697617054,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Jul._ I'll gladly learn.",
+        "hotwords": "I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Joel, I'll gladly learn.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Joel,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.259765625
+            },
+            {
+              "text": " I'll",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.565185546875
+            },
+            {
+              "text": " gladly",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " learn.",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Joel,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I'll",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "gladly",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "learn.",
+          "start": 1.43,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "_Jul._",
+        "I'll",
+        "gladly",
+        "learn."
+      ],
+      "acoustic_expected_tokens": [
+        "_Jul._",
+        "I'll",
+        "gladly",
+        "learn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Joel,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "joel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gladly",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "gladly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "learn.",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "learn",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Jul._",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "I'll",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "gladly",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "learn.",
+          "start": 1.43,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2178409257903695
+    },
+    {
+      "asr_seconds": 0.19739546347409487,
+      "alignment_seconds": 0.0011266106739640236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I'll"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Joel a gladly learn",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Joel",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.259765625
+            },
+            {
+              "text": " a",
+              "start": 0.67,
+              "end": 1.11,
+              "probability": 0.03912353515625
+            },
+            {
+              "text": " gladly",
+              "start": 1.11,
+              "end": 1.45,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " learn",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.9052734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Joel",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 1.11
+        },
+        {
+          "raw": "gladly",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "raw": "learn",
+          "start": 1.45,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "_Jul._",
+        "I'll",
+        "gladly",
+        "learn."
+      ],
+      "acoustic_expected_tokens": [
+        "_Jul._",
+        "I'll",
+        "gladly",
+        "learn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Joel",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "joel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 1.11,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gladly",
+          "start": 1.11,
+          "end": 1.45,
+          "key": "gladly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "learn",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "learn",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Jul._",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "I'll",
+          "start": 0.555,
+          "end": 0.833
+        },
+        {
+          "text": "gladly",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "text": "learn.",
+          "start": 1.45,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19860968738794327
+    },
+    {
+      "asr_seconds": 0.20012290496379137,
+      "alignment_seconds": 0.0013431031256914139,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Joel, I'll gladly learn.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Joel,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.259765625
+            },
+            {
+              "text": " I'll",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.565185546875
+            },
+            {
+              "text": " gladly",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " learn.",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Joel,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I'll",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "gladly",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "learn.",
+          "start": 1.43,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "_Jul._",
+        "I'll",
+        "gladly",
+        "learn."
+      ],
+      "acoustic_expected_tokens": [
+        "_Jul._",
+        "I'll",
+        "gladly",
+        "learn."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Joel,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "joel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gladly",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "gladly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "learn.",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "learn",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Jul._",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "I'll",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "gladly",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "learn.",
+          "start": 1.43,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20155504066497087
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cf4345ddf465d5a78ff2b50ea1cae46e1a8dac08f7d8e6abac4c038558dbe0d5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "258720f05977a76d159af846421ae91a76a9a5b70eeb9ac4b366cd544f5b618c",
+  "attempts": [
+    {
+      "asr_seconds": 0.37944456189870834,
+      "alignment_seconds": 0.0018984545022249222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Per dispositos equos prope incredibili celeritate ab Amphissa tertio die Pellam pervenit.\"",
+        "hotwords": "Per, Amphissa, Pellam"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Per dispositos equos prope incredibili celeritate ab Amphissa tertio die Pellam pervenit.",
+          "start": 0.05,
+          "end": 6.45,
+          "words": [
+            {
+              "text": " Per",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.223876953125
+            },
+            {
+              "text": " dispositos",
+              "start": 0.55,
+              "end": 1.31,
+              "probability": 0.814208984375
+            },
+            {
+              "text": " equos",
+              "start": 1.31,
+              "end": 1.89,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " prope",
+              "start": 1.89,
+              "end": 2.25,
+              "probability": 0.0003268718719482422
+            },
+            {
+              "text": " incredibili",
+              "start": 2.25,
+              "end": 3.17,
+              "probability": 0.4597574869791667
+            },
+            {
+              "text": " celeritate",
+              "start": 3.17,
+              "end": 3.91,
+              "probability": 0.7898763020833334
+            },
+            {
+              "text": " ab",
+              "start": 3.91,
+              "end": 4.31,
+              "probability": 0.149169921875
+            },
+            {
+              "text": " Amphissa",
+              "start": 4.31,
+              "end": 4.73,
+              "probability": 0.42021656036376953
+            },
+            {
+              "text": " tertio",
+              "start": 4.73,
+              "end": 5.29,
+              "probability": 0.603515625
+            },
+            {
+              "text": " die",
+              "start": 5.29,
+              "end": 5.51,
+              "probability": 0.0012073516845703125
+            },
+            {
+              "text": " Pellam",
+              "start": 5.51,
+              "end": 5.87,
+              "probability": 0.04300117492675781
+            },
+            {
+              "text": " pervenit.",
+              "start": 5.87,
+              "end": 6.45,
+              "probability": 0.3998006184895833
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Per",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "dispositos",
+          "start": 0.55,
+          "end": 1.31
+        },
+        {
+          "raw": "equos",
+          "start": 1.31,
+          "end": 1.89
+        },
+        {
+          "raw": "prope",
+          "start": 1.89,
+          "end": 2.25
+        },
+        {
+          "raw": "incredibili",
+          "start": 2.25,
+          "end": 3.17
+        },
+        {
+          "raw": "celeritate",
+          "start": 3.17,
+          "end": 3.91
+        },
+        {
+          "raw": "ab",
+          "start": 3.91,
+          "end": 4.31
+        },
+        {
+          "raw": "Amphissa",
+          "start": 4.31,
+          "end": 4.73
+        },
+        {
+          "raw": "tertio",
+          "start": 4.73,
+          "end": 5.29
+        },
+        {
+          "raw": "die",
+          "start": 5.29,
+          "end": 5.51
+        },
+        {
+          "raw": "Pellam",
+          "start": 5.51,
+          "end": 5.87
+        },
+        {
+          "raw": "pervenit.",
+          "start": 5.87,
+          "end": 6.45
+        }
+      ],
+      "expected_tokens": [
+        "“Per",
+        "dispositos",
+        "equos",
+        "prope",
+        "incredibili",
+        "celeritate",
+        "ab",
+        "Amphissa",
+        "tertio",
+        "die",
+        "Pellam",
+        "pervenit.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Per",
+        "dispositos",
+        "equos",
+        "prope",
+        "incredibili",
+        "celeritate",
+        "ab",
+        "Amphissa",
+        "tertio",
+        "die",
+        "Pellam",
+        "pervenit.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Per",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "per",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dispositos",
+          "start": 0.55,
+          "end": 1.31,
+          "key": "dispositos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "equos",
+          "start": 1.31,
+          "end": 1.89,
+          "key": "equos",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prope",
+          "start": 1.89,
+          "end": 2.25,
+          "key": "prope",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "incredibili",
+          "start": 2.25,
+          "end": 3.17,
+          "key": "incredibili",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "celeritate",
+          "start": 3.17,
+          "end": 3.91,
+          "key": "celeritate",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ab",
+          "start": 3.91,
+          "end": 4.31,
+          "key": "ab",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Amphissa",
+          "start": 4.31,
+          "end": 4.73,
+          "key": "amphissa",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tertio",
+          "start": 4.73,
+          "end": 5.29,
+          "key": "tertio",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 5.29,
+          "end": 5.51,
+          "key": "die",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pellam",
+          "start": 5.51,
+          "end": 5.87,
+          "key": "pellam",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pervenit.",
+          "start": 5.87,
+          "end": 6.45,
+          "key": "pervenit",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Per",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "dispositos",
+          "start": 0.55,
+          "end": 1.31
+        },
+        {
+          "text": "equos",
+          "start": 1.31,
+          "end": 1.89
+        },
+        {
+          "text": "prope",
+          "start": 1.89,
+          "end": 2.25
+        },
+        {
+          "text": "incredibili",
+          "start": 2.25,
+          "end": 3.17
+        },
+        {
+          "text": "celeritate",
+          "start": 3.17,
+          "end": 3.91
+        },
+        {
+          "text": "ab",
+          "start": 3.91,
+          "end": 4.31
+        },
+        {
+          "text": "Amphissa",
+          "start": 4.31,
+          "end": 4.73
+        },
+        {
+          "text": "tertio",
+          "start": 4.73,
+          "end": 5.29
+        },
+        {
+          "text": "die",
+          "start": 5.29,
+          "end": 5.51
+        },
+        {
+          "text": "Pellam",
+          "start": 5.51,
+          "end": 5.87
+        },
+        {
+          "text": "pervenit.”",
+          "start": 5.87,
+          "end": 6.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38151715695858
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "21687c8e8921eb5eda7d3505d838e8891b4a99b36a37e090d5fc475e99bc9d3f",
+  "selected_reasons": []
+}

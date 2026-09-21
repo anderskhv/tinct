@@ -1,0 +1,384 @@
+{
+  "complete": true,
+  "signature": "e5f9d08dd1528aee85dfd50b81e29852a69cef75fd3af7fafa36d442e785fc69",
+  "attempts": [
+    {
+      "asr_seconds": 0.3199542425572872,
+      "alignment_seconds": 0.0009299786761403084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Fenton and Host._",
+        "hotwords": "Fenton, Host._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fenton, Host._",
+          "start": 0.14,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Fenton,",
+              "start": 0.14,
+              "end": 1.1,
+              "probability": 0.38639283180236816
+            },
+            {
+              "text": " Host._",
+              "start": 1.22,
+              "end": 2.16,
+              "probability": 0.046386778354644775
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fenton,",
+          "start": 0.14,
+          "end": 1.1
+        },
+        {
+          "raw": "Host._",
+          "start": 1.22,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "FENTON",
+        "and",
+        "HOST._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Fenton",
+        "and",
+        "Host._"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          2,
+          0,
+          1
+        ],
+        [
+          "delete",
+          2,
+          3,
+          1,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "delete",
+          2,
+          3,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fenton,",
+          "start": 0.14,
+          "end": 1.1,
+          "key": "fenton",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Host._",
+          "start": 1.22,
+          "end": 2.16,
+          "key": "host",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.0,
+          "end": 0.07
+        },
+        {
+          "text": "FENTON",
+          "start": 0.14,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.16
+        },
+        {
+          "text": "HOST._",
+          "start": 1.22,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32094951812177896
+    },
+    {
+      "asr_seconds": 0.22900686413049698,
+      "alignment_seconds": 0.0009580198675394058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Fenton, Host._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Enter Fenton and Host.",
+          "start": 0.14,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " Fenton",
+              "start": 0.64,
+              "end": 1.1,
+              "probability": 0.774658203125
+            },
+            {
+              "text": " and",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.81640625
+            },
+            {
+              "text": " Host.",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.45361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Fenton",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "Host.",
+          "start": 1.26,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "FENTON",
+        "and",
+        "HOST._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Fenton",
+        "and",
+        "Host._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fenton",
+          "start": 0.64,
+          "end": 1.1,
+          "key": "fenton",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Host.",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "host",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "FENTON",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "HOST._",
+          "start": 1.26,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2300556506961584
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "4c5e547cad123b4c88fa317c554834348c7e41cf306df828c323395901521393",
+  "selected_reasons": []
+}

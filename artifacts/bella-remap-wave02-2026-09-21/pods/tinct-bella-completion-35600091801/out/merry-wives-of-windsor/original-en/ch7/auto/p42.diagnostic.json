@@ -1,0 +1,697 @@
+{
+  "complete": true,
+  "signature": "1b4c1324d0df467189e117dee667dcbc680ba4e85935572c6b8f551b68fe79da",
+  "attempts": [
+    {
+      "asr_seconds": 0.4229982113465667,
+      "alignment_seconds": 0.0030956044793128967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Caius._ By gar, me vill kill de priest; for he speak for a 75 jack-an-ape to Anne Page.",
+        "hotwords": "By, Anne, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caius. By gar, me vill kill de priest, for he speak for a 75 jack-an-ape to Anne Page.",
+          "start": 0.08,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " Caius.",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.6590576171875
+            },
+            {
+              "text": " By",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " gar,",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.411376953125
+            },
+            {
+              "text": " me",
+              "start": 2.02,
+              "end": 2.04,
+              "probability": 0.286865234375
+            },
+            {
+              "text": " vill",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.136962890625
+            },
+            {
+              "text": " kill",
+              "start": 2.24,
+              "end": 2.52,
+              "probability": 0.560546875
+            },
+            {
+              "text": " de",
+              "start": 2.52,
+              "end": 2.7,
+              "probability": 0.369384765625
+            },
+            {
+              "text": " priest,",
+              "start": 2.7,
+              "end": 3.1,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " for",
+              "start": 3.5,
+              "end": 3.6,
+              "probability": 0.794921875
+            },
+            {
+              "text": " he",
+              "start": 3.6,
+              "end": 3.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " speak",
+              "start": 3.72,
+              "end": 3.98,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " for",
+              "start": 3.98,
+              "end": 4.16,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " a",
+              "start": 4.16,
+              "end": 4.3,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " 75",
+              "start": 4.3,
+              "end": 4.72,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " jack",
+              "start": 4.72,
+              "end": 5.1,
+              "probability": 0.369140625
+            },
+            {
+              "text": "-an",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.1428985595703125
+            },
+            {
+              "text": "-ape",
+              "start": 5.22,
+              "end": 5.38,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " to",
+              "start": 5.38,
+              "end": 5.54,
+              "probability": 0.853515625
+            },
+            {
+              "text": " Anne",
+              "start": 5.54,
+              "end": 5.72,
+              "probability": 0.321533203125
+            },
+            {
+              "text": " Page.",
+              "start": 5.72,
+              "end": 6.1,
+              "probability": 0.8701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caius.",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "By",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "gar,",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "me",
+          "start": 2.02,
+          "end": 2.04
+        },
+        {
+          "raw": "vill",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "kill",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "raw": "de",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "raw": "priest,",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "raw": "for",
+          "start": 3.5,
+          "end": 3.6
+        },
+        {
+          "raw": "he",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 3.98
+        },
+        {
+          "raw": "for",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "raw": "75",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "raw": "jack",
+          "start": 4.72,
+          "end": 5.1
+        },
+        {
+          "raw": "-an",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "-ape",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "raw": "to",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "raw": "Anne",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "raw": "Page.",
+          "start": 5.72,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "_Caius._",
+        "By",
+        "gar,",
+        "me",
+        "vill",
+        "kill",
+        "de",
+        "priest;",
+        "for",
+        "he",
+        "speak",
+        "for",
+        "a",
+        "75",
+        "jack-an-ape",
+        "to",
+        "Anne",
+        "Page."
+      ],
+      "acoustic_expected_tokens": [
+        "_Caius._",
+        "By",
+        "gar,",
+        "me",
+        "vill",
+        "kill",
+        "de",
+        "priest;",
+        "for",
+        "he",
+        "speak",
+        "for",
+        "a",
+        "75",
+        "jack-an-ape",
+        "to",
+        "Anne",
+        "Page."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caius.",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "caius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gar,",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "gar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.02,
+          "end": 2.04,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "vill",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "vill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.24,
+          "end": 2.52,
+          "key": "kill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.52,
+          "end": 2.7,
+          "key": "de",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "priest,",
+          "start": 2.7,
+          "end": 3.1,
+          "key": "priest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.5,
+          "end": 3.6,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.6,
+          "end": 3.72,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 3.72,
+          "end": 3.98,
+          "key": "speak",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.98,
+          "end": 4.16,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.16,
+          "end": 4.3,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "75",
+          "start": 4.3,
+          "end": 4.72,
+          "key": "seventyfive",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "jack -an -ape",
+          "start": 4.72,
+          "end": 5.38,
+          "key": "jackanape",
+          "pieces": [
+            14,
+            15,
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.38,
+          "end": 5.54,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 5.54,
+          "end": 5.72,
+          "key": "anne",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 5.72,
+          "end": 6.1,
+          "key": "page",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "jack-an-ape",
+          "heard": "jack -an -ape",
+          "heard_indexes": [
+            14,
+            15,
+            16
+          ],
+          "start": 4.72,
+          "end": 5.38
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Caius._",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "text": "By",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "text": "gar,",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "text": "me",
+          "start": 2.02,
+          "end": 2.04
+        },
+        {
+          "text": "vill",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "kill",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "text": "de",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "text": "priest;",
+          "start": 2.7,
+          "end": 3.1
+        },
+        {
+          "text": "for",
+          "start": 3.5,
+          "end": 3.6
+        },
+        {
+          "text": "he",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "text": "speak",
+          "start": 3.72,
+          "end": 3.98
+        },
+        {
+          "text": "for",
+          "start": 3.98,
+          "end": 4.16
+        },
+        {
+          "text": "a",
+          "start": 4.16,
+          "end": 4.3
+        },
+        {
+          "text": "75",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "text": "jack-an-ape",
+          "start": 4.72,
+          "end": 5.38
+        },
+        {
+          "text": "to",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "text": "Anne",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "text": "Page.",
+          "start": 5.72,
+          "end": 6.1
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4264019960537553
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59142207f5fe6065a0a9931e9f4553d460cc2f5d134658523940fce8cfbd9997",
+  "selected_reasons": []
+}

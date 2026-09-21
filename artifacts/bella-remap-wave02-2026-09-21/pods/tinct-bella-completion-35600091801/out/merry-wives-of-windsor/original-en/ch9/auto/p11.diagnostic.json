@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "1ce04d0283f47425a790f1332c8a0573b4971078e00849a78d7272b99c76c754",
+  "attempts": [
+    {
+      "asr_seconds": 0.20921512879431248,
+      "alignment_seconds": 0.0009651705622673035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Rob._ Sir John Falstaff.",
+        "hotwords": "Sir, John, Falstaff"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rob, Sir John Falstaff.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Rob,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.428955078125
+            },
+            {
+              "text": " Sir",
+              "start": 1.07,
+              "end": 1.15,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " John",
+              "start": 1.15,
+              "end": 1.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Falstaff.",
+              "start": 1.41,
+              "end": 1.85,
+              "probability": 0.975830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rob,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Sir",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "raw": "John",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "raw": "Falstaff.",
+          "start": 1.41,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "_Rob._",
+        "Sir",
+        "John",
+        "Falstaff."
+      ],
+      "acoustic_expected_tokens": [
+        "_Rob._",
+        "Sir",
+        "John",
+        "Falstaff."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rob,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "rob",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.07,
+          "end": 1.15,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.15,
+          "end": 1.41,
+          "key": "john",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Falstaff.",
+          "start": 1.41,
+          "end": 1.85,
+          "key": "falstaff",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Rob._",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Sir",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "text": "John",
+          "start": 1.15,
+          "end": 1.41
+        },
+        {
+          "text": "Falstaff.",
+          "start": 1.41,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2102648001164198
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "57fb68af40af3286c7e2e86635181de14a2e878b64bf035cb627f1cac2ef8420",
+  "selected_reasons": []
+}

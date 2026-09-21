@@ -1,0 +1,660 @@
+{
+  "complete": true,
+  "signature": "8c076720d4644316b4d7f2f817576f1d31957c7093f104701979ddda385ac6ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.4660012358799577,
+      "alignment_seconds": 0.0025509167462587357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Disarm them, and let them question: let them 70 keep their limbs whole, and hack our English.",
+        "hotwords": "Disarm, English"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, disarm them, and let them question. Let them 70 keep their limbs whole, and hack our English.",
+          "start": 0.05,
+          "end": 6.23,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " disarm",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.98828125
+            },
+            {
+              "text": " them,",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " let",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " question.",
+              "start": 2.37,
+              "end": 2.79,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Let",
+              "start": 3.41,
+              "end": 3.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " them",
+              "start": 3.51,
+              "end": 3.69,
+              "probability": 0.98046875
+            },
+            {
+              "text": " 70",
+              "start": 3.69,
+              "end": 4.09,
+              "probability": 0.2470703125
+            },
+            {
+              "text": " keep",
+              "start": 4.09,
+              "end": 4.37,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " their",
+              "start": 4.37,
+              "end": 4.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " limbs",
+              "start": 4.57,
+              "end": 4.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " whole,",
+              "start": 4.85,
+              "end": 5.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 5.43,
+              "end": 5.53,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " hack",
+              "start": 5.53,
+              "end": 5.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " our",
+              "start": 5.77,
+              "end": 5.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " English.",
+              "start": 5.95,
+              "end": 6.23,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "disarm",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "them,",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "let",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "them",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "question.",
+          "start": 2.37,
+          "end": 2.79
+        },
+        {
+          "raw": "Let",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "raw": "them",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "raw": "70",
+          "start": 3.69,
+          "end": 4.09
+        },
+        {
+          "raw": "keep",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "raw": "their",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "raw": "limbs",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "raw": "whole,",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "raw": "and",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "raw": "hack",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "raw": "our",
+          "start": 5.77,
+          "end": 5.95
+        },
+        {
+          "raw": "English.",
+          "start": 5.95,
+          "end": 6.23
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Disarm",
+        "them,",
+        "and",
+        "let",
+        "them",
+        "question:",
+        "let",
+        "them",
+        "70",
+        "keep",
+        "their",
+        "limbs",
+        "whole,",
+        "and",
+        "hack",
+        "our",
+        "English."
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Disarm",
+        "them,",
+        "and",
+        "let",
+        "them",
+        "question:",
+        "let",
+        "them",
+        "70",
+        "keep",
+        "their",
+        "limbs",
+        "whole,",
+        "and",
+        "hack",
+        "our",
+        "English."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "disarm",
+          "start": 1.29,
+          "end": 1.63,
+          "key": "disarm",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "them",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.21,
+          "end": 2.37,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "question.",
+          "start": 2.37,
+          "end": 2.79,
+          "key": "question",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 3.41,
+          "end": 3.51,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.51,
+          "end": 3.69,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "70",
+          "start": 3.69,
+          "end": 4.09,
+          "key": "seventy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 4.09,
+          "end": 4.37,
+          "key": "keep",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.37,
+          "end": 4.57,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "limbs",
+          "start": 4.57,
+          "end": 4.85,
+          "key": "limbs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "whole,",
+          "start": 4.85,
+          "end": 5.23,
+          "key": "whole",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.43,
+          "end": 5.53,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hack",
+          "start": 5.53,
+          "end": 5.77,
+          "key": "hack",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.77,
+          "end": 5.95,
+          "key": "our",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "English.",
+          "start": 5.95,
+          "end": 6.23,
+          "key": "english",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Disarm",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "text": "them,",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "and",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "let",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "them",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "question:",
+          "start": 2.37,
+          "end": 2.79
+        },
+        {
+          "text": "let",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "text": "them",
+          "start": 3.51,
+          "end": 3.69
+        },
+        {
+          "text": "70",
+          "start": 3.69,
+          "end": 4.09
+        },
+        {
+          "text": "keep",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "text": "their",
+          "start": 4.37,
+          "end": 4.57
+        },
+        {
+          "text": "limbs",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "text": "whole,",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "text": "and",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "text": "hack",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "text": "our",
+          "start": 5.77,
+          "end": 5.95
+        },
+        {
+          "text": "English.",
+          "start": 5.95,
+          "end": 6.23
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46880684699863195
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7551859d4f78463243b33a98195232ef814b654945b2156330683202ddb0f2f3",
+  "selected_reasons": []
+}

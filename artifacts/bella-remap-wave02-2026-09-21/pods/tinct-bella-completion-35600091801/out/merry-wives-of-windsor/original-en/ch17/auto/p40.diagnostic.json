@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "1d835327cb4b96ec3af1d9f836210067796dd91582a0c05516f21a1570f216d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2953134495764971,
+      "alignment_seconds": 0.0010888008400797844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Caius._ Vere is mine host de Jarteer?",
+        "hotwords": "Vere, Jarteer"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caius, Vere is mine host de Jarteer?",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Caius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.6445414225260416
+            },
+            {
+              "text": " Vere",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.046695709228515625
+            },
+            {
+              "text": " is",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " mine",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " host",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.9453125
+            },
+            {
+              "text": " de",
+              "start": 2.08,
+              "end": 2.2,
+              "probability": 0.001129150390625
+            },
+            {
+              "text": " Jarteer?",
+              "start": 2.2,
+              "end": 2.6,
+              "probability": 0.44058990478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Vere",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "is",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "mine",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "host",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "de",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "raw": "Jarteer?",
+          "start": 2.2,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "_Caius._",
+        "Vere",
+        "is",
+        "mine",
+        "host",
+        "de",
+        "Jarteer?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Caius._",
+        "Vere",
+        "is",
+        "mine",
+        "host",
+        "de",
+        "Jarteer?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "caius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vere",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "vere",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "mine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "host",
+          "start": 1.78,
+          "end": 2.08,
+          "key": "host",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.08,
+          "end": 2.2,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Jarteer?",
+          "start": 2.2,
+          "end": 2.6,
+          "key": "jarteer",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Caius._",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "Vere",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "is",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "mine",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "host",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "de",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "Jarteer?",
+          "start": 2.2,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2965300315991044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8bf49057dd79046873a7945a55ff8c6e3bbef0e1e73fd2d00205de5ea25f8ee",
+  "selected_reasons": []
+}

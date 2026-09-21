@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "ab32a4bc0be7ca531104390e3e536155f301f59eef58b85e19b5a448e9e879ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.2644266253337264,
+      "alignment_seconds": 0.0016350308433175087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ Then was your sin of heavier kind than his.",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, then was your sin of heavier kind than his.",
+          "start": 0.02,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " then",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.9765625
+            },
+            {
+              "text": " was",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " your",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sin",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " heavier",
+              "start": 1.96,
+              "end": 2.24,
+              "probability": 0.990234375
+            },
+            {
+              "text": " kind",
+              "start": 2.24,
+              "end": 2.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " than",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " his.",
+              "start": 2.86,
+              "end": 3.16,
+              "probability": 0.9072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "then",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "was",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "your",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "sin",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "heavier",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "raw": "kind",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "raw": "than",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "his.",
+          "start": 2.86,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "Then",
+        "was",
+        "your",
+        "sin",
+        "of",
+        "heavier",
+        "kind",
+        "than",
+        "his."
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "Then",
+        "was",
+        "your",
+        "sin",
+        "of",
+        "heavier",
+        "kind",
+        "than",
+        "his."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sin",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "sin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.96,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heavier",
+          "start": 1.96,
+          "end": 2.24,
+          "key": "heavier",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 2.24,
+          "end": 2.64,
+          "key": "kind",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "than",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his.",
+          "start": 2.86,
+          "end": 3.16,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Then",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "was",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "your",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "sin",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "of",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "heavier",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "text": "kind",
+          "start": 2.24,
+          "end": 2.64
+        },
+        {
+          "text": "than",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "his.",
+          "start": 2.86,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2662375243380666
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51b4833368a3177bca9b22a9f665748984d85c73a0a457c6005b47d29e0d2680",
+  "selected_reasons": []
+}

@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "b69ededdaf05519d0493f244d17e21d424f7faa6a4f175f62e1159bcde57b8ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.19248336926102638,
+      "alignment_seconds": 0.000616932287812233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Jul._ Mutually.",
+        "hotwords": "Mutually"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Joel. Mutually.",
+          "start": 0.05,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Joel.",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.00937652587890625
+            },
+            {
+              "text": " Mutually.",
+              "start": 1.13,
+              "end": 1.45,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Joel.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Mutually.",
+          "start": 1.13,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "_Jul._",
+        "Mutually."
+      ],
+      "acoustic_expected_tokens": [
+        "_Jul._",
+        "Mutually."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Joel.",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "joel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mutually.",
+          "start": 1.13,
+          "end": 1.45,
+          "key": "mutually",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Jul._",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "Mutually.",
+          "start": 1.13,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1931596640497446
+    },
+    {
+      "asr_seconds": 0.19072492886334658,
+      "alignment_seconds": 0.0007081059738993645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Mutually"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " JAL Mutually",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " JAL",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.46484375
+            },
+            {
+              "text": " Mutually",
+              "start": 0.81,
+              "end": 1.49,
+              "probability": 0.681884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "JAL",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Mutually",
+          "start": 0.81,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "_Jul._",
+        "Mutually."
+      ],
+      "acoustic_expected_tokens": [
+        "_Jul._",
+        "Mutually."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "JAL",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "jal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mutually",
+          "start": 0.81,
+          "end": 1.49,
+          "key": "mutually",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Jul._",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "Mutually.",
+          "start": 0.81,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1914916941896081
+    },
+    {
+      "asr_seconds": 0.19686035998165607,
+      "alignment_seconds": 0.0006843386217951775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " JAL Mutually.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " JAL",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.46484375
+            },
+            {
+              "text": " Mutually.",
+              "start": 0.81,
+              "end": 1.49,
+              "probability": 0.681884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "JAL",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Mutually.",
+          "start": 0.81,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "_Jul._",
+        "Mutually."
+      ],
+      "acoustic_expected_tokens": [
+        "_Jul._",
+        "Mutually."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "JAL",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "jal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mutually.",
+          "start": 0.81,
+          "end": 1.49,
+          "key": "mutually",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Jul._",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "Mutually.",
+          "start": 0.81,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1976019162684679
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "132751ee44a42c387595f9945d9222d73db44833d875239b7fdde282680a9395",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

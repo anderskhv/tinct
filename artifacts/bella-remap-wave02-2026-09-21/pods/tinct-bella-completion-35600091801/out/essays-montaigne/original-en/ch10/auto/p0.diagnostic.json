@@ -1,0 +1,1015 @@
+{
+  "complete": true,
+  "signature": "9bcd6e965a8312b6c81dec2826c6c736021cf899dc5fc3ce7bbb69c82bc588d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.30303736962378025,
+      "alignment_seconds": 0.0011599110439419746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Onc ne furent a touts toutes graces donnees.\"",
+        "hotwords": "Onc"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Onc ne furent a touts touts graces donnees.",
+          "start": 0.14,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Onc",
+              "start": 0.14,
+              "end": 0.72,
+              "probability": 0.06396484375
+            },
+            {
+              "text": " ne",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.1275634765625
+            },
+            {
+              "text": " furent",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.10927454630533855
+            },
+            {
+              "text": " a",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.01141357421875
+            },
+            {
+              "text": " touts",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.83203125
+            },
+            {
+              "text": " touts",
+              "start": 1.58,
+              "end": 1.98,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " graces",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.925537109375
+            },
+            {
+              "text": " donnees.",
+              "start": 2.34,
+              "end": 2.86,
+              "probability": 0.18076960245768228
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Onc",
+          "start": 0.14,
+          "end": 0.72
+        },
+        {
+          "raw": "ne",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "furent",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "touts",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "touts",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "raw": "graces",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "raw": "donnees.",
+          "start": 2.34,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "“Onc",
+        "ne",
+        "furent",
+        "a",
+        "touts",
+        "toutes",
+        "graces",
+        "donnees.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Onc",
+        "ne",
+        "furent",
+        "a",
+        "touts",
+        "toutes",
+        "graces",
+        "donnees.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Onc",
+          "start": 0.14,
+          "end": 0.72,
+          "key": "onc",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "ne",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "furent",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "furent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "touts",
+          "start": 1.34,
+          "end": 1.58,
+          "key": "touts",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "touts",
+          "start": 1.58,
+          "end": 1.98,
+          "key": "touts",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "graces",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "graces",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "donnees.",
+          "start": 2.34,
+          "end": 2.86,
+          "key": "donnees",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Onc",
+          "start": 0.14,
+          "end": 0.72
+        },
+        {
+          "text": "ne",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "furent",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "a",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "touts",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "toutes",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "graces",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "text": "donnees.”",
+          "start": 2.34,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.3043020972982049
+    },
+    {
+      "asr_seconds": 0.2858108812943101,
+      "alignment_seconds": 0.0017474954947829247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Onc"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ni furina touts touts graces Donnie's",
+          "start": 0.14,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Ni",
+              "start": 0.14,
+              "end": 0.78,
+              "probability": 1.6689300537109375e-06
+            },
+            {
+              "text": " furina",
+              "start": 0.78,
+              "end": 1.28,
+              "probability": 0.40753173828125
+            },
+            {
+              "text": " touts",
+              "start": 1.28,
+              "end": 1.58,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " touts",
+              "start": 1.58,
+              "end": 1.98,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " graces",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.785888671875
+            },
+            {
+              "text": " Donnie's",
+              "start": 2.34,
+              "end": 2.92,
+              "probability": 0.6654459635416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ni",
+          "start": 0.14,
+          "end": 0.78
+        },
+        {
+          "raw": "furina",
+          "start": 0.78,
+          "end": 1.28
+        },
+        {
+          "raw": "touts",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "raw": "touts",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "raw": "graces",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "raw": "Donnie's",
+          "start": 2.34,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "“Onc",
+        "ne",
+        "furent",
+        "a",
+        "touts",
+        "toutes",
+        "graces",
+        "donnees.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Onc",
+        "ne",
+        "furent",
+        "a",
+        "touts",
+        "toutes",
+        "graces",
+        "donnees.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "equal",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          4
+        ],
+        [
+          "equal",
+          6,
+          7,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ni",
+          "start": 0.14,
+          "end": 0.78,
+          "key": "ni",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "furina",
+          "start": 0.78,
+          "end": 1.28,
+          "key": "furina",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "touts",
+          "start": 1.28,
+          "end": 1.58,
+          "key": "touts",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "touts",
+          "start": 1.58,
+          "end": 1.98,
+          "key": "touts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "graces",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "graces",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Donnie's",
+          "start": 2.34,
+          "end": 2.92,
+          "key": "donnies",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Onc",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "ne",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "furent",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "text": "a",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "touts",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "text": "toutes",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "graces",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "text": "donnees.”",
+          "start": 2.34,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.28767202515155077
+    },
+    {
+      "asr_seconds": 0.3114747302606702,
+      "alignment_seconds": 0.0017862934619188309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Anknee furina touts touts graces donnies.",
+          "start": 0.14,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Anknee",
+              "start": 0.14,
+              "end": 0.86,
+              "probability": 0.24430338541666666
+            },
+            {
+              "text": " furina",
+              "start": 0.86,
+              "end": 1.28,
+              "probability": 0.4150390625
+            },
+            {
+              "text": " touts",
+              "start": 1.28,
+              "end": 1.58,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " touts",
+              "start": 1.58,
+              "end": 1.98,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " graces",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " donnies.",
+              "start": 2.34,
+              "end": 2.82,
+              "probability": 0.7957356770833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anknee",
+          "start": 0.14,
+          "end": 0.86
+        },
+        {
+          "raw": "furina",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "raw": "touts",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "raw": "touts",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "raw": "graces",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "raw": "donnies.",
+          "start": 2.34,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "“Onc",
+        "ne",
+        "furent",
+        "a",
+        "touts",
+        "toutes",
+        "graces",
+        "donnees.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Onc",
+        "ne",
+        "furent",
+        "a",
+        "touts",
+        "toutes",
+        "graces",
+        "donnees.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "equal",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          4
+        ],
+        [
+          "equal",
+          6,
+          7,
+          4,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anknee",
+          "start": 0.14,
+          "end": 0.86,
+          "key": "anknee",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "furina",
+          "start": 0.86,
+          "end": 1.28,
+          "key": "furina",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "touts",
+          "start": 1.28,
+          "end": 1.58,
+          "key": "touts",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "touts",
+          "start": 1.58,
+          "end": 1.98,
+          "key": "touts",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "graces",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "graces",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "donnies.",
+          "start": 2.34,
+          "end": 2.82,
+          "key": "donnies",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Onc",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "ne",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "furent",
+          "start": 0.96,
+          "end": 1.12
+        },
+        {
+          "text": "a",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "touts",
+          "start": 1.28,
+          "end": 1.58
+        },
+        {
+          "text": "toutes",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "graces",
+          "start": 1.98,
+          "end": 2.34
+        },
+        {
+          "text": "donnees.”",
+          "start": 2.34,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3133749384433031
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0fc74eeb511e6da47cdf3a389bbf592e9d25e0c9241eecc84be5a05be7c201dd",
+  "selected_reasons": []
+}

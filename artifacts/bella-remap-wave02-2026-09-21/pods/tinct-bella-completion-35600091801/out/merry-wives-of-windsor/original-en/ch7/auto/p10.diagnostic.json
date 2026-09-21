@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "a283e0c0124a81b18ad27aa997063ee430bb9cf55f75367c2092e8f45809662f",
+  "attempts": [
+    {
+      "asr_seconds": 0.26823963690549135,
+      "alignment_seconds": 0.0009666075929999352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Rug._ Forbear; here's company.",
+        "hotwords": "Forbear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rug. Forbear. Here's company.",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Rug.",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.20166015625
+            },
+            {
+              "text": " Forbear.",
+              "start": 1.1,
+              "end": 1.42,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " Here's",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " company.",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.82421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Forbear.",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "raw": "Here's",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "company.",
+          "start": 1.88,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "_Rug._",
+        "Forbear;",
+        "here’s",
+        "company."
+      ],
+      "acoustic_expected_tokens": [
+        "_Rug._",
+        "Forbear;",
+        "here's",
+        "company."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug.",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Forbear.",
+          "start": 1.1,
+          "end": 1.42,
+          "key": "forbear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "heres",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "company.",
+          "start": 1.88,
+          "end": 2.14,
+          "key": "company",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Rug._",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Forbear;",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "text": "here’s",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "company.",
+          "start": 1.88,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26930440962314606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85e82cc2ef9a66617f9dacd86f0a4717ac49dba777254f306f54648ea4270946",
+  "selected_reasons": []
+}

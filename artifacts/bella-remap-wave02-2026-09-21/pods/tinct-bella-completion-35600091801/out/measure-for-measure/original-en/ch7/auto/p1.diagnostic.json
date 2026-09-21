@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "e37bcca046023b121b0fb261d61b7f1fed30c520eae6fd1fff12aa590b565a7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.32556997891515493,
+      "alignment_seconds": 0.0015081791207194328,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ Hail to you, provost!--so I think you are.",
+        "hotwords": "Hail, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, hail to you, provost!--so I think you are.",
+          "start": 0.02,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " hail",
+              "start": 1.06,
+              "end": 1.14,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " to",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " provost!--so",
+              "start": 1.6,
+              "end": 2.36,
+              "probability": 0.5240483433008194
+            },
+            {
+              "text": " I",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " think",
+              "start": 2.54,
+              "end": 2.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are.",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "hail",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "you,",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "provost!--so",
+          "start": 1.6,
+          "end": 2.36
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "think",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "raw": "you",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "are.",
+          "start": 2.88,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "Hail",
+        "to",
+        "you,",
+        "provost!--so",
+        "I",
+        "think",
+        "you",
+        "are."
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "Hail",
+        "to",
+        "you,",
+        "provost!--so",
+        "I",
+        "think",
+        "you",
+        "are."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 1.06,
+          "end": 1.14,
+          "key": "hail",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "provost!--so",
+          "start": 1.6,
+          "end": 2.36,
+          "key": "provostso",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.54,
+          "end": 2.7,
+          "key": "think",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are.",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "Hail",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "text": "to",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "you,",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "provost!--so",
+          "start": 1.6,
+          "end": 2.36
+        },
+        {
+          "text": "I",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "think",
+          "start": 2.54,
+          "end": 2.7
+        },
+        {
+          "text": "you",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "are.",
+          "start": 2.88,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3272295733913779
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b7b00c21fded7ee1bb1758efdd0bebaf9ee9862d1eb444a95831463725c2fa42",
+  "selected_reasons": []
+}

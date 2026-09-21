@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "2bf640e224406287f958553ab755912bd045a0d63a7eab1f753d1ae2ff1e6354",
+  "attempts": [
+    {
+      "asr_seconds": 0.4338231151923537,
+      "alignment_seconds": 0.001273278146982193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Shallow, Slender, and Mistress Quickly._",
+        "hotwords": "Shallow, Slender, Mistress, Quickly._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Shallow, Slender, and Mistress Quickly._",
+          "start": 0.11,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.4877929985523224
+            },
+            {
+              "text": " Shallow,",
+              "start": 0.63,
+              "end": 1.09,
+              "probability": 0.842529296875
+            },
+            {
+              "text": " Slender,",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " and",
+              "start": 1.93,
+              "end": 2.01,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Mistress",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Quickly._",
+              "start": 2.27,
+              "end": 2.93,
+              "probability": 0.4489034016927083
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Shallow,",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "raw": "Slender,",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "raw": "and",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.27,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "SHALLOW,",
+        "SLENDER,",
+        "and",
+        "MISTRESS",
+        "QUICKLY._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Shallow,",
+        "Slender,",
+        "and",
+        "Mistress",
+        "Quickly._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shallow,",
+          "start": 0.63,
+          "end": 1.09,
+          "key": "shallow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Slender,",
+          "start": 1.49,
+          "end": 1.79,
+          "key": "slender",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.93,
+          "end": 2.01,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "mistress",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Quickly._",
+          "start": 2.27,
+          "end": 2.93,
+          "key": "quickly",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "SHALLOW,",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "text": "SLENDER,",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "text": "and",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "text": "MISTRESS",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "QUICKLY._",
+          "start": 2.27,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.43520974833518267
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6299825cd6faa1b32534376174e6acde66a80ce6982a554af351c42b9f79958e",
+  "selected_reasons": []
+}

@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "2db97ec964aae16f11b06bfeff77e8f616b15c2439535959326e407791ddb7a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.24337456095963717,
+      "alignment_seconds": 0.001609012484550476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Bard._ Ay, sir; I'll call them to you.",
+        "hotwords": "Ay, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bard, Ay, sir, I'll call them to you.",
+          "start": 0.45,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Bard,",
+              "start": 0.45,
+              "end": 0.75,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " Ay,",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.0001558065414428711
+            },
+            {
+              "text": " sir,",
+              "start": 1.15,
+              "end": 1.27,
+              "probability": 0.298828125
+            },
+            {
+              "text": " I'll",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.962646484375
+            },
+            {
+              "text": " call",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " them",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you.",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bard,",
+          "start": 0.45,
+          "end": 0.75
+        },
+        {
+          "raw": "Ay,",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "sir,",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "raw": "I'll",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "call",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "them",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "you.",
+          "start": 2.01,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "_Bard._",
+        "Ay,",
+        "sir;",
+        "I’ll",
+        "call",
+        "them",
+        "to",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "_Bard._",
+        "Ay,",
+        "sir;",
+        "I'll",
+        "call",
+        "them",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bard,",
+          "start": 0.45,
+          "end": 0.75,
+          "key": "bard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.15,
+          "end": 1.27,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "ill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "call",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Bard._",
+          "start": 0.45,
+          "end": 0.75
+        },
+        {
+          "text": "Ay,",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "sir;",
+          "start": 1.15,
+          "end": 1.27
+        },
+        {
+          "text": "I’ll",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "call",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "them",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "to",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "you.",
+          "start": 2.01,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24512306973338127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c2d00b273ddc9c49167eb96eaef48e4bcdbfba99572fabce492f49ad0bd9b4f",
+  "selected_reasons": []
+}

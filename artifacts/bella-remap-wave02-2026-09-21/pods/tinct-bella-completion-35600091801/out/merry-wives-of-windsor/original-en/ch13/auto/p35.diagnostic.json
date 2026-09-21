@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "53bc3067d2f19bb6999888397a02d6edc6a9d78931e6fe43184457faca922344",
+  "attempts": [
+    {
+      "asr_seconds": 0.30610225442796946,
+      "alignment_seconds": 0.0013869069516658783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ What is your genitive case plural, William?",
+        "hotwords": "What, William"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, what is your genitive case plural, William?",
+          "start": 0.11,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.82421875
+            },
+            {
+              "text": " what",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " is",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " genitive",
+              "start": 1.61,
+              "end": 2.05,
+              "probability": 0.905517578125
+            },
+            {
+              "text": " case",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " plural,",
+              "start": 2.27,
+              "end": 2.69,
+              "probability": 0.71875
+            },
+            {
+              "text": " William?",
+              "start": 2.85,
+              "end": 3.07,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "what",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "your",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "genitive",
+          "start": 1.61,
+          "end": 2.05
+        },
+        {
+          "raw": "case",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "plural,",
+          "start": 2.27,
+          "end": 2.69
+        },
+        {
+          "raw": "William?",
+          "start": 2.85,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "What",
+        "is",
+        "your",
+        "genitive",
+        "case",
+        "plural,",
+        "William?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "What",
+        "is",
+        "your",
+        "genitive",
+        "case",
+        "plural,",
+        "William?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "genitive",
+          "start": 1.61,
+          "end": 2.05,
+          "key": "genitive",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "case",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "plural,",
+          "start": 2.27,
+          "end": 2.69,
+          "key": "plural",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 2.85,
+          "end": 3.07,
+          "key": "william",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "What",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "is",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "your",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "genitive",
+          "start": 1.61,
+          "end": 2.05
+        },
+        {
+          "text": "case",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "text": "plural,",
+          "start": 2.27,
+          "end": 2.69
+        },
+        {
+          "text": "William?",
+          "start": 2.85,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3076392561197281
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "144a88d11e48d10e0fc454aba04a50b09e497876c5f2c48ac277de7d1b4f5419",
+  "selected_reasons": []
+}

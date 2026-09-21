@@ -1,0 +1,2972 @@
+{
+  "complete": true,
+  "signature": "689d24b5db307e8e848422812eed7f8d6de46a45204e6625057e1da733ccbd0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.47577180061489344,
+      "alignment_seconds": 0.0035217469558119774,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ Sir Hugh, my husband says my son profits nothing in the world at his book. I pray you, ask him some questions in his accidence. 15",
+        "hotwords": "Page._, Sir, Hugh, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Page._, Sir Hugh, my husband says my son profits nothing in the world at his book. I pray you, ask him some questions in his accidence. 15",
+          "start": 0.02,
+          "end": 9.66,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.00852203369140625
+            },
+            {
+              "text": " Page._,",
+              "start": 1.24,
+              "end": 1.68,
+              "probability": 0.4526367783546448
+            },
+            {
+              "text": " Sir",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.37890625
+            },
+            {
+              "text": " Hugh,",
+              "start": 1.82,
+              "end": 2.12,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " my",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " husband",
+              "start": 2.4,
+              "end": 2.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " says",
+              "start": 2.7,
+              "end": 3.0,
+              "probability": 0.71044921875
+            },
+            {
+              "text": " my",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " son",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " profits",
+              "start": 3.48,
+              "end": 3.94,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " nothing",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " world",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 4.8,
+              "end": 4.94,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " his",
+              "start": 4.94,
+              "end": 5.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " book.",
+              "start": 5.08,
+              "end": 5.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 5.8,
+              "end": 6.0,
+              "probability": 0.982421875
+            },
+            {
+              "text": " pray",
+              "start": 6.0,
+              "end": 6.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you,",
+              "start": 6.2,
+              "end": 6.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ask",
+              "start": 6.8,
+              "end": 6.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 6.94,
+              "end": 7.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " questions",
+              "start": 7.26,
+              "end": 7.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 7.72,
+              "end": 7.92,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " his",
+              "start": 7.92,
+              "end": 8.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " accidence.",
+              "start": 8.1,
+              "end": 8.7,
+              "probability": 0.2359619140625
+            },
+            {
+              "text": " 15",
+              "start": 9.34,
+              "end": 9.66,
+              "probability": 0.734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "raw": "Sir",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "Hugh,",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "raw": "my",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "husband",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "raw": "says",
+          "start": 2.7,
+          "end": 3.0
+        },
+        {
+          "raw": "my",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "son",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "profits",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "raw": "nothing",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "in",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "world",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "at",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "raw": "his",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "raw": "book.",
+          "start": 5.08,
+          "end": 5.4
+        },
+        {
+          "raw": "I",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "raw": "pray",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "raw": "you,",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "raw": "ask",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "raw": "him",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "raw": "some",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "raw": "questions",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "raw": "in",
+          "start": 7.72,
+          "end": 7.92
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.1
+        },
+        {
+          "raw": "accidence.",
+          "start": 8.1,
+          "end": 8.7
+        },
+        {
+          "raw": "15",
+          "start": 9.34,
+          "end": 9.66
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Sir",
+        "Hugh,",
+        "my",
+        "husband",
+        "says",
+        "my",
+        "son",
+        "profits",
+        "nothing",
+        "in",
+        "the",
+        "world",
+        "at",
+        "his",
+        "book.",
+        "I",
+        "pray",
+        "you,",
+        "ask",
+        "him",
+        "some",
+        "questions",
+        "in",
+        "his",
+        "accidence.",
+        "15"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Sir",
+        "Hugh,",
+        "my",
+        "husband",
+        "says",
+        "my",
+        "son",
+        "profits",
+        "nothing",
+        "in",
+        "the",
+        "world",
+        "at",
+        "his",
+        "book.",
+        "I",
+        "pray",
+        "you,",
+        "ask",
+        "him",
+        "some",
+        "questions",
+        "in",
+        "his",
+        "accidence.",
+        "15"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          28,
+          1,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page._,",
+          "start": 1.24,
+          "end": 1.68,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hugh,",
+          "start": 1.82,
+          "end": 2.12,
+          "key": "hugh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 2.4,
+          "end": 2.7,
+          "key": "husband",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.7,
+          "end": 3.0,
+          "key": "says",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 3.22,
+          "end": 3.48,
+          "key": "son",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "profits",
+          "start": 3.48,
+          "end": 3.94,
+          "key": "profits",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.94,
+          "end": 4.3,
+          "key": "nothing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.3,
+          "end": 4.48,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "world",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.8,
+          "end": 4.94,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.94,
+          "end": 5.08,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 5.08,
+          "end": 5.4,
+          "key": "book",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.8,
+          "end": 6.0,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 6.0,
+          "end": 6.2,
+          "key": "pray",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 6.2,
+          "end": 6.48,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 6.8,
+          "end": 6.94,
+          "key": "ask",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.94,
+          "end": 7.1,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 7.1,
+          "end": 7.26,
+          "key": "some",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "questions",
+          "start": 7.26,
+          "end": 7.72,
+          "key": "questions",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.72,
+          "end": 7.92,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.1,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "accidence.",
+          "start": 8.1,
+          "end": 8.7,
+          "key": "accidence",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "15",
+          "start": 9.34,
+          "end": 9.66,
+          "key": "fifteen",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "Page._",
+          "start": 1.24,
+          "end": 1.68
+        },
+        {
+          "text": "Sir",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "Hugh,",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "text": "my",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "husband",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "text": "says",
+          "start": 2.7,
+          "end": 3.0
+        },
+        {
+          "text": "my",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "son",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "profits",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "text": "nothing",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "in",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "world",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "at",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "text": "his",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "text": "book.",
+          "start": 5.08,
+          "end": 5.4
+        },
+        {
+          "text": "I",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "text": "pray",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "text": "you,",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "text": "ask",
+          "start": 6.8,
+          "end": 6.94
+        },
+        {
+          "text": "him",
+          "start": 6.94,
+          "end": 7.1
+        },
+        {
+          "text": "some",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "questions",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "text": "in",
+          "start": 7.72,
+          "end": 7.92
+        },
+        {
+          "text": "his",
+          "start": 7.92,
+          "end": 8.1
+        },
+        {
+          "text": "accidence.",
+          "start": 8.1,
+          "end": 8.7
+        },
+        {
+          "text": "15",
+          "start": 9.34,
+          "end": 9.66
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.47962962929159403
+    },
+    {
+      "asr_seconds": 0.49218458123505116,
+      "alignment_seconds": 0.003467683680355549,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Page._, Sir, Hugh, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " my husband says my son profits nothing in the world at his book.",
+          "start": 1.56,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " my",
+              "start": 1.56,
+              "end": 2.12,
+              "probability": 0.00017917156219482422
+            },
+            {
+              "text": " husband",
+              "start": 2.12,
+              "end": 2.68,
+              "probability": 0.470947265625
+            },
+            {
+              "text": " says",
+              "start": 2.68,
+              "end": 3.0,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " my",
+              "start": 3.0,
+              "end": 3.24,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " son",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " profits",
+              "start": 3.46,
+              "end": 3.94,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " nothing",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " in",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " world",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 4.8,
+              "end": 4.94,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " his",
+              "start": 4.94,
+              "end": 5.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " book.",
+              "start": 5.08,
+              "end": 5.42,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " I pray you ask him some questions in his accidents.",
+          "start": 5.9,
+          "end": 8.68,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.9,
+              "end": 5.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pray",
+              "start": 5.98,
+              "end": 6.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 6.22,
+              "end": 6.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ask",
+              "start": 6.5,
+              "end": 6.96,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " him",
+              "start": 6.96,
+              "end": 7.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " questions",
+              "start": 7.26,
+              "end": 7.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 7.72,
+              "end": 7.92,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " his",
+              "start": 7.92,
+              "end": 8.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " accidents.",
+              "start": 8.08,
+              "end": 8.68,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " 15.",
+          "start": 9.32,
+          "end": 9.66,
+          "words": [
+            {
+              "text": " 15.",
+              "start": 9.32,
+              "end": 9.66,
+              "probability": 0.86865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "my",
+          "start": 1.56,
+          "end": 2.12
+        },
+        {
+          "raw": "husband",
+          "start": 2.12,
+          "end": 2.68
+        },
+        {
+          "raw": "says",
+          "start": 2.68,
+          "end": 3.0
+        },
+        {
+          "raw": "my",
+          "start": 3.0,
+          "end": 3.24
+        },
+        {
+          "raw": "son",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "profits",
+          "start": 3.46,
+          "end": 3.94
+        },
+        {
+          "raw": "nothing",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "in",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "world",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "at",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "raw": "his",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "raw": "book.",
+          "start": 5.08,
+          "end": 5.42
+        },
+        {
+          "raw": "I",
+          "start": 5.9,
+          "end": 5.98
+        },
+        {
+          "raw": "pray",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "raw": "you",
+          "start": 6.22,
+          "end": 6.5
+        },
+        {
+          "raw": "ask",
+          "start": 6.5,
+          "end": 6.96
+        },
+        {
+          "raw": "him",
+          "start": 6.96,
+          "end": 7.1
+        },
+        {
+          "raw": "some",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "raw": "questions",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "raw": "in",
+          "start": 7.72,
+          "end": 7.92
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.08
+        },
+        {
+          "raw": "accidents.",
+          "start": 8.08,
+          "end": 8.68
+        },
+        {
+          "raw": "15.",
+          "start": 9.32,
+          "end": 9.66
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Sir",
+        "Hugh,",
+        "my",
+        "husband",
+        "says",
+        "my",
+        "son",
+        "profits",
+        "nothing",
+        "in",
+        "the",
+        "world",
+        "at",
+        "his",
+        "book.",
+        "I",
+        "pray",
+        "you,",
+        "ask",
+        "him",
+        "some",
+        "questions",
+        "in",
+        "his",
+        "accidence.",
+        "15"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Sir",
+        "Hugh,",
+        "my",
+        "husband",
+        "says",
+        "my",
+        "son",
+        "profits",
+        "nothing",
+        "in",
+        "the",
+        "world",
+        "at",
+        "his",
+        "book.",
+        "I",
+        "pray",
+        "you,",
+        "ask",
+        "him",
+        "some",
+        "questions",
+        "in",
+        "his",
+        "accidence.",
+        "15"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          26,
+          0,
+          22
+        ],
+        [
+          "replace",
+          26,
+          27,
+          22,
+          23
+        ],
+        [
+          "equal",
+          27,
+          28,
+          23,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          26,
+          27,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "my",
+          "start": 1.56,
+          "end": 2.12,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 2.12,
+          "end": 2.68,
+          "key": "husband",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.68,
+          "end": 3.0,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.0,
+          "end": 3.24,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "son",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "profits",
+          "start": 3.46,
+          "end": 3.94,
+          "key": "profits",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.94,
+          "end": 4.3,
+          "key": "nothing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.3,
+          "end": 4.48,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "world",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.8,
+          "end": 4.94,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.94,
+          "end": 5.08,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 5.08,
+          "end": 5.42,
+          "key": "book",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.9,
+          "end": 5.98,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 5.98,
+          "end": 6.22,
+          "key": "pray",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.22,
+          "end": 6.5,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 6.5,
+          "end": 6.96,
+          "key": "ask",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.96,
+          "end": 7.1,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 7.1,
+          "end": 7.26,
+          "key": "some",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "questions",
+          "start": 7.26,
+          "end": 7.72,
+          "key": "questions",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.72,
+          "end": 7.92,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.08,
+          "key": "his",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "accidents.",
+          "start": 8.08,
+          "end": 8.68,
+          "key": "accidents",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "15.",
+          "start": 9.32,
+          "end": 9.66,
+          "key": "fifteen",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Page._",
+          "start": 0.78,
+          "end": 1.17
+        },
+        {
+          "text": "Sir",
+          "start": 1.17,
+          "end": 1.365
+        },
+        {
+          "text": "Hugh,",
+          "start": 1.365,
+          "end": 1.462
+        },
+        {
+          "text": "my",
+          "start": 1.56,
+          "end": 2.12
+        },
+        {
+          "text": "husband",
+          "start": 2.12,
+          "end": 2.68
+        },
+        {
+          "text": "says",
+          "start": 2.68,
+          "end": 3.0
+        },
+        {
+          "text": "my",
+          "start": 3.0,
+          "end": 3.24
+        },
+        {
+          "text": "son",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "profits",
+          "start": 3.46,
+          "end": 3.94
+        },
+        {
+          "text": "nothing",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "in",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "world",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "at",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "text": "his",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "text": "book.",
+          "start": 5.08,
+          "end": 5.42
+        },
+        {
+          "text": "I",
+          "start": 5.9,
+          "end": 5.98
+        },
+        {
+          "text": "pray",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "text": "you,",
+          "start": 6.22,
+          "end": 6.5
+        },
+        {
+          "text": "ask",
+          "start": 6.5,
+          "end": 6.96
+        },
+        {
+          "text": "him",
+          "start": 6.96,
+          "end": 7.1
+        },
+        {
+          "text": "some",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "questions",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "text": "in",
+          "start": 7.72,
+          "end": 7.92
+        },
+        {
+          "text": "his",
+          "start": 7.92,
+          "end": 8.08
+        },
+        {
+          "text": "accidence.",
+          "start": 8.08,
+          "end": 8.7
+        },
+        {
+          "text": "15",
+          "start": 9.32,
+          "end": 9.66
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 0.8214285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4959386130794883
+    },
+    {
+      "asr_seconds": 0.5709758335724473,
+      "alignment_seconds": 0.003245847299695015,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mrs. Page, Sir Hugh, my husband, says my son profits nothing in the world at his book.",
+          "start": 0.02,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.62109375
+            },
+            {
+              "text": " Page,",
+              "start": 0.84,
+              "end": 1.02,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " Sir",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " Hugh,",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.951171875
+            },
+            {
+              "text": " my",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " husband,",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " says",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 3.02,
+              "end": 3.24,
+              "probability": 0.9765625
+            },
+            {
+              "text": " son",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " profits",
+              "start": 3.46,
+              "end": 3.94,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " nothing",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 4.3,
+              "end": 4.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " world",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 4.8,
+              "end": 4.94,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " his",
+              "start": 4.94,
+              "end": 5.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " book.",
+              "start": 5.06,
+              "end": 5.4,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I pray you ask him some questions in his accidents.",
+          "start": 5.9,
+          "end": 8.68,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.9,
+              "end": 6.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pray",
+              "start": 6.0,
+              "end": 6.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 6.22,
+              "end": 6.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ask",
+              "start": 6.5,
+              "end": 6.96,
+              "probability": 0.56689453125
+            },
+            {
+              "text": " him",
+              "start": 6.96,
+              "end": 7.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " some",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " questions",
+              "start": 7.26,
+              "end": 7.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 7.72,
+              "end": 7.92,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " his",
+              "start": 7.92,
+              "end": 8.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " accidents.",
+              "start": 8.08,
+              "end": 8.68,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " 15.",
+          "start": 9.36,
+          "end": 9.66,
+          "words": [
+            {
+              "text": " 15.",
+              "start": 9.36,
+              "end": 9.66,
+              "probability": 0.89111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Page,",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "raw": "Sir",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "Hugh,",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "raw": "my",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "husband,",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "raw": "says",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "my",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "raw": "son",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "profits",
+          "start": 3.46,
+          "end": 3.94
+        },
+        {
+          "raw": "nothing",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "in",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "world",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "at",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "raw": "his",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "raw": "book.",
+          "start": 5.06,
+          "end": 5.4
+        },
+        {
+          "raw": "I",
+          "start": 5.9,
+          "end": 6.0
+        },
+        {
+          "raw": "pray",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "raw": "you",
+          "start": 6.22,
+          "end": 6.5
+        },
+        {
+          "raw": "ask",
+          "start": 6.5,
+          "end": 6.96
+        },
+        {
+          "raw": "him",
+          "start": 6.96,
+          "end": 7.1
+        },
+        {
+          "raw": "some",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "raw": "questions",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "raw": "in",
+          "start": 7.72,
+          "end": 7.92
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.08
+        },
+        {
+          "raw": "accidents.",
+          "start": 8.08,
+          "end": 8.68
+        },
+        {
+          "raw": "15.",
+          "start": 9.36,
+          "end": 9.66
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Sir",
+        "Hugh,",
+        "my",
+        "husband",
+        "says",
+        "my",
+        "son",
+        "profits",
+        "nothing",
+        "in",
+        "the",
+        "world",
+        "at",
+        "his",
+        "book.",
+        "I",
+        "pray",
+        "you,",
+        "ask",
+        "him",
+        "some",
+        "questions",
+        "in",
+        "his",
+        "accidence.",
+        "15"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Sir",
+        "Hugh,",
+        "my",
+        "husband",
+        "says",
+        "my",
+        "son",
+        "profits",
+        "nothing",
+        "in",
+        "the",
+        "world",
+        "at",
+        "his",
+        "book.",
+        "I",
+        "pray",
+        "you,",
+        "ask",
+        "him",
+        "some",
+        "questions",
+        "in",
+        "his",
+        "accidence.",
+        "15"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "equal",
+          27,
+          28,
+          27,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.84,
+          "end": 1.02,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hugh,",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "hugh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "husband,",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "husband",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "says",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.02,
+          "end": 3.24,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "son",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "profits",
+          "start": 3.46,
+          "end": 3.94,
+          "key": "profits",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.94,
+          "end": 4.3,
+          "key": "nothing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.3,
+          "end": 4.48,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "world",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.8,
+          "end": 4.94,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.94,
+          "end": 5.06,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 5.06,
+          "end": 5.4,
+          "key": "book",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.9,
+          "end": 6.0,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 6.0,
+          "end": 6.22,
+          "key": "pray",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.22,
+          "end": 6.5,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 6.5,
+          "end": 6.96,
+          "key": "ask",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.96,
+          "end": 7.1,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 7.1,
+          "end": 7.26,
+          "key": "some",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "questions",
+          "start": 7.26,
+          "end": 7.72,
+          "key": "questions",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.72,
+          "end": 7.92,
+          "key": "in",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.92,
+          "end": 8.08,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "accidents.",
+          "start": 8.08,
+          "end": 8.68,
+          "key": "accidents",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "15.",
+          "start": 9.36,
+          "end": 9.66,
+          "key": "fifteen",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Page._",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "Sir",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "Hugh,",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "text": "my",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "husband",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "text": "says",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "my",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "text": "son",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "profits",
+          "start": 3.46,
+          "end": 3.94
+        },
+        {
+          "text": "nothing",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "in",
+          "start": 4.3,
+          "end": 4.48
+        },
+        {
+          "text": "the",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "world",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "at",
+          "start": 4.8,
+          "end": 4.94
+        },
+        {
+          "text": "his",
+          "start": 4.94,
+          "end": 5.06
+        },
+        {
+          "text": "book.",
+          "start": 5.06,
+          "end": 5.4
+        },
+        {
+          "text": "I",
+          "start": 5.9,
+          "end": 6.0
+        },
+        {
+          "text": "pray",
+          "start": 6.0,
+          "end": 6.22
+        },
+        {
+          "text": "you,",
+          "start": 6.22,
+          "end": 6.5
+        },
+        {
+          "text": "ask",
+          "start": 6.5,
+          "end": 6.96
+        },
+        {
+          "text": "him",
+          "start": 6.96,
+          "end": 7.1
+        },
+        {
+          "text": "some",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "questions",
+          "start": 7.26,
+          "end": 7.72
+        },
+        {
+          "text": "in",
+          "start": 7.72,
+          "end": 7.92
+        },
+        {
+          "text": "his",
+          "start": 7.92,
+          "end": 8.08
+        },
+        {
+          "text": "accidence.",
+          "start": 8.08,
+          "end": 8.72
+        },
+        {
+          "text": "15",
+          "start": 9.36,
+          "end": 9.66
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 27
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.5745282340794802
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba841aa8d9b626a24353e66e739b593c60568082dc1c057e7dd7d4f0bc869c0e",
+  "selected_reasons": []
+}

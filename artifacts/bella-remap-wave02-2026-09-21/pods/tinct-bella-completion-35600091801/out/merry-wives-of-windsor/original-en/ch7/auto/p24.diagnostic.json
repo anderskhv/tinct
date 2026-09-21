@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "0da18c1f5a12677c3bf99d4b52b87fa82fdb15783b3cad4d7a1e207218363443",
+  "attempts": [
+    {
+      "asr_seconds": 0.2750382786616683,
+      "alignment_seconds": 0.0011535873636603355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Page._ 'Tis true, Master Shallow. 45",
+        "hotwords": "Tis, Master, Shallow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Page, Tis true, Master Shallow. 45",
+          "start": 0.05,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Page,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " Tis",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.2254343032836914
+            },
+            {
+              "text": " true,",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.08135986328125
+            },
+            {
+              "text": " Master",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " Shallow.",
+              "start": 1.97,
+              "end": 2.35,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " 45",
+              "start": 2.63,
+              "end": 2.99,
+              "probability": 0.6337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Page,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Tis",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "true,",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "Master",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "Shallow.",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "raw": "45",
+          "start": 2.63,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "_Page._",
+        "’Tis",
+        "true,",
+        "Master",
+        "Shallow.",
+        "45"
+      ],
+      "acoustic_expected_tokens": [
+        "_Page._",
+        "'Tis",
+        "true,",
+        "Master",
+        "Shallow.",
+        "45"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Page,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "page",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "true",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Shallow.",
+          "start": 1.97,
+          "end": 2.35,
+          "key": "shallow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "45",
+          "start": 2.63,
+          "end": 2.99,
+          "key": "fortyfive",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Page._",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "’Tis",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "true,",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "Master",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "Shallow.",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "text": "45",
+          "start": 2.63,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27629410196095705
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7b9c165ae80f7b82c4fcb815a8c31ef6bd287dab84ae2f625f634dbaf55dfda4",
+  "selected_reasons": []
+}

@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "cca2a232a60d7f6ce95bbd1bce8fd1307cbd4bce20fbf9e0ac4ddf9074de7917",
+  "attempts": [
+    {
+      "asr_seconds": 0.2593516493216157,
+      "alignment_seconds": 0.001044170930981636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Pist._ Two yards, and more.",
+        "hotwords": "Two"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " PIST. Two yards, and more.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " PIST.",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.2019500732421875
+            },
+            {
+              "text": " Two",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.343505859375
+            },
+            {
+              "text": " yards,",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.974609375
+            },
+            {
+              "text": " more.",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "PIST.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Two",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "yards,",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "more.",
+          "start": 1.75,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "_Pist._",
+        "Two",
+        "yards,",
+        "and",
+        "more."
+      ],
+      "acoustic_expected_tokens": [
+        "_Pist._",
+        "Two",
+        "yards,",
+        "and",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "PIST.",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Two",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yards,",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "yards",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Pist._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Two",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "yards,",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "more.",
+          "start": 1.75,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26049596816301346
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7d8084a5f0cff6f188a04431d6bda6d9d3dcc8d0dfb5d8e728cf12cdc52109cd",
+  "selected_reasons": []
+}

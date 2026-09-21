@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "25f63beac68130079e7595e43f818376e175294c5eb208f0df261b8d149a6bb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.350741870701313,
+      "alignment_seconds": 0.0019673723727464676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ So, then, it seems your most offenceful act Was mutually committed?",
+        "hotwords": "So, Was"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, So, then, it seems your most offenceful act Was mutually committed?",
+          "start": 0.08,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " So,",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.00875091552734375
+            },
+            {
+              "text": " then,",
+              "start": 1.7,
+              "end": 1.76,
+              "probability": 0.970703125
+            },
+            {
+              "text": " it",
+              "start": 1.96,
+              "end": 2.02,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " seems",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " your",
+              "start": 2.32,
+              "end": 2.46,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " most",
+              "start": 2.46,
+              "end": 2.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " offenceful",
+              "start": 2.7,
+              "end": 3.28,
+              "probability": 0.611083984375
+            },
+            {
+              "text": " act",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Was",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.0108184814453125
+            },
+            {
+              "text": " mutually",
+              "start": 3.82,
+              "end": 4.28,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " committed?",
+              "start": 4.28,
+              "end": 4.7,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "So,",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "then,",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "raw": "it",
+          "start": 1.96,
+          "end": 2.02
+        },
+        {
+          "raw": "seems",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "raw": "most",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "raw": "offenceful",
+          "start": 2.7,
+          "end": 3.28
+        },
+        {
+          "raw": "act",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "Was",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "mutually",
+          "start": 3.82,
+          "end": 4.28
+        },
+        {
+          "raw": "committed?",
+          "start": 4.28,
+          "end": 4.7
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "So,",
+        "then,",
+        "it",
+        "seems",
+        "your",
+        "most",
+        "offenceful",
+        "act",
+        "Was",
+        "mutually",
+        "committed?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "So,",
+        "then,",
+        "it",
+        "seems",
+        "your",
+        "most",
+        "offenceful",
+        "act",
+        "Was",
+        "mutually",
+        "committed?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 1.7,
+          "end": 1.76,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.96,
+          "end": 2.02,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "seems",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.46,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.46,
+          "end": 2.7,
+          "key": "most",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "offenceful",
+          "start": 2.7,
+          "end": 3.28,
+          "key": "offenceful",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "act",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 3.62,
+          "end": 3.82,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mutually",
+          "start": 3.82,
+          "end": 4.28,
+          "key": "mutually",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "committed?",
+          "start": 4.28,
+          "end": 4.7,
+          "key": "committed",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "So,",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "then,",
+          "start": 1.7,
+          "end": 1.76
+        },
+        {
+          "text": "it",
+          "start": 1.96,
+          "end": 2.02
+        },
+        {
+          "text": "seems",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "your",
+          "start": 2.32,
+          "end": 2.46
+        },
+        {
+          "text": "most",
+          "start": 2.46,
+          "end": 2.7
+        },
+        {
+          "text": "offenceful",
+          "start": 2.7,
+          "end": 3.28
+        },
+        {
+          "text": "act",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "Was",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "mutually",
+          "start": 3.82,
+          "end": 4.28
+        },
+        {
+          "text": "committed?",
+          "start": 4.28,
+          "end": 4.7
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.352901604026556
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6eea6241f8e67bb8530b92696a9450cde9e6e83b8e7da35639af76a55db59639",
+  "selected_reasons": []
+}

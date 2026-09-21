@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "ddcd1d38d06b63ad4dc7e136c01c4706c9ca32f241e00e4043a491e88b2ec943",
+  "attempts": [
+    {
+      "asr_seconds": 0.2551320418715477,
+      "alignment_seconds": 0.001324252225458622,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Heaven prosper the right!--What weapons is he?",
+        "hotwords": "Heaven"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Heaven prosper the right!--What weapons is he?",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Heaven",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " prosper",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " the",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " right!--What",
+              "start": 1.27,
+              "end": 2.01,
+              "probability": 0.3559577266375224
+            },
+            {
+              "text": " weapons",
+              "start": 2.01,
+              "end": 2.37,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 2.37,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he?",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.89501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Heaven",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "prosper",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "the",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "right!--What",
+          "start": 1.27,
+          "end": 2.01
+        },
+        {
+          "raw": "weapons",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "raw": "is",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "raw": "he?",
+          "start": 2.57,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "Heaven",
+        "prosper",
+        "the",
+        "right!--What",
+        "weapons",
+        "is",
+        "he?"
+      ],
+      "acoustic_expected_tokens": [
+        "Heaven",
+        "prosper",
+        "the",
+        "right!--What",
+        "weapons",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Heaven",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "heaven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "prosper",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "prosper",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "right!--What",
+          "start": 1.27,
+          "end": 2.01,
+          "key": "rightwhat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "weapons",
+          "start": 2.01,
+          "end": 2.37,
+          "key": "weapons",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.37,
+          "end": 2.57,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Heaven",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "prosper",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "the",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "right!--What",
+          "start": 1.27,
+          "end": 2.01
+        },
+        {
+          "text": "weapons",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "text": "is",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "text": "he?",
+          "start": 2.57,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25658342987298965
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "99c5b97f8b8ad65f8920038e392c04ef0470ede5722f4517e39d80a65af591a0",
+  "selected_reasons": []
+}

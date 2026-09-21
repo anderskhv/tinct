@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "9cfd3e20f7ed1e136f3e574082fa003028790752143702a46a1d515ee14a5e0f",
+  "attempts": [
+    {
+      "asr_seconds": 0.21605494525283575,
+      "alignment_seconds": 0.0008164476603269577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Will._ Pulcher.",
+        "hotwords": "Pulcher"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will. Pulcher.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Will.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " Pulcher.",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.641845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Pulcher.",
+          "start": 1.04,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "_Will._",
+        "Pulcher."
+      ],
+      "acoustic_expected_tokens": [
+        "_Will._",
+        "Pulcher."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will.",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pulcher.",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "pulcher",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Will._",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Pulcher.",
+          "start": 1.04,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21693051606416702
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e8b9bdcd9c5551456350ae8d4a78d7748fb0fd78415661213bf0b01d77a94cc4",
+  "selected_reasons": []
+}

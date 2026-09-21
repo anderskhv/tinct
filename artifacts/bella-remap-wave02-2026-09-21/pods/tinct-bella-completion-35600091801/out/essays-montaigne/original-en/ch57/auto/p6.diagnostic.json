@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "6a9b14bd0962950582c871bad8bab663b4de27debbfc4ad04d471e56f7bcb687",
+  "attempts": [
+    {
+      "asr_seconds": 0.21905271243304014,
+      "alignment_seconds": 0.0010548494756221771,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "as they say in Dauphin.",
+        "hotwords": "Dauphin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As they say in Dauphin.",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " they",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " say",
+              "start": 0.72,
+              "end": 0.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Dauphin.",
+              "start": 1.14,
+              "end": 1.54,
+              "probability": 0.80316162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "say",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "Dauphin.",
+          "start": 1.14,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "as",
+        "they",
+        "say",
+        "in",
+        "Dauphin."
+      ],
+      "acoustic_expected_tokens": [
+        "as",
+        "they",
+        "say",
+        "in",
+        "Dauphin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.72,
+          "end": 0.94,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dauphin.",
+          "start": 1.14,
+          "end": 1.54,
+          "key": "dauphin",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "as",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "they",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "say",
+          "start": 0.72,
+          "end": 0.94
+        },
+        {
+          "text": "in",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "Dauphin.",
+          "start": 1.14,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22021757997572422
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d41943dbfb38410e554f3f83c8ad12238039ed2cb1f205b23cc25e77c9cbee91",
+  "selected_reasons": []
+}

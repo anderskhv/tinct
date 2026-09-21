@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "387442866f6dc87c4af1c7745d1e6ea0fae00bcb6c1bd68600e35a795639da27",
+  "attempts": [
+    {
+      "asr_seconds": 0.360257338732481,
+      "alignment_seconds": 0.0019310778006911278,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Caius._ By gar, you are de coward, de Jack dog, John ape.",
+        "hotwords": "By, Jack, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caius, by gar you are de coward, de Jack dog, John ape.",
+          "start": 0.08,
+          "end": 3.72,
+          "words": [
+            {
+              "text": " Caius,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.6480509440104166
+            },
+            {
+              "text": " by",
+              "start": 1.36,
+              "end": 1.42,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " gar",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.319091796875
+            },
+            {
+              "text": " you",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " are",
+              "start": 1.8,
+              "end": 1.88,
+              "probability": 0.149169921875
+            },
+            {
+              "text": " de",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.269775390625
+            },
+            {
+              "text": " coward,",
+              "start": 1.96,
+              "end": 2.28,
+              "probability": 0.9375
+            },
+            {
+              "text": " de",
+              "start": 2.46,
+              "end": 2.52,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Jack",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.2578125
+            },
+            {
+              "text": " dog,",
+              "start": 2.72,
+              "end": 3.06,
+              "probability": 0.110595703125
+            },
+            {
+              "text": " John",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " ape.",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.87060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caius,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "by",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "raw": "gar",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "are",
+          "start": 1.8,
+          "end": 1.88
+        },
+        {
+          "raw": "de",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "coward,",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "raw": "de",
+          "start": 2.46,
+          "end": 2.52
+        },
+        {
+          "raw": "Jack",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "dog,",
+          "start": 2.72,
+          "end": 3.06
+        },
+        {
+          "raw": "John",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "ape.",
+          "start": 3.46,
+          "end": 3.72
+        }
+      ],
+      "expected_tokens": [
+        "_Caius._",
+        "By",
+        "gar,",
+        "you",
+        "are",
+        "de",
+        "coward,",
+        "de",
+        "Jack",
+        "dog,",
+        "John",
+        "ape."
+      ],
+      "acoustic_expected_tokens": [
+        "_Caius._",
+        "By",
+        "gar,",
+        "you",
+        "are",
+        "de",
+        "coward,",
+        "de",
+        "Jack",
+        "dog,",
+        "John",
+        "ape."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caius,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "caius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.36,
+          "end": 1.42,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gar",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "gar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.8,
+          "end": 1.88,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 1.88,
+          "end": 1.96,
+          "key": "de",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "coward,",
+          "start": 1.96,
+          "end": 2.28,
+          "key": "coward",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.46,
+          "end": 2.52,
+          "key": "de",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Jack",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "jack",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dog,",
+          "start": 2.72,
+          "end": 3.06,
+          "key": "dog",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "john",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ape.",
+          "start": 3.46,
+          "end": 3.72,
+          "key": "ape",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Caius._",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "By",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "gar,",
+          "start": 1.42,
+          "end": 1.66
+        },
+        {
+          "text": "you",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "are",
+          "start": 1.8,
+          "end": 1.88
+        },
+        {
+          "text": "de",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "coward,",
+          "start": 1.96,
+          "end": 2.28
+        },
+        {
+          "text": "de",
+          "start": 2.46,
+          "end": 2.52
+        },
+        {
+          "text": "Jack",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "dog,",
+          "start": 2.72,
+          "end": 3.06
+        },
+        {
+          "text": "John",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "ape.",
+          "start": 3.46,
+          "end": 3.72
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3623857628554106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "12353a1cfa15ce89b74332cd5762f074a4c4117ea9f3fef91fd04b92a784baef",
+  "selected_reasons": []
+}

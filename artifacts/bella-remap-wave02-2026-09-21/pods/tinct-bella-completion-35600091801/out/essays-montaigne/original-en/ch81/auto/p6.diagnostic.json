@@ -1,0 +1,1806 @@
+{
+  "complete": true,
+  "signature": "fdf4994dd8abd86a3c27a15f61d4edec0ad4d4bc7894490612dd517383ed8fd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.7528716875240207,
+      "alignment_seconds": 0.0027499357238411903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[\"That they might have even kings to be their slaves.\" --Livy, xlv. 13.]",
+        "hotwords": "That, Livy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That they might have even kings to be their slaves.",
+          "start": 0.08,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.26220703125
+            },
+            {
+              "text": " they",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " might",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " even",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kings",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " to",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " be",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " slaves.",
+              "start": 2.1,
+              "end": 2.68,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Livy, xv. 45, xviii.",
+          "start": 2.68,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Livy,",
+              "start": 2.68,
+              "end": 3.78,
+              "probability": 0.6441650390625
+            },
+            {
+              "text": " xv.",
+              "start": 3.82,
+              "end": 4.18,
+              "probability": 0.06354066729545593
+            },
+            {
+              "text": " 45,",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.69140625
+            },
+            {
+              "text": " xviii.",
+              "start": 5.22,
+              "end": 5.82,
+              "probability": 0.3603515625
+            }
+          ]
+        },
+        {
+          "text": " That they might have even kings to be their slaves.",
+          "start": 5.82,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " That",
+              "start": 5.82,
+              "end": 6.24,
+              "probability": 0.0012655258178710938
+            },
+            {
+              "text": " they",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.0003428459167480469
+            },
+            {
+              "text": " might",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.01149749755859375
+            },
+            {
+              "text": " have",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.0867919921875
+            },
+            {
+              "text": " even",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.0047454833984375
+            },
+            {
+              "text": " kings",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 1.0251998901367188e-05
+            },
+            {
+              "text": " to",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.0178985595703125
+            },
+            {
+              "text": " be",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.08123779296875
+            },
+            {
+              "text": " their",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.00152587890625
+            },
+            {
+              "text": " slaves.",
+              "start": 6.24,
+              "end": 6.24,
+              "probability": 0.0028591156005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "even",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "kings",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "their",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "slaves.",
+          "start": 2.1,
+          "end": 2.68
+        },
+        {
+          "raw": "Livy,",
+          "start": 2.68,
+          "end": 3.78
+        },
+        {
+          "raw": "xv.",
+          "start": 3.82,
+          "end": 4.18
+        },
+        {
+          "raw": "45,",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "xviii.",
+          "start": 5.22,
+          "end": 5.82
+        },
+        {
+          "raw": "That",
+          "start": 5.82,
+          "end": 6.24
+        },
+        {
+          "raw": "they",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "might",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "have",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "even",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "kings",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "to",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "be",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "their",
+          "start": 6.24,
+          "end": 6.24
+        },
+        {
+          "raw": "slaves.",
+          "start": 6.24,
+          "end": 6.24
+        }
+      ],
+      "expected_tokens": [
+        "[“That",
+        "they",
+        "might",
+        "have",
+        "even",
+        "kings",
+        "to",
+        "be",
+        "their",
+        "slaves.”",
+        "--Livy,",
+        "xlv.",
+        "13.]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"That",
+        "they",
+        "might",
+        "have",
+        "even",
+        "kings",
+        "to",
+        "be",
+        "their",
+        "slaves.\"",
+        "--Livy,",
+        "xlv.",
+        "13.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          13,
+          11,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "might",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "even",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kings",
+          "start": 1.28,
+          "end": 1.62,
+          "key": "kings",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slaves.",
+          "start": 2.1,
+          "end": 2.68,
+          "key": "slaves",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Livy,",
+          "start": 2.68,
+          "end": 3.78,
+          "key": "livy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "xv.",
+          "start": 3.82,
+          "end": 4.18,
+          "key": "xv",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "45,",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "fortyfive",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "xviii.",
+          "start": 5.22,
+          "end": 5.82,
+          "key": "xviii",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 5.82,
+          "end": 6.24,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "they",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "might",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "have",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "even",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "kings",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "kings",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "be",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "their",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "slaves.",
+          "start": 6.24,
+          "end": 6.24,
+          "key": "slaves",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“That",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "they",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "might",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "even",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "kings",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "to",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "be",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "their",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "slaves.”",
+          "start": 2.1,
+          "end": 2.68
+        },
+        {
+          "text": "--Livy,",
+          "start": 2.68,
+          "end": 3.78
+        },
+        {
+          "text": "xlv.",
+          "start": 3.78,
+          "end": 5.01
+        },
+        {
+          "text": "13.]",
+          "start": 5.01,
+          "end": 5.625
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 24,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.7559775989502668
+    },
+    {
+      "asr_seconds": 0.40562698896974325,
+      "alignment_seconds": 0.002322778105735779,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "That, Livy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " That they might have even kings to be their slaves. Livy, Roman 45, 13",
+          "start": 0.08,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.260986328125
+            },
+            {
+              "text": " they",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " might",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " even",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kings",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " to",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " be",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " slaves.",
+              "start": 2.1,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Livy,",
+              "start": 3.4,
+              "end": 3.78,
+              "probability": 0.688232421875
+            },
+            {
+              "text": " Roman",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " 45,",
+              "start": 4.06,
+              "end": 4.64,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " 13",
+              "start": 5.24,
+              "end": 5.56,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "even",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "kings",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "their",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "slaves.",
+          "start": 2.1,
+          "end": 2.68
+        },
+        {
+          "raw": "Livy,",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "raw": "Roman",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "45,",
+          "start": 4.06,
+          "end": 4.64
+        },
+        {
+          "raw": "13",
+          "start": 5.24,
+          "end": 5.56
+        }
+      ],
+      "expected_tokens": [
+        "[“That",
+        "they",
+        "might",
+        "have",
+        "even",
+        "kings",
+        "to",
+        "be",
+        "their",
+        "slaves.”",
+        "--Livy,",
+        "xlv.",
+        "13.]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"That",
+        "they",
+        "might",
+        "have",
+        "even",
+        "kings",
+        "to",
+        "be",
+        "their",
+        "slaves.\"",
+        "--Livy,",
+        "xlv.",
+        "13.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "might",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "even",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kings",
+          "start": 1.28,
+          "end": 1.62,
+          "key": "kings",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slaves.",
+          "start": 2.1,
+          "end": 2.68,
+          "key": "slaves",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Livy,",
+          "start": 3.4,
+          "end": 3.78,
+          "key": "livy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 3.84,
+          "end": 4.06,
+          "key": "roman",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "45,",
+          "start": 4.06,
+          "end": 4.64,
+          "key": "fortyfive",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "13",
+          "start": 5.24,
+          "end": 5.56,
+          "key": "thirteen",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“That",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "they",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "might",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "even",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "kings",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "to",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "be",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "their",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "slaves.”",
+          "start": 2.1,
+          "end": 2.68
+        },
+        {
+          "text": "--Livy,",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "text": "xlv.",
+          "start": 3.78,
+          "end": 4.51
+        },
+        {
+          "text": "13.]",
+          "start": 5.24,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.4081714488565922
+    },
+    {
+      "asr_seconds": 0.4259409261867404,
+      "alignment_seconds": 0.002339276485145092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " that they might have even kings to be their slaves.",
+          "start": 0.08,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " that",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " they",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " might",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " even",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kings",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " to",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " their",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " slaves.",
+              "start": 2.1,
+              "end": 2.7,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Livy, Roman 45, 13.",
+          "start": 3.38,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " Livy,",
+              "start": 3.38,
+              "end": 3.78,
+              "probability": 0.647216796875
+            },
+            {
+              "text": " Roman",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " 45,",
+              "start": 4.06,
+              "end": 4.64,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " 13.",
+              "start": 5.24,
+              "end": 5.58,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "that",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "even",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "kings",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "their",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "slaves.",
+          "start": 2.1,
+          "end": 2.7
+        },
+        {
+          "raw": "Livy,",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "raw": "Roman",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "45,",
+          "start": 4.06,
+          "end": 4.64
+        },
+        {
+          "raw": "13.",
+          "start": 5.24,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "[“That",
+        "they",
+        "might",
+        "have",
+        "even",
+        "kings",
+        "to",
+        "be",
+        "their",
+        "slaves.”",
+        "--Livy,",
+        "xlv.",
+        "13.]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"That",
+        "they",
+        "might",
+        "have",
+        "even",
+        "kings",
+        "to",
+        "be",
+        "their",
+        "slaves.\"",
+        "--Livy,",
+        "xlv.",
+        "13.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "that",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "might",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "even",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "kings",
+          "start": 1.28,
+          "end": 1.62,
+          "key": "kings",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slaves.",
+          "start": 2.1,
+          "end": 2.7,
+          "key": "slaves",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Livy,",
+          "start": 3.38,
+          "end": 3.78,
+          "key": "livy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 3.84,
+          "end": 4.06,
+          "key": "roman",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "45,",
+          "start": 4.06,
+          "end": 4.64,
+          "key": "fortyfive",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "13.",
+          "start": 5.24,
+          "end": 5.58,
+          "key": "thirteen",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“That",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "they",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "might",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "have",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "even",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "kings",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "to",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "be",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "their",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "slaves.”",
+          "start": 2.1,
+          "end": 2.7
+        },
+        {
+          "text": "--Livy,",
+          "start": 3.38,
+          "end": 3.78
+        },
+        {
+          "text": "xlv.",
+          "start": 3.78,
+          "end": 4.51
+        },
+        {
+          "text": "13.]",
+          "start": 5.24,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.42850795201957226
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "94ff9f2947c9035782e3a79ffdb13b050d3cf26e7c0844137b0725827c0b8ed2",
+  "selected_reasons": []
+}

@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "e5beccfc2b656b815bf7ca4d82d81fd7371c12df7c95cd53923aee4af4b7bc13",
+  "attempts": [
+    {
+      "asr_seconds": 0.25740734208375216,
+      "alignment_seconds": 0.001378113403916359,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Mistress Page, Mistress Quickly, and William._",
+        "hotwords": "Mistress, Page, Quickly, William._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Mistress Page, Mistress Quickly, and William._",
+          "start": 0.11,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.4814453423023224
+            },
+            {
+              "text": " Mistress",
+              "start": 0.63,
+              "end": 0.97,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " Page,",
+              "start": 0.97,
+              "end": 1.39,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " Mistress",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Quickly,",
+              "start": 2.13,
+              "end": 2.63,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " and",
+              "start": 2.71,
+              "end": 2.81,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " William._",
+              "start": 2.81,
+              "end": 3.25,
+              "probability": 0.54034423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Mistress",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "raw": "Page,",
+          "start": 0.97,
+          "end": 1.39
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "raw": "Quickly,",
+          "start": 2.13,
+          "end": 2.63
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "raw": "William._",
+          "start": 2.81,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "MISTRESS",
+        "PAGE,",
+        "MISTRESS",
+        "QUICKLY,",
+        "and",
+        "WILLIAM._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Mistress",
+        "Page,",
+        "Mistress",
+        "Quickly,",
+        "and",
+        "William._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 0.63,
+          "end": 0.97,
+          "key": "mistress",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.97,
+          "end": 1.39,
+          "key": "page",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "mistress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Quickly,",
+          "start": 2.13,
+          "end": 2.63,
+          "key": "quickly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.81,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "William._",
+          "start": 2.81,
+          "end": 3.25,
+          "key": "william",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "MISTRESS",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "text": "PAGE,",
+          "start": 0.97,
+          "end": 1.39
+        },
+        {
+          "text": "MISTRESS",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "text": "QUICKLY,",
+          "start": 2.13,
+          "end": 2.63
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "text": "WILLIAM._",
+          "start": 2.81,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2589088650420308
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6617c8900a484acd54ef23fb12e20b4cbed77eb4c54181ec949f28e1c678ff0a",
+  "selected_reasons": []
+}

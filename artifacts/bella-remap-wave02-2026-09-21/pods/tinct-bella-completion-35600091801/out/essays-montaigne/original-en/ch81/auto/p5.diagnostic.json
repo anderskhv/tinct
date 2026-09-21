@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "e934519f652309d51c3cccf543cb6f55d34cae2d4644e6ae607a4384a9e46b28",
+  "attempts": [
+    {
+      "asr_seconds": 0.5958838099613786,
+      "alignment_seconds": 0.0013419883325695992,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ut haberent instruments servitutis et reges.\"",
+        "hotwords": "Ut"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ut haberent instruments servitutis et reges",
+          "start": 0.34,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Ut",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " haberent",
+              "start": 0.58,
+              "end": 1.1,
+              "probability": 0.293765385945638
+            },
+            {
+              "text": " instruments",
+              "start": 1.1,
+              "end": 1.6,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " servitutis",
+              "start": 1.6,
+              "end": 2.26,
+              "probability": 0.6202850341796875
+            },
+            {
+              "text": " et",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " reges",
+              "start": 2.46,
+              "end": 2.98,
+              "probability": 0.712890625
+            }
+          ]
+        },
+        {
+          "text": " Ut haberent instruments servitutis et reges",
+          "start": 2.98,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Ut",
+              "start": 2.98,
+              "end": 2.98,
+              "probability": 2.384185791015625e-06
+            },
+            {
+              "text": " haberent",
+              "start": 2.98,
+              "end": 2.98,
+              "probability": 7.301568984985352e-05
+            },
+            {
+              "text": " instruments",
+              "start": 2.98,
+              "end": 2.98,
+              "probability": 4.32133674621582e-05
+            },
+            {
+              "text": " servitutis",
+              "start": 2.98,
+              "end": 3.58,
+              "probability": 0.0009450018405914307
+            },
+            {
+              "text": " et",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.032379150390625
+            },
+            {
+              "text": " reges",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.005863189697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ut",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "raw": "haberent",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "raw": "instruments",
+          "start": 1.1,
+          "end": 1.6
+        },
+        {
+          "raw": "servitutis",
+          "start": 1.6,
+          "end": 2.26
+        },
+        {
+          "raw": "et",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "reges",
+          "start": 2.46,
+          "end": 2.98
+        },
+        {
+          "raw": "Ut",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "raw": "haberent",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "raw": "instruments",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "raw": "servitutis",
+          "start": 2.98,
+          "end": 3.58
+        },
+        {
+          "raw": "et",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "raw": "reges",
+          "start": 3.58,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "“Ut",
+        "haberent",
+        "instruments",
+        "servitutis",
+        "et",
+        "reges.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ut",
+        "haberent",
+        "instruments",
+        "servitutis",
+        "et",
+        "reges.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ut",
+          "start": 0.34,
+          "end": 0.58,
+          "key": "ut",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "haberent",
+          "start": 0.58,
+          "end": 1.1,
+          "key": "haberent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "instruments",
+          "start": 1.1,
+          "end": 1.6,
+          "key": "instruments",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "servitutis",
+          "start": 1.6,
+          "end": 2.26,
+          "key": "servitutis",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 2.26,
+          "end": 2.46,
+          "key": "et",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "reges",
+          "start": 2.46,
+          "end": 2.98,
+          "key": "reges",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ut",
+          "start": 2.98,
+          "end": 2.98,
+          "key": "ut",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "haberent",
+          "start": 2.98,
+          "end": 2.98,
+          "key": "haberent",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "instruments",
+          "start": 2.98,
+          "end": 2.98,
+          "key": "instruments",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "servitutis",
+          "start": 2.98,
+          "end": 3.58,
+          "key": "servitutis",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "et",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "reges",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "reges",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Ut",
+          "start": 0.34,
+          "end": 0.58
+        },
+        {
+          "text": "haberent",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "text": "instruments",
+          "start": 1.1,
+          "end": 1.6
+        },
+        {
+          "text": "servitutis",
+          "start": 1.6,
+          "end": 2.26
+        },
+        {
+          "text": "et",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "text": "reges.”",
+          "start": 2.46,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 12,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5974167799577117
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1caf769af7c3c1c9140934ff0fc936d31df2149663b014f11035a626f0b3e744",
+  "selected_reasons": []
+}

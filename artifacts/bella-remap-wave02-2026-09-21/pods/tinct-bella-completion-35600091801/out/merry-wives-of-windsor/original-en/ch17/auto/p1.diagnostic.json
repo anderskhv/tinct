@@ -1,0 +1,584 @@
+{
+  "complete": true,
+  "signature": "0790c4f7f6eaa9c913b2b5c6306dcc0f36074bc25eae5b0404016b41847b940e",
+  "attempts": [
+    {
+      "asr_seconds": 0.40498713590204716,
+      "alignment_seconds": 0.002125895582139492,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ What wouldst thou have, boor? what, thick-skin? speak, breathe, discuss; brief, short, quick, snap."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, what wouldst thou have, boor? what, thick-skin? speak, breathe, discuss, brief, short, quick, snap.",
+          "start": 0.08,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.6015625
+            },
+            {
+              "text": " what",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.95703125
+            },
+            {
+              "text": " wouldst",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.8359375
+            },
+            {
+              "text": " thou",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have,",
+              "start": 1.48,
+              "end": 1.82,
+              "probability": 0.97265625
+            },
+            {
+              "text": " boor?",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.0375518798828125
+            },
+            {
+              "text": " what,",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.07867431640625
+            },
+            {
+              "text": " thick",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.8505859375
+            },
+            {
+              "text": "-skin?",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.549072265625
+            },
+            {
+              "text": " speak,",
+              "start": 3.92,
+              "end": 4.14,
+              "probability": 0.4619140625
+            },
+            {
+              "text": " breathe,",
+              "start": 4.4,
+              "end": 4.58,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " discuss,",
+              "start": 4.78,
+              "end": 5.06,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " brief,",
+              "start": 5.34,
+              "end": 5.54,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " short,",
+              "start": 5.82,
+              "end": 5.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quick,",
+              "start": 6.2,
+              "end": 6.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " snap.",
+              "start": 6.52,
+              "end": 6.74,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "what",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "thou",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "have,",
+          "start": 1.48,
+          "end": 1.82
+        },
+        {
+          "raw": "boor?",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "what,",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "thick",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "-skin?",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "raw": "speak,",
+          "start": 3.92,
+          "end": 4.14
+        },
+        {
+          "raw": "breathe,",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "raw": "discuss,",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "raw": "brief,",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "raw": "short,",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "raw": "quick,",
+          "start": 6.2,
+          "end": 6.32
+        },
+        {
+          "raw": "snap.",
+          "start": 6.52,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "What",
+        "wouldst",
+        "thou",
+        "have,",
+        "boor?",
+        "what,",
+        "thick-skin?",
+        "speak,",
+        "breathe,",
+        "discuss;",
+        "brief,",
+        "short,",
+        "quick,",
+        "snap."
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "What",
+        "wouldst",
+        "thou",
+        "have,",
+        "boor?",
+        "what,",
+        "thick-skin?",
+        "speak,",
+        "breathe,",
+        "discuss;",
+        "brief,",
+        "short,",
+        "quick,",
+        "snap."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "wouldst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have,",
+          "start": 1.48,
+          "end": 1.82,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "boor?",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "boor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what,",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thick -skin?",
+          "start": 2.94,
+          "end": 3.34,
+          "key": "thickskin",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "speak,",
+          "start": 3.92,
+          "end": 4.14,
+          "key": "speak",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "breathe,",
+          "start": 4.4,
+          "end": 4.58,
+          "key": "breathe",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "discuss,",
+          "start": 4.78,
+          "end": 5.06,
+          "key": "discuss",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brief,",
+          "start": 5.34,
+          "end": 5.54,
+          "key": "brief",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "short,",
+          "start": 5.82,
+          "end": 5.96,
+          "key": "short",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "quick,",
+          "start": 6.2,
+          "end": 6.32,
+          "key": "quick",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "snap.",
+          "start": 6.52,
+          "end": 6.74,
+          "key": "snap",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "thick-skin?",
+          "heard": "thick -skin?",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.94,
+          "end": 3.34
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "What",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "wouldst",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "thou",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "have,",
+          "start": 1.48,
+          "end": 1.82
+        },
+        {
+          "text": "boor?",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "what,",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "text": "thick-skin?",
+          "start": 2.94,
+          "end": 3.34
+        },
+        {
+          "text": "speak,",
+          "start": 3.92,
+          "end": 4.14
+        },
+        {
+          "text": "breathe,",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "text": "discuss;",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "text": "brief,",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "text": "short,",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "text": "quick,",
+          "start": 6.2,
+          "end": 6.32
+        },
+        {
+          "text": "snap.",
+          "start": 6.52,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40731705259531736
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "341a8a92919a60ab49bc16bff15c8a876a437336952e62244a65b10bc7522793",
+  "selected_reasons": []
+}

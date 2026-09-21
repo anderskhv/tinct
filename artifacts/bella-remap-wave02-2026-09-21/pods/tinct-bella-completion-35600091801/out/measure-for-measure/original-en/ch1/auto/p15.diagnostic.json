@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "49c7d398521acaef1a8c7f0975fd9ebfe1dcb920a45ee0afa84d241f220f3fa2",
+  "attempts": [
+    {
+      "asr_seconds": 0.28173955995589495,
+      "alignment_seconds": 0.0014307154342532158,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ I thank you. Fare you well. Exit._",
+        "hotwords": "I, Fare, Exit._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, I thank you. Fare you well. Exit._",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.779296875
+            },
+            {
+              "text": " I",
+              "start": 0.88,
+              "end": 0.9,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " thank",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.9765625
+            },
+            {
+              "text": " you.",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Fare",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " you",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " well.",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Exit._",
+              "start": 2.5,
+              "end": 2.9,
+              "probability": 0.438232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "I",
+          "start": 0.88,
+          "end": 0.9
+        },
+        {
+          "raw": "thank",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "raw": "you.",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "Fare",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "well.",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "Exit._",
+          "start": 2.5,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "I",
+        "thank",
+        "you.",
+        "Fare",
+        "you",
+        "well.",
+        "[_Exit._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "I",
+        "thank",
+        "you.",
+        "Fare",
+        "you",
+        "well.",
+        "Exit._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.88,
+          "end": 0.9,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 0.9,
+          "end": 1.12,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "fare",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Exit._",
+          "start": 2.5,
+          "end": 2.9,
+          "key": "exit",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "I",
+          "start": 0.88,
+          "end": 0.9
+        },
+        {
+          "text": "thank",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "text": "you.",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "Fare",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "you",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "well.",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "[_Exit._",
+          "start": 2.5,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28331246692687273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e82c75f445e8b683e4eb1d21a167bcd7282dc57e6f8cba00540d266f52612325",
+  "selected_reasons": []
+}

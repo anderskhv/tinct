@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "f100fc9f8efbc55277775352dd7279a2e359fdbac843fb5a2c97ee3ab9b0e2f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.16107525303959846,
+      "alignment_seconds": 0.000308772549033165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Falstaff._",
+        "hotwords": "Falstaff._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Falstaff._",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Falstaff._",
+              "start": 0.7,
+              "end": 1.5,
+              "probability": 0.6033528645833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Falstaff._",
+          "start": 0.7,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "FALSTAFF._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Falstaff._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Falstaff._",
+          "start": 0.7,
+          "end": 1.5,
+          "key": "falstaff",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "FALSTAFF._",
+          "start": 0.7,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16144311241805553
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d810f30229ab59f4996ffa271d0b0baf71f813ee3dc26d97e970e0e0eae1db9e",
+  "selected_reasons": []
+}

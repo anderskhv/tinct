@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "ad117fc345561a4c7ca31a3d26f373830d71c01f0acaaf1ccde61d55987b1fab",
+  "attempts": [
+    {
+      "asr_seconds": 0.29613178689032793,
+      "alignment_seconds": 0.001227542757987976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Caius._ Villainy, take your rapier. 15",
+        "hotwords": "Villainy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caius, Villainy, take your rapier. 15",
+          "start": 0.08,
+          "end": 2.82,
+          "words": [
+            {
+              "text": " Caius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.6398874918619791
+            },
+            {
+              "text": " Villainy,",
+              "start": 1.18,
+              "end": 1.56,
+              "probability": 0.6141764322916666
+            },
+            {
+              "text": " take",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " your",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.98046875
+            },
+            {
+              "text": " rapier.",
+              "start": 1.84,
+              "end": 2.26,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " 15",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.8642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "Villainy,",
+          "start": 1.18,
+          "end": 1.56
+        },
+        {
+          "raw": "take",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "rapier.",
+          "start": 1.84,
+          "end": 2.26
+        },
+        {
+          "raw": "15",
+          "start": 2.54,
+          "end": 2.82
+        }
+      ],
+      "expected_tokens": [
+        "_Caius._",
+        "Villainy,",
+        "take",
+        "your",
+        "rapier.",
+        "15"
+      ],
+      "acoustic_expected_tokens": [
+        "_Caius._",
+        "Villainy,",
+        "take",
+        "your",
+        "rapier.",
+        "15"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "caius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Villainy,",
+          "start": 1.18,
+          "end": 1.56,
+          "key": "villainy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rapier.",
+          "start": 1.84,
+          "end": 2.26,
+          "key": "rapier",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "15",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "fifteen",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Caius._",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "Villainy,",
+          "start": 1.18,
+          "end": 1.56
+        },
+        {
+          "text": "take",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "your",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "rapier.",
+          "start": 1.84,
+          "end": 2.26
+        },
+        {
+          "text": "15",
+          "start": 2.54,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2974738134071231
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38024dd1a378cb1e9196064cf2f1cd70bea6415a6475dbb87a959a3e4e8df78b",
+  "selected_reasons": []
+}

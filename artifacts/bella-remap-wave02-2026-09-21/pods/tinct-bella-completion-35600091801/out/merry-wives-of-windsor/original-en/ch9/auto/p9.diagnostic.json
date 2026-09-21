@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "66983b724d3813b44ce809bfb1b7f184a521c7cbb1de2ecc1fc183700ec1ad76",
+  "attempts": [
+    {
+      "asr_seconds": 0.27371928934007883,
+      "alignment_seconds": 0.0013275714591145515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ford._ Where had you this pretty weathercock?",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ford, where had you this pretty weathercock?",
+          "start": 0.08,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Ford,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.4853515625
+            },
+            {
+              "text": " where",
+              "start": 1.22,
+              "end": 1.26,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " had",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " you",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pretty",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " weathercock?",
+              "start": 1.94,
+              "end": 2.48,
+              "probability": 0.7744140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "where",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "raw": "had",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "this",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "pretty",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "raw": "weathercock?",
+          "start": 1.94,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "Where",
+        "had",
+        "you",
+        "this",
+        "pretty",
+        "weathercock?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Ford._",
+        "Where",
+        "had",
+        "you",
+        "this",
+        "pretty",
+        "weathercock?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "ford",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.22,
+          "end": 1.26,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pretty",
+          "start": 1.66,
+          "end": 1.94,
+          "key": "pretty",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "weathercock?",
+          "start": 1.94,
+          "end": 2.48,
+          "key": "weathercock",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Where",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "text": "had",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "you",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "this",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "pretty",
+          "start": 1.66,
+          "end": 1.94
+        },
+        {
+          "text": "weathercock?",
+          "start": 1.94,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2751737553626299
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b90c2e6b4ef99d68d97b0d60e0127f3d846dc0516c56686a79650f6432b7b403",
+  "selected_reasons": []
+}

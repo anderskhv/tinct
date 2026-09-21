@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "764fe3a4495754ef4fd36c5bad3b1361473ee788d4368045155077173360b048",
+  "attempts": [
+    {
+      "asr_seconds": 0.27691482938826084,
+      "alignment_seconds": 0.0009742937982082367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Page._ Save you, good Sir Hugh!",
+        "hotwords": "Save, Sir, Hugh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Page, Save you, good Sir Hugh!",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Page,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Save",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.1632080078125
+            },
+            {
+              "text": " you,",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.362060546875
+            },
+            {
+              "text": " good",
+              "start": 1.51,
+              "end": 1.53,
+              "probability": 0.1710205078125
+            },
+            {
+              "text": " Sir",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " Hugh!",
+              "start": 1.71,
+              "end": 1.99,
+              "probability": 0.93408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Page,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Save",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "you,",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "good",
+          "start": 1.51,
+          "end": 1.53
+        },
+        {
+          "raw": "Sir",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "Hugh!",
+          "start": 1.71,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "_Page._",
+        "Save",
+        "you,",
+        "good",
+        "Sir",
+        "Hugh!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Page._",
+        "Save",
+        "you,",
+        "good",
+        "Sir",
+        "Hugh!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Page,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "page",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Save",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "save",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.51,
+          "end": 1.53,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Hugh!",
+          "start": 1.71,
+          "end": 1.99,
+          "key": "hugh",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Page._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Save",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "you,",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "good",
+          "start": 1.51,
+          "end": 1.53
+        },
+        {
+          "text": "Sir",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "Hugh!",
+          "start": 1.71,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2779819769784808
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebe2165128dd768793d4076b4d9a3864abed3643726dd7f80b180bd58b1390d4",
+  "selected_reasons": []
+}

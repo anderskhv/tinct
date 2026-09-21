@@ -1,0 +1,513 @@
+{
+  "complete": true,
+  "signature": "f2164a8659d386204cea41f0f2294c710244d96965ea8d6f6356b4ba5ddef442",
+  "attempts": [
+    {
+      "asr_seconds": 0.8680521808564663,
+      "alignment_seconds": 0.0014630882069468498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Velut aegri somnia, vanae Finguntur species.\"",
+        "hotwords": "Velut, Finguntur"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Velut aegri somnia, vanae Finguntur species",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Velut",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.06940078735351562
+            },
+            {
+              "text": " aegri",
+              "start": 0.79,
+              "end": 1.09,
+              "probability": 0.33309046427408856
+            },
+            {
+              "text": " somnia,",
+              "start": 1.09,
+              "end": 1.59,
+              "probability": 0.59027099609375
+            },
+            {
+              "text": " vanae",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.31715234120686847
+            },
+            {
+              "text": " Finguntur",
+              "start": 2.29,
+              "end": 2.75,
+              "probability": 0.6431655883789062
+            },
+            {
+              "text": " species",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Velut aegri somnia, Finguntur species",
+          "start": 3.09,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " Velut",
+              "start": 3.09,
+              "end": 3.13,
+              "probability": 0.00015172362327575684
+            },
+            {
+              "text": " aegri",
+              "start": 3.13,
+              "end": 3.21,
+              "probability": 0.001466989517211914
+            },
+            {
+              "text": " somnia,",
+              "start": 3.21,
+              "end": 3.29,
+              "probability": 4.756450653076172e-05
+            },
+            {
+              "text": " Finguntur",
+              "start": 3.29,
+              "end": 3.29,
+              "probability": 0.0012710988521575928
+            },
+            {
+              "text": " species",
+              "start": 3.29,
+              "end": 3.29,
+              "probability": 5.257129669189453e-05
+            }
+          ]
+        },
+        {
+          "text": " Velut aegri somnia, vanae Finguntur species",
+          "start": 3.29,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Velut",
+              "start": 3.29,
+              "end": 3.29,
+              "probability": 6.788969039916992e-05
+            },
+            {
+              "text": " aegri",
+              "start": 3.29,
+              "end": 3.29,
+              "probability": 0.0016464789708455403
+            },
+            {
+              "text": " somnia,",
+              "start": 3.29,
+              "end": 3.29,
+              "probability": 5.698204040527344e-05
+            },
+            {
+              "text": " vanae",
+              "start": 3.29,
+              "end": 3.89,
+              "probability": 0.005949974060058594
+            },
+            {
+              "text": " Finguntur",
+              "start": 3.89,
+              "end": 3.89,
+              "probability": 0.0031814873218536377
+            },
+            {
+              "text": " species",
+              "start": 3.89,
+              "end": 3.89,
+              "probability": 3.6656856536865234e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Velut",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "aegri",
+          "start": 0.79,
+          "end": 1.09
+        },
+        {
+          "raw": "somnia,",
+          "start": 1.09,
+          "end": 1.59
+        },
+        {
+          "raw": "vanae",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "Finguntur",
+          "start": 2.29,
+          "end": 2.75
+        },
+        {
+          "raw": "species",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "raw": "Velut",
+          "start": 3.09,
+          "end": 3.13
+        },
+        {
+          "raw": "aegri",
+          "start": 3.13,
+          "end": 3.21
+        },
+        {
+          "raw": "somnia,",
+          "start": 3.21,
+          "end": 3.29
+        },
+        {
+          "raw": "Finguntur",
+          "start": 3.29,
+          "end": 3.29
+        },
+        {
+          "raw": "species",
+          "start": 3.29,
+          "end": 3.29
+        },
+        {
+          "raw": "Velut",
+          "start": 3.29,
+          "end": 3.29
+        },
+        {
+          "raw": "aegri",
+          "start": 3.29,
+          "end": 3.29
+        },
+        {
+          "raw": "somnia,",
+          "start": 3.29,
+          "end": 3.29
+        },
+        {
+          "raw": "vanae",
+          "start": 3.29,
+          "end": 3.89
+        },
+        {
+          "raw": "Finguntur",
+          "start": 3.89,
+          "end": 3.89
+        },
+        {
+          "raw": "species",
+          "start": 3.89,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "“Velut",
+        "aegri",
+        "somnia,",
+        "vanae",
+        "Finguntur",
+        "species.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Velut",
+        "aegri",
+        "somnia,",
+        "vanae",
+        "Finguntur",
+        "species.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Velut",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "velut",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aegri",
+          "start": 0.79,
+          "end": 1.09,
+          "key": "aegri",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "somnia,",
+          "start": 1.09,
+          "end": 1.59,
+          "key": "somnia",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vanae",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "vanae",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Finguntur",
+          "start": 2.29,
+          "end": 2.75,
+          "key": "finguntur",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "species",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "species",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Velut",
+          "start": 3.09,
+          "end": 3.13,
+          "key": "velut",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "aegri",
+          "start": 3.13,
+          "end": 3.21,
+          "key": "aegri",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "somnia,",
+          "start": 3.21,
+          "end": 3.29,
+          "key": "somnia",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Finguntur",
+          "start": 3.29,
+          "end": 3.29,
+          "key": "finguntur",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "species",
+          "start": 3.29,
+          "end": 3.29,
+          "key": "species",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Velut",
+          "start": 3.29,
+          "end": 3.29,
+          "key": "velut",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "aegri",
+          "start": 3.29,
+          "end": 3.29,
+          "key": "aegri",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "somnia,",
+          "start": 3.29,
+          "end": 3.29,
+          "key": "somnia",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "vanae",
+          "start": 3.29,
+          "end": 3.89,
+          "key": "vanae",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Finguntur",
+          "start": 3.89,
+          "end": 3.89,
+          "key": "finguntur",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "species",
+          "start": 3.89,
+          "end": 3.89,
+          "key": "species",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Velut",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "aegri",
+          "start": 0.79,
+          "end": 1.09
+        },
+        {
+          "text": "somnia,",
+          "start": 1.09,
+          "end": 1.59
+        },
+        {
+          "text": "vanae",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "Finguntur",
+          "start": 2.29,
+          "end": 2.75
+        },
+        {
+          "text": "species.”",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 17,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8697758866474032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c34c4f5865aa4a85bd5fb1ee98d60eec50f0a14f812072a08fe42b43d711f4e9",
+  "selected_reasons": []
+}

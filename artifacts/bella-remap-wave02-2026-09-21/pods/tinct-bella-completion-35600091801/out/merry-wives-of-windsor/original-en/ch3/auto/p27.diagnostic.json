@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "fb075cac3fa7f8beaaf7037b1f5e78ce59c9206dc7fa8c1067f7e6d4996f1136",
+  "attempts": [
+    {
+      "asr_seconds": 0.3070151824504137,
+      "alignment_seconds": 0.0015323879197239876,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Nym._ The anchor is deep: will that humour pass?",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nym, the anchor is deep, will that humour pass?",
+          "start": 0.02,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Nym,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.33642578125
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.982421875
+            },
+            {
+              "text": " anchor",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deep,",
+              "start": 1.44,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.9453125
+            },
+            {
+              "text": " that",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " humour",
+              "start": 2.34,
+              "end": 2.6,
+              "probability": 0.0537109375
+            },
+            {
+              "text": " pass?",
+              "start": 2.6,
+              "end": 2.94,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nym,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "anchor",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "deep,",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "raw": "will",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "humour",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "raw": "pass?",
+          "start": 2.6,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "_Nym._",
+        "The",
+        "anchor",
+        "is",
+        "deep:",
+        "will",
+        "that",
+        "humour",
+        "pass?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Nym._",
+        "The",
+        "anchor",
+        "is",
+        "deep:",
+        "will",
+        "that",
+        "humour",
+        "pass?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nym,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "nym",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "anchor",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "anchor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "deep,",
+          "start": 1.44,
+          "end": 1.74,
+          "key": "deep",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.34,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "humour",
+          "start": 2.34,
+          "end": 2.6,
+          "key": "humour",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pass?",
+          "start": 2.6,
+          "end": 2.94,
+          "key": "pass",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Nym._",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "The",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "anchor",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "is",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "deep:",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "text": "will",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "that",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "humour",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "text": "pass?",
+          "start": 2.6,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30870690289884806
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b370063b4edb69511e636b02b0e9e16eb0cb1eaa82e8c03945fea35b39231571",
+  "selected_reasons": []
+}

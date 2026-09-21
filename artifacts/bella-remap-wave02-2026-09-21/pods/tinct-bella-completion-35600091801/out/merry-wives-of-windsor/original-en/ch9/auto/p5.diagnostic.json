@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "1ee4f46fb9d2531a861fc048a39065db684738a043e72e6c7dbd8cba6e1ef2a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.27608168590813875,
+      "alignment_seconds": 0.001492551527917385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ford._ Well met, Mistress Page. Whither go you?",
+        "hotwords": "Well, Mistress, Page, Whither"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ford. Well met, Mistress Page. Whither go you?",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Ford.",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.76953125
+            },
+            {
+              "text": " Well",
+              "start": 1.08,
+              "end": 1.14,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " met,",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.1795654296875
+            },
+            {
+              "text": " Mistress",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " Page.",
+              "start": 1.7,
+              "end": 2.1,
+              "probability": 0.353759765625
+            },
+            {
+              "text": " Whither",
+              "start": 2.4,
+              "end": 2.5,
+              "probability": 0.61407470703125
+            },
+            {
+              "text": " go",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " you?",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ford.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Well",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "raw": "met,",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "Page.",
+          "start": 1.7,
+          "end": 2.1
+        },
+        {
+          "raw": "Whither",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "raw": "go",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "you?",
+          "start": 2.66,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "Well",
+        "met,",
+        "Mistress",
+        "Page.",
+        "Whither",
+        "go",
+        "you?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Ford._",
+        "Well",
+        "met,",
+        "Mistress",
+        "Page.",
+        "Whither",
+        "go",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ford.",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "ford",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 1.08,
+          "end": 1.14,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "met,",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "met",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "mistress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 1.7,
+          "end": 2.1,
+          "key": "page",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Whither",
+          "start": 2.4,
+          "end": 2.5,
+          "key": "whither",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Well",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "text": "met,",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "Mistress",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "Page.",
+          "start": 1.7,
+          "end": 2.1
+        },
+        {
+          "text": "Whither",
+          "start": 2.4,
+          "end": 2.5
+        },
+        {
+          "text": "go",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "you?",
+          "start": 2.66,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27771150786429644
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "916b2916ebfdb20edbdafe03fe3cc5687949ece9bc65dd64c8d186c886078236",
+  "selected_reasons": []
+}

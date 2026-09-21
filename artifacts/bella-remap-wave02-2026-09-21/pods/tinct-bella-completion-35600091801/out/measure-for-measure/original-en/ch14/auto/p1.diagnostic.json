@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "0c3262e8e65202faca95cd68cb2b246712f220f8197df37f057d5728ab1581f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.28342307172715664,
+      "alignment_seconds": 0.001605103723704815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Escal._ Every letter he hath writ hath disvouched other.",
+        "hotwords": "Every"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Escal. Every letter he hath writ hath disvouched other.",
+          "start": 0.14,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Escal.",
+              "start": 0.14,
+              "end": 0.9,
+              "probability": 0.32303619384765625
+            },
+            {
+              "text": " Every",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " letter",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " he",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " hath",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " writ",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " hath",
+              "start": 2.32,
+              "end": 2.54,
+              "probability": 0.974609375
+            },
+            {
+              "text": " disvouched",
+              "start": 2.54,
+              "end": 3.04,
+              "probability": 0.23798751831054688
+            },
+            {
+              "text": " other.",
+              "start": 3.04,
+              "end": 3.26,
+              "probability": 0.95947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Escal.",
+          "start": 0.14,
+          "end": 0.9
+        },
+        {
+          "raw": "Every",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "letter",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "he",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "hath",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "writ",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "hath",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "raw": "disvouched",
+          "start": 2.54,
+          "end": 3.04
+        },
+        {
+          "raw": "other.",
+          "start": 3.04,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "_Escal._",
+        "Every",
+        "letter",
+        "he",
+        "hath",
+        "writ",
+        "hath",
+        "disvouched",
+        "other."
+      ],
+      "acoustic_expected_tokens": [
+        "_Escal._",
+        "Every",
+        "letter",
+        "he",
+        "hath",
+        "writ",
+        "hath",
+        "disvouched",
+        "other."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Escal.",
+          "start": 0.14,
+          "end": 0.9,
+          "key": "escal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Every",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "every",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "letter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "hath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "writ",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "writ",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 2.32,
+          "end": 2.54,
+          "key": "hath",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "disvouched",
+          "start": 2.54,
+          "end": 3.04,
+          "key": "disvouched",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "other.",
+          "start": 3.04,
+          "end": 3.26,
+          "key": "other",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Escal._",
+          "start": 0.14,
+          "end": 0.9
+        },
+        {
+          "text": "Every",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "letter",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "he",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "hath",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "writ",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "hath",
+          "start": 2.32,
+          "end": 2.54
+        },
+        {
+          "text": "disvouched",
+          "start": 2.54,
+          "end": 3.04
+        },
+        {
+          "text": "other.",
+          "start": 3.04,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2851814357563853
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08064e7d89a20c34b0a35caf68fc4de5ce336be249d21ce69a3e5e634ba09e48",
+  "selected_reasons": []
+}

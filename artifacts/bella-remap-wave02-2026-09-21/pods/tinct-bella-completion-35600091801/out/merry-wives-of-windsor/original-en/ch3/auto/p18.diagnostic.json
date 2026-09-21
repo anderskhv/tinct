@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "e553d969c85628a9129b13aa0aaee78be9f9d40cc769e7271ccbfe1ff2f1283a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2634268905967474,
+      "alignment_seconds": 0.0013301223516464233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Pist._ Why, then, let kibes ensue. 30",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " PIST, why then let kibes ensue. 30",
+          "start": 0.05,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " PIST,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.34705543518066406
+            },
+            {
+              "text": " why",
+              "start": 1.01,
+              "end": 1.15,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " then",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " let",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.990234375
+            },
+            {
+              "text": " kibes",
+              "start": 1.47,
+              "end": 1.79,
+              "probability": 0.6390787760416666
+            },
+            {
+              "text": " ensue.",
+              "start": 1.79,
+              "end": 2.19,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " 30",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "PIST,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "why",
+          "start": 1.01,
+          "end": 1.15
+        },
+        {
+          "raw": "then",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "let",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "kibes",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "raw": "ensue.",
+          "start": 1.79,
+          "end": 2.19
+        },
+        {
+          "raw": "30",
+          "start": 2.61,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "_Pist._",
+        "Why,",
+        "then,",
+        "let",
+        "kibes",
+        "ensue.",
+        "30"
+      ],
+      "acoustic_expected_tokens": [
+        "_Pist._",
+        "Why,",
+        "then,",
+        "let",
+        "kibes",
+        "ensue.",
+        "30"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "PIST,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "pist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.01,
+          "end": 1.15,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "let",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kibes",
+          "start": 1.47,
+          "end": 1.79,
+          "key": "kibes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ensue.",
+          "start": 1.79,
+          "end": 2.19,
+          "key": "ensue",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 2.61,
+          "end": 2.81,
+          "key": "thirty",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Pist._",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Why,",
+          "start": 1.01,
+          "end": 1.15
+        },
+        {
+          "text": "then,",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "let",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "kibes",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "text": "ensue.",
+          "start": 1.79,
+          "end": 2.19
+        },
+        {
+          "text": "30",
+          "start": 2.61,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2648837994784117
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1af5d567bfeb5357a4c989dd105616c77d9467dff1e898178cf12fba2fc80e82",
+  "selected_reasons": []
+}

@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "dc03f0f77113c1296055761ed1dc259272ca4abf9bec1396e6328575e071581e",
+  "attempts": [
+    {
+      "asr_seconds": 0.26766535453498363,
+      "alignment_seconds": 0.0015397407114505768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "and of disfavour to elevate and thrust them outward:"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " and of disfavour to elevate and thrust them outward.",
+          "start": 0.11,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " of",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " disfavour",
+              "start": 0.63,
+              "end": 1.13,
+              "probability": 0.6727193196614584
+            },
+            {
+              "text": " to",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " elevate",
+              "start": 1.39,
+              "end": 1.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thrust",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them",
+              "start": 2.37,
+              "end": 2.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " outward.",
+              "start": 2.57,
+              "end": 2.93,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "of",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "disfavour",
+          "start": 0.63,
+          "end": 1.13
+        },
+        {
+          "raw": "to",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "elevate",
+          "start": 1.39,
+          "end": 1.79
+        },
+        {
+          "raw": "and",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "raw": "thrust",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "them",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "raw": "outward.",
+          "start": 2.57,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "and",
+        "of",
+        "disfavour",
+        "to",
+        "elevate",
+        "and",
+        "thrust",
+        "them",
+        "outward:"
+      ],
+      "acoustic_expected_tokens": [
+        "and",
+        "of",
+        "disfavour",
+        "to",
+        "elevate",
+        "and",
+        "thrust",
+        "them",
+        "outward:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disfavour",
+          "start": 0.63,
+          "end": 1.13,
+          "key": "disfavour",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "elevate",
+          "start": 1.39,
+          "end": 1.79,
+          "key": "elevate",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thrust",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "thrust",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.37,
+          "end": 2.57,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "outward.",
+          "start": 2.57,
+          "end": 2.93,
+          "key": "outward",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "and",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "of",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "disfavour",
+          "start": 0.63,
+          "end": 1.13
+        },
+        {
+          "text": "to",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "text": "elevate",
+          "start": 1.39,
+          "end": 1.79
+        },
+        {
+          "text": "and",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "text": "thrust",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "them",
+          "start": 2.37,
+          "end": 2.57
+        },
+        {
+          "text": "outward:",
+          "start": 2.57,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26937167905271053
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10016aae1922993334aa2f003fb4b795f1c5e3eff093aadde3c7161525a85c79",
+  "selected_reasons": []
+}

@@ -1,0 +1,2357 @@
+{
+  "complete": true,
+  "signature": "d252259b4ed35d7d0b96a8c9d7d7b2ec4435a7af3c1f0ad64e7f08db544216e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.46248016227036715,
+      "alignment_seconds": 0.0030389903113245964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Shal._ Marry, I thank you for it; I thank you for that good comfort. She calls you, coz: I'll leave you.",
+        "hotwords": "Marry, I, She, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall, Marry, I thank you for it, I thank you for that good comfort. She calls you, coz, I'll leave you.",
+          "start": 0.02,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.020050048828125
+            },
+            {
+              "text": " Marry,",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.5004501342773438
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thank",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " you",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " for",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it,",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thank",
+              "start": 2.62,
+              "end": 2.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " comfort.",
+              "start": 3.48,
+              "end": 3.94,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " She",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " calls",
+              "start": 4.66,
+              "end": 4.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " coz,",
+              "start": 5.22,
+              "end": 5.48,
+              "probability": 0.4963188171386719
+            },
+            {
+              "text": " I'll",
+              "start": 5.62,
+              "end": 5.82,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " leave",
+              "start": 5.82,
+              "end": 5.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you.",
+              "start": 5.96,
+              "end": 6.22,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "thank",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "for",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "it,",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "thank",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "for",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "that",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "good",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "comfort.",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "raw": "She",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "calls",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "raw": "you,",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "coz,",
+          "start": 5.22,
+          "end": 5.48
+        },
+        {
+          "raw": "I'll",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "raw": "leave",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "raw": "you.",
+          "start": 5.96,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "Marry,",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "it;",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "that",
+        "good",
+        "comfort.",
+        "She",
+        "calls",
+        "you,",
+        "coz:",
+        "I’ll",
+        "leave",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "Marry,",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "it;",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "that",
+        "good",
+        "comfort.",
+        "She",
+        "calls",
+        "you,",
+        "coz:",
+        "I'll",
+        "leave",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          21,
+          1,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "marry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "thank",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.52,
+          "end": 2.62,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 2.62,
+          "end": 2.82,
+          "key": "thank",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 2.98,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.98,
+          "end": 3.14,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "comfort.",
+          "start": 3.48,
+          "end": 3.94,
+          "key": "comfort",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 4.54,
+          "end": 4.66,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "calls",
+          "start": 4.66,
+          "end": 4.88,
+          "key": "calls",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "coz,",
+          "start": 5.22,
+          "end": 5.48,
+          "key": "coz",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 5.62,
+          "end": 5.82,
+          "key": "ill",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 5.82,
+          "end": 5.96,
+          "key": "leave",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.96,
+          "end": 6.22,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.51
+        },
+        {
+          "text": "Marry,",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "thank",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "you",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "for",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "it;",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "text": "thank",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "text": "you",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "for",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "that",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "good",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "comfort.",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "text": "She",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "text": "calls",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "text": "you,",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "coz:",
+          "start": 5.22,
+          "end": 5.48
+        },
+        {
+          "text": "I’ll",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "text": "leave",
+          "start": 5.82,
+          "end": 5.96
+        },
+        {
+          "text": "you.",
+          "start": 5.96,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.4658009512349963
+    },
+    {
+      "asr_seconds": 0.4447358697652817,
+      "alignment_seconds": 0.003433309495449066,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Marry, I, She, I'll"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Shall, Marry, I thank you for it. I thank you for that good comfort. She calls you cause,",
+          "start": 0.02,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.0200958251953125
+            },
+            {
+              "text": " Marry,",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.5004425048828125
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thank",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " you",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " for",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.54,
+              "end": 2.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thank",
+              "start": 2.6,
+              "end": 2.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " comfort.",
+              "start": 3.48,
+              "end": 3.92,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " She",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " calls",
+              "start": 4.66,
+              "end": 4.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cause,",
+              "start": 5.12,
+              "end": 5.38,
+              "probability": 0.30712890625
+            }
+          ]
+        },
+        {
+          "text": " I'll leave you.",
+          "start": 5.62,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 5.62,
+              "end": 5.82,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " leave",
+              "start": 5.82,
+              "end": 5.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 5.98,
+              "end": 6.22,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "thank",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "for",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "I",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "raw": "thank",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "raw": "you",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "raw": "for",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "that",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "good",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "comfort.",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "raw": "She",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "calls",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "raw": "you",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "cause,",
+          "start": 5.12,
+          "end": 5.38
+        },
+        {
+          "raw": "I'll",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "raw": "leave",
+          "start": 5.82,
+          "end": 5.98
+        },
+        {
+          "raw": "you.",
+          "start": 5.98,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "Marry,",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "it;",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "that",
+        "good",
+        "comfort.",
+        "She",
+        "calls",
+        "you,",
+        "coz:",
+        "I’ll",
+        "leave",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "Marry,",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "it;",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "that",
+        "good",
+        "comfort.",
+        "She",
+        "calls",
+        "you,",
+        "coz:",
+        "I'll",
+        "leave",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          21,
+          18,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "marry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "thank",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.54,
+          "end": 2.6,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 2.6,
+          "end": 2.84,
+          "key": "thank",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.84,
+          "end": 2.98,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.98,
+          "end": 3.14,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "comfort.",
+          "start": 3.48,
+          "end": 3.92,
+          "key": "comfort",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 4.54,
+          "end": 4.66,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "calls",
+          "start": 4.66,
+          "end": 4.88,
+          "key": "calls",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cause,",
+          "start": 5.12,
+          "end": 5.38,
+          "key": "cause",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 5.62,
+          "end": 5.82,
+          "key": "ill",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 5.82,
+          "end": 5.98,
+          "key": "leave",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.98,
+          "end": 6.22,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.51
+        },
+        {
+          "text": "Marry,",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "thank",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "you",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "for",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "it;",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "text": "thank",
+          "start": 2.6,
+          "end": 2.84
+        },
+        {
+          "text": "you",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "text": "for",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "that",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "good",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "comfort.",
+          "start": 3.48,
+          "end": 3.92
+        },
+        {
+          "text": "She",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "text": "calls",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "text": "you,",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "coz:",
+          "start": 5.12,
+          "end": 5.37
+        },
+        {
+          "text": "I’ll",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "text": "leave",
+          "start": 5.82,
+          "end": 5.98
+        },
+        {
+          "text": "you.",
+          "start": 5.98,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.4484947808086872
+    },
+    {
+      "asr_seconds": 0.4788623731583357,
+      "alignment_seconds": 0.0034666089341044426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shao, Mary, I thank you for it. I thank you for that good comfort. She calls you cause",
+          "start": 0.02,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " Shao,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.51251220703125
+            },
+            {
+              "text": " Mary,",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thank",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 2.04,
+              "end": 2.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 2.54,
+              "end": 2.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thank",
+              "start": 2.6,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.98,
+              "end": 3.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 3.14,
+              "end": 3.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " comfort.",
+              "start": 3.5,
+              "end": 3.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " She",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " calls",
+              "start": 4.66,
+              "end": 4.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cause",
+              "start": 5.12,
+              "end": 5.38,
+              "probability": 0.262939453125
+            }
+          ]
+        },
+        {
+          "text": " I'll leave you.",
+          "start": 5.38,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 5.38,
+              "end": 5.8,
+              "probability": 0.697509765625
+            },
+            {
+              "text": " leave",
+              "start": 5.8,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shao,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "thank",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "for",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "raw": "I",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "raw": "thank",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "for",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "raw": "that",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "raw": "good",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "comfort.",
+          "start": 3.5,
+          "end": 3.92
+        },
+        {
+          "raw": "She",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "calls",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "raw": "you",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "cause",
+          "start": 5.12,
+          "end": 5.38
+        },
+        {
+          "raw": "I'll",
+          "start": 5.38,
+          "end": 5.8
+        },
+        {
+          "raw": "leave",
+          "start": 5.8,
+          "end": 5.98
+        },
+        {
+          "raw": "you.",
+          "start": 5.98,
+          "end": 6.24
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "Marry,",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "it;",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "that",
+        "good",
+        "comfort.",
+        "She",
+        "calls",
+        "you,",
+        "coz:",
+        "I’ll",
+        "leave",
+        "you."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "Marry,",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "it;",
+        "I",
+        "thank",
+        "you",
+        "for",
+        "that",
+        "good",
+        "comfort.",
+        "She",
+        "calls",
+        "you,",
+        "coz:",
+        "I'll",
+        "leave",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          17,
+          2,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          21,
+          18,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shao,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "shao",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "mary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "thank",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.04,
+          "end": 2.22,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.54,
+          "end": 2.6,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 2.6,
+          "end": 2.82,
+          "key": "thank",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 2.98,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.98,
+          "end": 3.14,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.14,
+          "end": 3.3,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "good",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "comfort.",
+          "start": 3.5,
+          "end": 3.92,
+          "key": "comfort",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 4.54,
+          "end": 4.66,
+          "key": "she",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "calls",
+          "start": 4.66,
+          "end": 4.88,
+          "key": "calls",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cause",
+          "start": 5.12,
+          "end": 5.38,
+          "key": "cause",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 5.38,
+          "end": 5.8,
+          "key": "ill",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 5.8,
+          "end": 5.98,
+          "key": "leave",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.98,
+          "end": 6.24,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "Marry,",
+          "start": 0.68,
+          "end": 1.02
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "thank",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "you",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "for",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "it;",
+          "start": 2.04,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "text": "thank",
+          "start": 2.6,
+          "end": 2.82
+        },
+        {
+          "text": "you",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "for",
+          "start": 2.98,
+          "end": 3.14
+        },
+        {
+          "text": "that",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "text": "good",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "comfort.",
+          "start": 3.5,
+          "end": 3.92
+        },
+        {
+          "text": "She",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "text": "calls",
+          "start": 4.66,
+          "end": 4.88
+        },
+        {
+          "text": "you,",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "coz:",
+          "start": 5.12,
+          "end": 5.25
+        },
+        {
+          "text": "I’ll",
+          "start": 5.38,
+          "end": 5.8
+        },
+        {
+          "text": "leave",
+          "start": 5.8,
+          "end": 5.98
+        },
+        {
+          "text": "you.",
+          "start": 5.98,
+          "end": 6.24
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.48265161365270615
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9445b986ad4d59c68919ab055fc44b74ad2697a6adcdc430b99f33e5ebc60323",
+  "selected_reasons": []
+}

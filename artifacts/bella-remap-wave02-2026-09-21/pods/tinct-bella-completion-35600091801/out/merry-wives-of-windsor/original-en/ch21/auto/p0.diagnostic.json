@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "8f03b6afb10c9a0303f705a3eba7c690bd7d44e51e3239c29f16226d4030fdb7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2783355489373207,
+      "alignment_seconds": 0.0014028958976268768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Mistress Page, Mistress Ford, and Doctor Caius._",
+        "hotwords": "Mistress, Page, Ford, Doctor, Caius._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Mistress Page, Mistress Ford, and Doctor Caius._",
+          "start": 0.14,
+          "end": 3.9,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.4746094048023224
+            },
+            {
+              "text": " Mistress",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.76953125
+            },
+            {
+              "text": " Page,",
+              "start": 1.0,
+              "end": 1.44,
+              "probability": 0.46630859375
+            },
+            {
+              "text": " Mistress",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Ford,",
+              "start": 2.14,
+              "end": 2.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.68,
+              "end": 2.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Doctor",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.293212890625
+            },
+            {
+              "text": " Caius._",
+              "start": 3.1,
+              "end": 3.9,
+              "probability": 0.6052093505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Mistress",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "Page,",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "Ford,",
+          "start": 2.14,
+          "end": 2.54
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "raw": "Doctor",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "raw": "Caius._",
+          "start": 3.1,
+          "end": 3.9
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "MISTRESS",
+        "PAGE,",
+        "MISTRESS",
+        "FORD,",
+        "and",
+        "DOCTOR",
+        "CAIUS._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Mistress",
+        "Page,",
+        "Mistress",
+        "Ford,",
+        "and",
+        "Doctor",
+        "Caius._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "mistress",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 1.0,
+          "end": 1.44,
+          "key": "page",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mistress",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "mistress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ford,",
+          "start": 2.14,
+          "end": 2.54,
+          "key": "ford",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 2.84,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Doctor",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "doctor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Caius._",
+          "start": 3.1,
+          "end": 3.9,
+          "key": "caius",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "MISTRESS",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "PAGE,",
+          "start": 1.0,
+          "end": 1.44
+        },
+        {
+          "text": "MISTRESS",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "FORD,",
+          "start": 2.14,
+          "end": 2.54
+        },
+        {
+          "text": "and",
+          "start": 2.68,
+          "end": 2.84
+        },
+        {
+          "text": "DOCTOR",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "text": "CAIUS._",
+          "start": 3.1,
+          "end": 3.9
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27986222971230745
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5689ed60a9c807b9688e4ca199863f4057ef317dc5d9589a23245f6274f7a3e0",
+  "selected_reasons": []
+}

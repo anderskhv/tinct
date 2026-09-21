@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "ca90a14bb36a782173f3ed99359e4598c3c780d8208fad8c70ced3a5a725f898",
+  "attempts": [
+    {
+      "asr_seconds": 0.2983779525384307,
+      "alignment_seconds": 0.0017450349405407906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Pist._ O base Hungarian wight! wilt thou the spigot wield?",
+        "hotwords": "O, Hungarian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pist, O base Hungarian wight! wilt thou the spigot wield?",
+          "start": 0.05,
+          "end": 3.87,
+          "words": [
+            {
+              "text": " Pist,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.300506591796875
+            },
+            {
+              "text": " O",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.779296875
+            },
+            {
+              "text": " base",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " Hungarian",
+              "start": 1.41,
+              "end": 1.91,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " wight!",
+              "start": 1.91,
+              "end": 2.41,
+              "probability": 0.58551025390625
+            },
+            {
+              "text": " wilt",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.5985107421875
+            },
+            {
+              "text": " thou",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 3.09,
+              "end": 3.31,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " spigot",
+              "start": 3.31,
+              "end": 3.61,
+              "probability": 0.9920247395833334
+            },
+            {
+              "text": " wield?",
+              "start": 3.61,
+              "end": 3.87,
+              "probability": 0.9521484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pist,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "O",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "base",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "Hungarian",
+          "start": 1.41,
+          "end": 1.91
+        },
+        {
+          "raw": "wight!",
+          "start": 1.91,
+          "end": 2.41
+        },
+        {
+          "raw": "wilt",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "thou",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "the",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "raw": "spigot",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "raw": "wield?",
+          "start": 3.61,
+          "end": 3.87
+        }
+      ],
+      "expected_tokens": [
+        "_Pist._",
+        "O",
+        "base",
+        "Hungarian",
+        "wight!",
+        "wilt",
+        "thou",
+        "the",
+        "spigot",
+        "wield?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Pist._",
+        "O",
+        "base",
+        "Hungarian",
+        "wight!",
+        "wilt",
+        "thou",
+        "the",
+        "spigot",
+        "wield?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pist,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "base",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "base",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hungarian",
+          "start": 1.41,
+          "end": 1.91,
+          "key": "hungarian",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wight!",
+          "start": 1.91,
+          "end": 2.41,
+          "key": "wight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "wilt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.09,
+          "end": 3.31,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "spigot",
+          "start": 3.31,
+          "end": 3.61,
+          "key": "spigot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wield?",
+          "start": 3.61,
+          "end": 3.87,
+          "key": "wield",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Pist._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "O",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "base",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "Hungarian",
+          "start": 1.41,
+          "end": 1.91
+        },
+        {
+          "text": "wight!",
+          "start": 1.91,
+          "end": 2.41
+        },
+        {
+          "text": "wilt",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "thou",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "the",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "text": "spigot",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "text": "wield?",
+          "start": 3.61,
+          "end": 3.87
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3002880569547415
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c5f8b936778707ce3fb9b48352f830cba110e100a44e862e5547c805baffc4b",
+  "selected_reasons": []
+}

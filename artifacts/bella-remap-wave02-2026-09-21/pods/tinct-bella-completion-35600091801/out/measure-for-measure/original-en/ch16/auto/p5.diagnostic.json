@@ -1,0 +1,297 @@
+{
+  "complete": true,
+  "signature": "e53479af9cce87e77b45f2d43b905ef60f2e1e167cccd8beb08cac69376dfba7",
+  "attempts": [
+    {
+      "asr_seconds": 0.26826289761811495,
+      "alignment_seconds": 0.0013119671493768692,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Isab._ O, peace! the friar is come.",
+        "hotwords": "O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Isab, O peace! the friar is come.",
+          "start": 0.02,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " O",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.705078125
+            },
+            {
+              "text": " peace!",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.48876953125
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.86,
+              "probability": 0.260498046875
+            },
+            {
+              "text": " friar",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.6939697265625
+            },
+            {
+              "text": " is",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " come.",
+              "start": 2.3,
+              "end": 2.58,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "O",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "peace!",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "raw": "friar",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "raw": "is",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "come.",
+          "start": 2.3,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "O,",
+        "peace!",
+        "the",
+        "friar",
+        "is",
+        "come."
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "O,",
+        "peace!",
+        "the",
+        "friar",
+        "is",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.16,
+          "end": 1.24,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace!",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "friar",
+          "start": 1.86,
+          "end": 2.18,
+          "key": "friar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 2.3,
+          "end": 2.58,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "O,",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "text": "peace!",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.86
+        },
+        {
+          "text": "friar",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "text": "is",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "come.",
+          "start": 2.3,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2697002235800028
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "beca237b6a4768e867d4a33f5bac993bfa03b20c12f3b26a08790860ea66ba39",
+  "selected_reasons": []
+}

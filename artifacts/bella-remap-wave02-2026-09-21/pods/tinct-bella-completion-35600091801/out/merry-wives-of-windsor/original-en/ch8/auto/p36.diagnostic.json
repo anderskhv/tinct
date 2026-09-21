@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "c1bc8613d118b59a5bf165b817d9810d4209be9ebe2ae8ac2fb0ce4dea453cd5",
+  "attempts": [
+    {
+      "asr_seconds": 0.4148011850193143,
+      "alignment_seconds": 0.0010694898664951324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Host, Caius, and Rugby._",
+        "hotwords": "Host, Caius, Rugby._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Host, Caius, and Rugby._",
+          "start": 0.14,
+          "end": 2.76,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.14,
+              "end": 0.62,
+              "probability": 0.4458008110523224
+            },
+            {
+              "text": " Host,",
+              "start": 0.62,
+              "end": 1.02,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " Caius,",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.6019007364908854
+            },
+            {
+              "text": " and",
+              "start": 1.76,
+              "end": 1.82,
+              "probability": 0.880859375
+            },
+            {
+              "text": " Rugby._",
+              "start": 1.82,
+              "end": 2.76,
+              "probability": 0.47928619384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "raw": "Host,",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "raw": "Caius,",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "raw": "and",
+          "start": 1.76,
+          "end": 1.82
+        },
+        {
+          "raw": "Rugby._",
+          "start": 1.82,
+          "end": 2.76
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "HOST,",
+        "CAIUS,",
+        "and",
+        "RUGBY._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Host,",
+        "Caius,",
+        "and",
+        "Rugby._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.14,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Host,",
+          "start": 0.62,
+          "end": 1.02,
+          "key": "host",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caius,",
+          "start": 1.36,
+          "end": 1.66,
+          "key": "caius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.76,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rugby._",
+          "start": 1.82,
+          "end": 2.76,
+          "key": "rugby",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.14,
+          "end": 0.62
+        },
+        {
+          "text": "HOST,",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "text": "CAIUS,",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "text": "and",
+          "start": 1.76,
+          "end": 1.82
+        },
+        {
+          "text": "RUGBY._",
+          "start": 1.82,
+          "end": 2.76
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4159694453701377
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72ca629c6adba265df85c89ac92dd58a0a9a2265eef10e0e1011fc552eab1d27",
+  "selected_reasons": []
+}

@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "9d3efaeb944da277bffeceb1000308eb8f14d083f4f86d951bac5412cac3a382",
+  "attempts": [
+    {
+      "asr_seconds": 0.48264577239751816,
+      "alignment_seconds": 0.0009927107021212578,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Isabella and Francisca._",
+        "hotwords": "Isabella, Francisca._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Enter Isabella and Francisca._",
+          "start": 0.08,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " \"_Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.4755859375
+            },
+            {
+              "text": " Isabella",
+              "start": 0.64,
+              "end": 1.1,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " and",
+              "start": 1.1,
+              "end": 1.42,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " Francisca._",
+              "start": 1.42,
+              "end": 2.2,
+              "probability": 0.6681365966796875
+            }
+          ]
+        },
+        {
+          "text": " Isabella, Francisca._",
+          "start": 2.2,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Isabella,",
+              "start": 2.2,
+              "end": 2.64,
+              "probability": 0.00022864341735839844
+            },
+            {
+              "text": " Francisca._",
+              "start": 2.64,
+              "end": 2.64,
+              "probability": 0.28936994075775146
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Isabella",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "raw": "Francisca._",
+          "start": 1.42,
+          "end": 2.2
+        },
+        {
+          "raw": "Isabella,",
+          "start": 2.2,
+          "end": 2.64
+        },
+        {
+          "raw": "Francisca._",
+          "start": 2.64,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "ISABELLA",
+        "and",
+        "FRANCISCA._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Isabella",
+        "and",
+        "Francisca._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Isabella",
+          "start": 0.64,
+          "end": 1.1,
+          "key": "isabella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.42,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Francisca._",
+          "start": 1.42,
+          "end": 2.2,
+          "key": "francisca",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Isabella,",
+          "start": 2.2,
+          "end": 2.64,
+          "key": "isabella",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Francisca._",
+          "start": 2.64,
+          "end": 2.64,
+          "key": "francisca",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "ISABELLA",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "text": "FRANCISCA._",
+          "start": 1.42,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.48375267907977104
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b7bfb5ffbeefa4602251feb5451e565ddede49a59e0694df2380b6df7f266c1a",
+  "selected_reasons": []
+}

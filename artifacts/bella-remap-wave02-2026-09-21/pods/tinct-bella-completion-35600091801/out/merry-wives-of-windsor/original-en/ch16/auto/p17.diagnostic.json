@@ -1,0 +1,717 @@
+{
+  "complete": true,
+  "signature": "0e8807094ba295d2e83c2113db24c450d9516300aba1a4fd4fa51b1c9cd2d52b",
+  "attempts": [
+    {
+      "asr_seconds": 0.44646392203867435,
+      "alignment_seconds": 0.003003794699907303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ The truth being known, We'll all present ourselves, dis-horn the spirit, And mock him home to Windsor.",
+        "hotwords": "Page._, We'll, And, Windsor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs Page._ The truth being known, We'll all present ourselves, dis-horn the spirit, And mock him home to Windsor.",
+          "start": 0.02,
+          "end": 6.9,
+          "words": [
+            {
+              "text": " Mrs",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.46728515625
+            },
+            {
+              "text": " Page._",
+              "start": 0.66,
+              "end": 1.54,
+              "probability": 0.059722900390625
+            },
+            {
+              "text": " The",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " truth",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " being",
+              "start": 2.12,
+              "end": 2.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " known,",
+              "start": 2.4,
+              "end": 2.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " We'll",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.4664154052734375
+            },
+            {
+              "text": " all",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " present",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.970703125
+            },
+            {
+              "text": " ourselves,",
+              "start": 3.68,
+              "end": 4.26,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " dis",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.054290771484375
+            },
+            {
+              "text": "-horn",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.4802417755126953
+            },
+            {
+              "text": " the",
+              "start": 4.84,
+              "end": 5.06,
+              "probability": 0.92578125
+            },
+            {
+              "text": " spirit,",
+              "start": 5.06,
+              "end": 5.36,
+              "probability": 0.7265625
+            },
+            {
+              "text": " And",
+              "start": 5.76,
+              "end": 5.88,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " mock",
+              "start": 5.88,
+              "end": 6.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " him",
+              "start": 6.1,
+              "end": 6.24,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " home",
+              "start": 6.24,
+              "end": 6.42,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 6.42,
+              "end": 6.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Windsor.",
+              "start": 6.64,
+              "end": 6.9,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Page._",
+          "start": 0.66,
+          "end": 1.54
+        },
+        {
+          "raw": "The",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "truth",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "being",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "raw": "known,",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "raw": "We'll",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "all",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "present",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "ourselves,",
+          "start": 3.68,
+          "end": 4.26
+        },
+        {
+          "raw": "dis",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "-horn",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "the",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "raw": "spirit,",
+          "start": 5.06,
+          "end": 5.36
+        },
+        {
+          "raw": "And",
+          "start": 5.76,
+          "end": 5.88
+        },
+        {
+          "raw": "mock",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "raw": "him",
+          "start": 6.1,
+          "end": 6.24
+        },
+        {
+          "raw": "home",
+          "start": 6.24,
+          "end": 6.42
+        },
+        {
+          "raw": "to",
+          "start": 6.42,
+          "end": 6.64
+        },
+        {
+          "raw": "Windsor.",
+          "start": 6.64,
+          "end": 6.9
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "The",
+        "truth",
+        "being",
+        "known,",
+        "We’ll",
+        "all",
+        "present",
+        "ourselves,",
+        "dis-horn",
+        "the",
+        "spirit,",
+        "And",
+        "mock",
+        "him",
+        "home",
+        "to",
+        "Windsor."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "The",
+        "truth",
+        "being",
+        "known,",
+        "We'll",
+        "all",
+        "present",
+        "ourselves,",
+        "dis-horn",
+        "the",
+        "spirit,",
+        "And",
+        "mock",
+        "him",
+        "home",
+        "to",
+        "Windsor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page._",
+          "start": 0.66,
+          "end": 1.54,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "truth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 2.12,
+          "end": 2.4,
+          "key": "being",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "known,",
+          "start": 2.4,
+          "end": 2.82,
+          "key": "known",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 3.04,
+          "end": 3.18,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "present",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ourselves,",
+          "start": 3.68,
+          "end": 4.26,
+          "key": "ourselves",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dis -horn",
+          "start": 4.54,
+          "end": 4.84,
+          "key": "dishorn",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.84,
+          "end": 5.06,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 5.06,
+          "end": 5.36,
+          "key": "spirit",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.76,
+          "end": 5.88,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 5.88,
+          "end": 6.1,
+          "key": "mock",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.1,
+          "end": 6.24,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 6.24,
+          "end": 6.42,
+          "key": "home",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.42,
+          "end": 6.64,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Windsor.",
+          "start": 6.64,
+          "end": 6.9,
+          "key": "windsor",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "dis-horn",
+          "heard": "dis -horn",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 4.54,
+          "end": 4.84
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Page._",
+          "start": 0.66,
+          "end": 1.54
+        },
+        {
+          "text": "The",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "truth",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "being",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "text": "known,",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "text": "We’ll",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "all",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "present",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "ourselves,",
+          "start": 3.68,
+          "end": 4.26
+        },
+        {
+          "text": "dis-horn",
+          "start": 4.54,
+          "end": 4.84
+        },
+        {
+          "text": "the",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "text": "spirit,",
+          "start": 5.06,
+          "end": 5.36
+        },
+        {
+          "text": "And",
+          "start": 5.76,
+          "end": 5.88
+        },
+        {
+          "text": "mock",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "text": "him",
+          "start": 6.1,
+          "end": 6.24
+        },
+        {
+          "text": "home",
+          "start": 6.24,
+          "end": 6.42
+        },
+        {
+          "text": "to",
+          "start": 6.42,
+          "end": 6.64
+        },
+        {
+          "text": "Windsor.",
+          "start": 6.64,
+          "end": 6.9
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44973474089056253
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c045ea4bffd61a54684a370a0c84e9f7365e2afdc1d321b7c33f66102e187444",
+  "selected_reasons": []
+}

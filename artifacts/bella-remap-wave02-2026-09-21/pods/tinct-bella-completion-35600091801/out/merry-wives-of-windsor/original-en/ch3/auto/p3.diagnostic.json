@@ -1,0 +1,717 @@
+{
+  "complete": true,
+  "signature": "9dfbed2adffcafa551df380f88cbb9d60ab0c61a4e71a42e51325983da79ab06",
+  "attempts": [
+    {
+      "asr_seconds": 0.6567773977294564,
+      "alignment_seconds": 0.0023428751155734062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Truly, mine host, I must turn away some of my followers. 5",
+        "hotwords": "Truly, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fal, truly, mine host, I must turn away some of my followers. 5",
+          "start": 0.08,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.13232421875
+            },
+            {
+              "text": " truly,",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " mine",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " host,",
+              "start": 1.62,
+              "end": 1.88,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " I",
+              "start": 2.02,
+              "end": 2.08,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " must",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " turn",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " away",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " some",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 2.72,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " followers.",
+              "start": 3.0,
+              "end": 3.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " 5",
+              "start": 4.16,
+              "end": 4.34,
+              "probability": 0.363037109375
+            }
+          ]
+        },
+        {
+          "text": " Fal, truly, mine host, I must turn away my followers.",
+          "start": 4.34,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 4.34,
+              "end": 4.34,
+              "probability": 1.5497207641601562e-06
+            },
+            {
+              "text": " truly,",
+              "start": 4.46,
+              "end": 5.0,
+              "probability": 4.792213439941406e-05
+            },
+            {
+              "text": " mine",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 1.0967254638671875e-05
+            },
+            {
+              "text": " host,",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 5.960464477539062e-07
+            },
+            {
+              "text": " I",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 0.03765869140625
+            },
+            {
+              "text": " must",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 0.0022678375244140625
+            },
+            {
+              "text": " turn",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 3.266334533691406e-05
+            },
+            {
+              "text": " away",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 0.00890350341796875
+            },
+            {
+              "text": " my",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 0.003337860107421875
+            },
+            {
+              "text": " followers.",
+              "start": 5.0,
+              "end": 5.0,
+              "probability": 1.4722347259521484e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "truly,",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "mine",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "host,",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "raw": "I",
+          "start": 2.02,
+          "end": 2.08
+        },
+        {
+          "raw": "must",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "turn",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "away",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "some",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "raw": "my",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "followers.",
+          "start": 3.0,
+          "end": 3.44
+        },
+        {
+          "raw": "5",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "raw": "Fal,",
+          "start": 4.34,
+          "end": 4.34
+        },
+        {
+          "raw": "truly,",
+          "start": 4.46,
+          "end": 5.0
+        },
+        {
+          "raw": "mine",
+          "start": 5.0,
+          "end": 5.0
+        },
+        {
+          "raw": "host,",
+          "start": 5.0,
+          "end": 5.0
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.0
+        },
+        {
+          "raw": "must",
+          "start": 5.0,
+          "end": 5.0
+        },
+        {
+          "raw": "turn",
+          "start": 5.0,
+          "end": 5.0
+        },
+        {
+          "raw": "away",
+          "start": 5.0,
+          "end": 5.0
+        },
+        {
+          "raw": "my",
+          "start": 5.0,
+          "end": 5.0
+        },
+        {
+          "raw": "followers.",
+          "start": 5.0,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Truly,",
+        "mine",
+        "host,",
+        "I",
+        "must",
+        "turn",
+        "away",
+        "some",
+        "of",
+        "my",
+        "followers.",
+        "5"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Truly,",
+        "mine",
+        "host,",
+        "I",
+        "must",
+        "turn",
+        "away",
+        "some",
+        "of",
+        "my",
+        "followers.",
+        "5"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "insert",
+          13,
+          13,
+          13,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          13,
+          13,
+          13,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "truly,",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "truly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "mine",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "host,",
+          "start": 1.62,
+          "end": 1.88,
+          "key": "host",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.02,
+          "end": 2.08,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "turn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "some",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.82,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "followers.",
+          "start": 3.0,
+          "end": 3.44,
+          "key": "followers",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 4.16,
+          "end": 4.34,
+          "key": "five",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Fal,",
+          "start": 4.34,
+          "end": 4.34,
+          "key": "fal",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "truly,",
+          "start": 4.46,
+          "end": 5.0,
+          "key": "truly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "mine",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "host,",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "host",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "must",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "turn",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "away",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "my",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "followers.",
+          "start": 5.0,
+          "end": 5.0,
+          "key": "followers",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Truly,",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "mine",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "host,",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "text": "I",
+          "start": 2.02,
+          "end": 2.08
+        },
+        {
+          "text": "must",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "turn",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "away",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "some",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "of",
+          "start": 2.72,
+          "end": 2.82
+        },
+        {
+          "text": "my",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "followers.",
+          "start": 3.0,
+          "end": 3.44
+        },
+        {
+          "text": "5",
+          "start": 4.16,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 23,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6594626605510712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1fa4098ceb11e4de48f08659b7f651352f73de4e4418fb0cd066aa5646f5326c",
+  "selected_reasons": []
+}

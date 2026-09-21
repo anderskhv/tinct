@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "c7cd8102ff74d35ea7c0fca0f7dc85db92c0c8915b2c29684c79dc913b5c9f3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.23372446279972792,
+      "alignment_seconds": 0.000810232013463974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Escal._ My lord.",
+        "hotwords": "My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Escal, my lord.",
+          "start": 0.14,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Escal,",
+              "start": 0.14,
+              "end": 0.82,
+              "probability": 0.4932861328125
+            },
+            {
+              "text": " my",
+              "start": 1.02,
+              "end": 1.08,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " lord.",
+              "start": 1.08,
+              "end": 1.42,
+              "probability": 0.72900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Escal,",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "raw": "my",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "raw": "lord.",
+          "start": 1.08,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "_Escal._",
+        "My",
+        "lord."
+      ],
+      "acoustic_expected_tokens": [
+        "_Escal._",
+        "My",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Escal,",
+          "start": 0.14,
+          "end": 0.82,
+          "key": "escal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.02,
+          "end": 1.08,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.08,
+          "end": 1.42,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Escal._",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "text": "My",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "text": "lord.",
+          "start": 1.08,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.234606702812016
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d52f1256c4b4fcb2fded5a9471f89643e06c1e3d2244cd28c26684b32d9328e",
+  "selected_reasons": []
+}

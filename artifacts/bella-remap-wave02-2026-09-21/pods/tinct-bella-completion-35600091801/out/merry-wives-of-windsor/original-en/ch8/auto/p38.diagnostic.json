@@ -1,0 +1,915 @@
+{
+  "complete": true,
+  "signature": "41afeeb122af355c7245ce03a5c190372fe62381093c2ebd1806e6b1382fdf02",
+  "attempts": [
+    {
+      "asr_seconds": 0.2952596927061677,
+      "alignment_seconds": 0.0013412069529294968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Shal._ So do you, good master doctor.",
+        "hotwords": "So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shall, so do you, good master doctor.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.474365234375
+            },
+            {
+              "text": " so",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " do",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " you,",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.958984375
+            },
+            {
+              "text": " master",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " doctor.",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "so",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "good",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "master",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "doctor.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "So",
+        "do",
+        "you,",
+        "good",
+        "master",
+        "doctor."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "So",
+        "do",
+        "you,",
+        "good",
+        "master",
+        "doctor."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 1.68,
+          "end": 2.06,
+          "key": "master",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "doctor.",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "doctor",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.49
+        },
+        {
+          "text": "So",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "do",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "you,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "good",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "master",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "doctor.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.29672957211732864
+    },
+    {
+      "asr_seconds": 0.28519935719668865,
+      "alignment_seconds": 0.0013724211603403091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "So"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Shall so do you good master doctor?",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.474365234375
+            },
+            {
+              "text": " so",
+              "start": 0.7,
+              "end": 1.06,
+              "probability": 0.5517578125
+            },
+            {
+              "text": " do",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.384033203125
+            },
+            {
+              "text": " you",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " good",
+              "start": 1.38,
+              "end": 1.68,
+              "probability": 0.791015625
+            },
+            {
+              "text": " master",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " doctor?",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "so",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "you",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "good",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "raw": "master",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "doctor?",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "So",
+        "do",
+        "you,",
+        "good",
+        "master",
+        "doctor."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "So",
+        "do",
+        "you,",
+        "good",
+        "master",
+        "doctor."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.7,
+          "end": 1.06,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.38,
+          "end": 1.68,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 1.68,
+          "end": 2.06,
+          "key": "master",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "doctor?",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "doctor",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "So",
+          "start": 0.7,
+          "end": 1.06
+        },
+        {
+          "text": "do",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "you,",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "good",
+          "start": 1.38,
+          "end": 1.68
+        },
+        {
+          "text": "master",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "doctor.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.28669887129217386
+    },
+    {
+      "asr_seconds": 0.29838704876601696,
+      "alignment_seconds": 0.0013414407148957253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shall, so do you, good master doctor.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.474365234375
+            },
+            {
+              "text": " so",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " do",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " you,",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.958984375
+            },
+            {
+              "text": " master",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " doctor.",
+              "start": 2.06,
+              "end": 2.44,
+              "probability": 0.837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "so",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "good",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "master",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "doctor.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "_Shal._",
+        "So",
+        "do",
+        "you,",
+        "good",
+        "master",
+        "doctor."
+      ],
+      "acoustic_expected_tokens": [
+        "_Shal._",
+        "So",
+        "do",
+        "you,",
+        "good",
+        "master",
+        "doctor."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shall,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "shall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 1.68,
+          "end": 2.06,
+          "key": "master",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "doctor.",
+          "start": 2.06,
+          "end": 2.44,
+          "key": "doctor",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Shal._",
+          "start": 0.0,
+          "end": 0.49
+        },
+        {
+          "text": "So",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "do",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "you,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "good",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "master",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "doctor.",
+          "start": 2.06,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.299853996373713
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "311565f5f4d37fb7bdd23b564062d24fb8d14419029edd1696d18af648e65c12",
+  "selected_reasons": []
+}

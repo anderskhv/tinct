@@ -1,0 +1,1367 @@
+{
+  "complete": true,
+  "signature": "fbcd84cf10c190fe572f4407582b09c7f6d246c962d4b4e52d3d27dad2c0560c",
+  "attempts": [
+    {
+      "asr_seconds": 0.5657297521829605,
+      "alignment_seconds": 0.0019255038350820541,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ Is he at Master Ford's already, think'st thou?",
+        "hotwords": "Page._, Is, Master, Ford's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": "._, Is he at Master Ford's already, think'st thou?._",
+          "start": 0.02,
+          "end": 4.4,
+          "words": [
+            {
+              "text": "._,",
+              "start": 0.02,
+              "end": 0.46,
+              "probability": 1.7881393432617188e-07
+            },
+            {
+              "text": " Is",
+              "start": 0.48,
+              "end": 0.62,
+              "probability": 0.0174713134765625
+            },
+            {
+              "text": " he",
+              "start": 0.62,
+              "end": 1.88,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " at",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Master",
+              "start": 1.96,
+              "end": 2.32,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Ford's",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " already,",
+              "start": 2.68,
+              "end": 2.98,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " think'st",
+              "start": 3.18,
+              "end": 3.46,
+              "probability": 0.5272623697916666
+            },
+            {
+              "text": " thou",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.041900634765625
+            },
+            {
+              "text": "?._",
+              "start": 3.66,
+              "end": 4.4,
+              "probability": 0.50823974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "._,",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "raw": "Is",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "raw": "he",
+          "start": 0.62,
+          "end": 1.88
+        },
+        {
+          "raw": "at",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "Master",
+          "start": 1.96,
+          "end": 2.32
+        },
+        {
+          "raw": "Ford's",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "already,",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "raw": "think'st",
+          "start": 3.18,
+          "end": 3.46
+        },
+        {
+          "raw": "thou",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "?._",
+          "start": 3.66,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Is",
+        "he",
+        "at",
+        "Master",
+        "Ford’s",
+        "already,",
+        "think’st",
+        "thou?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Is",
+        "he",
+        "at",
+        "Master",
+        "Ford's",
+        "already,",
+        "think'st",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          8,
+          1,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          10,
+          8,
+          9
+        ],
+        [
+          "insert",
+          10,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "insert",
+          10,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "._,",
+          "start": 0.02,
+          "end": 0.46,
+          "key": "",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 0.48,
+          "end": 0.62,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.62,
+          "end": 1.88,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.88,
+          "end": 1.96,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.96,
+          "end": 2.32,
+          "key": "master",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ford's",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "fords",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "already,",
+          "start": 2.68,
+          "end": 2.98,
+          "key": "already",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "think'st",
+          "start": 3.18,
+          "end": 3.46,
+          "key": "thinkst",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.46,
+          "end": 3.66,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "?._",
+          "start": 3.66,
+          "end": 4.4,
+          "key": "",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.0,
+          "end": 0.24
+        },
+        {
+          "text": "Page._",
+          "start": 0.24,
+          "end": 0.36
+        },
+        {
+          "text": "Is",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "text": "he",
+          "start": 0.62,
+          "end": 1.88
+        },
+        {
+          "text": "at",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "Master",
+          "start": 1.96,
+          "end": 2.32
+        },
+        {
+          "text": "Ford’s",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "already,",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "text": "think’st",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "thou?",
+          "start": 3.46,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5678286263719201
+    },
+    {
+      "asr_seconds": 0.464252645149827,
+      "alignment_seconds": 0.001962672919034958,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Page._, Is, Master, Ford's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " already, thinks thee thou?",
+          "start": 1.08,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " already,",
+              "start": 1.08,
+              "end": 1.88,
+              "probability": 1.2516975402832031e-06
+            },
+            {
+              "text": " thinks",
+              "start": 3.14,
+              "end": 3.3,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " thee",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.308837890625
+            },
+            {
+              "text": " thou?",
+              "start": 3.54,
+              "end": 3.76,
+              "probability": 0.8583984375
+            }
+          ]
+        },
+        {
+          "text": " Page._, Is, Master, Ford's already, thinks thee thou?",
+          "start": 3.76,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " Page._,",
+              "start": 3.76,
+              "end": 3.98,
+              "probability": 1.0848045349121094e-05
+            },
+            {
+              "text": " Is,",
+              "start": 4.32,
+              "end": 4.32,
+              "probability": 2.2530555725097656e-05
+            },
+            {
+              "text": " Master,",
+              "start": 4.4,
+              "end": 4.4,
+              "probability": 2.09808349609375e-05
+            },
+            {
+              "text": " Ford's",
+              "start": 4.4,
+              "end": 4.4,
+              "probability": 0.0030316710472106934
+            },
+            {
+              "text": " already,",
+              "start": 4.4,
+              "end": 4.4,
+              "probability": 6.198883056640625e-06
+            },
+            {
+              "text": " thinks",
+              "start": 4.4,
+              "end": 4.4,
+              "probability": 6.681680679321289e-05
+            },
+            {
+              "text": " thee",
+              "start": 4.4,
+              "end": 4.4,
+              "probability": 8.881092071533203e-06
+            },
+            {
+              "text": " thou?",
+              "start": 4.4,
+              "end": 4.4,
+              "probability": 0.031768798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "already,",
+          "start": 1.08,
+          "end": 1.88
+        },
+        {
+          "raw": "thinks",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "raw": "thee",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "thou?",
+          "start": 3.54,
+          "end": 3.76
+        },
+        {
+          "raw": "Page._,",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "raw": "Is,",
+          "start": 4.32,
+          "end": 4.32
+        },
+        {
+          "raw": "Master,",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "raw": "Ford's",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "raw": "already,",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "raw": "thinks",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "raw": "thee",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "raw": "thou?",
+          "start": 4.4,
+          "end": 4.4
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Is",
+        "he",
+        "at",
+        "Master",
+        "Ford’s",
+        "already,",
+        "think’st",
+        "thou?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Is",
+        "he",
+        "at",
+        "Master",
+        "Ford's",
+        "already,",
+        "think'st",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          4
+        ],
+        [
+          "equal",
+          1,
+          3,
+          4,
+          6
+        ],
+        [
+          "delete",
+          3,
+          5,
+          6,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ],
+        [
+          "equal",
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          4
+        ],
+        [
+          "delete",
+          3,
+          5,
+          6,
+          6
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "already,",
+          "start": 1.08,
+          "end": 1.88,
+          "key": "already",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 3.14,
+          "end": 3.3,
+          "key": "thinks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.3,
+          "end": 3.54,
+          "key": "thee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 3.54,
+          "end": 3.76,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Page._,",
+          "start": 3.76,
+          "end": 3.98,
+          "key": "page",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is,",
+          "start": 4.32,
+          "end": 4.32,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Master,",
+          "start": 4.4,
+          "end": 4.4,
+          "key": "master",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ford's",
+          "start": 4.4,
+          "end": 4.4,
+          "key": "fords",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "already,",
+          "start": 4.4,
+          "end": 4.4,
+          "key": "already",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 4.4,
+          "end": 4.4,
+          "key": "thinks",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.4,
+          "end": 4.4,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 4.4,
+          "end": 4.4,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.0,
+          "end": 1.88
+        },
+        {
+          "text": "Page._",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "text": "Is",
+          "start": 4.32,
+          "end": 4.32
+        },
+        {
+          "text": "he",
+          "start": 4.32,
+          "end": 4.36
+        },
+        {
+          "text": "at",
+          "start": 4.36,
+          "end": 4.38
+        },
+        {
+          "text": "Master",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "text": "Ford’s",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "text": "already,",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "text": "think’st",
+          "start": 4.4,
+          "end": 4.4
+        },
+        {
+          "text": "thou?",
+          "start": 4.4,
+          "end": 4.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.46643220353871584
+    },
+    {
+      "asr_seconds": 0.36808699648827314,
+      "alignment_seconds": 0.0018988074734807014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mrs. Page, is he at Master Ford's already, thinks thee thou?",
+          "start": 0.02,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.08355712890625
+            },
+            {
+              "text": " Page,",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " is",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " he",
+              "start": 1.76,
+              "end": 1.88,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " at",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Master",
+              "start": 1.98,
+              "end": 2.32,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Ford's",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.910400390625
+            },
+            {
+              "text": " already,",
+              "start": 2.68,
+              "end": 2.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thinks",
+              "start": 3.18,
+              "end": 3.3,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " thee",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.268310546875
+            },
+            {
+              "text": " thou?",
+              "start": 3.54,
+              "end": 3.76,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Page,",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "is",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "he",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "raw": "at",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "Master",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "raw": "Ford's",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "already,",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "raw": "thinks",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "raw": "thee",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "thou?",
+          "start": 3.54,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Is",
+        "he",
+        "at",
+        "Master",
+        "Ford’s",
+        "already,",
+        "think’st",
+        "thou?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Is",
+        "he",
+        "at",
+        "Master",
+        "Ford's",
+        "already,",
+        "think'st",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.76,
+          "end": 1.88,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.98,
+          "end": 2.32,
+          "key": "master",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ford's",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "fords",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "already,",
+          "start": 2.68,
+          "end": 2.98,
+          "key": "already",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 3.18,
+          "end": 3.3,
+          "key": "thinks",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.3,
+          "end": 3.54,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 3.54,
+          "end": 3.76,
+          "key": "thou",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Page._",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "Is",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "he",
+          "start": 1.76,
+          "end": 1.88
+        },
+        {
+          "text": "at",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "Master",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "text": "Ford’s",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "already,",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "text": "think’st",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "text": "thou?",
+          "start": 3.54,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.3701818650588393
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72f5062411a8087be1232b36cc1247263a8af4a70d51fe6509a5514ffb14b1cb",
+  "selected_reasons": []
+}

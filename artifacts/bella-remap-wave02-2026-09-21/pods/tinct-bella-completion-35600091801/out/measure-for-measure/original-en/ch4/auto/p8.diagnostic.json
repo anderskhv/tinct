@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "adbd58943208f25f2ebed95b3c6919b62e245cfc7e779523dd948a2e3d15e4dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.18789122346788645,
+      "alignment_seconds": 0.000649656169116497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Lucio._",
+        "hotwords": "Lucio._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Lucio.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Lucio.",
+              "start": 0.7,
+              "end": 1.28,
+              "probability": 0.679443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Lucio.",
+          "start": 0.7,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "LUCIO._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Lucio._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucio.",
+          "start": 0.7,
+          "end": 1.28,
+          "key": "lucio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "LUCIO._",
+          "start": 0.7,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1886016484349966
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba2c0ef3b8d5c46c13329b2a9dc32a0e8bb65c2a7fa03d50fe7a4ad3fb3bcb92",
+  "selected_reasons": []
+}

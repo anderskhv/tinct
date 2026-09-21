@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "6932118f3c281ee85662c7ed54fb617449e736629b0a6fd48ec5a44e815316ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.22108362149447203,
+      "alignment_seconds": 0.0009169578552246094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Anne._ Alas, how then?",
+        "hotwords": "Alas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, alas, how then?",
+          "start": 0.02,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.0005130767822265625
+            },
+            {
+              "text": " alas,",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " how",
+              "start": 1.46,
+              "end": 1.52,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " then?",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "alas,",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "how",
+          "start": 1.46,
+          "end": 1.52
+        },
+        {
+          "raw": "then?",
+          "start": 1.52,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "_Anne._",
+        "Alas,",
+        "how",
+        "then?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Anne._",
+        "Alas,",
+        "how",
+        "then?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "alas,",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "alas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.46,
+          "end": 1.52,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 1.52,
+          "end": 1.78,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Anne._",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Alas,",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "how",
+          "start": 1.46,
+          "end": 1.52
+        },
+        {
+          "text": "then?",
+          "start": 1.52,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22209674399346113
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d6b4c3c2fa4bd17b08fa90ba301ad381bf3e0df4505e31478fb47c4d9a144bb",
+  "selected_reasons": []
+}

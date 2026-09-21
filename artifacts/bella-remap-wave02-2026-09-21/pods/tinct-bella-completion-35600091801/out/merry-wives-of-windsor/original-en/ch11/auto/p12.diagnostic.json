@@ -1,0 +1,627 @@
+{
+  "complete": true,
+  "signature": "79ae050312502487ffe64b90be802e053c6fd9a5c5d7e898c5d04e43bb5a5af8",
+  "attempts": [
+    {
+      "asr_seconds": 0.4191129831597209,
+      "alignment_seconds": 0.0026008784770965576,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Slen._ No, she shall not dismay me: I care not for that, but that I am afeard.",
+        "hotwords": "No, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Slen, no, she shall not dismay me. I care not for that, but that I am afeard.",
+          "start": 0.08,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " Slen,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.582275390625
+            },
+            {
+              "text": " no,",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " she",
+              "start": 1.44,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " shall",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dismay",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me.",
+              "start": 2.18,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.88,
+              "end": 3.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " care",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 3.22,
+              "end": 3.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 3.38,
+              "end": 3.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that,",
+              "start": 3.58,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 3.82,
+              "end": 3.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 3.94,
+              "end": 4.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " am",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " afeard.",
+              "start": 4.34,
+              "end": 4.84,
+              "probability": 0.7529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Slen,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "no,",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "she",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "raw": "shall",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "not",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "dismay",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "me.",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "raw": "care",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "not",
+          "start": 3.22,
+          "end": 3.38
+        },
+        {
+          "raw": "for",
+          "start": 3.38,
+          "end": 3.58
+        },
+        {
+          "raw": "that,",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "raw": "but",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "raw": "that",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "raw": "I",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "am",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "afeard.",
+          "start": 4.34,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "_Slen._",
+        "No,",
+        "she",
+        "shall",
+        "not",
+        "dismay",
+        "me:",
+        "I",
+        "care",
+        "not",
+        "for",
+        "that,",
+        "but",
+        "that",
+        "I",
+        "am",
+        "afeard."
+      ],
+      "acoustic_expected_tokens": [
+        "_Slen._",
+        "No,",
+        "she",
+        "shall",
+        "not",
+        "dismay",
+        "me:",
+        "I",
+        "care",
+        "not",
+        "for",
+        "that,",
+        "but",
+        "that",
+        "I",
+        "am",
+        "afeard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Slen,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "slen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.44,
+          "end": 1.5,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dismay",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "dismay",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.18,
+          "end": 2.44,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.88,
+          "end": 3.02,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 3.02,
+          "end": 3.22,
+          "key": "care",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.22,
+          "end": 3.38,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.38,
+          "end": 3.58,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 3.58,
+          "end": 3.76,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.82,
+          "end": 3.94,
+          "key": "but",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.94,
+          "end": 4.06,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "am",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "afeard.",
+          "start": 4.34,
+          "end": 4.84,
+          "key": "afeard",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Slen._",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "No,",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "she",
+          "start": 1.44,
+          "end": 1.5
+        },
+        {
+          "text": "shall",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "not",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "dismay",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "me:",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "text": "I",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "text": "care",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "not",
+          "start": 3.22,
+          "end": 3.38
+        },
+        {
+          "text": "for",
+          "start": 3.38,
+          "end": 3.58
+        },
+        {
+          "text": "that,",
+          "start": 3.58,
+          "end": 3.76
+        },
+        {
+          "text": "but",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "text": "that",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "text": "I",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "am",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "afeard.",
+          "start": 4.34,
+          "end": 4.84
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.42198366206139326
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "98da8ed1e949112fd90c94557b934a484bbc89ec3bbea70eaf4b637dfdea4907",
+  "selected_reasons": []
+}

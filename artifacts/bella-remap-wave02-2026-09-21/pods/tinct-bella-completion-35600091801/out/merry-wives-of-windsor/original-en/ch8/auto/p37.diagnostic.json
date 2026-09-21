@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "148e11b5a263e0c03f40247f3e29b84117563746ec08e8c1ac8c38250572cea2",
+  "attempts": [
+    {
+      "asr_seconds": 0.32899425365030766,
+      "alignment_seconds": 0.0015640407800674438,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Page._ Nay, good master parson, keep in your weapon.",
+        "hotwords": "Nay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Page. Nay, good master parson, keep in your weapon.",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Page.",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.437255859375
+            },
+            {
+              "text": " Nay,",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " good",
+              "start": 1.75,
+              "end": 1.75,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " master",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " parson,",
+              "start": 2.07,
+              "end": 2.51,
+              "probability": 0.580078125
+            },
+            {
+              "text": " keep",
+              "start": 2.71,
+              "end": 2.81,
+              "probability": 0.962890625
+            },
+            {
+              "text": " in",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " your",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " weapon.",
+              "start": 3.05,
+              "end": 3.31,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Page.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "good",
+          "start": 1.75,
+          "end": 1.75
+        },
+        {
+          "raw": "master",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "parson,",
+          "start": 2.07,
+          "end": 2.51
+        },
+        {
+          "raw": "keep",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "raw": "in",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "your",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "weapon.",
+          "start": 3.05,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "_Page._",
+        "Nay,",
+        "good",
+        "master",
+        "parson,",
+        "keep",
+        "in",
+        "your",
+        "weapon."
+      ],
+      "acoustic_expected_tokens": [
+        "_Page._",
+        "Nay,",
+        "good",
+        "master",
+        "parson,",
+        "keep",
+        "in",
+        "your",
+        "weapon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Page.",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "page",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.75,
+          "end": 1.75,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "parson,",
+          "start": 2.07,
+          "end": 2.51,
+          "key": "parson",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 2.71,
+          "end": 2.81,
+          "key": "keep",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "weapon.",
+          "start": 3.05,
+          "end": 3.31,
+          "key": "weapon",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Page._",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Nay,",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "good",
+          "start": 1.75,
+          "end": 1.75
+        },
+        {
+          "text": "master",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "parson,",
+          "start": 2.07,
+          "end": 2.51
+        },
+        {
+          "text": "keep",
+          "start": 2.71,
+          "end": 2.81
+        },
+        {
+          "text": "in",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "your",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "weapon.",
+          "start": 3.05,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33071349281817675
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60963abeb592f73bf8a7e223232fb4ff8fad7480b353097fb7eabcd26e5e9b1d",
+  "selected_reasons": []
+}

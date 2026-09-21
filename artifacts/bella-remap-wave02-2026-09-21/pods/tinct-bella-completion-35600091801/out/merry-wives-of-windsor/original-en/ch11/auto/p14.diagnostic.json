@@ -1,0 +1,3005 @@
+{
+  "complete": true,
+  "signature": "ff75bfb16c0634aedf3803458707b717e1c2c06358367808d2dffc550a6f4d31",
+  "attempts": [
+    {
+      "asr_seconds": 0.5070022447034717,
+      "alignment_seconds": 0.003763042390346527,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Anne._ I come to him. Aside This is my father's choice. O, what a world of vile ill-favour'd faults Looks handsome in three hundred pounds a-year!",
+        "hotwords": "I, Aside, This, O, Looks"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, I come to him. Aside This is my father's choice. O, what a world of vile ill-favour'd faults Looks handsome in three hundred pounds a-year!",
+          "start": 0.02,
+          "end": 9.6,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.467041015625
+            },
+            {
+              "text": " I",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " come",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Aside",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " This",
+              "start": 2.5,
+              "end": 3.08,
+              "probability": 0.0003609657287597656
+            },
+            {
+              "text": " is",
+              "start": 3.08,
+              "end": 3.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " my",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " father's",
+              "start": 3.44,
+              "end": 3.98,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " choice.",
+              "start": 3.98,
+              "end": 4.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " O,",
+              "start": 5.02,
+              "end": 5.18,
+              "probability": 0.041107177734375
+            },
+            {
+              "text": " what",
+              "start": 5.36,
+              "end": 5.44,
+              "probability": 0.9609375
+            },
+            {
+              "text": " a",
+              "start": 5.44,
+              "end": 5.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " world",
+              "start": 5.62,
+              "end": 5.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 5.8,
+              "end": 6.04,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " vile",
+              "start": 6.04,
+              "end": 6.34,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ill",
+              "start": 6.34,
+              "end": 6.68,
+              "probability": 0.343505859375
+            },
+            {
+              "text": "-favour'd",
+              "start": 6.68,
+              "end": 7.14,
+              "probability": 0.6996860504150391
+            },
+            {
+              "text": " faults",
+              "start": 7.14,
+              "end": 7.44,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " Looks",
+              "start": 7.44,
+              "end": 7.68,
+              "probability": 0.1446533203125
+            },
+            {
+              "text": " handsome",
+              "start": 7.68,
+              "end": 8.14,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 8.14,
+              "end": 8.42,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " three",
+              "start": 8.42,
+              "end": 8.58,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " hundred",
+              "start": 8.58,
+              "end": 8.82,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " pounds",
+              "start": 8.82,
+              "end": 9.18,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " a",
+              "start": 9.18,
+              "end": 9.38,
+              "probability": 0.97607421875
+            },
+            {
+              "text": "-year!",
+              "start": 9.38,
+              "end": 9.6,
+              "probability": 0.49657249450683594
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "him.",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "Aside",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "raw": "This",
+          "start": 2.5,
+          "end": 3.08
+        },
+        {
+          "raw": "is",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "father's",
+          "start": 3.44,
+          "end": 3.98
+        },
+        {
+          "raw": "choice.",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "raw": "O,",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "raw": "what",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "raw": "world",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "raw": "of",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "raw": "vile",
+          "start": 6.04,
+          "end": 6.34
+        },
+        {
+          "raw": "ill",
+          "start": 6.34,
+          "end": 6.68
+        },
+        {
+          "raw": "-favour'd",
+          "start": 6.68,
+          "end": 7.14
+        },
+        {
+          "raw": "faults",
+          "start": 7.14,
+          "end": 7.44
+        },
+        {
+          "raw": "Looks",
+          "start": 7.44,
+          "end": 7.68
+        },
+        {
+          "raw": "handsome",
+          "start": 7.68,
+          "end": 8.14
+        },
+        {
+          "raw": "in",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "raw": "three",
+          "start": 8.42,
+          "end": 8.58
+        },
+        {
+          "raw": "hundred",
+          "start": 8.58,
+          "end": 8.82
+        },
+        {
+          "raw": "pounds",
+          "start": 8.82,
+          "end": 9.18
+        },
+        {
+          "raw": "a",
+          "start": 9.18,
+          "end": 9.38
+        },
+        {
+          "raw": "-year!",
+          "start": 9.38,
+          "end": 9.6
+        }
+      ],
+      "expected_tokens": [
+        "_Anne._",
+        "I",
+        "come",
+        "to",
+        "him.",
+        "[_Aside_]",
+        "This",
+        "is",
+        "my",
+        "father’s",
+        "choice.",
+        "O,",
+        "what",
+        "a",
+        "world",
+        "of",
+        "vile",
+        "ill-favour’d",
+        "faults",
+        "Looks",
+        "handsome",
+        "in",
+        "three",
+        "hundred",
+        "pounds",
+        "a-year!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Anne._",
+        "I",
+        "come",
+        "to",
+        "him.",
+        "Aside",
+        "This",
+        "is",
+        "my",
+        "father's",
+        "choice.",
+        "O,",
+        "what",
+        "a",
+        "world",
+        "of",
+        "vile",
+        "ill-favour'd",
+        "faults",
+        "Looks",
+        "handsome",
+        "in",
+        "three",
+        "hundred",
+        "pounds",
+        "a-year!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          26,
+          19,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Aside",
+          "start": 2.1,
+          "end": 2.5,
+          "key": "aside",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 2.5,
+          "end": 3.08,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.08,
+          "end": 3.24,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 3.44,
+          "end": 3.98,
+          "key": "fathers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "choice.",
+          "start": 3.98,
+          "end": 4.26,
+          "key": "choice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 5.02,
+          "end": 5.18,
+          "key": "o",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.36,
+          "end": 5.44,
+          "key": "what",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 5.62,
+          "end": 5.8,
+          "key": "world",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.8,
+          "end": 6.04,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "vile",
+          "start": 6.04,
+          "end": 6.34,
+          "key": "vile",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 6.34,
+          "end": 6.68,
+          "key": "ill",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "-favour'd",
+          "start": 6.68,
+          "end": 7.14,
+          "key": "favourd",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "faults",
+          "start": 7.14,
+          "end": 7.44,
+          "key": "faults",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Looks",
+          "start": 7.44,
+          "end": 7.68,
+          "key": "looks",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "handsome",
+          "start": 7.68,
+          "end": 8.14,
+          "key": "handsome",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.14,
+          "end": 8.42,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 8.42,
+          "end": 8.58,
+          "key": "three",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 8.58,
+          "end": 8.82,
+          "key": "hundred",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 8.82,
+          "end": 9.18,
+          "key": "pounds",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a -year!",
+          "start": 9.18,
+          "end": 9.6,
+          "key": "ayear",
+          "pieces": [
+            26,
+            27
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 25,
+          "text": "a-year!",
+          "heard": "a -year!",
+          "heard_indexes": [
+            26,
+            27
+          ],
+          "start": 9.18,
+          "end": 9.6
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Anne._",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "come",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "to",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "him.",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "[_Aside_]",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "text": "This",
+          "start": 2.5,
+          "end": 3.08
+        },
+        {
+          "text": "is",
+          "start": 3.08,
+          "end": 3.24
+        },
+        {
+          "text": "my",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "father’s",
+          "start": 3.44,
+          "end": 3.98
+        },
+        {
+          "text": "choice.",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "text": "O,",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "text": "what",
+          "start": 5.36,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "text": "world",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "text": "of",
+          "start": 5.8,
+          "end": 6.04
+        },
+        {
+          "text": "vile",
+          "start": 6.04,
+          "end": 6.34
+        },
+        {
+          "text": "ill-favour’d",
+          "start": 6.34,
+          "end": 6.74
+        },
+        {
+          "text": "faults",
+          "start": 7.14,
+          "end": 7.44
+        },
+        {
+          "text": "Looks",
+          "start": 7.44,
+          "end": 7.68
+        },
+        {
+          "text": "handsome",
+          "start": 7.68,
+          "end": 8.14
+        },
+        {
+          "text": "in",
+          "start": 8.14,
+          "end": 8.42
+        },
+        {
+          "text": "three",
+          "start": 8.42,
+          "end": 8.58
+        },
+        {
+          "text": "hundred",
+          "start": 8.58,
+          "end": 8.82
+        },
+        {
+          "text": "pounds",
+          "start": 8.82,
+          "end": 9.18
+        },
+        {
+          "text": "a-year!",
+          "start": 9.18,
+          "end": 9.6
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 27,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.5110940923914313
+    },
+    {
+      "asr_seconds": 0.49396576825529337,
+      "alignment_seconds": 0.0038055051118135452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Aside, This, O, Looks"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Anne, I come to him. Aside, this is my father's choice. Oh, what a world of vile, ill-favored",
+          "start": 0.02,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.467041015625
+            },
+            {
+              "text": " I",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " come",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Aside,",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " this",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " father's",
+              "start": 3.44,
+              "end": 3.96,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " choice.",
+              "start": 3.96,
+              "end": 4.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Oh,",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.94140625
+            },
+            {
+              "text": " what",
+              "start": 5.38,
+              "end": 5.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 5.44,
+              "end": 5.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " world",
+              "start": 5.62,
+              "end": 5.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.8,
+              "end": 6.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " vile,",
+              "start": 6.06,
+              "end": 6.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ill",
+              "start": 6.52,
+              "end": 6.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "-favored",
+              "start": 6.7,
+              "end": 7.0,
+              "probability": 0.9698893229166666
+            }
+          ]
+        },
+        {
+          "text": " faults looks handsome in three hundred pounds a year.",
+          "start": 7.0,
+          "end": 9.6,
+          "words": [
+            {
+              "text": " faults",
+              "start": 7.0,
+              "end": 7.44,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " looks",
+              "start": 7.44,
+              "end": 7.68,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " handsome",
+              "start": 7.68,
+              "end": 8.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 8.14,
+              "end": 8.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " three",
+              "start": 8.4,
+              "end": 8.58,
+              "probability": 0.90234375
+            },
+            {
+              "text": " hundred",
+              "start": 8.58,
+              "end": 8.84,
+              "probability": 0.978515625
+            },
+            {
+              "text": " pounds",
+              "start": 8.84,
+              "end": 9.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 9.18,
+              "end": 9.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " year.",
+              "start": 9.36,
+              "end": 9.6,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "him.",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "Aside,",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "raw": "this",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "father's",
+          "start": 3.44,
+          "end": 3.96
+        },
+        {
+          "raw": "choice.",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "what",
+          "start": 5.38,
+          "end": 5.44
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "raw": "world",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "raw": "of",
+          "start": 5.8,
+          "end": 6.06
+        },
+        {
+          "raw": "vile,",
+          "start": 6.06,
+          "end": 6.36
+        },
+        {
+          "raw": "ill",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "raw": "-favored",
+          "start": 6.7,
+          "end": 7.0
+        },
+        {
+          "raw": "faults",
+          "start": 7.0,
+          "end": 7.44
+        },
+        {
+          "raw": "looks",
+          "start": 7.44,
+          "end": 7.68
+        },
+        {
+          "raw": "handsome",
+          "start": 7.68,
+          "end": 8.14
+        },
+        {
+          "raw": "in",
+          "start": 8.14,
+          "end": 8.4
+        },
+        {
+          "raw": "three",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "raw": "hundred",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "raw": "pounds",
+          "start": 8.84,
+          "end": 9.18
+        },
+        {
+          "raw": "a",
+          "start": 9.18,
+          "end": 9.36
+        },
+        {
+          "raw": "year.",
+          "start": 9.36,
+          "end": 9.6
+        }
+      ],
+      "expected_tokens": [
+        "_Anne._",
+        "I",
+        "come",
+        "to",
+        "him.",
+        "[_Aside_]",
+        "This",
+        "is",
+        "my",
+        "father’s",
+        "choice.",
+        "O,",
+        "what",
+        "a",
+        "world",
+        "of",
+        "vile",
+        "ill-favour’d",
+        "faults",
+        "Looks",
+        "handsome",
+        "in",
+        "three",
+        "hundred",
+        "pounds",
+        "a-year!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Anne._",
+        "I",
+        "come",
+        "to",
+        "him.",
+        "Aside",
+        "This",
+        "is",
+        "my",
+        "father's",
+        "choice.",
+        "O,",
+        "what",
+        "a",
+        "world",
+        "of",
+        "vile",
+        "ill-favour'd",
+        "faults",
+        "Looks",
+        "handsome",
+        "in",
+        "three",
+        "hundred",
+        "pounds",
+        "a-year!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          17,
+          12,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          26,
+          19,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Aside,",
+          "start": 2.1,
+          "end": 2.5,
+          "key": "aside",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 3.44,
+          "end": 3.96,
+          "key": "fathers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "choice.",
+          "start": 3.96,
+          "end": 4.26,
+          "key": "choice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "oh",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.38,
+          "end": 5.44,
+          "key": "what",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 5.62,
+          "end": 5.8,
+          "key": "world",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.8,
+          "end": 6.06,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "vile,",
+          "start": 6.06,
+          "end": 6.36,
+          "key": "vile",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 6.52,
+          "end": 6.7,
+          "key": "ill",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "-favored",
+          "start": 6.7,
+          "end": 7.0,
+          "key": "favored",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "faults",
+          "start": 7.0,
+          "end": 7.44,
+          "key": "faults",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "looks",
+          "start": 7.44,
+          "end": 7.68,
+          "key": "looks",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "handsome",
+          "start": 7.68,
+          "end": 8.14,
+          "key": "handsome",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.14,
+          "end": 8.4,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 8.4,
+          "end": 8.58,
+          "key": "three",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 8.58,
+          "end": 8.84,
+          "key": "hundred",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 8.84,
+          "end": 9.18,
+          "key": "pounds",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a year.",
+          "start": 9.18,
+          "end": 9.6,
+          "key": "ayear",
+          "pieces": [
+            26,
+            27
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 25,
+          "text": "a-year!",
+          "heard": "a year.",
+          "heard_indexes": [
+            26,
+            27
+          ],
+          "start": 9.18,
+          "end": 9.6
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Anne._",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "come",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "to",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "him.",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "[_Aside_]",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "text": "This",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "is",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "my",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "father’s",
+          "start": 3.44,
+          "end": 3.96
+        },
+        {
+          "text": "choice.",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "text": "O,",
+          "start": 4.26,
+          "end": 4.82
+        },
+        {
+          "text": "what",
+          "start": 5.38,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "text": "world",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "text": "of",
+          "start": 5.8,
+          "end": 6.06
+        },
+        {
+          "text": "vile",
+          "start": 6.06,
+          "end": 6.36
+        },
+        {
+          "text": "ill-favour’d",
+          "start": 6.36,
+          "end": 6.68
+        },
+        {
+          "text": "faults",
+          "start": 7.0,
+          "end": 7.44
+        },
+        {
+          "text": "Looks",
+          "start": 7.44,
+          "end": 7.68
+        },
+        {
+          "text": "handsome",
+          "start": 7.68,
+          "end": 8.14
+        },
+        {
+          "text": "in",
+          "start": 8.14,
+          "end": 8.4
+        },
+        {
+          "text": "three",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "text": "hundred",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "text": "pounds",
+          "start": 8.84,
+          "end": 9.18
+        },
+        {
+          "text": "a-year!",
+          "start": 9.18,
+          "end": 9.6
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 27,
+        "matched_words": 24
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.4981026081368327
+    },
+    {
+      "asr_seconds": 0.4779086587950587,
+      "alignment_seconds": 0.003650362603366375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Anne, I come to him. Aside, this is my father's choice. Oh, what a world of vile, ill-favored",
+          "start": 0.02,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.467041015625
+            },
+            {
+              "text": " I",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " come",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Aside,",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " this",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " father's",
+              "start": 3.44,
+              "end": 3.96,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " choice.",
+              "start": 3.96,
+              "end": 4.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Oh,",
+              "start": 4.98,
+              "end": 5.18,
+              "probability": 0.94140625
+            },
+            {
+              "text": " what",
+              "start": 5.38,
+              "end": 5.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 5.44,
+              "end": 5.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " world",
+              "start": 5.62,
+              "end": 5.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.8,
+              "end": 6.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " vile,",
+              "start": 6.06,
+              "end": 6.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ill",
+              "start": 6.52,
+              "end": 6.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "-favored",
+              "start": 6.7,
+              "end": 7.0,
+              "probability": 0.9698893229166666
+            }
+          ]
+        },
+        {
+          "text": " faults looks handsome in three hundred pounds a year.",
+          "start": 7.0,
+          "end": 9.6,
+          "words": [
+            {
+              "text": " faults",
+              "start": 7.0,
+              "end": 7.44,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " looks",
+              "start": 7.44,
+              "end": 7.68,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " handsome",
+              "start": 7.68,
+              "end": 8.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 8.14,
+              "end": 8.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " three",
+              "start": 8.4,
+              "end": 8.58,
+              "probability": 0.90234375
+            },
+            {
+              "text": " hundred",
+              "start": 8.58,
+              "end": 8.84,
+              "probability": 0.978515625
+            },
+            {
+              "text": " pounds",
+              "start": 8.84,
+              "end": 9.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 9.18,
+              "end": 9.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " year.",
+              "start": 9.36,
+              "end": 9.6,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "him.",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "Aside,",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "raw": "this",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "father's",
+          "start": 3.44,
+          "end": 3.96
+        },
+        {
+          "raw": "choice.",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.98,
+          "end": 5.18
+        },
+        {
+          "raw": "what",
+          "start": 5.38,
+          "end": 5.44
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "raw": "world",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "raw": "of",
+          "start": 5.8,
+          "end": 6.06
+        },
+        {
+          "raw": "vile,",
+          "start": 6.06,
+          "end": 6.36
+        },
+        {
+          "raw": "ill",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "raw": "-favored",
+          "start": 6.7,
+          "end": 7.0
+        },
+        {
+          "raw": "faults",
+          "start": 7.0,
+          "end": 7.44
+        },
+        {
+          "raw": "looks",
+          "start": 7.44,
+          "end": 7.68
+        },
+        {
+          "raw": "handsome",
+          "start": 7.68,
+          "end": 8.14
+        },
+        {
+          "raw": "in",
+          "start": 8.14,
+          "end": 8.4
+        },
+        {
+          "raw": "three",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "raw": "hundred",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "raw": "pounds",
+          "start": 8.84,
+          "end": 9.18
+        },
+        {
+          "raw": "a",
+          "start": 9.18,
+          "end": 9.36
+        },
+        {
+          "raw": "year.",
+          "start": 9.36,
+          "end": 9.6
+        }
+      ],
+      "expected_tokens": [
+        "_Anne._",
+        "I",
+        "come",
+        "to",
+        "him.",
+        "[_Aside_]",
+        "This",
+        "is",
+        "my",
+        "father’s",
+        "choice.",
+        "O,",
+        "what",
+        "a",
+        "world",
+        "of",
+        "vile",
+        "ill-favour’d",
+        "faults",
+        "Looks",
+        "handsome",
+        "in",
+        "three",
+        "hundred",
+        "pounds",
+        "a-year!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Anne._",
+        "I",
+        "come",
+        "to",
+        "him.",
+        "Aside",
+        "This",
+        "is",
+        "my",
+        "father's",
+        "choice.",
+        "O,",
+        "what",
+        "a",
+        "world",
+        "of",
+        "vile",
+        "ill-favour'd",
+        "faults",
+        "Looks",
+        "handsome",
+        "in",
+        "three",
+        "hundred",
+        "pounds",
+        "a-year!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          17,
+          12,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ],
+        [
+          "equal",
+          18,
+          26,
+          19,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Aside,",
+          "start": 2.1,
+          "end": 2.5,
+          "key": "aside",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 3.44,
+          "end": 3.96,
+          "key": "fathers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "choice.",
+          "start": 3.96,
+          "end": 4.26,
+          "key": "choice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.98,
+          "end": 5.18,
+          "key": "oh",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.38,
+          "end": 5.44,
+          "key": "what",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 5.62,
+          "end": 5.8,
+          "key": "world",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.8,
+          "end": 6.06,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "vile,",
+          "start": 6.06,
+          "end": 6.36,
+          "key": "vile",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 6.52,
+          "end": 6.7,
+          "key": "ill",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "-favored",
+          "start": 6.7,
+          "end": 7.0,
+          "key": "favored",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "faults",
+          "start": 7.0,
+          "end": 7.44,
+          "key": "faults",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "looks",
+          "start": 7.44,
+          "end": 7.68,
+          "key": "looks",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "handsome",
+          "start": 7.68,
+          "end": 8.14,
+          "key": "handsome",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.14,
+          "end": 8.4,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 8.4,
+          "end": 8.58,
+          "key": "three",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hundred",
+          "start": 8.58,
+          "end": 8.84,
+          "key": "hundred",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 8.84,
+          "end": 9.18,
+          "key": "pounds",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a year.",
+          "start": 9.18,
+          "end": 9.6,
+          "key": "ayear",
+          "pieces": [
+            26,
+            27
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 25,
+          "text": "a-year!",
+          "heard": "a year.",
+          "heard_indexes": [
+            26,
+            27
+          ],
+          "start": 9.18,
+          "end": 9.6
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Anne._",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "come",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "to",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "him.",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "[_Aside_]",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "text": "This",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "is",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "my",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "father’s",
+          "start": 3.44,
+          "end": 3.96
+        },
+        {
+          "text": "choice.",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "text": "O,",
+          "start": 4.26,
+          "end": 4.82
+        },
+        {
+          "text": "what",
+          "start": 5.38,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "text": "world",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "text": "of",
+          "start": 5.8,
+          "end": 6.06
+        },
+        {
+          "text": "vile",
+          "start": 6.06,
+          "end": 6.36
+        },
+        {
+          "text": "ill-favour’d",
+          "start": 6.36,
+          "end": 6.68
+        },
+        {
+          "text": "faults",
+          "start": 7.0,
+          "end": 7.44
+        },
+        {
+          "text": "Looks",
+          "start": 7.44,
+          "end": 7.68
+        },
+        {
+          "text": "handsome",
+          "start": 7.68,
+          "end": 8.14
+        },
+        {
+          "text": "in",
+          "start": 8.14,
+          "end": 8.4
+        },
+        {
+          "text": "three",
+          "start": 8.4,
+          "end": 8.58
+        },
+        {
+          "text": "hundred",
+          "start": 8.58,
+          "end": 8.84
+        },
+        {
+          "text": "pounds",
+          "start": 8.84,
+          "end": 9.18
+        },
+        {
+          "text": "a-year!",
+          "start": 9.18,
+          "end": 9.6
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 27,
+        "matched_words": 24
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.4818877298384905
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "687dc64af186ea6e0454193d61fcb5e09c031bb27d55873cc605e94bde093464",
+  "selected_reasons": []
+}

@@ -1,0 +1,169 @@
+{
+  "complete": true,
+  "signature": "a448391fdfdefe6bbfc7d2256f3d60f67c4e1d9de2400b0f163ba98744628795",
+  "attempts": [
+    {
+      "asr_seconds": 0.22304665483534336,
+      "alignment_seconds": 0.0006587421521544456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Re-enter Simple._",
+        "hotwords": "Simple._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": "._ Re-enter Simple._",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": "._",
+              "start": 0.05,
+              "end": 0.15,
+              "probability": 0.0
+            },
+            {
+              "text": " Re",
+              "start": 0.15,
+              "end": 0.59,
+              "probability": 0.018463134765625
+            },
+            {
+              "text": "-enter",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.675048828125
+            },
+            {
+              "text": " Simple._",
+              "start": 0.77,
+              "end": 1.77,
+              "probability": 0.2547607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "._",
+          "start": 0.05,
+          "end": 0.15
+        },
+        {
+          "raw": "Re",
+          "start": 0.15,
+          "end": 0.59
+        },
+        {
+          "raw": "-enter",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "Simple._",
+          "start": 0.77,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "_Re-enter",
+        "SIMPLE._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Re-enter",
+        "Simple._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "._ Re -enter",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Simple._",
+          "start": 0.77,
+          "end": 1.77,
+          "key": "simple",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "_Re-enter",
+          "heard": "._ Re -enter",
+          "heard_indexes": [
+            0,
+            1,
+            2
+          ],
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Re-enter",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "SIMPLE._",
+          "start": 0.77,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22376666963100433
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ab863b9f82c3e6d74b26535fcad3a02f48d6082ca376ab43799adefc02e95e8",
+  "selected_reasons": []
+}

@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "472baa5d97f1abb20fd868f5e0ff3fea0268f9d1a1a65092554b00517c90cff6",
+  "attempts": [
+    {
+      "asr_seconds": 0.3132955711334944,
+      "alignment_seconds": 0.0018963813781738281,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Nym._ The good humour is to steal at a minute's rest.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nym, the good humour is to steal at a minute's rest.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " Nym,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.44287109375
+            },
+            {
+              "text": " the",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " good",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " humour",
+              "start": 1.39,
+              "end": 1.73,
+              "probability": 0.076416015625
+            },
+            {
+              "text": " is",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " steal",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 2.53,
+              "end": 2.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " minute's",
+              "start": 2.61,
+              "end": 2.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " rest.",
+              "start": 2.91,
+              "end": 3.27,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nym,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "the",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "good",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "humour",
+          "start": 1.39,
+          "end": 1.73
+        },
+        {
+          "raw": "is",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "steal",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "raw": "at",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "a",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "raw": "minute's",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "raw": "rest.",
+          "start": 2.91,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "_Nym._",
+        "The",
+        "good",
+        "humour",
+        "is",
+        "to",
+        "steal",
+        "at",
+        "a",
+        "minute’s",
+        "rest."
+      ],
+      "acoustic_expected_tokens": [
+        "_Nym._",
+        "The",
+        "good",
+        "humour",
+        "is",
+        "to",
+        "steal",
+        "at",
+        "a",
+        "minute's",
+        "rest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nym,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "nym",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "humour",
+          "start": 1.39,
+          "end": 1.73,
+          "key": "humour",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "steal",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "steal",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.53,
+          "end": 2.61,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "minute's",
+          "start": 2.61,
+          "end": 2.91,
+          "key": "minutes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rest.",
+          "start": 2.91,
+          "end": 3.27,
+          "key": "rest",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Nym._",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "The",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "good",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "humour",
+          "start": 1.39,
+          "end": 1.73
+        },
+        {
+          "text": "is",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "to",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "steal",
+          "start": 2.09,
+          "end": 2.39
+        },
+        {
+          "text": "at",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "a",
+          "start": 2.53,
+          "end": 2.61
+        },
+        {
+          "text": "minute’s",
+          "start": 2.61,
+          "end": 2.91
+        },
+        {
+          "text": "rest.",
+          "start": 2.91,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3153737261891365
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3c19f5bc8beab807ef3c25a8e209fc715f02f553737b8fc359e9250a19f008dc",
+  "selected_reasons": []
+}

@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "04954a5dc09050bc37ebfa9157ca7c9b7d52638325308f7f0dd25adddea13604",
+  "attempts": [
+    {
+      "asr_seconds": 0.27264282014220953,
+      "alignment_seconds": 0.0017195874825119972,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Show me now, William, some declensions of your pronouns.",
+        "hotwords": "Show, William"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, show me now, William, some declensions of your pronouns.",
+          "start": 0.08,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " show",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.974609375
+            },
+            {
+              "text": " me",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " now,",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " William,",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " some",
+              "start": 2.4,
+              "end": 2.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " declensions",
+              "start": 2.48,
+              "end": 2.98,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " of",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pronouns.",
+              "start": 3.28,
+              "end": 3.66,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "show",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "me",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "now,",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "William,",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "some",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "raw": "declensions",
+          "start": 2.48,
+          "end": 2.98
+        },
+        {
+          "raw": "of",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "your",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "pronouns.",
+          "start": 3.28,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Show",
+        "me",
+        "now,",
+        "William,",
+        "some",
+        "declensions",
+        "of",
+        "your",
+        "pronouns."
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Show",
+        "me",
+        "now,",
+        "William,",
+        "some",
+        "declensions",
+        "of",
+        "your",
+        "pronouns."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "show",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "William,",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "william",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.4,
+          "end": 2.48,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "declensions",
+          "start": 2.48,
+          "end": 2.98,
+          "key": "declensions",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pronouns.",
+          "start": 3.28,
+          "end": 3.66,
+          "key": "pronouns",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Show",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "me",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "now,",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "William,",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "some",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "text": "declensions",
+          "start": 2.48,
+          "end": 2.98
+        },
+        {
+          "text": "of",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "your",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "pronouns.",
+          "start": 3.28,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2745290184393525
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a0fccff4c8bd3760fb8bbdd819b0136d186da2afcf30817d89dad9d9abed9a2e",
+  "selected_reasons": []
+}

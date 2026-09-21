@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "1f3df647879d34fec2fa507e8433667ac56aef1c02dc4bfe0ee50cdf8c7bcb95",
+  "attempts": [
+    {
+      "asr_seconds": 0.3356620594859123,
+      "alignment_seconds": 0.0013581439852714539,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aloud I will knog your urinals about your knave's cogscomb",
+        "hotwords": "Aloud, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aloud, I will knog your urinals about your knave's cogscomb",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Aloud,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.57501220703125
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " will",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " knog",
+              "start": 1.47,
+              "end": 1.73,
+              "probability": 0.479564905166626
+            },
+            {
+              "text": " your",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " urinals",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " about",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " knave's",
+              "start": 2.57,
+              "end": 3.09,
+              "probability": 0.8990885416666666
+            },
+            {
+              "text": " cogscomb",
+              "start": 3.09,
+              "end": 3.59,
+              "probability": 0.7146809895833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aloud,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "will",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "knog",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "raw": "your",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "urinals",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "raw": "about",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "your",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "knave's",
+          "start": 2.57,
+          "end": 3.09
+        },
+        {
+          "raw": "cogscomb",
+          "start": 3.09,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "[_Aloud_]",
+        "I",
+        "will",
+        "knog",
+        "your",
+        "urinals",
+        "about",
+        "your",
+        "knave’s",
+        "cogscomb"
+      ],
+      "acoustic_expected_tokens": [
+        "Aloud",
+        "I",
+        "will",
+        "knog",
+        "your",
+        "urinals",
+        "about",
+        "your",
+        "knave's",
+        "cogscomb"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aloud,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "aloud",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knog",
+          "start": 1.47,
+          "end": 1.73,
+          "key": "knog",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "urinals",
+          "start": 1.87,
+          "end": 2.19,
+          "key": "urinals",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "about",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.43,
+          "end": 2.57,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "knave's",
+          "start": 2.57,
+          "end": 3.09,
+          "key": "knaves",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cogscomb",
+          "start": 3.09,
+          "end": 3.59,
+          "key": "cogscomb",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[_Aloud_]",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "will",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "knog",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "text": "your",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "urinals",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "text": "about",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "your",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "knave’s",
+          "start": 2.57,
+          "end": 3.09
+        },
+        {
+          "text": "cogscomb",
+          "start": 3.09,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3371294029057026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "453aa3aead1e0a7881bcbcea494c3eb4c3da786e4821f763cf57d18d1e345bbb",
+  "selected_reasons": []
+}

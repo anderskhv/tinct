@@ -1,0 +1,802 @@
+{
+  "complete": true,
+  "signature": "82a1108a1078a63fe3a93a175a67c2fdf584db691dd39b8833944932a5945505",
+  "attempts": [
+    {
+      "asr_seconds": 0.7699967175722122,
+      "alignment_seconds": 0.0030991584062576294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fent._ I see I cannot get thy father's love; Therefore no more turn me to him, sweet Nan.",
+        "hotwords": "I, Therefore, Nan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fent, I see I cannot get thy father's love, Therefore no more turn me to him, sweet Nan.",
+          "start": 0.08,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Fent,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.80078125
+            },
+            {
+              "text": " I",
+              "start": 0.98,
+              "end": 1.06,
+              "probability": 0.986328125
+            },
+            {
+              "text": " see",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " cannot",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " get",
+              "start": 1.64,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thy",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " father's",
+              "start": 2.06,
+              "end": 2.6,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " love,",
+              "start": 2.6,
+              "end": 2.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Therefore",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " no",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " more",
+              "start": 3.78,
+              "end": 4.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " turn",
+              "start": 4.0,
+              "end": 4.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " me",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.34,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 4.48,
+              "end": 4.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sweet",
+              "start": 5.0,
+              "end": 5.14,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Nan.",
+              "start": 5.14,
+              "end": 5.46,
+              "probability": 0.82421875
+            }
+          ]
+        },
+        {
+          "text": " Fent, I see thy father's love,",
+          "start": 5.46,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " Fent,",
+              "start": 5.46,
+              "end": 5.46,
+              "probability": 8.666515350341797e-05
+            },
+            {
+              "text": " I",
+              "start": 5.56,
+              "end": 6.12,
+              "probability": 0.04681396484375
+            },
+            {
+              "text": " see",
+              "start": 6.12,
+              "end": 6.12,
+              "probability": 0.004852294921875
+            },
+            {
+              "text": " thy",
+              "start": 6.12,
+              "end": 6.12,
+              "probability": 1.5139579772949219e-05
+            },
+            {
+              "text": " father's",
+              "start": 6.12,
+              "end": 6.12,
+              "probability": 0.08590221405029297
+            },
+            {
+              "text": " love,",
+              "start": 6.12,
+              "end": 6.12,
+              "probability": 0.00838470458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fent,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "raw": "see",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "cannot",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "get",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "raw": "thy",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "father's",
+          "start": 2.06,
+          "end": 2.6
+        },
+        {
+          "raw": "love,",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "raw": "Therefore",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "no",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "more",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "raw": "turn",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "raw": "me",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "to",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "raw": "him,",
+          "start": 4.48,
+          "end": 4.68
+        },
+        {
+          "raw": "sweet",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "raw": "Nan.",
+          "start": 5.14,
+          "end": 5.46
+        },
+        {
+          "raw": "Fent,",
+          "start": 5.46,
+          "end": 5.46
+        },
+        {
+          "raw": "I",
+          "start": 5.56,
+          "end": 6.12
+        },
+        {
+          "raw": "see",
+          "start": 6.12,
+          "end": 6.12
+        },
+        {
+          "raw": "thy",
+          "start": 6.12,
+          "end": 6.12
+        },
+        {
+          "raw": "father's",
+          "start": 6.12,
+          "end": 6.12
+        },
+        {
+          "raw": "love,",
+          "start": 6.12,
+          "end": 6.12
+        }
+      ],
+      "expected_tokens": [
+        "_Fent._",
+        "I",
+        "see",
+        "I",
+        "cannot",
+        "get",
+        "thy",
+        "father’s",
+        "love;",
+        "Therefore",
+        "no",
+        "more",
+        "turn",
+        "me",
+        "to",
+        "him,",
+        "sweet",
+        "Nan."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fent._",
+        "I",
+        "see",
+        "I",
+        "cannot",
+        "get",
+        "thy",
+        "father's",
+        "love;",
+        "Therefore",
+        "no",
+        "more",
+        "turn",
+        "me",
+        "to",
+        "him,",
+        "sweet",
+        "Nan."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "insert",
+          18,
+          18,
+          18,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          18,
+          18,
+          18,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fent,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "fent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.06,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "cannot",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.64,
+          "end": 1.94,
+          "key": "get",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "thy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 2.06,
+          "end": 2.6,
+          "key": "fathers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 2.6,
+          "end": 2.88,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Therefore",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "therefore",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.78,
+          "end": 4.0,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 4.0,
+          "end": 4.22,
+          "key": "turn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.34,
+          "end": 4.48,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 4.48,
+          "end": 4.68,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 5.0,
+          "end": 5.14,
+          "key": "sweet",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Nan.",
+          "start": 5.14,
+          "end": 5.46,
+          "key": "nan",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Fent,",
+          "start": 5.46,
+          "end": 5.46,
+          "key": "fent",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.56,
+          "end": 6.12,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 6.12,
+          "end": 6.12,
+          "key": "see",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.12,
+          "end": 6.12,
+          "key": "thy",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 6.12,
+          "end": 6.12,
+          "key": "fathers",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 6.12,
+          "end": 6.12,
+          "key": "love",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fent._",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 0.98,
+          "end": 1.06
+        },
+        {
+          "text": "see",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "I",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "cannot",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "get",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "text": "thy",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "father’s",
+          "start": 2.06,
+          "end": 2.6
+        },
+        {
+          "text": "love;",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "text": "Therefore",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "no",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "more",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "text": "turn",
+          "start": 4.0,
+          "end": 4.22
+        },
+        {
+          "text": "me",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "to",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "text": "him,",
+          "start": 4.48,
+          "end": 4.68
+        },
+        {
+          "text": "sweet",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "text": "Nan.",
+          "start": 5.14,
+          "end": 5.46
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 24,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.773467612452805
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5b60421f996c34896055e368fa8686229333b3d54387ab33fdfd9ba38012e4d5",
+  "selected_reasons": []
+}

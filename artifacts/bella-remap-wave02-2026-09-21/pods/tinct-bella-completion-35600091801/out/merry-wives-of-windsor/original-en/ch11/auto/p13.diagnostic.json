@@ -1,0 +1,931 @@
+{
+  "complete": true,
+  "signature": "c704bd9a43eb7fd34c9e314b2bd7f81ab4466b6ba5498ed6241f9ddbf5519308",
+  "attempts": [
+    {
+      "asr_seconds": 0.9532506968826056,
+      "alignment_seconds": 0.0019924771040678024,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Quick._ Hark ye; Master Slender would speak a word with you. 30",
+        "hotwords": "Hark, Master, Slender"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quick hark ye, Master Slender would speak a word with you. 30",
+          "start": 0.08,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Quick",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " hark",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.6514892578125
+            },
+            {
+              "text": " ye,",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Master",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " Slender",
+              "start": 1.72,
+              "end": 2.12,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " would",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " speak",
+              "start": 2.28,
+              "end": 2.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " word",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you.",
+              "start": 2.96,
+              "end": 3.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " 30",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.311279296875
+            }
+          ]
+        },
+        {
+          "text": " Hark ye, Master Slender would speak a word with you. 30",
+          "start": 3.86,
+          "end": 4.04,
+          "words": [
+            {
+              "text": " Hark",
+              "start": 3.86,
+              "end": 3.9,
+              "probability": 0.00016191601753234863
+            },
+            {
+              "text": " ye,",
+              "start": 3.9,
+              "end": 4.0,
+              "probability": 5.3942203521728516e-05
+            },
+            {
+              "text": " Master",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.00037550926208496094
+            },
+            {
+              "text": " Slender",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.015947818756103516
+            },
+            {
+              "text": " would",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 2.1517276763916016e-05
+            },
+            {
+              "text": " speak",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.0006351470947265625
+            },
+            {
+              "text": " a",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.004428863525390625
+            },
+            {
+              "text": " word",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.025421142578125
+            },
+            {
+              "text": " with",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.037017822265625
+            },
+            {
+              "text": " you.",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.14208984375
+            },
+            {
+              "text": " 30",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 5.638599395751953e-05
+            }
+          ]
+        },
+        {
+          "text": " Hark ye, Master Slender would speak a word with you. 30",
+          "start": 4.04,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Hark",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.00020992755889892578
+            },
+            {
+              "text": " ye,",
+              "start": 4.04,
+              "end": 4.04,
+              "probability": 0.00010591745376586914
+            },
+            {
+              "text": " Master",
+              "start": 4.18,
+              "end": 4.58,
+              "probability": 0.00040984153747558594
+            },
+            {
+              "text": " Slender",
+              "start": 4.58,
+              "end": 4.58,
+              "probability": 0.01554405689239502
+            },
+            {
+              "text": " would",
+              "start": 4.58,
+              "end": 4.58,
+              "probability": 2.7060508728027344e-05
+            },
+            {
+              "text": " speak",
+              "start": 4.58,
+              "end": 4.64,
+              "probability": 0.0007677078247070312
+            },
+            {
+              "text": " a",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.003997802734375
+            },
+            {
+              "text": " word",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.016632080078125
+            },
+            {
+              "text": " with",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.0307159423828125
+            },
+            {
+              "text": " you.",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 0.177001953125
+            },
+            {
+              "text": " 30",
+              "start": 4.64,
+              "end": 4.64,
+              "probability": 2.7179718017578125e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quick",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "hark",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "ye,",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "Master",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "Slender",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "raw": "would",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "speak",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "word",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "with",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "you.",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "raw": "30",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "Hark",
+          "start": 3.86,
+          "end": 3.9
+        },
+        {
+          "raw": "ye,",
+          "start": 3.9,
+          "end": 4.0
+        },
+        {
+          "raw": "Master",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "Slender",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "would",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "speak",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "a",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "word",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "with",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "you.",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "30",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "Hark",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "ye,",
+          "start": 4.04,
+          "end": 4.04
+        },
+        {
+          "raw": "Master",
+          "start": 4.18,
+          "end": 4.58
+        },
+        {
+          "raw": "Slender",
+          "start": 4.58,
+          "end": 4.58
+        },
+        {
+          "raw": "would",
+          "start": 4.58,
+          "end": 4.58
+        },
+        {
+          "raw": "speak",
+          "start": 4.58,
+          "end": 4.64
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "word",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "with",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "you.",
+          "start": 4.64,
+          "end": 4.64
+        },
+        {
+          "raw": "30",
+          "start": 4.64,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "_Quick._",
+        "Hark",
+        "ye;",
+        "Master",
+        "Slender",
+        "would",
+        "speak",
+        "a",
+        "word",
+        "with",
+        "you.",
+        "30"
+      ],
+      "acoustic_expected_tokens": [
+        "_Quick._",
+        "Hark",
+        "ye;",
+        "Master",
+        "Slender",
+        "would",
+        "speak",
+        "a",
+        "word",
+        "with",
+        "you.",
+        "30"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "insert",
+          12,
+          12,
+          12,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          12,
+          12,
+          12,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quick",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "quick",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hark",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ye,",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "ye",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Slender",
+          "start": 1.72,
+          "end": 2.12,
+          "key": "slender",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "would",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.28,
+          "end": 2.5,
+          "key": "speak",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "word",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.96,
+          "end": 3.32,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "thirty",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 3.86,
+          "end": 3.9,
+          "key": "hark",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ye,",
+          "start": 3.9,
+          "end": 4.0,
+          "key": "ye",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "master",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Slender",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "slender",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "would",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "speak",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "word",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "with",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "thirty",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "hark",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "ye,",
+          "start": 4.04,
+          "end": 4.04,
+          "key": "ye",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 4.18,
+          "end": 4.58,
+          "key": "master",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Slender",
+          "start": 4.58,
+          "end": 4.58,
+          "key": "slender",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.58,
+          "end": 4.58,
+          "key": "would",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 4.58,
+          "end": 4.64,
+          "key": "speak",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "word",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "with",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "you",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 4.64,
+          "end": 4.64,
+          "key": "thirty",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Quick._",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "Hark",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "ye;",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "text": "Master",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "Slender",
+          "start": 1.72,
+          "end": 2.12
+        },
+        {
+          "text": "would",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "speak",
+          "start": 2.28,
+          "end": 2.5
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "word",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "with",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "text": "you.",
+          "start": 2.96,
+          "end": 3.32
+        },
+        {
+          "text": "30",
+          "start": 3.7,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 34,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9557370217517018
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6962a9c2ae65528be45c7eab85f5c38df5f60305acb235d7df39ef36437c605b",
+  "selected_reasons": []
+}

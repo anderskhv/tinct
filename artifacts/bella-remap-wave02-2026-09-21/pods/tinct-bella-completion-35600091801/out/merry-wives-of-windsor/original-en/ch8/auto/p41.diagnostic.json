@@ -1,0 +1,495 @@
+{
+  "complete": true,
+  "signature": "23473e6c9c4a9b4dfea295473cc8ea311827b662dfe71814a3591897bb34ae9d",
+  "attempts": [
+    {
+      "asr_seconds": 0.4304487854242325,
+      "alignment_seconds": 0.0019597718492150307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Aside to Caius Pray you, use your patience: in good time. 75",
+        "hotwords": "Aside, Caius, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, aside to Caius Pray you, use your patience. In good time. 75",
+          "start": 0.08,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.658203125
+            },
+            {
+              "text": " aside",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " to",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " Caius",
+              "start": 1.48,
+              "end": 1.86,
+              "probability": 0.6698201497395834
+            },
+            {
+              "text": " Pray",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.5140380859375
+            },
+            {
+              "text": " you,",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " use",
+              "start": 2.42,
+              "end": 2.48,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " your",
+              "start": 2.48,
+              "end": 2.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " patience.",
+              "start": 2.62,
+              "end": 3.06,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " In",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " good",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.9453125
+            },
+            {
+              "text": " time.",
+              "start": 3.76,
+              "end": 4.16,
+              "probability": 0.931640625
+            },
+            {
+              "text": " 75",
+              "start": 4.64,
+              "end": 5.0,
+              "probability": 0.392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "aside",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "Caius",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "raw": "Pray",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "you,",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "use",
+          "start": 2.42,
+          "end": 2.48
+        },
+        {
+          "raw": "your",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "raw": "patience.",
+          "start": 2.62,
+          "end": 3.06
+        },
+        {
+          "raw": "In",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "good",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "time.",
+          "start": 3.76,
+          "end": 4.16
+        },
+        {
+          "raw": "75",
+          "start": 4.64,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "[_Aside",
+        "to",
+        "Caius_]",
+        "Pray",
+        "you,",
+        "use",
+        "your",
+        "patience:",
+        "in",
+        "good",
+        "time.",
+        "75"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Aside",
+        "to",
+        "Caius",
+        "Pray",
+        "you,",
+        "use",
+        "your",
+        "patience:",
+        "in",
+        "good",
+        "time.",
+        "75"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aside",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Caius",
+          "start": 1.48,
+          "end": 1.86,
+          "key": "caius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "pray",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 2.42,
+          "end": 2.48,
+          "key": "use",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.48,
+          "end": 2.62,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "patience.",
+          "start": 2.62,
+          "end": 3.06,
+          "key": "patience",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 3.46,
+          "end": 3.6,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.6,
+          "end": 3.76,
+          "key": "good",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 3.76,
+          "end": 4.16,
+          "key": "time",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "75",
+          "start": 4.64,
+          "end": 5.0,
+          "key": "seventyfive",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "[_Aside",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "Caius_]",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "text": "Pray",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "you,",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "use",
+          "start": 2.42,
+          "end": 2.48
+        },
+        {
+          "text": "your",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "text": "patience:",
+          "start": 2.62,
+          "end": 3.06
+        },
+        {
+          "text": "in",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "good",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "time.",
+          "start": 3.76,
+          "end": 4.16
+        },
+        {
+          "text": "75",
+          "start": 4.64,
+          "end": 5.0
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4326191348955035
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "731822c5ecbfca7e261725f954c08d9f2dc84f450157dd1ea9e2ca0d7415ee0e",
+  "selected_reasons": []
+}

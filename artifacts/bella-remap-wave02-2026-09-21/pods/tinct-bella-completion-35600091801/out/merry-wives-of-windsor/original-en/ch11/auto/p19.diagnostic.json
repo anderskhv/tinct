@@ -1,0 +1,528 @@
+{
+  "complete": true,
+  "signature": "de63401fd87ee81309946f204691d9af5caf6e6800899d0ff6e92404e9c86975",
+  "attempts": [
+    {
+      "asr_seconds": 0.4317747252061963,
+      "alignment_seconds": 0.0021785227581858635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Slen._ Ay, that I do; as well as I love any woman in Gloucestershire.",
+        "hotwords": "Ay, I, Gloucestershire"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Slen, Ay, that I do, as well as I love any woman in Gloucestershire.",
+          "start": 0.08,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Slen,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.58251953125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.0033206939697265625
+            },
+            {
+              "text": " that",
+              "start": 1.5,
+              "end": 1.56,
+              "probability": 0.98046875
+            },
+            {
+              "text": " I",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " do,",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " well",
+              "start": 2.56,
+              "end": 2.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " as",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 2.82,
+              "end": 2.94,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " love",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " any",
+              "start": 3.12,
+              "end": 3.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " woman",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " in",
+              "start": 3.62,
+              "end": 3.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Gloucestershire.",
+              "start": 3.84,
+              "end": 4.54,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Slen,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "that",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "do,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "as",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "raw": "well",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "raw": "as",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "raw": "love",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "any",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "raw": "woman",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "in",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "raw": "Gloucestershire.",
+          "start": 3.84,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "_Slen._",
+        "Ay,",
+        "that",
+        "I",
+        "do;",
+        "as",
+        "well",
+        "as",
+        "I",
+        "love",
+        "any",
+        "woman",
+        "in",
+        "Gloucestershire."
+      ],
+      "acoustic_expected_tokens": [
+        "_Slen._",
+        "Ay,",
+        "that",
+        "I",
+        "do;",
+        "as",
+        "well",
+        "as",
+        "I",
+        "love",
+        "any",
+        "woman",
+        "in",
+        "Gloucestershire."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Slen,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "slen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.5,
+          "end": 1.56,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.56,
+          "end": 2.68,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.68,
+          "end": 2.82,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 2.94,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 3.12,
+          "end": 3.34,
+          "key": "any",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "woman",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.62,
+          "end": 3.84,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Gloucestershire.",
+          "start": 3.84,
+          "end": 4.54,
+          "key": "gloucestershire",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Slen._",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Ay,",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "that",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "text": "I",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "do;",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "as",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "text": "well",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "as",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "I",
+          "start": 2.82,
+          "end": 2.94
+        },
+        {
+          "text": "love",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "any",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "text": "woman",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "in",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "text": "Gloucestershire.",
+          "start": 3.84,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.43417707923799753
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10f0673b57ec3c9dcd9a40d48194a3e30e3e2f2bb24ca40828e9e505ba689c8d",
+  "selected_reasons": []
+}

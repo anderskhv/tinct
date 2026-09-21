@@ -1,0 +1,660 @@
+{
+  "complete": true,
+  "signature": "a35d3a3e1ff1002806438676809689cccae1012ca3661934114484db37d64448",
+  "attempts": [
+    {
+      "asr_seconds": 0.5474439850077033,
+      "alignment_seconds": 0.002219761721789837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ubi jam validis quassatum est viribus aevi Corpus, et obtusis ceciderunt viribus artus, Claudicat ingenium, delirat linguaque, mensque.\"",
+        "hotwords": "Ubi, Corpus, Claudicat"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ubi jam validis quassatum est viribus aevi Corpus, et obtusis ceciderunt viribus artus, Claudicat ingenium, delirat linguaque, mensque.",
+          "start": 0.05,
+          "end": 10.37,
+          "words": [
+            {
+              "text": " Ubi",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.25799560546875
+            },
+            {
+              "text": " jam",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.0838623046875
+            },
+            {
+              "text": " validis",
+              "start": 1.09,
+              "end": 1.63,
+              "probability": 0.427764892578125
+            },
+            {
+              "text": " quassatum",
+              "start": 1.63,
+              "end": 2.17,
+              "probability": 0.6012229919433594
+            },
+            {
+              "text": " est",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.97265625
+            },
+            {
+              "text": " viribus",
+              "start": 2.51,
+              "end": 2.99,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " aevi",
+              "start": 2.99,
+              "end": 3.37,
+              "probability": 0.3043219248453776
+            },
+            {
+              "text": " Corpus,",
+              "start": 3.37,
+              "end": 3.79,
+              "probability": 0.0031833648681640625
+            },
+            {
+              "text": " et",
+              "start": 4.37,
+              "end": 4.39,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " obtusis",
+              "start": 4.39,
+              "end": 5.01,
+              "probability": 0.8897705078125
+            },
+            {
+              "text": " ceciderunt",
+              "start": 5.01,
+              "end": 5.73,
+              "probability": 0.3419952392578125
+            },
+            {
+              "text": " viribus",
+              "start": 5.73,
+              "end": 6.21,
+              "probability": 0.94921875
+            },
+            {
+              "text": " artus,",
+              "start": 6.21,
+              "end": 6.93,
+              "probability": 0.4759674072265625
+            },
+            {
+              "text": " Claudicat",
+              "start": 7.19,
+              "end": 7.63,
+              "probability": 0.5884195963541666
+            },
+            {
+              "text": " ingenium,",
+              "start": 7.63,
+              "end": 8.25,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " delirat",
+              "start": 8.71,
+              "end": 9.09,
+              "probability": 0.22888692220052084
+            },
+            {
+              "text": " linguaque,",
+              "start": 9.09,
+              "end": 9.79,
+              "probability": 0.5121256510416666
+            },
+            {
+              "text": " mensque.",
+              "start": 9.93,
+              "end": 10.37,
+              "probability": 0.6305643717447916
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ubi",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "jam",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "validis",
+          "start": 1.09,
+          "end": 1.63
+        },
+        {
+          "raw": "quassatum",
+          "start": 1.63,
+          "end": 2.17
+        },
+        {
+          "raw": "est",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "viribus",
+          "start": 2.51,
+          "end": 2.99
+        },
+        {
+          "raw": "aevi",
+          "start": 2.99,
+          "end": 3.37
+        },
+        {
+          "raw": "Corpus,",
+          "start": 3.37,
+          "end": 3.79
+        },
+        {
+          "raw": "et",
+          "start": 4.37,
+          "end": 4.39
+        },
+        {
+          "raw": "obtusis",
+          "start": 4.39,
+          "end": 5.01
+        },
+        {
+          "raw": "ceciderunt",
+          "start": 5.01,
+          "end": 5.73
+        },
+        {
+          "raw": "viribus",
+          "start": 5.73,
+          "end": 6.21
+        },
+        {
+          "raw": "artus,",
+          "start": 6.21,
+          "end": 6.93
+        },
+        {
+          "raw": "Claudicat",
+          "start": 7.19,
+          "end": 7.63
+        },
+        {
+          "raw": "ingenium,",
+          "start": 7.63,
+          "end": 8.25
+        },
+        {
+          "raw": "delirat",
+          "start": 8.71,
+          "end": 9.09
+        },
+        {
+          "raw": "linguaque,",
+          "start": 9.09,
+          "end": 9.79
+        },
+        {
+          "raw": "mensque.",
+          "start": 9.93,
+          "end": 10.37
+        }
+      ],
+      "expected_tokens": [
+        "“Ubi",
+        "jam",
+        "validis",
+        "quassatum",
+        "est",
+        "viribus",
+        "aevi",
+        "Corpus,",
+        "et",
+        "obtusis",
+        "ceciderunt",
+        "viribus",
+        "artus,",
+        "Claudicat",
+        "ingenium,",
+        "delirat",
+        "linguaque,",
+        "mensque.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Ubi",
+        "jam",
+        "validis",
+        "quassatum",
+        "est",
+        "viribus",
+        "aevi",
+        "Corpus,",
+        "et",
+        "obtusis",
+        "ceciderunt",
+        "viribus",
+        "artus,",
+        "Claudicat",
+        "ingenium,",
+        "delirat",
+        "linguaque,",
+        "mensque.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ubi",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "ubi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "jam",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "jam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "validis",
+          "start": 1.09,
+          "end": 1.63,
+          "key": "validis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "quassatum",
+          "start": 1.63,
+          "end": 2.17,
+          "key": "quassatum",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "est",
+          "start": 2.17,
+          "end": 2.51,
+          "key": "est",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "viribus",
+          "start": 2.51,
+          "end": 2.99,
+          "key": "viribus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "aevi",
+          "start": 2.99,
+          "end": 3.37,
+          "key": "aevi",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Corpus,",
+          "start": 3.37,
+          "end": 3.79,
+          "key": "corpus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 4.37,
+          "end": 4.39,
+          "key": "et",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "obtusis",
+          "start": 4.39,
+          "end": 5.01,
+          "key": "obtusis",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ceciderunt",
+          "start": 5.01,
+          "end": 5.73,
+          "key": "ceciderunt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "viribus",
+          "start": 5.73,
+          "end": 6.21,
+          "key": "viribus",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "artus,",
+          "start": 6.21,
+          "end": 6.93,
+          "key": "artus",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Claudicat",
+          "start": 7.19,
+          "end": 7.63,
+          "key": "claudicat",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ingenium,",
+          "start": 7.63,
+          "end": 8.25,
+          "key": "ingenium",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "delirat",
+          "start": 8.71,
+          "end": 9.09,
+          "key": "delirat",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "linguaque,",
+          "start": 9.09,
+          "end": 9.79,
+          "key": "linguaque",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mensque.",
+          "start": 9.93,
+          "end": 10.37,
+          "key": "mensque",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Ubi",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "jam",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "validis",
+          "start": 1.09,
+          "end": 1.63
+        },
+        {
+          "text": "quassatum",
+          "start": 1.63,
+          "end": 2.17
+        },
+        {
+          "text": "est",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "viribus",
+          "start": 2.51,
+          "end": 2.99
+        },
+        {
+          "text": "aevi",
+          "start": 2.99,
+          "end": 3.37
+        },
+        {
+          "text": "Corpus,",
+          "start": 3.37,
+          "end": 3.79
+        },
+        {
+          "text": "et",
+          "start": 4.37,
+          "end": 4.39
+        },
+        {
+          "text": "obtusis",
+          "start": 4.39,
+          "end": 5.01
+        },
+        {
+          "text": "ceciderunt",
+          "start": 5.01,
+          "end": 5.73
+        },
+        {
+          "text": "viribus",
+          "start": 5.73,
+          "end": 6.21
+        },
+        {
+          "text": "artus,",
+          "start": 6.21,
+          "end": 6.93
+        },
+        {
+          "text": "Claudicat",
+          "start": 7.19,
+          "end": 7.63
+        },
+        {
+          "text": "ingenium,",
+          "start": 7.63,
+          "end": 8.25
+        },
+        {
+          "text": "delirat",
+          "start": 8.71,
+          "end": 9.09
+        },
+        {
+          "text": "linguaque,",
+          "start": 9.09,
+          "end": 9.79
+        },
+        {
+          "text": "mensque.”",
+          "start": 9.93,
+          "end": 10.37
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5498686796054244
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b7c72153fd50677aecc8fbd53850078320e2afc679f2dbb48c5affb150959df0",
+  "selected_reasons": []
+}

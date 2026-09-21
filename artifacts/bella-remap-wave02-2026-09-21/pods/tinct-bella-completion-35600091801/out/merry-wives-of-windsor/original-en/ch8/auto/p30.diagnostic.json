@@ -1,0 +1,2552 @@
+{
+  "complete": true,
+  "signature": "8e8d158805015d5d381f92a8c00e92c975542f22d11f0e33c1f65099fe9e0ddc",
+  "attempts": [
+    {
+      "asr_seconds": 0.5737726911902428,
+      "alignment_seconds": 0.003733205609023571,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Got's will, and his passion of my heart! I had as lief you would tell me of a mess of porridge.",
+        "hotwords": "Got's, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I had as lief you would tell me of a mess of porridge.",
+          "start": 3.56,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.56,
+              "end": 3.92,
+              "probability": 0.004413604736328125
+            },
+            {
+              "text": " had",
+              "start": 3.92,
+              "end": 4.28,
+              "probability": 0.5419921875
+            },
+            {
+              "text": " as",
+              "start": 4.28,
+              "end": 4.44,
+              "probability": 0.145263671875
+            },
+            {
+              "text": " lief",
+              "start": 4.44,
+              "end": 4.76,
+              "probability": 0.4763150215148926
+            },
+            {
+              "text": " you",
+              "start": 4.76,
+              "end": 4.86,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " would",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " tell",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 5.34,
+              "end": 5.44,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " a",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " mess",
+              "start": 5.56,
+              "end": 5.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " porridge.",
+              "start": 5.92,
+              "end": 6.4,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " I had as lief you would tell me of a mess of porridge.",
+          "start": 6.4,
+          "end": 6.44,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.4,
+              "end": 6.42,
+              "probability": 0.0071563720703125
+            },
+            {
+              "text": " had",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.00397491455078125
+            },
+            {
+              "text": " as",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.0017404556274414062
+            },
+            {
+              "text": " lief",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.00017398595809936523
+            },
+            {
+              "text": " you",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.01409912109375
+            },
+            {
+              "text": " would",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.030853271484375
+            },
+            {
+              "text": " tell",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.007030487060546875
+            },
+            {
+              "text": " me",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.35546875
+            },
+            {
+              "text": " of",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.004276275634765625
+            },
+            {
+              "text": " a",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.046600341796875
+            },
+            {
+              "text": " mess",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.0005359649658203125
+            },
+            {
+              "text": " of",
+              "start": 6.42,
+              "end": 6.42,
+              "probability": 0.054290771484375
+            },
+            {
+              "text": " porridge.",
+              "start": 6.42,
+              "end": 6.44,
+              "probability": 0.05894428491592407
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 3.56,
+          "end": 3.92
+        },
+        {
+          "raw": "had",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "raw": "as",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "raw": "lief",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "raw": "you",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "raw": "would",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "tell",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "me",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "mess",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "porridge.",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "raw": "I",
+          "start": 6.4,
+          "end": 6.42
+        },
+        {
+          "raw": "had",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "as",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "lief",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "would",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "tell",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "me",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "of",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "a",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "mess",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "of",
+          "start": 6.42,
+          "end": 6.42
+        },
+        {
+          "raw": "porridge.",
+          "start": 6.42,
+          "end": 6.44
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Got’s",
+        "will,",
+        "and",
+        "his",
+        "passion",
+        "of",
+        "my",
+        "heart!",
+        "I",
+        "had",
+        "as",
+        "lief",
+        "you",
+        "would",
+        "tell",
+        "me",
+        "of",
+        "a",
+        "mess",
+        "of",
+        "porridge."
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Got's",
+        "will,",
+        "and",
+        "his",
+        "passion",
+        "of",
+        "my",
+        "heart!",
+        "I",
+        "had",
+        "as",
+        "lief",
+        "you",
+        "would",
+        "tell",
+        "me",
+        "of",
+        "a",
+        "mess",
+        "of",
+        "porridge."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          9,
+          0,
+          0
+        ],
+        [
+          "equal",
+          9,
+          22,
+          0,
+          13
+        ],
+        [
+          "insert",
+          22,
+          22,
+          13,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          9,
+          0,
+          0
+        ],
+        [
+          "insert",
+          22,
+          22,
+          13,
+          26
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 3.56,
+          "end": 3.92,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.92,
+          "end": 4.28,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.28,
+          "end": 4.44,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lief",
+          "start": 4.44,
+          "end": 4.76,
+          "key": "lief",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.76,
+          "end": 4.86,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.86,
+          "end": 4.98,
+          "key": "would",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "tell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.44,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.56,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mess",
+          "start": 5.56,
+          "end": 5.72,
+          "key": "mess",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "porridge.",
+          "start": 5.92,
+          "end": 6.4,
+          "key": "porridge",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.4,
+          "end": 6.42,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "had",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lief",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "lief",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "would",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "tell",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "me",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "mess",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "mess",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.42,
+          "end": 6.42,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "porridge.",
+          "start": 6.42,
+          "end": 6.44,
+          "key": "porridge",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.0,
+          "end": 1.78
+        },
+        {
+          "text": "Got’s",
+          "start": 1.78,
+          "end": 2.67
+        },
+        {
+          "text": "will,",
+          "start": 2.67,
+          "end": 3.115
+        },
+        {
+          "text": "and",
+          "start": 3.115,
+          "end": 3.338
+        },
+        {
+          "text": "his",
+          "start": 3.338,
+          "end": 3.449
+        },
+        {
+          "text": "passion",
+          "start": 3.449,
+          "end": 3.505
+        },
+        {
+          "text": "of",
+          "start": 3.505,
+          "end": 3.532
+        },
+        {
+          "text": "my",
+          "start": 3.532,
+          "end": 3.546
+        },
+        {
+          "text": "heart!",
+          "start": 3.546,
+          "end": 3.553
+        },
+        {
+          "text": "I",
+          "start": 3.56,
+          "end": 3.92
+        },
+        {
+          "text": "had",
+          "start": 3.92,
+          "end": 4.28
+        },
+        {
+          "text": "as",
+          "start": 4.28,
+          "end": 4.44
+        },
+        {
+          "text": "lief",
+          "start": 4.44,
+          "end": 4.76
+        },
+        {
+          "text": "you",
+          "start": 4.76,
+          "end": 4.86
+        },
+        {
+          "text": "would",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "tell",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "text": "me",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "of",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "mess",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "of",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "porridge.",
+          "start": 5.92,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 26,
+        "matched_words": 13
+      },
+      "match_ratio": 0.5909090909090909,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5778973242267966
+    },
+    {
+      "asr_seconds": 0.4911052407696843,
+      "alignment_seconds": 0.0037278123199939728,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Got's, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Evans, Got's will, and his passion of my heart. I had his leaf you would tell me of",
+          "start": 0.08,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.564453125
+            },
+            {
+              "text": " Got's",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.10595703125
+            },
+            {
+              "text": " will,",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " and",
+              "start": 2.16,
+              "end": 2.24,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " his",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " passion",
+              "start": 2.36,
+              "end": 2.78,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " of",
+              "start": 2.78,
+              "end": 2.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 2.92,
+              "end": 3.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heart.",
+              "start": 3.08,
+              "end": 3.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " had",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " leaf",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " you",
+              "start": 4.7,
+              "end": 4.86,
+              "probability": 0.84765625
+            },
+            {
+              "text": " would",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tell",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 5.34,
+              "end": 5.44,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " a mess of porridge.",
+          "start": 5.44,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mess",
+              "start": 5.56,
+              "end": 5.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " porridge.",
+              "start": 5.92,
+              "end": 6.4,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "Got's",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "will,",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "and",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "raw": "his",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "passion",
+          "start": 2.36,
+          "end": 2.78
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "raw": "my",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "raw": "heart.",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "had",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "his",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "leaf",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "you",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "raw": "would",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "tell",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "me",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "mess",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "porridge.",
+          "start": 5.92,
+          "end": 6.4
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Got’s",
+        "will,",
+        "and",
+        "his",
+        "passion",
+        "of",
+        "my",
+        "heart!",
+        "I",
+        "had",
+        "as",
+        "lief",
+        "you",
+        "would",
+        "tell",
+        "me",
+        "of",
+        "a",
+        "mess",
+        "of",
+        "porridge."
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Got's",
+        "will,",
+        "and",
+        "his",
+        "passion",
+        "of",
+        "my",
+        "heart!",
+        "I",
+        "had",
+        "as",
+        "lief",
+        "you",
+        "would",
+        "tell",
+        "me",
+        "of",
+        "a",
+        "mess",
+        "of",
+        "porridge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "equal",
+          13,
+          22,
+          13,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Got's",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "gots",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.16,
+          "end": 2.24,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "passion",
+          "start": 2.36,
+          "end": 2.78,
+          "key": "passion",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 2.92,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.92,
+          "end": 3.08,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 3.08,
+          "end": 3.4,
+          "key": "heart",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.12,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "had",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "leaf",
+          "start": 4.46,
+          "end": 4.7,
+          "key": "leaf",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.7,
+          "end": 4.86,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.86,
+          "end": 4.98,
+          "key": "would",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "tell",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.44,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.56,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mess",
+          "start": 5.56,
+          "end": 5.72,
+          "key": "mess",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "porridge.",
+          "start": 5.92,
+          "end": 6.4,
+          "key": "porridge",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Got’s",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "will,",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "and",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "text": "his",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "passion",
+          "start": 2.36,
+          "end": 2.78
+        },
+        {
+          "text": "of",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "text": "my",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "text": "heart!",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "text": "I",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "had",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "as",
+          "start": 4.32,
+          "end": 4.51
+        },
+        {
+          "text": "lief",
+          "start": 4.51,
+          "end": 4.605
+        },
+        {
+          "text": "you",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "text": "would",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "tell",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "text": "me",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "of",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "mess",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "of",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "porridge.",
+          "start": 5.92,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.49516313523054123
+    },
+    {
+      "asr_seconds": 0.4859825037419796,
+      "alignment_seconds": 0.003763211891055107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Evans, God's will, and his passion of my heart.",
+          "start": 0.08,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.564453125
+            },
+            {
+              "text": " God's",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " will,",
+              "start": 1.52,
+              "end": 1.76,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " and",
+              "start": 2.16,
+              "end": 2.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " passion",
+              "start": 2.36,
+              "end": 2.78,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " of",
+              "start": 2.78,
+              "end": 2.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 2.92,
+              "end": 3.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heart.",
+              "start": 3.08,
+              "end": 3.4,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " I had his leaf you would tell me of a mess of porridge.",
+          "start": 4.0,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " had",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " leaf",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.984375
+            },
+            {
+              "text": " you",
+              "start": 4.7,
+              "end": 4.86,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " would",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tell",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 5.34,
+              "end": 5.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mess",
+              "start": 5.56,
+              "end": 5.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 5.72,
+              "end": 5.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " porridge.",
+              "start": 5.92,
+              "end": 6.4,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "God's",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "will,",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "raw": "and",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "raw": "his",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "passion",
+          "start": 2.36,
+          "end": 2.78
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "raw": "my",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "raw": "heart.",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "had",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "his",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "leaf",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "you",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "raw": "would",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "tell",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "me",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "raw": "mess",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "raw": "porridge.",
+          "start": 5.92,
+          "end": 6.4
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Got’s",
+        "will,",
+        "and",
+        "his",
+        "passion",
+        "of",
+        "my",
+        "heart!",
+        "I",
+        "had",
+        "as",
+        "lief",
+        "you",
+        "would",
+        "tell",
+        "me",
+        "of",
+        "a",
+        "mess",
+        "of",
+        "porridge."
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Got's",
+        "will,",
+        "and",
+        "his",
+        "passion",
+        "of",
+        "my",
+        "heart!",
+        "I",
+        "had",
+        "as",
+        "lief",
+        "you",
+        "would",
+        "tell",
+        "me",
+        "of",
+        "a",
+        "mess",
+        "of",
+        "porridge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "equal",
+          13,
+          22,
+          13,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "gods",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.52,
+          "end": 1.76,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.16,
+          "end": 2.24,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "passion",
+          "start": 2.36,
+          "end": 2.78,
+          "key": "passion",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.78,
+          "end": 2.92,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.92,
+          "end": 3.08,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 3.08,
+          "end": 3.4,
+          "key": "heart",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.0,
+          "end": 4.12,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "had",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "leaf",
+          "start": 4.46,
+          "end": 4.7,
+          "key": "leaf",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.7,
+          "end": 4.86,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.86,
+          "end": 4.98,
+          "key": "would",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "tell",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.44,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.56,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mess",
+          "start": 5.56,
+          "end": 5.72,
+          "key": "mess",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.72,
+          "end": 5.92,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "porridge.",
+          "start": 5.92,
+          "end": 6.4,
+          "key": "porridge",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Got’s",
+          "start": 0.8,
+          "end": 1.16
+        },
+        {
+          "text": "will,",
+          "start": 1.52,
+          "end": 1.76
+        },
+        {
+          "text": "and",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "text": "his",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "passion",
+          "start": 2.36,
+          "end": 2.78
+        },
+        {
+          "text": "of",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "text": "my",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "text": "heart!",
+          "start": 3.08,
+          "end": 3.4
+        },
+        {
+          "text": "I",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "had",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "as",
+          "start": 4.32,
+          "end": 4.51
+        },
+        {
+          "text": "lief",
+          "start": 4.51,
+          "end": 4.605
+        },
+        {
+          "text": "you",
+          "start": 4.7,
+          "end": 4.86
+        },
+        {
+          "text": "would",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "tell",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "text": "me",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "of",
+          "start": 5.34,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.56
+        },
+        {
+          "text": "mess",
+          "start": 5.56,
+          "end": 5.72
+        },
+        {
+          "text": "of",
+          "start": 5.72,
+          "end": 5.92
+        },
+        {
+          "text": "porridge.",
+          "start": 5.92,
+          "end": 6.4
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 19
+      },
+      "match_ratio": 0.8636363636363636,
+      "rejection_reasons": [],
+      "seconds": 0.4900780711323023
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "90b59776bb3d1c2c118ccde5925a1af608bb9748a487aee465e479ffd984d04e",
+  "selected_reasons": []
+}

@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "8af0d086d69c72b96e447012109391d1c8ece302f63502594327f44284038f2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2073380695655942,
+      "alignment_seconds": 0.0010405732318758965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mari._ I would Friar Peter--",
+        "hotwords": "I, Friar, Peter"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mari, I would Friar Peter.",
+          "start": 0.02,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Mari,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.255859375
+            },
+            {
+              "text": " I",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " would",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Friar",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.5157928466796875
+            },
+            {
+              "text": " Peter.",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mari,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "would",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "Friar",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "raw": "Peter.",
+          "start": 1.64,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "_Mari._",
+        "I",
+        "would",
+        "Friar",
+        "Peter--"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mari._",
+        "I",
+        "would",
+        "Friar",
+        "Peter--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mari,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "mari",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Friar",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "friar",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Peter.",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "peter",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mari._",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "would",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "Friar",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "text": "Peter--",
+          "start": 1.64,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20847564097493887
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eb9154eef35a453aa216341cbf420d44fe00f4d5cb8e0ff6e6fdc2c7653ba249",
+  "selected_reasons": []
+}

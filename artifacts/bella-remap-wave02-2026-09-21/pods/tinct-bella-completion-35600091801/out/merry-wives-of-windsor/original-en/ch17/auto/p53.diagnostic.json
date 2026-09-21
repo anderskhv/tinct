@@ -1,0 +1,931 @@
+{
+  "complete": true,
+  "signature": "68afa3ddbeaf9371d448b6767575df3427f99872bdadb98bdfd722731ae97919",
+  "attempts": [
+    {
+      "asr_seconds": 0.2916761375963688,
+      "alignment_seconds": 0.0012444444000720978,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ Come up into my chamber. Exeunt._",
+        "hotwords": "Come, Exeunt._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Foul, come up into my chamber. Exeunt._",
+          "start": 0.21,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Foul,",
+              "start": 0.21,
+              "end": 0.75,
+              "probability": 0.56689453125
+            },
+            {
+              "text": " come",
+              "start": 0.83,
+              "end": 0.91,
+              "probability": 0.95703125
+            },
+            {
+              "text": " up",
+              "start": 0.91,
+              "end": 1.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " into",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " chamber.",
+              "start": 1.33,
+              "end": 1.75,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Exeunt._",
+              "start": 2.59,
+              "end": 2.87,
+              "probability": 0.5802002102136612
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Foul,",
+          "start": 0.21,
+          "end": 0.75
+        },
+        {
+          "raw": "come",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "raw": "up",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "raw": "into",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "chamber.",
+          "start": 1.33,
+          "end": 1.75
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.59,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Come",
+        "up",
+        "into",
+        "my",
+        "chamber.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Come",
+        "up",
+        "into",
+        "my",
+        "chamber.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Foul,",
+          "start": 0.21,
+          "end": 0.75,
+          "key": "foul",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.83,
+          "end": 0.91,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.91,
+          "end": 1.05,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "into",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chamber.",
+          "start": 1.33,
+          "end": 1.75,
+          "key": "chamber",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Exeunt._",
+          "start": 2.59,
+          "end": 2.87,
+          "key": "exeunt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Come",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "text": "up",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "text": "into",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "my",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "chamber.",
+          "start": 1.33,
+          "end": 1.75
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 2.59,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.29303339309990406
+    },
+    {
+      "asr_seconds": 0.29989974200725555,
+      "alignment_seconds": 0.0013661384582519531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Come, Exeunt._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Fowl come up into my chamber. Exeunt.",
+          "start": 0.21,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Fowl",
+              "start": 0.21,
+              "end": 0.75,
+              "probability": 0.527099609375
+            },
+            {
+              "text": " come",
+              "start": 0.75,
+              "end": 0.93,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " up",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " into",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chamber.",
+              "start": 1.35,
+              "end": 1.77,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Exeunt.",
+              "start": 2.15,
+              "end": 2.63,
+              "probability": 0.7534993489583334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fowl",
+          "start": 0.21,
+          "end": 0.75
+        },
+        {
+          "raw": "come",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "raw": "up",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "into",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "chamber.",
+          "start": 1.35,
+          "end": 1.77
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 2.15,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Come",
+        "up",
+        "into",
+        "my",
+        "chamber.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Come",
+        "up",
+        "into",
+        "my",
+        "chamber.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fowl",
+          "start": 0.21,
+          "end": 0.75,
+          "key": "fowl",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.75,
+          "end": 0.93,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "into",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chamber.",
+          "start": 1.35,
+          "end": 1.77,
+          "key": "chamber",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Exeunt.",
+          "start": 2.15,
+          "end": 2.63,
+          "key": "exeunt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "Come",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "text": "up",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "into",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "my",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "chamber.",
+          "start": 1.35,
+          "end": 1.77
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 2.15,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.3013915214687586
+    },
+    {
+      "asr_seconds": 0.29662012308835983,
+      "alignment_seconds": 0.0014168936759233475,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fowl come up into my chamber, exhumed.",
+          "start": 0.21,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Fowl",
+              "start": 0.21,
+              "end": 0.75,
+              "probability": 0.527099609375
+            },
+            {
+              "text": " come",
+              "start": 0.75,
+              "end": 0.93,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " up",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " into",
+              "start": 1.05,
+              "end": 1.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " chamber,",
+              "start": 1.35,
+              "end": 1.77,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " exhumed.",
+              "start": 2.17,
+              "end": 2.65,
+              "probability": 0.8250325520833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fowl",
+          "start": 0.21,
+          "end": 0.75
+        },
+        {
+          "raw": "come",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "raw": "up",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "into",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "chamber,",
+          "start": 1.35,
+          "end": 1.77
+        },
+        {
+          "raw": "exhumed.",
+          "start": 2.17,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "Come",
+        "up",
+        "into",
+        "my",
+        "chamber.",
+        "[_Exeunt._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "Come",
+        "up",
+        "into",
+        "my",
+        "chamber.",
+        "Exeunt._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fowl",
+          "start": 0.21,
+          "end": 0.75,
+          "key": "fowl",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.75,
+          "end": 0.93,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.05,
+          "end": 1.19,
+          "key": "into",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chamber,",
+          "start": 1.35,
+          "end": 1.77,
+          "key": "chamber",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exhumed.",
+          "start": 2.17,
+          "end": 2.65,
+          "key": "exhumed",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "Come",
+          "start": 0.75,
+          "end": 0.93
+        },
+        {
+          "text": "up",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "into",
+          "start": 1.05,
+          "end": 1.19
+        },
+        {
+          "text": "my",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "chamber.",
+          "start": 1.35,
+          "end": 1.77
+        },
+        {
+          "text": "[_Exeunt._",
+          "start": 1.77,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29816113971173763
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27f98feca0563845a64a91244e7da1e1b1c9ce9f4d70c930bdefb49b83d6fa2c",
+  "selected_reasons": []
+}

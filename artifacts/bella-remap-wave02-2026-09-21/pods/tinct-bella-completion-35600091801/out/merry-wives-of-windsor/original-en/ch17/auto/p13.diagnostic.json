@@ -1,0 +1,805 @@
+{
+  "complete": true,
+  "signature": "7ad90071199cb1658ec3b31aa8267703f1e3366df1ddfa8cc394e16f78cbde2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.7980650924146175,
+      "alignment_seconds": 0.0020945901051163673,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ I spake with the old woman about it. 30",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fal, I spake with the old woman about it. 30",
+          "start": 0.08,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.034332275390625
+            },
+            {
+              "text": " I",
+              "start": 0.86,
+              "end": 0.92,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " spake",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " with",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " old",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.943359375
+            },
+            {
+              "text": " woman",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " about",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it.",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " 30",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.1298828125
+            }
+          ]
+        },
+        {
+          "text": " Fal, I spake with the old woman about it. 30",
+          "start": 2.94,
+          "end": 3.06,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 1.9073486328125e-06
+            },
+            {
+              "text": " I",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.037078857421875
+            },
+            {
+              "text": " spake",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.007252722978591919
+            },
+            {
+              "text": " with",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.0076751708984375
+            },
+            {
+              "text": " the",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.11383056640625
+            },
+            {
+              "text": " old",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.0019006729125976562
+            },
+            {
+              "text": " woman",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.023101806640625
+            },
+            {
+              "text": " about",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.0022449493408203125
+            },
+            {
+              "text": " it.",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.01904296875
+            },
+            {
+              "text": " 30",
+              "start": 2.96,
+              "end": 3.06,
+              "probability": 3.0934810638427734e-05
+            }
+          ]
+        },
+        {
+          "text": " Fal, I spake with the old woman about it.",
+          "start": 3.06,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 3.06,
+              "end": 3.06,
+              "probability": 1.1324882507324219e-06
+            },
+            {
+              "text": " I",
+              "start": 3.12,
+              "end": 3.68,
+              "probability": 0.0545654296875
+            },
+            {
+              "text": " spake",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.006932735443115234
+            },
+            {
+              "text": " with",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.006816864013671875
+            },
+            {
+              "text": " the",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.0853271484375
+            },
+            {
+              "text": " old",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.0020046234130859375
+            },
+            {
+              "text": " woman",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.0237579345703125
+            },
+            {
+              "text": " about",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.00262451171875
+            },
+            {
+              "text": " it.",
+              "start": 3.68,
+              "end": 3.68,
+              "probability": 0.017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 0.86,
+          "end": 0.92
+        },
+        {
+          "raw": "spake",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "with",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "old",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "woman",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "about",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "it.",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "30",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "Fal,",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "spake",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "with",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "the",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "old",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "woman",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "about",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "it.",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "30",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "raw": "Fal,",
+          "start": 3.06,
+          "end": 3.06
+        },
+        {
+          "raw": "I",
+          "start": 3.12,
+          "end": 3.68
+        },
+        {
+          "raw": "spake",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "raw": "with",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "raw": "old",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "raw": "woman",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "raw": "about",
+          "start": 3.68,
+          "end": 3.68
+        },
+        {
+          "raw": "it.",
+          "start": 3.68,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "I",
+        "spake",
+        "with",
+        "the",
+        "old",
+        "woman",
+        "about",
+        "it.",
+        "30"
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "I",
+        "spake",
+        "with",
+        "the",
+        "old",
+        "woman",
+        "about",
+        "it.",
+        "30"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "insert",
+          10,
+          10,
+          10,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          10,
+          10,
+          10,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.86,
+          "end": 0.92,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spake",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "spake",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "old",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "woman",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "about",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 2.76,
+          "end": 2.94,
+          "key": "thirty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Fal,",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "fal",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "spake",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "spake",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "old",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "woman",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "about",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 2.96,
+          "end": 3.06,
+          "key": "thirty",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Fal,",
+          "start": 3.06,
+          "end": 3.06,
+          "key": "fal",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.12,
+          "end": 3.68,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "spake",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "spake",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "with",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "old",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "woman",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "about",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.68,
+          "end": 3.68,
+          "key": "it",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 0.86,
+          "end": 0.92
+        },
+        {
+          "text": "spake",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "with",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "the",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "old",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "woman",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "about",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "it.",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "30",
+          "start": 2.76,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 29,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8005890296772122
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3da2d0de8c8004dde5e00a1f8b140af58a4072fd4ee48f1407a6adc65bdbffd",
+  "selected_reasons": []
+}

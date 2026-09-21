@@ -1,0 +1,674 @@
+{
+  "complete": true,
+  "signature": "2a739becf6a9f2ba6d64281a638714df524cb840f10a88e2d0271bfb2361e0a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.9816021546721458,
+      "alignment_seconds": 0.0015363162383437157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Fenton and Anne Page._",
+        "hotwords": "Fenton, Anne, Page._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " enter Fenton and Anne Page._",
+          "start": 0.11,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.066650390625
+            },
+            {
+              "text": " Fenton",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.890625
+            },
+            {
+              "text": " and",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Anne",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " Page._",
+              "start": 1.55,
+              "end": 2.09,
+              "probability": 0.3171387016773224
+            }
+          ]
+        },
+        {
+          "text": " enter Fenton and Anne Page._",
+          "start": 2.09,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " enter",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 2.6941299438476562e-05
+            },
+            {
+              "text": " Fenton",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 3.916025161743164e-05
+            },
+            {
+              "text": " and",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 0.050506591796875
+            },
+            {
+              "text": " Anne",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 8.463859558105469e-06
+            },
+            {
+              "text": " Page._",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 7.063150405883789e-06
+            }
+          ]
+        },
+        {
+          "text": " enter Fenton and Anne Page._",
+          "start": 2.33,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " enter",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 2.7835369110107422e-05
+            },
+            {
+              "text": " Fenton",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 4.482269287109375e-05
+            },
+            {
+              "text": " and",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 0.04840087890625
+            },
+            {
+              "text": " Anne",
+              "start": 2.33,
+              "end": 2.33,
+              "probability": 8.761882781982422e-06
+            },
+            {
+              "text": " Page._",
+              "start": 2.33,
+              "end": 2.39,
+              "probability": 7.12275505065918e-06
+            }
+          ]
+        },
+        {
+          "text": " enter Fenton and Anne Page._",
+          "start": 2.39,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " enter",
+              "start": 2.39,
+              "end": 2.39,
+              "probability": 3.0279159545898438e-05
+            },
+            {
+              "text": " Fenton",
+              "start": 2.39,
+              "end": 2.39,
+              "probability": 4.9591064453125e-05
+            },
+            {
+              "text": " and",
+              "start": 2.39,
+              "end": 2.39,
+              "probability": 0.0482177734375
+            },
+            {
+              "text": " Anne",
+              "start": 2.39,
+              "end": 2.39,
+              "probability": 8.761882781982422e-06
+            },
+            {
+              "text": " Page._",
+              "start": 2.39,
+              "end": 2.45,
+              "probability": 6.645917892456055e-06
+            }
+          ]
+        },
+        {
+          "text": " enter Fenton and Anne Page._",
+          "start": 2.45,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " enter",
+              "start": 2.45,
+              "end": 2.49,
+              "probability": 3.1888484954833984e-05
+            },
+            {
+              "text": " Fenton",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 5.251169204711914e-05
+            },
+            {
+              "text": " and",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.04644775390625
+            },
+            {
+              "text": " Anne",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 9.179115295410156e-06
+            },
+            {
+              "text": " Page._",
+              "start": 2.49,
+              "end": 2.51,
+              "probability": 6.0498714447021484e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Fenton",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "Anne",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "Page._",
+          "start": 1.55,
+          "end": 2.09
+        },
+        {
+          "raw": "enter",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "Anne",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "Page._",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "enter",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "Anne",
+          "start": 2.33,
+          "end": 2.33
+        },
+        {
+          "raw": "Page._",
+          "start": 2.33,
+          "end": 2.39
+        },
+        {
+          "raw": "enter",
+          "start": 2.39,
+          "end": 2.39
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.39,
+          "end": 2.39
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.39
+        },
+        {
+          "raw": "Anne",
+          "start": 2.39,
+          "end": 2.39
+        },
+        {
+          "raw": "Page._",
+          "start": 2.39,
+          "end": 2.45
+        },
+        {
+          "raw": "enter",
+          "start": 2.45,
+          "end": 2.49
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Anne",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Page._",
+          "start": 2.49,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "FENTON",
+        "and",
+        "ANNE",
+        "PAGE._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Fenton",
+        "and",
+        "Anne",
+        "Page._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fenton",
+          "start": 0.65,
+          "end": 1.11,
+          "key": "fenton",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "anne",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Page._",
+          "start": 1.55,
+          "end": 2.09,
+          "key": "page",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "enter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "fenton",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "anne",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Page._",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "page",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "enter",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "fenton",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 2.33,
+          "end": 2.33,
+          "key": "anne",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Page._",
+          "start": 2.33,
+          "end": 2.39,
+          "key": "page",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 2.39,
+          "end": 2.39,
+          "key": "enter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.39,
+          "end": 2.39,
+          "key": "fenton",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.39,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 2.39,
+          "end": 2.39,
+          "key": "anne",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Page._",
+          "start": 2.39,
+          "end": 2.45,
+          "key": "page",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 2.45,
+          "end": 2.49,
+          "key": "enter",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Fenton",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "fenton",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "anne",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Page._",
+          "start": 2.49,
+          "end": 2.51,
+          "key": "page",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "FENTON",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "text": "and",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "text": "ANNE",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "PAGE._",
+          "start": 1.55,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 25,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9835178423672915
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "024eda086884c12e8e78d95a1e97e7de5f318231268f7fdfd261700d51b29537",
+  "selected_reasons": []
+}

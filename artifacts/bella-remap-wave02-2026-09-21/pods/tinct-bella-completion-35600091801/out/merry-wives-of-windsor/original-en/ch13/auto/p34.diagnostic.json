@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "ae488b6ccf2a8cfe5890c9ab1404d351f2fdd92ffe17b9ad30f49e012b9d6598",
+  "attempts": [
+    {
+      "asr_seconds": 0.18992585130035877,
+      "alignment_seconds": 0.0007760478183627129,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ Peace!",
+        "hotwords": "Page._, Peace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs. Page, Peace!",
+          "start": 0.02,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " Page,",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " Peace!",
+              "start": 1.38,
+              "end": 1.56,
+              "probability": 0.332275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Page,",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "Peace!",
+          "start": 1.38,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Peace!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Peace!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page,",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Peace!",
+          "start": 1.38,
+          "end": 1.56,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Page._",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "text": "Peace!",
+          "start": 1.38,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1907754521816969
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56400e200a78062f7d4b08e139016e7d2414181b3883b75c43d8383514403bf3",
+  "selected_reasons": []
+}

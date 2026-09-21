@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "04aa6193b279f7fe1412e0e768541ef68135a8392941d654c74ebabcca0e84a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.30023345071822405,
+      "alignment_seconds": 0.001572449691593647,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mrs Page._ Within a quarter of an hour. 5",
+        "hotwords": "Page._, Within"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs. Page._, Within a quarter of an hour. 5",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " Page._,",
+              "start": 0.99,
+              "end": 1.35,
+              "probability": 0.458740234375
+            },
+            {
+              "text": " Within",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.175048828125
+            },
+            {
+              "text": " a",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " quarter",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " of",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " an",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hour.",
+              "start": 2.11,
+              "end": 2.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " 5",
+              "start": 2.79,
+              "end": 3.07,
+              "probability": 0.52978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Page._,",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "raw": "Within",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "a",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "quarter",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "an",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "hour.",
+          "start": 2.11,
+          "end": 2.37
+        },
+        {
+          "raw": "5",
+          "start": 2.79,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Within",
+        "a",
+        "quarter",
+        "of",
+        "an",
+        "hour.",
+        "5"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mrs",
+        "Page._",
+        "Within",
+        "a",
+        "quarter",
+        "of",
+        "an",
+        "hour.",
+        "5"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Page._,",
+          "start": 0.99,
+          "end": 1.35,
+          "key": "page",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Within",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "within",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "quarter",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "quarter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hour.",
+          "start": 2.11,
+          "end": 2.37,
+          "key": "hour",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 2.79,
+          "end": 3.07,
+          "key": "five",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mrs",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Page._",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "text": "Within",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "a",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "quarter",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "of",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "an",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "hour.",
+          "start": 2.11,
+          "end": 2.37
+        },
+        {
+          "text": "5",
+          "start": 2.79,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3019591271877289
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27acab5070267c2880d178b88597993ccc05c2916e9d271073bcbdbbb34e2011",
+  "selected_reasons": []
+}

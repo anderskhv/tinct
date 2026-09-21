@@ -1,0 +1,439 @@
+{
+  "complete": true,
+  "signature": "245a9aa51a1632ca2088f2caf1cded194b8584209a265a178c6eb72454b6679e",
+  "attempts": [
+    {
+      "asr_seconds": 0.7187024233862758,
+      "alignment_seconds": 0.0015991190448403358,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mari._ I am always bound to you. Exit._",
+        "hotwords": "I, Exit._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mari, I am always bound to you. Exit._",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Mari,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.491943359375
+            },
+            {
+              "text": " I",
+              "start": 0.95,
+              "end": 1.05,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " am",
+              "start": 1.05,
+              "end": 1.13,
+              "probability": 0.03900146484375
+            },
+            {
+              "text": " always",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.978515625
+            },
+            {
+              "text": " bound",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you.",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Exit._",
+              "start": 2.67,
+              "end": 3.13,
+              "probability": 0.447265625
+            }
+          ]
+        },
+        {
+          "text": " I, Exit._",
+          "start": 3.13,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " I,",
+              "start": 3.13,
+              "end": 3.13,
+              "probability": 0.0072174072265625
+            },
+            {
+              "text": " Exit._",
+              "start": 3.17,
+              "end": 3.19,
+              "probability": 2.086162567138672e-06
+            }
+          ]
+        },
+        {
+          "text": " I, Exit._",
+          "start": 3.19,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " I,",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 0.006778717041015625
+            },
+            {
+              "text": " Exit._",
+              "start": 3.25,
+              "end": 3.25,
+              "probability": 2.175569534301758e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mari,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "raw": "am",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "raw": "always",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "bound",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "to",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "you.",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "Exit._",
+          "start": 2.67,
+          "end": 3.13
+        },
+        {
+          "raw": "I,",
+          "start": 3.13,
+          "end": 3.13
+        },
+        {
+          "raw": "Exit._",
+          "start": 3.17,
+          "end": 3.19
+        },
+        {
+          "raw": "I,",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "raw": "Exit._",
+          "start": 3.25,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "_Mari._",
+        "I",
+        "am",
+        "always",
+        "bound",
+        "to",
+        "you.",
+        "[_Exit._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Mari._",
+        "I",
+        "am",
+        "always",
+        "bound",
+        "to",
+        "you.",
+        "Exit._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mari,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "mari",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.05,
+          "end": 1.13,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "always",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "bound",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Exit._",
+          "start": 2.67,
+          "end": 3.13,
+          "key": "exit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 3.13,
+          "end": 3.13,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Exit._",
+          "start": 3.17,
+          "end": 3.19,
+          "key": "exit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Exit._",
+          "start": 3.25,
+          "end": 3.25,
+          "key": "exit",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mari._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "I",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "text": "am",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "text": "always",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "text": "bound",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "to",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "you.",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "[_Exit._",
+          "start": 2.67,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 12,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7205002941191196
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95fd29407228a2da5e3f302850d6a5a08aeb2e854222cd5ffb61fd7723a175e5",
+  "selected_reasons": []
+}

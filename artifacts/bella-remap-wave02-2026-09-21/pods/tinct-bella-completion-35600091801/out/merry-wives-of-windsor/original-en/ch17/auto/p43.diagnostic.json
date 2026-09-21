@@ -1,0 +1,684 @@
+{
+  "complete": true,
+  "signature": "6a086100d6931141a1edbaa1a24982102e2130edb8361970265671e49e10a925",
+  "attempts": [
+    {
+      "asr_seconds": 0.47598324716091156,
+      "alignment_seconds": 0.0024601640179753304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Hue and cry, villain, go!--Assist me, knight. --I am undone!--Fly, run, hue and cry, villain!--I am undone!",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, hue and cry, villain, go!--Assist me, knight. I am undone! Fly, run, hue and cry, villain!--I am undone!",
+          "start": 0.05,
+          "end": 7.03,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.75390625
+            },
+            {
+              "text": " hue",
+              "start": 1.17,
+              "end": 1.23,
+              "probability": 0.474609375
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " cry,",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " villain,",
+              "start": 1.71,
+              "end": 1.93,
+              "probability": 0.982421875
+            },
+            {
+              "text": " go!--Assist",
+              "start": 2.11,
+              "end": 2.77,
+              "probability": 0.49667949974536896
+            },
+            {
+              "text": " me,",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " knight.",
+              "start": 3.11,
+              "end": 3.17,
+              "probability": 0.287841796875
+            },
+            {
+              "text": " I",
+              "start": 3.69,
+              "end": 3.81,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " am",
+              "start": 3.81,
+              "end": 3.93,
+              "probability": 0.958984375
+            },
+            {
+              "text": " undone!",
+              "start": 3.93,
+              "end": 4.33,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Fly,",
+              "start": 4.69,
+              "end": 4.85,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " run,",
+              "start": 5.05,
+              "end": 5.17,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " hue",
+              "start": 5.37,
+              "end": 5.47,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 5.47,
+              "end": 5.65,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " cry,",
+              "start": 5.65,
+              "end": 5.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " villain!--I",
+              "start": 6.01,
+              "end": 6.55,
+              "probability": 0.6597798665364584
+            },
+            {
+              "text": " am",
+              "start": 6.55,
+              "end": 6.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " undone!",
+              "start": 6.69,
+              "end": 7.03,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "hue",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "cry,",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "villain,",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "raw": "go!--Assist",
+          "start": 2.11,
+          "end": 2.77
+        },
+        {
+          "raw": "me,",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "knight.",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "raw": "I",
+          "start": 3.69,
+          "end": 3.81
+        },
+        {
+          "raw": "am",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "raw": "undone!",
+          "start": 3.93,
+          "end": 4.33
+        },
+        {
+          "raw": "Fly,",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "raw": "run,",
+          "start": 5.05,
+          "end": 5.17
+        },
+        {
+          "raw": "hue",
+          "start": 5.37,
+          "end": 5.47
+        },
+        {
+          "raw": "and",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "raw": "cry,",
+          "start": 5.65,
+          "end": 5.91
+        },
+        {
+          "raw": "villain!--I",
+          "start": 6.01,
+          "end": 6.55
+        },
+        {
+          "raw": "am",
+          "start": 6.55,
+          "end": 6.69
+        },
+        {
+          "raw": "undone!",
+          "start": 6.69,
+          "end": 7.03
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Hue",
+        "and",
+        "cry,",
+        "villain,",
+        "go!--Assist",
+        "me,",
+        "knight.",
+        "--I",
+        "am",
+        "undone!--Fly,",
+        "run,",
+        "hue",
+        "and",
+        "cry,",
+        "villain!--I",
+        "am",
+        "undone!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Hue",
+        "and",
+        "cry,",
+        "villain,",
+        "go!--Assist",
+        "me,",
+        "knight.",
+        "--I",
+        "am",
+        "undone!--Fly,",
+        "run,",
+        "hue",
+        "and",
+        "cry,",
+        "villain!--I",
+        "am",
+        "undone!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hue",
+          "start": 1.17,
+          "end": 1.23,
+          "key": "hue",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "cry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "villain,",
+          "start": 1.71,
+          "end": 1.93,
+          "key": "villain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go!--Assist",
+          "start": 2.11,
+          "end": 2.77,
+          "key": "goassist",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "knight.",
+          "start": 3.11,
+          "end": 3.17,
+          "key": "knight",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.69,
+          "end": 3.81,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.81,
+          "end": 3.93,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "undone! Fly,",
+          "start": 3.93,
+          "end": 4.85,
+          "key": "undonefly",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "run,",
+          "start": 5.05,
+          "end": 5.17,
+          "key": "run",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hue",
+          "start": 5.37,
+          "end": 5.47,
+          "key": "hue",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.47,
+          "end": 5.65,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 5.65,
+          "end": 5.91,
+          "key": "cry",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "villain!--I",
+          "start": 6.01,
+          "end": 6.55,
+          "key": "villaini",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 6.55,
+          "end": 6.69,
+          "key": "am",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "undone!",
+          "start": 6.69,
+          "end": 7.03,
+          "key": "undone",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "undone!--Fly,",
+          "heard": "undone! Fly,",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.93,
+          "end": 4.85
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Hue",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "cry,",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "villain,",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "text": "go!--Assist",
+          "start": 2.11,
+          "end": 2.77
+        },
+        {
+          "text": "me,",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "knight.",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "text": "--I",
+          "start": 3.69,
+          "end": 3.81
+        },
+        {
+          "text": "am",
+          "start": 3.81,
+          "end": 3.93
+        },
+        {
+          "text": "undone!--Fly,",
+          "start": 3.93,
+          "end": 4.85
+        },
+        {
+          "text": "run,",
+          "start": 5.05,
+          "end": 5.17
+        },
+        {
+          "text": "hue",
+          "start": 5.37,
+          "end": 5.47
+        },
+        {
+          "text": "and",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "text": "cry,",
+          "start": 5.65,
+          "end": 5.91
+        },
+        {
+          "text": "villain!--I",
+          "start": 6.01,
+          "end": 6.55
+        },
+        {
+          "text": "am",
+          "start": 6.55,
+          "end": 6.69
+        },
+        {
+          "text": "undone!",
+          "start": 6.69,
+          "end": 7.03
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.47867396008223295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e36f80220c067a63c9fa68a01a0bd225e203733c1bc9c9169c5d4cdeb1ab4f1",
+  "selected_reasons": []
+}

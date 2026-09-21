@@ -1,0 +1,8204 @@
+{
+  "complete": true,
+  "signature": "f0fba194c0bf6cc70f5765c8e588e3cfc25b7106e4a2161307a29132c5b9a480",
+  "attempts": [
+    {
+      "asr_seconds": 1.683111960068345,
+      "alignment_seconds": 0.012901370413601398,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Nam quum vidit hic, ad victum qux flagitat usus, Et per quae possent vitam consistere tutam, Omnia jam ferme mortalibus esse parata; Divitiis homines, et honore, et laude potentes Aflluere, atque bona natorum excellere fama; Nec minus esse domi cuiquam tamen anxia corda, Atque animi ingratis vitam vexare querelis Causam, quae infestis cogit saevire querelis, Intellegit ibi; vitium vas efficere ipsum, Omniaque, illius vitio, corrumpier intus, Qux collata foris et commoda quomque venirent.\"",
+        "hotwords": "Nam, Omnia, Divitiis, Aflluere, Nec, Causam, Intellegit, Omniaque"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nam quum vidit hic, ad victum qux flagitat usus, Et per quae possent vitam consistere tutam, Omnia jam ferme mortalibus esse parata, Divitiis homines, et honore, et laude potentes Afluere, atque bona natorum excellere fama, Nec minus esse domi cuiquam tamen anxia corda, Atque animi ingratis vitam vexare querelis Causam, quae infestis cogit saevire querelis, Intellegit ibi.",
+          "start": 0.05,
+          "end": 25.85,
+          "words": [
+            {
+              "text": " Nam",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.018402099609375
+            },
+            {
+              "text": " quum",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.06110382080078125
+            },
+            {
+              "text": " vidit",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.7679036458333334
+            },
+            {
+              "text": " hic,",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.8359375
+            },
+            {
+              "text": " ad",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " victum",
+              "start": 2.05,
+              "end": 2.45,
+              "probability": 0.265716552734375
+            },
+            {
+              "text": " qux",
+              "start": 2.45,
+              "end": 2.67,
+              "probability": 0.449859619140625
+            },
+            {
+              "text": " flagitat",
+              "start": 2.67,
+              "end": 3.17,
+              "probability": 0.7874348958333334
+            },
+            {
+              "text": " usus,",
+              "start": 3.17,
+              "end": 3.69,
+              "probability": 0.828857421875
+            },
+            {
+              "text": " Et",
+              "start": 4.13,
+              "end": 4.15,
+              "probability": 0.0016889572143554688
+            },
+            {
+              "text": " per",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " quae",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.09100341796875
+            },
+            {
+              "text": " possent",
+              "start": 4.55,
+              "end": 4.85,
+              "probability": 0.42443013191223145
+            },
+            {
+              "text": " vitam",
+              "start": 4.85,
+              "end": 5.17,
+              "probability": 0.51385498046875
+            },
+            {
+              "text": " consistere",
+              "start": 5.17,
+              "end": 5.69,
+              "probability": 0.40545654296875
+            },
+            {
+              "text": " tutam,",
+              "start": 5.69,
+              "end": 6.17,
+              "probability": 0.22222900390625
+            },
+            {
+              "text": " Omnia",
+              "start": 6.63,
+              "end": 6.87,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " jam",
+              "start": 6.87,
+              "end": 7.11,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " ferme",
+              "start": 7.11,
+              "end": 7.49,
+              "probability": 0.1169576644897461
+            },
+            {
+              "text": " mortalibus",
+              "start": 7.49,
+              "end": 7.97,
+              "probability": 0.837158203125
+            },
+            {
+              "text": " esse",
+              "start": 7.97,
+              "end": 8.29,
+              "probability": 0.742431640625
+            },
+            {
+              "text": " parata,",
+              "start": 8.29,
+              "end": 8.73,
+              "probability": 0.0703125
+            },
+            {
+              "text": " Divitiis",
+              "start": 9.33,
+              "end": 9.73,
+              "probability": 0.4858601888020833
+            },
+            {
+              "text": " homines,",
+              "start": 9.73,
+              "end": 10.17,
+              "probability": 0.792236328125
+            },
+            {
+              "text": " et",
+              "start": 10.45,
+              "end": 10.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " honore,",
+              "start": 10.49,
+              "end": 10.91,
+              "probability": 0.24835777282714844
+            },
+            {
+              "text": " et",
+              "start": 11.33,
+              "end": 11.45,
+              "probability": 0.802734375
+            },
+            {
+              "text": " laude",
+              "start": 11.45,
+              "end": 11.69,
+              "probability": 0.5034751892089844
+            },
+            {
+              "text": " potentes",
+              "start": 11.69,
+              "end": 12.17,
+              "probability": 0.371826171875
+            },
+            {
+              "text": " Afluere,",
+              "start": 12.17,
+              "end": 12.69,
+              "probability": 0.2882018983364105
+            },
+            {
+              "text": " atque",
+              "start": 13.09,
+              "end": 13.27,
+              "probability": 0.07640266418457031
+            },
+            {
+              "text": " bona",
+              "start": 13.27,
+              "end": 13.51,
+              "probability": 0.1522216796875
+            },
+            {
+              "text": " natorum",
+              "start": 13.51,
+              "end": 14.03,
+              "probability": 0.5777994791666666
+            },
+            {
+              "text": " excellere",
+              "start": 14.03,
+              "end": 14.57,
+              "probability": 0.20195388793945312
+            },
+            {
+              "text": " fama,",
+              "start": 14.57,
+              "end": 14.99,
+              "probability": 0.43846893310546875
+            },
+            {
+              "text": " Nec",
+              "start": 15.57,
+              "end": 15.67,
+              "probability": 0.155517578125
+            },
+            {
+              "text": " minus",
+              "start": 15.67,
+              "end": 16.07,
+              "probability": 0.27001953125
+            },
+            {
+              "text": " esse",
+              "start": 16.07,
+              "end": 16.39,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " domi",
+              "start": 16.39,
+              "end": 16.71,
+              "probability": 0.567138671875
+            },
+            {
+              "text": " cuiquam",
+              "start": 16.71,
+              "end": 17.15,
+              "probability": 0.12255859375
+            },
+            {
+              "text": " tamen",
+              "start": 17.15,
+              "end": 17.53,
+              "probability": 0.45709228515625
+            },
+            {
+              "text": " anxia",
+              "start": 17.53,
+              "end": 17.95,
+              "probability": 0.717041015625
+            },
+            {
+              "text": " corda,",
+              "start": 17.95,
+              "end": 18.43,
+              "probability": 0.823486328125
+            },
+            {
+              "text": " Atque",
+              "start": 18.93,
+              "end": 19.15,
+              "probability": 0.648681640625
+            },
+            {
+              "text": " animi",
+              "start": 19.15,
+              "end": 19.51,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " ingratis",
+              "start": 19.51,
+              "end": 20.03,
+              "probability": 0.7560221354166666
+            },
+            {
+              "text": " vitam",
+              "start": 20.03,
+              "end": 20.33,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " vexare",
+              "start": 20.33,
+              "end": 20.75,
+              "probability": 0.6536865234375
+            },
+            {
+              "text": " querelis",
+              "start": 20.75,
+              "end": 21.21,
+              "probability": 0.349334716796875
+            },
+            {
+              "text": " Causam,",
+              "start": 21.21,
+              "end": 21.75,
+              "probability": 0.4506975809733073
+            },
+            {
+              "text": " quae",
+              "start": 22.19,
+              "end": 22.35,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " infestis",
+              "start": 22.35,
+              "end": 23.01,
+              "probability": 0.8977864583333334
+            },
+            {
+              "text": " cogit",
+              "start": 23.01,
+              "end": 23.39,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " saevire",
+              "start": 23.39,
+              "end": 23.83,
+              "probability": 0.47417767842610675
+            },
+            {
+              "text": " querelis,",
+              "start": 23.83,
+              "end": 24.49,
+              "probability": 0.9108072916666666
+            },
+            {
+              "text": " Intellegit",
+              "start": 24.89,
+              "end": 25.49,
+              "probability": 0.27936553955078125
+            },
+            {
+              "text": " ibi.",
+              "start": 25.49,
+              "end": 25.85,
+              "probability": 0.309478759765625
+            }
+          ]
+        },
+        {
+          "text": " Vitium vas efficere ipsum, Omniaque, illius vitio, corrumpier intus, Qux collata foris et commoda quomque venirent.",
+          "start": 25.85,
+          "end": 34.99,
+          "words": [
+            {
+              "text": " Vitium",
+              "start": 25.85,
+              "end": 27.39,
+              "probability": 0.4964714050292969
+            },
+            {
+              "text": " vas",
+              "start": 27.39,
+              "end": 27.69,
+              "probability": 0.402587890625
+            },
+            {
+              "text": " efficere",
+              "start": 27.69,
+              "end": 28.31,
+              "probability": 0.31768544514973956
+            },
+            {
+              "text": " ipsum,",
+              "start": 28.31,
+              "end": 28.75,
+              "probability": 0.9856770833333334
+            },
+            {
+              "text": " Omniaque,",
+              "start": 29.17,
+              "end": 29.67,
+              "probability": 0.09918212890625
+            },
+            {
+              "text": " illius",
+              "start": 30.11,
+              "end": 30.43,
+              "probability": 0.12847423553466797
+            },
+            {
+              "text": " vitio,",
+              "start": 30.43,
+              "end": 30.95,
+              "probability": 0.40198278427124023
+            },
+            {
+              "text": " corrumpier",
+              "start": 31.19,
+              "end": 31.57,
+              "probability": 0.1406421661376953
+            },
+            {
+              "text": " intus,",
+              "start": 31.57,
+              "end": 32.11,
+              "probability": 0.722900390625
+            },
+            {
+              "text": " Qux",
+              "start": 32.55,
+              "end": 32.71,
+              "probability": 0.13055706024169922
+            },
+            {
+              "text": " collata",
+              "start": 32.71,
+              "end": 33.09,
+              "probability": 0.47613525390625
+            },
+            {
+              "text": " foris",
+              "start": 33.09,
+              "end": 33.57,
+              "probability": 0.49774169921875
+            },
+            {
+              "text": " et",
+              "start": 33.57,
+              "end": 33.75,
+              "probability": 0.884765625
+            },
+            {
+              "text": " commoda",
+              "start": 33.75,
+              "end": 34.19,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " quomque",
+              "start": 34.19,
+              "end": 34.57,
+              "probability": 0.604522705078125
+            },
+            {
+              "text": " venirent.",
+              "start": 34.57,
+              "end": 34.99,
+              "probability": 0.3518168131510417
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nam",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "quum",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "vidit",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "hic,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "ad",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "victum",
+          "start": 2.05,
+          "end": 2.45
+        },
+        {
+          "raw": "qux",
+          "start": 2.45,
+          "end": 2.67
+        },
+        {
+          "raw": "flagitat",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "raw": "usus,",
+          "start": 3.17,
+          "end": 3.69
+        },
+        {
+          "raw": "Et",
+          "start": 4.13,
+          "end": 4.15
+        },
+        {
+          "raw": "per",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "quae",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "possent",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "raw": "vitam",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "raw": "consistere",
+          "start": 5.17,
+          "end": 5.69
+        },
+        {
+          "raw": "tutam,",
+          "start": 5.69,
+          "end": 6.17
+        },
+        {
+          "raw": "Omnia",
+          "start": 6.63,
+          "end": 6.87
+        },
+        {
+          "raw": "jam",
+          "start": 6.87,
+          "end": 7.11
+        },
+        {
+          "raw": "ferme",
+          "start": 7.11,
+          "end": 7.49
+        },
+        {
+          "raw": "mortalibus",
+          "start": 7.49,
+          "end": 7.97
+        },
+        {
+          "raw": "esse",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "raw": "parata,",
+          "start": 8.29,
+          "end": 8.73
+        },
+        {
+          "raw": "Divitiis",
+          "start": 9.33,
+          "end": 9.73
+        },
+        {
+          "raw": "homines,",
+          "start": 9.73,
+          "end": 10.17
+        },
+        {
+          "raw": "et",
+          "start": 10.45,
+          "end": 10.49
+        },
+        {
+          "raw": "honore,",
+          "start": 10.49,
+          "end": 10.91
+        },
+        {
+          "raw": "et",
+          "start": 11.33,
+          "end": 11.45
+        },
+        {
+          "raw": "laude",
+          "start": 11.45,
+          "end": 11.69
+        },
+        {
+          "raw": "potentes",
+          "start": 11.69,
+          "end": 12.17
+        },
+        {
+          "raw": "Afluere,",
+          "start": 12.17,
+          "end": 12.69
+        },
+        {
+          "raw": "atque",
+          "start": 13.09,
+          "end": 13.27
+        },
+        {
+          "raw": "bona",
+          "start": 13.27,
+          "end": 13.51
+        },
+        {
+          "raw": "natorum",
+          "start": 13.51,
+          "end": 14.03
+        },
+        {
+          "raw": "excellere",
+          "start": 14.03,
+          "end": 14.57
+        },
+        {
+          "raw": "fama,",
+          "start": 14.57,
+          "end": 14.99
+        },
+        {
+          "raw": "Nec",
+          "start": 15.57,
+          "end": 15.67
+        },
+        {
+          "raw": "minus",
+          "start": 15.67,
+          "end": 16.07
+        },
+        {
+          "raw": "esse",
+          "start": 16.07,
+          "end": 16.39
+        },
+        {
+          "raw": "domi",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "raw": "cuiquam",
+          "start": 16.71,
+          "end": 17.15
+        },
+        {
+          "raw": "tamen",
+          "start": 17.15,
+          "end": 17.53
+        },
+        {
+          "raw": "anxia",
+          "start": 17.53,
+          "end": 17.95
+        },
+        {
+          "raw": "corda,",
+          "start": 17.95,
+          "end": 18.43
+        },
+        {
+          "raw": "Atque",
+          "start": 18.93,
+          "end": 19.15
+        },
+        {
+          "raw": "animi",
+          "start": 19.15,
+          "end": 19.51
+        },
+        {
+          "raw": "ingratis",
+          "start": 19.51,
+          "end": 20.03
+        },
+        {
+          "raw": "vitam",
+          "start": 20.03,
+          "end": 20.33
+        },
+        {
+          "raw": "vexare",
+          "start": 20.33,
+          "end": 20.75
+        },
+        {
+          "raw": "querelis",
+          "start": 20.75,
+          "end": 21.21
+        },
+        {
+          "raw": "Causam,",
+          "start": 21.21,
+          "end": 21.75
+        },
+        {
+          "raw": "quae",
+          "start": 22.19,
+          "end": 22.35
+        },
+        {
+          "raw": "infestis",
+          "start": 22.35,
+          "end": 23.01
+        },
+        {
+          "raw": "cogit",
+          "start": 23.01,
+          "end": 23.39
+        },
+        {
+          "raw": "saevire",
+          "start": 23.39,
+          "end": 23.83
+        },
+        {
+          "raw": "querelis,",
+          "start": 23.83,
+          "end": 24.49
+        },
+        {
+          "raw": "Intellegit",
+          "start": 24.89,
+          "end": 25.49
+        },
+        {
+          "raw": "ibi.",
+          "start": 25.49,
+          "end": 25.85
+        },
+        {
+          "raw": "Vitium",
+          "start": 25.85,
+          "end": 27.39
+        },
+        {
+          "raw": "vas",
+          "start": 27.39,
+          "end": 27.69
+        },
+        {
+          "raw": "efficere",
+          "start": 27.69,
+          "end": 28.31
+        },
+        {
+          "raw": "ipsum,",
+          "start": 28.31,
+          "end": 28.75
+        },
+        {
+          "raw": "Omniaque,",
+          "start": 29.17,
+          "end": 29.67
+        },
+        {
+          "raw": "illius",
+          "start": 30.11,
+          "end": 30.43
+        },
+        {
+          "raw": "vitio,",
+          "start": 30.43,
+          "end": 30.95
+        },
+        {
+          "raw": "corrumpier",
+          "start": 31.19,
+          "end": 31.57
+        },
+        {
+          "raw": "intus,",
+          "start": 31.57,
+          "end": 32.11
+        },
+        {
+          "raw": "Qux",
+          "start": 32.55,
+          "end": 32.71
+        },
+        {
+          "raw": "collata",
+          "start": 32.71,
+          "end": 33.09
+        },
+        {
+          "raw": "foris",
+          "start": 33.09,
+          "end": 33.57
+        },
+        {
+          "raw": "et",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "raw": "commoda",
+          "start": 33.75,
+          "end": 34.19
+        },
+        {
+          "raw": "quomque",
+          "start": 34.19,
+          "end": 34.57
+        },
+        {
+          "raw": "venirent.",
+          "start": 34.57,
+          "end": 34.99
+        }
+      ],
+      "expected_tokens": [
+        "“Nam",
+        "quum",
+        "vidit",
+        "hic,",
+        "ad",
+        "victum",
+        "qux",
+        "flagitat",
+        "usus,",
+        "Et",
+        "per",
+        "quae",
+        "possent",
+        "vitam",
+        "consistere",
+        "tutam,",
+        "Omnia",
+        "jam",
+        "ferme",
+        "mortalibus",
+        "esse",
+        "parata;",
+        "Divitiis",
+        "homines,",
+        "et",
+        "honore,",
+        "et",
+        "laude",
+        "potentes",
+        "Aflluere,",
+        "atque",
+        "bona",
+        "natorum",
+        "excellere",
+        "fama;",
+        "Nec",
+        "minus",
+        "esse",
+        "domi",
+        "cuiquam",
+        "tamen",
+        "anxia",
+        "corda,",
+        "Atque",
+        "animi",
+        "ingratis",
+        "vitam",
+        "vexare",
+        "querelis",
+        "Causam,",
+        "quae",
+        "infestis",
+        "cogit",
+        "saevire",
+        "querelis,",
+        "Intellegit",
+        "ibi;",
+        "vitium",
+        "vas",
+        "efficere",
+        "ipsum,",
+        "Omniaque,",
+        "illius",
+        "vitio,",
+        "corrumpier",
+        "intus,",
+        "Qux",
+        "collata",
+        "foris",
+        "et",
+        "commoda",
+        "quomque",
+        "venirent.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Nam",
+        "quum",
+        "vidit",
+        "hic,",
+        "ad",
+        "victum",
+        "qux",
+        "flagitat",
+        "usus,",
+        "Et",
+        "per",
+        "quae",
+        "possent",
+        "vitam",
+        "consistere",
+        "tutam,",
+        "Omnia",
+        "jam",
+        "ferme",
+        "mortalibus",
+        "esse",
+        "parata;",
+        "Divitiis",
+        "homines,",
+        "et",
+        "honore,",
+        "et",
+        "laude",
+        "potentes",
+        "Aflluere,",
+        "atque",
+        "bona",
+        "natorum",
+        "excellere",
+        "fama;",
+        "Nec",
+        "minus",
+        "esse",
+        "domi",
+        "cuiquam",
+        "tamen",
+        "anxia",
+        "corda,",
+        "Atque",
+        "animi",
+        "ingratis",
+        "vitam",
+        "vexare",
+        "querelis",
+        "Causam,",
+        "quae",
+        "infestis",
+        "cogit",
+        "saevire",
+        "querelis,",
+        "Intellegit",
+        "ibi;",
+        "vitium",
+        "vas",
+        "efficere",
+        "ipsum,",
+        "Omniaque,",
+        "illius",
+        "vitio,",
+        "corrumpier",
+        "intus,",
+        "Qux",
+        "collata",
+        "foris",
+        "et",
+        "commoda",
+        "quomque",
+        "venirent.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          30
+        ],
+        [
+          "equal",
+          30,
+          73,
+          30,
+          73
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          29,
+          30,
+          29,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nam",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "nam",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quum",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "quum",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vidit",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "vidit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hic,",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "hic",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ad",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "ad",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "victum",
+          "start": 2.05,
+          "end": 2.45,
+          "key": "victum",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "qux",
+          "start": 2.45,
+          "end": 2.67,
+          "key": "qux",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flagitat",
+          "start": 2.67,
+          "end": 3.17,
+          "key": "flagitat",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "usus,",
+          "start": 3.17,
+          "end": 3.69,
+          "key": "usus",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Et",
+          "start": 4.13,
+          "end": 4.15,
+          "key": "et",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "per",
+          "start": 4.15,
+          "end": 4.33,
+          "key": "per",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quae",
+          "start": 4.33,
+          "end": 4.55,
+          "key": "quae",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "possent",
+          "start": 4.55,
+          "end": 4.85,
+          "key": "possent",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "vitam",
+          "start": 4.85,
+          "end": 5.17,
+          "key": "vitam",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "consistere",
+          "start": 5.17,
+          "end": 5.69,
+          "key": "consistere",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tutam,",
+          "start": 5.69,
+          "end": 6.17,
+          "key": "tutam",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Omnia",
+          "start": 6.63,
+          "end": 6.87,
+          "key": "omnia",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "jam",
+          "start": 6.87,
+          "end": 7.11,
+          "key": "jam",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ferme",
+          "start": 7.11,
+          "end": 7.49,
+          "key": "ferme",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mortalibus",
+          "start": 7.49,
+          "end": 7.97,
+          "key": "mortalibus",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "esse",
+          "start": 7.97,
+          "end": 8.29,
+          "key": "esse",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "parata,",
+          "start": 8.29,
+          "end": 8.73,
+          "key": "parata",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Divitiis",
+          "start": 9.33,
+          "end": 9.73,
+          "key": "divitiis",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "homines,",
+          "start": 9.73,
+          "end": 10.17,
+          "key": "homines",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 10.45,
+          "end": 10.49,
+          "key": "et",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "honore,",
+          "start": 10.49,
+          "end": 10.91,
+          "key": "honore",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 11.33,
+          "end": 11.45,
+          "key": "et",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "laude",
+          "start": 11.45,
+          "end": 11.69,
+          "key": "laude",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "potentes",
+          "start": 11.69,
+          "end": 12.17,
+          "key": "potentes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Afluere,",
+          "start": 12.17,
+          "end": 12.69,
+          "key": "afluere",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "atque",
+          "start": 13.09,
+          "end": 13.27,
+          "key": "atque",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "bona",
+          "start": 13.27,
+          "end": 13.51,
+          "key": "bona",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "natorum",
+          "start": 13.51,
+          "end": 14.03,
+          "key": "natorum",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "excellere",
+          "start": 14.03,
+          "end": 14.57,
+          "key": "excellere",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "fama,",
+          "start": 14.57,
+          "end": 14.99,
+          "key": "fama",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Nec",
+          "start": 15.57,
+          "end": 15.67,
+          "key": "nec",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "minus",
+          "start": 15.67,
+          "end": 16.07,
+          "key": "minus",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "esse",
+          "start": 16.07,
+          "end": 16.39,
+          "key": "esse",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "domi",
+          "start": 16.39,
+          "end": 16.71,
+          "key": "domi",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "cuiquam",
+          "start": 16.71,
+          "end": 17.15,
+          "key": "cuiquam",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "tamen",
+          "start": 17.15,
+          "end": 17.53,
+          "key": "tamen",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "anxia",
+          "start": 17.53,
+          "end": 17.95,
+          "key": "anxia",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "corda,",
+          "start": 17.95,
+          "end": 18.43,
+          "key": "corda",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Atque",
+          "start": 18.93,
+          "end": 19.15,
+          "key": "atque",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "animi",
+          "start": 19.15,
+          "end": 19.51,
+          "key": "animi",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "ingratis",
+          "start": 19.51,
+          "end": 20.03,
+          "key": "ingratis",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "vitam",
+          "start": 20.03,
+          "end": 20.33,
+          "key": "vitam",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "vexare",
+          "start": 20.33,
+          "end": 20.75,
+          "key": "vexare",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "querelis",
+          "start": 20.75,
+          "end": 21.21,
+          "key": "querelis",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Causam,",
+          "start": 21.21,
+          "end": 21.75,
+          "key": "causam",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "quae",
+          "start": 22.19,
+          "end": 22.35,
+          "key": "quae",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "infestis",
+          "start": 22.35,
+          "end": 23.01,
+          "key": "infestis",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "cogit",
+          "start": 23.01,
+          "end": 23.39,
+          "key": "cogit",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "saevire",
+          "start": 23.39,
+          "end": 23.83,
+          "key": "saevire",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "querelis,",
+          "start": 23.83,
+          "end": 24.49,
+          "key": "querelis",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Intellegit",
+          "start": 24.89,
+          "end": 25.49,
+          "key": "intellegit",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "ibi.",
+          "start": 25.49,
+          "end": 25.85,
+          "key": "ibi",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Vitium",
+          "start": 25.85,
+          "end": 27.39,
+          "key": "vitium",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "vas",
+          "start": 27.39,
+          "end": 27.69,
+          "key": "vas",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "efficere",
+          "start": 27.69,
+          "end": 28.31,
+          "key": "efficere",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "ipsum,",
+          "start": 28.31,
+          "end": 28.75,
+          "key": "ipsum",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Omniaque,",
+          "start": 29.17,
+          "end": 29.67,
+          "key": "omniaque",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "illius",
+          "start": 30.11,
+          "end": 30.43,
+          "key": "illius",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "vitio,",
+          "start": 30.43,
+          "end": 30.95,
+          "key": "vitio",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "corrumpier",
+          "start": 31.19,
+          "end": 31.57,
+          "key": "corrumpier",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "intus,",
+          "start": 31.57,
+          "end": 32.11,
+          "key": "intus",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Qux",
+          "start": 32.55,
+          "end": 32.71,
+          "key": "qux",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "collata",
+          "start": 32.71,
+          "end": 33.09,
+          "key": "collata",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "foris",
+          "start": 33.09,
+          "end": 33.57,
+          "key": "foris",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 33.57,
+          "end": 33.75,
+          "key": "et",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "commoda",
+          "start": 33.75,
+          "end": 34.19,
+          "key": "commoda",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "quomque",
+          "start": 34.19,
+          "end": 34.57,
+          "key": "quomque",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "venirent.",
+          "start": 34.57,
+          "end": 34.99,
+          "key": "venirent",
+          "pieces": [
+            72
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Nam",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "quum",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "text": "vidit",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "hic,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "text": "ad",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "victum",
+          "start": 2.05,
+          "end": 2.45
+        },
+        {
+          "text": "qux",
+          "start": 2.45,
+          "end": 2.67
+        },
+        {
+          "text": "flagitat",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "text": "usus,",
+          "start": 3.17,
+          "end": 3.69
+        },
+        {
+          "text": "Et",
+          "start": 4.13,
+          "end": 4.15
+        },
+        {
+          "text": "per",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "text": "quae",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "text": "possent",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "text": "vitam",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "text": "consistere",
+          "start": 5.17,
+          "end": 5.69
+        },
+        {
+          "text": "tutam,",
+          "start": 5.69,
+          "end": 6.17
+        },
+        {
+          "text": "Omnia",
+          "start": 6.63,
+          "end": 6.87
+        },
+        {
+          "text": "jam",
+          "start": 6.87,
+          "end": 7.11
+        },
+        {
+          "text": "ferme",
+          "start": 7.11,
+          "end": 7.49
+        },
+        {
+          "text": "mortalibus",
+          "start": 7.49,
+          "end": 7.97
+        },
+        {
+          "text": "esse",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "text": "parata;",
+          "start": 8.29,
+          "end": 8.73
+        },
+        {
+          "text": "Divitiis",
+          "start": 9.33,
+          "end": 9.73
+        },
+        {
+          "text": "homines,",
+          "start": 9.73,
+          "end": 10.17
+        },
+        {
+          "text": "et",
+          "start": 10.45,
+          "end": 10.49
+        },
+        {
+          "text": "honore,",
+          "start": 10.49,
+          "end": 10.91
+        },
+        {
+          "text": "et",
+          "start": 11.33,
+          "end": 11.45
+        },
+        {
+          "text": "laude",
+          "start": 11.45,
+          "end": 11.69
+        },
+        {
+          "text": "potentes",
+          "start": 11.69,
+          "end": 12.17
+        },
+        {
+          "text": "Aflluere,",
+          "start": 12.17,
+          "end": 12.63
+        },
+        {
+          "text": "atque",
+          "start": 13.09,
+          "end": 13.27
+        },
+        {
+          "text": "bona",
+          "start": 13.27,
+          "end": 13.51
+        },
+        {
+          "text": "natorum",
+          "start": 13.51,
+          "end": 14.03
+        },
+        {
+          "text": "excellere",
+          "start": 14.03,
+          "end": 14.57
+        },
+        {
+          "text": "fama;",
+          "start": 14.57,
+          "end": 14.99
+        },
+        {
+          "text": "Nec",
+          "start": 15.57,
+          "end": 15.67
+        },
+        {
+          "text": "minus",
+          "start": 15.67,
+          "end": 16.07
+        },
+        {
+          "text": "esse",
+          "start": 16.07,
+          "end": 16.39
+        },
+        {
+          "text": "domi",
+          "start": 16.39,
+          "end": 16.71
+        },
+        {
+          "text": "cuiquam",
+          "start": 16.71,
+          "end": 17.15
+        },
+        {
+          "text": "tamen",
+          "start": 17.15,
+          "end": 17.53
+        },
+        {
+          "text": "anxia",
+          "start": 17.53,
+          "end": 17.95
+        },
+        {
+          "text": "corda,",
+          "start": 17.95,
+          "end": 18.43
+        },
+        {
+          "text": "Atque",
+          "start": 18.93,
+          "end": 19.15
+        },
+        {
+          "text": "animi",
+          "start": 19.15,
+          "end": 19.51
+        },
+        {
+          "text": "ingratis",
+          "start": 19.51,
+          "end": 20.03
+        },
+        {
+          "text": "vitam",
+          "start": 20.03,
+          "end": 20.33
+        },
+        {
+          "text": "vexare",
+          "start": 20.33,
+          "end": 20.75
+        },
+        {
+          "text": "querelis",
+          "start": 20.75,
+          "end": 21.21
+        },
+        {
+          "text": "Causam,",
+          "start": 21.21,
+          "end": 21.75
+        },
+        {
+          "text": "quae",
+          "start": 22.19,
+          "end": 22.35
+        },
+        {
+          "text": "infestis",
+          "start": 22.35,
+          "end": 23.01
+        },
+        {
+          "text": "cogit",
+          "start": 23.01,
+          "end": 23.39
+        },
+        {
+          "text": "saevire",
+          "start": 23.39,
+          "end": 23.83
+        },
+        {
+          "text": "querelis,",
+          "start": 23.83,
+          "end": 24.49
+        },
+        {
+          "text": "Intellegit",
+          "start": 24.89,
+          "end": 25.49
+        },
+        {
+          "text": "ibi;",
+          "start": 25.49,
+          "end": 25.85
+        },
+        {
+          "text": "vitium",
+          "start": 25.85,
+          "end": 27.39
+        },
+        {
+          "text": "vas",
+          "start": 27.39,
+          "end": 27.69
+        },
+        {
+          "text": "efficere",
+          "start": 27.69,
+          "end": 28.31
+        },
+        {
+          "text": "ipsum,",
+          "start": 28.31,
+          "end": 28.75
+        },
+        {
+          "text": "Omniaque,",
+          "start": 29.17,
+          "end": 29.67
+        },
+        {
+          "text": "illius",
+          "start": 30.11,
+          "end": 30.43
+        },
+        {
+          "text": "vitio,",
+          "start": 30.43,
+          "end": 30.95
+        },
+        {
+          "text": "corrumpier",
+          "start": 31.19,
+          "end": 31.57
+        },
+        {
+          "text": "intus,",
+          "start": 31.57,
+          "end": 32.11
+        },
+        {
+          "text": "Qux",
+          "start": 32.55,
+          "end": 32.71
+        },
+        {
+          "text": "collata",
+          "start": 32.71,
+          "end": 33.09
+        },
+        {
+          "text": "foris",
+          "start": 33.09,
+          "end": 33.57
+        },
+        {
+          "text": "et",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "text": "commoda",
+          "start": 33.75,
+          "end": 34.19
+        },
+        {
+          "text": "quomque",
+          "start": 34.19,
+          "end": 34.57
+        },
+        {
+          "text": "venirent.”",
+          "start": 34.57,
+          "end": 34.99
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 73,
+        "matched_words": 72
+      },
+      "match_ratio": 0.9863013698630136,
+      "rejection_reasons": [],
+      "seconds": 1.6968301190063357
+    },
+    {
+      "asr_seconds": 1.6359526626765728,
+      "alignment_seconds": 0.022008921951055527,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Nam, Omnia, Divitiis, Aflluere, Nec, Causam, Intellegit, Omniaque"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Nam quam vidit hic, ad victim quix flagitat usus, et perqui percent vidam consistere tutem, Omnia jam firm mortalibus esse pareta. Divitiis homines, et honor, et laud potense afflura, ac bona naturam excelere phama. Nec minus esse domi quiquem taman anxia corda, ac animi ingratis vidam vexer quireles causam, qui infestis cogit sivire quireles, Intellegit ibae.",
+          "start": 0.05,
+          "end": 25.75,
+          "words": [
+            {
+              "text": " Nam",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.018402099609375
+            },
+            {
+              "text": " quam",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.520294189453125
+            },
+            {
+              "text": " vidit",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.8009440104166666
+            },
+            {
+              "text": " hic,",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.80078125
+            },
+            {
+              "text": " ad",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " victim",
+              "start": 2.05,
+              "end": 2.39,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " quix",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " flagitat",
+              "start": 2.67,
+              "end": 3.17,
+              "probability": 0.72991943359375
+            },
+            {
+              "text": " usus,",
+              "start": 3.17,
+              "end": 3.71,
+              "probability": 0.803466796875
+            },
+            {
+              "text": " et",
+              "start": 4.13,
+              "end": 4.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " perqui",
+              "start": 4.15,
+              "end": 4.55,
+              "probability": 0.7605794270833334
+            },
+            {
+              "text": " percent",
+              "start": 4.55,
+              "end": 4.81,
+              "probability": 0.368896484375
+            },
+            {
+              "text": " vidam",
+              "start": 4.81,
+              "end": 5.17,
+              "probability": 0.8990885416666666
+            },
+            {
+              "text": " consistere",
+              "start": 5.17,
+              "end": 5.71,
+              "probability": 0.4609375
+            },
+            {
+              "text": " tutem,",
+              "start": 5.71,
+              "end": 6.15,
+              "probability": 0.5963134765625
+            },
+            {
+              "text": " Omnia",
+              "start": 6.63,
+              "end": 6.87,
+              "probability": 0.49248504638671875
+            },
+            {
+              "text": " jam",
+              "start": 6.87,
+              "end": 7.09,
+              "probability": 0.7734375
+            },
+            {
+              "text": " firm",
+              "start": 7.09,
+              "end": 7.39,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " mortalibus",
+              "start": 7.39,
+              "end": 7.97,
+              "probability": 0.811279296875
+            },
+            {
+              "text": " esse",
+              "start": 7.97,
+              "end": 8.29,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " pareta.",
+              "start": 8.29,
+              "end": 8.77,
+              "probability": 0.398681640625
+            },
+            {
+              "text": " Divitiis",
+              "start": 9.35,
+              "end": 9.73,
+              "probability": 0.5142110188802084
+            },
+            {
+              "text": " homines,",
+              "start": 9.73,
+              "end": 10.17,
+              "probability": 0.821044921875
+            },
+            {
+              "text": " et",
+              "start": 10.45,
+              "end": 10.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " honor,",
+              "start": 10.49,
+              "end": 10.81,
+              "probability": 0.97265625
+            },
+            {
+              "text": " et",
+              "start": 11.29,
+              "end": 11.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " laud",
+              "start": 11.47,
+              "end": 11.65,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " potense",
+              "start": 11.65,
+              "end": 12.13,
+              "probability": 0.4356689453125
+            },
+            {
+              "text": " afflura,",
+              "start": 12.13,
+              "end": 12.65,
+              "probability": 0.614501953125
+            },
+            {
+              "text": " ac",
+              "start": 13.11,
+              "end": 13.15,
+              "probability": 0.427490234375
+            },
+            {
+              "text": " bona",
+              "start": 13.15,
+              "end": 13.57,
+              "probability": 0.754638671875
+            },
+            {
+              "text": " naturam",
+              "start": 13.57,
+              "end": 14.03,
+              "probability": 0.5840657552083334
+            },
+            {
+              "text": " excelere",
+              "start": 14.03,
+              "end": 14.49,
+              "probability": 0.22454833984375
+            },
+            {
+              "text": " phama.",
+              "start": 14.49,
+              "end": 14.89,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " Nec",
+              "start": 15.55,
+              "end": 15.69,
+              "probability": 0.39111328125
+            },
+            {
+              "text": " minus",
+              "start": 15.69,
+              "end": 16.09,
+              "probability": 0.502197265625
+            },
+            {
+              "text": " esse",
+              "start": 16.09,
+              "end": 16.39,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " domi",
+              "start": 16.39,
+              "end": 16.73,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " quiquem",
+              "start": 16.73,
+              "end": 17.15,
+              "probability": 0.6180013020833334
+            },
+            {
+              "text": " taman",
+              "start": 17.15,
+              "end": 17.49,
+              "probability": 0.33477783203125
+            },
+            {
+              "text": " anxia",
+              "start": 17.49,
+              "end": 17.97,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " corda,",
+              "start": 17.97,
+              "end": 18.45,
+              "probability": 0.844482421875
+            },
+            {
+              "text": " ac",
+              "start": 18.91,
+              "end": 19.05,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " animi",
+              "start": 19.05,
+              "end": 19.51,
+              "probability": 0.931396484375
+            },
+            {
+              "text": " ingratis",
+              "start": 19.51,
+              "end": 20.03,
+              "probability": 0.7556966145833334
+            },
+            {
+              "text": " vidam",
+              "start": 20.03,
+              "end": 20.33,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " vexer",
+              "start": 20.33,
+              "end": 20.75,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " quireles",
+              "start": 20.75,
+              "end": 21.19,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " causam,",
+              "start": 21.19,
+              "end": 21.77,
+              "probability": 0.40673828125
+            },
+            {
+              "text": " qui",
+              "start": 22.17,
+              "end": 22.35,
+              "probability": 0.76953125
+            },
+            {
+              "text": " infestis",
+              "start": 22.35,
+              "end": 23.01,
+              "probability": 0.8844401041666666
+            },
+            {
+              "text": " cogit",
+              "start": 23.01,
+              "end": 23.39,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " sivire",
+              "start": 23.39,
+              "end": 23.83,
+              "probability": 0.687255859375
+            },
+            {
+              "text": " quireles,",
+              "start": 23.83,
+              "end": 24.47,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Intellegit",
+              "start": 24.89,
+              "end": 25.49,
+              "probability": 0.3020394643147786
+            },
+            {
+              "text": " ibae.",
+              "start": 25.49,
+              "end": 25.75,
+              "probability": 0.55859375
+            }
+          ]
+        },
+        {
+          "text": " Vidiam vas effecir ipsum, Omniaque, Elius video, Quorumpere intus, quix collata forus et commoda quamque venerant.",
+          "start": 25.75,
+          "end": 34.99,
+          "words": [
+            {
+              "text": " Vidiam",
+              "start": 25.75,
+              "end": 27.41,
+              "probability": 0.052886962890625
+            },
+            {
+              "text": " vas",
+              "start": 27.41,
+              "end": 27.69,
+              "probability": 0.07708740234375
+            },
+            {
+              "text": " effecir",
+              "start": 27.69,
+              "end": 28.29,
+              "probability": 0.423095703125
+            },
+            {
+              "text": " ipsum,",
+              "start": 28.29,
+              "end": 28.75,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Omniaque,",
+              "start": 29.17,
+              "end": 29.67,
+              "probability": 0.11487833658854167
+            },
+            {
+              "text": " Elius",
+              "start": 30.17,
+              "end": 30.43,
+              "probability": 0.325927734375
+            },
+            {
+              "text": " video,",
+              "start": 30.43,
+              "end": 30.87,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " Quorumpere",
+              "start": 31.17,
+              "end": 31.61,
+              "probability": 0.4927978515625
+            },
+            {
+              "text": " intus,",
+              "start": 31.61,
+              "end": 32.11,
+              "probability": 0.73046875
+            },
+            {
+              "text": " quix",
+              "start": 32.55,
+              "end": 32.69,
+              "probability": 0.52984619140625
+            },
+            {
+              "text": " collata",
+              "start": 32.69,
+              "end": 33.09,
+              "probability": 0.21429443359375
+            },
+            {
+              "text": " forus",
+              "start": 33.09,
+              "end": 33.57,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " et",
+              "start": 33.57,
+              "end": 33.75,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " commoda",
+              "start": 33.75,
+              "end": 34.17,
+              "probability": 0.712158203125
+            },
+            {
+              "text": " quamque",
+              "start": 34.17,
+              "end": 34.57,
+              "probability": 0.9182942708333334
+            },
+            {
+              "text": " venerant.",
+              "start": 34.57,
+              "end": 34.99,
+              "probability": 0.909423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nam",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "quam",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "vidit",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "hic,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "ad",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "victim",
+          "start": 2.05,
+          "end": 2.39
+        },
+        {
+          "raw": "quix",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "flagitat",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "raw": "usus,",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "raw": "et",
+          "start": 4.13,
+          "end": 4.15
+        },
+        {
+          "raw": "perqui",
+          "start": 4.15,
+          "end": 4.55
+        },
+        {
+          "raw": "percent",
+          "start": 4.55,
+          "end": 4.81
+        },
+        {
+          "raw": "vidam",
+          "start": 4.81,
+          "end": 5.17
+        },
+        {
+          "raw": "consistere",
+          "start": 5.17,
+          "end": 5.71
+        },
+        {
+          "raw": "tutem,",
+          "start": 5.71,
+          "end": 6.15
+        },
+        {
+          "raw": "Omnia",
+          "start": 6.63,
+          "end": 6.87
+        },
+        {
+          "raw": "jam",
+          "start": 6.87,
+          "end": 7.09
+        },
+        {
+          "raw": "firm",
+          "start": 7.09,
+          "end": 7.39
+        },
+        {
+          "raw": "mortalibus",
+          "start": 7.39,
+          "end": 7.97
+        },
+        {
+          "raw": "esse",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "raw": "pareta.",
+          "start": 8.29,
+          "end": 8.77
+        },
+        {
+          "raw": "Divitiis",
+          "start": 9.35,
+          "end": 9.73
+        },
+        {
+          "raw": "homines,",
+          "start": 9.73,
+          "end": 10.17
+        },
+        {
+          "raw": "et",
+          "start": 10.45,
+          "end": 10.49
+        },
+        {
+          "raw": "honor,",
+          "start": 10.49,
+          "end": 10.81
+        },
+        {
+          "raw": "et",
+          "start": 11.29,
+          "end": 11.47
+        },
+        {
+          "raw": "laud",
+          "start": 11.47,
+          "end": 11.65
+        },
+        {
+          "raw": "potense",
+          "start": 11.65,
+          "end": 12.13
+        },
+        {
+          "raw": "afflura,",
+          "start": 12.13,
+          "end": 12.65
+        },
+        {
+          "raw": "ac",
+          "start": 13.11,
+          "end": 13.15
+        },
+        {
+          "raw": "bona",
+          "start": 13.15,
+          "end": 13.57
+        },
+        {
+          "raw": "naturam",
+          "start": 13.57,
+          "end": 14.03
+        },
+        {
+          "raw": "excelere",
+          "start": 14.03,
+          "end": 14.49
+        },
+        {
+          "raw": "phama.",
+          "start": 14.49,
+          "end": 14.89
+        },
+        {
+          "raw": "Nec",
+          "start": 15.55,
+          "end": 15.69
+        },
+        {
+          "raw": "minus",
+          "start": 15.69,
+          "end": 16.09
+        },
+        {
+          "raw": "esse",
+          "start": 16.09,
+          "end": 16.39
+        },
+        {
+          "raw": "domi",
+          "start": 16.39,
+          "end": 16.73
+        },
+        {
+          "raw": "quiquem",
+          "start": 16.73,
+          "end": 17.15
+        },
+        {
+          "raw": "taman",
+          "start": 17.15,
+          "end": 17.49
+        },
+        {
+          "raw": "anxia",
+          "start": 17.49,
+          "end": 17.97
+        },
+        {
+          "raw": "corda,",
+          "start": 17.97,
+          "end": 18.45
+        },
+        {
+          "raw": "ac",
+          "start": 18.91,
+          "end": 19.05
+        },
+        {
+          "raw": "animi",
+          "start": 19.05,
+          "end": 19.51
+        },
+        {
+          "raw": "ingratis",
+          "start": 19.51,
+          "end": 20.03
+        },
+        {
+          "raw": "vidam",
+          "start": 20.03,
+          "end": 20.33
+        },
+        {
+          "raw": "vexer",
+          "start": 20.33,
+          "end": 20.75
+        },
+        {
+          "raw": "quireles",
+          "start": 20.75,
+          "end": 21.19
+        },
+        {
+          "raw": "causam,",
+          "start": 21.19,
+          "end": 21.77
+        },
+        {
+          "raw": "qui",
+          "start": 22.17,
+          "end": 22.35
+        },
+        {
+          "raw": "infestis",
+          "start": 22.35,
+          "end": 23.01
+        },
+        {
+          "raw": "cogit",
+          "start": 23.01,
+          "end": 23.39
+        },
+        {
+          "raw": "sivire",
+          "start": 23.39,
+          "end": 23.83
+        },
+        {
+          "raw": "quireles,",
+          "start": 23.83,
+          "end": 24.47
+        },
+        {
+          "raw": "Intellegit",
+          "start": 24.89,
+          "end": 25.49
+        },
+        {
+          "raw": "ibae.",
+          "start": 25.49,
+          "end": 25.75
+        },
+        {
+          "raw": "Vidiam",
+          "start": 25.75,
+          "end": 27.41
+        },
+        {
+          "raw": "vas",
+          "start": 27.41,
+          "end": 27.69
+        },
+        {
+          "raw": "effecir",
+          "start": 27.69,
+          "end": 28.29
+        },
+        {
+          "raw": "ipsum,",
+          "start": 28.29,
+          "end": 28.75
+        },
+        {
+          "raw": "Omniaque,",
+          "start": 29.17,
+          "end": 29.67
+        },
+        {
+          "raw": "Elius",
+          "start": 30.17,
+          "end": 30.43
+        },
+        {
+          "raw": "video,",
+          "start": 30.43,
+          "end": 30.87
+        },
+        {
+          "raw": "Quorumpere",
+          "start": 31.17,
+          "end": 31.61
+        },
+        {
+          "raw": "intus,",
+          "start": 31.61,
+          "end": 32.11
+        },
+        {
+          "raw": "quix",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "raw": "collata",
+          "start": 32.69,
+          "end": 33.09
+        },
+        {
+          "raw": "forus",
+          "start": 33.09,
+          "end": 33.57
+        },
+        {
+          "raw": "et",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "raw": "commoda",
+          "start": 33.75,
+          "end": 34.17
+        },
+        {
+          "raw": "quamque",
+          "start": 34.17,
+          "end": 34.57
+        },
+        {
+          "raw": "venerant.",
+          "start": 34.57,
+          "end": 34.99
+        }
+      ],
+      "expected_tokens": [
+        "“Nam",
+        "quum",
+        "vidit",
+        "hic,",
+        "ad",
+        "victum",
+        "qux",
+        "flagitat",
+        "usus,",
+        "Et",
+        "per",
+        "quae",
+        "possent",
+        "vitam",
+        "consistere",
+        "tutam,",
+        "Omnia",
+        "jam",
+        "ferme",
+        "mortalibus",
+        "esse",
+        "parata;",
+        "Divitiis",
+        "homines,",
+        "et",
+        "honore,",
+        "et",
+        "laude",
+        "potentes",
+        "Aflluere,",
+        "atque",
+        "bona",
+        "natorum",
+        "excellere",
+        "fama;",
+        "Nec",
+        "minus",
+        "esse",
+        "domi",
+        "cuiquam",
+        "tamen",
+        "anxia",
+        "corda,",
+        "Atque",
+        "animi",
+        "ingratis",
+        "vitam",
+        "vexare",
+        "querelis",
+        "Causam,",
+        "quae",
+        "infestis",
+        "cogit",
+        "saevire",
+        "querelis,",
+        "Intellegit",
+        "ibi;",
+        "vitium",
+        "vas",
+        "efficere",
+        "ipsum,",
+        "Omniaque,",
+        "illius",
+        "vitio,",
+        "corrumpier",
+        "intus,",
+        "Qux",
+        "collata",
+        "foris",
+        "et",
+        "commoda",
+        "quomque",
+        "venirent.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Nam",
+        "quum",
+        "vidit",
+        "hic,",
+        "ad",
+        "victum",
+        "qux",
+        "flagitat",
+        "usus,",
+        "Et",
+        "per",
+        "quae",
+        "possent",
+        "vitam",
+        "consistere",
+        "tutam,",
+        "Omnia",
+        "jam",
+        "ferme",
+        "mortalibus",
+        "esse",
+        "parata;",
+        "Divitiis",
+        "homines,",
+        "et",
+        "honore,",
+        "et",
+        "laude",
+        "potentes",
+        "Aflluere,",
+        "atque",
+        "bona",
+        "natorum",
+        "excellere",
+        "fama;",
+        "Nec",
+        "minus",
+        "esse",
+        "domi",
+        "cuiquam",
+        "tamen",
+        "anxia",
+        "corda,",
+        "Atque",
+        "animi",
+        "ingratis",
+        "vitam",
+        "vexare",
+        "querelis",
+        "Causam,",
+        "quae",
+        "infestis",
+        "cogit",
+        "saevire",
+        "querelis,",
+        "Intellegit",
+        "ibi;",
+        "vitium",
+        "vas",
+        "efficere",
+        "ipsum,",
+        "Omniaque,",
+        "illius",
+        "vitio,",
+        "corrumpier",
+        "intus,",
+        "Qux",
+        "collata",
+        "foris",
+        "et",
+        "commoda",
+        "quomque",
+        "venirent.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          14,
+          10,
+          13
+        ],
+        [
+          "equal",
+          14,
+          15,
+          13,
+          14
+        ],
+        [
+          "replace",
+          15,
+          16,
+          14,
+          15
+        ],
+        [
+          "equal",
+          16,
+          18,
+          15,
+          17
+        ],
+        [
+          "replace",
+          18,
+          19,
+          17,
+          18
+        ],
+        [
+          "equal",
+          19,
+          21,
+          18,
+          20
+        ],
+        [
+          "replace",
+          21,
+          22,
+          20,
+          21
+        ],
+        [
+          "equal",
+          22,
+          25,
+          21,
+          24
+        ],
+        [
+          "replace",
+          25,
+          26,
+          24,
+          25
+        ],
+        [
+          "equal",
+          26,
+          27,
+          25,
+          26
+        ],
+        [
+          "replace",
+          27,
+          31,
+          26,
+          30
+        ],
+        [
+          "equal",
+          31,
+          32,
+          30,
+          31
+        ],
+        [
+          "replace",
+          32,
+          35,
+          31,
+          34
+        ],
+        [
+          "equal",
+          35,
+          39,
+          34,
+          38
+        ],
+        [
+          "replace",
+          39,
+          41,
+          38,
+          40
+        ],
+        [
+          "equal",
+          41,
+          43,
+          40,
+          42
+        ],
+        [
+          "replace",
+          43,
+          44,
+          42,
+          43
+        ],
+        [
+          "equal",
+          44,
+          46,
+          43,
+          45
+        ],
+        [
+          "replace",
+          46,
+          49,
+          45,
+          48
+        ],
+        [
+          "equal",
+          49,
+          50,
+          48,
+          49
+        ],
+        [
+          "replace",
+          50,
+          51,
+          49,
+          50
+        ],
+        [
+          "equal",
+          51,
+          53,
+          50,
+          52
+        ],
+        [
+          "replace",
+          53,
+          55,
+          52,
+          54
+        ],
+        [
+          "equal",
+          55,
+          56,
+          54,
+          55
+        ],
+        [
+          "replace",
+          56,
+          58,
+          55,
+          57
+        ],
+        [
+          "equal",
+          58,
+          59,
+          57,
+          58
+        ],
+        [
+          "replace",
+          59,
+          60,
+          58,
+          59
+        ],
+        [
+          "equal",
+          60,
+          62,
+          59,
+          61
+        ],
+        [
+          "replace",
+          62,
+          65,
+          61,
+          64
+        ],
+        [
+          "equal",
+          65,
+          66,
+          64,
+          65
+        ],
+        [
+          "replace",
+          66,
+          67,
+          65,
+          66
+        ],
+        [
+          "equal",
+          67,
+          68,
+          66,
+          67
+        ],
+        [
+          "replace",
+          68,
+          69,
+          67,
+          68
+        ],
+        [
+          "equal",
+          69,
+          71,
+          68,
+          70
+        ],
+        [
+          "replace",
+          71,
+          73,
+          70,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          10,
+          14,
+          10,
+          13
+        ],
+        [
+          "replace",
+          15,
+          16,
+          14,
+          15
+        ],
+        [
+          "replace",
+          18,
+          19,
+          17,
+          18
+        ],
+        [
+          "replace",
+          21,
+          22,
+          20,
+          21
+        ],
+        [
+          "replace",
+          25,
+          26,
+          24,
+          25
+        ],
+        [
+          "replace",
+          27,
+          31,
+          26,
+          30
+        ],
+        [
+          "replace",
+          32,
+          35,
+          31,
+          34
+        ],
+        [
+          "replace",
+          39,
+          41,
+          38,
+          40
+        ],
+        [
+          "replace",
+          43,
+          44,
+          42,
+          43
+        ],
+        [
+          "replace",
+          46,
+          49,
+          45,
+          48
+        ],
+        [
+          "replace",
+          50,
+          51,
+          49,
+          50
+        ],
+        [
+          "replace",
+          53,
+          55,
+          52,
+          54
+        ],
+        [
+          "replace",
+          56,
+          58,
+          55,
+          57
+        ],
+        [
+          "replace",
+          59,
+          60,
+          58,
+          59
+        ],
+        [
+          "replace",
+          62,
+          65,
+          61,
+          64
+        ],
+        [
+          "replace",
+          66,
+          67,
+          65,
+          66
+        ],
+        [
+          "replace",
+          68,
+          69,
+          67,
+          68
+        ],
+        [
+          "replace",
+          71,
+          73,
+          70,
+          72
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nam",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "nam",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quam",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "quam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vidit",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "vidit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hic,",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "hic",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ad",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "ad",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "victim",
+          "start": 2.05,
+          "end": 2.39,
+          "key": "victim",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quix",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "quix",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flagitat",
+          "start": 2.67,
+          "end": 3.17,
+          "key": "flagitat",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "usus,",
+          "start": 3.17,
+          "end": 3.71,
+          "key": "usus",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 4.13,
+          "end": 4.15,
+          "key": "et",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "perqui",
+          "start": 4.15,
+          "end": 4.55,
+          "key": "perqui",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "percent",
+          "start": 4.55,
+          "end": 4.81,
+          "key": "percent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "vidam",
+          "start": 4.81,
+          "end": 5.17,
+          "key": "vidam",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "consistere",
+          "start": 5.17,
+          "end": 5.71,
+          "key": "consistere",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tutem,",
+          "start": 5.71,
+          "end": 6.15,
+          "key": "tutem",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Omnia",
+          "start": 6.63,
+          "end": 6.87,
+          "key": "omnia",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "jam",
+          "start": 6.87,
+          "end": 7.09,
+          "key": "jam",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "firm",
+          "start": 7.09,
+          "end": 7.39,
+          "key": "firm",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mortalibus",
+          "start": 7.39,
+          "end": 7.97,
+          "key": "mortalibus",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "esse",
+          "start": 7.97,
+          "end": 8.29,
+          "key": "esse",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "pareta.",
+          "start": 8.29,
+          "end": 8.77,
+          "key": "pareta",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Divitiis",
+          "start": 9.35,
+          "end": 9.73,
+          "key": "divitiis",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "homines,",
+          "start": 9.73,
+          "end": 10.17,
+          "key": "homines",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 10.45,
+          "end": 10.49,
+          "key": "et",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "honor,",
+          "start": 10.49,
+          "end": 10.81,
+          "key": "honor",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 11.29,
+          "end": 11.47,
+          "key": "et",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "laud",
+          "start": 11.47,
+          "end": 11.65,
+          "key": "laud",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "potense",
+          "start": 11.65,
+          "end": 12.13,
+          "key": "potense",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "afflura,",
+          "start": 12.13,
+          "end": 12.65,
+          "key": "afflura",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "ac",
+          "start": 13.11,
+          "end": 13.15,
+          "key": "ac",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "bona",
+          "start": 13.15,
+          "end": 13.57,
+          "key": "bona",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "naturam",
+          "start": 13.57,
+          "end": 14.03,
+          "key": "naturam",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "excelere",
+          "start": 14.03,
+          "end": 14.49,
+          "key": "excelere",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "phama.",
+          "start": 14.49,
+          "end": 14.89,
+          "key": "phama",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Nec",
+          "start": 15.55,
+          "end": 15.69,
+          "key": "nec",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "minus",
+          "start": 15.69,
+          "end": 16.09,
+          "key": "minus",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "esse",
+          "start": 16.09,
+          "end": 16.39,
+          "key": "esse",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "domi",
+          "start": 16.39,
+          "end": 16.73,
+          "key": "domi",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "quiquem",
+          "start": 16.73,
+          "end": 17.15,
+          "key": "quiquem",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "taman",
+          "start": 17.15,
+          "end": 17.49,
+          "key": "taman",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "anxia",
+          "start": 17.49,
+          "end": 17.97,
+          "key": "anxia",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "corda,",
+          "start": 17.97,
+          "end": 18.45,
+          "key": "corda",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "ac",
+          "start": 18.91,
+          "end": 19.05,
+          "key": "ac",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "animi",
+          "start": 19.05,
+          "end": 19.51,
+          "key": "animi",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "ingratis",
+          "start": 19.51,
+          "end": 20.03,
+          "key": "ingratis",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "vidam",
+          "start": 20.03,
+          "end": 20.33,
+          "key": "vidam",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "vexer",
+          "start": 20.33,
+          "end": 20.75,
+          "key": "vexer",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "quireles",
+          "start": 20.75,
+          "end": 21.19,
+          "key": "quireles",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "causam,",
+          "start": 21.19,
+          "end": 21.77,
+          "key": "causam",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "qui",
+          "start": 22.17,
+          "end": 22.35,
+          "key": "qui",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "infestis",
+          "start": 22.35,
+          "end": 23.01,
+          "key": "infestis",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "cogit",
+          "start": 23.01,
+          "end": 23.39,
+          "key": "cogit",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "sivire",
+          "start": 23.39,
+          "end": 23.83,
+          "key": "sivire",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "quireles,",
+          "start": 23.83,
+          "end": 24.47,
+          "key": "quireles",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Intellegit",
+          "start": 24.89,
+          "end": 25.49,
+          "key": "intellegit",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "ibae.",
+          "start": 25.49,
+          "end": 25.75,
+          "key": "ibae",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Vidiam",
+          "start": 25.75,
+          "end": 27.41,
+          "key": "vidiam",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "vas",
+          "start": 27.41,
+          "end": 27.69,
+          "key": "vas",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "effecir",
+          "start": 27.69,
+          "end": 28.29,
+          "key": "effecir",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "ipsum,",
+          "start": 28.29,
+          "end": 28.75,
+          "key": "ipsum",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Omniaque,",
+          "start": 29.17,
+          "end": 29.67,
+          "key": "omniaque",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Elius",
+          "start": 30.17,
+          "end": 30.43,
+          "key": "elius",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "video,",
+          "start": 30.43,
+          "end": 30.87,
+          "key": "video",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Quorumpere",
+          "start": 31.17,
+          "end": 31.61,
+          "key": "quorumpere",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "intus,",
+          "start": 31.61,
+          "end": 32.11,
+          "key": "intus",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "quix",
+          "start": 32.55,
+          "end": 32.69,
+          "key": "quix",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "collata",
+          "start": 32.69,
+          "end": 33.09,
+          "key": "collata",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "forus",
+          "start": 33.09,
+          "end": 33.57,
+          "key": "forus",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 33.57,
+          "end": 33.75,
+          "key": "et",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "commoda",
+          "start": 33.75,
+          "end": 34.17,
+          "key": "commoda",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "quamque",
+          "start": 34.17,
+          "end": 34.57,
+          "key": "quamque",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "venerant.",
+          "start": 34.57,
+          "end": 34.99,
+          "key": "venerant",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Nam",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "quum",
+          "start": 0.65,
+          "end": 0.82
+        },
+        {
+          "text": "vidit",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "hic,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "text": "ad",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "victum",
+          "start": 2.05,
+          "end": 2.36
+        },
+        {
+          "text": "qux",
+          "start": 2.36,
+          "end": 2.515
+        },
+        {
+          "text": "flagitat",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "text": "usus,",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "text": "Et",
+          "start": 4.13,
+          "end": 4.15
+        },
+        {
+          "text": "per",
+          "start": 4.15,
+          "end": 4.66
+        },
+        {
+          "text": "quae",
+          "start": 4.66,
+          "end": 4.915
+        },
+        {
+          "text": "possent",
+          "start": 4.915,
+          "end": 5.043
+        },
+        {
+          "text": "vitam",
+          "start": 5.043,
+          "end": 5.107
+        },
+        {
+          "text": "consistere",
+          "start": 5.17,
+          "end": 5.71
+        },
+        {
+          "text": "tutam,",
+          "start": 5.71,
+          "end": 6.17
+        },
+        {
+          "text": "Omnia",
+          "start": 6.63,
+          "end": 6.87
+        },
+        {
+          "text": "jam",
+          "start": 6.87,
+          "end": 7.09
+        },
+        {
+          "text": "ferme",
+          "start": 7.09,
+          "end": 7.24
+        },
+        {
+          "text": "mortalibus",
+          "start": 7.39,
+          "end": 7.97
+        },
+        {
+          "text": "esse",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "text": "parata;",
+          "start": 8.29,
+          "end": 8.82
+        },
+        {
+          "text": "Divitiis",
+          "start": 9.35,
+          "end": 9.73
+        },
+        {
+          "text": "homines,",
+          "start": 9.73,
+          "end": 10.17
+        },
+        {
+          "text": "et",
+          "start": 10.45,
+          "end": 10.49
+        },
+        {
+          "text": "honore,",
+          "start": 10.49,
+          "end": 10.89
+        },
+        {
+          "text": "et",
+          "start": 11.29,
+          "end": 11.47
+        },
+        {
+          "text": "laude",
+          "start": 11.47,
+          "end": 12.31
+        },
+        {
+          "text": "potentes",
+          "start": 12.31,
+          "end": 12.73
+        },
+        {
+          "text": "Aflluere,",
+          "start": 12.73,
+          "end": 12.94
+        },
+        {
+          "text": "atque",
+          "start": 12.94,
+          "end": 13.045
+        },
+        {
+          "text": "bona",
+          "start": 13.15,
+          "end": 13.57
+        },
+        {
+          "text": "natorum",
+          "start": 13.57,
+          "end": 14.56
+        },
+        {
+          "text": "excellere",
+          "start": 14.56,
+          "end": 15.055
+        },
+        {
+          "text": "fama;",
+          "start": 15.055,
+          "end": 15.303
+        },
+        {
+          "text": "Nec",
+          "start": 15.55,
+          "end": 15.69
+        },
+        {
+          "text": "minus",
+          "start": 15.69,
+          "end": 16.09
+        },
+        {
+          "text": "esse",
+          "start": 16.09,
+          "end": 16.39
+        },
+        {
+          "text": "domi",
+          "start": 16.39,
+          "end": 16.73
+        },
+        {
+          "text": "cuiquam",
+          "start": 16.73,
+          "end": 17.11
+        },
+        {
+          "text": "tamen",
+          "start": 17.11,
+          "end": 17.3
+        },
+        {
+          "text": "anxia",
+          "start": 17.49,
+          "end": 17.97
+        },
+        {
+          "text": "corda,",
+          "start": 17.97,
+          "end": 18.45
+        },
+        {
+          "text": "Atque",
+          "start": 18.45,
+          "end": 18.75
+        },
+        {
+          "text": "animi",
+          "start": 19.05,
+          "end": 19.51
+        },
+        {
+          "text": "ingratis",
+          "start": 19.51,
+          "end": 20.03
+        },
+        {
+          "text": "vitam",
+          "start": 20.03,
+          "end": 20.61
+        },
+        {
+          "text": "vexare",
+          "start": 20.61,
+          "end": 20.9
+        },
+        {
+          "text": "querelis",
+          "start": 20.9,
+          "end": 21.045
+        },
+        {
+          "text": "Causam,",
+          "start": 21.19,
+          "end": 21.77
+        },
+        {
+          "text": "quae",
+          "start": 21.77,
+          "end": 22.06
+        },
+        {
+          "text": "infestis",
+          "start": 22.35,
+          "end": 23.01
+        },
+        {
+          "text": "cogit",
+          "start": 23.01,
+          "end": 23.39
+        },
+        {
+          "text": "saevire",
+          "start": 23.39,
+          "end": 24.14
+        },
+        {
+          "text": "querelis,",
+          "start": 24.14,
+          "end": 24.515
+        },
+        {
+          "text": "Intellegit",
+          "start": 24.89,
+          "end": 25.49
+        },
+        {
+          "text": "ibi;",
+          "start": 25.49,
+          "end": 26.45
+        },
+        {
+          "text": "vitium",
+          "start": 26.45,
+          "end": 26.93
+        },
+        {
+          "text": "vas",
+          "start": 27.41,
+          "end": 27.69
+        },
+        {
+          "text": "efficere",
+          "start": 27.69,
+          "end": 27.99
+        },
+        {
+          "text": "ipsum,",
+          "start": 28.29,
+          "end": 28.75
+        },
+        {
+          "text": "Omniaque,",
+          "start": 29.17,
+          "end": 29.67
+        },
+        {
+          "text": "illius",
+          "start": 29.67,
+          "end": 30.64
+        },
+        {
+          "text": "vitio,",
+          "start": 30.64,
+          "end": 31.125
+        },
+        {
+          "text": "corrumpier",
+          "start": 31.125,
+          "end": 31.367
+        },
+        {
+          "text": "intus,",
+          "start": 31.61,
+          "end": 32.11
+        },
+        {
+          "text": "Qux",
+          "start": 32.11,
+          "end": 32.4
+        },
+        {
+          "text": "collata",
+          "start": 32.69,
+          "end": 33.09
+        },
+        {
+          "text": "foris",
+          "start": 33.09,
+          "end": 33.33
+        },
+        {
+          "text": "et",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "text": "commoda",
+          "start": 33.75,
+          "end": 34.17
+        },
+        {
+          "text": "quomque",
+          "start": 34.17,
+          "end": 34.58
+        },
+        {
+          "text": "venirent.”",
+          "start": 34.58,
+          "end": 34.785
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 72,
+        "matched_words": 36
+      },
+      "match_ratio": 0.4931506849315068,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.6594920344650745
+    },
+    {
+      "asr_seconds": 1.6672002086415887,
+      "alignment_seconds": 0.01995288021862507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nam quam vidit hic, ad victim quix flagitat usus, et perqui percent vidam consistar tudam,",
+          "start": 0.05,
+          "end": 6.19,
+          "words": [
+            {
+              "text": " Nam",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.018402099609375
+            },
+            {
+              "text": " quam",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.520294189453125
+            },
+            {
+              "text": " vidit",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.8009440104166666
+            },
+            {
+              "text": " hic,",
+              "start": 1.27,
+              "end": 1.55,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " ad",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.84765625
+            },
+            {
+              "text": " victim",
+              "start": 2.05,
+              "end": 2.39,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " quix",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " flagitat",
+              "start": 2.67,
+              "end": 3.17,
+              "probability": 0.7483723958333334
+            },
+            {
+              "text": " usus,",
+              "start": 3.17,
+              "end": 3.71,
+              "probability": 0.822265625
+            },
+            {
+              "text": " et",
+              "start": 4.13,
+              "end": 4.15,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " perqui",
+              "start": 4.15,
+              "end": 4.55,
+              "probability": 0.7776692708333334
+            },
+            {
+              "text": " percent",
+              "start": 4.55,
+              "end": 4.81,
+              "probability": 0.365966796875
+            },
+            {
+              "text": " vidam",
+              "start": 4.81,
+              "end": 5.17,
+              "probability": 0.8976236979166666
+            },
+            {
+              "text": " consistar",
+              "start": 5.17,
+              "end": 5.71,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " tudam,",
+              "start": 5.71,
+              "end": 6.19,
+              "probability": 0.6642252604166666
+            }
+          ]
+        },
+        {
+          "text": " omnia jam firm mortalibus esse perida, divites homines et honor, et laud potens afflura,",
+          "start": 6.63,
+          "end": 12.65,
+          "words": [
+            {
+              "text": " omnia",
+              "start": 6.63,
+              "end": 6.87,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " jam",
+              "start": 6.87,
+              "end": 7.13,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " firm",
+              "start": 7.13,
+              "end": 7.39,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " mortalibus",
+              "start": 7.39,
+              "end": 7.97,
+              "probability": 0.831787109375
+            },
+            {
+              "text": " esse",
+              "start": 7.97,
+              "end": 8.29,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " perida,",
+              "start": 8.29,
+              "end": 8.71,
+              "probability": 0.3917236328125
+            },
+            {
+              "text": " divites",
+              "start": 9.35,
+              "end": 9.65,
+              "probability": 0.5716552734375
+            },
+            {
+              "text": " homines",
+              "start": 9.65,
+              "end": 10.19,
+              "probability": 0.691650390625
+            },
+            {
+              "text": " et",
+              "start": 10.19,
+              "end": 10.49,
+              "probability": 0.86328125
+            },
+            {
+              "text": " honor,",
+              "start": 10.49,
+              "end": 10.83,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " et",
+              "start": 11.31,
+              "end": 11.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " laud",
+              "start": 11.47,
+              "end": 11.65,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " potens",
+              "start": 11.65,
+              "end": 12.11,
+              "probability": 0.4991455078125
+            },
+            {
+              "text": " afflura,",
+              "start": 12.11,
+              "end": 12.65,
+              "probability": 0.6136067708333334
+            }
+          ]
+        },
+        {
+          "text": " ac bona naturam excelar fama, nec minus esse domi quiquem tamen anxia corda, ac animi ingratis",
+          "start": 13.11,
+          "end": 20.03,
+          "words": [
+            {
+              "text": " ac",
+              "start": 13.11,
+              "end": 13.15,
+              "probability": 0.35498046875
+            },
+            {
+              "text": " bona",
+              "start": 13.15,
+              "end": 13.57,
+              "probability": 0.779296875
+            },
+            {
+              "text": " naturam",
+              "start": 13.57,
+              "end": 14.03,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " excelar",
+              "start": 14.03,
+              "end": 14.51,
+              "probability": 0.4705810546875
+            },
+            {
+              "text": " fama,",
+              "start": 14.51,
+              "end": 14.87,
+              "probability": 0.6949462890625
+            },
+            {
+              "text": " nec",
+              "start": 15.57,
+              "end": 15.69,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " minus",
+              "start": 15.69,
+              "end": 16.09,
+              "probability": 0.4180908203125
+            },
+            {
+              "text": " esse",
+              "start": 16.09,
+              "end": 16.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " domi",
+              "start": 16.39,
+              "end": 16.73,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " quiquem",
+              "start": 16.73,
+              "end": 17.15,
+              "probability": 0.6231282552083334
+            },
+            {
+              "text": " tamen",
+              "start": 17.15,
+              "end": 17.53,
+              "probability": 0.42669677734375
+            },
+            {
+              "text": " anxia",
+              "start": 17.53,
+              "end": 17.97,
+              "probability": 0.783935546875
+            },
+            {
+              "text": " corda,",
+              "start": 17.97,
+              "end": 18.47,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " ac",
+              "start": 18.89,
+              "end": 19.05,
+              "probability": 0.771484375
+            },
+            {
+              "text": " animi",
+              "start": 19.05,
+              "end": 19.51,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " ingratis",
+              "start": 19.51,
+              "end": 20.03,
+              "probability": 0.7342122395833334
+            }
+          ]
+        },
+        {
+          "text": " vidam vexer quireles causam, qui infestis cogit sivire quireles, intelligent ibae.",
+          "start": 20.03,
+          "end": 25.87,
+          "words": [
+            {
+              "text": " vidam",
+              "start": 20.03,
+              "end": 20.33,
+              "probability": 0.9739583333333334
+            },
+            {
+              "text": " vexer",
+              "start": 20.33,
+              "end": 20.75,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " quireles",
+              "start": 20.75,
+              "end": 21.19,
+              "probability": 0.6618245442708334
+            },
+            {
+              "text": " causam,",
+              "start": 21.19,
+              "end": 21.77,
+              "probability": 0.439208984375
+            },
+            {
+              "text": " qui",
+              "start": 22.17,
+              "end": 22.35,
+              "probability": 0.790771484375
+            },
+            {
+              "text": " infestis",
+              "start": 22.35,
+              "end": 23.01,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " cogit",
+              "start": 23.01,
+              "end": 23.39,
+              "probability": 0.906005859375
+            },
+            {
+              "text": " sivire",
+              "start": 23.39,
+              "end": 23.83,
+              "probability": 0.665283203125
+            },
+            {
+              "text": " quireles,",
+              "start": 23.83,
+              "end": 24.47,
+              "probability": 0.9944661458333334
+            },
+            {
+              "text": " intelligent",
+              "start": 24.91,
+              "end": 25.43,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " ibae.",
+              "start": 25.43,
+              "end": 25.87,
+              "probability": 0.4871826171875
+            }
+          ]
+        },
+        {
+          "text": " Vidiam vas effecir ipsum, omniac, elius video corampir intus,",
+          "start": 25.87,
+          "end": 32.13,
+          "words": [
+            {
+              "text": " Vidiam",
+              "start": 25.87,
+              "end": 27.41,
+              "probability": 0.0677337646484375
+            },
+            {
+              "text": " vas",
+              "start": 27.41,
+              "end": 27.69,
+              "probability": 0.12255859375
+            },
+            {
+              "text": " effecir",
+              "start": 27.69,
+              "end": 28.29,
+              "probability": 0.445556640625
+            },
+            {
+              "text": " ipsum,",
+              "start": 28.29,
+              "end": 28.75,
+              "probability": 0.96875
+            },
+            {
+              "text": " omniac,",
+              "start": 29.17,
+              "end": 29.59,
+              "probability": 0.52679443359375
+            },
+            {
+              "text": " elius",
+              "start": 30.05,
+              "end": 30.43,
+              "probability": 0.405029296875
+            },
+            {
+              "text": " video",
+              "start": 30.43,
+              "end": 30.85,
+              "probability": 0.74609375
+            },
+            {
+              "text": " corampir",
+              "start": 30.85,
+              "end": 31.59,
+              "probability": 0.4078369140625
+            },
+            {
+              "text": " intus,",
+              "start": 31.59,
+              "end": 32.13,
+              "probability": 0.72265625
+            }
+          ]
+        },
+        {
+          "text": " quix colada forus et commoda quamque venerant.",
+          "start": 32.55,
+          "end": 34.99,
+          "words": [
+            {
+              "text": " quix",
+              "start": 32.55,
+              "end": 32.69,
+              "probability": 0.934814453125
+            },
+            {
+              "text": " colada",
+              "start": 32.69,
+              "end": 33.13,
+              "probability": 0.4849090576171875
+            },
+            {
+              "text": " forus",
+              "start": 33.13,
+              "end": 33.57,
+              "probability": 0.805419921875
+            },
+            {
+              "text": " et",
+              "start": 33.57,
+              "end": 33.75,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " commoda",
+              "start": 33.75,
+              "end": 34.19,
+              "probability": 0.67626953125
+            },
+            {
+              "text": " quamque",
+              "start": 34.19,
+              "end": 34.57,
+              "probability": 0.8912760416666666
+            },
+            {
+              "text": " venerant.",
+              "start": 34.57,
+              "end": 34.99,
+              "probability": 0.90283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nam",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "quam",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "vidit",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "hic,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "raw": "ad",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "victim",
+          "start": 2.05,
+          "end": 2.39
+        },
+        {
+          "raw": "quix",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "flagitat",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "raw": "usus,",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "raw": "et",
+          "start": 4.13,
+          "end": 4.15
+        },
+        {
+          "raw": "perqui",
+          "start": 4.15,
+          "end": 4.55
+        },
+        {
+          "raw": "percent",
+          "start": 4.55,
+          "end": 4.81
+        },
+        {
+          "raw": "vidam",
+          "start": 4.81,
+          "end": 5.17
+        },
+        {
+          "raw": "consistar",
+          "start": 5.17,
+          "end": 5.71
+        },
+        {
+          "raw": "tudam,",
+          "start": 5.71,
+          "end": 6.19
+        },
+        {
+          "raw": "omnia",
+          "start": 6.63,
+          "end": 6.87
+        },
+        {
+          "raw": "jam",
+          "start": 6.87,
+          "end": 7.13
+        },
+        {
+          "raw": "firm",
+          "start": 7.13,
+          "end": 7.39
+        },
+        {
+          "raw": "mortalibus",
+          "start": 7.39,
+          "end": 7.97
+        },
+        {
+          "raw": "esse",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "raw": "perida,",
+          "start": 8.29,
+          "end": 8.71
+        },
+        {
+          "raw": "divites",
+          "start": 9.35,
+          "end": 9.65
+        },
+        {
+          "raw": "homines",
+          "start": 9.65,
+          "end": 10.19
+        },
+        {
+          "raw": "et",
+          "start": 10.19,
+          "end": 10.49
+        },
+        {
+          "raw": "honor,",
+          "start": 10.49,
+          "end": 10.83
+        },
+        {
+          "raw": "et",
+          "start": 11.31,
+          "end": 11.47
+        },
+        {
+          "raw": "laud",
+          "start": 11.47,
+          "end": 11.65
+        },
+        {
+          "raw": "potens",
+          "start": 11.65,
+          "end": 12.11
+        },
+        {
+          "raw": "afflura,",
+          "start": 12.11,
+          "end": 12.65
+        },
+        {
+          "raw": "ac",
+          "start": 13.11,
+          "end": 13.15
+        },
+        {
+          "raw": "bona",
+          "start": 13.15,
+          "end": 13.57
+        },
+        {
+          "raw": "naturam",
+          "start": 13.57,
+          "end": 14.03
+        },
+        {
+          "raw": "excelar",
+          "start": 14.03,
+          "end": 14.51
+        },
+        {
+          "raw": "fama,",
+          "start": 14.51,
+          "end": 14.87
+        },
+        {
+          "raw": "nec",
+          "start": 15.57,
+          "end": 15.69
+        },
+        {
+          "raw": "minus",
+          "start": 15.69,
+          "end": 16.09
+        },
+        {
+          "raw": "esse",
+          "start": 16.09,
+          "end": 16.39
+        },
+        {
+          "raw": "domi",
+          "start": 16.39,
+          "end": 16.73
+        },
+        {
+          "raw": "quiquem",
+          "start": 16.73,
+          "end": 17.15
+        },
+        {
+          "raw": "tamen",
+          "start": 17.15,
+          "end": 17.53
+        },
+        {
+          "raw": "anxia",
+          "start": 17.53,
+          "end": 17.97
+        },
+        {
+          "raw": "corda,",
+          "start": 17.97,
+          "end": 18.47
+        },
+        {
+          "raw": "ac",
+          "start": 18.89,
+          "end": 19.05
+        },
+        {
+          "raw": "animi",
+          "start": 19.05,
+          "end": 19.51
+        },
+        {
+          "raw": "ingratis",
+          "start": 19.51,
+          "end": 20.03
+        },
+        {
+          "raw": "vidam",
+          "start": 20.03,
+          "end": 20.33
+        },
+        {
+          "raw": "vexer",
+          "start": 20.33,
+          "end": 20.75
+        },
+        {
+          "raw": "quireles",
+          "start": 20.75,
+          "end": 21.19
+        },
+        {
+          "raw": "causam,",
+          "start": 21.19,
+          "end": 21.77
+        },
+        {
+          "raw": "qui",
+          "start": 22.17,
+          "end": 22.35
+        },
+        {
+          "raw": "infestis",
+          "start": 22.35,
+          "end": 23.01
+        },
+        {
+          "raw": "cogit",
+          "start": 23.01,
+          "end": 23.39
+        },
+        {
+          "raw": "sivire",
+          "start": 23.39,
+          "end": 23.83
+        },
+        {
+          "raw": "quireles,",
+          "start": 23.83,
+          "end": 24.47
+        },
+        {
+          "raw": "intelligent",
+          "start": 24.91,
+          "end": 25.43
+        },
+        {
+          "raw": "ibae.",
+          "start": 25.43,
+          "end": 25.87
+        },
+        {
+          "raw": "Vidiam",
+          "start": 25.87,
+          "end": 27.41
+        },
+        {
+          "raw": "vas",
+          "start": 27.41,
+          "end": 27.69
+        },
+        {
+          "raw": "effecir",
+          "start": 27.69,
+          "end": 28.29
+        },
+        {
+          "raw": "ipsum,",
+          "start": 28.29,
+          "end": 28.75
+        },
+        {
+          "raw": "omniac,",
+          "start": 29.17,
+          "end": 29.59
+        },
+        {
+          "raw": "elius",
+          "start": 30.05,
+          "end": 30.43
+        },
+        {
+          "raw": "video",
+          "start": 30.43,
+          "end": 30.85
+        },
+        {
+          "raw": "corampir",
+          "start": 30.85,
+          "end": 31.59
+        },
+        {
+          "raw": "intus,",
+          "start": 31.59,
+          "end": 32.13
+        },
+        {
+          "raw": "quix",
+          "start": 32.55,
+          "end": 32.69
+        },
+        {
+          "raw": "colada",
+          "start": 32.69,
+          "end": 33.13
+        },
+        {
+          "raw": "forus",
+          "start": 33.13,
+          "end": 33.57
+        },
+        {
+          "raw": "et",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "raw": "commoda",
+          "start": 33.75,
+          "end": 34.19
+        },
+        {
+          "raw": "quamque",
+          "start": 34.19,
+          "end": 34.57
+        },
+        {
+          "raw": "venerant.",
+          "start": 34.57,
+          "end": 34.99
+        }
+      ],
+      "expected_tokens": [
+        "“Nam",
+        "quum",
+        "vidit",
+        "hic,",
+        "ad",
+        "victum",
+        "qux",
+        "flagitat",
+        "usus,",
+        "Et",
+        "per",
+        "quae",
+        "possent",
+        "vitam",
+        "consistere",
+        "tutam,",
+        "Omnia",
+        "jam",
+        "ferme",
+        "mortalibus",
+        "esse",
+        "parata;",
+        "Divitiis",
+        "homines,",
+        "et",
+        "honore,",
+        "et",
+        "laude",
+        "potentes",
+        "Aflluere,",
+        "atque",
+        "bona",
+        "natorum",
+        "excellere",
+        "fama;",
+        "Nec",
+        "minus",
+        "esse",
+        "domi",
+        "cuiquam",
+        "tamen",
+        "anxia",
+        "corda,",
+        "Atque",
+        "animi",
+        "ingratis",
+        "vitam",
+        "vexare",
+        "querelis",
+        "Causam,",
+        "quae",
+        "infestis",
+        "cogit",
+        "saevire",
+        "querelis,",
+        "Intellegit",
+        "ibi;",
+        "vitium",
+        "vas",
+        "efficere",
+        "ipsum,",
+        "Omniaque,",
+        "illius",
+        "vitio,",
+        "corrumpier",
+        "intus,",
+        "Qux",
+        "collata",
+        "foris",
+        "et",
+        "commoda",
+        "quomque",
+        "venirent.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Nam",
+        "quum",
+        "vidit",
+        "hic,",
+        "ad",
+        "victum",
+        "qux",
+        "flagitat",
+        "usus,",
+        "Et",
+        "per",
+        "quae",
+        "possent",
+        "vitam",
+        "consistere",
+        "tutam,",
+        "Omnia",
+        "jam",
+        "ferme",
+        "mortalibus",
+        "esse",
+        "parata;",
+        "Divitiis",
+        "homines,",
+        "et",
+        "honore,",
+        "et",
+        "laude",
+        "potentes",
+        "Aflluere,",
+        "atque",
+        "bona",
+        "natorum",
+        "excellere",
+        "fama;",
+        "Nec",
+        "minus",
+        "esse",
+        "domi",
+        "cuiquam",
+        "tamen",
+        "anxia",
+        "corda,",
+        "Atque",
+        "animi",
+        "ingratis",
+        "vitam",
+        "vexare",
+        "querelis",
+        "Causam,",
+        "quae",
+        "infestis",
+        "cogit",
+        "saevire",
+        "querelis,",
+        "Intellegit",
+        "ibi;",
+        "vitium",
+        "vas",
+        "efficere",
+        "ipsum,",
+        "Omniaque,",
+        "illius",
+        "vitio,",
+        "corrumpier",
+        "intus,",
+        "Qux",
+        "collata",
+        "foris",
+        "et",
+        "commoda",
+        "quomque",
+        "venirent.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          16,
+          10,
+          15
+        ],
+        [
+          "equal",
+          16,
+          18,
+          15,
+          17
+        ],
+        [
+          "replace",
+          18,
+          19,
+          17,
+          18
+        ],
+        [
+          "equal",
+          19,
+          21,
+          18,
+          20
+        ],
+        [
+          "replace",
+          21,
+          23,
+          20,
+          22
+        ],
+        [
+          "equal",
+          23,
+          25,
+          22,
+          24
+        ],
+        [
+          "replace",
+          25,
+          26,
+          24,
+          25
+        ],
+        [
+          "equal",
+          26,
+          27,
+          25,
+          26
+        ],
+        [
+          "replace",
+          27,
+          31,
+          26,
+          30
+        ],
+        [
+          "equal",
+          31,
+          32,
+          30,
+          31
+        ],
+        [
+          "replace",
+          32,
+          34,
+          31,
+          33
+        ],
+        [
+          "equal",
+          34,
+          39,
+          33,
+          38
+        ],
+        [
+          "replace",
+          39,
+          40,
+          38,
+          39
+        ],
+        [
+          "equal",
+          40,
+          43,
+          39,
+          42
+        ],
+        [
+          "replace",
+          43,
+          44,
+          42,
+          43
+        ],
+        [
+          "equal",
+          44,
+          46,
+          43,
+          45
+        ],
+        [
+          "replace",
+          46,
+          49,
+          45,
+          48
+        ],
+        [
+          "equal",
+          49,
+          50,
+          48,
+          49
+        ],
+        [
+          "replace",
+          50,
+          51,
+          49,
+          50
+        ],
+        [
+          "equal",
+          51,
+          53,
+          50,
+          52
+        ],
+        [
+          "replace",
+          53,
+          58,
+          52,
+          57
+        ],
+        [
+          "equal",
+          58,
+          59,
+          57,
+          58
+        ],
+        [
+          "replace",
+          59,
+          60,
+          58,
+          59
+        ],
+        [
+          "equal",
+          60,
+          61,
+          59,
+          60
+        ],
+        [
+          "replace",
+          61,
+          65,
+          60,
+          64
+        ],
+        [
+          "equal",
+          65,
+          66,
+          64,
+          65
+        ],
+        [
+          "replace",
+          66,
+          69,
+          65,
+          68
+        ],
+        [
+          "equal",
+          69,
+          71,
+          68,
+          70
+        ],
+        [
+          "replace",
+          71,
+          73,
+          70,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          10,
+          16,
+          10,
+          15
+        ],
+        [
+          "replace",
+          18,
+          19,
+          17,
+          18
+        ],
+        [
+          "replace",
+          21,
+          23,
+          20,
+          22
+        ],
+        [
+          "replace",
+          25,
+          26,
+          24,
+          25
+        ],
+        [
+          "replace",
+          27,
+          31,
+          26,
+          30
+        ],
+        [
+          "replace",
+          32,
+          34,
+          31,
+          33
+        ],
+        [
+          "replace",
+          39,
+          40,
+          38,
+          39
+        ],
+        [
+          "replace",
+          43,
+          44,
+          42,
+          43
+        ],
+        [
+          "replace",
+          46,
+          49,
+          45,
+          48
+        ],
+        [
+          "replace",
+          50,
+          51,
+          49,
+          50
+        ],
+        [
+          "replace",
+          53,
+          58,
+          52,
+          57
+        ],
+        [
+          "replace",
+          59,
+          60,
+          58,
+          59
+        ],
+        [
+          "replace",
+          61,
+          65,
+          60,
+          64
+        ],
+        [
+          "replace",
+          66,
+          69,
+          65,
+          68
+        ],
+        [
+          "replace",
+          71,
+          73,
+          70,
+          72
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nam",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "nam",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quam",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "quam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vidit",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "vidit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hic,",
+          "start": 1.27,
+          "end": 1.55,
+          "key": "hic",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ad",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "ad",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "victim",
+          "start": 2.05,
+          "end": 2.39,
+          "key": "victim",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "quix",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "quix",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flagitat",
+          "start": 2.67,
+          "end": 3.17,
+          "key": "flagitat",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "usus,",
+          "start": 3.17,
+          "end": 3.71,
+          "key": "usus",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 4.13,
+          "end": 4.15,
+          "key": "et",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "perqui",
+          "start": 4.15,
+          "end": 4.55,
+          "key": "perqui",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "percent",
+          "start": 4.55,
+          "end": 4.81,
+          "key": "percent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "vidam",
+          "start": 4.81,
+          "end": 5.17,
+          "key": "vidam",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "consistar",
+          "start": 5.17,
+          "end": 5.71,
+          "key": "consistar",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tudam,",
+          "start": 5.71,
+          "end": 6.19,
+          "key": "tudam",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "omnia",
+          "start": 6.63,
+          "end": 6.87,
+          "key": "omnia",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "jam",
+          "start": 6.87,
+          "end": 7.13,
+          "key": "jam",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "firm",
+          "start": 7.13,
+          "end": 7.39,
+          "key": "firm",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mortalibus",
+          "start": 7.39,
+          "end": 7.97,
+          "key": "mortalibus",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "esse",
+          "start": 7.97,
+          "end": 8.29,
+          "key": "esse",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "perida,",
+          "start": 8.29,
+          "end": 8.71,
+          "key": "perida",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "divites",
+          "start": 9.35,
+          "end": 9.65,
+          "key": "divites",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "homines",
+          "start": 9.65,
+          "end": 10.19,
+          "key": "homines",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 10.19,
+          "end": 10.49,
+          "key": "et",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "honor,",
+          "start": 10.49,
+          "end": 10.83,
+          "key": "honor",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 11.31,
+          "end": 11.47,
+          "key": "et",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "laud",
+          "start": 11.47,
+          "end": 11.65,
+          "key": "laud",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "potens",
+          "start": 11.65,
+          "end": 12.11,
+          "key": "potens",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "afflura,",
+          "start": 12.11,
+          "end": 12.65,
+          "key": "afflura",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "ac",
+          "start": 13.11,
+          "end": 13.15,
+          "key": "ac",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "bona",
+          "start": 13.15,
+          "end": 13.57,
+          "key": "bona",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "naturam",
+          "start": 13.57,
+          "end": 14.03,
+          "key": "naturam",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "excelar",
+          "start": 14.03,
+          "end": 14.51,
+          "key": "excelar",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "fama,",
+          "start": 14.51,
+          "end": 14.87,
+          "key": "fama",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "nec",
+          "start": 15.57,
+          "end": 15.69,
+          "key": "nec",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "minus",
+          "start": 15.69,
+          "end": 16.09,
+          "key": "minus",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "esse",
+          "start": 16.09,
+          "end": 16.39,
+          "key": "esse",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "domi",
+          "start": 16.39,
+          "end": 16.73,
+          "key": "domi",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "quiquem",
+          "start": 16.73,
+          "end": 17.15,
+          "key": "quiquem",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "tamen",
+          "start": 17.15,
+          "end": 17.53,
+          "key": "tamen",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "anxia",
+          "start": 17.53,
+          "end": 17.97,
+          "key": "anxia",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "corda,",
+          "start": 17.97,
+          "end": 18.47,
+          "key": "corda",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "ac",
+          "start": 18.89,
+          "end": 19.05,
+          "key": "ac",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "animi",
+          "start": 19.05,
+          "end": 19.51,
+          "key": "animi",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "ingratis",
+          "start": 19.51,
+          "end": 20.03,
+          "key": "ingratis",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "vidam",
+          "start": 20.03,
+          "end": 20.33,
+          "key": "vidam",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "vexer",
+          "start": 20.33,
+          "end": 20.75,
+          "key": "vexer",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "quireles",
+          "start": 20.75,
+          "end": 21.19,
+          "key": "quireles",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "causam,",
+          "start": 21.19,
+          "end": 21.77,
+          "key": "causam",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "qui",
+          "start": 22.17,
+          "end": 22.35,
+          "key": "qui",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "infestis",
+          "start": 22.35,
+          "end": 23.01,
+          "key": "infestis",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "cogit",
+          "start": 23.01,
+          "end": 23.39,
+          "key": "cogit",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "sivire",
+          "start": 23.39,
+          "end": 23.83,
+          "key": "sivire",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "quireles,",
+          "start": 23.83,
+          "end": 24.47,
+          "key": "quireles",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "intelligent",
+          "start": 24.91,
+          "end": 25.43,
+          "key": "intelligent",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "ibae.",
+          "start": 25.43,
+          "end": 25.87,
+          "key": "ibae",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Vidiam",
+          "start": 25.87,
+          "end": 27.41,
+          "key": "vidiam",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "vas",
+          "start": 27.41,
+          "end": 27.69,
+          "key": "vas",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "effecir",
+          "start": 27.69,
+          "end": 28.29,
+          "key": "effecir",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "ipsum,",
+          "start": 28.29,
+          "end": 28.75,
+          "key": "ipsum",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "omniac,",
+          "start": 29.17,
+          "end": 29.59,
+          "key": "omniac",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "elius",
+          "start": 30.05,
+          "end": 30.43,
+          "key": "elius",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "video",
+          "start": 30.43,
+          "end": 30.85,
+          "key": "video",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "corampir",
+          "start": 30.85,
+          "end": 31.59,
+          "key": "corampir",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "intus,",
+          "start": 31.59,
+          "end": 32.13,
+          "key": "intus",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "quix",
+          "start": 32.55,
+          "end": 32.69,
+          "key": "quix",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "colada",
+          "start": 32.69,
+          "end": 33.13,
+          "key": "colada",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "forus",
+          "start": 33.13,
+          "end": 33.57,
+          "key": "forus",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 33.57,
+          "end": 33.75,
+          "key": "et",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "commoda",
+          "start": 33.75,
+          "end": 34.19,
+          "key": "commoda",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "quamque",
+          "start": 34.19,
+          "end": 34.57,
+          "key": "quamque",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "venerant.",
+          "start": 34.57,
+          "end": 34.99,
+          "key": "venerant",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Nam",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "quum",
+          "start": 0.65,
+          "end": 0.82
+        },
+        {
+          "text": "vidit",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "hic,",
+          "start": 1.27,
+          "end": 1.55
+        },
+        {
+          "text": "ad",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "victum",
+          "start": 2.05,
+          "end": 2.36
+        },
+        {
+          "text": "qux",
+          "start": 2.36,
+          "end": 2.515
+        },
+        {
+          "text": "flagitat",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "text": "usus,",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "text": "Et",
+          "start": 4.13,
+          "end": 4.15
+        },
+        {
+          "text": "per",
+          "start": 4.15,
+          "end": 5.39
+        },
+        {
+          "text": "quae",
+          "start": 5.39,
+          "end": 6.01
+        },
+        {
+          "text": "possent",
+          "start": 6.01,
+          "end": 6.32
+        },
+        {
+          "text": "vitam",
+          "start": 6.32,
+          "end": 6.475
+        },
+        {
+          "text": "consistere",
+          "start": 6.475,
+          "end": 6.553
+        },
+        {
+          "text": "tutam,",
+          "start": 6.553,
+          "end": 6.591
+        },
+        {
+          "text": "Omnia",
+          "start": 6.63,
+          "end": 6.87
+        },
+        {
+          "text": "jam",
+          "start": 6.87,
+          "end": 7.13
+        },
+        {
+          "text": "ferme",
+          "start": 7.13,
+          "end": 7.26
+        },
+        {
+          "text": "mortalibus",
+          "start": 7.39,
+          "end": 7.97
+        },
+        {
+          "text": "esse",
+          "start": 7.97,
+          "end": 8.29
+        },
+        {
+          "text": "parata;",
+          "start": 8.29,
+          "end": 8.97
+        },
+        {
+          "text": "Divitiis",
+          "start": 8.97,
+          "end": 9.31
+        },
+        {
+          "text": "homines,",
+          "start": 9.65,
+          "end": 10.19
+        },
+        {
+          "text": "et",
+          "start": 10.19,
+          "end": 10.49
+        },
+        {
+          "text": "honore,",
+          "start": 10.49,
+          "end": 10.9
+        },
+        {
+          "text": "et",
+          "start": 11.31,
+          "end": 11.47
+        },
+        {
+          "text": "laude",
+          "start": 11.47,
+          "end": 12.31
+        },
+        {
+          "text": "potentes",
+          "start": 12.31,
+          "end": 12.73
+        },
+        {
+          "text": "Aflluere,",
+          "start": 12.73,
+          "end": 12.94
+        },
+        {
+          "text": "atque",
+          "start": 12.94,
+          "end": 13.045
+        },
+        {
+          "text": "bona",
+          "start": 13.15,
+          "end": 13.57
+        },
+        {
+          "text": "natorum",
+          "start": 13.57,
+          "end": 14.04
+        },
+        {
+          "text": "excellere",
+          "start": 14.04,
+          "end": 14.275
+        },
+        {
+          "text": "fama;",
+          "start": 14.51,
+          "end": 14.87
+        },
+        {
+          "text": "Nec",
+          "start": 15.57,
+          "end": 15.69
+        },
+        {
+          "text": "minus",
+          "start": 15.69,
+          "end": 16.09
+        },
+        {
+          "text": "esse",
+          "start": 16.09,
+          "end": 16.39
+        },
+        {
+          "text": "domi",
+          "start": 16.39,
+          "end": 16.73
+        },
+        {
+          "text": "cuiquam",
+          "start": 16.73,
+          "end": 16.94
+        },
+        {
+          "text": "tamen",
+          "start": 17.15,
+          "end": 17.53
+        },
+        {
+          "text": "anxia",
+          "start": 17.53,
+          "end": 17.97
+        },
+        {
+          "text": "corda,",
+          "start": 17.97,
+          "end": 18.47
+        },
+        {
+          "text": "Atque",
+          "start": 18.47,
+          "end": 18.76
+        },
+        {
+          "text": "animi",
+          "start": 19.05,
+          "end": 19.51
+        },
+        {
+          "text": "ingratis",
+          "start": 19.51,
+          "end": 20.03
+        },
+        {
+          "text": "vitam",
+          "start": 20.03,
+          "end": 20.61
+        },
+        {
+          "text": "vexare",
+          "start": 20.61,
+          "end": 20.9
+        },
+        {
+          "text": "querelis",
+          "start": 20.9,
+          "end": 21.045
+        },
+        {
+          "text": "Causam,",
+          "start": 21.19,
+          "end": 21.77
+        },
+        {
+          "text": "quae",
+          "start": 21.77,
+          "end": 22.06
+        },
+        {
+          "text": "infestis",
+          "start": 22.35,
+          "end": 23.01
+        },
+        {
+          "text": "cogit",
+          "start": 23.01,
+          "end": 23.39
+        },
+        {
+          "text": "saevire",
+          "start": 23.39,
+          "end": 25.4
+        },
+        {
+          "text": "querelis,",
+          "start": 25.4,
+          "end": 26.405
+        },
+        {
+          "text": "Intellegit",
+          "start": 26.405,
+          "end": 26.907
+        },
+        {
+          "text": "ibi;",
+          "start": 26.907,
+          "end": 27.159
+        },
+        {
+          "text": "vitium",
+          "start": 27.159,
+          "end": 27.285
+        },
+        {
+          "text": "vas",
+          "start": 27.41,
+          "end": 27.69
+        },
+        {
+          "text": "efficere",
+          "start": 27.69,
+          "end": 27.99
+        },
+        {
+          "text": "ipsum,",
+          "start": 28.29,
+          "end": 28.75
+        },
+        {
+          "text": "Omniaque,",
+          "start": 28.75,
+          "end": 30.17
+        },
+        {
+          "text": "illius",
+          "start": 30.17,
+          "end": 30.88
+        },
+        {
+          "text": "vitio,",
+          "start": 30.88,
+          "end": 31.235
+        },
+        {
+          "text": "corrumpier",
+          "start": 31.235,
+          "end": 31.413
+        },
+        {
+          "text": "intus,",
+          "start": 31.59,
+          "end": 32.13
+        },
+        {
+          "text": "Qux",
+          "start": 32.13,
+          "end": 32.85
+        },
+        {
+          "text": "collata",
+          "start": 32.85,
+          "end": 33.21
+        },
+        {
+          "text": "foris",
+          "start": 33.21,
+          "end": 33.39
+        },
+        {
+          "text": "et",
+          "start": 33.57,
+          "end": 33.75
+        },
+        {
+          "text": "commoda",
+          "start": 33.75,
+          "end": 34.19
+        },
+        {
+          "text": "quomque",
+          "start": 34.19,
+          "end": 34.59
+        },
+        {
+          "text": "venirent.”",
+          "start": 34.59,
+          "end": 34.79
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 72,
+        "matched_words": 33
+      },
+      "match_ratio": 0.4520547945205479,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.6881731823086739
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2deef094940e12f1c797cf366fbc2121c9da88c2eececd4adda71348e0914be8",
+  "selected_reasons": []
+}

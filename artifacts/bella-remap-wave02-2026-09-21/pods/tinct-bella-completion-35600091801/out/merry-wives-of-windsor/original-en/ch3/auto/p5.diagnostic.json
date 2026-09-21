@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "6d5b13abd2eb5424e99bf4b063f28ff3cf7c31534aaa4b83d5d5095e6868afe8",
+  "attempts": [
+    {
+      "asr_seconds": 0.24268083088099957,
+      "alignment_seconds": 0.0013916008174419403,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ I sit at ten pounds a week.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " FAL. I sit at ten pounds a week.",
+          "start": 0.08,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " FAL.",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.2256927490234375
+            },
+            {
+              "text": " I",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " sit",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.97265625
+            },
+            {
+              "text": " at",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " ten",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.47314453125
+            },
+            {
+              "text": " pounds",
+              "start": 1.58,
+              "end": 1.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " week.",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "FAL.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "sit",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "at",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "ten",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "pounds",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "raw": "a",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "week.",
+          "start": 2.0,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "I",
+        "sit",
+        "at",
+        "ten",
+        "pounds",
+        "a",
+        "week."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "I",
+        "sit",
+        "at",
+        "ten",
+        "pounds",
+        "a",
+        "week."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "FAL.",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "sit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "ten",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 1.58,
+          "end": 1.84,
+          "key": "pounds",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "week.",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "week",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "text": "sit",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "at",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "ten",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "pounds",
+          "start": 1.58,
+          "end": 1.84
+        },
+        {
+          "text": "a",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "week.",
+          "start": 2.0,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24423270765691996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca880d16c03005060fa8abea0474b970a6f1fd137b9834268bb241ad69ff6567",
+  "selected_reasons": []
+}

@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "746ffc81d792ece156cdf4628e1dc4c253ca6f7e8732ecc9cac00a902ca10de4",
+  "attempts": [
+    {
+      "asr_seconds": 0.29182036966085434,
+      "alignment_seconds": 0.001170913688838482,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Pist._ Then did the sun on dunghill shine.",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " PIST. Then did the sun on dunghill shine.",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " PIST.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.38002443313598633
+            },
+            {
+              "text": " Then",
+              "start": 1.17,
+              "end": 1.35,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " did",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sun",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " on",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dunghill",
+              "start": 2.01,
+              "end": 2.39,
+              "probability": 0.675872802734375
+            },
+            {
+              "text": " shine.",
+              "start": 2.39,
+              "end": 2.69,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "PIST.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Then",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "raw": "did",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "sun",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "on",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "dunghill",
+          "start": 2.01,
+          "end": 2.39
+        },
+        {
+          "raw": "shine.",
+          "start": 2.39,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "_Pist._",
+        "Then",
+        "did",
+        "the",
+        "sun",
+        "on",
+        "dunghill",
+        "shine."
+      ],
+      "acoustic_expected_tokens": [
+        "_Pist._",
+        "Then",
+        "did",
+        "the",
+        "sun",
+        "on",
+        "dunghill",
+        "shine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "PIST.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "pist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.17,
+          "end": 1.35,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "sun",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dunghill",
+          "start": 2.01,
+          "end": 2.39,
+          "key": "dunghill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shine.",
+          "start": 2.39,
+          "end": 2.69,
+          "key": "shine",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Pist._",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Then",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "text": "did",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "sun",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "on",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "dunghill",
+          "start": 2.01,
+          "end": 2.39
+        },
+        {
+          "text": "shine.",
+          "start": 2.39,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29310130700469017
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5692982bc125be1b35c5293287436784675efb70722ab3f667a47b13a95474bf",
+  "selected_reasons": []
+}

@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "signature": "5c11fd0339e88b02d506f31b7d975cc54272ff2bc7eb1679474979e99858165e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19073056988418102,
+      "alignment_seconds": 0.0005611935630440712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Doctor Caius._",
+        "hotwords": "Doctor, Caius._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Doctor Caius._",
+          "start": 0.18,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.68,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Doctor",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.073486328125
+            },
+            {
+              "text": " Caius._",
+              "start": 1.06,
+              "end": 1.94,
+              "probability": 0.541229248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "raw": "Doctor",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "Caius._",
+          "start": 1.06,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "DOCTOR",
+        "CAIUS._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Doctor",
+        "Caius._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Doctor",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "doctor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caius._",
+          "start": 1.06,
+          "end": 1.94,
+          "key": "caius",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "text": "DOCTOR",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "CAIUS._",
+          "start": 1.06,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1913403132930398
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "24b73a59a75c3e30b0fdc42e5f37c1ac642a603c428b093e75d5ec530149aa7b",
+  "selected_reasons": []
+}

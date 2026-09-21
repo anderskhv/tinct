@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "5f2ef2bc191fd6d18c37806045a7bf8fd8f971c31dca53c3f3ef662e9d57156f",
+  "attempts": [
+    {
+      "asr_seconds": 0.28076903615146875,
+      "alignment_seconds": 0.001146453432738781,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ He's welcome. -- Sings._",
+        "hotwords": "He's, Sings._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, He's welcome, Sings.",
+          "start": 0.14,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.14,
+              "end": 0.8,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " He's",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.58367919921875
+            },
+            {
+              "text": " welcome,",
+              "start": 1.32,
+              "end": 1.62,
+              "probability": 0.087158203125
+            },
+            {
+              "text": " Sings.",
+              "start": 2.02,
+              "end": 2.34,
+              "probability": 0.525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.14,
+          "end": 0.8
+        },
+        {
+          "raw": "He's",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "welcome,",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "raw": "Sings.",
+          "start": 2.02,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "He’s",
+        "welcome.",
+        "--",
+        "[_Sings._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "He's",
+        "welcome.",
+        "--",
+        "Sings._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "unspoken_expected_indexes": [
+        3
+      ],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.14,
+          "end": 0.8,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "welcome,",
+          "start": 1.32,
+          "end": 1.62,
+          "key": "welcome",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sings.",
+          "start": 2.02,
+          "end": 2.34,
+          "key": "sings",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.14,
+          "end": 0.8
+        },
+        {
+          "text": "He’s",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "welcome.",
+          "start": 1.32,
+          "end": 1.62
+        },
+        {
+          "text": "--",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "[_Sings._",
+          "start": 2.02,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2820031512528658
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b03d67a7a9bc2fc8c82a90416cb516019cb44f7a13ea53abf75c5fa1ad4b51eb",
+  "selected_reasons": []
+}

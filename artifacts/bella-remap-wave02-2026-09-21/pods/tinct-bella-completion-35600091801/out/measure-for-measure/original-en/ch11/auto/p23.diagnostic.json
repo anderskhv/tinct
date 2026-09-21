@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "13da3516f9f35475dcdd0c9a61e3712f0ad8fce385b71a43d262aefb0b174931",
+  "attempts": [
+    {
+      "asr_seconds": 0.3153286390006542,
+      "alignment_seconds": 0.0014152294024825096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Mari._ Good friar, I know you do, and have found it.",
+        "hotwords": "Good, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mari, good friar, I know you do, and have found it.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Mari,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.2489013671875
+            },
+            {
+              "text": " good",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " friar,",
+              "start": 1.31,
+              "end": 1.67,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " I",
+              "start": 1.81,
+              "end": 1.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " know",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do,",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.51,
+              "end": 2.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " found",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 2.93,
+              "end": 3.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mari,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "good",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "friar,",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.81
+        },
+        {
+          "raw": "know",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "you",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "do,",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "and",
+          "start": 2.51,
+          "end": 2.57
+        },
+        {
+          "raw": "have",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "found",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "raw": "it.",
+          "start": 2.93,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "_Mari._",
+        "Good",
+        "friar,",
+        "I",
+        "know",
+        "you",
+        "do,",
+        "and",
+        "have",
+        "found",
+        "it."
+      ],
+      "acoustic_expected_tokens": [
+        "_Mari._",
+        "Good",
+        "friar,",
+        "I",
+        "know",
+        "you",
+        "do,",
+        "and",
+        "have",
+        "found",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mari,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "mari",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "friar,",
+          "start": 1.31,
+          "end": 1.67,
+          "key": "friar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.81,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.51,
+          "end": 2.57,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 2.69,
+          "end": 2.93,
+          "key": "found",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.93,
+          "end": 3.17,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Mari._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Good",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "friar,",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "text": "I",
+          "start": 1.81,
+          "end": 1.81
+        },
+        {
+          "text": "know",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "you",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "do,",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "and",
+          "start": 2.51,
+          "end": 2.57
+        },
+        {
+          "text": "have",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "found",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "text": "it.",
+          "start": 2.93,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3168878648430109
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a60f9a88a14396ce8fd6eb90c69ff7554bd4132bcc3d5e08870fae7c78566854",
+  "selected_reasons": []
+}

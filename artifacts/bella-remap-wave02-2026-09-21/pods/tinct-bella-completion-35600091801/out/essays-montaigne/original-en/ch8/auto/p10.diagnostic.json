@@ -1,0 +1,333 @@
+{
+  "complete": true,
+  "signature": "02747089c15692adbc1583797f454ac42f869d6e8060b316ec7cf7643bdf29de",
+  "attempts": [
+    {
+      "asr_seconds": 0.5721610868349671,
+      "alignment_seconds": 0.001178785227239132,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Variam semper dant otia mentem,\"",
+        "hotwords": "Variam"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Variam semper dant otia mentem",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Variam",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.23900222778320312
+            },
+            {
+              "text": " semper",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.707763671875
+            },
+            {
+              "text": " dant",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " otia",
+              "start": 1.54,
+              "end": 1.92,
+              "probability": 0.003910541534423828
+            },
+            {
+              "text": " mentem",
+              "start": 1.92,
+              "end": 2.36,
+              "probability": 0.5025482177734375
+            }
+          ]
+        },
+        {
+          "text": " Variam semper dant otia",
+          "start": 2.36,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Variam",
+              "start": 2.36,
+              "end": 2.94,
+              "probability": 3.966689109802246e-05
+            },
+            {
+              "text": " semper",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.007139235734939575
+            },
+            {
+              "text": " dant",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.004015922546386719
+            },
+            {
+              "text": " otia",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.002403348684310913
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Variam",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "semper",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "dant",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "otia",
+          "start": 1.54,
+          "end": 1.92
+        },
+        {
+          "raw": "mentem",
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "raw": "Variam",
+          "start": 2.36,
+          "end": 2.94
+        },
+        {
+          "raw": "semper",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "dant",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "otia",
+          "start": 2.94,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "“Variam",
+        "semper",
+        "dant",
+        "otia",
+        "mentem,”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Variam",
+        "semper",
+        "dant",
+        "otia",
+        "mentem,\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Variam",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "variam",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "semper",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "semper",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dant",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "dant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "otia",
+          "start": 1.54,
+          "end": 1.92,
+          "key": "otia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mentem",
+          "start": 1.92,
+          "end": 2.36,
+          "key": "mentem",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Variam",
+          "start": 2.36,
+          "end": 2.94,
+          "key": "variam",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "semper",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "semper",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dant",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "dant",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "otia",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "otia",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Variam",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "semper",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "dant",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "text": "otia",
+          "start": 1.54,
+          "end": 1.92
+        },
+        {
+          "text": "mentem,”",
+          "start": 1.92,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5734980208799243
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f09ad088e55fa7b26695a4860eccc657c92bf8b4e1753fab86782928a557cb6",
+  "selected_reasons": []
+}

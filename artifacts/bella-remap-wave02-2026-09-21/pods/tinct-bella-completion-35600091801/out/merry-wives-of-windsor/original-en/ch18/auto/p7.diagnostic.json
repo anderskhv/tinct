@@ -1,0 +1,693 @@
+{
+  "complete": true,
+  "signature": "7ebe3fd1495c956ba5f9cc364ee1db8e29a6c99e34dea379da3305334e4531a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3855725536122918,
+      "alignment_seconds": 0.002506803721189499,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Host._ Well, husband your device; I'll to the vicar: Bring you the maid, you shall not lack a priest.",
+        "hotwords": "Well, I'll, Bring"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, Well, husband your device, I'll to the vicar, Bring you the maid, you shall not lack a priest.",
+          "start": 0.08,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " Well,",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.1025390625
+            },
+            {
+              "text": " husband",
+              "start": 1.6,
+              "end": 1.84,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " your",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " device,",
+              "start": 2.06,
+              "end": 2.54,
+              "probability": 0.931640625
+            },
+            {
+              "text": " I'll",
+              "start": 2.84,
+              "end": 2.94,
+              "probability": 0.453033447265625
+            },
+            {
+              "text": " to",
+              "start": 2.94,
+              "end": 3.02,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " the",
+              "start": 3.02,
+              "end": 3.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " vicar,",
+              "start": 3.14,
+              "end": 3.5,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Bring",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.73828125
+            },
+            {
+              "text": " you",
+              "start": 4.14,
+              "end": 4.28,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 4.28,
+              "end": 4.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " maid,",
+              "start": 4.42,
+              "end": 4.7,
+              "probability": 0.9765625
+            },
+            {
+              "text": " you",
+              "start": 4.8,
+              "end": 4.88,
+              "probability": 0.900390625
+            },
+            {
+              "text": " shall",
+              "start": 4.88,
+              "end": 5.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 5.0,
+              "end": 5.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lack",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 5.44,
+              "end": 5.62,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " priest.",
+              "start": 5.62,
+              "end": 5.82,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Well,",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "husband",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "raw": "your",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "device,",
+          "start": 2.06,
+          "end": 2.54
+        },
+        {
+          "raw": "I'll",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "raw": "the",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "raw": "vicar,",
+          "start": 3.14,
+          "end": 3.5
+        },
+        {
+          "raw": "Bring",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "you",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "raw": "maid,",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "raw": "shall",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "raw": "not",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "raw": "lack",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "raw": "priest.",
+          "start": 5.62,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "_Host._",
+        "Well,",
+        "husband",
+        "your",
+        "device;",
+        "I’ll",
+        "to",
+        "the",
+        "vicar:",
+        "Bring",
+        "you",
+        "the",
+        "maid,",
+        "you",
+        "shall",
+        "not",
+        "lack",
+        "a",
+        "priest."
+      ],
+      "acoustic_expected_tokens": [
+        "_Host._",
+        "Well,",
+        "husband",
+        "your",
+        "device;",
+        "I'll",
+        "to",
+        "the",
+        "vicar:",
+        "Bring",
+        "you",
+        "the",
+        "maid,",
+        "you",
+        "shall",
+        "not",
+        "lack",
+        "a",
+        "priest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 1.6,
+          "end": 1.84,
+          "key": "husband",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "device,",
+          "start": 2.06,
+          "end": 2.54,
+          "key": "device",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.84,
+          "end": 2.94,
+          "key": "ill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.94,
+          "end": 3.02,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.02,
+          "end": 3.14,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "vicar,",
+          "start": 3.14,
+          "end": 3.5,
+          "key": "vicar",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 4.02,
+          "end": 4.14,
+          "key": "bring",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.14,
+          "end": 4.28,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.28,
+          "end": 4.42,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "maid,",
+          "start": 4.42,
+          "end": 4.7,
+          "key": "maid",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 4.88,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.88,
+          "end": 5.0,
+          "key": "shall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.0,
+          "end": 5.22,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lack",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "lack",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.44,
+          "end": 5.62,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "priest.",
+          "start": 5.62,
+          "end": 5.82,
+          "key": "priest",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Host._",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Well,",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "husband",
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "text": "your",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "device;",
+          "start": 2.06,
+          "end": 2.54
+        },
+        {
+          "text": "I’ll",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "text": "to",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "text": "the",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "text": "vicar:",
+          "start": 3.14,
+          "end": 3.5
+        },
+        {
+          "text": "Bring",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "you",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "text": "the",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "text": "maid,",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "text": "you",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "text": "shall",
+          "start": 4.88,
+          "end": 5.0
+        },
+        {
+          "text": "not",
+          "start": 5.0,
+          "end": 5.22
+        },
+        {
+          "text": "lack",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "a",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "text": "priest.",
+          "start": 5.62,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38838082551956177
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d2afdcacd0b7cb5089dc6664f66b40a4f917289a275b94373eb60dca23069e4",
+  "selected_reasons": []
+}

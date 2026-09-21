@@ -1,0 +1,724 @@
+{
+  "complete": true,
+  "signature": "104c50c228ab5945f6e95e507449106c099282fa3c0e7523bef15cd12cdf15f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.7246504565700889,
+      "alignment_seconds": 0.0024589700624346733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ Leave your prabbles, 'oman. --What is the focative 45 case, William?",
+        "hotwords": "Leave, What, William"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, leave your prabbles, oman. What is the focative 45 case, William?",
+          "start": 0.08,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " leave",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " your",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " prabbles,",
+              "start": 1.5,
+              "end": 1.98,
+              "probability": 0.557861328125
+            },
+            {
+              "text": " oman.",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.11969375610351562
+            },
+            {
+              "text": " What",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.7578125
+            },
+            {
+              "text": " is",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.46,
+              "end": 3.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " focative",
+              "start": 3.6,
+              "end": 4.08,
+              "probability": 0.500579833984375
+            },
+            {
+              "text": " 45",
+              "start": 4.08,
+              "end": 4.64,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " case,",
+              "start": 4.64,
+              "end": 5.14,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " William?",
+              "start": 5.28,
+              "end": 5.48,
+              "probability": 0.90185546875
+            }
+          ]
+        },
+        {
+          "text": " Evans, leave your prabbles, oman. What is the focative 45 case, William?",
+          "start": 5.48,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 1.2516975402832031e-06
+            },
+            {
+              "text": " leave",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 4.9948692321777344e-05
+            },
+            {
+              "text": " your",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 0.05450439453125
+            },
+            {
+              "text": " prabbles,",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 0.1834340492884318
+            },
+            {
+              "text": " oman.",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 0.00022292137145996094
+            },
+            {
+              "text": " What",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 0.004638671875
+            },
+            {
+              "text": " is",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 0.06512451171875
+            },
+            {
+              "text": " the",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 0.223876953125
+            },
+            {
+              "text": " focative",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 8.660554885864258e-05
+            },
+            {
+              "text": " 45",
+              "start": 5.48,
+              "end": 5.48,
+              "probability": 1.1742115020751953e-05
+            },
+            {
+              "text": " case,",
+              "start": 5.48,
+              "end": 5.56,
+              "probability": 0.0013704299926757812
+            },
+            {
+              "text": " William?",
+              "start": 5.56,
+              "end": 5.6,
+              "probability": 0.005336761474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "leave",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "your",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "prabbles,",
+          "start": 1.5,
+          "end": 1.98
+        },
+        {
+          "raw": "oman.",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "What",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "is",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "the",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "raw": "focative",
+          "start": 3.6,
+          "end": 4.08
+        },
+        {
+          "raw": "45",
+          "start": 4.08,
+          "end": 4.64
+        },
+        {
+          "raw": "case,",
+          "start": 4.64,
+          "end": 5.14
+        },
+        {
+          "raw": "William?",
+          "start": 5.28,
+          "end": 5.48
+        },
+        {
+          "raw": "Evans,",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "leave",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "your",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "prabbles,",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "oman.",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "What",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "is",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "the",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "focative",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "45",
+          "start": 5.48,
+          "end": 5.48
+        },
+        {
+          "raw": "case,",
+          "start": 5.48,
+          "end": 5.56
+        },
+        {
+          "raw": "William?",
+          "start": 5.56,
+          "end": 5.6
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "Leave",
+        "your",
+        "prabbles,",
+        "’oman.",
+        "--What",
+        "is",
+        "the",
+        "focative",
+        "45",
+        "case,",
+        "William?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "Leave",
+        "your",
+        "prabbles,",
+        "'oman.",
+        "--What",
+        "is",
+        "the",
+        "focative",
+        "45",
+        "case,",
+        "William?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "insert",
+          12,
+          12,
+          12,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          12,
+          12,
+          12,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "leave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prabbles,",
+          "start": 1.5,
+          "end": 1.98,
+          "key": "prabbles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "oman.",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "oman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.22,
+          "end": 3.34,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.46,
+          "end": 3.6,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "focative",
+          "start": 3.6,
+          "end": 4.08,
+          "key": "focative",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "45",
+          "start": 4.08,
+          "end": 4.64,
+          "key": "fortyfive",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 4.64,
+          "end": 5.14,
+          "key": "case",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 5.28,
+          "end": 5.48,
+          "key": "william",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Evans,",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "evans",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "leave",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "prabbles,",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "prabbles",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "oman.",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "oman",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "focative",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "focative",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "45",
+          "start": 5.48,
+          "end": 5.48,
+          "key": "fortyfive",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 5.48,
+          "end": 5.56,
+          "key": "case",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 5.56,
+          "end": 5.6,
+          "key": "william",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Leave",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "your",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "prabbles,",
+          "start": 1.5,
+          "end": 1.98
+        },
+        {
+          "text": "’oman.",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "--What",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "is",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "the",
+          "start": 3.46,
+          "end": 3.6
+        },
+        {
+          "text": "focative",
+          "start": 3.6,
+          "end": 4.08
+        },
+        {
+          "text": "45",
+          "start": 4.08,
+          "end": 4.64
+        },
+        {
+          "text": "case,",
+          "start": 4.64,
+          "end": 5.14
+        },
+        {
+          "text": "William?",
+          "start": 5.28,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 24,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7274654600769281
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "350be7191395c49f8aa954990cdd616f569f2ddd270de50ed9c9e6337118cd9c",
+  "selected_reasons": []
+}

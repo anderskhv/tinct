@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "06241948fbb986dff3349e6021f8aa6aaf5b25528f04888d16e40f6d4d407459",
+  "attempts": [
+    {
+      "asr_seconds": 0.3520487267524004,
+      "alignment_seconds": 0.0012243818491697311,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Quisquis ubique habitat, Maxime, nusquam habitat.\"",
+        "hotwords": "Quisquis, Maxime"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quisquis ubique habitat, Maxime, nusquam habitat.",
+          "start": 0.05,
+          "end": 3.73,
+          "words": [
+            {
+              "text": " Quisquis",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.612213134765625
+            },
+            {
+              "text": " ubique",
+              "start": 0.87,
+              "end": 1.29,
+              "probability": 0.3567237854003906
+            },
+            {
+              "text": " habitat,",
+              "start": 1.29,
+              "end": 1.77,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Maxime,",
+              "start": 2.17,
+              "end": 2.61,
+              "probability": 0.759033203125
+            },
+            {
+              "text": " nusquam",
+              "start": 3.01,
+              "end": 3.33,
+              "probability": 0.5611648559570312
+            },
+            {
+              "text": " habitat.",
+              "start": 3.33,
+              "end": 3.73,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quisquis",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "ubique",
+          "start": 0.87,
+          "end": 1.29
+        },
+        {
+          "raw": "habitat,",
+          "start": 1.29,
+          "end": 1.77
+        },
+        {
+          "raw": "Maxime,",
+          "start": 2.17,
+          "end": 2.61
+        },
+        {
+          "raw": "nusquam",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "raw": "habitat.",
+          "start": 3.33,
+          "end": 3.73
+        }
+      ],
+      "expected_tokens": [
+        "“Quisquis",
+        "ubique",
+        "habitat,",
+        "Maxime,",
+        "nusquam",
+        "habitat.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Quisquis",
+        "ubique",
+        "habitat,",
+        "Maxime,",
+        "nusquam",
+        "habitat.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quisquis",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "quisquis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ubique",
+          "start": 0.87,
+          "end": 1.29,
+          "key": "ubique",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "habitat,",
+          "start": 1.29,
+          "end": 1.77,
+          "key": "habitat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Maxime,",
+          "start": 2.17,
+          "end": 2.61,
+          "key": "maxime",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nusquam",
+          "start": 3.01,
+          "end": 3.33,
+          "key": "nusquam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "habitat.",
+          "start": 3.33,
+          "end": 3.73,
+          "key": "habitat",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Quisquis",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "ubique",
+          "start": 0.87,
+          "end": 1.29
+        },
+        {
+          "text": "habitat,",
+          "start": 1.29,
+          "end": 1.77
+        },
+        {
+          "text": "Maxime,",
+          "start": 2.17,
+          "end": 2.61
+        },
+        {
+          "text": "nusquam",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "text": "habitat.”",
+          "start": 3.33,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3533884035423398
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5fa41330f35deac24c6c3c91f96ff6fe1d5915b32cd9d2071d63708c36c84949",
+  "selected_reasons": []
+}

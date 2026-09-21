@@ -1,0 +1,1866 @@
+{
+  "complete": true,
+  "signature": "9ef9c466a06d21b3712b60fd1e298ad9f9d44678410e5ff9f123bbbe17b9e9a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.9039366701617837,
+      "alignment_seconds": 0.008156987838447094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ No, holy father; throw away that thought; Believe not that the dribbling dart of love Can pierce a complete bosom. Why I desire thee To give me secret harbour, hath a purpose More grave and wrinkled than the aims and ends 5 Of burning youth.",
+        "hotwords": "No, Believe, Can, Why, I, To, More"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, no, holy father, throw away that thought, Believe not that the dribbling dart of love Can pierce a complete bosom. Why I desire thee To give me secret harbour, hath a purpose More grave and wrinkled than the aims and ends 5 Of burning youth.",
+          "start": 0.08,
+          "end": 15.78,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " no,",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " holy",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.5703125
+            },
+            {
+              "text": " father,",
+              "start": 1.88,
+              "end": 2.24,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " throw",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " away",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thought,",
+              "start": 3.3,
+              "end": 3.7,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Believe",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.03851318359375
+            },
+            {
+              "text": " not",
+              "start": 4.36,
+              "end": 4.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 4.62,
+              "end": 4.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 4.82,
+              "end": 4.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " dribbling",
+              "start": 4.94,
+              "end": 5.4,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " dart",
+              "start": 5.4,
+              "end": 5.58,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 5.58,
+              "end": 5.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " love",
+              "start": 5.78,
+              "end": 6.04,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Can",
+              "start": 6.04,
+              "end": 6.28,
+              "probability": 0.5458984375
+            },
+            {
+              "text": " pierce",
+              "start": 6.28,
+              "end": 6.62,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " a",
+              "start": 6.62,
+              "end": 6.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " complete",
+              "start": 6.82,
+              "end": 7.22,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " bosom.",
+              "start": 7.22,
+              "end": 7.7,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " Why",
+              "start": 8.4,
+              "end": 8.56,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " I",
+              "start": 8.56,
+              "end": 8.74,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " desire",
+              "start": 8.74,
+              "end": 9.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 9.16,
+              "end": 9.36,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " To",
+              "start": 9.36,
+              "end": 9.5,
+              "probability": 0.52001953125
+            },
+            {
+              "text": " give",
+              "start": 9.5,
+              "end": 9.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 9.66,
+              "end": 9.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " secret",
+              "start": 9.84,
+              "end": 10.2,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " harbour,",
+              "start": 10.2,
+              "end": 10.56,
+              "probability": 0.2388916015625
+            },
+            {
+              "text": " hath",
+              "start": 11.02,
+              "end": 11.1,
+              "probability": 0.1708984375
+            },
+            {
+              "text": " a",
+              "start": 11.1,
+              "end": 11.3,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " purpose",
+              "start": 11.3,
+              "end": 11.62,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " More",
+              "start": 11.62,
+              "end": 11.92,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " grave",
+              "start": 11.92,
+              "end": 12.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 12.42,
+              "end": 12.62,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " wrinkled",
+              "start": 12.62,
+              "end": 13.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " than",
+              "start": 13.02,
+              "end": 13.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 13.16,
+              "end": 13.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " aims",
+              "start": 13.36,
+              "end": 13.72,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " and",
+              "start": 13.72,
+              "end": 14.24,
+              "probability": 0.021881103515625
+            },
+            {
+              "text": " ends",
+              "start": 14.24,
+              "end": 14.52,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " 5",
+              "start": 14.52,
+              "end": 14.88,
+              "probability": 0.0399169921875
+            },
+            {
+              "text": " Of",
+              "start": 14.88,
+              "end": 15.12,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " burning",
+              "start": 15.12,
+              "end": 15.42,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " youth.",
+              "start": 15.42,
+              "end": 15.78,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " Thanks for watching. Don't forget to subscribe, like, comment, and share this video.",
+          "start": 15.78,
+          "end": 16.34,
+          "words": [
+            {
+              "text": " Thanks",
+              "start": 15.78,
+              "end": 15.86,
+              "probability": 0.0240936279296875
+            },
+            {
+              "text": " for",
+              "start": 15.86,
+              "end": 16.04,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " watching.",
+              "start": 16.04,
+              "end": 16.04,
+              "probability": 0.55712890625
+            },
+            {
+              "text": " Don't",
+              "start": 16.04,
+              "end": 16.04,
+              "probability": 0.518096923828125
+            },
+            {
+              "text": " forget",
+              "start": 16.04,
+              "end": 16.04,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " to",
+              "start": 16.04,
+              "end": 16.04,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " subscribe,",
+              "start": 16.04,
+              "end": 16.04,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " like,",
+              "start": 16.04,
+              "end": 16.04,
+              "probability": 0.5244140625
+            },
+            {
+              "text": " comment,",
+              "start": 16.04,
+              "end": 16.34,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " and",
+              "start": 16.34,
+              "end": 16.34,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " share",
+              "start": 16.34,
+              "end": 16.34,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " this",
+              "start": 16.34,
+              "end": 16.34,
+              "probability": 0.2998046875
+            },
+            {
+              "text": " video.",
+              "start": 16.34,
+              "end": 16.34,
+              "probability": 0.9111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "no,",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "holy",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "father,",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "raw": "throw",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "away",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "that",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "thought,",
+          "start": 3.3,
+          "end": 3.7
+        },
+        {
+          "raw": "Believe",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "not",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "raw": "that",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "raw": "dribbling",
+          "start": 4.94,
+          "end": 5.4
+        },
+        {
+          "raw": "dart",
+          "start": 5.4,
+          "end": 5.58
+        },
+        {
+          "raw": "of",
+          "start": 5.58,
+          "end": 5.78
+        },
+        {
+          "raw": "love",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "raw": "Can",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "raw": "pierce",
+          "start": 6.28,
+          "end": 6.62
+        },
+        {
+          "raw": "a",
+          "start": 6.62,
+          "end": 6.82
+        },
+        {
+          "raw": "complete",
+          "start": 6.82,
+          "end": 7.22
+        },
+        {
+          "raw": "bosom.",
+          "start": 7.22,
+          "end": 7.7
+        },
+        {
+          "raw": "Why",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "raw": "I",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "raw": "desire",
+          "start": 8.74,
+          "end": 9.16
+        },
+        {
+          "raw": "thee",
+          "start": 9.16,
+          "end": 9.36
+        },
+        {
+          "raw": "To",
+          "start": 9.36,
+          "end": 9.5
+        },
+        {
+          "raw": "give",
+          "start": 9.5,
+          "end": 9.66
+        },
+        {
+          "raw": "me",
+          "start": 9.66,
+          "end": 9.84
+        },
+        {
+          "raw": "secret",
+          "start": 9.84,
+          "end": 10.2
+        },
+        {
+          "raw": "harbour,",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "raw": "hath",
+          "start": 11.02,
+          "end": 11.1
+        },
+        {
+          "raw": "a",
+          "start": 11.1,
+          "end": 11.3
+        },
+        {
+          "raw": "purpose",
+          "start": 11.3,
+          "end": 11.62
+        },
+        {
+          "raw": "More",
+          "start": 11.62,
+          "end": 11.92
+        },
+        {
+          "raw": "grave",
+          "start": 11.92,
+          "end": 12.42
+        },
+        {
+          "raw": "and",
+          "start": 12.42,
+          "end": 12.62
+        },
+        {
+          "raw": "wrinkled",
+          "start": 12.62,
+          "end": 13.02
+        },
+        {
+          "raw": "than",
+          "start": 13.02,
+          "end": 13.16
+        },
+        {
+          "raw": "the",
+          "start": 13.16,
+          "end": 13.36
+        },
+        {
+          "raw": "aims",
+          "start": 13.36,
+          "end": 13.72
+        },
+        {
+          "raw": "and",
+          "start": 13.72,
+          "end": 14.24
+        },
+        {
+          "raw": "ends",
+          "start": 14.24,
+          "end": 14.52
+        },
+        {
+          "raw": "5",
+          "start": 14.52,
+          "end": 14.88
+        },
+        {
+          "raw": "Of",
+          "start": 14.88,
+          "end": 15.12
+        },
+        {
+          "raw": "burning",
+          "start": 15.12,
+          "end": 15.42
+        },
+        {
+          "raw": "youth.",
+          "start": 15.42,
+          "end": 15.78
+        },
+        {
+          "raw": "Thanks",
+          "start": 15.78,
+          "end": 15.86
+        },
+        {
+          "raw": "for",
+          "start": 15.86,
+          "end": 16.04
+        },
+        {
+          "raw": "watching.",
+          "start": 16.04,
+          "end": 16.04
+        },
+        {
+          "raw": "Don't",
+          "start": 16.04,
+          "end": 16.04
+        },
+        {
+          "raw": "forget",
+          "start": 16.04,
+          "end": 16.04
+        },
+        {
+          "raw": "to",
+          "start": 16.04,
+          "end": 16.04
+        },
+        {
+          "raw": "subscribe,",
+          "start": 16.04,
+          "end": 16.04
+        },
+        {
+          "raw": "like,",
+          "start": 16.04,
+          "end": 16.04
+        },
+        {
+          "raw": "comment,",
+          "start": 16.04,
+          "end": 16.34
+        },
+        {
+          "raw": "and",
+          "start": 16.34,
+          "end": 16.34
+        },
+        {
+          "raw": "share",
+          "start": 16.34,
+          "end": 16.34
+        },
+        {
+          "raw": "this",
+          "start": 16.34,
+          "end": 16.34
+        },
+        {
+          "raw": "video.",
+          "start": 16.34,
+          "end": 16.34
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "No,",
+        "holy",
+        "father;",
+        "throw",
+        "away",
+        "that",
+        "thought;",
+        "Believe",
+        "not",
+        "that",
+        "the",
+        "dribbling",
+        "dart",
+        "of",
+        "love",
+        "Can",
+        "pierce",
+        "a",
+        "complete",
+        "bosom.",
+        "Why",
+        "I",
+        "desire",
+        "thee",
+        "To",
+        "give",
+        "me",
+        "secret",
+        "harbour,",
+        "hath",
+        "a",
+        "purpose",
+        "More",
+        "grave",
+        "and",
+        "wrinkled",
+        "than",
+        "the",
+        "aims",
+        "and",
+        "ends",
+        "5",
+        "Of",
+        "burning",
+        "youth."
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "No,",
+        "holy",
+        "father;",
+        "throw",
+        "away",
+        "that",
+        "thought;",
+        "Believe",
+        "not",
+        "that",
+        "the",
+        "dribbling",
+        "dart",
+        "of",
+        "love",
+        "Can",
+        "pierce",
+        "a",
+        "complete",
+        "bosom.",
+        "Why",
+        "I",
+        "desire",
+        "thee",
+        "To",
+        "give",
+        "me",
+        "secret",
+        "harbour,",
+        "hath",
+        "a",
+        "purpose",
+        "More",
+        "grave",
+        "and",
+        "wrinkled",
+        "than",
+        "the",
+        "aims",
+        "and",
+        "ends",
+        "5",
+        "Of",
+        "burning",
+        "youth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ],
+        [
+          "insert",
+          46,
+          46,
+          46,
+          59
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          46,
+          46,
+          46,
+          59
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "holy",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "holy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 1.88,
+          "end": 2.24,
+          "key": "father",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "throw",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "throw",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.8,
+          "end": 3.06,
+          "key": "away",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 3.3,
+          "end": 3.7,
+          "key": "thought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Believe",
+          "start": 4.18,
+          "end": 4.36,
+          "key": "believe",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.36,
+          "end": 4.62,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.62,
+          "end": 4.82,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.82,
+          "end": 4.94,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dribbling",
+          "start": 4.94,
+          "end": 5.4,
+          "key": "dribbling",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dart",
+          "start": 5.4,
+          "end": 5.58,
+          "key": "dart",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.58,
+          "end": 5.78,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 5.78,
+          "end": 6.04,
+          "key": "love",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 6.04,
+          "end": 6.28,
+          "key": "can",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pierce",
+          "start": 6.28,
+          "end": 6.62,
+          "key": "pierce",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.62,
+          "end": 6.82,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "complete",
+          "start": 6.82,
+          "end": 7.22,
+          "key": "complete",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "bosom.",
+          "start": 7.22,
+          "end": 7.7,
+          "key": "bosom",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 8.4,
+          "end": 8.56,
+          "key": "why",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.56,
+          "end": 8.74,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 8.74,
+          "end": 9.16,
+          "key": "desire",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 9.16,
+          "end": 9.36,
+          "key": "thee",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 9.36,
+          "end": 9.5,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 9.5,
+          "end": 9.66,
+          "key": "give",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 9.66,
+          "end": 9.84,
+          "key": "me",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "secret",
+          "start": 9.84,
+          "end": 10.2,
+          "key": "secret",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "harbour,",
+          "start": 10.2,
+          "end": 10.56,
+          "key": "harbour",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 11.02,
+          "end": 11.1,
+          "key": "hath",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.1,
+          "end": 11.3,
+          "key": "a",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 11.3,
+          "end": 11.62,
+          "key": "purpose",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "More",
+          "start": 11.62,
+          "end": 11.92,
+          "key": "more",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "grave",
+          "start": 11.92,
+          "end": 12.42,
+          "key": "grave",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.42,
+          "end": 12.62,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "wrinkled",
+          "start": 12.62,
+          "end": 13.02,
+          "key": "wrinkled",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 13.02,
+          "end": 13.16,
+          "key": "than",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.16,
+          "end": 13.36,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "aims",
+          "start": 13.36,
+          "end": 13.72,
+          "key": "aims",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.72,
+          "end": 14.24,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "ends",
+          "start": 14.24,
+          "end": 14.52,
+          "key": "ends",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 14.52,
+          "end": 14.88,
+          "key": "five",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 14.88,
+          "end": 15.12,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "burning",
+          "start": 15.12,
+          "end": 15.42,
+          "key": "burning",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "youth.",
+          "start": 15.42,
+          "end": 15.78,
+          "key": "youth",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Thanks",
+          "start": 15.78,
+          "end": 15.86,
+          "key": "thanks",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 15.86,
+          "end": 16.04,
+          "key": "for",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "watching.",
+          "start": 16.04,
+          "end": 16.04,
+          "key": "watching",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 16.04,
+          "end": 16.04,
+          "key": "dont",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "forget",
+          "start": 16.04,
+          "end": 16.04,
+          "key": "forget",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.04,
+          "end": 16.04,
+          "key": "to",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "subscribe,",
+          "start": 16.04,
+          "end": 16.04,
+          "key": "subscribe",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "like,",
+          "start": 16.04,
+          "end": 16.04,
+          "key": "like",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "comment,",
+          "start": 16.04,
+          "end": 16.34,
+          "key": "comment",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.34,
+          "end": 16.34,
+          "key": "and",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "share",
+          "start": 16.34,
+          "end": 16.34,
+          "key": "share",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 16.34,
+          "end": 16.34,
+          "key": "this",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "video.",
+          "start": 16.34,
+          "end": 16.34,
+          "key": "video",
+          "pieces": [
+            58
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "No,",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "holy",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "father;",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "text": "throw",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "away",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "that",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "thought;",
+          "start": 3.3,
+          "end": 3.7
+        },
+        {
+          "text": "Believe",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "not",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "text": "that",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "text": "the",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "text": "dribbling",
+          "start": 4.94,
+          "end": 5.4
+        },
+        {
+          "text": "dart",
+          "start": 5.4,
+          "end": 5.58
+        },
+        {
+          "text": "of",
+          "start": 5.58,
+          "end": 5.78
+        },
+        {
+          "text": "love",
+          "start": 5.78,
+          "end": 6.04
+        },
+        {
+          "text": "Can",
+          "start": 6.04,
+          "end": 6.28
+        },
+        {
+          "text": "pierce",
+          "start": 6.28,
+          "end": 6.62
+        },
+        {
+          "text": "a",
+          "start": 6.62,
+          "end": 6.82
+        },
+        {
+          "text": "complete",
+          "start": 6.82,
+          "end": 7.22
+        },
+        {
+          "text": "bosom.",
+          "start": 7.22,
+          "end": 7.7
+        },
+        {
+          "text": "Why",
+          "start": 8.4,
+          "end": 8.56
+        },
+        {
+          "text": "I",
+          "start": 8.56,
+          "end": 8.74
+        },
+        {
+          "text": "desire",
+          "start": 8.74,
+          "end": 9.16
+        },
+        {
+          "text": "thee",
+          "start": 9.16,
+          "end": 9.36
+        },
+        {
+          "text": "To",
+          "start": 9.36,
+          "end": 9.5
+        },
+        {
+          "text": "give",
+          "start": 9.5,
+          "end": 9.66
+        },
+        {
+          "text": "me",
+          "start": 9.66,
+          "end": 9.84
+        },
+        {
+          "text": "secret",
+          "start": 9.84,
+          "end": 10.2
+        },
+        {
+          "text": "harbour,",
+          "start": 10.2,
+          "end": 10.56
+        },
+        {
+          "text": "hath",
+          "start": 11.02,
+          "end": 11.1
+        },
+        {
+          "text": "a",
+          "start": 11.1,
+          "end": 11.3
+        },
+        {
+          "text": "purpose",
+          "start": 11.3,
+          "end": 11.62
+        },
+        {
+          "text": "More",
+          "start": 11.62,
+          "end": 11.92
+        },
+        {
+          "text": "grave",
+          "start": 11.92,
+          "end": 12.42
+        },
+        {
+          "text": "and",
+          "start": 12.42,
+          "end": 12.62
+        },
+        {
+          "text": "wrinkled",
+          "start": 12.62,
+          "end": 13.02
+        },
+        {
+          "text": "than",
+          "start": 13.02,
+          "end": 13.16
+        },
+        {
+          "text": "the",
+          "start": 13.16,
+          "end": 13.36
+        },
+        {
+          "text": "aims",
+          "start": 13.36,
+          "end": 13.72
+        },
+        {
+          "text": "and",
+          "start": 13.72,
+          "end": 14.24
+        },
+        {
+          "text": "ends",
+          "start": 14.24,
+          "end": 14.52
+        },
+        {
+          "text": "5",
+          "start": 14.52,
+          "end": 14.88
+        },
+        {
+          "text": "Of",
+          "start": 14.88,
+          "end": 15.12
+        },
+        {
+          "text": "burning",
+          "start": 15.12,
+          "end": 15.42
+        },
+        {
+          "text": "youth.",
+          "start": 15.42,
+          "end": 15.78
+        }
+      ],
+      "stats": {
+        "expected_words": 46,
+        "heard_words": 59,
+        "matched_words": 46
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9129207190126181
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "469bbcae8090ffa59372d6df11fd987fc72113f97aa1d746e99e184838c95433",
+  "selected_reasons": []
+}

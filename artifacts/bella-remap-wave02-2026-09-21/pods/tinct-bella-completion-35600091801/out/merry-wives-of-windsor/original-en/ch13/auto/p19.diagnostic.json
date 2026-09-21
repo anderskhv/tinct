@@ -1,0 +1,1326 @@
+{
+  "complete": true,
+  "signature": "b91f14d69263e37d0476b59b6763fe0cf77784f00b2248b10e494d63f773a40b",
+  "attempts": [
+    {
+      "asr_seconds": 9.685069233179092,
+      "alignment_seconds": 0.002707374282181263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ And what is 'a stone,' William? 30",
+        "hotwords": "And, William"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans, and what is a stone, William? 30",
+          "start": 0.11,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.231689453125
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " what",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " is",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " stone,",
+              "start": 1.69,
+              "end": 2.01,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " William?",
+              "start": 2.17,
+              "end": 2.41,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " 30",
+              "start": 2.81,
+              "end": 3.01,
+              "probability": 0.257080078125
+            }
+          ]
+        },
+        {
+          "text": " Evans, and what is a stone, William? 30",
+          "start": 3.01,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 3.01,
+              "end": 3.01,
+              "probability": 1.7285346984863281e-06
+            },
+            {
+              "text": " and",
+              "start": 3.01,
+              "end": 3.01,
+              "probability": 0.0200347900390625
+            },
+            {
+              "text": " what",
+              "start": 3.01,
+              "end": 3.01,
+              "probability": 0.0007882118225097656
+            },
+            {
+              "text": " is",
+              "start": 3.01,
+              "end": 3.01,
+              "probability": 0.027740478515625
+            },
+            {
+              "text": " a",
+              "start": 3.01,
+              "end": 3.01,
+              "probability": 0.00925445556640625
+            },
+            {
+              "text": " stone,",
+              "start": 3.01,
+              "end": 3.01,
+              "probability": 4.0411949157714844e-05
+            },
+            {
+              "text": " William?",
+              "start": 3.07,
+              "end": 3.07,
+              "probability": 3.8743019104003906e-05
+            },
+            {
+              "text": " 30",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 5.7756900787353516e-05
+            }
+          ]
+        },
+        {
+          "text": " Evans, and what is a stone, William? 30 Evans, and what is a stone, William? 30",
+          "start": 3.11,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 1.9073486328125e-06
+            },
+            {
+              "text": " and",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.05474853515625
+            },
+            {
+              "text": " what",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.00046515464782714844
+            },
+            {
+              "text": " is",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.0262298583984375
+            },
+            {
+              "text": " a",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.00791168212890625
+            },
+            {
+              "text": " stone,",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 2.5391578674316406e-05
+            },
+            {
+              "text": " William?",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 6.777048110961914e-05
+            },
+            {
+              "text": " 30",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 2.5093555450439453e-05
+            },
+            {
+              "text": " Evans,",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 3.039836883544922e-06
+            },
+            {
+              "text": " and",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " what",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.962890625
+            },
+            {
+              "text": " is",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " stone,",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " William?",
+              "start": 3.11,
+              "end": 3.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " 30",
+              "start": 3.17,
+              "end": 3.17,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " Evans, and what is a stone, William? 30 Evans, and what is a stone, William? 30 Evans, and what is a stone, William? 30",
+          "start": 3.17,
+          "end": 3.75,
+          "words": [
+            {
+              "text": " Evans,",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 1.7881393432617188e-06
+            },
+            {
+              "text": " and",
+              "start": 3.39,
+              "end": 3.39,
+              "probability": 0.042083740234375
+            },
+            {
+              "text": " what",
+              "start": 3.39,
+              "end": 3.39,
+              "probability": 0.0009188652038574219
+            },
+            {
+              "text": " is",
+              "start": 3.39,
+              "end": 3.39,
+              "probability": 0.027313232421875
+            },
+            {
+              "text": " a",
+              "start": 3.39,
+              "end": 3.39,
+              "probability": 0.0103302001953125
+            },
+            {
+              "text": " stone,",
+              "start": 3.39,
+              "end": 3.39,
+              "probability": 3.451108932495117e-05
+            },
+            {
+              "text": " William?",
+              "start": 3.39,
+              "end": 3.39,
+              "probability": 7.963180541992188e-05
+            },
+            {
+              "text": " 30",
+              "start": 3.39,
+              "end": 3.75,
+              "probability": 3.0159950256347656e-05
+            },
+            {
+              "text": " Evans,",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 3.2186508178710938e-06
+            },
+            {
+              "text": " and",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.219482421875
+            },
+            {
+              "text": " what",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " is",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.98828125
+            },
+            {
+              "text": " stone,",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.92578125
+            },
+            {
+              "text": " William?",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " 30",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Evans,",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.430908203125
+            },
+            {
+              "text": " and",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " what",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " is",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " stone,",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " William?",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " 30",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "what",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "is",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "a",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "stone,",
+          "start": 1.69,
+          "end": 2.01
+        },
+        {
+          "raw": "William?",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "raw": "30",
+          "start": 2.81,
+          "end": 3.01
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.01,
+          "end": 3.01
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.01
+        },
+        {
+          "raw": "what",
+          "start": 3.01,
+          "end": 3.01
+        },
+        {
+          "raw": "is",
+          "start": 3.01,
+          "end": 3.01
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.01
+        },
+        {
+          "raw": "stone,",
+          "start": 3.01,
+          "end": 3.01
+        },
+        {
+          "raw": "William?",
+          "start": 3.07,
+          "end": 3.07
+        },
+        {
+          "raw": "30",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "what",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "is",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "stone,",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "William?",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "30",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "what",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "is",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "stone,",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "William?",
+          "start": 3.11,
+          "end": 3.11
+        },
+        {
+          "raw": "30",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "raw": "what",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "raw": "is",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "raw": "a",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "raw": "stone,",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "raw": "William?",
+          "start": 3.39,
+          "end": 3.39
+        },
+        {
+          "raw": "30",
+          "start": 3.39,
+          "end": 3.75
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "what",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "is",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "a",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "stone,",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "William?",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "30",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "what",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "is",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "a",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "stone,",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "William?",
+          "start": 3.75,
+          "end": 3.75
+        },
+        {
+          "raw": "30",
+          "start": 3.75,
+          "end": 3.75
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "And",
+        "what",
+        "is",
+        "‘a",
+        "stone,’",
+        "William?",
+        "30"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "And",
+        "what",
+        "is",
+        "'a",
+        "stone,'",
+        "William?",
+        "30"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          56
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stone,",
+          "start": 1.69,
+          "end": 2.01,
+          "key": "stone",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 2.17,
+          "end": 2.41,
+          "key": "william",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 2.81,
+          "end": 3.01,
+          "key": "thirty",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.01,
+          "end": 3.01,
+          "key": "evans",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.01,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.01,
+          "end": 3.01,
+          "key": "what",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.01,
+          "end": 3.01,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.01,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "stone,",
+          "start": 3.01,
+          "end": 3.01,
+          "key": "stone",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 3.07,
+          "end": 3.07,
+          "key": "william",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "thirty",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "evans",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "what",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "stone,",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "stone",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "william",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "thirty",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "evans",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "what",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "is",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "a",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "stone,",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "stone",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 3.11,
+          "end": 3.11,
+          "key": "william",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 3.17,
+          "end": 3.17,
+          "key": "thirty",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "evans",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.39,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.39,
+          "end": 3.39,
+          "key": "what",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.39,
+          "end": 3.39,
+          "key": "is",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.39,
+          "end": 3.39,
+          "key": "a",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "stone,",
+          "start": 3.39,
+          "end": 3.39,
+          "key": "stone",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 3.39,
+          "end": 3.39,
+          "key": "william",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 3.39,
+          "end": 3.75,
+          "key": "thirty",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "evans",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "what",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "is",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "a",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "stone,",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "stone",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "william",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "thirty",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Evans,",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "evans",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "what",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "is",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "a",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "stone,",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "stone",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "William?",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "william",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "30",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "thirty",
+          "pieces": [
+            55
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "And",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "what",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "is",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "‘a",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "stone,’",
+          "start": 1.69,
+          "end": 2.01
+        },
+        {
+          "text": "William?",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "text": "30",
+          "start": 2.81,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 56,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 9.68855198379606
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71aa3f0185041209a71ed43be4515f15cbdb8256425699200154af5736d3b77d",
+  "selected_reasons": []
+}

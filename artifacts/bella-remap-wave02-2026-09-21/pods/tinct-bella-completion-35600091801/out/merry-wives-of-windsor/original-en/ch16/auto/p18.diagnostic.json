@@ -1,0 +1,519 @@
+{
+  "complete": true,
+  "signature": "beb45d84c663421a447fc7c6a22df70c0c0efd4af7a82dded1819795972fbac5",
+  "attempts": [
+    {
+      "asr_seconds": 0.36331379134207964,
+      "alignment_seconds": 0.0023236162960529327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ford._ The children must Be practised well to this, or they'll ne'er do't.",
+        "hotwords": "The, Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ford, The children must Be practised well to this, or they'll ne'er do't.",
+          "start": 0.08,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " Ford,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " The",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.01496124267578125
+            },
+            {
+              "text": " children",
+              "start": 1.38,
+              "end": 1.72,
+              "probability": 0.814453125
+            },
+            {
+              "text": " must",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Be",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 8.344650268554688e-07
+            },
+            {
+              "text": " practised",
+              "start": 2.1,
+              "end": 2.54,
+              "probability": 0.5099029541015625
+            },
+            {
+              "text": " well",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " to",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.966796875
+            },
+            {
+              "text": " this,",
+              "start": 2.92,
+              "end": 3.24,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " or",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.701171875
+            },
+            {
+              "text": " they'll",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.889892578125
+            },
+            {
+              "text": " ne",
+              "start": 3.78,
+              "end": 3.9,
+              "probability": 0.705078125
+            },
+            {
+              "text": "'er",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.943115234375
+            },
+            {
+              "text": " do't.",
+              "start": 4.04,
+              "end": 4.32,
+              "probability": 0.030186176300048828
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "The",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "children",
+          "start": 1.38,
+          "end": 1.72
+        },
+        {
+          "raw": "must",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "Be",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "practised",
+          "start": 2.1,
+          "end": 2.54
+        },
+        {
+          "raw": "well",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "to",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "this,",
+          "start": 2.92,
+          "end": 3.24
+        },
+        {
+          "raw": "or",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "they'll",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "ne",
+          "start": 3.78,
+          "end": 3.9
+        },
+        {
+          "raw": "'er",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "do't.",
+          "start": 4.04,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "The",
+        "children",
+        "must",
+        "Be",
+        "practised",
+        "well",
+        "to",
+        "this,",
+        "or",
+        "they’ll",
+        "ne’er",
+        "do’t."
+      ],
+      "acoustic_expected_tokens": [
+        "_Ford._",
+        "The",
+        "children",
+        "must",
+        "Be",
+        "practised",
+        "well",
+        "to",
+        "this,",
+        "or",
+        "they'll",
+        "ne'er",
+        "do't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ford,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "ford",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 1.38,
+          "end": 1.72,
+          "key": "children",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "practised",
+          "start": 2.1,
+          "end": 2.54,
+          "key": "practised",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "well",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 2.92,
+          "end": 3.24,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.48,
+          "end": 3.58,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they'll",
+          "start": 3.58,
+          "end": 3.78,
+          "key": "theyll",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ne 'er",
+          "start": 3.78,
+          "end": 4.04,
+          "key": "neer",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "do't.",
+          "start": 4.04,
+          "end": 4.32,
+          "key": "dot",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "ne'er",
+          "heard": "ne 'er",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 3.78,
+          "end": 4.04
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "The",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "children",
+          "start": 1.38,
+          "end": 1.72
+        },
+        {
+          "text": "must",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "Be",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "practised",
+          "start": 2.1,
+          "end": 2.54
+        },
+        {
+          "text": "well",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "to",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "this,",
+          "start": 2.92,
+          "end": 3.24
+        },
+        {
+          "text": "or",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "they’ll",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "ne’er",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "text": "do’t.",
+          "start": 4.04,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3658586721867323
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59018886e26d40e366d69634b12045c3e0dff5692c5847ea7a0b92858a83011c",
+  "selected_reasons": []
+}

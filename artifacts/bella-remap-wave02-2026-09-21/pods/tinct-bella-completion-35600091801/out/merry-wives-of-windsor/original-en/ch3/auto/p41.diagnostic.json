@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "2fc1c1cc5422b94deca566953b5c7ef4835e0e6494bcfd302f2e3a4977b49064",
+  "attempts": [
+    {
+      "asr_seconds": 0.20383825059980154,
+      "alignment_seconds": 0.0009140176698565483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Pist._ Wilt thou revenge?",
+        "hotwords": "Wilt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " PIST, Wilt thou revenge?",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " PIST,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.33831787109375
+            },
+            {
+              "text": " Wilt",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.39459228515625
+            },
+            {
+              "text": " thou",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.38037109375
+            },
+            {
+              "text": " revenge?",
+              "start": 1.43,
+              "end": 1.81,
+              "probability": 0.90576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "PIST,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Wilt",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "thou",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "revenge?",
+          "start": 1.43,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "_Pist._",
+        "Wilt",
+        "thou",
+        "revenge?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Pist._",
+        "Wilt",
+        "thou",
+        "revenge?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "PIST,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pist",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wilt",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "wilt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "revenge?",
+          "start": 1.43,
+          "end": 1.81,
+          "key": "revenge",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Pist._",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Wilt",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "thou",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "revenge?",
+          "start": 1.43,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20483590010553598
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b7e82566bc92108578daba30fa93afb6c20a88ca25802282bd5877412d1c80f7",
+  "selected_reasons": []
+}

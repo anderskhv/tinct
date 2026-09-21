@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "2d4f18c3bf2ad4ff9a0dbb384077d6824ee13cbf21124156bf960a944bdc57e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.705150842666626,
+      "alignment_seconds": 0.001339099369943142,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Fautor utroque tuum laudabit pollice ludum:\"",
+        "hotwords": "Fautor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fautor utroque tuum laudabit pollice ludum",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Fautor",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.20247904459635416
+            },
+            {
+              "text": " utroque",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.1939849853515625
+            },
+            {
+              "text": " tuum",
+              "start": 1.11,
+              "end": 1.41,
+              "probability": 0.723388671875
+            },
+            {
+              "text": " laudabit",
+              "start": 1.41,
+              "end": 1.87,
+              "probability": 0.595947265625
+            },
+            {
+              "text": " pollice",
+              "start": 1.87,
+              "end": 2.27,
+              "probability": 0.17978191375732422
+            },
+            {
+              "text": " ludum",
+              "start": 2.27,
+              "end": 2.67,
+              "probability": 0.7959798177083334
+            }
+          ]
+        },
+        {
+          "text": " Fautor utroque tuum laudabit pollice ludum",
+          "start": 2.67,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Fautor",
+              "start": 2.67,
+              "end": 3.19,
+              "probability": 0.00013305743535359701
+            },
+            {
+              "text": " utroque",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 0.0008202393849690756
+            },
+            {
+              "text": " tuum",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 0.0017654597759246826
+            },
+            {
+              "text": " laudabit",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 9.417533874511719e-06
+            },
+            {
+              "text": " pollice",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 9.235739707946777e-05
+            },
+            {
+              "text": " ludum",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 0.007630666097005208
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fautor",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "utroque",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "raw": "tuum",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "raw": "laudabit",
+          "start": 1.41,
+          "end": 1.87
+        },
+        {
+          "raw": "pollice",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "raw": "ludum",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "raw": "Fautor",
+          "start": 2.67,
+          "end": 3.19
+        },
+        {
+          "raw": "utroque",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "raw": "tuum",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "raw": "laudabit",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "raw": "pollice",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "raw": "ludum",
+          "start": 3.19,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "“Fautor",
+        "utroque",
+        "tuum",
+        "laudabit",
+        "pollice",
+        "ludum:”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Fautor",
+        "utroque",
+        "tuum",
+        "laudabit",
+        "pollice",
+        "ludum:\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fautor",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "fautor",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "utroque",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "utroque",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tuum",
+          "start": 1.11,
+          "end": 1.41,
+          "key": "tuum",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "laudabit",
+          "start": 1.41,
+          "end": 1.87,
+          "key": "laudabit",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pollice",
+          "start": 1.87,
+          "end": 2.27,
+          "key": "pollice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ludum",
+          "start": 2.27,
+          "end": 2.67,
+          "key": "ludum",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fautor",
+          "start": 2.67,
+          "end": 3.19,
+          "key": "fautor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "utroque",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "utroque",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tuum",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "tuum",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "laudabit",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "laudabit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pollice",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "pollice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ludum",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "ludum",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Fautor",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "utroque",
+          "start": 0.73,
+          "end": 1.11
+        },
+        {
+          "text": "tuum",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "text": "laudabit",
+          "start": 1.41,
+          "end": 1.87
+        },
+        {
+          "text": "pollice",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "text": "ludum:”",
+          "start": 2.27,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 12,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.7066806675866246
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5dff4d2c250f8fee302978d7ad96b1f0b749900f495d4d6632cc1bee231e7aea",
+  "selected_reasons": []
+}

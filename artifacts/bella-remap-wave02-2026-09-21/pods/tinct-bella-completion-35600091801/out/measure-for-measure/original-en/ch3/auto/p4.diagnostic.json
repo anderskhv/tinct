@@ -1,0 +1,705 @@
+{
+  "complete": true,
+  "signature": "d1ac13bf2fa56de15489ae7eb8e8c7ed677e76d413b74a30f94a13bcf177f3be",
+  "attempts": [
+    {
+      "asr_seconds": 0.2019144371151924,
+      "alignment_seconds": 0.0010748449712991714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fri. T._ Gladly, my lord.",
+        "hotwords": "T._, Gladly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " T._, Gladly, my lord.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " T._,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 1.4930963516235352e-05
+            },
+            {
+              "text": " Gladly,",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.507080078125
+            },
+            {
+              "text": " my",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.671875
+            },
+            {
+              "text": " lord.",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "T._,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Gladly,",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "_Fri.",
+        "T._",
+        "Gladly,",
+        "my",
+        "lord."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fri.",
+        "T._",
+        "Gladly,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          5,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "T._,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gladly,",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "gladly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fri.",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "T._",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Gladly,",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "my",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "lord.",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2030771654099226
+    },
+    {
+      "asr_seconds": 0.23287758510559797,
+      "alignment_seconds": 0.0012127915397286415,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "T._, Gladly"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Fry, tea gladly my lord.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Fry,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " tea",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.88671875
+            },
+            {
+              "text": " gladly",
+              "start": 1.12,
+              "end": 1.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " my",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " lord.",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.7900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fry,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "tea",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "gladly",
+          "start": 1.12,
+          "end": 1.48
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "_Fri.",
+        "T._",
+        "Gladly,",
+        "my",
+        "lord."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fri.",
+        "T._",
+        "Gladly,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fry,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "fry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "tea",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gladly",
+          "start": 1.12,
+          "end": 1.48,
+          "key": "gladly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fri.",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "T._",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "Gladly,",
+          "start": 1.12,
+          "end": 1.48
+        },
+        {
+          "text": "my",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "lord.",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2341898661106825
+    },
+    {
+      "asr_seconds": 0.23083927761763334,
+      "alignment_seconds": 0.001189500093460083,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fry, tea gladly my lord!",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Fry,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " tea",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.88671875
+            },
+            {
+              "text": " gladly",
+              "start": 1.12,
+              "end": 1.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " my",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " lord!",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.7900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fry,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "tea",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "gladly",
+          "start": 1.12,
+          "end": 1.5
+        },
+        {
+          "raw": "my",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "lord!",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "_Fri.",
+        "T._",
+        "Gladly,",
+        "my",
+        "lord."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fri.",
+        "T._",
+        "Gladly,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fry,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "fry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "tea",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gladly",
+          "start": 1.12,
+          "end": 1.5,
+          "key": "gladly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord!",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fri.",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "T._",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "Gladly,",
+          "start": 1.12,
+          "end": 1.5
+        },
+        {
+          "text": "my",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "lord.",
+          "start": 1.7,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23213277850300074
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85d771ba67767f48d12f8f6828f63b73bf9e3161cc8e4d9e7d489cf652e90f70",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

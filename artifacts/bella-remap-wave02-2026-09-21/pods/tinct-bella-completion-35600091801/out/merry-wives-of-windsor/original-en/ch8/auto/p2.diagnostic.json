@@ -1,0 +1,780 @@
+{
+  "complete": true,
+  "signature": "5650834b0739488f6107bb5342a84da2765bfd6f0f6230a00182fa4f314d0b8b",
+  "attempts": [
+    {
+      "asr_seconds": 0.4612613469362259,
+      "alignment_seconds": 0.003124513663351536,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Sim._ Marry, sir, the pittie-ward, the park-ward, every 5 way; old Windsor way, and every way but the town way.",
+        "hotwords": "Marry, Windsor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sim, marry, sir, the pittie-ward, the park-ward, every 5 way, old Windsor way, and every way",
+          "start": 0.08,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " Sim,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " marry,",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.002811431884765625
+            },
+            {
+              "text": " sir,",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.65625
+            },
+            {
+              "text": " the",
+              "start": 1.86,
+              "end": 1.92,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " pittie",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.12336222330729167
+            },
+            {
+              "text": "-ward,",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.49566650390625
+            },
+            {
+              "text": " the",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " park",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.876953125
+            },
+            {
+              "text": "-ward,",
+              "start": 2.86,
+              "end": 3.14,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " every",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " 5",
+              "start": 3.54,
+              "end": 3.92,
+              "probability": 0.038482666015625
+            },
+            {
+              "text": " way,",
+              "start": 3.92,
+              "end": 4.2,
+              "probability": 0.2001953125
+            },
+            {
+              "text": " old",
+              "start": 4.76,
+              "end": 4.94,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " Windsor",
+              "start": 4.94,
+              "end": 5.24,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " way,",
+              "start": 5.24,
+              "end": 5.58,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " and",
+              "start": 5.86,
+              "end": 5.94,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " every",
+              "start": 5.94,
+              "end": 6.16,
+              "probability": 0.986328125
+            },
+            {
+              "text": " way",
+              "start": 6.16,
+              "end": 6.38,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " but the town way.",
+          "start": 6.38,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " but",
+              "start": 6.38,
+              "end": 6.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 6.54,
+              "end": 6.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " town",
+              "start": 6.72,
+              "end": 6.94,
+              "probability": 0.947265625
+            },
+            {
+              "text": " way.",
+              "start": 6.94,
+              "end": 7.24,
+              "probability": 0.8681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sim,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "marry,",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "sir,",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 1.92
+        },
+        {
+          "raw": "pittie",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "-ward,",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "park",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "-ward,",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "raw": "every",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "5",
+          "start": 3.54,
+          "end": 3.92
+        },
+        {
+          "raw": "way,",
+          "start": 3.92,
+          "end": 4.2
+        },
+        {
+          "raw": "old",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "raw": "Windsor",
+          "start": 4.94,
+          "end": 5.24
+        },
+        {
+          "raw": "way,",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "raw": "and",
+          "start": 5.86,
+          "end": 5.94
+        },
+        {
+          "raw": "every",
+          "start": 5.94,
+          "end": 6.16
+        },
+        {
+          "raw": "way",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "raw": "but",
+          "start": 6.38,
+          "end": 6.54
+        },
+        {
+          "raw": "the",
+          "start": 6.54,
+          "end": 6.72
+        },
+        {
+          "raw": "town",
+          "start": 6.72,
+          "end": 6.94
+        },
+        {
+          "raw": "way.",
+          "start": 6.94,
+          "end": 7.24
+        }
+      ],
+      "expected_tokens": [
+        "_Sim._",
+        "Marry,",
+        "sir,",
+        "the",
+        "pittie-ward,",
+        "the",
+        "park-ward,",
+        "every",
+        "5",
+        "way;",
+        "old",
+        "Windsor",
+        "way,",
+        "and",
+        "every",
+        "way",
+        "but",
+        "the",
+        "town",
+        "way."
+      ],
+      "acoustic_expected_tokens": [
+        "_Sim._",
+        "Marry,",
+        "sir,",
+        "the",
+        "pittie-ward,",
+        "the",
+        "park-ward,",
+        "every",
+        "5",
+        "way;",
+        "old",
+        "Windsor",
+        "way,",
+        "and",
+        "every",
+        "way",
+        "but",
+        "the",
+        "town",
+        "way."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sim,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "sim",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "marry,",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "marry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.86,
+          "end": 1.92,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pittie -ward,",
+          "start": 1.92,
+          "end": 2.36,
+          "key": "pittieward",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.6,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "park -ward,",
+          "start": 2.6,
+          "end": 3.14,
+          "key": "parkward",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "every",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "5",
+          "start": 3.54,
+          "end": 3.92,
+          "key": "five",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 3.92,
+          "end": 4.2,
+          "key": "way",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 4.76,
+          "end": 4.94,
+          "key": "old",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Windsor",
+          "start": 4.94,
+          "end": 5.24,
+          "key": "windsor",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 5.24,
+          "end": 5.58,
+          "key": "way",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.86,
+          "end": 5.94,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 5.94,
+          "end": 6.16,
+          "key": "every",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 6.16,
+          "end": 6.38,
+          "key": "way",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.38,
+          "end": 6.54,
+          "key": "but",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.54,
+          "end": 6.72,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "town",
+          "start": 6.72,
+          "end": 6.94,
+          "key": "town",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 6.94,
+          "end": 7.24,
+          "key": "way",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "pittie-ward,",
+          "heard": "pittie -ward,",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "expected_index": 6,
+          "text": "park-ward,",
+          "heard": "park -ward,",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.6,
+          "end": 3.14
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Sim._",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Marry,",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "sir,",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.86,
+          "end": 1.92
+        },
+        {
+          "text": "pittie-ward,",
+          "start": 1.92,
+          "end": 2.36
+        },
+        {
+          "text": "the",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "park-ward,",
+          "start": 2.6,
+          "end": 3.14
+        },
+        {
+          "text": "every",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "5",
+          "start": 3.54,
+          "end": 3.92
+        },
+        {
+          "text": "way;",
+          "start": 3.92,
+          "end": 4.2
+        },
+        {
+          "text": "old",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "text": "Windsor",
+          "start": 4.94,
+          "end": 5.24
+        },
+        {
+          "text": "way,",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "text": "and",
+          "start": 5.86,
+          "end": 5.94
+        },
+        {
+          "text": "every",
+          "start": 5.94,
+          "end": 6.16
+        },
+        {
+          "text": "way",
+          "start": 6.16,
+          "end": 6.38
+        },
+        {
+          "text": "but",
+          "start": 6.38,
+          "end": 6.54
+        },
+        {
+          "text": "the",
+          "start": 6.54,
+          "end": 6.72
+        },
+        {
+          "text": "town",
+          "start": 6.72,
+          "end": 6.94
+        },
+        {
+          "text": "way.",
+          "start": 6.94,
+          "end": 7.24
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4646907290443778
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c30f1a0ead0c96bd903c9499cb711083c3c59af1182ec83a1e411de206ab828a",
+  "selected_reasons": []
+}

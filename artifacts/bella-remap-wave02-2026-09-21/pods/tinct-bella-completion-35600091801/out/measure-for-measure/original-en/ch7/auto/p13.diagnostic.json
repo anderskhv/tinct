@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "0f56272056f222fb8bce893e1a54fcbf185391824328ac222914fe1fede1c6a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24612688459455967,
+      "alignment_seconds": 0.0014919880777597427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Duke._ Love you the man that wrong'd you?",
+        "hotwords": "Love"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, love you the man that wrong'd you?",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " love",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.9453125
+            },
+            {
+              "text": " you",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " man",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " wrong'd",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.4999275207519531
+            },
+            {
+              "text": " you?",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "love",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "man",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "wrong'd",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "raw": "you?",
+          "start": 2.18,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "Love",
+        "you",
+        "the",
+        "man",
+        "that",
+        "wrong'd",
+        "you?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "Love",
+        "you",
+        "the",
+        "man",
+        "that",
+        "wrong'd",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "love",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wrong'd",
+          "start": 1.86,
+          "end": 2.18,
+          "key": "wrongd",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Love",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "you",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "the",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "man",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "that",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "wrong'd",
+          "start": 1.86,
+          "end": 2.02
+        },
+        {
+          "text": "you?",
+          "start": 2.18,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.24775554984807968
+    },
+    {
+      "asr_seconds": 0.28337041288614273,
+      "alignment_seconds": 0.0005624266341328621,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Love"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Duke, love you the man that wronged you.",
+          "start": 0.08,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " love",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.9453125
+            },
+            {
+              "text": " you",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " man",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " wronged",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "love",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "man",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "wronged",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "you.",
+          "start": 2.18,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "_Duke._",
+        "Love",
+        "you",
+        "the",
+        "man",
+        "that",
+        "wrong'd",
+        "you?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Duke._",
+        "Love",
+        "you",
+        "the",
+        "man",
+        "that",
+        "wrong'd",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "love",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wronged",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "wronged",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Duke._",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Love",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "you",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "the",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "man",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "that",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "wrong'd",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "you?",
+          "start": 2.18,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28398208506405354
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "7a03d5ef8dff25cd914e133e213596a4fb278ac85bb73b8149973d0d1b630cef",
+  "selected_reasons": []
+}

@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "59386b55c242d32b048872dd1df9116333275a95b8480bdce00fb5f64545d81b",
+  "attempts": [
+    {
+      "asr_seconds": 0.5103530883789062,
+      "alignment_seconds": 0.0013730404898524284,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[\"As a sick man's dreams, creating vain phantasms.\"-- Hor., De Arte Poetica, 7.]",
+        "hotwords": "As, Hor, De, Arte, Poetica"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As, A Sick Man's Dreams, Creating Vain Phantasms [\"As a sick man's dreams, creating vain phantasms.\"",
+          "start": 0.08,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " As,",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " A",
+              "start": 0.7,
+              "end": 0.7,
+              "probability": 0.52734375
+            },
+            {
+              "text": " Sick",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Man's",
+              "start": 0.86,
+              "end": 1.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Dreams,",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Creating",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Vain",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.904296875
+            },
+            {
+              "text": " Phantasms",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " [\"As",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 1.1831521987915039e-05
+            },
+            {
+              "text": " a",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.305908203125
+            },
+            {
+              "text": " sick",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.24853515625
+            },
+            {
+              "text": " man's",
+              "start": 1.06,
+              "end": 1.28,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " dreams,",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.9765625
+            },
+            {
+              "text": " creating",
+              "start": 1.8,
+              "end": 2.16,
+              "probability": 0.888671875
+            },
+            {
+              "text": " vain",
+              "start": 2.16,
+              "end": 2.5,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " phantasms.\"",
+              "start": 2.5,
+              "end": 3.86,
+              "probability": 0.74383544921875
+            }
+          ]
+        },
+        {
+          "text": " Hor., De Arte Poetica, 7.]",
+          "start": 3.86,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " Hor.,",
+              "start": 3.86,
+              "end": 4.72,
+              "probability": 0.01023101806640625
+            },
+            {
+              "text": " De",
+              "start": 4.72,
+              "end": 4.82,
+              "probability": 0.06280517578125
+            },
+            {
+              "text": " Arte",
+              "start": 4.82,
+              "end": 5.14,
+              "probability": 0.520660400390625
+            },
+            {
+              "text": " Poetica,",
+              "start": 5.14,
+              "end": 5.62,
+              "probability": 0.9357096354166666
+            },
+            {
+              "text": " 7.]",
+              "start": 5.92,
+              "end": 6.58,
+              "probability": 0.443359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As,",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "A",
+          "start": 0.7,
+          "end": 0.7
+        },
+        {
+          "raw": "Sick",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "Man's",
+          "start": 0.86,
+          "end": 1.06
+        },
+        {
+          "raw": "Dreams,",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "Creating",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "Vain",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "Phantasms",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "[\"As",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "sick",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "man's",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "raw": "dreams,",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "creating",
+          "start": 1.8,
+          "end": 2.16
+        },
+        {
+          "raw": "vain",
+          "start": 2.16,
+          "end": 2.5
+        },
+        {
+          "raw": "phantasms.\"",
+          "start": 2.5,
+          "end": 3.86
+        },
+        {
+          "raw": "Hor.,",
+          "start": 3.86,
+          "end": 4.72
+        },
+        {
+          "raw": "De",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "raw": "Arte",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "raw": "Poetica,",
+          "start": 5.14,
+          "end": 5.62
+        },
+        {
+          "raw": "7.]",
+          "start": 5.92,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "[“As",
+        "a",
+        "sick",
+        "man’s",
+        "dreams,",
+        "creating",
+        "vain",
+        "phantasms.”--",
+        "Hor.,",
+        "De",
+        "Arte",
+        "Poetica,",
+        "7.]"
+      ],
+      "acoustic_expected_tokens": [
+        "[\"As",
+        "a",
+        "sick",
+        "man's",
+        "dreams,",
+        "creating",
+        "vain",
+        "phantasms.\"--",
+        "Hor.,",
+        "De",
+        "Arte",
+        "Poetica,",
+        "7.]"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          "equal",
+          0,
+          13,
+          8,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As,",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 0.7,
+          "end": 0.7,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sick",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "sick",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Man's",
+          "start": 0.86,
+          "end": 1.06,
+          "key": "mans",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dreams,",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "dreams",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Creating",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "creating",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Vain",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "vain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Phantasms",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "phantasms",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "[\"As",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "sick",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 1.06,
+          "end": 1.28,
+          "key": "mans",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dreams,",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "dreams",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "creating",
+          "start": 1.8,
+          "end": 2.16,
+          "key": "creating",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "vain",
+          "start": 2.16,
+          "end": 2.5,
+          "key": "vain",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "phantasms.\"",
+          "start": 2.5,
+          "end": 3.86,
+          "key": "phantasms",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Hor.,",
+          "start": 3.86,
+          "end": 4.72,
+          "key": "hor",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "De",
+          "start": 4.72,
+          "end": 4.82,
+          "key": "de",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Arte",
+          "start": 4.82,
+          "end": 5.14,
+          "key": "arte",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Poetica,",
+          "start": 5.14,
+          "end": 5.62,
+          "key": "poetica",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "7.]",
+          "start": 5.92,
+          "end": 6.58,
+          "key": "seven",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[“As",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "a",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "sick",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "man’s",
+          "start": 1.06,
+          "end": 1.28
+        },
+        {
+          "text": "dreams,",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "text": "creating",
+          "start": 1.8,
+          "end": 2.16
+        },
+        {
+          "text": "vain",
+          "start": 2.16,
+          "end": 2.5
+        },
+        {
+          "text": "phantasms.”--",
+          "start": 2.5,
+          "end": 3.86
+        },
+        {
+          "text": "Hor.,",
+          "start": 3.86,
+          "end": 4.72
+        },
+        {
+          "text": "De",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "text": "Arte",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "text": "Poetica,",
+          "start": 5.14,
+          "end": 5.62
+        },
+        {
+          "text": "7.]",
+          "start": 5.92,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 21,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5120394956320524
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ebe001789fbe4c0dde1a690733f79958ebfae9196a313278e2cded8296751167",
+  "selected_reasons": []
+}

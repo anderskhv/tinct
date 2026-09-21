@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "54adb81f596f26e791849ce521fd8c439c63ab363b59334076516043e688ed30",
+  "attempts": [
+    {
+      "asr_seconds": 0.3999578058719635,
+      "alignment_seconds": 0.001229037530720234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sed nec vocibus excitata blandis, Molli pollici nec rogata, surgit.\"",
+        "hotwords": "Sed, Molli"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sed nec vocibus excitata blandis, Molli pollici nec rogata, surgit.",
+          "start": 0.08,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " Sed",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " nec",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.0033016204833984375
+            },
+            {
+              "text": " vocibus",
+              "start": 0.82,
+              "end": 1.36,
+              "probability": 0.6910400390625
+            },
+            {
+              "text": " excitata",
+              "start": 1.36,
+              "end": 1.88,
+              "probability": 0.8343098958333334
+            },
+            {
+              "text": " blandis,",
+              "start": 1.88,
+              "end": 2.52,
+              "probability": 0.904296875
+            },
+            {
+              "text": " Molli",
+              "start": 3.0,
+              "end": 3.28,
+              "probability": 0.3636678059895833
+            },
+            {
+              "text": " pollici",
+              "start": 3.28,
+              "end": 3.64,
+              "probability": 0.173095703125
+            },
+            {
+              "text": " nec",
+              "start": 3.64,
+              "end": 3.9,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " rogata,",
+              "start": 3.9,
+              "end": 4.4,
+              "probability": 0.4820728302001953
+            },
+            {
+              "text": " surgit.",
+              "start": 4.76,
+              "end": 5.1,
+              "probability": 0.061985015869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sed",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "nec",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "vocibus",
+          "start": 0.82,
+          "end": 1.36
+        },
+        {
+          "raw": "excitata",
+          "start": 1.36,
+          "end": 1.88
+        },
+        {
+          "raw": "blandis,",
+          "start": 1.88,
+          "end": 2.52
+        },
+        {
+          "raw": "Molli",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "raw": "pollici",
+          "start": 3.28,
+          "end": 3.64
+        },
+        {
+          "raw": "nec",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "raw": "rogata,",
+          "start": 3.9,
+          "end": 4.4
+        },
+        {
+          "raw": "surgit.",
+          "start": 4.76,
+          "end": 5.1
+        }
+      ],
+      "expected_tokens": [
+        "“Sed",
+        "nec",
+        "vocibus",
+        "excitata",
+        "blandis,",
+        "Molli",
+        "pollici",
+        "nec",
+        "rogata,",
+        "surgit.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Sed",
+        "nec",
+        "vocibus",
+        "excitata",
+        "blandis,",
+        "Molli",
+        "pollici",
+        "nec",
+        "rogata,",
+        "surgit.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sed",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "sed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nec",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "nec",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vocibus",
+          "start": 0.82,
+          "end": 1.36,
+          "key": "vocibus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "excitata",
+          "start": 1.36,
+          "end": 1.88,
+          "key": "excitata",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "blandis,",
+          "start": 1.88,
+          "end": 2.52,
+          "key": "blandis",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Molli",
+          "start": 3.0,
+          "end": 3.28,
+          "key": "molli",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pollici",
+          "start": 3.28,
+          "end": 3.64,
+          "key": "pollici",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nec",
+          "start": 3.64,
+          "end": 3.9,
+          "key": "nec",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rogata,",
+          "start": 3.9,
+          "end": 4.4,
+          "key": "rogata",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "surgit.",
+          "start": 4.76,
+          "end": 5.1,
+          "key": "surgit",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Sed",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "nec",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "vocibus",
+          "start": 0.82,
+          "end": 1.36
+        },
+        {
+          "text": "excitata",
+          "start": 1.36,
+          "end": 1.88
+        },
+        {
+          "text": "blandis,",
+          "start": 1.88,
+          "end": 2.52
+        },
+        {
+          "text": "Molli",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "text": "pollici",
+          "start": 3.28,
+          "end": 3.64
+        },
+        {
+          "text": "nec",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "text": "rogata,",
+          "start": 3.9,
+          "end": 4.4
+        },
+        {
+          "text": "surgit.”",
+          "start": 4.76,
+          "end": 5.1
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40129777882248163
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5a89f6336581dbf43b6f54bd98e2c8155b035e95aceb5c73c876577861545fe",
+  "selected_reasons": []
+}

@@ -1,0 +1,1486 @@
+{
+  "complete": true,
+  "signature": "7a2f8ea749a04f32c0f43a6c0065172804e0fc9719fe693fe5c3bb08208a79ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.6886188266798854,
+      "alignment_seconds": 0.002874353900551796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Rug._ He is wise, sir; he knew your worship would kill him, if he came. 10"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He is wise, sir. He knew your worship would kill him, if he came.",
+          "start": 0.02,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.00038743019104003906
+            },
+            {
+              "text": " is",
+              "start": 0.72,
+              "end": 1.16,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " wise,",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " sir.",
+              "start": 1.74,
+              "end": 1.76,
+              "probability": 0.900390625
+            },
+            {
+              "text": " He",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " knew",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " worship",
+              "start": 2.48,
+              "end": 2.74,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " would",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kill",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him,",
+              "start": 3.14,
+              "end": 3.32,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " if",
+              "start": 3.38,
+              "end": 3.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 3.44,
+              "end": 3.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " came.",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " 10",
+          "start": 3.86,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " 10",
+              "start": 3.86,
+              "end": 4.54,
+              "probability": 0.58349609375
+            }
+          ]
+        },
+        {
+          "text": " He is wise, sir. He knew your worship would kill him, if he came.",
+          "start": 4.54,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " He",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.0003712177276611328
+            },
+            {
+              "text": " is",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.0440673828125
+            },
+            {
+              "text": " wise,",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 5.7756900787353516e-05
+            },
+            {
+              "text": " sir.",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.00014269351959228516
+            },
+            {
+              "text": " He",
+              "start": 4.54,
+              "end": 4.56,
+              "probability": 0.3857421875
+            },
+            {
+              "text": " knew",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.000827789306640625
+            },
+            {
+              "text": " your",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 0.0026493072509765625
+            },
+            {
+              "text": " worship",
+              "start": 4.56,
+              "end": 4.56,
+              "probability": 1.4483928680419922e-05
+            },
+            {
+              "text": " would",
+              "start": 4.56,
+              "end": 4.58,
+              "probability": 0.006824493408203125
+            },
+            {
+              "text": " kill",
+              "start": 4.58,
+              "end": 4.58,
+              "probability": 0.0005388259887695312
+            },
+            {
+              "text": " him,",
+              "start": 4.58,
+              "end": 4.64,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " if",
+              "start": 4.64,
+              "end": 5.1,
+              "probability": 0.02935791015625
+            },
+            {
+              "text": " he",
+              "start": 5.1,
+              "end": 5.1,
+              "probability": 0.22607421875
+            },
+            {
+              "text": " came.",
+              "start": 5.1,
+              "end": 5.1,
+              "probability": 0.00463104248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "is",
+          "start": 0.72,
+          "end": 1.16
+        },
+        {
+          "raw": "wise,",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "raw": "sir.",
+          "start": 1.74,
+          "end": 1.76
+        },
+        {
+          "raw": "He",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "knew",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "worship",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "raw": "would",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "kill",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "him,",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "raw": "if",
+          "start": 3.38,
+          "end": 3.44
+        },
+        {
+          "raw": "he",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "raw": "came.",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "raw": "10",
+          "start": 3.86,
+          "end": 4.54
+        },
+        {
+          "raw": "He",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "is",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "wise,",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "sir.",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "He",
+          "start": 4.54,
+          "end": 4.56
+        },
+        {
+          "raw": "knew",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "your",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "worship",
+          "start": 4.56,
+          "end": 4.56
+        },
+        {
+          "raw": "would",
+          "start": 4.56,
+          "end": 4.58
+        },
+        {
+          "raw": "kill",
+          "start": 4.58,
+          "end": 4.58
+        },
+        {
+          "raw": "him,",
+          "start": 4.58,
+          "end": 4.64
+        },
+        {
+          "raw": "if",
+          "start": 4.64,
+          "end": 5.1
+        },
+        {
+          "raw": "he",
+          "start": 5.1,
+          "end": 5.1
+        },
+        {
+          "raw": "came.",
+          "start": 5.1,
+          "end": 5.1
+        }
+      ],
+      "expected_tokens": [
+        "_Rug._",
+        "He",
+        "is",
+        "wise,",
+        "sir;",
+        "he",
+        "knew",
+        "your",
+        "worship",
+        "would",
+        "kill",
+        "him,",
+        "if",
+        "he",
+        "came.",
+        "10"
+      ],
+      "acoustic_expected_tokens": [
+        "_Rug._",
+        "He",
+        "is",
+        "wise,",
+        "sir;",
+        "he",
+        "knew",
+        "your",
+        "worship",
+        "would",
+        "kill",
+        "him,",
+        "if",
+        "he",
+        "came.",
+        "10"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          16,
+          0,
+          15
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "insert",
+          16,
+          16,
+          15,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.72,
+          "end": 1.16,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "wise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.74,
+          "end": 1.76,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "knew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 2.48,
+          "end": 2.74,
+          "key": "worship",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "would",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.94,
+          "end": 3.14,
+          "key": "kill",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 3.14,
+          "end": 3.32,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.38,
+          "end": 3.44,
+          "key": "if",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.44,
+          "end": 3.54,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "came.",
+          "start": 3.54,
+          "end": 3.86,
+          "key": "came",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "10",
+          "start": 3.86,
+          "end": 4.54,
+          "key": "ten",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "wise",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "sir",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.54,
+          "end": 4.56,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "knew",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "your",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 4.56,
+          "end": 4.56,
+          "key": "worship",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.56,
+          "end": 4.58,
+          "key": "would",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 4.58,
+          "end": 4.58,
+          "key": "kill",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 4.58,
+          "end": 4.64,
+          "key": "him",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.64,
+          "end": 5.1,
+          "key": "if",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.1,
+          "end": 5.1,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "came.",
+          "start": 5.1,
+          "end": 5.1,
+          "key": "came",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Rug._",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "is",
+          "start": 0.72,
+          "end": 1.16
+        },
+        {
+          "text": "wise,",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "text": "sir;",
+          "start": 1.74,
+          "end": 1.76
+        },
+        {
+          "text": "he",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "knew",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "your",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "worship",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "text": "would",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "kill",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "him,",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "text": "if",
+          "start": 3.38,
+          "end": 3.44
+        },
+        {
+          "text": "he",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "text": "came.",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "text": "10",
+          "start": 3.86,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 29,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.6919297818094492
+    },
+    {
+      "asr_seconds": 0.4499373668804765,
+      "alignment_seconds": 0.0025104237720370293,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Rug, he is wise, sir. He knew your worship would kill him if he came.",
+          "start": 0.02,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Rug,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.56884765625
+            },
+            {
+              "text": " he",
+              "start": 0.96,
+              "end": 1.06,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " is",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wise,",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir.",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " He",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " knew",
+              "start": 2.2,
+              "end": 2.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " worship",
+              "start": 2.48,
+              "end": 2.74,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " would",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " kill",
+              "start": 2.94,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 3.14,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " if",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " he",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " came.",
+              "start": 3.56,
+              "end": 3.86,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " 10",
+          "start": 4.36,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " 10",
+              "start": 4.36,
+              "end": 4.56,
+              "probability": 0.2325439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "raw": "is",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "wise,",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "sir.",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "He",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "knew",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "worship",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "raw": "would",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "kill",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "raw": "him",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "raw": "if",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "he",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "came.",
+          "start": 3.56,
+          "end": 3.86
+        },
+        {
+          "raw": "10",
+          "start": 4.36,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "_Rug._",
+        "He",
+        "is",
+        "wise,",
+        "sir;",
+        "he",
+        "knew",
+        "your",
+        "worship",
+        "would",
+        "kill",
+        "him,",
+        "if",
+        "he",
+        "came.",
+        "10"
+      ],
+      "acoustic_expected_tokens": [
+        "_Rug._",
+        "He",
+        "is",
+        "wise,",
+        "sir;",
+        "he",
+        "knew",
+        "your",
+        "worship",
+        "would",
+        "kill",
+        "him,",
+        "if",
+        "he",
+        "came.",
+        "10"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.06,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wise,",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "wise",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.06,
+          "end": 2.2,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 2.2,
+          "end": 2.32,
+          "key": "knew",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 2.48,
+          "end": 2.74,
+          "key": "worship",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "would",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.94,
+          "end": 3.14,
+          "key": "kill",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.14,
+          "end": 3.32,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "if",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "came.",
+          "start": 3.56,
+          "end": 3.86,
+          "key": "came",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "10",
+          "start": 4.36,
+          "end": 4.56,
+          "key": "ten",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Rug._",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "He",
+          "start": 0.96,
+          "end": 1.06
+        },
+        {
+          "text": "is",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "wise,",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "sir;",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "he",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "knew",
+          "start": 2.2,
+          "end": 2.32
+        },
+        {
+          "text": "your",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "worship",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "text": "would",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "kill",
+          "start": 2.94,
+          "end": 3.14
+        },
+        {
+          "text": "him,",
+          "start": 3.14,
+          "end": 3.32
+        },
+        {
+          "text": "if",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "he",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "came.",
+          "start": 3.56,
+          "end": 3.86
+        },
+        {
+          "text": "10",
+          "start": 4.36,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4526970088481903
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "964767d4119f4b66e812c557c8756e7dea9a85c977bc10aa841e954157a1e447",
+  "selected_reasons": []
+}

@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "d1ecfb333d00d2dceef307c4e95c76be52a214ace1840b1096b628fb6c1a8b19",
+  "attempts": [
+    {
+      "asr_seconds": 0.2347978614270687,
+      "alignment_seconds": 0.0013283602893352509,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Isab._ Peace and prosperity! Who is't that calls? 15",
+        "hotwords": "Peace, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Isab, peace and prosperity! Who is't that calls? 15",
+          "start": 0.05,
+          "end": 3.51,
+          "words": [
+            {
+              "text": " Isab,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5079345703125
+            },
+            {
+              "text": " peace",
+              "start": 0.93,
+              "end": 1.13,
+              "probability": 0.2021484375
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.90234375
+            },
+            {
+              "text": " prosperity!",
+              "start": 1.31,
+              "end": 1.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Who",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " is't",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.47818565368652344
+            },
+            {
+              "text": " that",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " calls?",
+              "start": 2.53,
+              "end": 2.87,
+              "probability": 0.876953125
+            },
+            {
+              "text": " 15",
+              "start": 3.23,
+              "end": 3.51,
+              "probability": 0.78173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Isab,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "peace",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "prosperity!",
+          "start": 1.31,
+          "end": 1.87
+        },
+        {
+          "raw": "Who",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "is't",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "that",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "calls?",
+          "start": 2.53,
+          "end": 2.87
+        },
+        {
+          "raw": "15",
+          "start": 3.23,
+          "end": 3.51
+        }
+      ],
+      "expected_tokens": [
+        "_Isab._",
+        "Peace",
+        "and",
+        "prosperity!",
+        "Who",
+        "is't",
+        "that",
+        "calls?",
+        "15"
+      ],
+      "acoustic_expected_tokens": [
+        "_Isab._",
+        "Peace",
+        "and",
+        "prosperity!",
+        "Who",
+        "is't",
+        "that",
+        "calls?",
+        "15"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Isab,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "isab",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 0.93,
+          "end": 1.13,
+          "key": "peace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prosperity!",
+          "start": 1.31,
+          "end": 1.87,
+          "key": "prosperity",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "who",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is't",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "ist",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.41,
+          "end": 2.53,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "calls?",
+          "start": 2.53,
+          "end": 2.87,
+          "key": "calls",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "15",
+          "start": 3.23,
+          "end": 3.51,
+          "key": "fifteen",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Isab._",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Peace",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "text": "and",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "prosperity!",
+          "start": 1.31,
+          "end": 1.87
+        },
+        {
+          "text": "Who",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "is't",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "that",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "calls?",
+          "start": 2.53,
+          "end": 2.87
+        },
+        {
+          "text": "15",
+          "start": 3.23,
+          "end": 3.51
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23625040240585804
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e1b98657896726fdb5e196157a3d3047ac1109fe3a3e9aa35b43370be494268",
+  "selected_reasons": []
+}

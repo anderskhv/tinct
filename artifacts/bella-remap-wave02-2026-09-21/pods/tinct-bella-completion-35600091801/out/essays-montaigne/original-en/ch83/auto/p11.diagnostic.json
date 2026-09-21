@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "e66eded58fe86e4a19ec2aa7b79720f5fa40921e198ba66e6d7bd33cd66a1f1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.285047865472734,
+      "alignment_seconds": 0.001587914302945137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In Lacedaemon, pedagogues chastised their scholars by biting their thumbs.",
+        "hotwords": "In, Lacedaemon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In Lacedaemon, pedagogues chastised their scholars by biting their thumbs.",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Lacedaemon,",
+              "start": 0.59,
+              "end": 1.15,
+              "probability": 0.466705322265625
+            },
+            {
+              "text": " pedagogues",
+              "start": 1.61,
+              "end": 2.09,
+              "probability": 0.9905598958333334
+            },
+            {
+              "text": " chastised",
+              "start": 2.09,
+              "end": 2.59,
+              "probability": 0.648193359375
+            },
+            {
+              "text": " their",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " scholars",
+              "start": 2.75,
+              "end": 3.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 3.15,
+              "end": 3.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " biting",
+              "start": 3.43,
+              "end": 3.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thumbs.",
+              "start": 4.01,
+              "end": 4.37,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Lacedaemon,",
+          "start": 0.59,
+          "end": 1.15
+        },
+        {
+          "raw": "pedagogues",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "raw": "chastised",
+          "start": 2.09,
+          "end": 2.59
+        },
+        {
+          "raw": "their",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "scholars",
+          "start": 2.75,
+          "end": 3.15
+        },
+        {
+          "raw": "by",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "raw": "biting",
+          "start": 3.43,
+          "end": 3.81
+        },
+        {
+          "raw": "their",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "raw": "thumbs.",
+          "start": 4.01,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "Lacedaemon,",
+        "pedagogues",
+        "chastised",
+        "their",
+        "scholars",
+        "by",
+        "biting",
+        "their",
+        "thumbs."
+      ],
+      "acoustic_expected_tokens": [
+        "In",
+        "Lacedaemon,",
+        "pedagogues",
+        "chastised",
+        "their",
+        "scholars",
+        "by",
+        "biting",
+        "their",
+        "thumbs."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lacedaemon,",
+          "start": 0.59,
+          "end": 1.15,
+          "key": "lacedaemon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pedagogues",
+          "start": 1.61,
+          "end": 2.09,
+          "key": "pedagogues",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chastised",
+          "start": 2.09,
+          "end": 2.59,
+          "key": "chastised",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "scholars",
+          "start": 2.75,
+          "end": 3.15,
+          "key": "scholars",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.15,
+          "end": 3.43,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "biting",
+          "start": 3.43,
+          "end": 3.81,
+          "key": "biting",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.81,
+          "end": 4.01,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thumbs.",
+          "start": 4.01,
+          "end": 4.37,
+          "key": "thumbs",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Lacedaemon,",
+          "start": 0.59,
+          "end": 1.15
+        },
+        {
+          "text": "pedagogues",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "text": "chastised",
+          "start": 2.09,
+          "end": 2.59
+        },
+        {
+          "text": "their",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "scholars",
+          "start": 2.75,
+          "end": 3.15
+        },
+        {
+          "text": "by",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "text": "biting",
+          "start": 3.43,
+          "end": 3.81
+        },
+        {
+          "text": "their",
+          "start": 3.81,
+          "end": 4.01
+        },
+        {
+          "text": "thumbs.",
+          "start": 4.01,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2867856016382575
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac9be326a340df3e38a3d5810173c080860947956f157810a982c9e20f4ce4c6",
+  "selected_reasons": []
+}

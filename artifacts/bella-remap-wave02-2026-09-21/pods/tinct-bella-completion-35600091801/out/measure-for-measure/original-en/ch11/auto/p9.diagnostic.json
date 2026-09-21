@@ -1,0 +1,132 @@
+{
+  "complete": true,
+  "signature": "e19480ff3d00c173041b42eda7a0f73953e503abc41b343f820f9505d633c2c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.1906836647540331,
+      "alignment_seconds": 0.000713731162250042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Isabella._",
+        "hotwords": "Isabella._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Isabella._",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Isabella._",
+              "start": 0.68,
+              "end": 1.22,
+              "probability": 0.5774739583333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Isabella._",
+          "start": 0.68,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "ISABELLA._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Isabella._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Isabella._",
+          "start": 0.68,
+          "end": 1.22,
+          "key": "isabella",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "ISABELLA._",
+          "start": 0.68,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1914582336321473
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "087f35b1f2b72ccd0d7d0bf0ad9398ae5cecb208ed5bb82679aac5fda5f42af8",
+  "selected_reasons": []
+}

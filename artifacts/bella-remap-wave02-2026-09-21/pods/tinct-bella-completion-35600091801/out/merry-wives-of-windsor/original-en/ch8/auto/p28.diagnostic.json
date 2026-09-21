@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "31da2c462fed7a960618c3bd1e596328dcd474dc6f4b3f6d8005cbd5baaaca87",
+  "attempts": [
+    {
+      "asr_seconds": 0.22968308813869953,
+      "alignment_seconds": 0.0008744960650801659,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ What is he?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans. What is he?",
+          "start": 0.14,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Evans.",
+              "start": 0.14,
+              "end": 0.84,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " What",
+              "start": 1.16,
+              "end": 1.22,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " is",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " he?",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans.",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "raw": "What",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "he?",
+          "start": 1.36,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "What",
+        "is",
+        "he?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "What",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans.",
+          "start": 0.14,
+          "end": 0.84,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.16,
+          "end": 1.22,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "text": "What",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "text": "is",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "he?",
+          "start": 1.36,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23064609616994858
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b8ed691420c529ed849f19c538c29fcacd82f08d5928e2a9d1bf20195f12a730",
+  "selected_reasons": []
+}

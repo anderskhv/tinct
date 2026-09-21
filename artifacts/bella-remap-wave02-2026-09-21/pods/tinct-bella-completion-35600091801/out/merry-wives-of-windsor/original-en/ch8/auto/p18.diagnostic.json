@@ -1,0 +1,264 @@
+{
+  "complete": true,
+  "signature": "c71eec7fcc4bb8757d8f5fa32e53e663c22ca27d2cb1b10a2d183daac436b89e",
+  "attempts": [
+    {
+      "asr_seconds": 0.26518656965345144,
+      "alignment_seconds": 0.0012692315503954887,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Slen._ Aside Ah, sweet Anne Page!",
+        "hotwords": "Aside, Ah, Anne, Page"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Slen, Aside Ah, sweet Anne Page!",
+          "start": 0.11,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Slen,",
+              "start": 0.11,
+              "end": 0.87,
+              "probability": 0.373779296875
+            },
+            {
+              "text": " Aside",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.00400543212890625
+            },
+            {
+              "text": " Ah,",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.044342041015625
+            },
+            {
+              "text": " sweet",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.035064697265625
+            },
+            {
+              "text": " Anne",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.08538818359375
+            },
+            {
+              "text": " Page!",
+              "start": 2.07,
+              "end": 2.41,
+              "probability": 0.78173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "raw": "Aside",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "sweet",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "Anne",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "Page!",
+          "start": 2.07,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "_Slen._",
+        "[_Aside_]",
+        "Ah,",
+        "sweet",
+        "Anne",
+        "Page!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Slen._",
+        "Aside",
+        "Ah,",
+        "sweet",
+        "Anne",
+        "Page!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Slen,",
+          "start": 0.11,
+          "end": 0.87,
+          "key": "slen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aside",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "ah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "sweet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Anne",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "anne",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Page!",
+          "start": 2.07,
+          "end": 2.41,
+          "key": "page",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Slen._",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "text": "[_Aside_]",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "Ah,",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "sweet",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "Anne",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "Page!",
+          "start": 2.07,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26657119020819664
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "405e3684eaeba335957260b1d05244479f685e0ba24d8446abbf19342b59924f",
+  "selected_reasons": []
+}

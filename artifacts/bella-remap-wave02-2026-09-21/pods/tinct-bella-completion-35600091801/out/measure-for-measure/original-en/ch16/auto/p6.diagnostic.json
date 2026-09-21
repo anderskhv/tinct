@@ -1,0 +1,200 @@
+{
+  "complete": true,
+  "signature": "502425c3605304247a18732e6c8ca0fbf0295a4ce198e571c49b5d07f6e0260f",
+  "attempts": [
+    {
+      "asr_seconds": 0.21051614917814732,
+      "alignment_seconds": 0.0008564330637454987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Friar Peter._",
+        "hotwords": "Friar, Peter._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": "._ Enter Friar Peter._",
+          "start": 0.02,
+          "end": 1.78,
+          "words": [
+            {
+              "text": "._",
+              "start": 0.02,
+              "end": 0.12,
+              "probability": 0.0
+            },
+            {
+              "text": " Enter",
+              "start": 0.12,
+              "end": 0.68,
+              "probability": 0.2379150390625
+            },
+            {
+              "text": " Friar",
+              "start": 0.68,
+              "end": 1.1,
+              "probability": 0.824951171875
+            },
+            {
+              "text": " Peter._",
+              "start": 1.1,
+              "end": 1.78,
+              "probability": 0.451934814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "._",
+          "start": 0.02,
+          "end": 0.12
+        },
+        {
+          "raw": "Enter",
+          "start": 0.12,
+          "end": 0.68
+        },
+        {
+          "raw": "Friar",
+          "start": 0.68,
+          "end": 1.1
+        },
+        {
+          "raw": "Peter._",
+          "start": 1.1,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "FRIAR",
+        "PETER._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Friar",
+        "Peter._"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          3,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "._",
+          "start": 0.02,
+          "end": 0.12,
+          "key": "",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 0.12,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Friar",
+          "start": 0.68,
+          "end": 1.1,
+          "key": "friar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Peter._",
+          "start": 1.1,
+          "end": 1.78,
+          "key": "peter",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.12,
+          "end": 0.68
+        },
+        {
+          "text": "FRIAR",
+          "start": 0.68,
+          "end": 1.1
+        },
+        {
+          "text": "PETER._",
+          "start": 1.1,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21145981922745705
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7de53d77106aecd341c69dfa3f91de47e1b07b968cef037226e507714b58a0ce",
+  "selected_reasons": []
+}

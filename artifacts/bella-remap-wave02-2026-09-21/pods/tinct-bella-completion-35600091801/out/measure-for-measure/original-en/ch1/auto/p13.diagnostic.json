@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "4a8da815af00d056fd7e1667cb6441cf8b434ee114fbbf717da185593393d9d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24363284464925528,
+      "alignment_seconds": 0.0012709423899650574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ang._ The heavens give safety to your purposes!",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Ang._ The heavens give safety to your purposes!",
+          "start": 0.21,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " \"_Ang._",
+              "start": 0.21,
+              "end": 1.07,
+              "probability": 0.18885652224222818
+            },
+            {
+              "text": " The",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " heavens",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " give",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " safety",
+              "start": 1.75,
+              "end": 2.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " purposes!",
+              "start": 2.53,
+              "end": 2.91,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Ang._",
+          "start": 0.21,
+          "end": 1.07
+        },
+        {
+          "raw": "The",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "heavens",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "give",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "safety",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "your",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "purposes!",
+          "start": 2.53,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "_Ang._",
+        "The",
+        "heavens",
+        "give",
+        "safety",
+        "to",
+        "your",
+        "purposes!"
+      ],
+      "acoustic_expected_tokens": [
+        "_Ang._",
+        "The",
+        "heavens",
+        "give",
+        "safety",
+        "to",
+        "your",
+        "purposes!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Ang._",
+          "start": 0.21,
+          "end": 1.07,
+          "key": "ang",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heavens",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "heavens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "give",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "safety",
+          "start": 1.75,
+          "end": 2.19,
+          "key": "safety",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.37,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.37,
+          "end": 2.53,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "purposes!",
+          "start": 2.53,
+          "end": 2.91,
+          "key": "purposes",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Ang._",
+          "start": 0.21,
+          "end": 1.07
+        },
+        {
+          "text": "The",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "heavens",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "give",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "safety",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "your",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "purposes!",
+          "start": 2.53,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24506065249443054
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e0025faed1f3615432f4bb9533be34ccd8668a81e7f975599b11ea34921a6a1b",
+  "selected_reasons": []
+}

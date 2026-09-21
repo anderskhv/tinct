@@ -1,0 +1,231 @@
+{
+  "complete": true,
+  "signature": "2d809097f44f0474280d83935ad1f1d0967d05fa53133033e1d240edb0b4988b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31255342066287994,
+      "alignment_seconds": 0.0010697124525904655,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ 'Tis, 'tis his fortune.",
+        "hotwords": "Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fal, tis, tis his fortune.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Fal,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.0059051513671875
+            },
+            {
+              "text": " tis,",
+              "start": 1.04,
+              "end": 1.42,
+              "probability": 0.1997365951538086
+            },
+            {
+              "text": " tis",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " his",
+              "start": 1.96,
+              "end": 2.1,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " fortune.",
+              "start": 2.1,
+              "end": 2.42,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "tis,",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "raw": "tis",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "his",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "raw": "fortune.",
+          "start": 2.1,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "’Tis,",
+        "’tis",
+        "his",
+        "fortune."
+      ],
+      "acoustic_expected_tokens": [
+        "_Fal._",
+        "'Tis,",
+        "'tis",
+        "his",
+        "fortune."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fal,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "fal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tis,",
+          "start": 1.04,
+          "end": 1.42,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tis",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.96,
+          "end": 2.1,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fortune.",
+          "start": 2.1,
+          "end": 2.42,
+          "key": "fortune",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "’Tis,",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "text": "’tis",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "his",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "text": "fortune.",
+          "start": 2.1,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31373097840696573
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4d2c79c7ae5e984fb5172e21c664cba537a7afc055fe3fdd9a3e14a1523bc8e",
+  "selected_reasons": []
+}

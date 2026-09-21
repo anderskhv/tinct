@@ -1,0 +1,241 @@
+{
+  "complete": true,
+  "signature": "3f68564d5defc6ca41d21ddd9b50dee8be6e0601f63476f25428c03fde7b090c",
+  "attempts": [
+    {
+      "asr_seconds": 0.5864049578085542,
+      "alignment_seconds": 0.0007445486262440681,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter Juliet._",
+        "hotwords": "Juliet._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Juliet._",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " Juliet._",
+              "start": 0.71,
+              "end": 1.51,
+              "probability": 0.353271484375
+            }
+          ]
+        },
+        {
+          "text": " Enter Juliet._",
+          "start": 1.51,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 1.51,
+              "end": 1.51,
+              "probability": 1.811981201171875e-05
+            },
+            {
+              "text": " Juliet._",
+              "start": 1.51,
+              "end": 1.57,
+              "probability": 8.344650268554688e-07
+            }
+          ]
+        },
+        {
+          "text": " Enter Juliet._",
+          "start": 1.57,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 1.7940998077392578e-05
+            },
+            {
+              "text": " Juliet._",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 8.046627044677734e-07
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Juliet._",
+          "start": 0.71,
+          "end": 1.51
+        },
+        {
+          "raw": "Enter",
+          "start": 1.51,
+          "end": 1.51
+        },
+        {
+          "raw": "Juliet._",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "raw": "Enter",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "Juliet._",
+          "start": 1.77,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "JULIET._"
+      ],
+      "acoustic_expected_tokens": [
+        "_Enter",
+        "Juliet._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Juliet._",
+          "start": 0.71,
+          "end": 1.51,
+          "key": "juliet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.51,
+          "end": 1.51,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Juliet._",
+          "start": 1.51,
+          "end": 1.57,
+          "key": "juliet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "enter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Juliet._",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "juliet",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "JULIET._",
+          "start": 0.71,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5872589265927672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b562bce66aff066cbcf304b35fc48885375b87f0f9a45cb132cb33bc0c7b13a3",
+  "selected_reasons": []
+}

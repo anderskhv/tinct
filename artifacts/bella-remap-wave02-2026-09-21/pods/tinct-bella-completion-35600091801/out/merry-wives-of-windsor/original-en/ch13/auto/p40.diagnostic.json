@@ -1,0 +1,198 @@
+{
+  "complete": true,
+  "signature": "4d9a8f061c59030e6f1be7138d7e04bf6a835742440a04c615f7353e5820bdcd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2699075024574995,
+      "alignment_seconds": 0.0009791981428861618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Evans._ For shame, 'oman.",
+        "hotwords": "For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Evans. For shame, oman.",
+          "start": 0.14,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Evans.",
+              "start": 0.14,
+              "end": 0.82,
+              "probability": 0.59375
+            },
+            {
+              "text": " For",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " shame,",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " oman.",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.1936783790588379
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Evans.",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "raw": "For",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "shame,",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "oman.",
+          "start": 1.8,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "_Evans._",
+        "For",
+        "shame,",
+        "’oman."
+      ],
+      "acoustic_expected_tokens": [
+        "_Evans._",
+        "For",
+        "shame,",
+        "'oman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Evans.",
+          "start": 0.14,
+          "end": 0.82,
+          "key": "evans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shame,",
+          "start": 1.28,
+          "end": 1.62,
+          "key": "shame",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oman.",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "oman",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Evans._",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "text": "For",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "shame,",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "’oman.",
+          "start": 1.8,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2709730425849557
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c46b2c7906684f3763f99055b2d0ddb373425bd09bdfbd1efccbd3e9ff2500b4",
+  "selected_reasons": []
+}

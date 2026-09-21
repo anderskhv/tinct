@@ -1,0 +1,726 @@
+{
+  "complete": true,
+  "signature": "28355bc29ab4065a3aed971ddd0b5657d349e19d1bb9209708d89aad0c49973f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3352032136172056,
+      "alignment_seconds": 0.0010610921308398247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Quicquid principes faciunt, praecipere videntur.\"",
+        "hotwords": "Quicquid"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quicquid principes faciunt, praecipre videntur.",
+          "start": 0.02,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " Quicquid",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.24270248413085938
+            },
+            {
+              "text": " principes",
+              "start": 0.8,
+              "end": 1.34,
+              "probability": 0.263763427734375
+            },
+            {
+              "text": " faciunt,",
+              "start": 1.34,
+              "end": 1.92,
+              "probability": 0.6139322916666666
+            },
+            {
+              "text": " praecipre",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.22231531143188477
+            },
+            {
+              "text": " videntur.",
+              "start": 2.62,
+              "end": 3.18,
+              "probability": 0.3424173990885417
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quicquid",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "principes",
+          "start": 0.8,
+          "end": 1.34
+        },
+        {
+          "raw": "faciunt,",
+          "start": 1.34,
+          "end": 1.92
+        },
+        {
+          "raw": "praecipre",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "videntur.",
+          "start": 2.62,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "“Quicquid",
+        "principes",
+        "faciunt,",
+        "praecipere",
+        "videntur.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Quicquid",
+        "principes",
+        "faciunt,",
+        "praecipere",
+        "videntur.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quicquid",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "quicquid",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "principes",
+          "start": 0.8,
+          "end": 1.34,
+          "key": "principes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "faciunt,",
+          "start": 1.34,
+          "end": 1.92,
+          "key": "faciunt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "praecipre",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "praecipre",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "videntur.",
+          "start": 2.62,
+          "end": 3.18,
+          "key": "videntur",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Quicquid",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "principes",
+          "start": 0.8,
+          "end": 1.34
+        },
+        {
+          "text": "faciunt,",
+          "start": 1.34,
+          "end": 1.92
+        },
+        {
+          "text": "praecipere",
+          "start": 1.92,
+          "end": 2.27
+        },
+        {
+          "text": "videntur.”",
+          "start": 2.62,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.33636120706796646
+    },
+    {
+      "asr_seconds": 0.31996693555265665,
+      "alignment_seconds": 0.0017647193744778633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Quicquid"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Quicquid-principes faciente, pre-supervidentar.",
+          "start": 0.02,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Quicquid",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.24270248413085938
+            },
+            {
+              "text": "-principes",
+              "start": 0.82,
+              "end": 1.26,
+              "probability": 0.5244483947753906
+            },
+            {
+              "text": " faciente,",
+              "start": 1.26,
+              "end": 2.24,
+              "probability": 0.6583658854166666
+            },
+            {
+              "text": " pre",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.2291259765625
+            },
+            {
+              "text": "-supervidentar.",
+              "start": 2.34,
+              "end": 3.16,
+              "probability": 0.657861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quicquid",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "-principes",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "raw": "faciente,",
+          "start": 1.26,
+          "end": 2.24
+        },
+        {
+          "raw": "pre",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "-supervidentar.",
+          "start": 2.34,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "“Quicquid",
+        "principes",
+        "faciunt,",
+        "praecipere",
+        "videntur.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Quicquid",
+        "principes",
+        "faciunt,",
+        "praecipere",
+        "videntur.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quicquid",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "quicquid",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-principes",
+          "start": 0.82,
+          "end": 1.26,
+          "key": "principes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "faciente,",
+          "start": 1.26,
+          "end": 2.24,
+          "key": "faciente",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pre",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "pre",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-supervidentar.",
+          "start": 2.34,
+          "end": 3.16,
+          "key": "supervidentar",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Quicquid",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "principes",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "text": "faciunt,",
+          "start": 1.26,
+          "end": 2.21
+        },
+        {
+          "text": "praecipere",
+          "start": 2.21,
+          "end": 2.685
+        },
+        {
+          "text": "videntur.”",
+          "start": 2.685,
+          "end": 2.923
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32183353416621685
+    },
+    {
+      "asr_seconds": 0.3582989452406764,
+      "alignment_seconds": 0.0013374434784054756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " QUIKWID PRINCIPES FACIENTe PRECIPERVIDENTER",
+          "start": 0.02,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " QUIKWID",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.528173828125
+            },
+            {
+              "text": " PRINCIPES",
+              "start": 0.78,
+              "end": 1.3,
+              "probability": 0.8912353515625
+            },
+            {
+              "text": " FACIENTe",
+              "start": 1.3,
+              "end": 2.24,
+              "probability": 0.71875
+            },
+            {
+              "text": " PRECIPERVIDENTER",
+              "start": 2.24,
+              "end": 3.18,
+              "probability": 0.7028285435267857
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "QUIKWID",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "PRINCIPES",
+          "start": 0.78,
+          "end": 1.3
+        },
+        {
+          "raw": "FACIENTe",
+          "start": 1.3,
+          "end": 2.24
+        },
+        {
+          "raw": "PRECIPERVIDENTER",
+          "start": 2.24,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "“Quicquid",
+        "principes",
+        "faciunt,",
+        "praecipere",
+        "videntur.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Quicquid",
+        "principes",
+        "faciunt,",
+        "praecipere",
+        "videntur.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "QUIKWID",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "quikwid",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "PRINCIPES",
+          "start": 0.78,
+          "end": 1.3,
+          "key": "principes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "FACIENTe",
+          "start": 1.3,
+          "end": 2.24,
+          "key": "faciente",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "PRECIPERVIDENTER",
+          "start": 2.24,
+          "end": 3.18,
+          "key": "precipervidenter",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Quicquid",
+          "start": 0.0,
+          "end": 0.39
+        },
+        {
+          "text": "principes",
+          "start": 0.78,
+          "end": 1.3
+        },
+        {
+          "text": "faciunt,",
+          "start": 1.3,
+          "end": 2.24
+        },
+        {
+          "text": "praecipere",
+          "start": 2.24,
+          "end": 2.71
+        },
+        {
+          "text": "videntur.”",
+          "start": 2.71,
+          "end": 2.945
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.35972241684794426
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "31fe757ee5245ae62565a21e7b52b8e899e1f8772c9274ad3a666928ee669f08",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

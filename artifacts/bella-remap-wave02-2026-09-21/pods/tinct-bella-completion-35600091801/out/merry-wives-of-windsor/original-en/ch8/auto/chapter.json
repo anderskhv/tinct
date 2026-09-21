@@ -1,0 +1,20 @@
+{
+  "key": "merry-wives-of-windsor/original-en/ch8",
+  "group": "source-remap",
+  "mode": "auto",
+  "status": "rejected",
+  "reasons": [
+    {
+      "paragraph": 45,
+      "reasons": [
+        "processing_invariant_error"
+      ]
+    }
+  ],
+  "paragraphs": [],
+  "processing_error": {
+    "paragraph": 45,
+    "type": "ValueError",
+    "message": "source/acoustic token mapping changed at index 0: source='[for' acoustic='for'"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "3292d95aced2a4368ac1c4f19972a95a8bdefd031d10e8d9a504d649bd0e0ad4",
+  "attempts": [
+    {
+      "asr_seconds": 0.4528861353173852,
+      "alignment_seconds": 0.0008970219641923904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exit Bardolph._ 20",
+        "hotwords": "Exit, Bardolph._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit, Bardolph._ 20",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Exit,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.42529296875
+            },
+            {
+              "text": " Bardolph._",
+              "start": 0.88,
+              "end": 1.58,
+              "probability": 0.5205078125
+            },
+            {
+              "text": " 20",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.67138671875
+            }
+          ]
+        },
+        {
+          "text": " Exit, Bardolph._",
+          "start": 1.9,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Exit,",
+              "start": 1.9,
+              "end": 2.32,
+              "probability": 1.9073486328125e-06
+            },
+            {
+              "text": " Bardolph._",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.0001973112424214681
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Bardolph._",
+          "start": 0.88,
+          "end": 1.58
+        },
+        {
+          "raw": "20",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "raw": "Exit,",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "raw": "Bardolph._",
+          "start": 2.44,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Bardolph._",
+        "20"
+      ],
+      "acoustic_expected_tokens": [
+        "Exit",
+        "Bardolph._",
+        "20"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bardolph._",
+          "start": 0.88,
+          "end": 1.58,
+          "key": "bardolph",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "20",
+          "start": 1.58,
+          "end": 1.9,
+          "key": "twenty",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Exit,",
+          "start": 1.9,
+          "end": 2.32,
+          "key": "exit",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bardolph._",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "bardolph",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Bardolph._",
+          "start": 0.88,
+          "end": 1.58
+        },
+        {
+          "text": "20",
+          "start": 1.58,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4538836870342493
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba31a41bdc46ab67248ec856cc961388355084ce1163a7182a74b17d382024d1",
+  "selected_reasons": []
+}

@@ -1,0 +1,396 @@
+{
+  "complete": true,
+  "signature": "fdd889f36d3178ddbd7eed6eae9391dec4e640084af61b8e429a61016bd1376a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3003876321017742,
+      "alignment_seconds": 0.001693814992904663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Prov._ I am the provost. What's your will, good friar?",
+        "hotwords": "I, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prov, I am the provost. What's your will, good friar?",
+          "start": 0.51,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " Prov,",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.2154083251953125
+            },
+            {
+              "text": " I",
+              "start": 0.87,
+              "end": 0.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " am",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " provost.",
+              "start": 1.21,
+              "end": 1.73,
+              "probability": 0.798095703125
+            },
+            {
+              "text": " What's",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " your",
+              "start": 2.27,
+              "end": 2.35,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " will,",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.984375
+            },
+            {
+              "text": " good",
+              "start": 2.75,
+              "end": 2.83,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " friar?",
+              "start": 2.83,
+              "end": 3.29,
+              "probability": 0.742431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prov,",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "I",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "raw": "am",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "the",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "provost.",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "raw": "What's",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "your",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "raw": "will,",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "good",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "raw": "friar?",
+          "start": 2.83,
+          "end": 3.29
+        }
+      ],
+      "expected_tokens": [
+        "_Prov._",
+        "I",
+        "am",
+        "the",
+        "provost.",
+        "What's",
+        "your",
+        "will,",
+        "good",
+        "friar?"
+      ],
+      "acoustic_expected_tokens": [
+        "_Prov._",
+        "I",
+        "am",
+        "the",
+        "provost.",
+        "What's",
+        "your",
+        "will,",
+        "good",
+        "friar?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Prov,",
+          "start": 0.51,
+          "end": 0.81,
+          "key": "prov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.87,
+          "end": 0.97,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "provost.",
+          "start": 1.21,
+          "end": 1.73,
+          "key": "provost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "whats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.27,
+          "end": 2.35,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.75,
+          "end": 2.83,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "friar?",
+          "start": 2.83,
+          "end": 3.29,
+          "key": "friar",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "_Prov._",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "I",
+          "start": 0.87,
+          "end": 0.97
+        },
+        {
+          "text": "am",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "the",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "provost.",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "text": "What's",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "your",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "text": "will,",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "good",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "text": "friar?",
+          "start": 2.83,
+          "end": 3.29
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3022478222846985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00765af7145e8f11b0227e63d6477b2491791215a1d89853465cfd9b6810c19f",
+  "selected_reasons": []
+}
