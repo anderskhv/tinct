@@ -1,6 +1,6 @@
 # Bella word-sync repair plan
 
-Status: execution started with Anders’s 2026-09-21 authorization to proceed without changing the reader. Inventory and a three-chapter pilot completed; one timing sidecar published. The remaining backlog is open. No reader code, text or recording changes, app deployment, or rented GPU jobs were made. See [execution evidence](bella-word-sync-execution-2026-09-21.md).
+Status: active completion work. Anders explicitly authorized continuing through failures on 2026-09-21. Thirteen chapters have verified production repairs as of 12:16 UTC; broader coverage remains incomplete. Work is confined to audio assets, timing data and technical tooling. Reader/app code, book text, positions and availability policies remain unchanged. See [execution evidence](bella-word-sync-execution-2026-09-21.md).
 
 ## Outcome and scope
 
@@ -61,7 +61,7 @@ Rank eligible editions by likelihood of completion and retained reader value. Re
 
 For a genuine recording defect, identify the smallest affected paragraph/chunk and the voice/source needed. Do not regenerate a book to fix its timing. Do not quietly introduce WaveNet halfway through an existing Bella recording: any voice replacement belongs to the broader voice-strategy decision. Do not re-chapter published text merely to fit old audio or disturb saved reading positions.
 
-Before paid execution, confirm the available cloud credentials, current jobs, reviewed runner/helper pin, provider-independent termination, and an explicit spend ceiling. A worker timeout alone does not stop provider billing. This plan starts no paid jobs.
+Before paid execution, confirm the available cloud credentials, current jobs, reviewed runner/helper pin, provider-independent termination, and an explicit spend ceiling. A worker timeout alone does not stop provider billing. Initial planning started no paid jobs. The subsequent continuation is executing bounded cloud batches under the existing $15 aggregate ceiling, with separate provider watchdogs; current costs and conservative carry-forward are recorded in execution evidence.
 
 ## 5. Publish with evidence and keep repairs valid
 
@@ -75,4 +75,4 @@ Future text changes must invalidate only dependent audio/timing chunks. Unchange
 
 A retained Bella edition is complete only when all intended spoken paragraphs have matching recordings and accepted timings, representative acoustic/reader checks pass, and no unresolved exceptions are hidden by an availability flag. Report held material separately with its reason and next action.
 
-Next action: reconcile the 633 missing-timing chapters that pass sampled readiness with prior failures, content holds and voice provenance, then expand the pilot using a demonstrably better method for unresolved short phrases. Keep the 174 mapping defects, 35 audio defects, four separator cases, 12 missing-audio chapters and 12 invalid Meditations timing files separate. Modern-English retention is not yet approved chapter by chapter. One verified timing publication is complete; no full edition is claimed complete. App changes and paid full-corpus work have not started.
+Next action: continue the bounded alignment and source-remapping batches; repair failed recognition, observed speaker labels and spoken headings without weakening gates. Publish only chapters that pass structural/text, independent acoustic and existing reader-data checks. Resolve remaining source/audio mismatches separately, preserving previous assets. Reconcile complete editions and finish isolated muted browser acceptance before claiming completion.
