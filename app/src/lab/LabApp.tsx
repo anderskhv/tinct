@@ -4092,6 +4092,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         onClose={() => setBookSwitcherOpen(false)}
         onSelect={switchQuickBook}
         onLibrary={() => { setBookSwitcherOpen(false); handleSuperMenuSelect('library') }}
+        onOpenCover={approvedPreface ? () => { listen.pause(); setBookSwitcherOpen(false); setPrefaceCoverBook(book.bookId || 'bible') } : undefined}
       />}
       {chromeV2 && !frontispieceVisible && (
         <LabSuperMenu
@@ -4785,12 +4786,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         historyStatus={ask.historyStatus}
         highlights={highlightsApi.highlights}
         unassignedHighlights={highlightsApi.unassignedHighlights}
-        onOpenCover={approvedPreface ? () => {
-          // Browsing this document must not navigate or save a new location.
-          listen.pause()
-          setTocOpen(false)
-          setPrefaceCoverBook(book.bookId || 'bible')
-        } : undefined}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}

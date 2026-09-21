@@ -7665,7 +7665,7 @@
 .lab.is-desktop[data-chrome-version="v2"] .selection-popup.is-contextual-explain[data-explain-side="left"]:has(.is-expanded) { left:64px!important; right:auto!important; }
 
 /* Definitions use the headword itself as the draggable title. */
-.lab .popup-define .lab-reader-window-title.popup-define-word { margin:0; font-family:var(--lab-font-reader); font-style:italic; font-size:1em; font-weight:400; }
+.lab[data-chrome-version="v2"] .popup-define .lab-reader-window-title.popup-define-word { margin:0; font-family:var(--lab-font-reader); font-style:italic; font-size:1em; font-weight:400; }
 
 /* The crease needs a little reflected light on dark paper. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-night:not(.is-frontispiece) .lab-page-wrap::after {
@@ -7675,15 +7675,15 @@
     linear-gradient(90deg, transparent 53%, var(--lab-fold-light) 76%, transparent);
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"][data-compare-active="true"] .lab-page-wrap::after { content:none; }
-.lab-compare-divider {
+.lab[data-chrome-version="v2"] .lab-compare-divider {
   position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); z-index:3;
   display:flex; flex-direction:column; align-items:center; gap:16px; width:28px;
   pointer-events:none; color:var(--lab-ink-muted);
 }
-.lab-compare-divider::before,.lab-compare-divider::after {
+.lab[data-chrome-version="v2"] .lab-compare-divider::before,.lab[data-chrome-version="v2"] .lab-compare-divider::after {
   content:''; flex:1; width:4px; border-inline:1px solid color-mix(in srgb,var(--lab-ink-muted) 35%,transparent);
 }
-.lab-compare-divider span { writing-mode:vertical-rl; font:italic 12px/1 var(--lab-font-reader); letter-spacing:.04em; opacity:.8; }
+.lab[data-chrome-version="v2"] .lab-compare-divider span { writing-mode:vertical-rl; font:italic 12px/1 var(--lab-font-reader); letter-spacing:.04em; opacity:.8; }
 
 /* The desktop rail is transparent to pointer events; its progress control is
    explicitly interactive, just like the page arrows. */

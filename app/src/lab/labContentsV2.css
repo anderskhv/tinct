@@ -1,3 +1,6 @@
+/* Inter is the approved Design 1 typeface, self-hosted under SIL OFL.
+   Source: rsms/inter @ 353b61b9f4430d5f420d56605a6e7993e0941470. */
+@font-face { font-family:Inter; font-style:normal; font-weight:100 900; font-display:swap; src:url('/fonts/inter-variable.woff2') format('woff2'); }
 
 .lab-contents-v2{--paper:#f4f0e7;--ink:#343027;--muted:#81796b;--line:#d0c9bb;--gold:#896636;--wash:#e7dcc6;--width:360px;--row:34px;color:var(--ink);font:400 13px/1.4 Inter,system-ui,sans-serif;padding:6px}
 .lab-contents-v2 *{box-sizing:border-box}

@@ -17,7 +17,6 @@ interface Props {
   chaptersReady: boolean
   statuses: Map<number, LabChapterStatus>; conversations: ChatConversation[]; highlights: LabHighlight[]; unassignedHighlights: LabHighlight[]
   historyStatus: 'loading' | 'ready' | 'unavailable'
-  onOpenCover?: () => void
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
   onOpenPassage: (place: ContentsPlace) => void; onContinueConversation: (conversation: ChatConversation) => void
 }
@@ -25,7 +24,7 @@ function Icon({ name }: { name: 'search' | 'next' | 'highlight' | 'chat' | 'clos
   const paths = {
     search: 'm21 21-4.34-4.34M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
     next: 'm9 18 6-6-6-6', chat: 'M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z',
-    highlight: 'm9 11 6 6m7-5-4-4a2 2 0 0 0-2.8 0L7 16l-1 5 5-1 8.2-8.2a2 2 0 0 0 0-2.8M2 22h7',
+    highlight: 'm9 11-6 6v3h9l3-3 M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4',
     close: 'm18 6-12 12M6 6l12 12',
   }
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>

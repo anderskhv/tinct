@@ -402,6 +402,31 @@ async function contentsAndSameEdition(engine,name,phone){
   }finally{await browser.close();results.push(result)}
 }
 
+
+async function designReference(){
+  if(live)return
+  const browser=await chromium.launch({headless:true,args:['--mute-audio']})
+  try{
+    const state=await boot(browser,false)
+    const {page}=state
+    const original=await fs.readFile('../docs/verification/reader-design1-2026-09-21/chapter-picker-approved.html','utf8')
+    const icons={search:'m21 21-4.34-4.34M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
+      highlighter:'m9 11-6 6v3h9l3-3 M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4',
+      'chevron-right':'m9 18 6-6-6-6',x:'m18 6-12 12M6 6l12 12','message-circle':'M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z'}
+    // Supply the prototype's icon runtime and approved font from the same
+    // self-hosted files as production. Its illustrative records stay unchanged.
+    const prefix='<base href="https://tinct.app/"><link rel="stylesheet" href="/fonts/tinct-fonts.css"><style>body{margin:0;color-scheme:light}@font-face{font-family:Inter;font-weight:100 900;src:url(/fonts/inter-variable.woff2)}</style><script>window.lucide={createIcons(){const paths='+JSON.stringify(icons)+';document.querySelectorAll("[data-lucide]").forEach(n=>{const s=document.createElementNS("http://www.w3.org/2000/svg","svg");s.setAttribute("viewBox","0 0 24 24");s.setAttribute("fill","none");s.setAttribute("stroke","currentColor");s.setAttribute("stroke-linecap","round");s.setAttribute("stroke-linejoin","round");const p=document.createElementNS(s.namespaceURI,"path");p.setAttribute("d",paths[n.dataset.lucide]||"");s.append(p);n.replaceWith(s)})}}<\/script>'
+    for(const size of ['desktop','mobile']){
+      await page.setViewportSize(size==='mobile'?{width:390,height:844}:{width:1440,height:900})
+      await page.setContent(prefix+original.replace(/<link[^>]*>/,'').replace("size:'desktop'","size:'"+size+"'"))
+      await page.evaluate(()=>document.fonts.ready)
+      await page.waitForTimeout(150)
+      await page.locator('#chapter-review .menu').screenshot({path:output+'/design-reference-'+size+'.png'})
+    }
+  }finally{await browser.close()}
+}
+await designReference()
+
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await run(engine,name,phone)
   await compareLabel(engine,name)
