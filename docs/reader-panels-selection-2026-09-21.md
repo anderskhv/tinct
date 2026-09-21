@@ -76,3 +76,8 @@ Screenshots were inspected against the preserved reference, including Bible ance
 Phone viewport checks do not establish physical iPhone touch or Safari browser-chrome behaviour. Clipboard API calls are captured in the silent browser tests; unit tests also cover native Copy events and preserve editable/native selections. Search/definition replies remain fixtures; no paid Anthropic calls were made. No unresolved implementation cases remain in this follow-up; physical-device differences would require a fresh reproducible report.
 
 Integration detail: the existing Cover/preparation shortcut moves to the book-title switcher, keeping the approved TOC header and tree unchanged. The same Talk/Chat preparation flows retain regression coverage. Inter is self-hosted from rsms/inter commit `353b61b9f4430d5f420d56605a6e7993e0941470` with its SIL OFL license; no runtime font-service dependency is added.
+
+
+## Reader regression follow-up — September 21
+
+Anders supplied six further failures: the dark fold extends under ink, saved-highlight clicks still open definitions, thin dark seams cross highlighting, the book-switcher focus ring clips at its top, the phone menu touches header controls, and quiet-reading progress is brighter than its header. This report supersedes the preceding claim that no implementation cases remained. The earlier checks covered newly created Sage marks and fold height, but did not establish loaded Gold marks or separation from ink. Current work starts with persisted Gold browser cases in Matthew 6 WEB and Notes from Underground, plus focused geometry and contrast checks. Implementation and release acceptance are pending; no new behaviour is claimed shipped.

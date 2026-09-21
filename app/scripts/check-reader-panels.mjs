@@ -428,6 +428,70 @@ async function contentsAndSameEdition(engine,name,phone){
 }
 
 
+
+async function highlightRegression(engine,name){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'persisted-highlight-regression',live,clicks:[]}
+  try{
+    for(const fixture of [{book:'bible',edition:'web-en',chapter:935},{book:'notes-from-underground',edition:'original-en',chapter:1}]){
+      if(state)await state.context.close()
+      state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter)
+      const {page}=state
+      await clickMenu(page,'settings')
+      await page.getByTestId('lab-v2-theme-dark').click()
+      await page.getByTestId('lab-v2-sheet-close').click()
+      if(fixture.book==='bible'){
+        for(let i=0;i<12&&!await page.locator('.lab-chapter-end:visible').count();i++){
+          await page.getByTestId('lab-page-next').click();await page.waitForTimeout(350)
+        }
+      }
+      const words=page.getByTestId('lab-word')
+      const all=await words.evaluateAll(nodes=>nodes.map(n=>({text:n.textContent,p:Number(n.dataset.paragraphIndex),w:Number(n.dataset.wordIndex)})))
+      const first=await words.first().boundingBox(),lastIndex=Math.min(fixture.book==='bible'?100:115,all.length-1),last=await words.nth(lastIndex).boundingBox()
+      await page.mouse.move(first.x+first.width/2,first.y+first.height/2);await page.mouse.down()
+      await page.mouse.move(last.x+last.width/2,last.y+last.height/2,{steps:14});await page.mouse.up()
+      await page.getByRole('button',{name:'Highlight',exact:true}).click()
+      await page.getByRole('button',{name:'Highlight Gold',exact:true}).click()
+      const records=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'))
+      result[fixture.book]={records,all:all.slice(0,lastIndex+1)}
+      await page.reload({waitUntil:'domcontentloaded'})
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
+      await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
+      if(fixture.book==='bible'){
+        for(let i=0;i<12&&!await page.locator('.lab-chapter-end:visible').count();i++){
+          await page.getByTestId('lab-page-next').click();await page.waitForTimeout(350)
+        }
+      }
+      await page.screenshot({path:output+'/'+name+'-'+fixture.book+'-gold-reloaded.png'})
+      const marked=page.locator('[data-testid="lab-word"].is-hl-warm')
+      const count=await marked.count();assert(count>5,'saved Gold is painted after reload')
+      const chosen=[0,Math.floor(count/2),count-1]
+      const can=await marked.allTextContents();const canIndex=can.findIndex(t=>t.trim()==='can');if(canIndex>=0)chosen.push(canIndex)
+      for(const index of chosen){
+        const text=await marked.nth(index).innerText()
+        await marked.nth(index).click()
+        await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+        assert.equal(await page.locator('.popup-define').count(),0)
+        result.clicks.push({book:fixture.book,index,text,deleted:false})
+        await page.keyboard.press('Escape')
+      }
+      result[fixture.book].paint=await page.evaluate(()=>{
+        const root=document.querySelector('.lab-passage')
+        return [...root.querySelectorAll('.lab-hearing-line')].filter(n=>n.querySelector('.is-hl-warm')).map(n=>{
+          const r=document.createRange();r.selectNodeContents(n)
+          return {lineHeight:getComputedStyle(n).lineHeight,box:n.getBoundingClientRect().toJSON(),rects:[...r.getClientRects()].map(b=>b.toJSON())}
+        })
+      })
+      assert.deepEqual(state.errors,[])
+    }
+    result.passed=true
+  }catch(error){
+    result.passed=false;result.error=error.stack
+    if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-3000)}
+  }finally{await browser.close();results.push(result)}
+}
+
 async function designReference(){
   if(live)return
   const browser=await chromium.launch({headless:true,args:['--mute-audio']})
@@ -457,6 +521,7 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await run(engine,name,phone)
   await compareLabel(engine,name)
   await bookSurface(engine,name)
+  await highlightRegression(engine,name)
   for(const phone of [false,true])await contentsAndSameEdition(engine,name,phone)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
