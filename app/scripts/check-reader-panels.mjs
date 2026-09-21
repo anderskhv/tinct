@@ -14,7 +14,7 @@ const definition = 'pronoun. Used to refer to people or things already identifie
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
 async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1, fixture={}) {
-  const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone })
+  const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone, deviceScaleFactor:fixture.deviceScaleFactor||1 })
   const page = await context.newPage()
   page.setDefaultTimeout(10000)
   const requests = [], errors = []
@@ -438,6 +438,36 @@ async function contentsAndSameEdition(engine,name,phone){
 
 
 
+
+async function checkHighlightPaint(page){
+  await page.locator('.lab-highlight-seam').first().waitFor({state:'attached'})
+  const geometry=await page.locator('.lab-highlight-seam').evaluateAll(nodes=>nodes.map(node=>{
+    const rect=node.getBoundingClientRect()
+    return {left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,color:getComputedStyle(node).backgroundColor}
+  }).filter(r=>r.right-r.left>60))
+  const pixels=(await page.screenshot()).toString('base64')
+  const gaps=await page.evaluate(async({pixels,geometry})=>{
+    const image=new Image();image.src='data:image/png;base64,'+pixels;await image.decode()
+    const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height
+    const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0)
+    const ratio=image.width/innerWidth
+    const paper=getComputedStyle(document.querySelector('.lab-passage')).backgroundColor.match(/[0-9.]+/g).slice(0,3).map(Number)
+    return geometry.map(rect=>{
+      const y=Math.floor((rect.top+rect.bottom)/2*ratio)
+      let samePaper=0,samples=0
+      for(let x=Math.ceil(rect.left*ratio)+4;x<Math.floor(rect.right*ratio)-4;x++){
+        const rgba=ctx.getImageData(x,y,1,1).data
+        if(paper.every((v,i)=>Math.abs(v-rgba[i])<4))samePaper++
+        samples++
+      }
+      return {paperFraction:samePaper/Math.max(1,samples),rect}
+    })
+  },{pixels,geometry})
+  assert(geometry.length>0,'fixture must exercise fractional highlight row edges')
+  assert(gaps.every(g=>g.paperFraction<.05),'a dark paper line must not cross a highlighted band: '+JSON.stringify(gaps))
+  return {joinedEdges:geometry.length,worstPaperFraction:Math.max(...gaps.map(g=>g.paperFraction))}
+}
+
 async function highlightRegression(engine,name){
   const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
   let state
@@ -446,7 +476,7 @@ async function highlightRegression(engine,name){
     for(const fixture of [{book:'notes-from-underground',edition:'original-en',chapter:1,p:0,to:115},{book:'bible',edition:'web-en',chapter:935,p:5,to:88}]){
       if(state)await state.context.close()
       const record={id:'persisted-gold',bookId:fixture.book,editionKey:fixture.edition,chapterNumber:fixture.chapter,paragraphIndex:fixture.p,endParagraphIndex:fixture.p,fromWord:0,toWord:fixture.to,color:'gold',kept:true}
-      state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter,{paragraphIndex:fixture.p,highlights:[record]})
+      state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter,{paragraphIndex:fixture.p,highlights:[record],deviceScaleFactor:2})
       const {page}=state
       await clickMenu(page,'settings')
       await page.getByTestId('lab-v2-theme-dark').click()
@@ -469,9 +499,10 @@ async function highlightRegression(engine,name){
         await marked.nth(index).click()
         await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
         assert.equal(await page.locator('.popup-define').count(),0)
-        result.clicks.push({book:fixture.book,index,text,deleted:false})
+        result.clicks.push({book:fixture.book,index,text,menu:'highlight'})
         await page.keyboard.press('Escape')
       }
+      result[fixture.book].pixels=await checkHighlightPaint(page)
       result[fixture.book].paint=await page.evaluate(()=>{
         const root=document.querySelector('.lab-passage')
         return [...root.querySelectorAll('.lab-hearing-line')].filter(n=>n.querySelector('.is-hl-warm')).map(n=>{
@@ -479,6 +510,14 @@ async function highlightRegression(engine,name){
           return {lineHeight:getComputedStyle(n).lineHeight,box:n.getBoundingClientRect().toJSON(),rects:[...r.getClientRects()].map(b=>b.toJSON())}
         })
       })
+      await marked.first().click()
+      await page.getByRole('button',{name:'Delete highlight',exact:true}).click()
+      assert.equal(await marked.count(),0,'deleting a persisted mark clears its paint')
+      assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[],'delete persists on the original record')
+      await page.reload({waitUntil:'domcontentloaded'})
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
+      assert.equal(await page.locator('[data-testid="lab-word"].is-hl-warm').count(),0,'deleted highlight stays removed after reload')
+      result[fixture.book].deleted=true
       assert.deepEqual(state.errors,[])
     }
     result.passed=true
@@ -524,7 +563,7 @@ async function mobileChromeRegression(engine,name){
         const header=document.querySelector('.lab-header-brand'),title=header.querySelector('.lab-header-work'),progress=document.querySelector('.lab-chapter-progress-info')
         return {headerOpacity:getComputedStyle(header).opacity,progressOpacity:getComputedStyle(progress).opacity,title:getComputedStyle(title).color,progress:getComputedStyle(progress).color}
       })
-      assert.equal(quiet.progressOpacity,quiet.headerOpacity,'quiet progress fades with the header')
+      assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header')
       assert.equal(quiet.progress,quiet.title,'quiet progress uses the same grey ink as the header')
       await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
       await page.touchscreen.tap(195,220)
