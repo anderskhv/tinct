@@ -22,7 +22,9 @@ jobs:
       - name: Install isolated alignment dependencies
         run: pip install faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0 huggingface-hub
       - name: Check existing alignment invariants
-        run: python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_*.py'
+        run: |
+          git fetch --no-tags origin f5b23de7795e73983edf55d922d0801d57d61287
+          python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_*.py'
       - name: Freeze the text and recording bytes
         run: |
           python3 tools/audio-highlight/aligner/cloud_cohort.py --targets artifacts/bella-sync-pilot-2026-09-21/targets.json --out /tmp/bella-cohort --workers 2
