@@ -36,7 +36,15 @@ class ImportTests(unittest.TestCase):
             para("A psalm title",marker="d"),
             para(verse(1),"Body.")),"GEN","Genesis",0)
         self.assertEqual(vs["GEN.1.1"],"Body.")
+        self.assertEqual(cs[0]["paragraphs"][0],"A psalm title")
         self.assertEqual([x["marker"] for x in blocks],["s1","d","p"])
+
+    def test_psalm_superscription_carries_verse_one(self):
+        cs,vs,ix,_=parse_book(document(
+            para(verse(1),"A Psalm of David.",marker="d"),
+            para("The LORD is my shepherd.",marker="q1")),"GEN","Genesis",0)
+        self.assertEqual(vs["GEN.1.1"],"A Psalm of David. The LORD is my shepherd.")
+        self.assertEqual(len(ix["GEN.1.1"]),2)
 
     def test_duplicate_and_unsupported_reference_fail(self):
         for nums in [(1,1),(1,"2-3")]:
