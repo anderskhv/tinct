@@ -23,11 +23,16 @@ key=f"{book}/{edition}/ch{ch}";sidecar=dict(bookId=book,editionKey=edition,chapt
 manifest=dict(chapter=ch,title=chapter["title"],voiceId="af_bella",modelRevision=revision,paragraphs=[])
 for i,source in enumerate(chapter["paragraphs"]):
  clean=old.clean_text(source.replace("\n"," "));audio=[];tokens=[];offset=0
- for result in pipeline(clean,voice=files["voices/af_bella.pt"],speed=1):
-  a=result.audio.detach().cpu().numpy();audio.append(a)
-  for t in result.tokens:
-   tokens.append(dict(text=t.text,whitespace=t.whitespace,start=None if t.start_ts is None else offset+float(t.start_ts),end=None if t.end_ts is None else offset+float(t.end_ts)))
-  offset+=len(a)/24000
+ if (root/f"p{i}.wav").exists() and (root/f"p{i}.native.json").exists():
+  previous=json.loads((root/f"p{i}.native.json").read_text());assert previous["source"]==source and previous["clean"]==clean
+  a,sr=sf.read(root/f"p{i}.wav",dtype="float32");assert sr==24000
+  audio=[a];tokens=previous["tokens"];offset=len(a)/24000
+ else:
+  for result in pipeline(clean,voice=files["voices/af_bella.pt"],speed=1):
+   a=result.audio.detach().cpu().numpy();audio.append(a)
+   for t in result.tokens:
+    tokens.append(dict(text=t.text,whitespace=t.whitespace,phonemes=t.phonemes,chunkPhonemes=len(result.phonemes),chunkDurationFrames=len(result.pred_dur),start=None if t.start_ts is None else offset+float(t.start_ts),end=None if t.end_ts is None else offset+float(t.end_ts)))
+   offset+=len(a)/24000
  (root/f"p{i}.native.json").write_text(json.dumps(dict(source=source,clean=clean,tokens=tokens),ensure_ascii=False,indent=1))
  assert audio,"no generated audio"
  samples=np.concatenate(audio);wav=root/f"p{i}.wav";sf.write(wav,samples,24000)
@@ -42,13 +47,13 @@ for i,source in enumerate(chapter["paragraphs"]):
  words=[]
  for raw,match in zip(expected,render_words):
   timed=[t for start,end,t in spans if start<match.end() and end>match.start() and t["start"] is not None and t["end"] is not None]
-  assert timed,(i,raw,"missing native timing")
+  if not timed:words.append(dict(text=raw,start=None,end=None));continue
   words.append(dict(text=raw,start=round(min(t["start"] for t in timed),4),end=round(max(t["end"] for t in timed),4)))
- assert all(0<=w["start"]<w["end"]<=offset+.1 for w in words)
+ assert all(0<=w["start"]<w["end"]<=offset+.1 for w in words if w["start"] is not None)
  mp3=root/f"p{i}.mp3"
  subprocess.run(["ffmpeg","-y","-loglevel","error","-i",str(wav),"-codec:a","libmp3lame","-b:a","128k",str(mp3)],check=True)
  sha=hashlib.sha256(mp3.read_bytes()).hexdigest();name=f"bella-repair-{sha[:16]}-p{i}.mp3";mp3.rename(root/name);wav.unlink()
- row=dict(paragraph=i,file=name,duration=offset,words=words)
+ row=dict(paragraph=i,file=name,duration=offset,words=words,nativeMissing=[j for j,w in enumerate(words) if w["start"] is None])
  sidecar["paragraphs"].append(row);manifest["paragraphs"].append(row)
  (root/"words.candidate.json").write_text(json.dumps(sidecar,ensure_ascii=False,indent=1))
  (root/"manifest.candidate.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=1))
