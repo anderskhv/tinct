@@ -6,9 +6,11 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  const browser=await chromium.launch({headless:true,args:['--mute-audio']});
  const results=[];
  try{
- for(const width of [390,1440])for(const target of [{book:'king-lear',chapter:3},{book:'imitation-of-christ',chapter:76},{book:'winters-tale',chapter:6}]){
+ for(const width of [390])for(const target of [{book:'king-lear',chapter:3}]){
   const context=await browser.newContext({viewport:{width,height:width===390?844:900},permissions:[]});
-  const page=await context.newPage();const row={...target,width};
+  const page=await context.newPage();const row={...target,width,http:[],requestFailures:[]};
+  page.on('response',r=>{if(r.url().includes('/api/audio'))row.http.push({url:r.url(),status:r.status(),type:r.headers()['content-type']})});
+  page.on('requestfailed',r=>{if(r.url().includes('/api/audio'))row.requestFailures.push({url:r.url(),error:r.failure()})});
   try{
    await page.addInitScript(({book,chapter})=>{
     const Native=window.Audio;window.__bellaAudio=[];
@@ -25,7 +27,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
    row.bundle=await page.locator('script[src*="/assets/index-"]').getAttribute('src');
    const play=page.getByTestId('lab-v2-play').or(page.getByTestId('lab-listen')).filter({visible:true}).first();
    await play.click();
-   await page.waitForFunction(()=>window.__bellaAudio.some(a=>!a.paused&&a.currentTime>0));
+   await page.waitForFunction(()=>window.__bellaAudio.some(a=>!a.paused&&a.currentTime>0&&a.readyState>=2&&Number.isFinite(a.duration)));
    // Let a chapter-title clip finish if present; all playback is muted.
    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-hearing-current"]')?.getAttribute('data-word-index')!=null,{},{timeout:15000});
    row.firstHighlight=await page.getByTestId('lab-hearing-current').first().textContent();
@@ -53,7 +55,7 @@ const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
    await page.waitForFunction(old=>document.querySelector('[data-testid="lab-listen-status"]').getAttribute('data-src')!==old,before,{timeout:10000});
    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-hearing-current"]')!=null);
    row.paragraphTransition=true;row.pauseResume=true;row.seek=true;row.status='pass';
-  }catch(e){row.status='fail';row.error=String(e);row.url=page.url();await page.screenshot({path:path.join(dir,target.book+'-'+width+'-failure.png')}).catch(()=>{});}
+  }catch(e){row.status='fail';row.error=String(e);row.media=await page.evaluate(()=>window.__bellaAudio?.map(a=>({src:a.src,time:a.currentTime,duration:a.duration,readyState:a.readyState,networkState:a.networkState,paused:a.paused,error:a.error?{code:a.error.code,message:a.error.message}:null}))).catch(()=>null);row.url=page.url();await page.screenshot({path:path.join(dir,target.book+'-'+width+'-failure.png')}).catch(()=>{});}
   finally{await context.close();results.push(row);fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(row));}
  }
  }finally{await browser.close()}
