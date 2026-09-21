@@ -46,8 +46,7 @@ Verification limits: browser checks are isolated headless Chromium/WebKit with a
 
 ## Mobile reader/library follow-up — 21 September 2026
 
-Status: release candidate; production evidence will be appended after the
-serialized deployment completes.
+Status: shipped and accepted on production, 21 September 2026 at 18:45 UTC.
 
 - Phone Contents is a full reader-viewport destination rather than an inset
   dialog. Its header remains fixed and its chapter tree is the only scrolling
@@ -68,3 +67,31 @@ return, touch focus policy, boot/confirmed library markup and cover priorities.
 The muted Chromium/WebKit acceptance now requires the phone Contents surface to
 match the viewport and verifies both entries. Physical Safari animation and
 perceived library speed remain device acceptance items.
+
+### Follow-up production acceptance
+
+[PR #135](https://github.com/anderskhv/tinct/pull/135) merged as
+`d56ae18ae0ce3132acf16ac7d56c52a9604c6a31`. PR verify
+[run 35637055401](https://github.com/anderskhv/tinct/actions/runs/35637055401)
+passed all three jobs. Serialized production deploy
+[run 35638636285](https://github.com/anderskhv/tinct/actions/runs/35638636285)
+and post-merge verify
+[run 35638636481](https://github.com/anderskhv/tinct/actions/runs/35638636481)
+both completed successfully on the immutable merge commit. Production serves
+`/assets/index-CdxhFG7Y.js`; the workflow matched the served bytes to the built
+bundle before acceptance.
+
+The production suite passed the full Chromium/WebKit reader-panel matrix,
+including full-viewport phone Contents, separate Cover and Preface navigation,
+selection and saved-highlight behavior, mounted-cover return, reader position
+invariants and desktop panels. It also passed library/preparation, focused-cover
+priority, Currently Reading, featured preview, responsive landing/library and
+hyphenation checks. Durable artifacts are the
+[reader report and screenshots](https://github.com/anderskhv/tinct/actions/runs/35638636285/artifacts/10657613057)
+and
+[library/preparation evidence](https://github.com/anderskhv/tinct/actions/runs/35638636285/artifacts/10658200849).
+
+These muted headless checks do not certify the subjective transition or loading
+speed on a physical iPhone. The agreed device window still covers the
+Cover/Preface animation, touch focus treatment and perceived cold/warm library
+load.
