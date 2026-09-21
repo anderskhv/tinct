@@ -1,8 +1,32 @@
 # Acceptance Record — The Merry Wives of Windsor (`merry-wives-of-windsor`, modern-en)
 
+> **SUPERSEDED 2026-09-21 — NOT ACCEPTED. See `PARKED.md`.**
+>
+> Round 2 independent verification (Claude Opus, `claude-opus-5`) re-derived
+> everything below from `source.json` and `candidate.json` directly. Structure,
+> the compression sweep, the 19 `by gar` restorations, Caius's `turd`, the Ch1
+> `worts`/`cabbage` pun and the `Horne`/`Herne` preservation all check out.
+> But round 1's central claim — "a third rescan found **0 remaining
+> mismatches** across all 136 Evans/Caius speaking turns" — is **false**:
+> a tag-agnostic sweep found **8 paragraphs** with live dialect-marker
+> mismatches (1.16, 1.27, 4.23, 8.6, 8.8, 8.40, 8.44, 23.45), because round 1's
+> sweep was keyed on speaker tags and never examined Evans's and Caius's
+> untagged continuation paragraphs. In addition: the Ch23 `Seese`/`putter`
+> joke is still broken and round 1 **misquoted the source** while "fixing" it
+> (source 23.45 reads `'Seese' and 'putter'!`, not `'Cheese' and 'butter'!`);
+> Mistress Quickly's malapropisms (`detest`, `allicholy`, `canaries`,
+> `alligant`, `speciously` ×2) are erased book-wide and were never swept;
+> 17.38 silently substitutes the modern toponym `Colnbrook` for source's
+> `Colebrook`; and 6.41 softens Pistol's `punk` to `wench`.
+>
+> No acceptance hash is pinned and no `accepted-paragraph-hashes.tsv` was
+> written. Rounds used: 2 of 3. Everything below is round 1's own record,
+> retained unaltered for the repair round's reference — its factual claims
+> must be re-derived, not trusted.
+
 **Book id:** `merry-wives-of-windsor`
 **Edition:** `modern-en`
-**Accepted:** 2026-09-21
+**Accepted:** ~~2026-09-21~~ **not accepted — parked 2026-09-21**
 
 **Model note.** Full pipeline (structure verification, blind accessibility
 review, fidelity review, corrections, re-verification, this record) run in
