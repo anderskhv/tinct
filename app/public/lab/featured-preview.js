@@ -12,6 +12,7 @@ function centre(i, smooth=true){
 }
 function paint(){
  frame=0
+ if(!books.length||!buttons.length)return
  const middle=reel.scrollLeft+reel.clientWidth/2
  let closest=0,distance=Infinity
  buttons.forEach((button,i)=>{
