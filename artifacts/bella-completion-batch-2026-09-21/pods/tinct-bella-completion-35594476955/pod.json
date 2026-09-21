@@ -1,0 +1,71 @@
+{
+ "name": "tinct-bella-completion-35594476955",
+ "commit": "fe763513554e7152f664cdaa01c344117f659f8c",
+ "batch": 20,
+ "createdAt": "2026-09-21T11:35:41Z",
+ "maxSeconds": 1500,
+ "arms": "auto",
+ "computeType": "float16",
+ "helperPayloadPreflight": {
+  "helper": "v7",
+  "files": [
+   "trial.py",
+   "pinned_words_sidecar_lib.py",
+   "pinned_words_sidecar_lib_v2.py",
+   "pinned_words_sidecar_lib_v3.py",
+   "pinned_words_sidecar_lib_v4.py",
+   "pinned_words_sidecar_lib_v5.py",
+   "pinned_words_sidecar_lib_v6.py",
+   "pinned_words_sidecar_lib_v7.py",
+   "spoken_policy.py",
+   "cloud_cohort.py"
+  ],
+  "default": "v7"
+ },
+ "podId": "44i85dwmtchfo2",
+ "gpu": null,
+ "costPerHr": 0.34,
+ "image": null,
+ "cloud": "COMMUNITY",
+ "agentUpAt": "2026-09-21T11:36:16Z",
+ "jobOutcome": "failed",
+ "finalStatus": {
+  "phase": "failed",
+  "uptime_seconds": 29.9,
+  "setup": {
+   "versions": {
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "av": "18.1.0"
+   },
+   "commit": "fe763513554e7152f664cdaa01c344117f659f8c",
+   "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+   "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_cupti/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_nvrtc/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cudnn/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cufft/lib:/usr/local/lib/python3.11/dist-packages/nvidia/curand/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusolver/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusparse/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nccl/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvjitlink/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvtx/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+   "gpu": "NVIDIA GeForce RTX 4090, 24564 MiB, 580.126.09",
+   "cuda_probe": "cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n"
+  },
+  "job": {
+   "error": "RuntimeError: cuda probe failed: cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n",
+   "traceback": "Traceback (most recent call last):\n  File \"/workspace/run/pod_job.py\", line 163, in job\n    tools = setup()\n            ^^^^^^^\n  File \"/workspace/run/pod_job.py\", line 150, in setup\n    raise RuntimeError(\"cuda probe failed: \" + (probe.stdout + probe.stderr)[-2000:])\nRuntimeError: cuda probe failed: cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n\n",
+   "finished": 1789990565.250436
+  },
+  "log": [
+   "[11:35:46] read-only status server on 8000; run root /workspace/run; commit fe763513554e7152f664cdaa01c344117f659f8c",
+   "[11:36:05] job failed: RuntimeError: cuda probe failed: cuda devices 0\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError\n",
+   "[11:36:05] job finished with phase failed"
+  ],
+  "progress": {
+   "arm_chapters_passed": 0,
+   "arm_chapters_rejected": 0,
+   "arm_chapters_running": 0
+  }
+ },
+ "resultsFetched": false,
+ "uptimeMinutes": 0.6,
+ "estimatedCost": 0.0034,
+ "stopRequestedAt": "2026-09-21T11:36:19Z",
+ "statusAfterStop": "EXITED",
+ "stoppedAt": "2026-09-21T11:36:20Z",
+ "terminatedAt": "2026-09-21T11:36:20Z",
+ "terminateHttp": 204
+}

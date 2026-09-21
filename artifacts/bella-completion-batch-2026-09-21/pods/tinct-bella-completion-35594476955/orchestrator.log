@@ -1,0 +1,9 @@
+[2026-09-21T11:35:44Z] created 44i85dwmtchfo2 tinct-bella-completion-35594476955 gpu=None $0.34/hr
+[2026-09-21T11:35:45Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-21T11:36:00Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-21T11:36:16Z] phase failed at 0.5 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "fe763513554e7152f664cdaa01c344117f659f8c", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-21T11:36:16Z] 0.5 min: failed {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-21T11:36:18Z] results fetch failed: HTTP 500
+[2026-09-21T11:36:19Z] stop 44i85dwmtchfo2: HTTP 200
+[2026-09-21T11:36:20Z] terminate 44i85dwmtchfo2: HTTP 204
+[2026-09-21T11:36:20Z] pod 44i85dwmtchfo2 done: outcome=failed uptime=0.6m est $0.00
