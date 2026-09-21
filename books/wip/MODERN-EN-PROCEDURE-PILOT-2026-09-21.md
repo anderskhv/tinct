@@ -1,169 +1,216 @@
-# Modern-English Acceptance Procedure — Pilot Report (2026-09-21)
+# Modern-English Acceptance Procedure — Pilot Report (2026-09-21, closed out)
 
-Top-level summary of this task. Sub-reports and staged artifacts are
-linked throughout; this file is the entry point for reviewing the whole
-piece of work.
+Top-level summary. This supersedes the earlier version of this file from
+the same date — that version left the quotation rule and both pilots open;
+this one records how they closed. Sub-reports and staged artifacts are
+linked throughout.
 
 ## 1. Reconciliation and preserved work
 
-- Merged `origin/main` (including PR #123 / commit `18976900`, "retire
-  legacy translation-language instructions") into this branch. Clean
-  merge, no conflicts — this branch had not touched any file PR #123
-  changed. All prior translation-repair work (Wealth of Nations, and the
-  earlier Leviathan/Don Quixote/Anna Karenina/Essays-Montaigne repairs)
-  is preserved unchanged; merge commit `985acf3b`.
+- Merged `origin/main` (PR #123 / commit `18976900`, "retire legacy
+  translation-language instructions") into this branch. Clean merge, no
+  conflicts. All prior translation-repair work (Wealth of Nations,
+  Leviathan/Don Quixote/Anna Karenina/Essays-Montaigne repairs) preserved
+  unchanged; merge commit `985acf3b`.
 - Confirmed `983cda4e` ("Don Quixote: merge content-fidelity close-read
-  fixes into live edition") is an ancestor of this branch's history — it
-  was not overwritten; this branch is newer than and built on top of it.
+  fixes into live edition") is an ancestor of this branch — not
+  overwritten.
 - No app code, landing pages, registry, audio, or published edition files
-  were changed by this task. Everything new is under `books/**`
-  (procedure docs, prompts, and `books/wip/**` staged candidates/review
-  artifacts).
-- No paid model API calls were made. All drafting and review used Claude
-  Agent-tool subagent sessions already available in this environment.
+  changed by this task. Everything new is under `books/**` (procedure
+  docs, prompts, `books/wip/**` staged candidates/review artifacts).
+- No paid model API calls made. All drafting and review used Claude
+  Agent-tool subagent sessions available in this environment.
 
-## 2. Procedure and prompts
+## 2. Procedure and prompts — including the resolved quotation rule
 
-- **Entry point:** `books/TRANSLATION_PROTOCOL.md` — rewritten from an
-  11-line stub into the actual entry point, linking the three reusable
-  prompts and stating the four-step (A-D) acceptance procedure.
+- **Entry point:** `books/TRANSLATION_PROTOCOL.md`.
 - **Reusable prompts:** `books/prompts/modern-en-draft-prompt.md`,
   `books/prompts/accessibility-review-prompt.md`,
   `books/prompts/fidelity-review-prompt.md`.
-- **`books/AGENTS.md`** — Modern English section rewritten to point at
-  the protocol/prompts rather than duplicate rules that could drift out
-  of sync; added an explicit **Acceptance Procedure** section; **QA
-  Gates** section rewritten so the `classify-modern-en.py`
-  similarity/length gate is documented as an inspection flag, not a
-  blocking quality gate — it remains a trip-wire specifically for the
-  2026-05 mechanical-modernization failure class (539 chapters that were
-  never actually rewritten), but a chapter reading close to the source is
-  no longer treated as a defect on its own, and the acceptance procedure
-  (not the score) is what makes a chapter "done."
-- **`books/CLAUDE.md`** — trimmed its duplicate Translation Rules section
-  to a short pointer at `AGENTS.md`/`TRANSLATION_PROTOCOL.md` so the two
-  files can't drift into contradiction again; updated its book-flow step
-  5b to match the new non-blocking framing.
-- The old "paragraph should normally remain at least 75% of source word
-  count" language is gone from both files' operative rules — reframed
-  everywhere as "a signal to go inspect the paragraph, never a rewrite
-  target."
+- **Quotation rule resolved and written into all of the above**:
+  quoted speech, verse, and formulas are modernized the same as
+  surrounding prose — quotation marks are not an exemption. When the
+  source's own discussion is about the exact wording (characters
+  comparing two near-identical lines), the distinction that discussion
+  depends on must be preserved. This only licenses working from the
+  chapter's own locked source quotation — never substituting wording from
+  another translation or a modern copyrighted edition. Added as a
+  dedicated section in the draft prompt, a new fidelity-review checklist
+  item ("unmodernized quotations"), and an accessibility-review
+  instruction not to give quoted passages a pass.
+- **`books/AGENTS.md`** — Modern English + QA Gates sections rewritten:
+  the `classify-modern-en.py` similarity/length gate is an inspection
+  flag, not a blocking quality gate. A chapter's completeness is decided
+  by the acceptance procedure (accessibility review blind to source →
+  packet-based fidelity review → whole-chapter cross-boundary re-read →
+  verify-and-pin to the final file's hash), not by the similarity score.
+- **`books/CLAUDE.md`** — trimmed to a pointer at `AGENTS.md`/
+  `TRANSLATION_PROTOCOL.md` to prevent future drift.
 
-## 3. Pilot A — Leviathan, edition ch18 (Hobbes ch17)
+## 3. Pilot A — Leviathan, edition ch18 (Hobbes ch17) — CLOSED
 
 Full report: `books/wip/leviathan-pilot-ch18/PILOT-REPORT.md`.
 
-Two independent full-chapter drafts (Sonnet, Opus — same prompt, same
-locked source, no cross-visibility), anonymized A/B, taken through the
-full accessibility → fidelity → cross-boundary review procedure by four
-independent reviewer sessions. Both models available in this environment;
-both arms completed — no fabricated or missing comparison.
+**A final candidate was selected, verified, and hashed** — this went
+through three full rounds of fix-then-reverify, not a single pass:
 
-**Headline result:** both candidates are fidelity-clean (ACCEPT AS-IS,
-only minor non-blocking notes each). Accessibility-wise, both need
-targeted fixes, but of different kinds: Sonnet's issues are local dense
-sentences plus one real ambiguous-pronoun bug; Opus's worst issue is
-structural — it left the chapter's two central quoted formulas (the
-social-contract oath, the formal definition of a commonwealth) completely
-unmodernized, which the blind accessibility reviewer independently named
-the single most disruptive passage in the chapter. See the pilot report
-for the full comparison table and the Sonnet-vs-Opus recommendation.
+- Round 1: Sonnet and Opus drafted independently (no cross-visibility),
+  both reviewed blind (accessibility) and independently (fidelity, full
+  packet coverage + whole-chapter re-read). Both fidelity-clean;
+  Sonnet's accessibility issues were local dense sentences + one
+  ambiguous-pronoun bug; Opus's worst issue was leaving the chapter's two
+  central quoted formulas completely archaic (the exact failure the new
+  quotation rule targets).
+- Round 2: targeted fixes applied to both candidates per their own
+  review findings; a fresh blind reviewer and a targeted fidelity
+  re-check of just the changed passages caught real regressions the
+  round-2 edits themselves introduced (a broken parenthesis, two
+  terminology-consistency breaks — "in awe," "pretext").
+- Round 3: regressions fixed; remaining flagged items closed (unglossed
+  technical/Latin terms in both candidates, one tangled sentence in the
+  selected candidate, a capitalization inconsistency in the other). Final
+  targeted fidelity checks: **ACCEPT AS-IS** on every changed passage in
+  the selected candidate.
+- **Selected: candidate A/X (Sonnet-drafted).** Final file:
+  `books/wip/leviathan-pilot-ch18/leviathan-ch18-final.json`,
+  `sha256: 89546ca2c949cf64104c518ff4e1bf8dc959ecb94f59b672c14ee641ed4d610f`
+  (source hash: `571be86f55a1050d4cbd3b8466f7752e1030a5b77c32656a254c112f11c5ec57`).
+  Selection was made on the accumulated evidence (which candidate needed
+  less/cheaper work to reach a fully clean state), not the model name —
+  see the pilot report's "Why X over Y" section.
+- **Not fully finished:** candidate B/Y (Opus) was left with two known
+  tangled sentences and one archaic-verb-sense risk, unfixed, once X was
+  selected and further iteration on Y was stopped per this task's "do not
+  keep iterating for stylistic preference alone" instruction. This is
+  recorded as an open item, not hidden.
 
-Neither candidate has been published or merged. Both remain staged in
-`books/wip/leviathan-pilot-ch18/`.
+Full review coverage table (12 review files across 3 rounds, each
+stating exact paragraph coverage) is in the pilot report.
 
-## 4. Pilot B — Brothers Karamazov verse review
+## 4. Pilot B — Brothers Karamazov verse review — CLOSED
 
 Full report: `books/wip/brothers-karamazov-verse-review/PILOT-REPORT.md`.
-Inventory: `inventory.md`. Correction ledger with exact before/after and
-rationale: `correction-ledger.md`. Staged JSON: `staged-corrections.json`.
+Inventory: `inventory.md`. Ledger: `correction-ledger.md`. Staged JSON:
+`staged-corrections.json`. Independent review: `independent-review.md`.
 
-Verified Codex's finding: the ch. 33 (P11/P12, Smerdyakov's song and the
-dialogue commenting on it) and ch. 36 (P1, Grand Inquisitor epigraph)
-defects **do still remain** in the live edition. Reviewed the song and
-its commenting dialogue together, since the dialogue is commentary on the
-song. Staged faithful corrections for all three paragraphs (not applied —
-Brothers Karamazov is published; this task's scope is staged
-candidates/review artifacts only).
+**All six flagged/inventoried paragraphs are now staged, corrected, and
+independently reviewed — ACCEPT AS-IS on every one:**
 
-Manually built and verified a full inventory of every genuine verse/song
-passage in the book (five found; three defective/corrected, one flagged
-but not corrected — ch. 16's Schiller "Ode to Joy" quotation, completely
-unmodernized — one clean).
+- ch. 33 P11/P12 (Smerdyakov's song + the dialogue commenting on its
+  exact wording, reviewed together): rhyme-driven "treasure/leisure" and
+  invented "and gay" replaced; the source's "wealth/health" rhyme and the
+  specific dear-one/darling distinction the dialogue depends on are both
+  restored.
+- ch. 36 P1 (Grand Inquisitor epigraph): "doth say" → "says," matching
+  how the identical phrase is already handled in the very next paragraph.
+- ch. 16 P41/P43/P45 (Schiller "Ode to Joy" quotation, previously
+  flagged as completely unmodernized — this is new work completed in
+  this session, not left over from before): "fostereth" → "fosters,"
+  "'Tis at her beck...hath turned" → "At her bidding...has turned,"
+  "cling for ever" → "cling forever." "The foaming must" was deliberately
+  left unchanged — a documented judgment call (it rhymes with "lust" two
+  lines later; modernizing it would destroy a deliberate existing rhyme
+  for a word that's odd, not actually unclear, in context) — independent
+  review agreed while flagging it as worth a second look in any future
+  *full* re-rendering of that stanza's denser phrasing (out of scope for
+  this targeted pass).
 
-## 5. Correction ledger (all books touched this task)
+**No verse passage inventoried in this book has an unresolved defect.**
+Nothing applied to the published edition file — all corrections remain
+staged for Anders to apply.
 
-See `books/wip/brothers-karamazov-verse-review/correction-ledger.md` for
-the full ledger (source / before / after / rationale) for all three
-staged Karamazov fixes. Leviathan pilot notes (non-blocking, not yet
-applied to any file since nothing is being published) are in each
-fidelity review file under `books/wip/leviathan-pilot-ch18/`.
+## 5. Correction ledger
 
-## 6. Sonnet vs. Opus recommendation (summary)
+Full ledger (source / before / after / rationale) for all Karamazov
+fixes: `books/wip/brothers-karamazov-verse-review/correction-ledger.md`.
+Leviathan's fix history (every round's exact changes, with source vs.
+candidate wording) is spread across its numbered review files under
+`books/wip/leviathan-pilot-ch18/`, summarized in that pilot's
+`PILOT-REPORT.md`.
 
-See §3 above and the full pilot report for detail. Short version: roughly
-tied on fidelity; Sonnet needed less correction to reach a genuinely
-accessible result under the current prompt. Opus's one real miss (leaving
-in-text performative/definitional quotations fully archaic) looks like a
-prompt-instruction gap more than a model-capability gap — recommend
-clarifying the draft prompt on this point before running a full-batch
-comparison, rather than concluding either model is categorically weaker
-for dense philosophical material from a single chapter.
+## 6. Sonnet vs. Opus recommendation
 
-## 7. Remaining issues requiring judgment
+Both models produced fidelity-clean drafts across every round; neither
+had a blocking fidelity defect at any point. The meaningful difference
+was accessibility execution style (Sonnet: local sentence-level tangles;
+Opus: one drafting-policy gap on quoted formulas, now closed project-wide
+by the resolved quotation rule). **No durable per-model ranking is
+established by this one-chapter pilot.** Recommendation: use **Sonnet as
+the economical drafting baseline** for the next batch (matching the
+model policy below), with Opus available for independent fidelity review
+or a second opinion on unusually dense passages — not because Opus
+drafted worse, but because Sonnet's gaps this round were cheaper to
+close and the model policy calls for an economical default absent
+stronger evidence either way.
 
-1. **Quoted in-text formulas/definitions.** The draft prompt doesn't
-   explicitly say whether a directly-quoted performative formula or
-   definition that is part of the author's own argument (not an external
-   citation) should be modernized like the rest of the prose, or
-   preserved verbatim as a "quotation." This pilot surfaced a real
-   disagreement between the two models on exactly this point. Recommend
-   Anders confirm the intended rule (this report's default assumption,
-   used to judge the pilot, was: modernize it like everything else,
-   since it's the author's own words, not an external document being
-   quoted) before it's written into the prompt file.
-2. **Chapter 16 Schiller quotation (Brothers Karamazov).** Flagged, not
-   drafted — see Pilot B report for why, and the recommended next-batch
-   scope.
-3. **Leviathan pilot's minor fidelity/accessibility notes** (both
-   candidates) have not been applied anywhere — they're documented in
-   the review files for whoever runs the next batch or decides to
-   publish this specific chapter.
-4. **Which candidate (if either) to actually publish for Leviathan ch18**
-   is Anders's call, not decided here — this task's brief was explicitly
-   to stop at the decision point, not to publish.
+## 7. Model policy used in this pilot
 
-## 8. Recommended next bounded batch
+- **Sonnet**: economical drafting baseline (used for both Leviathan
+  draft candidates in round 1, and for all revision rounds on the
+  selected candidate).
+- **Fresh session, candidate-only**: performed every accessibility
+  review (never shown source or the other candidate).
+- **Independent fidelity review, source-based**: performed by separate
+  sessions with access to the locked source but not the drafter's notes
+  or the accessibility review.
+- Exact settings and an honest caveat about what can/can't be
+  independently re-verified about which model served each background
+  subagent: `books/wip/leviathan-pilot-ch18/model-settings.md`.
+- No paid API calls made anywhere in this task.
 
-Two independent, small, well-scoped options — either is appropriately
-sized as "next," neither requires touching a whole book:
+## 8. Remaining issues requiring judgment
 
-- **Leviathan ch18 finalization:** apply the non-blocking fixes from
-  whichever candidate is chosen (or merge the best of both — e.g.
-  Sonnet's quote-modernization instinct with Opus's cleaner prose in
-  paragraphs 0/3/15), regenerate the fidelity review against the final
-  file, and pin acceptance to that file's hash (step D). Small, since
-  the fixes needed are already fully enumerated.
-- **Brothers Karamazov ch16, P41/43/45 (Schiller quotation):** draft and
-  review a modernized rendering of the one flagged verse passage, through
-  the full acceptance procedure. Small, self-contained, well-scoped.
+1. **Candidate B/Y (Opus) for Leviathan ch18 was not carried to a fully
+   clean state** — two tangled sentences and one archaic-verb-sense risk
+   remain, since iteration stopped once candidate A/X was selected. If
+   Anders wants a second fully-finished candidate for future comparison,
+   that's additional bounded work.
+2. **Publishing `leviathan-ch18-final.json`** to the live edition is
+   Anders's call — not done here, per this task's scope.
+3. **Applying the six staged Karamazov corrections** to the published
+   edition is Anders's call — not done here.
+4. **Chapter 16's Schiller stanza (Karamazov)** has a narrow, targeted
+   fix only; a full re-rendering of its denser non-archaic phrasing
+   (including revisiting "must"/"lust") is optional future work, not a
+   defect in what's staged.
 
-**Explicitly not recommended as automatic work:** a full-book pass on
-Leviathan, Brothers Karamazov, Don Quixote, or any other book. Per this
-task's brief, **Confessions and War and Peace remain "existing repairs to
-verify against updated criteria,"** not retranslation jobs — nothing in
-this task touched either book, and nothing here should be read as
-authorizing that. Verifying them against the reconciled acceptance
-procedure (a light audit against the new gate framing and reviewer
-process, not a rewrite) is itself a reasonable candidate for a future
-bounded task, separate from the two above.
+## 9. Recommended next small Leviathan batch — chosen to test different difficulties
 
-## 9. What this task did not do (by design)
+This pilot's chapter (edition ch18) was dense political-philosophy prose
+with **no verse** and its hardest case was two in-text performative
+quotations (the author's own words). To stress-test the procedure and the
+new quotation rule against a genuinely different failure surface, and to
+keep the batch small and bounded:
+
+- **Primary recommendation — edition chapter 40, "Of the Signification in
+  Scripture of the Word Church"** (Hobbes's own ch. 39; 5 paragraphs, 942
+  words). Short, self-contained, and heavy with direct Bible quotation —
+  this is the first real test of the quotation rule against *external*
+  scripture citation rather than the author's own formula, plus Hobbes's
+  own close argument about how one Greek/English word should be
+  translated (a genuine case of "the source's discussion is itself about
+  the exact wording," which the new rule specifically addresses). Small
+  enough to run start-to-finish in one sitting.
+- **Secondary/alternative — edition chapter 24, "Of the Publique
+  Ministers of Soveraign Power"** (Hobbes's own ch. 23; 13 paragraphs,
+  1701 words). Plain civic/descriptive prose (ambassadors, tax
+  collectors, judges) rather than abstract argument — tests whether the
+  procedure holds up on more concrete, example-driven material, a
+  different register from both this pilot's chapter and the
+  scripture-heavy option above.
+
+**Explicitly not recommended:** a full-book pass on Leviathan, Brothers
+Karamazov, Don Quixote, or any other title. **Confessions and War and
+Peace remain "existing repairs to verify against updated criteria"** —
+untouched by this task, not queued as retranslation work.
+
+## 10. What this task did not do (by design)
 
 - Did not publish any pilot candidate or Karamazov correction to a live
   edition file.
+- Did not regenerate audio.
 - Did not launch a full-book accessibility pass on any book.
-- Did not touch app code, the registry, landing pages, or audio.
+- Did not touch app code, the registry, or landing-page code.
 - Did not call a paid model API.
 - Did not retranslate Confessions or War and Peace, or treat them as
   queued work.
