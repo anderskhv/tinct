@@ -1,3 +1,16 @@
+> **RESOLVED by round 3 (2026-09-21, Claude Sonnet 5).** All 15 blocking
+> items below were fixed and independently re-verified against
+> `source.json` fresh; a fresh location-keyed proper-noun sweep found no
+> further instances of the class-B pattern; a fresh sweep of the other
+> four classes found 7 more real (non-listed) items, also fixed; the ~8
+> non-blocking items in section 4 below were resolved with an explicit,
+> documented lexical policy. See `fidelity-review-3.md` for the full fix
+> table, sweep method, policy text, and verification, and
+> `ACCEPTANCE-RECORD.md` for the round-3 verdict. Final `candidate.json`
+> sha256: `c60c6ffeb87f254a116d9a5f114562e4fad415b22fd0068962b92f4564566806`.
+> This file (renamed from `PARKED.md`) is kept as the full round-2 record,
+> unmodified below this note.
+
 # The Tempest (`the-tempest`, modern-en) — PARKED after round 2
 
 **Round:** 2 of 3 (independent adversarial fidelity verification)

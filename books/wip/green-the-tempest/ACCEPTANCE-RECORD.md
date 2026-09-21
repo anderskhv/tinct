@@ -2,11 +2,14 @@
 
 **Book id:** `the-tempest`
 **Edition:** `modern-en`
-**Status: NOT ACCEPTED — PARKED 2/3 after independent round-2
-verification (2026-09-21).** See `PARKED.md`. No acceptance hash, no
-`accepted-paragraph-hashes.tsv`, no release packet. A correction round
-(3 of 3) is required. Round 1's verdict below is superseded and is
-retained only as the record of what that round did.
+**Status: correction round 3/3 complete (2026-09-21). READY FOR INDEPENDENT
+VERIFICATION**, pending a round-4 independent pass per the task's
+three-correction-round rule. See `PARKED-RESOLVED.md` (formerly
+`PARKED.md`) for round 2's findings and `fidelity-review-3.md` for round
+3's fix table, fresh location-keyed sweep, lexical policy, and
+verification. No acceptance hash / `accepted-paragraph-hashes.tsv` /
+release packet has been produced yet — those are for the independent
+verifier to write once they confirm this round.
 
 **Model note.**
 - Round 1 (blind accessibility review, fidelity review, fixes, whole-book
@@ -15,33 +18,52 @@ retained only as the record of what that round did.
   `fidelity-review-1.md`.
 - Round 2 (independent adversarial fidelity verification, source-based,
   no reuse of round 1's word/character lists): **Claude Opus**
-  (`claude-opus-5`). Artifact: `PARKED.md`. Confirmed round 1's structure
-  claim and all 14 of its fixes, then found **15 further blocking defects
-  across 5 classes** on its first independent pass — including two
-  mythological proper nouns dropped at locations where a count-based diff
-  cannot see them (Jove 2.53, Neptune 9.11), a plot-fact inversion
-  (Claribel "far away in Italy", 3.72), erasure of Stephano's `Coragio` /
-  `bully-monster` (9.74), and a silent standardization of the source's
-  printed "you god" → "you gods" (9.53) that contradicts round 1's own
-  accepted "My mistress" ruling. `candidate.json` was not modified by
-  round 2.
+  (`claude-opus-5`). Artifact: `PARKED-RESOLVED.md`. Confirmed round 1's
+  structure claim and all 14 of its fixes, then found **15 further
+  blocking defects across 5 classes** on its first independent pass —
+  including two mythological proper nouns dropped at locations where a
+  count-based diff cannot see them (Jove 2.53, Neptune 9.11), a plot-fact
+  inversion (Claribel "far away in Italy", 3.72), erasure of Stephano's
+  `Coragio` / `bully-monster` (9.74), and a silent standardization of the
+  source's printed "you god" → "you gods" (9.53) that contradicts round
+  1's own accepted "My mistress" ruling. `candidate.json` was not
+  modified by round 2.
+- Round 3 (correction round, final under the three-round rule): **Claude
+  Sonnet 5** (`claude-sonnet-5`), independent of round 2. Artifact:
+  `fidelity-review-3.md`. Fixed all 15 of round 2's blocking items,
+  verifying each against `source.json` fresh rather than trusting the
+  cited coordinates (all 15 coordinates turned out correct). Built a
+  genuinely location-keyed (not count-based) proper-noun/deity sweep and
+  found no further drops of that shape beyond the two round 2 already
+  found. Ran a fresh sweep of the other four defect classes and found 7
+  more real items (a mistranslated "mop and mow," a de-specified
+  "stripes," a dropped "worm" epithet, three more drops of Ferdinand's
+  "mistress" address, and a unit-to-multiplier distortion of "Ten
+  leagues"), fixed all 7. Wrote and applied an explicit lexical policy for
+  the ~8 non-blocking items PARKED.md asked this round to rule on. Final
+  `candidate.json` sha256: `c60c6ffeb87f254a116d9a5f114562e4fad415b22fd0068962b92f4564566806`.
 
 **Staged files:** `books/wip/green-the-tempest/source.json` (unmodified,
 locked, never edited), `books/wip/green-the-tempest/candidate.json` (round-1
-corrections applied), `books/wip/green-the-tempest/candidate_readable.txt`
-and `source_readable.txt` (linear dumps used for the paragraph-by-paragraph
-read; **not regenerated after the fixes** — the fix locations and exact
-wording are recorded in `fidelity-review-1.md`'s table instead; an
-independent verifier should re-derive fresh dumps from the final
-`candidate.json` rather than trust these).
++ round-3 corrections applied), `books/wip/green-the-tempest/candidate_readable.txt`
+and `source_readable.txt` (linear dumps generated before round 1's fixes;
+**stale** — round 1's fix locations/wording are in `fidelity-review-1.md`,
+round 3's are in `fidelity-review-3.md`; an independent verifier should
+re-derive fresh dumps from the final `candidate.json` rather than trust
+these).
 
-**Final file hash (candidate.json, sha256):**
-`14a4fa4f26b9290fc437a4df28153747ce930da70cce7682aced7ecd7d85b38b`
+**Final file hash (candidate.json, sha256), current:**
+`c60c6ffeb87f254a116d9a5f114562e4fad415b22fd0068962b92f4564566806`
 
-This is pinned to `candidate.json`'s state after all 14 round-1 fixes and
-after each fix was independently re-verified against `source.json`
-directly (not just against its own stated rationale) — see
-`fidelity-review-1.md` for the full defect table and verification method.
+(Round 1's hash, superseded: `14a4fa4f26b9290fc437a4df28153747ce930da70cce7682aced7ecd7d85b38b`
+— this was the hash round 2 reviewed and parked.)
+
+This is pinned to `candidate.json`'s state after all 14 round-1 fixes, all
+15 of round-2's blocking finds fixed in round 3, and 7 further items round
+3's own fresh sweep found — every fix independently re-verified against
+`source.json` directly (not just against its own stated rationale) — see
+`fidelity-review-1.md` and `fidelity-review-3.md` for the full defect
+tables and verification method.
 
 No app, registry, audio, or deploy action was taken. This directory only.
 No paid API calls.
@@ -168,7 +190,7 @@ rendering defect; the masque scene names several classical figures without
 inline glosses, consistent with not inventing interpretation the source
 doesn't supply).
 
-## Verdict (round 1 — SUPERSEDED by round 2, see PARKED.md)
+## Verdict (round 1 — SUPERSEDED by round 2, see PARKED-RESOLVED.md)
 
 **READY FOR INDEPENDENT VERIFICATION.**
 
@@ -180,3 +202,33 @@ verification pass follows and will either confirm this acceptance (and
 produce `RELEASE-PACKET.md` / `accepted-paragraph-hashes.tsv`), or find
 further defects, in which case standard correction-round tracking applies
 per `SECOND-BATCH-TRACKER.md`'s process notes.
+
+## Verdict (round 2 — Claude Opus, independent verification)
+
+**NOT ACCEPTED — PARKED 2/3.** 15 blocking defects across 5 classes found
+on round 2's first independent pass despite round 1's self-certified clean
+whole-book re-read. Full detail: `PARKED-RESOLVED.md`.
+
+## Verdict (round 3 — Claude Sonnet 5, correction round, final under the
+three-round rule)
+
+**READY FOR INDEPENDENT VERIFICATION.**
+
+All 15 of round 2's blocking items fixed and independently re-verified
+against `source.json` fresh. A genuinely location-keyed proper-noun/deity
+sweep found no further instances of the Jove/Neptune drop pattern. A fresh
+sweep of the other four defect classes found 7 more real items (fixed). An
+explicit lexical policy was written and applied to the ~8 non-blocking
+items round 2 flagged. `validate_structure()`, `diff_report()`, and
+`assert_only_changed()` confirm exactly the 22 intended paragraphs changed
+and nothing else, with no ratio outlier among them. Full detail:
+`fidelity-review-3.md`.
+
+Final `candidate.json` sha256:
+`c60c6ffeb87f254a116d9a5f114562e4fad415b22fd0068962b92f4564566806`
+
+Per the task's three-correction-round rule, this is the last correction
+round. If a round-4 independent pass again finds live instances of classes
+A-D from `PARKED-RESOLVED.md`, this book hard-parks. If round 4 confirms
+this file clean, it should produce `RELEASE-PACKET.md` and
+`accepted-paragraph-hashes.tsv`.
