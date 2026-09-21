@@ -15,16 +15,14 @@ unnumbered Introduction).
 | 18 | 17 | Of the Causes, Generation, and Definition of a Commonwealth | **final verified** | `89546ca2c949cf64104c518ff4e1bf8dc959ecb94f59b672c14ee641ed4d610f` |
 | 24 | 23 | Of the Public Ministers of Sovereign Power | **final verified** | `791e117aa5ef698e7cc7ef87b4a0ecf0eaeaa48f9f280518c2b7bed98b8abd68` |
 | 40 | 39 | Of the Signification in Scripture of the Word Church | **final verified** | `52277a34efaf708d0befa21c37dc076b3a298ad1dbd933460329fa16de404fc7` |
+| 10 | 9 | Of the Several Subjects of Knowledge | **final verified** | `394b09485b8ef288af5409527d0fe050570e060ca6150f7d53b15500983ce445` |
+| 14 | 13 | Of the Natural Condition of Mankind, as Concerning Their Felicity, and Misery | **final verified** | `0bf1de2f5e2b9097cb36cbc99776582df5ff01a19787446811b6a737291cda82` |
+| 27 | 26 | Of Civil Laws | **final verified** | `81bc5757384809e4e28599eec1fcd7883d56b3220a0c14c85519fb61c14a7ba1` |
 
-## In progress (batch 2)
+Batch 2 (ch10/14/27) full process history, review coverage, and
+defect-by-stage counts are in each chapter's `books/wip/leviathan-pilot-ch{N}/PILOT-REPORT.md`.
 
-| Edition ch | Hobbes ch | Title | Why selected | Status |
-|---|---|---|---|---|
-| 10 | 9 | Of the Several Subjects of Knowledge | short/calibration (12 paras, 372w) | drafting dispatched |
-| 27 | 26 | Of Civil Laws | long/scale (48 paras, 7,889w — drafted in 3 bounded packets) | drafting dispatched |
-| 14 | 13 | Of the Natural Condition of Mankind... | different difficulty (famous state-of-nature argument, historical-claim test case) | drafting dispatched |
-
-## Not started (44 remaining after batch 2)
+## Not started (43 remaining after batch 2)
 
 1 (Introduction), 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 16, 19, 20, 21,
 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 42
