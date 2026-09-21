@@ -11,8 +11,10 @@ reader's audio and speaks its own answer. The previous chain — GPT Live over
 WebRTC delegating to a separate "Sol" backend model, plus the older Realtime
 transcription trial paths — is gone from the active path.
 
-- Model: `grok-voice-latest` (xAI alias for `grok-voice-think-fast-2.0`),
-  voice `altair` (Anders picked it over the default `eve` on 2026-09-19 after hearing samples), provider defaults otherwise (server VAD, PCM16 at 24 kHz).
+- Model: `grok-voice-latest` (xAI alias for `grok-voice-think-fast-2.0`).
+  The synced Female/Male preference resolves to exact xAI voices `ursa` and
+  `helios`; provider IDs remain absent from the UI. Server VAD and PCM16 at
+  24 kHz remain the transport defaults.
 - Transport: one browser WebSocket to `wss://api.x.ai/v1/realtime`,
   authenticated with a single-use ephemeral client secret. The Worker mints the
   secret at `/api/voice-session` (signed-in, entitlement-checked, one message
@@ -99,6 +101,38 @@ Files: `app/src/voice/GrokVoiceSessionController.ts`, `grokConfig.ts`,
   - spoken "take me back to the audiobook": `resume_audiobook` ran before the
     accompanying `end_voice_session`, the call closed and the audiobook
     reported playing (`data-playing="true"`).
+
+## First-turn and lookup follow-up — 21 September 2026
+
+Status: release candidate; production evidence will be appended after the
+serialized deployment completes.
+
+The first sentence could begin while Tinct was still minting the ephemeral
+secret and connecting the WebSocket. Capture previously started only after
+`session.updated`, so that early audio was absent rather than merely delayed.
+After microphone permission succeeds, Tinct now starts its existing local
+capture graph immediately and retains at most 15 seconds of 24 kHz frames. It
+does not send or discard them until the configured session is acknowledged.
+The permission-before-token billing invariant remains: a pending or refused
+microphone never mints a provider session.
+
+Application lookups that are still unresolved after 1.5 seconds use xAI's
+documented `force_message` event to speak exactly **One moment.** in the selected
+Grok voice. Fast lookups say nothing; the line is emitted once; and final output
+waits for the acknowledgement lifecycle so speech cannot overlap. Native
+provider web search receives the corresponding prompt rule. Tests cover fast
+and delayed paths, exact copy, output order, retained early frames and cleanup.
+
+Official xAI documentation current on 21 September lists `force_message` as a
+supported realtime extension and recommends capturing/buffering microphone
+audio while the WebSocket initializes. CI performs a bounded live-provider
+acceptance for exact `ursa`/`helios`, plus force-message transcript, audio bytes
+and `response.done`, with a fake microphone and muted output.
+
+This does not certify perceived timing, AirPods behavior or background capture
+on a physical iPhone. Those remain part of the agreed device window, including
+first and later turns, a delayed lookup, lock while listening/speaking, and
+unlock recovery.
 
 ## Sandbox notes (not production)
 

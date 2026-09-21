@@ -135,8 +135,11 @@ The chapter picker follows the approved Design 1: a compact tree with gold curre
 ancestry, rounded branch ends, pinned breadcrumbs and continuous progress pies
 from saved reading data. Search covers book text and book-scoped chats; chapter
 icons open saved highlights or conversations. Long titles reveal their full text
-on click. **Cover and preface** is the first entry in the chapter tree, above the
-book’s parts/chapters. The book-title switcher retains Reading Now and Full library.
+on click. On phone, Contents owns the full reader viewport with one scrolling
+region. **Cover** and **Preface** are separate entries above the book’s
+parts/chapters: Cover opens the actual frontispiece, while Preface returns to
+that mounted cover without changing the saved reading tuple. The book-title
+switcher retains Reading Now and Full library.
 
 Saved-highlight controls take precedence over definitions. Ctrl/Cmd+C and browser
 Copy work on custom reader selections. Phone selections remain painted when their

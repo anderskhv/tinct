@@ -137,10 +137,14 @@ describe('lab/index.html boot script', () => {
     expect(recap.querySelector('[data-now-caption] .lib-eyebrow')?.textContent).toBe('Last time you read: 2 days ago')
     expect(recap.querySelector('[data-now-caption] .lib-h1')?.textContent).toBe('You stopped in Proverbs 17')
     expect(recap.querySelector('[data-now-caption] .lib-lede')?.textContent).toBe('The Bible')
-    // Title over the eyebrow over the headline, the order the confirmed render paints.
-    expect([...recap.querySelectorAll('[data-now-caption] > *')].map(node => node.className.split(' ')[0])).toEqual(['lib-lede', 'lib-h1', 'lib-eyebrow', 'lib-now-cta', 'lib-recap-summary'])
+    // Authorship sits with the title; location and action follow it.
+    expect([...recap.querySelectorAll('[data-now-caption] > *')].map(node => node.className.split(' ')[0])).toEqual(['lib-lede', 'lib-byline', 'lib-h1', 'lib-eyebrow', 'lib-now-cta', 'lib-recap-summary'])
+    expect(recap.querySelector('[data-now-caption] .lib-byline')?.textContent).toBe('Various')
     expect(recap.querySelector('[data-recap-continue]')?.getAttribute('data-recap-continue')).toBe('bible')
     expect(recap.querySelector('.lib-now-item .lib-cover img')?.getAttribute('src')).toBe('/covers/bible.jpg')
+    expect((recap.querySelector('.lib-now-item .lib-cover img') as HTMLImageElement)?.loading).toBe('eager')
+    expect(recap.querySelector('.lib-now-item .lib-cover img')?.getAttribute('fetchpriority')).toBe('high')
+    expect((cards[1].querySelector('.lib-cover img') as HTMLImageElement)?.loading).toBe('lazy')
     expect(recap.querySelector('.lib-cta-note')?.textContent).toBe('12% read')
   })
 
@@ -155,10 +159,10 @@ describe('lab/index.html boot script', () => {
     expect(recap.hidden).toBe(false)
     expect(recap.getAttribute('data-boot-recap')).toBe('skeleton')
     expect(recap.textContent).not.toContain('Proverbs 17')
-    // The skeleton lays out the same block, with nothing in it yet.
+    // No fallback metadata is placed below Continue while the recap is pending.
     const skeletonBlock = root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')!
-    expect(skeletonBlock.hidden).toBe(false)
-    expect(skeletonBlock.classList.contains('is-fallback')).toBe(true)
+    expect(skeletonBlock.hidden).toBe(true)
+    expect(skeletonBlock.classList.contains('is-fallback')).toBe(false)
     expect(skeletonBlock.querySelector('.lib-recap-summary-text')?.textContent).toBe('')
 
     localStorage.removeItem('sb-yazjyiqsxjystvpkyouk-auth-token')
@@ -176,30 +180,31 @@ describe('lab/index.html boot script', () => {
    * block is always there at the same size; until a recap exists it carries
    * the aside (chapter name, author) from the snapshot, never a control.
    */
-  it('lays out the summary block with the aside, even coming back from the hero\'s reader', () => {
+  it('keeps fallback metadata beside the title and hides the pending summary below Continue', () => {
     localStorage.setItem('sb-yazjyiqsxjystvpkyouk-auth-token', SESSION)
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify(SNAPSHOT))
     const boot = runBoot()
 
-    // Ordinary visit: the block is there, shown, disabled, carrying the aside.
+    // Ordinary visit: the pending recap is not visible below the action.
     let root = mountRoot()
     boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
     const block = root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')!
     expect(block).toBeTruthy()
     expect(block.tagName).toBe('BUTTON')
     expect(block.disabled).toBe(true)
-    expect(block.hidden).toBe(false)
-    expect(block.classList.contains('is-fallback')).toBe(true)
-    expect(block.dataset.summaryKind).toBe('fallback')
-    expect(block.querySelector('.lib-recap-summary-text')?.textContent).toBe('Various · 1,189 chapters')
+    expect(block.hidden).toBe(true)
+    expect(block.classList.contains('is-fallback')).toBe(false)
+    expect(block.dataset.summaryKind).toBe('pending')
+    expect(block.querySelector('.lib-recap-summary-text')?.textContent).toBe('')
+    expect(root.querySelector('[data-now-caption] .lib-byline')?.textContent).toBe('Various')
     expect(block.querySelector('.lib-recap-summary-more')?.textContent).toBe('')
 
-    // Straight back out of the hero's reader: the same block, same aside.
+    // Straight back out of the hero's reader: no recap is inserted.
     leftReaderOn('bible')
     root = mountRoot()
     boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
-    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(false)
-    expect(root.querySelector('[data-now-caption] .lib-recap-summary-text')?.textContent).toBe('Various · 1,189 chapters')
+    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(true)
+    expect(root.querySelector('[data-now-caption] .lib-recap-summary-text')?.textContent).toBe('')
 
     // Another book's reader: the hero is unaffected, so the block stays.
     leftReaderOn('odyssey')
@@ -213,7 +218,7 @@ describe('lab/index.html boot script', () => {
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify({ ...SNAPSHOT, at: Date.now() - 60_000 }))
     root = mountRoot()
     boot.paint(root, boot.bootState({ pathname: '/lab/library', search: '' }, '', localStorage))
-    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(false)
+    expect(root.querySelector<HTMLButtonElement>('[data-now-caption] .lib-recap-summary')?.hidden).toBe(true)
 
     // An hour later the marker means nothing.
     localStorage.setItem(LAB_LIBRARY_BOOT_KEY, JSON.stringify(SNAPSHOT))

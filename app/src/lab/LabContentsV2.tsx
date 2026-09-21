@@ -18,6 +18,7 @@ interface Props {
   statuses: Map<number, LabChapterStatus>; conversations: ChatConversation[]; highlights: LabHighlight[]; unassignedHighlights: LabHighlight[]
   historyStatus: 'loading' | 'ready' | 'unavailable'
   onOpenCover?: () => void
+  onOpenPreface?: () => void
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
   onOpenPassage: (place: ContentsPlace) => void; onContinueConversation: (conversation: ChatConversation) => void
 }
@@ -215,7 +216,7 @@ export function LabContentsV2(props: Props) {
       {fullTitle && <div className="full-title">{title}</div>}
       {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => locate(node.id)}>{node.label}</button></span>)}</nav>}
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} inert={view ? true : undefined}>
-        {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenCover && <div className="node cover-preface"><button className="label" onClick={props.onOpenCover}><span className="text">Cover and preface</span><Icon name="next" /></button></div>}{tree(nodes)}</nav> : <p className="status" role="status">Loading contents…</p>}
+        {props.chaptersReady ? <nav className="tree" aria-label="Chapters"><div className="front-matter">{props.onOpenCover && <div className="node"><button className="label" onClick={props.onOpenCover}><span className="text">Cover</span><Icon name="next" /></button></div>}{props.onOpenPreface && <div className="node"><button className="label" onClick={props.onOpenPreface}><span className="text">Preface</span><Icon name="next" /></button></div>}</div>{tree(nodes)}</nav> : <p className="status" role="status">Loading contents…</p>}
         {historyStatus}
       </div>
       {view && <section className="overlay" aria-label={view === 'search' ? 'Search book and chats' : view === 'chats' ? 'Chats' : 'Highlights'}>

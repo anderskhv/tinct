@@ -88,4 +88,18 @@
 .lab-contents-v2 .label:hover,.lab-contents-v2 .result:hover { background:color-mix(in srgb,var(--wash) 50%,transparent); border-radius:5px; }
 @media(pointer:coarse) { .lab-contents-v2 { --row:44px; } }
 
-.lab-contents-v2 .cover-preface .label{font:400 16px/1.2 'EB Garamond',Georgia,serif;color:var(--ink);padding-block:8px}.lab-contents-v2 .cover-preface svg{margin-left:auto;width:11px;height:11px}
+.lab-contents-v2 .front-matter{padding-bottom:4px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.lab-contents-v2 .front-matter .label{font:400 16px/1.2 'EB Garamond',Georgia,serif;color:var(--ink);padding-block:8px}
+.lab-contents-v2 .front-matter svg{margin-left:auto;width:11px;height:11px}
+
+/* On phones Contents is a reader-level destination, not a floating card.
+   The browser chrome remains outside the viewport; one internal region owns
+   scrolling so long chapter trees never move the header or create two panes. */
+.lab:is(.is-phone,.has-phone-chrome) .lab-contents-v2{position:fixed;inset:0}
+.lab:is(.is-phone,.has-phone-chrome) .lab-contents-v2 .lc-scrim{display:none}
+.lab:is(.is-phone,.has-phone-chrome) .lab-contents-v2 .menu{
+  inset:0;transform:none;width:100%;max-width:none;height:100dvh;max-height:none;
+  border:0;border-radius:0;padding:max(10px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  box-shadow:none;
+}
+.lab:is(.is-phone,.has-phone-chrome) .lab-contents-v2 .viewport{flex:1;max-height:none}

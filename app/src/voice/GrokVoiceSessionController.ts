@@ -35,6 +35,11 @@ const PLAYBACK_LEAD_SECONDS = 0.05
 /** Reader movement is common; one prompt refresh per short window is enough. */
 const CONTEXT_UPDATE_DEBOUNCE_MS = 400
 const CONNECT_TIMEOUT_MS = 15_000
+export const LOOKUP_ACKNOWLEDGEMENT_DELAY_MS = 1_500
+export const LOOKUP_ACKNOWLEDGEMENT = 'One moment.'
+const LOOKUP_ACKNOWLEDGEMENT_TIMEOUT_MS = 5_000
+const ACKNOWLEDGED_LOOKUP_TOOLS = new Set(['search_reading_sources', 'search_personal_reading_history'])
+const EARLY_CAPTURE_MAX_SECONDS = 15
 
 const CAPTURE_WORKLET = `class TinctPcmCapture extends AudioWorkletProcessor {
   process(inputs) { const channel = inputs[0] && inputs[0][0]; if (channel) this.port.postMessage(channel.slice(0)); return true }
@@ -127,6 +132,7 @@ export class GrokVoiceSessionController {
   private turnNumber = 0
   private startedAt = 0
   private visibilityListening = false
+  private lookupAcknowledgement: { resolve: () => void } | null = null
 
   private readonly handleVisibilityChange = () => {
     if (typeof document === 'undefined' || document.visibilityState !== 'visible' || !this.ui.isActive) return
@@ -239,12 +245,18 @@ export class GrokVoiceSessionController {
       if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
         throw new Error("Couldn't start voice. Microphone access is unavailable. Type a question instead.")
       }
+      // Do not mint a billable single-use provider session until microphone
+      // permission has actually succeeded.
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
       for (const track of stream.getAudioTracks()) track.onended = () => {
         if (current() && this.ui.isActive) this.fail('Microphone disconnected. Reconnect to continue.')
       }
+      // Capture immediately after permission succeeds. Until session.updated,
+      // flushCapture retains a bounded local buffer; this preserves a first
+      // statement spoken while the ephemeral token and socket are connecting.
+      if (typeof AudioContext !== 'undefined') this.startCapture()
       const response = await fetch(apiUrl(input.labGuest && !input.authToken ? '/api/lab-voice-session' : '/api/voice-session'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...(input.authToken ? { Authorization: `Bearer ${input.authToken}` } : {}) },
@@ -328,7 +340,7 @@ export class GrokVoiceSessionController {
       case 'session.updated': {
         if (this.ready) return
         this.ready = true
-        try { this.startCapture() }
+        try { if (!this.captureSource) this.startCapture() }
         catch (error) { this.fail(error instanceof Error ? error.message : 'Microphone capture could not start. Reconnect to continue.'); return }
         this.emit({ connection: 'connected', activity: 'listening', state: 'listening' })
         if (input.greeting) {
@@ -397,6 +409,11 @@ export class GrokVoiceSessionController {
         else if (spoken) this.spoken = { text }
         if (!cancelled && response.calls.length) this.runToolCalls(response.calls)
         this.response = null
+        if (this.lookupAcknowledgement) {
+          const acknowledgement = this.lookupAcknowledgement
+          this.lookupAcknowledgement = null
+          acknowledgement.resolve()
+        }
         if (this.sources.size === 0) this.emit({ activity: 'listening', state: 'listening' })
         return
       }
@@ -446,8 +463,24 @@ export class GrokVoiceSessionController {
         if (generation !== this.generation) return
         if (this.handledCalls.has(call.callId)) continue
         this.handledCalls.add(call.callId)
+        let acknowledgementWait: Promise<void> | null = null
+        const acknowledgementTimer = ACKNOWLEDGED_LOOKUP_TOOLS.has(call.name) ? setTimeout(() => {
+          if (generation !== this.generation || !this.ui.isActive) return
+          acknowledgementWait = new Promise<void>(resolve => { this.lookupAcknowledgement = { resolve } })
+          this.send({ type: 'conversation.item.create', item: {
+            type: 'force_message', role: 'assistant', interruptible: true,
+            content: [{ type: 'output_text', text: LOOKUP_ACKNOWLEDGEMENT }],
+          } })
+        }, LOOKUP_ACKNOWLEDGEMENT_DELAY_MS) : null
         let result: { output: unknown; responseInstructions?: string }
         try { result = await this.runTool(call) } catch { result = { output: { ok: false, error: 'The action could not be completed.' } } }
+        if (acknowledgementTimer) clearTimeout(acknowledgementTimer)
+        if (acknowledgementWait) {
+          await Promise.race([
+            acknowledgementWait,
+            new Promise<void>(resolve => setTimeout(resolve, LOOKUP_ACKNOWLEDGEMENT_TIMEOUT_MS)),
+          ])
+        }
         if (generation !== this.generation) return
         if (result.output === undefined) continue
         this.send({ type: 'conversation.item.create', item: { type: 'function_call_output', call_id: call.callId, output: JSON.stringify(result.output) } })
@@ -532,6 +565,10 @@ export class GrokVoiceSessionController {
       if (this.ui.micMuted) return
       this.pendingCapture.push(resampleFloat(chunk, context.sampleRate, GROK_AUDIO_RATE))
       this.pendingCaptureLength += this.pendingCapture[this.pendingCapture.length - 1].length
+      const maximum = GROK_AUDIO_RATE * EARLY_CAPTURE_MAX_SECONDS
+      while (this.pendingCaptureLength > maximum && this.pendingCapture.length > 1) {
+        this.pendingCaptureLength -= this.pendingCapture.shift()!.length
+      }
     }
     // Keep the microphone graph connected to an inaudible destination. A
     // zero-output worklet is not a reliable continuously rendered graph.
@@ -591,13 +628,13 @@ export class GrokVoiceSessionController {
   }
 
   private flushCapture(): void {
-    if (!this.pendingCaptureLength) return
+    if (!this.pendingCaptureLength || !this.ready || this.socket?.readyState !== 1) return
     const merged = new Float32Array(this.pendingCaptureLength)
     let offset = 0
     for (const chunk of this.pendingCapture) { merged.set(chunk, offset); offset += chunk.length }
     this.pendingCapture = []
     this.pendingCaptureLength = 0
-    if (!this.ui.micMuted && this.socket?.readyState === 1) {
+    if (!this.ui.micMuted) {
       this.send({ type: 'input_audio_buffer.append', audio: floatToPcm16Base64(merged) })
       this.sentAudioChunks++
     }
@@ -681,6 +718,10 @@ export class GrokVoiceSessionController {
     this.socket = null
     this.instructions = ''
     this.handledCalls.clear()
+    if (this.lookupAcknowledgement) {
+      this.lookupAcknowledgement.resolve()
+      this.lookupAcknowledgement = null
+    }
     this.toolQueue = Promise.resolve()
     this.turnNumber = 0
     this.speechStoppedAt = 0

@@ -253,7 +253,7 @@
     if (textContent != null) node.textContent = textContent
     return node
   }
-  function coverNode(hero) {
+  function coverNode(hero, priority) {
     var cover = el('span', 'lib-cover')
     if (hero && hero.coverSrc) {
       var img = document.createElement('img')
@@ -261,6 +261,8 @@
       if (hero.coverSrcSet) img.srcset = hero.coverSrcSet
       img.alt = ''
       img.decoding = 'async'
+      img.loading = priority ? 'eager' : 'lazy'
+      if (priority) img.setAttribute('fetchpriority', 'high')
       cover.appendChild(img)
     } else {
       cover.setAttribute('aria-hidden', 'true')
@@ -273,13 +275,14 @@
    * replaces it. The skeleton paints it with no text; the geometry is the
    * same either way.
    */
-  function summaryBlock(aside) {
-    var block = el('button', 'lib-recap-summary is-fallback')
+  function summaryBlock() {
+    var block = el('button', 'lib-recap-summary')
     block.type = 'button'
     block.disabled = true
-    block.setAttribute('data-summary-kind', 'fallback')
+    block.setAttribute('data-summary-kind', 'pending')
     block.setAttribute('data-expandable', 'false')
-    block.appendChild(el('span', 'lib-recap-summary-text', aside || ''))
+    block.hidden = true
+    block.appendChild(el('span', 'lib-recap-summary-text', ''))
     var more = el('span', 'lib-recap-summary-more')
     more.setAttribute('aria-hidden', 'true')
     block.appendChild(more)
@@ -325,7 +328,7 @@
         open.setAttribute('data-recap-open', book.bookId)
         open.setAttribute('aria-current', String(focused))
       }
-      open.appendChild(coverNode(book))
+      open.appendChild(coverNode(book, focused))
       card.appendChild(open)
       if (book) {
         // Same control as the confirmed render (labReadingMemory.ts) and as the
@@ -347,6 +350,9 @@
       section.setAttribute('data-boot-recap', 'snapshot')
       // Same stable caption geometry as the confirmed library render.
       caption.appendChild(el('p', 'lib-lede', hero.title))
+      var bylineParts = String(hero.aside || '').split(/\s+·\s+/).filter(Boolean)
+      var byline = /\bchapters?$/.test(bylineParts[bylineParts.length - 1] || '') ? bylineParts[0] : bylineParts[bylineParts.length - 1]
+      if (byline) caption.appendChild(el('p', 'lib-byline', byline))
       caption.appendChild(el('p', 'lib-h1', hero.headline))
       caption.appendChild(el('p', 'lib-eyebrow', lastReadLabel(hero.lastReadAt)))
       var cta = el('div', 'lib-now-cta')
@@ -356,7 +362,7 @@
       cta.appendChild(button)
       if (hero.note) cta.appendChild(el('span', 'lib-cta-note', hero.note))
       caption.appendChild(cta)
-      caption.appendChild(summaryBlock(hero.aside))
+      caption.appendChild(summaryBlock())
     } else {
       section.setAttribute('data-boot-recap', 'skeleton')
       section.setAttribute('aria-busy', 'true')
@@ -372,7 +378,7 @@
       skButton.setAttribute('data-recap-continue', '')
       skCta.appendChild(skButton)
       caption.appendChild(skCta)
-      caption.appendChild(summaryBlock(''))
+      caption.appendChild(summaryBlock())
     }
     wrap.appendChild(caption)
     section.appendChild(wrap)

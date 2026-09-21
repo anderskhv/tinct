@@ -222,19 +222,19 @@ describe('recap hero: a short absence is not summarised', () => {
     // Continue sits above the summary block, which is always the last thing in
     // the caption and always the same size, recap or not.
     expect([...section.querySelectorAll('[data-now-caption] > *')].map(node => node.getAttribute('data-testid') ?? node.className.split(' ')[0]))
-      .toEqual(['lab-recap-book', 'lab-recap-headline', 'lab-recap-eyebrow', 'lib-now-cta', 'lab-recap-summary'])
+      .toEqual(['lab-recap-book', 'lab-recap-byline', 'lab-recap-headline', 'lab-recap-eyebrow', 'lib-now-cta', 'lab-recap-summary'])
     expect(section.querySelector('[data-testid=lab-recap-book]')!.textContent).toBe('The Bible')
+    expect(section.querySelector('[data-testid=lab-recap-byline]')!.textContent).toBe('Various')
     expect(section.dataset.summaryLine).toBe('recent')
     expect(recapCalls).toEqual([])
-    // No recap: the block keeps its place and its size, carrying the aside
-    // (author, chapter count — nothing the caption already says) and is not
-    // a control.
+    // No recap: authorship remains beside the title and nothing stray appears
+    // below Continue.
     const line = section.querySelector<HTMLElement>('[data-testid=lab-recap-summary]')!
     expect(line.classList.contains('is-shown')).toBe(false)
-    expect(line.classList.contains('is-fallback')).toBe(true)
-    expect(line.dataset.summaryKind).toBe('fallback')
-    expect(line.hidden).toBe(false)
-    expect(line.querySelector('.lib-recap-summary-text')!.textContent).toBe('Various · 4 chapters')
+    expect(line.classList.contains('is-fallback')).toBe(false)
+    expect(line.dataset.summaryKind).toBe('pending')
+    expect(line.hidden).toBe(true)
+    expect(line.querySelector('.lib-recap-summary-text')!.textContent).toBe('')
     expect(line.querySelector('.lib-recap-summary-more')!.textContent).toBe('')
     expect((line as HTMLButtonElement).disabled).toBe(true)
   })
@@ -306,12 +306,11 @@ describe('back out of the book\u2019s own reader', () => {
       .toBe('You\u2019re in the middle of Proverbs 17')
     expect(section.dataset.summaryLine).toBe('from-reader')
     expect(recapCalls).toEqual([])
-    // No recap is generated or shown; the block keeps the aside, the same
-    // size as the first paint and as a book with a cached recap.
+    // No recap is generated or shown below the action.
     const block = section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')!
-    expect(block.hidden).toBe(false)
-    expect(block.dataset.summaryKind).toBe('fallback')
-    expect(block.querySelector('.lib-recap-summary-text')!.textContent).toBe('Various · 4 chapters')
+    expect(block.hidden).toBe(true)
+    expect(block.dataset.summaryKind).toBe('pending')
+    expect(block.querySelector('.lib-recap-summary-text')!.textContent).toBe('')
   })
 
   it('does not even show a summary this device already cached for that place', async () => {
@@ -325,7 +324,7 @@ describe('back out of the book\u2019s own reader', () => {
       positionState([biblePlace(ago(3 * DAY))], 'proverbs'),
     )
     expect(section.dataset.summaryLine).toBe('from-reader')
-    expect(section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')?.dataset.summaryKind).toBe('fallback')
+    expect(section.querySelector<HTMLButtonElement>('[data-testid=lab-recap-summary]')?.dataset.summaryKind).toBe('pending')
     expect(section.querySelector('[data-testid=lab-recap-summary]')!.textContent).not.toContain('Cached line')
     expect(recapCalls).toEqual([])
   })
