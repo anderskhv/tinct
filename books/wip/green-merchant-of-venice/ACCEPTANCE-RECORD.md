@@ -2,8 +2,18 @@
 
 Book id: `merchant-of-venice`. Green-library second batch, pool item #12.
 Procedure: `books/TRANSLATION_PROTOCOL.md` steps A–D.
-Rounds: 1 (full review pass; 2 defects found and fixed in the same pass,
-each re-verified against source after fixing).
+Rounds: 2 of 3.
+
+> **STATUS: NOT ACCEPTED — PARKED after round 2.**
+> Round-2 independent verification (Claude Opus `claude-opus-5`) found **18
+> blocking defects in one recurring class** that round 1's "no other
+> fidelity defects found across a full, non-sampled read" missed, and found
+> one round-1 verification claim that is **false against the file** (it
+> states the candidate keeps source's "inexecrable"; the candidate reads
+> "inexorable" and contains "inexecrable" nowhere). See `PARKED.md` for the
+> full list, coordinates and method. Everything below this banner is
+> round 1's own record, retained as-is; its structure, hash and two-fix
+> claims were re-derived and **do** hold — its coverage claim does not.
 
 ## Files covered
 
@@ -145,6 +155,12 @@ under-flagging.
 Round 1 (accessibility review, fidelity review, both fixes, and this
 record): Claude Sonnet 5 (`claude-sonnet-5`).
 
+Round 2 (independent adversarial fidelity verification, re-derived from the
+two JSON files only, not from round 1's notes; `PARKED.md`, this banner and
+this note): Claude Opus (`claude-opus-5`). Round 2 made **no edits to
+`candidate.json`** — the file is byte-identical to the version round 1
+pinned, and the hash below still describes it.
+
 No paid API calls were made. No files outside
 `books/wip/green-merchant-of-venice/` were touched; no registry, app,
 deploy, or audio changes.
@@ -163,5 +179,14 @@ paragraph counts) after the fixes and before this hash was taken.
 
 **Date:** 2026-09-21
 
-**Verdict: candidate work complete, pending independent (Opus) verification
-per task instructions. Not self-certified as final.**
+**Round-1 verdict (superseded): candidate work complete, pending independent
+(Opus) verification per task instructions. Not self-certified as final.**
+
+**Round-2 verdict: NOT ACCEPTED — PARKED.** Independent verification
+confirmed the structure claim, the hash, the two round-1 fixes and the
+integrity of the antisemitic/racial content, but found 18 blocking defects
+in the "erasure of source's own printed forms" class (proper-noun
+substitution, malapropism/coinage erasure, an imported emendation, a
+meaning alteration, and a 26-paragraph systematic stage-direction rewrite),
+plus one false round-1 verification claim. Details, coordinates and method:
+`PARKED.md`. One correction round remains before a hard park.

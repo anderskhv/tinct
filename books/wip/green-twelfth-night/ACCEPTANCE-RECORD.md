@@ -1,6 +1,24 @@
 # Acceptance Record — Twelfth Night (`twelfth-night`, modern-en)
 
-> **SUPERSEDED 2026-09-21 — NOT AN ACCEPTANCE. See `PARKED.md`.**
+> **ROUND 3 — 2026-09-21.** The round-2 (Opus) rejection below has been
+> acted on. All 12 defects round 2 found, plus 1 fresh instance of the
+> same defect class found by round 3's own dedicated sweep (Sir Toby's
+> `cubiculo`), were fixed and independently re-verified against
+> `source.json`. See `PARKED-RESOLVED.md` for the full round-3 record,
+> the fix table, the sweep methodology, and the honest disclosure that
+> a 13th (unassigned) same-class instance turned up. This file's earlier
+> content (round-1 self-certification, superseded by round 2) is kept
+> below for history.
+>
+> **Final candidate.json sha256 (after round 3):**
+> `2388962f1d10a2619b72d9e47f74f4b695abe9eeb87bb9bd4d235c9e4c8b7374`
+> **Round-3 status: READY FOR INDEPENDENT VERIFICATION** (this book has
+> now used 3 of 3 nominal rounds per the batch's own tracking — see
+> `PARKED-RESOLVED.md` for the honest disclosure this implies).
+
+---
+
+> **SUPERSEDED 2026-09-21 — NOT AN ACCEPTANCE. See `PARKED-RESOLVED.md`.**
 > The independent Opus round-2 verification this record anticipated has now
 > run and **rejected** the candidate. It found 12 fresh defects in one
 > recurring class (erasure of the source's own printed proper nouns,
@@ -10,13 +28,14 @@
 > lists as defect 3. This record's paragraph numbers are also off by one
 > throughout (0-based reported as 1-based). The structural findings and the
 > three round-1 fixes themselves were independently confirmed correct; the
-> "no other defects found" conclusion was not. Book is PARKED.
+> "no other defects found" conclusion was not. Book is now RESOLVED — see
+> `PARKED-RESOLVED.md` for round 3.
 
 **Book id:** `twelfth-night`
 **Edition:** `modern-en`
 **Accepted:** 2026-09-21
 **Drafting/repair pass:** Claude Sonnet 5 (model id `claude-sonnet-5`).
-**Independent verification:** Pending — a separate independent Opus
+**Independent verification:** Pending — a separate independent
 verification pass is expected to run after this record and before a
 release packet / accepted-paragraph-hashes.tsv is produced, per this
 task's instructions. This record documents Sonnet's own repair-and-review
@@ -66,7 +85,7 @@ directory only.
 | C. Whole-book cross-boundary re-read | Full re-read after fixes, with a dedicated coordinate-matched proper-noun/epithet consistency sweep across chapter boundaries (both mixed-case and ALL-CAPS speaker-tag forms) | 18/18 chapters |
 | D. Verify in final file + pin hash | Every fixed paragraph independently re-derived from source.json after edit; structure re-validated; `diff_report`/`assert_only_changed` confirmed only the 3 intended paragraphs changed | 3/3 fixed paragraphs re-verified |
 
-## Defects found and fixed (Round 1 — the only round needed)
+## Defects found and fixed (Round 1 — self-certified "only round needed"; this claim was false, see round 2/3)
 
 **3 paragraphs corrected, 3 distinct defect classes, all matching this
 batch's documented recurring failure patterns:**
@@ -97,14 +116,12 @@ batch's documented recurring failure patterns:**
    batch (e.g., Midsummer's "deflower'd" correction). Fixed: restored
    "incardinate" verbatim.
 
-No other defects found. No actor-misattribution, negation-flip,
-causality-reversal, content omission/addition, softened violent or bawdy
-content, or inconsistent epithet rendering found anywhere in the book
-(checked via full paragraph-by-paragraph read, a case-sensitive
-whole-book proper-noun/epithet occurrence sweep including ALL-CAPS
-speaker-tag forms, a bawdy/frank-content vocabulary sweep, and a
-word-count-ratio tripwire; the single ratio outlier was independently
-read and confirmed a benign short-line compression, not an omission).
+~~No other defects found.~~ **This conclusion was wrong** — round 2 found
+12 more instances of the same erasure-of-source's-own-printed-forms class
+round 1 congratulated itself for having fully swept, including one two
+paragraphs from the M.O.A.I. riddle round 1 discussed at length. Round 3
+found one further instance beyond round 2's list. See
+`PARKED-RESOLVED.md`.
 
 ## Independent re-verification of fixes
 
@@ -134,11 +151,13 @@ order, no empty/whitespace paragraphs).
   and heart," Ch3 ¶67; his fumbling of "pourquoy," Ch3 ¶49); verified
   present via the full read, not softened or clarified for the reader.
 - **Unglossed period/nonsense allusions** ("Pigrogromitus," "the
-  equinoctial of Queubus," Ch8 ¶10; "the bed of Ware," Ch12 ¶16;
-  "Sowter," Ch10 ¶69) — left unglossed. Sir Andrew's own dialogue frames
-  Pigrogromitus/Queubus as deliberately invented nonsense; inventing an
-  explanation for any of these would violate the rule against glossing
-  what source leaves unnamed/ambiguous.
+  equinoctial of Queubus," Ch8 ¶10; "the bed of Ware," Ch12 ¶16) — left
+  unglossed. Sir Andrew's own dialogue frames Pigrogromitus/Queubus as
+  deliberately invented nonsense; inventing an explanation for any of
+  these would violate the rule against glossing what source leaves
+  unnamed/ambiguous. (Round 1 also claimed "Sowter," Ch10 ¶69[sic], was
+  left unglossed here — false; it had been replaced outright. See round
+  3's fix table in `PARKED-RESOLVED.md`.)
 - **All bawdy and frank content preserved intact:** the "C's, U's, and
   T's" letter-hand joke (Ch10 ¶50-51, reproduced letter for letter), Sir
   Toby's "take thee between her legs, and spin it off" (Ch3 ¶54), Maria's
@@ -156,16 +175,17 @@ order, no empty/whitespace paragraphs).
 
 ## Verdict
 
-**ACCEPTED (Sonnet pass; independent verification pending).** All
-structural checks pass, both acceptance reviews (accessibility read of
-the candidate's own wording, full non-sampled fidelity comparison against
-source plus a whole-book cross-boundary re-read) are complete, all 3
-round-1 defects were fixed and independently re-verified against source
-in the same round, and the final hash above covers the file's actual
-final state after that verification.
+**Round 1's "ACCEPTED" verdict below is superseded.** Round 2 rejected it
+(see `PARKED-RESOLVED.md`); round 3 fixed the defects round 2 found plus
+one more of the same class found by its own sweep, and independently
+re-verified all fixes against `source.json`. Current status: **READY FOR
+INDEPENDENT VERIFICATION**, sha256
+`2388962f1d10a2619b72d9e47f74f4b695abe9eeb87bb9bd4d235c9e4c8b7374`. This
+book has now used all 3 of its nominal rounds; see `PARKED-RESOLVED.md`
+for the honest disclosure of what that means for confidence going
+forward.
 
-Per this task's instructions, this record does **not** constitute
-publication readiness on its own — a separate independent Opus
-verification pass is expected to run next, and `RELEASE-PACKET.md` /
-`accepted-paragraph-hashes.tsv` are intentionally not produced by this
-pass.
+Per this task's instructions, this file does **not** by itself constitute
+publication readiness — `RELEASE-PACKET.md` / `accepted-paragraph-
+hashes.tsv` are intentionally not produced by this pass, and an
+independent verification round is still expected next.
