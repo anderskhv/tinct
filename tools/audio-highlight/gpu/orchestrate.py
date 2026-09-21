@@ -44,8 +44,8 @@ DEFAULT_IMAGE = "runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04"
 # Cheapest first; every one is well under the $1.00/hr ceiling.
 DEFAULT_GPUS = ["NVIDIA GeForce RTX 3090", "NVIDIA RTX A4500", "NVIDIA RTX 4000 Ada Generation",
                 "NVIDIA GeForce RTX 4090", "NVIDIA RTX A6000", "NVIDIA A40", "NVIDIA L4"]
-MODEL_SHA256 = "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5"
-MODEL_REVISION = "d1d751a5f8271d482d14ca55d9e2deeebbae577f"
+MODEL_SHA256 = "2cb92e2f7d762a12ad0b3b5360cd93f78bb20b7181be86e253db854a29d41572"
+MODEL_REVISION = "a29b04bd15381511a9af671baec01072039215e3"
 
 
 def now() -> str:

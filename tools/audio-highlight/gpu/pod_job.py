@@ -59,7 +59,7 @@ HELPER = os.environ.get("TINCT_HELPER", "v7")
 ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "pinned_words_sidecar_lib_v2.py",
                  "pinned_words_sidecar_lib_v3.py", "pinned_words_sidecar_lib_v4.py",
                  "pinned_words_sidecar_lib_v5.py", "pinned_words_sidecar_lib_v6.py", "pinned_words_sidecar_lib_v7.py",
-                 "spoken_policy.py", "cloud_cohort.py", "cloud_probe.py", "bella_gpu_review.py"]
+                 "spoken_policy.py", "cloud_cohort.py", "cloud_probe.py", "bella_gpu_review.py", "observed_prefix_repair.py", "citation_equivalence.py"]
 
 STATE: dict = {"phase": "booting", "started": time.time(), "setup": {}, "job": {}, "log": []}
 LOCK = threading.Lock()
@@ -117,7 +117,7 @@ def setup() -> Path:
     save_state()
     from huggingface_hub import snapshot_download
     model_dir = ROOT / "model"
-    snapshot_download("Systran/faster-whisper-small.en", revision=MODEL_REV, local_dir=str(model_dir))
+    snapshot_download("Systran/faster-whisper-medium.en", revision=MODEL_REV, local_dir=str(model_dir))
     sys.path.insert(0, str(tools / "aligner"))
     import trial  # noqa: E402
     tree = trial.tree_hash(model_dir)

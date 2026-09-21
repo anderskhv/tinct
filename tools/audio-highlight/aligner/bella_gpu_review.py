@@ -10,6 +10,8 @@ results=[];accepted=[]
 for e in cohort:
  p=out/e["key"]/"auto"/"words.candidate.json"
  if not p.exists():continue
+ state=json.loads((p.parent/"chapter.json").read_text())
+ if state["status"]!="candidate_requires_acoustic_review":continue
  try:
   r=cloud_probe.probe_chapter(model,e,json.loads(p.read_text()),cohort_dir,False)
   r["model"]="OpenAI Whisper base CUDA fp32, unprompted"

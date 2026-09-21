@@ -5,6 +5,7 @@ import argparse,dataclasses,difflib,hashlib,importlib,importlib.metadata,json,os
 from pathlib import Path
 import pinned_words_sidecar_lib_v7 as lib
 from spoken_policy import validate_map
+import observed_prefix_repair,citation_equivalence
 GATE=.85
 # Pinned helper revisions (provenance in PINS.md). v1 is the verbatim f5b23de7 helper the
 # acceptance results were measured against; v2 adds the approved expected-side markup
@@ -43,9 +44,12 @@ def restore_source_tokens(aligned,source_expected,acoustic_expected):
  # clean_text deliberately removes (for example standalone verse superscripts).
  # Prefixes must not apply whole-paragraph heading detection: "45. I" looks
  # like a numbered ALL-CAPS label even when the full sentence is prose.
- mapping=[];previous=[]
- for index in range(len(source_expected)):
-  prefix=acoustic_tokens(' '.join(source_expected[:index+1]),strip_headings=False)
+ label=getattr(lib,'SPEAKER_LABEL',None)
+ match=label.match(' '.join(source_expected)) if label else None
+ stripped_prefix=len(match.group(1).split()) if match else 0
+ mapping=[None]*stripped_prefix;previous=[]
+ for index in range(stripped_prefix,len(source_expected)):
+  prefix=acoustic_tokens(' '.join(source_expected[stripped_prefix:index+1]),strip_headings=False)
   if prefix[:len(previous)]!=previous or len(prefix)-len(previous) not in (0,1):
    raise ValueError(f'source/acoustic token mapping changed at index {index}: source={source_expected[index]!r}')
   if len(prefix)==len(previous):mapping.append(None)
@@ -85,13 +89,15 @@ def attempt(model,audio,text,mode):
  asr_seconds=time.monotonic()-started
  alignment_start=time.monotonic();normalisation={}
  if hasattr(lib,'align_tokens_detailed'):
-  detailed=lib.align_tokens_detailed(expected,heard);aligned,stats,opcodes,observed=detailed.words,detailed.stats,detailed.opcodes,detailed.observed
+  detailed,citation_changes=citation_equivalence.align(expected,heard);aligned,stats,opcodes,observed=detailed.words,detailed.stats,detailed.opcodes,detailed.observed
   unspoken=set(detailed.unspoken);normalisation=dict(spoken_expected_indexes=detailed.spoken,unspoken_expected_indexes=detailed.unspoken,compared_heard=[dict(raw=h.raw,start=h.start,end=h.end,key=h.key,pieces=list(h.pieces)) for h in detailed.heard],merges=detailed.merges,groups=getattr(detailed,'groups',[]))
  else:
   aligned,stats=lib.align_tokens_with_stats(expected,heard);unspoken=set()
   opcodes=list(difflib.SequenceMatcher(None,[lib.canonical_alignment_token(t) for t in expected],[lib.canonical_alignment_token(w.raw) for w in heard],autojunk=False).get_opcodes())
   observed={i:j1+i-i1 for tag,i1,i2,j1,j2 in opcodes if tag=='equal' for i in range(i1,i2)}
  aligned=restore_source_tokens(aligned,source_expected,expected)
+ aligned,restored_prefix=observed_prefix_repair.restore_observed_prefix(aligned,source_expected,expected,[dataclasses.asdict(w) for w in heard])
+ normalisation['observed_prefix_restored']=restored_prefix
  provenance=[dict(index=i,source='observed' if i in observed else 'unspoken' if i in unspoken else 'interpolated',heard_index=observed.get(i)) for i in range(len(expected))]
  assert len(observed)==stats.matched_words
  reasons=[]
@@ -142,7 +148,7 @@ def process_arm(model,args,e,mode,directory,context):
   selected=next(a for a in diagnostic['attempts'] if a['mode']==diagnostic['selected_mode']);stats=selected['stats']
   entry['alignment']=dict(expectedWords=stats['expected_words'],heardWords=stats['heard_words'],matchedWords=stats['matched_words'],matchRatio=selected['match_ratio'],bias=selected['mode'])
   for field in totals:totals[field]+=entry['alignment'][field]
- candidate.update(model='small.en',language='en',alignment=dict(**totals,matchRatio=totals['matchedWords']/max(1,totals['expectedWords']),minimumParagraphRatio=GATE,bias=mode))
+ candidate.update(model='medium.en',language='en',alignment=dict(**totals,matchRatio=totals['matchedWords']/max(1,totals['expectedWords']),minimumParagraphRatio=GATE,bias=mode))
  valid,errors=lib.validate_sidecar(candidate,expected,{r['index']:dict(file=r['file'],duration=r['duration']) for r in e['paragraphs']})
  result['validation_errors']=errors;result['status']='candidate_requires_acoustic_review' if valid and not result['reasons'] else 'rejected'
  write(directory/'words.candidate.json',candidate);write(directory/'chapter.json',result)
