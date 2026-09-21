@@ -1,0 +1,90 @@
+
+> tinct@0.1.0 test
+> vitest run src/lab/bellaRepairData.test.ts src/lab/labListen.test.ts
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.5 [39m[90m/home/runner/work/tinct/tinct/app[39m
+
+ [32m✓[39m src/lab/labListen.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [31m❯[39m src/lab/bellaRepairData.test.ts [2m([22m[2m24 tests[22m[2m | [22m[31m11 failed[39m[2m)[22m[32m 131[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch108 has word-level highlighting in every paragraph[39m[32m 32[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch249 has word-level highlighting in every paragraph[32m 5[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch309 has word-level highlighting in every paragraph[32m 9[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch214 has word-level highlighting in every paragraph[39m[32m 5[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch296 has word-level highlighting in every paragraph[32m 6[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch323 has word-level highlighting in every paragraph[32m 5[2mms[22m[39m
+[31m     [31m×[31m merchant-of-venice/original-en/ch12 has word-level highlighting in every paragraph[39m[32m 3[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch135 has word-level highlighting in every paragraph[39m[32m 4[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch286 has word-level highlighting in every paragraph[32m 4[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch321 has word-level highlighting in every paragraph[32m 4[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch102 has word-level highlighting in every paragraph[39m[32m 2[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch243 has word-level highlighting in every paragraph[32m 7[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch7 has word-level highlighting in every paragraph[39m[32m 2[2mms[22m[39m
+[31m     [31m×[31m moby-dick/original-en/ch79 has word-level highlighting in every paragraph[39m[32m 2[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch159 has word-level highlighting in every paragraph[32m 3[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch219 has word-level highlighting in every paragraph[39m[32m 5[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch301 has word-level highlighting in every paragraph[32m 7[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch333 has word-level highlighting in every paragraph[32m 6[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch13 has word-level highlighting in every paragraph[39m[32m 2[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch193 has word-level highlighting in every paragraph[39m[32m 2[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch251 has word-level highlighting in every paragraph[32m 5[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch320 has word-level highlighting in every paragraph[32m 3[2mms[22m[39m
+     [32m✓[39m war-and-peace/original-en/ch237 has word-level highlighting in every paragraph[32m 3[2mms[22m[39m
+[31m     [31m×[31m war-and-peace/original-en/ch34 has word-level highlighting in every paragraph[39m[32m 2[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 11 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch108 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch214 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mmerchant-of-venice/original-en/ch12 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch135 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch102 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch7 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mmoby-dick/original-en/ch79 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch219 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch13 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch193 has word-level highlighting in every paragraph
+[41m[1m FAIL [22m[49m src/lab/bellaRepairData.test.ts[2m > [22mExisting reader accepts repaired Bella audio data[2m > [22mwar-and-peace/original-en/ch34 has word-level highlighting in every paragraph
+[31m[1mAssertionError[22m: expected 'p0.mp3' to be 'title.mp3' // Object.is equality[39m
+
+Expected: [32m"[7mtitle[27m.mp3"[39m
+Received: [31m"[7mp0[27m.mp3"[39m
+
+[36m [2m❯[22m src/lab/bellaRepairData.test.ts:[2m18:27[22m[39m
+    [90m 16|[39m     [35mconst[39m p[33m=[39mparagraphs[i]
+    [90m 17|[39m     [34mexpect[39m(p[33m.[39mwords[33m?.[39mlength)[33m.[39m[34mtoBeGreaterThan[39m([34m0[39m)
+    [90m 18|[39m     [34mexpect[39m(clips[i][33m.[39mfile)[33m.[39m[34mtoBe[39m(f[33m.[39mmanifest[33m.[39mparagraphs[i][33m.[39mfile)
+    [90m   |[39m                           [31m^[39m
+    [90m 19|[39m     const timed=p.words!.map((w,j)=>({w,j})).filter(({w})=>w.end>w.sta…
+    [90m 20|[39m     [34mexpect[39m(timed[33m.[39mlength)[33m.[39m[34mtoBeGreaterThan[39m([34m0[39m)
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[31m11 failed[39m[22m[2m | [22m[1m[32m23 passed[39m[22m[90m (34)[39m
+[2m   Start at [22m 12:49:14
+[2m   Duration [22m 392ms[2m (transform 235ms, setup 0ms, import 352ms, tests 140ms, environment 0ms)[22m
+
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch108 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch214 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > merchant-of-venice/original-en/ch12 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch135 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch102 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch7 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > moby-dick/original-en/ch79 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch219 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch13 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch193 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
+
+::error file=/home/runner/work/tinct/tinct/app/src/lab/bellaRepairData.test.ts,title=src/lab/bellaRepairData.test.ts > Existing reader accepts repaired Bella audio data > war-and-peace/original-en/ch34 has word-level highlighting in every paragraph,line=18,column=27::AssertionError: expected 'p0.mp3' to be 'title.mp3' // Object.is equality%0A%0AExpected: "title.mp3"%0AReceived: "p0.mp3"%0A%0A ❯ src/lab/bellaRepairData.test.ts:18:27%0A%0A
