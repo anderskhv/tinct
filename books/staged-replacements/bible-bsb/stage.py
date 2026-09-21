@@ -90,7 +90,7 @@ def parse_book(doc, code, title, offset):
             raise ValueError("Reading paragraph before chapter")
         segments = []
         raw = ""
-        for atom in atoms(node):
+        for atom in (a for child in node.get("content", []) for a in atoms(child)):
             if isinstance(atom, str):
                 raw += atom
             else:
