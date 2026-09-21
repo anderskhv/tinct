@@ -95,3 +95,8 @@ These muted headless checks do not certify the subjective transition or loading
 speed on a physical iPhone. The agreed device window still covers the
 Cover/Preface animation, touch focus treatment and perceived cold/warm library
 load.
+
+A later workflow-only release for PR #137 repeated the complete production
+acceptance successfully in deploy run 35642731138 and post-merge verify run
+35642731146. It did not change reader behavior; the final served bundle is
+`/assets/index-y_UmWX9a.js`.
