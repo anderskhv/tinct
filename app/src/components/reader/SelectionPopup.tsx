@@ -7,6 +7,7 @@ import { defaultPopupMode, type SelectionPopupHomeMode } from './selectionPopupM
 import { DefinitionFallback } from './DefinitionFallback'
 import { useReaderWindow } from '../../lab/useReaderWindow'
 import { ContextualExplainCard } from './ContextualExplainCard'
+import { useReaderSelectionCopy } from './useReaderSelectionCopy'
 
 export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'character' | 'gallery' | 'explain'
 
@@ -160,6 +161,7 @@ export function SelectionPopup({
 }: SelectionPopupProps) {
   const windowRef = useReaderWindow<HTMLDivElement>(popupMode === 'define' ? 'define' : 'explain', lab && (popupMode === 'explain' || popupMode === 'define'))
   const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
+  useReaderSelectionCopy(lab ? selection.text : null)
   const contextualExplain = lab && !!onRequestExplanation
   const [explainPlacement, setExplainPlacement] = useState({ edge: 'bottom', available: 520 })
   const openContextualExplanation = () => {
@@ -324,7 +326,7 @@ export function SelectionPopup({
       {showDefinePanel && (
         <div className="popup-define">
           <header className="lab-reader-window-head" data-reader-window-handle>
-            <span className="lab-reader-window-title">Define</span>
+            <span className="lab-reader-window-title popup-define-word">{headword}</span>
             <button className="lab-window-control" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button>
             {lab && <button className="lab-window-control" type="button" aria-label="Close definition" onClick={dismissPopup}>×</button>}
           </header>
@@ -340,8 +342,6 @@ export function SelectionPopup({
                 placeholder="Look up a word…"
               />
             </div>
-          ) : headword ? (
-            <div className="popup-define-word">{headword}</div>
           ) : null}
           {defineResult?.resolvedFrom && defineResult.resolvedFrom !== defineResult.word && (
             <div className="popup-define-note">from &ldquo;{defineResult.resolvedFrom}&rdquo;</div>

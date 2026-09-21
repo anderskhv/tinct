@@ -41,6 +41,8 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:0,wordIndex:0,page:0}}))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
     HTMLMediaElement.prototype.play = async function(){this.muted=true}
+    window.__copied = []
+    Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
   },{bookId,edition,chapterNumber})
   await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
@@ -104,6 +106,16 @@ async function run(engine,name,phone) {
     const after=await wordBoxes(page)
     assert.deepEqual(after,before,'selection must not change word rectangles or pagination')
     assert.equal(await page.locator('.lab-selection-hint').count(),0)
+    assert(await page.locator('.lab-hearing-word.is-selecting').count()>1,'menu must retain selection paint')
+    if(!phone){
+      const selected=await page.locator('.lab-hearing-word.is-selecting').allTextContents()
+      await page.keyboard.press('Control+c')
+      await page.keyboard.press('Meta+c')
+      const copied=await page.evaluate(()=>window.__copied)
+      assert.equal(copied.length,2)
+      assert.equal(copied[0],copied[1])
+      assert(copied[0].length>=selected.join('').length,'shortcuts copy the full range')
+    }
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-selection.png'})
     await page.getByRole('button',{name:'Explain',exact:true}).click()
     await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
@@ -124,11 +136,20 @@ async function run(engine,name,phone) {
     await page.waitForTimeout(300)
     const recoloured=await wordBoxes(page)
     assert.deepEqual(recoloured,before,'saving a highlight must not move text')
+    // Every word in a saved mark must expose deletion, not a dictionary.
+    for(const index of [0,9,18]){
+      await page.getByTestId('lab-word').nth(index).click()
+      await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+      assert.equal(await page.locator('.popup-define').count(),0)
+      await page.keyboard.press('Escape')
+    }
     // Single-word dictionary miss stays in the Define panel, with lexical intent.
     const lookupWord=page.getByTestId('lab-word').nth(25)
     await lookupWord.click()
     await page.getByText(definition,{exact:true}).waitFor({timeout:10000})
     assert.equal(await page.locator('.popup-define-result ol li').count(),1)
+    assert.notEqual((await page.locator('.popup-define [data-reader-window-handle]').innerText()).trim(),'Define')
+    assert.equal(await page.getByText('Define',{exact:true}).count(),0)
     assert.equal(await page.locator('.lab-contextual-explain').count(),0)
     assert(requests.some(body=>JSON.stringify(body.messages).includes('<word>')))
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-definition.png'})
@@ -237,8 +258,22 @@ async function compareLabel(engine,name){
     const footers=page.getByTestId('lab-desktop-page-footers')
     await footers.getByText('Tinct Modern English',{exact:true}).waitFor()
     assert.equal(await footers.locator('b').count(),2)
-    await checkFullPageFold(page)
+    await page.getByTestId('lab-v2-sheet-close').click()
+    const divider=page.locator('.lab-compare-divider')
+    await divider.waitFor()
+    assert.equal((await divider.innerText()).trim(),'Compare')
+    const sheet=await page.getByTestId('lab-page-wrap').boundingBox(), rule=await divider.boundingBox()
+    assert(Math.abs(sheet.height-rule.height)<3,'compare rules span the full sheet')
+    assert.equal(await divider.evaluate(node=>getComputedStyle(node).pointerEvents),'none')
+    assert.equal(await page.getByTestId('lab-page-wrap').evaluate(node=>getComputedStyle(node,'::after').content),'none')
     await page.screenshot({path:output+'/'+name+'-desktop-comparison.png'})
+    await select(page)
+    await page.getByRole('button',{name:'Highlight',exact:true}).click()
+    await page.getByRole('button',{name:'Highlight Sage',exact:true}).click()
+    const comparisonWord=page.locator('.lab-book-col-compare [data-testid="lab-word"].is-hl-sage').first()
+    await comparisonWord.click()
+    await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+    await page.keyboard.press('Escape')
     result.passed=true
   }catch(error){
     result.passed=false;result.error=error.stack
@@ -304,10 +339,74 @@ async function bookSurface(engine,name){
   }finally{await browser.close();results.push(result)}
 }
 
+
+async function contentsAndSameEdition(engine,name,phone){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:phone?'phone-contents':'desktop-contents',live}
+  try{
+    state=await boot(browser,phone,'the-prince','modern-en',2)
+    const {page,errors}=state
+    const before=await wordBoxes(page)
+    await select(page)
+    assert(await page.locator('.lab-hearing-word.is-selecting').count()>1,'same-edition selection stays painted with its menu')
+    assert.deepEqual(await wordBoxes(page),before)
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-same-edition.png'})
+    await page.keyboard.press('Escape')
+    const place=await page.getByTestId('lab-root').getAttribute('data-place')
+    await page.getByTestId('lab-header-chapter').click()
+    const picker=page.getByTestId('lab-contents-v2')
+    await picker.waitFor()
+    assert.equal(await picker.locator('header .actions button').count(),2)
+    assert.equal(await picker.locator('[aria-current="page"]').count(),1)
+    const bounds=await picker.boundingBox()
+    assert(bounds.x>=0&&bounds.y>=0&&bounds.x+bounds.width<=1440&&bounds.height<520)
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-toc.png'})
+    await picker.getByRole('button',{name:'Highlights',exact:true}).click()
+    await picker.getByText('No highlights saved for this edition.').waitFor()
+    await picker.getByRole('button',{name:'Close overlay'}).click()
+    await picker.getByRole('button',{name:'Search contents'}).click()
+    await picker.getByRole('searchbox').fill('Chapter')
+    await picker.locator('.result').first().waitFor()
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-search.png'})
+    await page.keyboard.press('Escape')
+    await page.keyboard.press('Escape')
+    assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place)
+    await state.context.close()
+    state=await boot(browser,phone,'bible','kjv-en',597) // Psalm 119: deep branch and scroll
+    const deep=state.page
+    await deep.getByTestId('lab-header-chapter').click()
+    const tree=deep.getByTestId('lab-contents-v2')
+    await tree.getByTestId('lab-tree-chapter-597').waitFor()
+    await deep.waitForTimeout(300)
+    const current=tree.getByTestId('lab-tree-chapter-597'), currentBox=await current.boundingBox(), viewport=await tree.locator('.viewport').boundingBox()
+    assert(currentBox.y>=viewport.y&&currentBox.y+currentBox.height<=viewport.y+viewport.height,'picker opens at current Psalm')
+    assert(await tree.locator('.gold-branch').count()>=2)
+    await tree.locator('.crumbs').waitFor()
+    for(const theme of ['book','dark']){
+      if(theme==='dark'){
+        await deep.keyboard.press('Escape')
+        await clickMenu(deep,'settings')
+        await deep.getByTestId('lab-v2-theme-dark').click()
+        await deep.getByTestId('lab-v2-sheet-close').click()
+        await deep.getByTestId('lab-header-chapter').click()
+      }
+      await deep.screenshot({path:output+'/'+name+'-'+result.layout+'-psalm-'+theme+'.png'})
+    }
+    assert.deepEqual(errors,[])
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  }catch(error){
+    result.passed=false;result.error=error.stack
+    if(state){await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-4000)}
+  }finally{await browser.close();results.push(result)}
+}
+
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await run(engine,name,phone)
   await compareLabel(engine,name)
   await bookSurface(engine,name)
+  for(const phone of [false,true])await contentsAndSameEdition(engine,name,phone)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
 console.log(JSON.stringify({live,results},null,2))

@@ -2,6 +2,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { loadEdition } from '../data/editionLoader'
+import { contentsTree, flattenContents, contentsPercent } from './labContentsTree'
 import { LabContentsV2 } from './LabContentsV2'
 import { contentsBooks, contentsChapterNumber, contentsQuote, searchContents } from './labContents'
 import type { ChatConversation, EditionData, Section } from '../types'
@@ -36,86 +37,103 @@ describe('V2 contents data', () => {
     expect(searchContents('Judah', chapters, data, [], [highlight]).highlights[0].highlight.id).toBe('judah')
   })
 })
-describe('V2 contents browsing', () => {
-  it('browses books and ranges without navigating or changing the actual reading footer', () => {
-    const p = props(); render(<LabContentsV2 {...p} />)
-    fireEvent.click(screen.getByRole('button', { name: 'Change Bible book, Genesis' }))
-    fireEvent.click(screen.getByRole('button', { name: /^Psalms/ }))
-    expect(screen.getByRole('button', { name: 'Your reading place, Genesis 44, page 2 of 4' })).toBeTruthy()
-    fireEvent.click(screen.getByRole('button', { name: 'Jump to' }))
-    fireEvent.click(screen.getByRole('button', { name: 'Browse chapters 1 to 10' }))
+
+describe('Design 1 contents', () => {
+  it('opens at the current chapter and browses other branches without moving the reading marker', () => {
+    const p = props(); render(<LabContentsV2 {...p} currentPercent={68} />)
+    expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('aria-current')).toBe('page')
+    expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('title')).toBe('68% read')
+    fireEvent.click(screen.getByRole('button', { name: 'Psalms', exact: true }))
+    expect(screen.getByTestId('lab-tree-chapter-53')).toBeTruthy()
+    expect(screen.getByTestId('lab-tree-chapter-44').getAttribute('aria-current')).toBe('page')
     expect(p.onSelectChapter).not.toHaveBeenCalled(); expect(p.onOpenPassage).not.toHaveBeenCalled()
-    fireEvent.click(screen.getByRole('button', { name: 'Your reading place, Genesis 44, page 2 of 4' }))
-    expect(screen.getByRole('button', { name: 'Change Bible book, Genesis' })).toBeTruthy()
-  })
-  it('opens the requested local chapter', () => {
-    const p = props(); render(<LabContentsV2 {...p} />)
-    fireEvent.click(screen.getByRole('button', { name: 'Change Bible book, Genesis' }))
-    fireEvent.click(screen.getByRole('button', { name: /^Psalms/ }))
-    fireEvent.click(screen.getByRole('button', { name: 'Jump to' }))
-    fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '3' } })
-    fireEvent.submit(screen.getByRole('spinbutton').closest('form')!)
+    fireEvent.click(screen.getByTestId('lab-tree-chapter-53'))
     expect(p.onSelectChapter).toHaveBeenCalledExactlyOnceWith(53)
   })
-  it('loads the whole selected edition and opens the matching paragraph and word', async () => {
+  it('uses real continuous percentages and retains unknown progress without inventing a value', () => {
+    expect(contentsPercent({kind:'in-progress',page:7,totalPages:25},false)).toBe(28)
+    expect(contentsPercent({kind:'finished'},false)).toBe(100)
+    expect(contentsPercent({kind:'in-progress',page:7},false)).toBeNull()
+    expect(contentsPercent(undefined,true,68)).toBe(68)
+  })
+  it('preserves manifest ancestry and full sequential identity', () => {
+    const flat = flattenContents(contentsTree(chapters, sections, true))
+    const psalm = flat.find(n => n.chapter === 53)!
+    expect(psalm.label).toBe('Chapter 3')
+    expect(psalm.parents.map(n => n.label)).toEqual(['Old Testament','Psalms'])
+    expect(new Set(flat.filter(n => n.chapter).map(n => n.chapter)).size).toBe(60)
+  })
+  it('loads the whole edition for search and opens the exact paragraph and word', async () => {
     const p = props(); render(<LabContentsV2 {...p} />)
     fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'shepherd' } })
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'shepherd' } })
     const word = await screen.findByText('shepherd', { selector: 'mark' })
     expect(loadEdition).toHaveBeenCalledWith('bible', 'kjv-en', { forceWholeBook: true })
     fireEvent.click(word.closest('button')!)
     expect(p.onOpenPassage).toHaveBeenCalledWith(expect.objectContaining({ chapterNumber: 51, paragraphIndex: 0, wordIndex: 1 }))
   })
-  it('opens the exact conversation directly in chat', async () => {
+  it('opens the exact conversation and keeps chapter annotation lists behind their icons', async () => {
     const p = props(); render(<LabContentsV2 {...p} />)
-    fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'cup' } })
+    expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: '1 chats in Genesis 44' }))
     fireEvent.click(await screen.findByTestId('contents-chat-cup-chat'))
     expect(p.onContinueConversation).toHaveBeenCalledExactlyOnceWith(chat)
+  })
+  it('filters search by Book and Chats without losing the query', async () => {
+    render(<LabContentsV2 {...props()} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'cup' } })
+    await screen.findByTestId('contents-chat-cup-chat')
+    fireEvent.click(screen.getByRole('button', { name:'Book',exact:true }))
+    expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name:'Chats',exact:true }))
+    expect(screen.getByTestId('contents-chat-cup-chat')).toBeTruthy()
+    expect((screen.getByRole('searchbox') as HTMLInputElement).value).toBe('cup')
   })
   it('does not present missing text or pending history as an empty result', async () => {
     vi.mocked(loadEdition).mockRejectedValue(new Error('offline'))
     render(<LabContentsV2 {...props()} historyStatus="loading" />)
     expect(screen.getByText('Loading saved conversations…')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'missing' } })
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'missing' } })
     await screen.findByRole('button', { name: 'Retry' })
     expect(screen.queryByText('No matches.')).toBeNull()
   })
   it('keeps other-book chats out and preserves unassigned marks separately', async () => {
-    render(<LabContentsV2 {...props()} conversations={[{ ...chat, bookId: 'odyssey' }]} unassignedHighlights={[{ ...highlight, id: 'older', bookId: undefined, editionKey: undefined }]} />)
-    expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
-    fireEvent.click(screen.getByRole('button', { name: 'Highlights' }))
-    fireEvent.click(screen.getByRole('button', { name: 'Older highlights · book not recorded' }))
+    render(<LabContentsV2 {...props()} conversations={[{ ...chat, bookId: 'odyssey' }]} unassignedHighlights={[{ ...highlight, id:'older',bookId:undefined,editionKey:undefined }]} />)
+    expect(screen.queryByRole('button', {name:'1 chats in Genesis 44'})).toBeNull()
+    fireEvent.click(screen.getByRole('button', {name:'Highlights',exact:true}))
+    fireEvent.click(screen.getByRole('button', {name:'Older highlights · book not recorded'}))
     expect(screen.getByText('A substitution')).toBeTruthy()
     await waitFor(() => expect(screen.queryByText('Judah offers himself')).toBeNull())
   })
-})
-
-it('waits for the real chapter manifest before enabling numeric navigation', () => {
-  const p = props()
-  const { rerender } = render(<LabContentsV2 {...p} chaptersReady={false} chapters={chapters.slice(0, 2)} />)
-  expect(screen.getByText('Loading contents…')).toBeTruthy()
-  expect(screen.queryByRole('button', { name: 'Jump to' })).toBeNull()
-  rerender(<LabContentsV2 {...p} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Jump to' }))
-  fireEvent.change(screen.getByRole('spinbutton'), { target: { value: '44' } })
-  fireEvent.submit(screen.getByRole('spinbutton').closest('form')!)
-  expect(p.onSelectChapter).toHaveBeenCalledExactlyOnceWith(44)
-})
-
-it('uses ordinary book chapter titles without a Bible book picker', () => {
-  const p = props()
-  render(<LabContentsV2 {...p} bookId="romeo-and-juliet" title="Romeo and Juliet" sections={undefined} chapters={[{ number: 1, title: 'Act 1, Scene 1 — A Public Place in Verona' }]} currentChapter={1} highlights={[]} />)
-  expect(screen.getByText('Act 1, Scene 1 — A Public Place in Verona', { selector: 'strong' })).toBeTruthy()
-  expect(screen.queryByRole('button', { name: /Change Bible book/ })).toBeNull()
-})
-
-it('keeps chapter annotations collapsed until requested', () => {
-  render(<LabContentsV2 {...props()} />)
-  expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
-  fireEvent.click(screen.getByRole('button', { name: '1 chat · 1 highlight' }))
-  expect(screen.getByTestId('contents-chat-cup-chat')).toBeTruthy()
-  fireEvent.click(screen.getByRole('button', { name: '1 chat · 1 highlight' }))
-  expect(screen.queryByTestId('contents-chat-cup-chat')).toBeNull()
+  it('opens a saved highlight at its recorded location', async () => {
+    const p = props(); render(<LabContentsV2 {...p} />)
+    fireEvent.click(screen.getByRole('button',{name:'1 highlights in Genesis 44'}))
+    fireEvent.click(await screen.findByTestId('contents-highlight-judah'))
+    await screen.findByText('Judah offers himself')
+    fireEvent.click(screen.getByRole('button',{name:'Open passage'}))
+    expect(p.onOpenPassage).toHaveBeenCalledWith({chapterNumber:44,paragraphIndex:1,wordIndex:0})
+  })
+  it('waits for the real chapter manifest and resets ancestry when the book changes', () => {
+    const p = props()
+    const {rerender} = render(<LabContentsV2 {...p} chaptersReady={false} />)
+    expect(screen.getByText('Loading contents…')).toBeTruthy()
+    expect(screen.queryByTestId('lab-tree-chapter-44')).toBeNull()
+    rerender(<LabContentsV2 {...p} />)
+    expect(screen.getByTestId('lab-tree-chapter-44')).toBeTruthy()
+    rerender(<LabContentsV2 {...p} bookId="notes" title="Notes from Underground" sections={[{title:'Part I',chapters:[1]}]} chapters={[{number:1,title:'Chapter 1'}]} currentChapter={1} />)
+    expect(screen.getByTestId('lab-tree-chapter-1')).toBeTruthy()
+    expect(screen.queryByTestId('lab-tree-chapter-44')).toBeNull()
+  })
+  it('shows a long title on demand, with only Search then Highlights in the header', () => {
+    const title = 'Narrative of the Life of Frederick Douglass, an American Slave'
+    render(<LabContentsV2 {...props()} title={title} />)
+    const heading = screen.getByRole('button',{name:'Show full title: ' + title})
+    expect(heading.getAttribute('aria-expanded')).toBe('false')
+    fireEvent.click(heading)
+    expect(heading.getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getAllByText(title)).toHaveLength(2)
+    expect(Array.from(document.querySelectorAll('header .actions button')).map(n=>n.getAttribute('aria-label'))).toEqual(['Search contents','Highlights'])
+  })
 })
