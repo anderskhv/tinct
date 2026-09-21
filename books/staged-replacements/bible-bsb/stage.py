@@ -318,7 +318,18 @@ def main():
     dump(out / "validation.json", summary)
     provenance["outputs"] = {p.name:digest(p.read_bytes()) for p in out.glob("*.json")}
     dump(out / "provenance.json", provenance)
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print(json.dumps({k:v for k,v in summary.items() if k not in {"unanchoredBodyBlocks","sourceExportExamples"}}, ensure_ascii=False, indent=2))
+    def dash_space(t):
+        return re.sub(r"\s*—\s*", "—", t) if t is not None else None
+    material = [d for d in differences if dash_space(d["usj"]) != dash_space(d["textExport"])]
+    print("DIAGNOSTIC_MATERIAL_COUNT", len(material))
+    print("DIAGNOSTIC_MATERIAL_SAMPLE", json.dumps(material[:35], ensure_ascii=False))
+    print("DIAGNOSTIC_MISSING", json.dumps([d for d in material if d["usj"] is None][:25], ensure_ascii=False))
+    psa = json.loads(z.read("bsb_usj/PSA.usj"))
+    print("DIAGNOSTIC_PSA_NODES", json.dumps(psa["content"][60:77], ensure_ascii=False))
+    print("DIAGNOSTIC_PSA_23_1", external.get("PSA.23.1"))
+    print("DIAGNOSTIC_UNANCHORED_COUNT", len(summary["unanchoredBodyBlocks"]))
+    print("DIAGNOSTIC_META_VERSES", [(code, b["sourceNode"], b["marker"]) for code,bs in structure.items() for b in bs if b["marker"] in META and '"type": "verse"' in json.dumps(b["usj"])][:10])
     if differences:
         raise SystemExit("Source export differences require investigation before acceptance")
     assert len(chapters) == 1189
