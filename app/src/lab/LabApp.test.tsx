@@ -2850,7 +2850,7 @@ describe('lab passage headline pages', () => {
     const marked = screen.getAllByTestId('lab-word')[2]
     fireEvent.pointerDown(marked, { pointerId: 103, pointerType: 'touch', clientX: 190, clientY: 200 })
     fireEvent.pointerUp(marked, { pointerId: 103, pointerType: 'touch', clientX: 190, clientY: 200 })
-    expect(onSelectRange).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 0, fromWord: 2, toWord: 3 }), 190, 200, undefined, 'lookup')
+    expect(onSelectRange).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 0, fromWord: 2, toWord: 3 }), 190, 200, undefined, 'lookup', 'saved')
     expect(onToggleControls).not.toHaveBeenCalled()
   })
 

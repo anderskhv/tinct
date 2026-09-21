@@ -1,3 +1,4 @@
+import { COVER_TRANSITION_KEY, readCoverTransition } from '../../public/lab/cover-transition.js'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { loadOnboardingData } from '../utils/onboardingData'
 import { LabAudiobookSelect } from './LabAudiobookSelect'
@@ -20,6 +21,20 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
   const heading = useRef<HTMLHeadingElement>(null)
   const artwork = useRef<HTMLImageElement>(null)
   const frame = useRef<HTMLDivElement>(null)
+  const closing = useRef(false)
+  const closeToCover = () => {
+    if (closing.current) return
+    const target = artwork.current
+    const source = document.querySelector<HTMLImageElement>('.lab-chapter-cover-art')
+    if (!target || !source || !source.naturalWidth || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || typeof target.animate !== 'function') { onBack(); return }
+    const box=source.getBoundingClientRect(), start=target.getBoundingClientRect()
+    const ratio=source.naturalWidth/source.naturalHeight, width=Math.min(box.width,box.height*ratio), height=width/ratio
+    if (!width || !start.width) { onBack(); return }
+    closing.current=true
+    const animation=target.animate([{transform:'none'},{transform:`translate(${box.left+(box.width-width)/2-start.left}px,${box.top+(box.height-height)/2-start.top}px) scale(${width/start.width},${height/start.height})`}],{duration:420,easing:'cubic-bezier(.22,.8,.22,1)',fill:'forwards'})
+    frame.current?.animate([{opacity:1},{opacity:0}],{duration:280,fill:'forwards'})
+    void animation.finished.catch(()=>{}).then(()=>{closing.current=false;onBack()})
+  }
   const [fullPreface, setFullPreface] = useState(false)
   const [showEditions, setShowEditions] = useState(false)
   const editionName = preparationEditionLabel
@@ -41,13 +56,15 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
     const previous = document.activeElement as HTMLElement | null
     if (!open) return
     const source = document.querySelector<HTMLImageElement>('.lab-chapter-cover-art')
-    const sourceBox = source?.getBoundingClientRect()
+    const fromLibrary = readCoverTransition(preface.bookId)
+    const sourceBox = fromLibrary || source?.getBoundingClientRect()
+    try { sessionStorage.removeItem(COVER_TRANSITION_KEY) } catch {}
     node?.showModal()
     const target = artwork.current
     const animations: Animation[] = []
-    if (target && source && sourceBox && sourceBox.width > 0 && source.naturalWidth && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches && typeof target.animate === 'function') {
+    if (target && sourceBox && sourceBox.width > 0 && (fromLibrary || source?.naturalWidth) && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches && typeof target.animate === 'function') {
       // Account for object-fit: contain: the image element can span the whole reader.
-      const ratio = source.naturalWidth / source.naturalHeight
+      const ratio = fromLibrary ? fromLibrary.width / fromLibrary.height : source!.naturalWidth / source!.naturalHeight
       const width = Math.min(sourceBox.width, sourceBox.height * ratio)
       const height = width / ratio
       const left = sourceBox.left + (sourceBox.width - width) / 2
@@ -58,19 +75,19 @@ export function LabBookPreface({ open = true, preface, title, cover, continued, 
         { transform: 'none' },
       ], { duration: 720, easing: 'cubic-bezier(.22,.8,.22,1)' }))
       if (frame.current) animations.push(frame.current.animate([
-        { opacity: 0, transform: 'translateX(-24px)' }, { opacity: 1, transform: 'none' },
+        { opacity: 0, transform: 'translateX(24px)' }, { opacity: 1, transform: 'none' },
       ], { duration: 620, easing: 'cubic-bezier(.22,.8,.22,1)' }))
     }
     heading.current?.focus({ preventScroll: true })
     return () => { animations.forEach(animation => animation.cancel()); node?.close(); if (previous?.isConnected) previous.focus({ preventScroll: true }) }
   }, [open])
   return <dialog ref={dialog} className="lab-book-preface" data-testid="lab-book-preface" data-view="preparation"
-    aria-label={`${title}: Before you begin`} onCancel={event => { event.preventDefault(); onBack() }}>
+    aria-label={`${title}: Before you begin`} onCancel={event => { event.preventDefault(); closeToCover() }}>
     <div className="lab-preparation-stage">
     <img ref={artwork} className="lab-preparation-background" src={cover} alt="" />
     <div ref={frame} className="lab-preparation-frame">
       <header className="lab-preface-top">
-        <button type="button" onClick={onBack} aria-label="Back to cover" title="Back to cover">← <span>Back to cover</span></button>
+        <button type="button" onClick={closeToCover} aria-label="Back to cover" title="Back to cover">← <span>Back to cover</span></button>
         <button type="button" disabled={!ready} onClick={onRead} aria-label={continued ? 'Continue reading' : 'Start reading'} title={continued ? 'Continue reading' : 'Start reading'}><span>{continued ? 'Continue reading' : 'Start reading'}</span> →</button>
       </header>
       <div className="lab-preface-scroll">

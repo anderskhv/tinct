@@ -2,7 +2,7 @@
 import { useRef } from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import { useTextRangeHighlights } from './useTextRangeHighlights'
+import { highlightRows, highlightSeams, useTextRangeHighlights } from './useTextRangeHighlights'
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 function Passage() {
   const ref = useRef<HTMLElement>(null)
@@ -25,4 +25,20 @@ it('paints one range including internal spaces but excluding outside spaces and 
   expect(registry.size).toBe(5)
   second.unmount()
   expect(registry.size).toBe(0)
+})
+
+it('bridges fractional row cracks only where both rows are highlighted', () => {
+ const rect=(left:number,right:number,top:number,bottom:number)=>({left,right,top,bottom,height:bottom-top})
+ expect(highlightSeams([rect(0,200,0,33),rect(0,100,33.4,66.4)],22,.5)).toEqual([{left:0,top:32.5,width:100,height:1.5}])
+ expect(highlightSeams([rect(0,200,0,33),rect(0,100,38,71)],22)).toEqual([])
+ expect(highlightSeams([rect(100,200,0,33),rect(0,90,33.4,66.4)],22)).toEqual([])
+ // Raised verse glyphs must not become extra rows or grow the band.
+ expect(highlightSeams([rect(0,200,0,33),rect(0,10,28,41),rect(0,100,33.4,66.4)],22,.5)).toHaveLength(1)
+})
+
+it('uses full row bounds for background paint without including raised verse glyphs', () => {
+ const rect=(left:number,right:number,top:number,bottom:number)=>({left,right,top,bottom,height:bottom-top})
+ expect(highlightRows([rect(15,90,0,33),rect(90,140,0,33),rect(0,12,-8,10),rect(0,60,33.4,66.4)],22)).toEqual([
+  {left:15,right:140,top:0,bottom:33},{left:0,right:60,top:33.4,bottom:66.4}
+ ])
 })

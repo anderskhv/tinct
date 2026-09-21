@@ -111,7 +111,7 @@ describe('worker SEO SPA metadata', () => {
     const html = await resp!.text()
     expect(html).toContain('<title>Read The Odyssey Online | Tinct</title>')
     expect(html).toContain('<link rel="canonical" href="https://tinct.app/read/odyssey">')
-    expect(html).toContain('<meta property="og:image" content="https://tinct.app/og-image-v2.jpg">')
+    expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/odyssey.jpg">')
     expect(html).toContain('<meta property="og:image:width" content="1200">')
     expect(html).toContain('<meta property="og:image:height" content="630">')
     expect(html).toContain('"@type":"Book"')
@@ -387,8 +387,8 @@ describe('worker SEO routing', () => {
       expect(body).toContain('tinct-onboarding-worlds-v5')
       expect(body).not.toContain('noindex')
       expect(body).toContain('href="https://tinct.app/"')
-      expect(body).toContain('<meta property="og:image" content="https://tinct.app/og-image-v2.jpg">')
-      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/og-image-v2.jpg">')
+      expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg">')
+      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20260921/share-tinct-1200x630.jpg">')
       expect(body).toContain('<meta property="og:description" content="Read great books with parallel editions, audiobooks and a voice companion. Explore the Tinct library and start reading.">')
     }
   })
@@ -475,5 +475,23 @@ describe('worker static routing helpers', () => {
     expect(resp.status).toBe(403)
     expect(resp.headers.get('X-Robots-Tag')).toContain('noindex')
     expect(assetFetches).toBe(0)
+  })
+})
+
+describe('approved brand entry metadata', () => {
+  it.each(['/','/library','/reader'])('serves install assets and one social image in initial HTML at %s', async path => {
+    const response=await worker.fetch(new Request('https://tinct.app'+path),routerEnv() as never,ctx)
+    const html=await response.text()
+    expect(html).toContain('href="/brand/20260921/apple-touch-icon.png"')
+    expect(html).toContain('href="/brand/manifest.webmanifest"')
+    expect(html.match(/property="og:image"/g)).toHaveLength(1)
+    expect(html).toContain('property="og:image:alt"')
+  })
+  it('uses the requested public book for a library link without exposing private query text', async () => {
+    const response=await worker.fetch(new Request('https://tinct.app/library?book=frankenstein&note=private-secret'),routerEnv() as never,ctx)
+    const html=await response.text()
+    expect(html).toContain('/brand/20260921/books/frankenstein.jpg')
+    expect(html).toContain('Frankenstein')
+    expect(html).not.toContain('private-secret')
   })
 })

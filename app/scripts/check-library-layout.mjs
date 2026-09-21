@@ -64,6 +64,9 @@ try {
   const shelf=page.locator('[data-popular-shelf]')
   const box=await shelf.boundingBox()
   const selection=()=>page.locator('[data-shelf-index][aria-current="true"]').getAttribute('data-shelf-index')
+  assert.equal(await page.locator('[data-shelf-index][aria-current="true"]').getAttribute('data-shelf-book'),'frankenstein','fresh shelf opens on Frankenstein')
+  assert(await page.locator('[data-shelf-index]').count()>10,'featured collection extends both ways')
+  assert.equal(await page.locator('[data-shelf-scroll]:visible').count(),0,'scroll affordance replaces arrows')
   const before=await selection()
   await page.mouse.move(box.x+box.width/2,box.y+130)
   await page.mouse.down()
@@ -91,30 +94,22 @@ try {
   // Actual pointer click must open the book, not be swallowed by reel capture.
   await page.evaluate(()=>scrollTo(0,0))
   await page.locator('[data-shelf-index][aria-current="true"]').click()
-  await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000})
-  if(viewport.width<600) {
-   const handoff=await page.evaluate(()=>sessionStorage.getItem('qa:reader-handoff'))
-   assert(handoff,'capture the library handoff before its first reader consumes it')
-   console.log('PHONE_HANDOFF '+handoff)
-   await page.evaluate(value=>sessionStorage.setItem('tinct:lab-reader-handoff',value),handoff)
-   const phoneUrl=new URL(page.url());phoneUrl.pathname='/lab/phone';phoneUrl.searchParams.set('chrome','v2')
-   await page.goto(phoneUrl.href,{waitUntil:'domcontentloaded'})
-   await page.locator('[data-testid="lab-cover-entry"]').waitFor({timeout:45000}).catch(async error=>{
-    console.log('PHONE_BOOT_FAILURE '+JSON.stringify({url:page.url(),text:await page.locator('body').innerText()}));throw error
-   })
-  }
+  await page.locator('[data-testid="lab-book-preface"][open]').waitFor({timeout:45000})
   {
    const html=await fs.readFile('dist/app.html','utf8')
    const expected=html.match(/\/assets\/index-[A-Za-z0-9_-]+\.js/)[0]
    assert(await page.locator('script[src]').evaluateAll((nodes,asset)=>nodes.some(n=>new URL(n.src).pathname===asset),expected),'production reader uses the deployed bundle')
   }
   await page.screenshot({path:output+'/'+name+'-cover.png'})
-  await page.getByRole('button',{name:/Before you begin/}).click()
   const prep=page.locator('[data-testid="lab-book-preface"]')
   await prep.waitFor()
   await page.waitForTimeout(800)
   const frame=prep.locator('.lab-preparation-frame')
   const beforeExpand=await frame.boundingBox()
+  const artwork=await prep.locator('.lab-preparation-background').boundingBox()
+  if(viewport.width>=768) assert(artwork.x+artwork.width<=beforeExpand.x,'cover expands to the left of preparation')
+  else {assert.equal(beforeExpand.x,0);assert.equal(beforeExpand.width,viewport.width);assert.equal(beforeExpand.height,viewport.height)}
+
   assert.equal(await prep.locator('.lab-preface-full p').first().evaluate(n=>getComputedStyle(n).textAlign),'left')
   assert.equal(await prep.getByRole('button',{name:'Characters',exact:true}).getAttribute('aria-expanded'),'false')
   await page.screenshot({path:output+'/'+name+'-preparation.png'})

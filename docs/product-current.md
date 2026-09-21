@@ -3,7 +3,7 @@
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 This note records the active reader, including the September 21 reader polish release.
-Release status and verification limits are in [the reader polish plan](reader-panels-selection-2026-09-21.md)
+Release status and verification limits are in [the reader/library/brand batch](reader-library-brand-batch-2026-09-21.md), [the reader polish plan](reader-panels-selection-2026-09-21.md)
 and [the September 17 release plan](reader-feedback-2026-09-17.md).
 
 - Explain uses a compact, stable, scrollable glass card. Its transparent icon expands to the content height, bounded by one
@@ -32,8 +32,8 @@ The library displays all eligible books under the existing Houses and Shelves,
 below an interactive cover reel. Desktop book clicks, drag, horizontal scrolling
 and keyboard selection work. Preparation uses a stable dark frame, left-aligned
 scrollable preface, compact optional characters, and existing text/comparison/audio
-edition controls; cover artwork moves into place without becoming a magnified
-background. [Release and verification](library-preparation-polish-2026-09-17.md).
+edition controls. The September 21 batch puts the expanded cover to the left of
+preparation on desktop and uses a full-screen preparation surface on phone. [Release and verification](library-preparation-polish-2026-09-17.md).
 
 ## Responsive entry surfaces — September 17
 
@@ -43,7 +43,10 @@ on a centred starter reel with full descriptions and estimated reading time.
 Category rows scroll horizontally; desktop rows also support mouse dragging.
 Short novels, Epics and Philosophy lead the complete catalogue. Reading estimates
 use published word counts and a disclosed 140–200 words/minute range, without
-invented print-page counts. Mobile Featured selection rotates between visits.
+invented print-page counts. Fresh Featured visits centre Frankenstein within a larger collection, with neighbouring
+covers inviting scrolling. Explicit Back preserves the reader’s chosen shelf position.
+Currently Reading shares this reel, centres the most recent book and retains its
+progress, Continue and removal controls without changing saved positions.
 Mobile removes the header and places sign-in/account access in Search. The glass
 dock is shallower; preparation offers separate Talk / Chat actions and provenance-labelled editions
 in Primary, Audiobook, Compare order. Librarian
@@ -132,10 +135,27 @@ The chapter picker follows the approved Design 1: a compact tree with gold curre
 ancestry, rounded branch ends, pinned breadcrumbs and continuous progress pies
 from saved reading data. Search covers book text and book-scoped chats; chapter
 icons open saved highlights or conversations. Long titles reveal their full text
-on click. The book-title switcher retains Cover/preparation and Full library.
+on click. **Cover and preface** is the first entry in the chapter tree, above the
+book’s parts/chapters. The book-title switcher retains Reading Now and Full library.
 
 Saved-highlight controls take precedence over definitions. Ctrl/Cmd+C and browser
 Copy work on custom reader selections. Phone selections remain painted when their
 menu opens, including when both edition slots match. Definition cards use only
 the headword as their heading. Multi-paragraph saved ranges retain their exact end.
 [Release evidence and limits](reader-panels-selection-2026-09-21.md).
+
+
+## Reader regressions and brand — September 21 batch
+
+Saved highlight clicks resolve the painted record before word lookup, including
+reloaded marks and hyphen fragments. Highlight backgrounds join fractional row
+edges without moving text. The dark fold stays within the reserved gutter. Mobile
+menus clear the whole header, the Reading Now focus outline stays inside its row,
+and quiet progress uses the same faded ink as the header.
+
+The approved Design 1 kit supplies the drawn-t favicon, Apple/Android installation
+icons, manifest, generic social card and 100 public book cards using catalogue
+metadata and existing cover art. Initial entry and book HTML include these tags;
+private selections, notes and chat are never inserted into social metadata.
+
+[Release evidence and verification limits](reader-library-brand-batch-2026-09-21.md).

@@ -822,3 +822,23 @@ it('paints a hyphenated tail while waiting at the page edge without duplicating 
     expect(select.mock.calls[0][0].text).toBe('they shall become')
   } finally { vi.useRealTimers() }
 })
+
+it('clicks the mark that paints an overlapping word or separator, preserving its identity', () => {
+  const select = vi.fn()
+  const marks = [
+    { id:'older', chapterNumber:1, paragraphIndex:0, fromWord:0, endParagraphIndex:0, toWord:4, color:'gold' as const },
+    { id:'newer', chapterNumber:1, paragraphIndex:0, fromWord:1, endParagraphIndex:0, toWord:3, color:'sky' as const },
+  ]
+  const {container}=render(<LabPassage chapterTitle="Test" paragraphs={['one two three four']} compareParagraphs={[]} compare={false} mode="reading" follow={{kind:'none'}} followParagraphs={[]} markedIndexes={new Set()} chapterNumber={1} highlights={marks} readingPage={{paragraphIndex:0,from:0,to:4}} onSelectRange={select} />)
+  const word=screen.getAllByTestId('lab-word')[2]
+  expect(word.getAttribute('data-highlight-id')).toBe('newer')
+  fireEvent.pointerDown(word,{pointerId:1,pointerType:'mouse',button:0,clientX:100,clientY:100})
+  fireEvent.pointerUp(word,{pointerId:1,pointerType:'mouse',clientX:100,clientY:100})
+  expect(select).toHaveBeenLastCalledWith(expect.objectContaining({text:'three'}),100,100,undefined,'lookup','newer')
+  const gap=container.querySelector('.lab-highlight-gap[data-highlight-id="newer"]')!
+  expect(gap).toBeTruthy()
+  vi.spyOn(word,'getClientRects').mockReturnValue([{left:90,right:110,top:90,bottom:110,width:20,height:20}] as unknown as DOMRectList)
+  fireEvent.pointerDown(gap,{pointerId:2,pointerType:'mouse',button:0,clientX:100,clientY:100})
+  fireEvent.pointerUp(gap,{pointerId:2,pointerType:'mouse',clientX:100,clientY:100})
+  expect(select).toHaveBeenLastCalledWith(expect.anything(),100,100,undefined,'lookup','newer')
+})

@@ -1,9 +1,9 @@
 /* Preparation is a fixed frame around optional, scrollable book context. */
 .lab .lab-book-preface{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#141511;color:#eae5d9;font-family:'EB Garamond',Georgia,serif;text-align:left;overscroll-behavior:contain}
 .lab-book-preface::backdrop{background:#141511}
-.lab-preparation-stage{position:relative;width:min(1200px,100%);height:100%;margin:auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:36px;padding:32px;background:radial-gradient(ellipse at 75% 45%,#55594430,transparent 65%)}
-.lab-preparation-background{grid-column:2;grid-row:1;width:100%;height:auto;max-height:calc(100dvh - 64px);object-fit:contain;transform-origin:top left;filter:drop-shadow(0 24px 30px #0005)}
-.lab-preparation-frame{grid-column:1;grid-row:1;width:100%;height:min(720px,calc(100dvh - 64px));min-height:0;display:flex;flex-direction:column;border:1px solid #ffffff17;border-radius:22px;background:#20231f;box-shadow:0 24px 64px #0003;overflow:hidden}
+.lab-preparation-stage{position:relative;width:min(1200px,100%);height:100%;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;gap:36px;padding:32px;background:radial-gradient(ellipse at 75% 45%,#55594430,transparent 65%)}
+.lab-preparation-background{grid-column:1;grid-row:1;width:100%;height:auto;max-height:calc(100dvh - 64px);object-fit:contain;transform-origin:top left;filter:drop-shadow(0 24px 30px #0005)}
+.lab-preparation-frame{grid-column:2;grid-row:1;width:100%;height:min(720px,calc(100dvh - 64px));min-height:0;display:flex;flex-direction:column;border:1px solid #ffffff17;border-radius:22px;background:#20231f;box-shadow:0 24px 64px #0003;overflow:hidden}
 .lab .lab-book-preface button{font:inherit;color:inherit;cursor:pointer;min-height:44px;-webkit-tap-highlight-color:transparent}
 .lab .lab-preface-top{display:flex;justify-content:space-between;align-items:center;flex-shrink:0;gap:12px;padding:18px 24px;border-bottom:1px solid #ffffff0c}
 .lab .lab-preface-top button{border:0;background:transparent;padding:8px 0;font:12px/1.4 system-ui,sans-serif;color:#b9bbae}
@@ -49,3 +49,15 @@
 .lab .lab-preparation-dock button+button{border-left:1px solid #e5e9db2b}
 .lab .lab-preparation-dock svg{width:18px;height:18px}
 .lab .lab-book-preface .lab-preparation-editions select{appearance:none;padding:13px 38px 13px 15px;border-color:#e9e3cf26;border-radius:14px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23c9c7bb' stroke-width='1.5'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E"),linear-gradient(135deg,#ffffff0d,#ffffff02);background-repeat:no-repeat;background-position:right 14px center,center;box-shadow:inset 0 1px 0 #ffffff0c,0 3px 10px #0001}
+
+@view-transition{navigation:auto}
+.lab-preparation-background{view-transition-name:tinct-book-cover}
+::view-transition-old(tinct-book-cover),::view-transition-new(tinct-book-cover){animation-duration:.6s;animation-timing-function:cubic-bezier(.22,.8,.22,1)}
+@media(max-width:767px){
+ .lab-preparation-stage{padding:0;width:100%;height:100%;overflow:auto}
+ .lab-preparation-background{position:fixed;inset:0;width:100%;height:100dvh;max-height:none;object-fit:cover;opacity:.18;filter:none}
+ .lab-preparation-frame{position:relative;margin:0;width:100%;height:100dvh;border:0;border-radius:0;background:#20231feF}
+ .lab .lab-preface-top{padding-top:max(18px,env(safe-area-inset-top))}
+ .lab .lab-preface-scroll{padding-bottom:max(24px,env(safe-area-inset-bottom))}
+}
+@media(prefers-reduced-motion:reduce){::view-transition-group(*){animation-duration:0s}}

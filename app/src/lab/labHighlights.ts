@@ -166,7 +166,7 @@ export function buildHighlightRange(
 }
 
 export function wordInHighlightRange(
-  range: LabHighlightRange,
+  range: Pick<LabHighlightRange, 'paragraphIndex' | 'endParagraphIndex' | 'fromWord' | 'toWord'>,
   paragraphIndex: number,
   wordIndex: number,
 ): boolean {
@@ -176,23 +176,27 @@ export function wordInHighlightRange(
   return true
 }
 
+/** The topmost saved mark owns both the visible colour and its controls. */
+export function highlightAt(
+  highlights: LabHighlight[],
+  chapterNumber: number,
+  paragraphIndex: number,
+  wordIndex: number,
+): LabHighlight | undefined {
+  for (let index = highlights.length - 1; index >= 0; index -= 1) {
+    const mark = highlights[index]
+    if (mark.chapterNumber === chapterNumber && wordInHighlightRange(mark, paragraphIndex, wordIndex)) return mark
+  }
+  return undefined
+}
+
 export function highlightColorAt(
   highlights: LabHighlight[],
   chapterNumber: number,
   paragraphIndex: number,
   wordIndex: number,
 ): LabHighlightColor | null {
-  // Later highlights represent the reader's most recent intent. This matters
-  // when a fresh selection overlaps an older saved range.
-  for (let index = highlights.length - 1; index >= 0; index -= 1) {
-    const h = highlights[index]
-    if (h.chapterNumber !== chapterNumber) continue
-    if (paragraphIndex < h.paragraphIndex || paragraphIndex > h.endParagraphIndex) continue
-    if (paragraphIndex === h.paragraphIndex && wordIndex < h.fromWord) continue
-    if (paragraphIndex === h.endParagraphIndex && wordIndex >= h.toWord) continue
-    return h.color
-  }
-  return null
+  return highlightAt(highlights, chapterNumber, paragraphIndex, wordIndex)?.color ?? null
 }
 
 const COLOR_CLASS: Record<LabHighlightColor, string> = {

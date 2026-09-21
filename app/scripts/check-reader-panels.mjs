@@ -13,8 +13,8 @@ const explanation = 'A compact opening grounded in the selected passage.\n\nA se
 const definition = 'pronoun. Used to refer to people or things already identified.'
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
-async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1) {
-  const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone })
+async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNumber=1, fixture={}) {
+  const context = await browser.newContext({ viewport: phone ? { width:390,height:844 } : {width:1440,height:900}, serviceWorkers:'block', hasTouch:phone, deviceScaleFactor:fixture.deviceScaleFactor||1 })
   const page = await context.newPage()
   page.setDefaultTimeout(10000)
   const requests = [], errors = []
@@ -37,13 +37,14 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     }
     return route.continue()
   })
-  await page.addInitScript(({bookId,edition,chapterNumber}) => {
-    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:0,wordIndex:0,page:0}}))
+  await page.addInitScript(({bookId,edition,chapterNumber,fixture}) => {
+    sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({kind:'open-reader',bookId,primaryEditionKey:edition,savedPlace:{bookId,chapterNumber,paragraphIndex:fixture.paragraphIndex||0,wordIndex:0,page:0}}))
+    if(fixture.highlights && !localStorage.getItem('tinct-lab-highlights')) localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable:true, value:async()=>{throw Error('Microphone disabled during reader acceptance')} })
     HTMLMediaElement.prototype.play = async function(){this.muted=true}
     window.__copied = []
     Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
-  },{bookId,edition,chapterNumber})
+  },{bookId,edition,chapterNumber,fixture})
   await page.goto(origin + (phone ? '/lab/phone?chrome=v2' : '/reader?chrome=v2'), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.evaluate(()=>document.fonts.ready)
@@ -287,11 +288,19 @@ async function checkFullPageFold(page) {
     return {pageHeight:node.clientHeight, height:parseFloat(paint.height), top:parseFloat(paint.top),
       bottom:parseFloat(paint.bottom), width:parseFloat(paint.width), events:paint.pointerEvents,
       oldDivider:columns&&getComputedStyle(columns,'::after').content, shadow:style.boxShadow,
-      rect:rect.toJSON(), content:paint.content}
+      rect:rect.toJSON(), content:paint.content,
+      gutter:parseFloat(getComputedStyle(columns).columnGap),
+      ink:[...node.querySelectorAll('.lab-book-columns [data-testid="lab-word"],.lab-book-columns .lab-chapter-end')].flatMap(n=>[...n.getClientRects()].filter(b=>b.width&&b.height).map(b=>({left:b.left,right:b.right}))),
+      foldLeft:rect.left+node.clientLeft+node.clientWidth/2-parseFloat(paint.width)/2,
+      foldRight:rect.left+node.clientLeft+node.clientWidth/2+parseFloat(paint.width)/2}
   })
-  assert(fold.content!=='none'&&fold.width>40,'binding must be visible')
+  assert(fold.content!=='none'&&fold.width>=40,'binding must be visible')
   assert(Math.abs(fold.height-fold.pageHeight)<1 && fold.top===0 && fold.bottom===0,
     'binding must span the full sheet, including margins: '+JSON.stringify(fold))
+  assert(fold.width<=fold.gutter,'binding stays within the reserved gutter')
+  assert(fold.ink.every(box=>box.right<=fold.foldLeft+.6 || box.left>=fold.foldRight-.6),
+    'binding must not tint text or the chapter-end card: '+JSON.stringify(fold))
+  delete fold.ink
   assert.equal(fold.events,'none','decoration must not intercept text selection or controls')
   assert.equal(fold.oldDivider,'none','short text must not carry a second, truncated binding')
   assert.notEqual(fold.shadow,'none')
@@ -428,6 +437,220 @@ async function contentsAndSameEdition(engine,name,phone){
 }
 
 
+
+
+async function paintDiagnostics(page,label){
+ const read=()=>page.evaluate(()=>{
+   const word=document.querySelector('.is-hl-warm[data-testid="lab-word"]'), line=word?.closest('.lab-hearing-line')
+   const style=word&&getComputedStyle(word)
+   return {word:word&&{text:word.textContent,rect:word.getBoundingClientRect().toJSON(),select:style.getPropertyValue("-webkit-user-select"),stageSelect:getComputedStyle(word.closest(".lab-hearing-stage")).getPropertyValue("-webkit-user-select"),background:style.backgroundColor},line:line&&{rect:line.getBoundingClientRect().toJSON(),isolation:getComputedStyle(line).isolation},seams:[...document.querySelectorAll('.lab-highlight-seam')].map(n=>({rect:n.getBoundingClientRect().toJSON(),style:n.getAttribute('style')})),ranges:[...(CSS.highlights||[])].map(([key,value])=>({key,ranges:[...value].map(r=>({text:r.toString().slice(0,80),rects:[...r.getClientRects()].map(b=>b.toJSON())}))}))}
+ })
+ const before=await read()
+ await fs.writeFile(output+'/'+label+'-paint-diagnostic.json',JSON.stringify(before,null,2))
+}
+
+
+async function highlightBodyPaint(page){
+ const geometry=await page.locator('[data-testid="lab-word"].is-hl-warm').evaluateAll(nodes=>nodes.filter(n=>!n.querySelector('.lab-verse-mark')).flatMap(n=>[...n.getClientRects()]).filter(r=>r.width>25&&r.height>15&&r.top>0&&r.bottom<innerHeight).slice(0,8).map(r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom})))
+ const pixels=(await page.screenshot()).toString('base64')
+ return page.evaluate(async({pixels,geometry})=>{
+  const image=new Image();image.src='data:image/png;base64,'+pixels;await image.decode()
+  const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height
+  const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);const ratio=image.width/innerWidth
+  const color=getComputedStyle(document.querySelector('.lab-highlight-seam')).backgroundColor.match(/[0-9.]+/g).slice(0,3).map(Number)
+  let matched=0,total=0
+  for(const r of geometry)for(let y=Math.ceil((r.top+3)*ratio);y<(r.bottom-3)*ratio;y+=2)for(let x=Math.ceil((r.left+2)*ratio);x<(r.right-2)*ratio;x+=2){
+   const rgba=ctx.getImageData(x,y,1,1).data;if(color.every((v,i)=>Math.abs(v-rgba[i])<4))matched++;total++
+  }
+  return {fraction:matched/Math.max(1,total),total}
+ },{pixels,geometry})
+}
+
+async function safariPaintProbe(){
+ if(live)return
+ const browser=await webkit.launch({headless:true})
+ try{
+  const state=await boot(browser,false,'notes-from-underground','original-en',1,{paragraphIndex:0,highlights:[{id:'probe',bookId:'notes-from-underground',editionKey:'original-en',chapterNumber:1,paragraphIndex:0,endParagraphIndex:0,fromWord:0,toWord:115,color:'gold',kept:true}],deviceScaleFactor:2})
+  const {page}=state;await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-dark').click();await page.getByTestId('lab-v2-sheet-close').click()
+  const results=[]
+  for(const variant of ['baseline','literal-scoped','literal-global','selectable-ancestors','no-isolation','refresh-registry','text-boundaries']){
+   await page.reload({waitUntil:'domcontentloaded'})
+   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true'&&document.querySelector('.lab-highlight-seam'))
+   await page.evaluate(()=>document.fonts.ready)
+   const details=await page.evaluate(variant=>{
+    const entries=[...CSS.highlights].filter(([key,value])=>key.endsWith('-warm')&&value.size)
+    const style=document.createElement('style')
+    if(variant.startsWith('literal-'))style.textContent=entries.map(([key])=>(variant==='literal-global'?'':'.lab.is-night ' )+'::highlight('+key+'){background-color:#5c4a2e;color:#bfb8ac}').join('\n')
+    if(variant==='selectable-ancestors')style.textContent='html,body,#root,.lab,.lab *{-webkit-user-select:text!important;user-select:text!important}'
+    if(variant==='no-isolation')style.textContent='.lab .lab-hearing-line{isolation:auto!important;position:static!important}'
+    document.head.append(style)
+    if(variant==='refresh-registry')for(const [key,value] of entries){CSS.highlights.delete(key);CSS.highlights.set(key,new Highlight(...value))}
+    if(variant==='text-boundaries')for(const [key,value] of entries){
+     const ranges=[...value].map(old=>{const r=old.cloneRange();const first=document.createTreeWalker(old.startContainer,NodeFilter.SHOW_TEXT).nextNode();const walker=document.createTreeWalker(old.endContainer,NodeFilter.SHOW_TEXT);let last,node;while(node=walker.nextNode())last=node;if(first&&last){r.setStart(first,0);r.setEnd(last,last.length)}return r})
+     CSS.highlights.set(key,new Highlight(...ranges))
+    }
+    const word=document.querySelector('.is-hl-warm[data-testid="lab-word"]')
+    return {rules:[...document.styleSheets].flatMap(s=>{try{return [...s.cssRules].map(r=>r.cssText).filter(t=>t.includes('::highlight('))}catch{return[]}}),computed:entries.map(([key])=>({key,color:getComputedStyle(word,'::highlight('+key+')').backgroundColor})),ancestors:(()=>{const a=[];let n=word;while(n){a.push({tag:n.tagName,cls:n.className,select:getComputedStyle(n).webkitUserSelect});n=n.parentElement}return a})()}
+   },variant)
+   await page.waitForTimeout(100)
+   results.push({variant,...await highlightBodyPaint(page),details})
+   await page.screenshot({path:output+'/paint-probe-'+variant+'.png'})
+  }
+  await fs.writeFile(output+'/paint-probe.json',JSON.stringify(results,null,2))
+ }finally{await browser.close()}
+}
+
+async function checkHighlightPaint(page){
+  // Read the ready geometry atomically: an unrelated React commit can
+  // replace the paint-only nodes between waitFor() and evaluateAll().
+  const handle=await page.waitForFunction(()=>{
+    const rects=[...document.querySelectorAll('.lab-highlight-seam')].map(node=>{
+      const rect=node.getBoundingClientRect()
+      return {left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,color:getComputedStyle(node).backgroundColor}
+    }).filter(r=>r.right-r.left>60 && r.top>=0 && r.bottom<=innerHeight)
+    return rects.length ? rects : false
+  })
+  const geometry=await handle.jsonValue()
+  await handle.dispose()
+  const pixels=(await page.screenshot()).toString('base64')
+  const gaps=await page.evaluate(async({pixels,geometry})=>{
+    const image=new Image();image.src='data:image/png;base64,'+pixels;await image.decode()
+    const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height
+    const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0)
+    const ratio=image.width/innerWidth
+    return geometry.map(rect=>{
+      const y=Math.floor((rect.top+rect.bottom)/2*ratio)
+      const band=rect.color.match(/[0-9.]+/g).slice(0,3).map(Number)
+      let sameBand=0,samples=0
+      for(let x=Math.ceil(rect.left*ratio)+4;x<Math.floor(rect.right*ratio)-4;x++){
+        const rgba=ctx.getImageData(x,y,1,1).data
+        if(band.every((v,i)=>Math.abs(v-rgba[i])<4))sameBand++
+        samples++
+      }
+      return {bandFraction:sameBand/Math.max(1,samples),rect}
+    })
+  },{pixels,geometry})
+  assert(geometry.length>0,'fixture must exercise fractional highlight row edges')
+  assert(gaps.every(g=>g.bandFraction>.8),'highlight colour must remain continuous between rows: '+JSON.stringify(gaps))
+  return {joinedEdges:geometry.length,minimumBandFraction:Math.min(...gaps.map(g=>g.bandFraction))}
+}
+
+async function highlightRegression(engine,name){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'persisted-highlight-regression',live,clicks:[]}
+  try{
+    for(const fixture of [{book:'notes-from-underground',edition:'original-en',chapter:1,p:0,to:115},{book:'bible',edition:'web-en',chapter:935,p:5,to:88}]){
+      if(state)await state.context.close()
+      const record={id:'persisted-gold',bookId:fixture.book,editionKey:fixture.edition,chapterNumber:fixture.chapter,paragraphIndex:fixture.p,endParagraphIndex:fixture.p,fromWord:0,toWord:fixture.to,color:'gold',kept:true}
+      state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter,{paragraphIndex:fixture.p,highlights:[record],deviceScaleFactor:2})
+      const {page}=state
+      await clickMenu(page,'settings')
+      await page.getByTestId('lab-v2-theme-dark').click()
+      await page.getByTestId('lab-v2-sheet-close').click()
+      await page.reload({waitUntil:'domcontentloaded'})
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
+      await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
+      const target='[data-testid="lab-word"][data-paragraph-index="'+fixture.p+'"].is-hl-warm'
+      // Restore starts at the paragraph; if the spread backs up to its mate,
+      // the mark still has to be on one of the two visible leaves.
+      await page.locator(target).first().waitFor()
+      result[fixture.book]={records:await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]'))}
+      await page.screenshot({path:output+'/'+name+'-'+fixture.book+'-gold-reloaded.png'})
+      result[fixture.book].bodyPaint=await highlightBodyPaint(page)
+      assert(result[fixture.book].bodyPaint.fraction>.25,'saved highlight background must fill the word rows, not only their seams: '+JSON.stringify(result[fixture.book].bodyPaint))
+      const marked=page.locator('[data-testid="lab-word"].is-hl-warm')
+      const count=await marked.count();assert(count>5,'saved Gold is painted after reload')
+      const chosen=[0,Math.floor(count/2),count-1]
+      const can=await marked.allTextContents();const canIndex=can.findIndex(t=>t.trim()==='can');if(canIndex>=0)chosen.push(canIndex)
+      for(const index of chosen){
+        const text=await marked.nth(index).innerText()
+        await marked.nth(index).click()
+        await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+        assert.equal(await page.locator('.popup-define').count(),0)
+        result.clicks.push({book:fixture.book,index,text,menu:'highlight'})
+        await page.keyboard.press('Escape')
+      }
+      if(name==='webkit')await paintDiagnostics(page,name+'-'+fixture.book)
+      result[fixture.book].pixels=await checkHighlightPaint(page)
+      result[fixture.book].paint=await page.evaluate(()=>{
+        const root=document.querySelector('.lab-passage')
+        return [...root.querySelectorAll('.lab-hearing-line')].filter(n=>n.querySelector('.is-hl-warm')).map(n=>{
+          const r=document.createRange();r.selectNodeContents(n)
+          return {lineHeight:getComputedStyle(n).lineHeight,box:n.getBoundingClientRect().toJSON(),rects:[...r.getClientRects()].map(b=>b.toJSON())}
+        })
+      })
+      await marked.first().click()
+      await page.getByRole('button',{name:'Delete highlight',exact:true}).click()
+      assert.equal(await marked.count(),0,'deleting a persisted mark clears its paint')
+      assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[],'delete persists on the original record')
+      await page.reload({waitUntil:'domcontentloaded'})
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
+      assert.equal(await page.locator('[data-testid="lab-word"].is-hl-warm').count(),0,'deleted highlight stays removed after reload')
+      result[fixture.book].deleted=true
+      assert.deepEqual(state.errors,[])
+    }
+    result.passed=true
+  }catch(error){
+    result.passed=false;result.error=error.stack
+    if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-3000)}
+  }finally{await browser.close();results.push(result)}
+}
+
+
+async function mobileChromeRegression(engine,name){
+  const browser=await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})})
+  let state
+  const result={engine:name,layout:'phone-chrome-regression',live}
+  try{
+    state=await boot(browser,true,'notes-from-underground','original-en')
+    const {page}=state
+    for(const theme of ['dark','book','light']){
+      await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-'+theme).click()
+      await page.getByTestId('lab-v2-sheet-close').click()
+      await page.getByTestId('lab-super').click()
+      const panel=await page.getByTestId('lab-super-menu').boundingBox()
+      const header=await page.locator('.lab-header').boundingBox()
+      assert(panel.y-(header.y+header.height)>=11.5,'menu needs a gap below the whole header')
+      await page.screenshot({path:output+'/'+name+'-phone-menu-'+theme+'.png'})
+      await page.keyboard.press('Escape')
+      await page.getByTestId('lab-header-book').click()
+      await page.keyboard.press('Tab')
+      await page.locator('.lab-book-switcher-row.is-active').focus()
+      const focus=await page.locator('.lab-book-switcher-row.is-active').evaluate(node=>{
+        const style=getComputedStyle(node),list=node.closest('.lab-book-switcher-list').getBoundingClientRect(),row=node.getBoundingClientRect()
+        return {offset:parseFloat(style.outlineOffset),width:parseFloat(style.outlineWidth),visible:node.matches(':focus-visible'),top:row.top,listTop:list.top}
+      })
+      assert(focus.visible&&focus.offset+focus.width<=0,'first row focus stays inside its box: '+JSON.stringify(focus))
+      assert(focus.top>=focus.listTop)
+      await page.screenshot({path:output+'/'+name+'-phone-switcher-'+theme+'.png'})
+      await page.getByRole('button',{name:'Close book switcher'}).click()
+      // A real quiet-reading tap, away from the edge page-turn zones.
+      await page.touchscreen.tap(195,220)
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]').dataset.readerControls==='hidden')
+      await page.waitForFunction(()=>{
+        const header=document.querySelector('.lab-header-brand'),progress=document.querySelector('.lab-chapter-progress-info')
+        return [header,progress].every(n=>Math.abs(Number(getComputedStyle(n).opacity)-.58)<.001)
+      },null,{timeout:3000}).catch(()=>{})
+      const quiet=await page.evaluate(()=>{
+        const header=document.querySelector('.lab-header-brand'),title=header.querySelector('.lab-header-work'),progress=document.querySelector('.lab-chapter-progress-info')
+        return {headerOpacity:getComputedStyle(header).opacity,progressOpacity:getComputedStyle(progress).opacity,title:getComputedStyle(title).color,progress:getComputedStyle(progress).color}
+      })
+      ;(result.quiet??=[]).push({theme,...quiet})
+      assert(Math.abs(Number(quiet.progressOpacity)-Number(quiet.headerOpacity))<.001,'quiet progress fades with the header: '+JSON.stringify(quiet))
+      const rgba=value=>{const values=value.match(/[0-9.]+/g).map(Number);return values.length===3?[...values,1]:values}
+      assert.deepEqual(rgba(quiet.progress),rgba(quiet.title),'quiet progress uses the same grey ink as the header')
+      await page.screenshot({path:output+'/'+name+'-phone-quiet-'+theme+'.png'})
+      await page.touchscreen.tap(195,220)
+    }
+    assert.deepEqual(state.errors,[])
+    result.passed=true
+  }catch(error){
+    result.passed=false;result.error=error.stack
+    if(state)await state.page.screenshot({path:output+'/'+name+'-phone-chrome-failure.png'}).catch(()=>{})
+  }finally{await browser.close();results.push(result)}
+}
+
 async function designReference(){
   if(live)return
   const browser=await chromium.launch({headless:true,args:['--mute-audio']})
@@ -451,12 +674,15 @@ async function designReference(){
     }
   }finally{await browser.close()}
 }
+if(process.env.READER_PAINT_PROBE==='1')await safariPaintProbe()
 await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await run(engine,name,phone)
   await compareLabel(engine,name)
   await bookSurface(engine,name)
+  await highlightRegression(engine,name)
+  await mobileChromeRegression(engine,name)
   for(const phone of [false,true])await contentsAndSameEdition(engine,name,phone)
 }
 await fs.writeFile(output+'/report.json',JSON.stringify({live,results},null,2))
