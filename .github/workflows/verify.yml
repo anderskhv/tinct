@@ -51,8 +51,8 @@ jobs:
           sudo apt-get install -y espeak-ng
           espeak-ng -s 175 -w /tmp/tinct-voice-source.wav "Why does the Underground Man call himself sick? What is behind that?"
           python3 scripts/make-voice-qa-wav.py /tmp/tinct-voice-source.wav /tmp/tinct-voice-qa.wav
-          VOICE_PERSONA=female node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
-          VOICE_PERSONA=male node scripts/grok-capture-acceptance.mjs /tmp/tinct-voice-qa.wav
+          VOICE_PERSONA=female node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
+          VOICE_PERSONA=male node scripts/grok-voice-handshake-acceptance.mjs /tmp/tinct-voice-qa.wav
       - name: Save voice capture acceptance
         uses: actions/upload-artifact@v4
         if: always()
