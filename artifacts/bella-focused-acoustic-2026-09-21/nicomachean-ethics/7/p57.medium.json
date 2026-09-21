@@ -1,0 +1,845 @@
+{
+  "complete": true,
+  "signature": "336a0933ed5d9cab7b31f3cc56e4d57d8ba5c972caf0fcbd4768d330d4a6110d",
+  "attempts": [
+    {
+      "asr_seconds": 7.053671345999987,
+      "alignment_seconds": 0.00047822900000937807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Persuasiveness _cheating_ e'en the subtlest mind.\"",
+        "hotwords": "Persuasiveness"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Persuasiveness, cheating in the subtlest mind.",
+          "start": 0.02,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " Persuasiveness,",
+              "start": 0.02,
+              "end": 1.16,
+              "probability": 0.9266904145479202
+            },
+            {
+              "text": " cheating",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.9632906913757324
+            },
+            {
+              "text": " in",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.9963836669921875
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9984095692634583
+            },
+            {
+              "text": " subtlest",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.9889378249645233
+            },
+            {
+              "text": " mind.",
+              "start": 2.28,
+              "end": 2.7,
+              "probability": 0.9964693784713745
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Persuasiveness,",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "raw": "cheating",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "subtlest",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "mind.",
+          "start": 2.28,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "“Persuasiveness",
+        "_cheating_",
+        "e’en",
+        "the",
+        "subtlest",
+        "mind.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Persuasiveness",
+        "_cheating_",
+        "e'en",
+        "the",
+        "subtlest",
+        "mind.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Persuasiveness,",
+          "start": 0.02,
+          "end": 1.16,
+          "key": "persuasiveness",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cheating",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "cheating",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "subtlest",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "subtlest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 2.28,
+          "end": 2.7,
+          "key": "mind",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Persuasiveness",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "text": "_cheating_",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "e’en",
+          "start": 1.62,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "subtlest",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "mind.”",
+          "start": 2.28,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 7.054170053000007
+    },
+    {
+      "asr_seconds": 6.834019779000016,
+      "alignment_seconds": 0.0004411010000353599,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Persuasiveness"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Persuasiveness, cheating in the subtlest mind.",
+          "start": 0.02,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " Persuasiveness,",
+              "start": 0.02,
+              "end": 1.16,
+              "probability": 0.9266904145479202
+            },
+            {
+              "text": " cheating",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.9632906913757324
+            },
+            {
+              "text": " in",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.9963836669921875
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9984095692634583
+            },
+            {
+              "text": " subtlest",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.9889378249645233
+            },
+            {
+              "text": " mind.",
+              "start": 2.28,
+              "end": 2.7,
+              "probability": 0.9964693784713745
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Persuasiveness,",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "raw": "cheating",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "subtlest",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "mind.",
+          "start": 2.28,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "“Persuasiveness",
+        "_cheating_",
+        "e’en",
+        "the",
+        "subtlest",
+        "mind.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Persuasiveness",
+        "_cheating_",
+        "e'en",
+        "the",
+        "subtlest",
+        "mind.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Persuasiveness,",
+          "start": 0.02,
+          "end": 1.16,
+          "key": "persuasiveness",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cheating",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "cheating",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "subtlest",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "subtlest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 2.28,
+          "end": 2.7,
+          "key": "mind",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Persuasiveness",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "text": "_cheating_",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "e’en",
+          "start": 1.62,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "subtlest",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "mind.”",
+          "start": 2.28,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.834481308000022
+    },
+    {
+      "asr_seconds": 6.749007303999974,
+      "alignment_seconds": 0.0004751040000314788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Persuasiveness, cheating in the subtlest mind.",
+          "start": 0.02,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " Persuasiveness,",
+              "start": 0.02,
+              "end": 1.16,
+              "probability": 0.9266904145479202
+            },
+            {
+              "text": " cheating",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.9632906913757324
+            },
+            {
+              "text": " in",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.9963836669921875
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.9984095692634583
+            },
+            {
+              "text": " subtlest",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.9889378249645233
+            },
+            {
+              "text": " mind.",
+              "start": 2.28,
+              "end": 2.7,
+              "probability": 0.9964693784713745
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Persuasiveness,",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "raw": "cheating",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "subtlest",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "mind.",
+          "start": 2.28,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "“Persuasiveness",
+        "_cheating_",
+        "e’en",
+        "the",
+        "subtlest",
+        "mind.”"
+      ],
+      "acoustic_expected_tokens": [
+        "\"Persuasiveness",
+        "_cheating_",
+        "e'en",
+        "the",
+        "subtlest",
+        "mind.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Persuasiveness,",
+          "start": 0.02,
+          "end": 1.16,
+          "key": "persuasiveness",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cheating",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "cheating",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "subtlest",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "subtlest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 2.28,
+          "end": 2.7,
+          "key": "mind",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "“Persuasiveness",
+          "start": 0.02,
+          "end": 1.16
+        },
+        {
+          "text": "_cheating_",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "e’en",
+          "start": 1.62,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "subtlest",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "mind.”",
+          "start": 2.28,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 6.749501782999971
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb5fdf9d8feb1d3bd3dd9763be6b783022d881d1727585ae51c9e4320ba2277b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

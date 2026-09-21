@@ -1,0 +1,3375 @@
+{
+  "complete": true,
+  "signature": "4cea15d2c1defce7907079275f1090391942a70dcbe8ca101f85f06f3a7dc460",
+  "attempts": [
+    {
+      "asr_seconds": 9.463691965999999,
+      "alignment_seconds": 0.0067104519999929835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The reason why no one and the same thing is invariably pleasant is that our nature is, not simple, but complex, involving something different from itself (so far as we are corruptible beings). Suppose then that one part of this nature be doing something, this something is, to the other part, unnatural: but, if there be an equilibrium of the two natures, then whatever is being done is indifferent. It is obvious that if there be any whose nature is simple and not complex, to such a being the same course of acting will always be the most pleasurable.",
+        "hotwords": "Suppose, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The reason why no one and the same thing is invariably pleasant is that our nature is, not simple,",
+          "start": 0.05,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.9072086215019226
+            },
+            {
+              "text": " reason",
+              "start": 0.51,
+              "end": 0.79,
+              "probability": 0.998604953289032
+            },
+            {
+              "text": " why",
+              "start": 0.79,
+              "end": 1.07,
+              "probability": 0.9975184202194214
+            },
+            {
+              "text": " no",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.9946582913398743
+            },
+            {
+              "text": " one",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.9936017394065857
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.9189838767051697
+            },
+            {
+              "text": " the",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.9984336495399475
+            },
+            {
+              "text": " same",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.9985287189483643
+            },
+            {
+              "text": " thing",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.9981136322021484
+            },
+            {
+              "text": " is",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.9911976456642151
+            },
+            {
+              "text": " invariably",
+              "start": 2.51,
+              "end": 3.13,
+              "probability": 0.9711035490036011
+            },
+            {
+              "text": " pleasant",
+              "start": 3.13,
+              "end": 3.67,
+              "probability": 0.9955034852027893
+            },
+            {
+              "text": " is",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.9815888404846191
+            },
+            {
+              "text": " that",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.9990721940994263
+            },
+            {
+              "text": " our",
+              "start": 4.09,
+              "end": 4.23,
+              "probability": 0.995474636554718
+            },
+            {
+              "text": " nature",
+              "start": 4.23,
+              "end": 4.49,
+              "probability": 0.9006689190864563
+            },
+            {
+              "text": " is,",
+              "start": 4.49,
+              "end": 4.91,
+              "probability": 0.9973114728927612
+            },
+            {
+              "text": " not",
+              "start": 5.09,
+              "end": 5.35,
+              "probability": 0.9962525367736816
+            },
+            {
+              "text": " simple,",
+              "start": 5.35,
+              "end": 5.75,
+              "probability": 0.9905080795288086
+            }
+          ]
+        },
+        {
+          "text": " but complex, involving something different from itself, so far as we are corruptible beings.",
+          "start": 6.19,
+          "end": 11.37,
+          "words": [
+            {
+              "text": " but",
+              "start": 6.19,
+              "end": 6.41,
+              "probability": 0.9982888102531433
+            },
+            {
+              "text": " complex,",
+              "start": 6.41,
+              "end": 6.95,
+              "probability": 0.9985858201980591
+            },
+            {
+              "text": " involving",
+              "start": 7.53,
+              "end": 7.85,
+              "probability": 0.9922427535057068
+            },
+            {
+              "text": " something",
+              "start": 7.85,
+              "end": 8.23,
+              "probability": 0.9992440938949585
+            },
+            {
+              "text": " different",
+              "start": 8.23,
+              "end": 8.57,
+              "probability": 0.9989827275276184
+            },
+            {
+              "text": " from",
+              "start": 8.57,
+              "end": 8.85,
+              "probability": 0.9986866116523743
+            },
+            {
+              "text": " itself,",
+              "start": 8.85,
+              "end": 9.21,
+              "probability": 0.991756796836853
+            },
+            {
+              "text": " so",
+              "start": 9.71,
+              "end": 9.87,
+              "probability": 0.998038113117218
+            },
+            {
+              "text": " far",
+              "start": 9.87,
+              "end": 10.07,
+              "probability": 0.9987373948097229
+            },
+            {
+              "text": " as",
+              "start": 10.07,
+              "end": 10.21,
+              "probability": 0.9986304044723511
+            },
+            {
+              "text": " we",
+              "start": 10.21,
+              "end": 10.33,
+              "probability": 0.9978795051574707
+            },
+            {
+              "text": " are",
+              "start": 10.33,
+              "end": 10.51,
+              "probability": 0.9957277774810791
+            },
+            {
+              "text": " corruptible",
+              "start": 10.51,
+              "end": 11.09,
+              "probability": 0.9809695184230804
+            },
+            {
+              "text": " beings.",
+              "start": 11.09,
+              "end": 11.37,
+              "probability": 0.9798972010612488
+            }
+          ]
+        },
+        {
+          "text": " Suppose then that one part of this nature be doing something, this something is, to the other",
+          "start": 12.43,
+          "end": 17.13,
+          "words": [
+            {
+              "text": " Suppose",
+              "start": 12.43,
+              "end": 12.77,
+              "probability": 0.9878258109092712
+            },
+            {
+              "text": " then",
+              "start": 12.77,
+              "end": 13.03,
+              "probability": 0.6071127653121948
+            },
+            {
+              "text": " that",
+              "start": 13.03,
+              "end": 13.21,
+              "probability": 0.9484294652938843
+            },
+            {
+              "text": " one",
+              "start": 13.21,
+              "end": 13.47,
+              "probability": 0.996940016746521
+            },
+            {
+              "text": " part",
+              "start": 13.47,
+              "end": 13.73,
+              "probability": 0.9993233680725098
+            },
+            {
+              "text": " of",
+              "start": 13.73,
+              "end": 13.85,
+              "probability": 0.9994694590568542
+            },
+            {
+              "text": " this",
+              "start": 13.85,
+              "end": 14.01,
+              "probability": 0.9979987740516663
+            },
+            {
+              "text": " nature",
+              "start": 14.01,
+              "end": 14.29,
+              "probability": 0.9891982674598694
+            },
+            {
+              "text": " be",
+              "start": 14.29,
+              "end": 14.47,
+              "probability": 0.9950227737426758
+            },
+            {
+              "text": " doing",
+              "start": 14.47,
+              "end": 14.69,
+              "probability": 0.9976995587348938
+            },
+            {
+              "text": " something,",
+              "start": 14.69,
+              "end": 15.17,
+              "probability": 0.9986228942871094
+            },
+            {
+              "text": " this",
+              "start": 15.55,
+              "end": 15.77,
+              "probability": 0.9900611639022827
+            },
+            {
+              "text": " something",
+              "start": 15.77,
+              "end": 16.07,
+              "probability": 0.9888383150100708
+            },
+            {
+              "text": " is,",
+              "start": 16.07,
+              "end": 16.47,
+              "probability": 0.9971590042114258
+            },
+            {
+              "text": " to",
+              "start": 16.65,
+              "end": 16.79,
+              "probability": 0.9984526634216309
+            },
+            {
+              "text": " the",
+              "start": 16.79,
+              "end": 16.91,
+              "probability": 0.9989745616912842
+            },
+            {
+              "text": " other",
+              "start": 16.91,
+              "end": 17.13,
+              "probability": 0.9993120431900024
+            }
+          ]
+        },
+        {
+          "text": " part, unnatural, but, if there be an equilibrium of the two natures, then whatever is being",
+          "start": 17.13,
+          "end": 22.57,
+          "words": [
+            {
+              "text": " part,",
+              "start": 17.13,
+              "end": 17.45,
+              "probability": 0.998376727104187
+            },
+            {
+              "text": " unnatural,",
+              "start": 17.65,
+              "end": 18.01,
+              "probability": 0.9988162517547607
+            },
+            {
+              "text": " but,",
+              "start": 18.59,
+              "end": 18.99,
+              "probability": 0.9964330196380615
+            },
+            {
+              "text": " if",
+              "start": 19.03,
+              "end": 19.25,
+              "probability": 0.998090922832489
+            },
+            {
+              "text": " there",
+              "start": 19.25,
+              "end": 19.39,
+              "probability": 0.9991027116775513
+            },
+            {
+              "text": " be",
+              "start": 19.39,
+              "end": 19.55,
+              "probability": 0.9985608458518982
+            },
+            {
+              "text": " an",
+              "start": 19.55,
+              "end": 19.67,
+              "probability": 0.9937816262245178
+            },
+            {
+              "text": " equilibrium",
+              "start": 19.67,
+              "end": 20.09,
+              "probability": 0.9676674008369446
+            },
+            {
+              "text": " of",
+              "start": 20.09,
+              "end": 20.43,
+              "probability": 0.9982095956802368
+            },
+            {
+              "text": " the",
+              "start": 20.43,
+              "end": 20.53,
+              "probability": 0.9968698620796204
+            },
+            {
+              "text": " two",
+              "start": 20.53,
+              "end": 20.73,
+              "probability": 0.9963864088058472
+            },
+            {
+              "text": " natures,",
+              "start": 20.73,
+              "end": 21.09,
+              "probability": 0.9866732358932495
+            },
+            {
+              "text": " then",
+              "start": 21.59,
+              "end": 21.79,
+              "probability": 0.9969092011451721
+            },
+            {
+              "text": " whatever",
+              "start": 21.79,
+              "end": 21.99,
+              "probability": 0.9841991662979126
+            },
+            {
+              "text": " is",
+              "start": 21.99,
+              "end": 22.35,
+              "probability": 0.9984960556030273
+            },
+            {
+              "text": " being",
+              "start": 22.35,
+              "end": 22.57,
+              "probability": 0.9987455606460571
+            }
+          ]
+        },
+        {
+          "text": " done is indifferent.",
+          "start": 22.57,
+          "end": 23.75,
+          "words": [
+            {
+              "text": " done",
+              "start": 22.57,
+              "end": 22.91,
+              "probability": 0.9974008798599243
+            },
+            {
+              "text": " is",
+              "start": 22.91,
+              "end": 23.23,
+              "probability": 0.965686559677124
+            },
+            {
+              "text": " indifferent.",
+              "start": 23.23,
+              "end": 23.75,
+              "probability": 0.9959087371826172
+            }
+          ]
+        },
+        {
+          "text": " It is obvious that if there be any whose nature is simple and not complex, to such a being",
+          "start": 23.75,
+          "end": 30.61,
+          "words": [
+            {
+              "text": " It",
+              "start": 23.75,
+              "end": 24.69,
+              "probability": 0.7173622846603394
+            },
+            {
+              "text": " is",
+              "start": 24.69,
+              "end": 25.13,
+              "probability": 0.9973143935203552
+            },
+            {
+              "text": " obvious",
+              "start": 25.13,
+              "end": 25.57,
+              "probability": 0.9978450536727905
+            },
+            {
+              "text": " that",
+              "start": 25.57,
+              "end": 25.89,
+              "probability": 0.9946058392524719
+            },
+            {
+              "text": " if",
+              "start": 25.89,
+              "end": 26.03,
+              "probability": 0.9719362854957581
+            },
+            {
+              "text": " there",
+              "start": 26.03,
+              "end": 26.21,
+              "probability": 0.9983515739440918
+            },
+            {
+              "text": " be",
+              "start": 26.21,
+              "end": 26.41,
+              "probability": 0.9985197186470032
+            },
+            {
+              "text": " any",
+              "start": 26.41,
+              "end": 26.79,
+              "probability": 0.9911141991615295
+            },
+            {
+              "text": " whose",
+              "start": 26.79,
+              "end": 27.03,
+              "probability": 0.9880287051200867
+            },
+            {
+              "text": " nature",
+              "start": 27.03,
+              "end": 27.37,
+              "probability": 0.9804379940032959
+            },
+            {
+              "text": " is",
+              "start": 27.37,
+              "end": 27.67,
+              "probability": 0.9988849759101868
+            },
+            {
+              "text": " simple",
+              "start": 27.67,
+              "end": 28.05,
+              "probability": 0.9896494150161743
+            },
+            {
+              "text": " and",
+              "start": 28.05,
+              "end": 28.65,
+              "probability": 0.7970302104949951
+            },
+            {
+              "text": " not",
+              "start": 28.65,
+              "end": 28.87,
+              "probability": 0.9992801547050476
+            },
+            {
+              "text": " complex,",
+              "start": 28.87,
+              "end": 29.43,
+              "probability": 0.9980071187019348
+            },
+            {
+              "text": " to",
+              "start": 30.01,
+              "end": 30.17,
+              "probability": 0.9866995811462402
+            },
+            {
+              "text": " such",
+              "start": 30.17,
+              "end": 30.35,
+              "probability": 0.9994055032730103
+            },
+            {
+              "text": " a",
+              "start": 30.35,
+              "end": 30.47,
+              "probability": 0.9817190766334534
+            },
+            {
+              "text": " being",
+              "start": 30.47,
+              "end": 30.61,
+              "probability": 0.9966668486595154
+            }
+          ]
+        },
+        {
+          "text": " the same course of acting will always be the most pleasurable.",
+          "start": 30.61,
+          "end": 33.71,
+          "words": [
+            {
+              "text": " the",
+              "start": 30.61,
+              "end": 30.85,
+              "probability": 0.9772295951843262
+            },
+            {
+              "text": " same",
+              "start": 30.85,
+              "end": 31.07,
+              "probability": 0.9993645548820496
+            },
+            {
+              "text": " course",
+              "start": 31.07,
+              "end": 31.35,
+              "probability": 0.9944508671760559
+            },
+            {
+              "text": " of",
+              "start": 31.35,
+              "end": 31.53,
+              "probability": 0.9992132186889648
+            },
+            {
+              "text": " acting",
+              "start": 31.53,
+              "end": 31.91,
+              "probability": 0.9953572154045105
+            },
+            {
+              "text": " will",
+              "start": 31.91,
+              "end": 32.15,
+              "probability": 0.992287278175354
+            },
+            {
+              "text": " always",
+              "start": 32.15,
+              "end": 32.55,
+              "probability": 0.9979865550994873
+            },
+            {
+              "text": " be",
+              "start": 32.55,
+              "end": 32.83,
+              "probability": 0.9988605976104736
+            },
+            {
+              "text": " the",
+              "start": 32.83,
+              "end": 32.95,
+              "probability": 0.9968319535255432
+            },
+            {
+              "text": " most",
+              "start": 32.95,
+              "end": 33.19,
+              "probability": 0.9992032647132874
+            },
+            {
+              "text": " pleasurable.",
+              "start": 33.19,
+              "end": 33.71,
+              "probability": 0.9982540309429169
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "reason",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "raw": "why",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "raw": "no",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "one",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "same",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "thing",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "is",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "invariably",
+          "start": 2.51,
+          "end": 3.13
+        },
+        {
+          "raw": "pleasant",
+          "start": 3.13,
+          "end": 3.67
+        },
+        {
+          "raw": "is",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "raw": "that",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "our",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "raw": "nature",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "raw": "is,",
+          "start": 4.49,
+          "end": 4.91
+        },
+        {
+          "raw": "not",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "raw": "simple,",
+          "start": 5.35,
+          "end": 5.75
+        },
+        {
+          "raw": "but",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "raw": "complex,",
+          "start": 6.41,
+          "end": 6.95
+        },
+        {
+          "raw": "involving",
+          "start": 7.53,
+          "end": 7.85
+        },
+        {
+          "raw": "something",
+          "start": 7.85,
+          "end": 8.23
+        },
+        {
+          "raw": "different",
+          "start": 8.23,
+          "end": 8.57
+        },
+        {
+          "raw": "from",
+          "start": 8.57,
+          "end": 8.85
+        },
+        {
+          "raw": "itself,",
+          "start": 8.85,
+          "end": 9.21
+        },
+        {
+          "raw": "so",
+          "start": 9.71,
+          "end": 9.87
+        },
+        {
+          "raw": "far",
+          "start": 9.87,
+          "end": 10.07
+        },
+        {
+          "raw": "as",
+          "start": 10.07,
+          "end": 10.21
+        },
+        {
+          "raw": "we",
+          "start": 10.21,
+          "end": 10.33
+        },
+        {
+          "raw": "are",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "raw": "corruptible",
+          "start": 10.51,
+          "end": 11.09
+        },
+        {
+          "raw": "beings.",
+          "start": 11.09,
+          "end": 11.37
+        },
+        {
+          "raw": "Suppose",
+          "start": 12.43,
+          "end": 12.77
+        },
+        {
+          "raw": "then",
+          "start": 12.77,
+          "end": 13.03
+        },
+        {
+          "raw": "that",
+          "start": 13.03,
+          "end": 13.21
+        },
+        {
+          "raw": "one",
+          "start": 13.21,
+          "end": 13.47
+        },
+        {
+          "raw": "part",
+          "start": 13.47,
+          "end": 13.73
+        },
+        {
+          "raw": "of",
+          "start": 13.73,
+          "end": 13.85
+        },
+        {
+          "raw": "this",
+          "start": 13.85,
+          "end": 14.01
+        },
+        {
+          "raw": "nature",
+          "start": 14.01,
+          "end": 14.29
+        },
+        {
+          "raw": "be",
+          "start": 14.29,
+          "end": 14.47
+        },
+        {
+          "raw": "doing",
+          "start": 14.47,
+          "end": 14.69
+        },
+        {
+          "raw": "something,",
+          "start": 14.69,
+          "end": 15.17
+        },
+        {
+          "raw": "this",
+          "start": 15.55,
+          "end": 15.77
+        },
+        {
+          "raw": "something",
+          "start": 15.77,
+          "end": 16.07
+        },
+        {
+          "raw": "is,",
+          "start": 16.07,
+          "end": 16.47
+        },
+        {
+          "raw": "to",
+          "start": 16.65,
+          "end": 16.79
+        },
+        {
+          "raw": "the",
+          "start": 16.79,
+          "end": 16.91
+        },
+        {
+          "raw": "other",
+          "start": 16.91,
+          "end": 17.13
+        },
+        {
+          "raw": "part,",
+          "start": 17.13,
+          "end": 17.45
+        },
+        {
+          "raw": "unnatural,",
+          "start": 17.65,
+          "end": 18.01
+        },
+        {
+          "raw": "but,",
+          "start": 18.59,
+          "end": 18.99
+        },
+        {
+          "raw": "if",
+          "start": 19.03,
+          "end": 19.25
+        },
+        {
+          "raw": "there",
+          "start": 19.25,
+          "end": 19.39
+        },
+        {
+          "raw": "be",
+          "start": 19.39,
+          "end": 19.55
+        },
+        {
+          "raw": "an",
+          "start": 19.55,
+          "end": 19.67
+        },
+        {
+          "raw": "equilibrium",
+          "start": 19.67,
+          "end": 20.09
+        },
+        {
+          "raw": "of",
+          "start": 20.09,
+          "end": 20.43
+        },
+        {
+          "raw": "the",
+          "start": 20.43,
+          "end": 20.53
+        },
+        {
+          "raw": "two",
+          "start": 20.53,
+          "end": 20.73
+        },
+        {
+          "raw": "natures,",
+          "start": 20.73,
+          "end": 21.09
+        },
+        {
+          "raw": "then",
+          "start": 21.59,
+          "end": 21.79
+        },
+        {
+          "raw": "whatever",
+          "start": 21.79,
+          "end": 21.99
+        },
+        {
+          "raw": "is",
+          "start": 21.99,
+          "end": 22.35
+        },
+        {
+          "raw": "being",
+          "start": 22.35,
+          "end": 22.57
+        },
+        {
+          "raw": "done",
+          "start": 22.57,
+          "end": 22.91
+        },
+        {
+          "raw": "is",
+          "start": 22.91,
+          "end": 23.23
+        },
+        {
+          "raw": "indifferent.",
+          "start": 23.23,
+          "end": 23.75
+        },
+        {
+          "raw": "It",
+          "start": 23.75,
+          "end": 24.69
+        },
+        {
+          "raw": "is",
+          "start": 24.69,
+          "end": 25.13
+        },
+        {
+          "raw": "obvious",
+          "start": 25.13,
+          "end": 25.57
+        },
+        {
+          "raw": "that",
+          "start": 25.57,
+          "end": 25.89
+        },
+        {
+          "raw": "if",
+          "start": 25.89,
+          "end": 26.03
+        },
+        {
+          "raw": "there",
+          "start": 26.03,
+          "end": 26.21
+        },
+        {
+          "raw": "be",
+          "start": 26.21,
+          "end": 26.41
+        },
+        {
+          "raw": "any",
+          "start": 26.41,
+          "end": 26.79
+        },
+        {
+          "raw": "whose",
+          "start": 26.79,
+          "end": 27.03
+        },
+        {
+          "raw": "nature",
+          "start": 27.03,
+          "end": 27.37
+        },
+        {
+          "raw": "is",
+          "start": 27.37,
+          "end": 27.67
+        },
+        {
+          "raw": "simple",
+          "start": 27.67,
+          "end": 28.05
+        },
+        {
+          "raw": "and",
+          "start": 28.05,
+          "end": 28.65
+        },
+        {
+          "raw": "not",
+          "start": 28.65,
+          "end": 28.87
+        },
+        {
+          "raw": "complex,",
+          "start": 28.87,
+          "end": 29.43
+        },
+        {
+          "raw": "to",
+          "start": 30.01,
+          "end": 30.17
+        },
+        {
+          "raw": "such",
+          "start": 30.17,
+          "end": 30.35
+        },
+        {
+          "raw": "a",
+          "start": 30.35,
+          "end": 30.47
+        },
+        {
+          "raw": "being",
+          "start": 30.47,
+          "end": 30.61
+        },
+        {
+          "raw": "the",
+          "start": 30.61,
+          "end": 30.85
+        },
+        {
+          "raw": "same",
+          "start": 30.85,
+          "end": 31.07
+        },
+        {
+          "raw": "course",
+          "start": 31.07,
+          "end": 31.35
+        },
+        {
+          "raw": "of",
+          "start": 31.35,
+          "end": 31.53
+        },
+        {
+          "raw": "acting",
+          "start": 31.53,
+          "end": 31.91
+        },
+        {
+          "raw": "will",
+          "start": 31.91,
+          "end": 32.15
+        },
+        {
+          "raw": "always",
+          "start": 32.15,
+          "end": 32.55
+        },
+        {
+          "raw": "be",
+          "start": 32.55,
+          "end": 32.83
+        },
+        {
+          "raw": "the",
+          "start": 32.83,
+          "end": 32.95
+        },
+        {
+          "raw": "most",
+          "start": 32.95,
+          "end": 33.19
+        },
+        {
+          "raw": "pleasurable.",
+          "start": 33.19,
+          "end": 33.71
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "reason",
+        "why",
+        "no",
+        "one",
+        "and",
+        "the",
+        "same",
+        "thing",
+        "is",
+        "invariably",
+        "pleasant",
+        "is",
+        "that",
+        "our",
+        "nature",
+        "is,",
+        "not",
+        "simple,",
+        "but",
+        "complex,",
+        "involving",
+        "something",
+        "different",
+        "from",
+        "itself",
+        "(so",
+        "far",
+        "as",
+        "we",
+        "are",
+        "corruptible",
+        "beings).",
+        "Suppose",
+        "then",
+        "that",
+        "one",
+        "part",
+        "of",
+        "this",
+        "nature",
+        "be",
+        "doing",
+        "something,",
+        "this",
+        "something",
+        "is,",
+        "to",
+        "the",
+        "other",
+        "part,",
+        "unnatural:",
+        "but,",
+        "if",
+        "there",
+        "be",
+        "an",
+        "equilibrium",
+        "of",
+        "the",
+        "two",
+        "natures,",
+        "then",
+        "whatever",
+        "is",
+        "being",
+        "done",
+        "is",
+        "indifferent.",
+        "It",
+        "is",
+        "obvious",
+        "that",
+        "if",
+        "there",
+        "be",
+        "any",
+        "whose",
+        "nature",
+        "is",
+        "simple",
+        "and",
+        "not",
+        "complex,",
+        "to",
+        "such",
+        "a",
+        "being",
+        "the",
+        "same",
+        "course",
+        "of",
+        "acting",
+        "will",
+        "always",
+        "be",
+        "the",
+        "most",
+        "pleasurable."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "reason",
+        "why",
+        "no",
+        "one",
+        "and",
+        "the",
+        "same",
+        "thing",
+        "is",
+        "invariably",
+        "pleasant",
+        "is",
+        "that",
+        "our",
+        "nature",
+        "is,",
+        "not",
+        "simple,",
+        "but",
+        "complex,",
+        "involving",
+        "something",
+        "different",
+        "from",
+        "itself",
+        "(so",
+        "far",
+        "as",
+        "we",
+        "are",
+        "corruptible",
+        "beings).",
+        "Suppose",
+        "then",
+        "that",
+        "one",
+        "part",
+        "of",
+        "this",
+        "nature",
+        "be",
+        "doing",
+        "something,",
+        "this",
+        "something",
+        "is,",
+        "to",
+        "the",
+        "other",
+        "part,",
+        "unnatural:",
+        "but,",
+        "if",
+        "there",
+        "be",
+        "an",
+        "equilibrium",
+        "of",
+        "the",
+        "two",
+        "natures,",
+        "then",
+        "whatever",
+        "is",
+        "being",
+        "done",
+        "is",
+        "indifferent.",
+        "It",
+        "is",
+        "obvious",
+        "that",
+        "if",
+        "there",
+        "be",
+        "any",
+        "whose",
+        "nature",
+        "is",
+        "simple",
+        "and",
+        "not",
+        "complex,",
+        "to",
+        "such",
+        "a",
+        "being",
+        "the",
+        "same",
+        "course",
+        "of",
+        "acting",
+        "will",
+        "always",
+        "be",
+        "the",
+        "most",
+        "pleasurable."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          99,
+          0,
+          99
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 0.51,
+          "end": 0.79,
+          "key": "reason",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.79,
+          "end": 1.07,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 1.83,
+          "end": 2.07,
+          "key": "same",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.07,
+          "end": 2.31,
+          "key": "thing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "invariably",
+          "start": 2.51,
+          "end": 3.13,
+          "key": "invariably",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pleasant",
+          "start": 3.13,
+          "end": 3.67,
+          "key": "pleasant",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.67,
+          "end": 3.93,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.93,
+          "end": 4.09,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.09,
+          "end": 4.23,
+          "key": "our",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nature",
+          "start": 4.23,
+          "end": 4.49,
+          "key": "nature",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 4.49,
+          "end": 4.91,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.09,
+          "end": 5.35,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "simple,",
+          "start": 5.35,
+          "end": 5.75,
+          "key": "simple",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.19,
+          "end": 6.41,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "complex,",
+          "start": 6.41,
+          "end": 6.95,
+          "key": "complex",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "involving",
+          "start": 7.53,
+          "end": 7.85,
+          "key": "involving",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 7.85,
+          "end": 8.23,
+          "key": "something",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "different",
+          "start": 8.23,
+          "end": 8.57,
+          "key": "different",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 8.57,
+          "end": 8.85,
+          "key": "from",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "itself,",
+          "start": 8.85,
+          "end": 9.21,
+          "key": "itself",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 9.71,
+          "end": 9.87,
+          "key": "so",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 9.87,
+          "end": 10.07,
+          "key": "far",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 10.07,
+          "end": 10.21,
+          "key": "as",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 10.21,
+          "end": 10.33,
+          "key": "we",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 10.33,
+          "end": 10.51,
+          "key": "are",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "corruptible",
+          "start": 10.51,
+          "end": 11.09,
+          "key": "corruptible",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "beings.",
+          "start": 11.09,
+          "end": 11.37,
+          "key": "beings",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Suppose",
+          "start": 12.43,
+          "end": 12.77,
+          "key": "suppose",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 12.77,
+          "end": 13.03,
+          "key": "then",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.03,
+          "end": 13.21,
+          "key": "that",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 13.21,
+          "end": 13.47,
+          "key": "one",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 13.47,
+          "end": 13.73,
+          "key": "part",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.73,
+          "end": 13.85,
+          "key": "of",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 13.85,
+          "end": 14.01,
+          "key": "this",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "nature",
+          "start": 14.01,
+          "end": 14.29,
+          "key": "nature",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 14.29,
+          "end": 14.47,
+          "key": "be",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "doing",
+          "start": 14.47,
+          "end": 14.69,
+          "key": "doing",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "something,",
+          "start": 14.69,
+          "end": 15.17,
+          "key": "something",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 15.55,
+          "end": 15.77,
+          "key": "this",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 15.77,
+          "end": 16.07,
+          "key": "something",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 16.07,
+          "end": 16.47,
+          "key": "is",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.65,
+          "end": 16.79,
+          "key": "to",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.79,
+          "end": 16.91,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 16.91,
+          "end": 17.13,
+          "key": "other",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 17.13,
+          "end": 17.45,
+          "key": "part",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "unnatural,",
+          "start": 17.65,
+          "end": 18.01,
+          "key": "unnatural",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "but,",
+          "start": 18.59,
+          "end": 18.99,
+          "key": "but",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 19.03,
+          "end": 19.25,
+          "key": "if",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 19.25,
+          "end": 19.39,
+          "key": "there",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.39,
+          "end": 19.55,
+          "key": "be",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 19.55,
+          "end": 19.67,
+          "key": "an",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "equilibrium",
+          "start": 19.67,
+          "end": 20.09,
+          "key": "equilibrium",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 20.09,
+          "end": 20.43,
+          "key": "of",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.43,
+          "end": 20.53,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 20.53,
+          "end": 20.73,
+          "key": "two",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "natures,",
+          "start": 20.73,
+          "end": 21.09,
+          "key": "natures",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 21.59,
+          "end": 21.79,
+          "key": "then",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "whatever",
+          "start": 21.79,
+          "end": 21.99,
+          "key": "whatever",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 21.99,
+          "end": 22.35,
+          "key": "is",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 22.35,
+          "end": 22.57,
+          "key": "being",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 22.57,
+          "end": 22.91,
+          "key": "done",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 22.91,
+          "end": 23.23,
+          "key": "is",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "indifferent.",
+          "start": 23.23,
+          "end": 23.75,
+          "key": "indifferent",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 23.75,
+          "end": 24.69,
+          "key": "it",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 24.69,
+          "end": 25.13,
+          "key": "is",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "obvious",
+          "start": 25.13,
+          "end": 25.57,
+          "key": "obvious",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 25.57,
+          "end": 25.89,
+          "key": "that",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 25.89,
+          "end": 26.03,
+          "key": "if",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 26.03,
+          "end": 26.21,
+          "key": "there",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 26.21,
+          "end": 26.41,
+          "key": "be",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 26.41,
+          "end": 26.79,
+          "key": "any",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 26.79,
+          "end": 27.03,
+          "key": "whose",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "nature",
+          "start": 27.03,
+          "end": 27.37,
+          "key": "nature",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 27.37,
+          "end": 27.67,
+          "key": "is",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 27.67,
+          "end": 28.05,
+          "key": "simple",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 28.05,
+          "end": 28.65,
+          "key": "and",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 28.65,
+          "end": 28.87,
+          "key": "not",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "complex,",
+          "start": 28.87,
+          "end": 29.43,
+          "key": "complex",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 30.01,
+          "end": 30.17,
+          "key": "to",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 30.17,
+          "end": 30.35,
+          "key": "such",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 30.35,
+          "end": 30.47,
+          "key": "a",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 30.47,
+          "end": 30.61,
+          "key": "being",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.61,
+          "end": 30.85,
+          "key": "the",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 30.85,
+          "end": 31.07,
+          "key": "same",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 31.07,
+          "end": 31.35,
+          "key": "course",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 31.35,
+          "end": 31.53,
+          "key": "of",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "acting",
+          "start": 31.53,
+          "end": 31.91,
+          "key": "acting",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 31.91,
+          "end": 32.15,
+          "key": "will",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 32.15,
+          "end": 32.55,
+          "key": "always",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 32.55,
+          "end": 32.83,
+          "key": "be",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 32.83,
+          "end": 32.95,
+          "key": "the",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 32.95,
+          "end": 33.19,
+          "key": "most",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "pleasurable.",
+          "start": 33.19,
+          "end": 33.71,
+          "key": "pleasurable",
+          "pieces": [
+            98
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "reason",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "text": "why",
+          "start": 0.79,
+          "end": 1.07
+        },
+        {
+          "text": "no",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "one",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "the",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "same",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "thing",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "is",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "invariably",
+          "start": 2.51,
+          "end": 3.13
+        },
+        {
+          "text": "pleasant",
+          "start": 3.13,
+          "end": 3.67
+        },
+        {
+          "text": "is",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "text": "that",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "our",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "text": "nature",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "text": "is,",
+          "start": 4.49,
+          "end": 4.91
+        },
+        {
+          "text": "not",
+          "start": 5.09,
+          "end": 5.35
+        },
+        {
+          "text": "simple,",
+          "start": 5.35,
+          "end": 5.75
+        },
+        {
+          "text": "but",
+          "start": 6.19,
+          "end": 6.41
+        },
+        {
+          "text": "complex,",
+          "start": 6.41,
+          "end": 6.95
+        },
+        {
+          "text": "involving",
+          "start": 7.53,
+          "end": 7.85
+        },
+        {
+          "text": "something",
+          "start": 7.85,
+          "end": 8.23
+        },
+        {
+          "text": "different",
+          "start": 8.23,
+          "end": 8.57
+        },
+        {
+          "text": "from",
+          "start": 8.57,
+          "end": 8.85
+        },
+        {
+          "text": "itself",
+          "start": 8.85,
+          "end": 9.21
+        },
+        {
+          "text": "(so",
+          "start": 9.71,
+          "end": 9.87
+        },
+        {
+          "text": "far",
+          "start": 9.87,
+          "end": 10.07
+        },
+        {
+          "text": "as",
+          "start": 10.07,
+          "end": 10.21
+        },
+        {
+          "text": "we",
+          "start": 10.21,
+          "end": 10.33
+        },
+        {
+          "text": "are",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "text": "corruptible",
+          "start": 10.51,
+          "end": 11.09
+        },
+        {
+          "text": "beings).",
+          "start": 11.09,
+          "end": 11.37
+        },
+        {
+          "text": "Suppose",
+          "start": 12.43,
+          "end": 12.77
+        },
+        {
+          "text": "then",
+          "start": 12.77,
+          "end": 13.03
+        },
+        {
+          "text": "that",
+          "start": 13.03,
+          "end": 13.21
+        },
+        {
+          "text": "one",
+          "start": 13.21,
+          "end": 13.47
+        },
+        {
+          "text": "part",
+          "start": 13.47,
+          "end": 13.73
+        },
+        {
+          "text": "of",
+          "start": 13.73,
+          "end": 13.85
+        },
+        {
+          "text": "this",
+          "start": 13.85,
+          "end": 14.01
+        },
+        {
+          "text": "nature",
+          "start": 14.01,
+          "end": 14.29
+        },
+        {
+          "text": "be",
+          "start": 14.29,
+          "end": 14.47
+        },
+        {
+          "text": "doing",
+          "start": 14.47,
+          "end": 14.69
+        },
+        {
+          "text": "something,",
+          "start": 14.69,
+          "end": 15.17
+        },
+        {
+          "text": "this",
+          "start": 15.55,
+          "end": 15.77
+        },
+        {
+          "text": "something",
+          "start": 15.77,
+          "end": 16.07
+        },
+        {
+          "text": "is,",
+          "start": 16.07,
+          "end": 16.47
+        },
+        {
+          "text": "to",
+          "start": 16.65,
+          "end": 16.79
+        },
+        {
+          "text": "the",
+          "start": 16.79,
+          "end": 16.91
+        },
+        {
+          "text": "other",
+          "start": 16.91,
+          "end": 17.13
+        },
+        {
+          "text": "part,",
+          "start": 17.13,
+          "end": 17.45
+        },
+        {
+          "text": "unnatural:",
+          "start": 17.65,
+          "end": 18.01
+        },
+        {
+          "text": "but,",
+          "start": 18.59,
+          "end": 18.99
+        },
+        {
+          "text": "if",
+          "start": 19.03,
+          "end": 19.25
+        },
+        {
+          "text": "there",
+          "start": 19.25,
+          "end": 19.39
+        },
+        {
+          "text": "be",
+          "start": 19.39,
+          "end": 19.55
+        },
+        {
+          "text": "an",
+          "start": 19.55,
+          "end": 19.67
+        },
+        {
+          "text": "equilibrium",
+          "start": 19.67,
+          "end": 20.09
+        },
+        {
+          "text": "of",
+          "start": 20.09,
+          "end": 20.43
+        },
+        {
+          "text": "the",
+          "start": 20.43,
+          "end": 20.53
+        },
+        {
+          "text": "two",
+          "start": 20.53,
+          "end": 20.73
+        },
+        {
+          "text": "natures,",
+          "start": 20.73,
+          "end": 21.09
+        },
+        {
+          "text": "then",
+          "start": 21.59,
+          "end": 21.79
+        },
+        {
+          "text": "whatever",
+          "start": 21.79,
+          "end": 21.99
+        },
+        {
+          "text": "is",
+          "start": 21.99,
+          "end": 22.35
+        },
+        {
+          "text": "being",
+          "start": 22.35,
+          "end": 22.57
+        },
+        {
+          "text": "done",
+          "start": 22.57,
+          "end": 22.91
+        },
+        {
+          "text": "is",
+          "start": 22.91,
+          "end": 23.23
+        },
+        {
+          "text": "indifferent.",
+          "start": 23.23,
+          "end": 23.75
+        },
+        {
+          "text": "It",
+          "start": 23.75,
+          "end": 24.69
+        },
+        {
+          "text": "is",
+          "start": 24.69,
+          "end": 25.13
+        },
+        {
+          "text": "obvious",
+          "start": 25.13,
+          "end": 25.57
+        },
+        {
+          "text": "that",
+          "start": 25.57,
+          "end": 25.89
+        },
+        {
+          "text": "if",
+          "start": 25.89,
+          "end": 26.03
+        },
+        {
+          "text": "there",
+          "start": 26.03,
+          "end": 26.21
+        },
+        {
+          "text": "be",
+          "start": 26.21,
+          "end": 26.41
+        },
+        {
+          "text": "any",
+          "start": 26.41,
+          "end": 26.79
+        },
+        {
+          "text": "whose",
+          "start": 26.79,
+          "end": 27.03
+        },
+        {
+          "text": "nature",
+          "start": 27.03,
+          "end": 27.37
+        },
+        {
+          "text": "is",
+          "start": 27.37,
+          "end": 27.67
+        },
+        {
+          "text": "simple",
+          "start": 27.67,
+          "end": 28.05
+        },
+        {
+          "text": "and",
+          "start": 28.05,
+          "end": 28.65
+        },
+        {
+          "text": "not",
+          "start": 28.65,
+          "end": 28.87
+        },
+        {
+          "text": "complex,",
+          "start": 28.87,
+          "end": 29.43
+        },
+        {
+          "text": "to",
+          "start": 30.01,
+          "end": 30.17
+        },
+        {
+          "text": "such",
+          "start": 30.17,
+          "end": 30.35
+        },
+        {
+          "text": "a",
+          "start": 30.35,
+          "end": 30.47
+        },
+        {
+          "text": "being",
+          "start": 30.47,
+          "end": 30.61
+        },
+        {
+          "text": "the",
+          "start": 30.61,
+          "end": 30.85
+        },
+        {
+          "text": "same",
+          "start": 30.85,
+          "end": 31.07
+        },
+        {
+          "text": "course",
+          "start": 31.07,
+          "end": 31.35
+        },
+        {
+          "text": "of",
+          "start": 31.35,
+          "end": 31.53
+        },
+        {
+          "text": "acting",
+          "start": 31.53,
+          "end": 31.91
+        },
+        {
+          "text": "will",
+          "start": 31.91,
+          "end": 32.15
+        },
+        {
+          "text": "always",
+          "start": 32.15,
+          "end": 32.55
+        },
+        {
+          "text": "be",
+          "start": 32.55,
+          "end": 32.83
+        },
+        {
+          "text": "the",
+          "start": 32.83,
+          "end": 32.95
+        },
+        {
+          "text": "most",
+          "start": 32.95,
+          "end": 33.19
+        },
+        {
+          "text": "pleasurable.",
+          "start": 33.19,
+          "end": 33.71
+        }
+      ],
+      "stats": {
+        "expected_words": 99,
+        "heard_words": 99,
+        "matched_words": 99
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 9.470582021999974
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e2045000037cc664aa56bc8b4359065b561b1236e6155d8a813bc5a25d9ca5c5",
+  "selected_reasons": []
+}

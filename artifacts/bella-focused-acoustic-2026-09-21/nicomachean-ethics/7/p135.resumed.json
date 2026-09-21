@@ -1,0 +1,7798 @@
+{
+  "complete": true,
+  "signature": "96084b2adc965396d8081aaec1e42dab95972d382f5831f14725bbcc04ed70e0",
+  "attempts": [
+    {
+      "asr_seconds": 5.605688801000014,
+      "alignment_seconds": 0.004561914000021261,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The first obvious reason is, that bodily Pleasure drives out Pain; and because Pain is felt in excess men pursue Pleasure in excess, _i.e._ generally bodily Pleasure, under the notion of its being a remedy for that Pain. These remedies, moreover, come to be violent ones; which is the very reason they are pursued, since the impression they produce on the mind is owing to their being looked at side by side with their contrary.",
+        "hotwords": "Pleasure, Pain, These"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The first obvious reason is, that bodily Pleasure drives out Pain, and because Pain is felt in excess men pursue Pleasure in excess, i.e. generally bodily Pleasure, under the notion of its being a remedy for that Pain.",
+          "start": 0.02,
+          "end": 13.64,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8628159165382385
+            },
+            {
+              "text": " first",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.9967998266220093
+            },
+            {
+              "text": " obvious",
+              "start": 0.8,
+              "end": 1.22,
+              "probability": 0.9972647428512573
+            },
+            {
+              "text": " reason",
+              "start": 1.22,
+              "end": 1.6,
+              "probability": 0.998474657535553
+            },
+            {
+              "text": " is,",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.9979161620140076
+            },
+            {
+              "text": " that",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.9867788553237915
+            },
+            {
+              "text": " bodily",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.9979836940765381
+            },
+            {
+              "text": " Pleasure",
+              "start": 2.9,
+              "end": 3.36,
+              "probability": 0.4976474146533292
+            },
+            {
+              "text": " drives",
+              "start": 3.36,
+              "end": 3.7,
+              "probability": 0.9593305587768555
+            },
+            {
+              "text": " out",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.9799129962921143
+            },
+            {
+              "text": " Pain,",
+              "start": 3.96,
+              "end": 4.28,
+              "probability": 0.21585498750209808
+            },
+            {
+              "text": " and",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.9545749425888062
+            },
+            {
+              "text": " because",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.9142211675643921
+            },
+            {
+              "text": " Pain",
+              "start": 5.24,
+              "end": 5.54,
+              "probability": 0.7387696504592896
+            },
+            {
+              "text": " is",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.9865117073059082
+            },
+            {
+              "text": " felt",
+              "start": 5.78,
+              "end": 5.98,
+              "probability": 0.9093025326728821
+            },
+            {
+              "text": " in",
+              "start": 5.98,
+              "end": 6.2,
+              "probability": 0.976875901222229
+            },
+            {
+              "text": " excess",
+              "start": 6.2,
+              "end": 6.58,
+              "probability": 0.9492693543434143
+            },
+            {
+              "text": " men",
+              "start": 6.58,
+              "end": 6.94,
+              "probability": 0.20677371323108673
+            },
+            {
+              "text": " pursue",
+              "start": 6.94,
+              "end": 7.28,
+              "probability": 0.8991738557815552
+            },
+            {
+              "text": " Pleasure",
+              "start": 7.28,
+              "end": 7.66,
+              "probability": 0.7765240669250488
+            },
+            {
+              "text": " in",
+              "start": 7.66,
+              "end": 7.84,
+              "probability": 0.9867904782295227
+            },
+            {
+              "text": " excess,",
+              "start": 7.84,
+              "end": 8.22,
+              "probability": 0.9649139642715454
+            },
+            {
+              "text": " i",
+              "start": 9.06,
+              "end": 9.08,
+              "probability": 0.8189992308616638
+            },
+            {
+              "text": ".e.",
+              "start": 9.08,
+              "end": 9.3,
+              "probability": 0.9946330189704895
+            },
+            {
+              "text": " generally",
+              "start": 9.8,
+              "end": 9.8,
+              "probability": 0.8604162335395813
+            },
+            {
+              "text": " bodily",
+              "start": 9.8,
+              "end": 10.14,
+              "probability": 0.8246831893920898
+            },
+            {
+              "text": " Pleasure,",
+              "start": 10.14,
+              "end": 10.7,
+              "probability": 0.9398033916950226
+            },
+            {
+              "text": " under",
+              "start": 11.2,
+              "end": 11.32,
+              "probability": 0.99136883020401
+            },
+            {
+              "text": " the",
+              "start": 11.32,
+              "end": 11.48,
+              "probability": 0.997612476348877
+            },
+            {
+              "text": " notion",
+              "start": 11.48,
+              "end": 11.7,
+              "probability": 0.9047139286994934
+            },
+            {
+              "text": " of",
+              "start": 11.7,
+              "end": 11.96,
+              "probability": 0.9904449582099915
+            },
+            {
+              "text": " its",
+              "start": 11.96,
+              "end": 12.1,
+              "probability": 0.851759135723114
+            },
+            {
+              "text": " being",
+              "start": 12.1,
+              "end": 12.32,
+              "probability": 0.9628200531005859
+            },
+            {
+              "text": " a",
+              "start": 12.32,
+              "end": 12.54,
+              "probability": 0.9920307397842407
+            },
+            {
+              "text": " remedy",
+              "start": 12.54,
+              "end": 12.78,
+              "probability": 0.6727374792098999
+            },
+            {
+              "text": " for",
+              "start": 12.78,
+              "end": 13.1,
+              "probability": 0.9953579306602478
+            },
+            {
+              "text": " that",
+              "start": 13.1,
+              "end": 13.32,
+              "probability": 0.9858341813087463
+            },
+            {
+              "text": " Pain.",
+              "start": 13.32,
+              "end": 13.64,
+              "probability": 0.6819347739219666
+            }
+          ]
+        },
+        {
+          "text": " These remedies, moreover, come to be violent ones, which is the very reason they are pursued, since the impression they produce on the mind is owing to their being looked at side by side with their contrary.",
+          "start": 14.68,
+          "end": 25.78,
+          "words": [
+            {
+              "text": " These",
+              "start": 14.68,
+              "end": 14.86,
+              "probability": 0.9863759875297546
+            },
+            {
+              "text": " remedies,",
+              "start": 14.86,
+              "end": 15.2,
+              "probability": 0.9472454786300659
+            },
+            {
+              "text": " moreover,",
+              "start": 15.48,
+              "end": 15.7,
+              "probability": 0.9735856652259827
+            },
+            {
+              "text": " come",
+              "start": 16.3,
+              "end": 16.44,
+              "probability": 0.991200864315033
+            },
+            {
+              "text": " to",
+              "start": 16.44,
+              "end": 16.6,
+              "probability": 0.9990222454071045
+            },
+            {
+              "text": " be",
+              "start": 16.6,
+              "end": 16.78,
+              "probability": 0.9939289093017578
+            },
+            {
+              "text": " violent",
+              "start": 16.78,
+              "end": 17.06,
+              "probability": 0.958507239818573
+            },
+            {
+              "text": " ones,",
+              "start": 17.06,
+              "end": 17.52,
+              "probability": 0.9787205457687378
+            },
+            {
+              "text": " which",
+              "start": 18.04,
+              "end": 18.18,
+              "probability": 0.996434211730957
+            },
+            {
+              "text": " is",
+              "start": 18.18,
+              "end": 18.34,
+              "probability": 0.997364342212677
+            },
+            {
+              "text": " the",
+              "start": 18.34,
+              "end": 18.5,
+              "probability": 0.9977922439575195
+            },
+            {
+              "text": " very",
+              "start": 18.5,
+              "end": 18.76,
+              "probability": 0.9983251690864563
+            },
+            {
+              "text": " reason",
+              "start": 18.76,
+              "end": 19.18,
+              "probability": 0.9720368385314941
+            },
+            {
+              "text": " they",
+              "start": 19.18,
+              "end": 19.4,
+              "probability": 0.9861444234848022
+            },
+            {
+              "text": " are",
+              "start": 19.4,
+              "end": 19.54,
+              "probability": 0.9971619844436646
+            },
+            {
+              "text": " pursued,",
+              "start": 19.54,
+              "end": 19.92,
+              "probability": 0.9768843054771423
+            },
+            {
+              "text": " since",
+              "start": 20.44,
+              "end": 20.58,
+              "probability": 0.9948892593383789
+            },
+            {
+              "text": " the",
+              "start": 20.58,
+              "end": 20.8,
+              "probability": 0.9976400136947632
+            },
+            {
+              "text": " impression",
+              "start": 20.8,
+              "end": 21.14,
+              "probability": 0.9606207013130188
+            },
+            {
+              "text": " they",
+              "start": 21.14,
+              "end": 21.48,
+              "probability": 0.9901897311210632
+            },
+            {
+              "text": " produce",
+              "start": 21.48,
+              "end": 21.8,
+              "probability": 0.997861921787262
+            },
+            {
+              "text": " on",
+              "start": 21.8,
+              "end": 22.04,
+              "probability": 0.9958252906799316
+            },
+            {
+              "text": " the",
+              "start": 22.04,
+              "end": 22.16,
+              "probability": 0.997255265712738
+            },
+            {
+              "text": " mind",
+              "start": 22.16,
+              "end": 22.4,
+              "probability": 0.8367984890937805
+            },
+            {
+              "text": " is",
+              "start": 22.4,
+              "end": 22.62,
+              "probability": 0.9930993318557739
+            },
+            {
+              "text": " owing",
+              "start": 22.62,
+              "end": 22.9,
+              "probability": 0.9921931624412537
+            },
+            {
+              "text": " to",
+              "start": 22.9,
+              "end": 23.16,
+              "probability": 0.9978513717651367
+            },
+            {
+              "text": " their",
+              "start": 23.16,
+              "end": 23.3,
+              "probability": 0.9918792843818665
+            },
+            {
+              "text": " being",
+              "start": 23.3,
+              "end": 23.5,
+              "probability": 0.9903284907341003
+            },
+            {
+              "text": " looked",
+              "start": 23.5,
+              "end": 23.78,
+              "probability": 0.9905551075935364
+            },
+            {
+              "text": " at",
+              "start": 23.78,
+              "end": 23.98,
+              "probability": 0.9938898086547852
+            },
+            {
+              "text": " side",
+              "start": 23.98,
+              "end": 24.36,
+              "probability": 0.9794358015060425
+            },
+            {
+              "text": " by",
+              "start": 24.36,
+              "end": 24.58,
+              "probability": 0.8221152424812317
+            },
+            {
+              "text": " side",
+              "start": 24.58,
+              "end": 24.94,
+              "probability": 0.999030590057373
+            },
+            {
+              "text": " with",
+              "start": 24.94,
+              "end": 25.16,
+              "probability": 0.9890205264091492
+            },
+            {
+              "text": " their",
+              "start": 25.16,
+              "end": 25.34,
+              "probability": 0.9983811378479004
+            },
+            {
+              "text": " contrary.",
+              "start": 25.34,
+              "end": 25.78,
+              "probability": 0.9788380861282349
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "first",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "obvious",
+          "start": 0.8,
+          "end": 1.22
+        },
+        {
+          "raw": "reason",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "raw": "is,",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "raw": "that",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "bodily",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "Pleasure",
+          "start": 2.9,
+          "end": 3.36
+        },
+        {
+          "raw": "drives",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "raw": "out",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "Pain,",
+          "start": 3.96,
+          "end": 4.28
+        },
+        {
+          "raw": "and",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "because",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "raw": "Pain",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "raw": "is",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": "felt",
+          "start": 5.78,
+          "end": 5.98
+        },
+        {
+          "raw": "in",
+          "start": 5.98,
+          "end": 6.2
+        },
+        {
+          "raw": "excess",
+          "start": 6.2,
+          "end": 6.58
+        },
+        {
+          "raw": "men",
+          "start": 6.58,
+          "end": 6.94
+        },
+        {
+          "raw": "pursue",
+          "start": 6.94,
+          "end": 7.28
+        },
+        {
+          "raw": "Pleasure",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "raw": "in",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "raw": "excess,",
+          "start": 7.84,
+          "end": 8.22
+        },
+        {
+          "raw": "i",
+          "start": 9.06,
+          "end": 9.08
+        },
+        {
+          "raw": ".e.",
+          "start": 9.08,
+          "end": 9.3
+        },
+        {
+          "raw": "generally",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "raw": "bodily",
+          "start": 9.8,
+          "end": 10.14
+        },
+        {
+          "raw": "Pleasure,",
+          "start": 10.14,
+          "end": 10.7
+        },
+        {
+          "raw": "under",
+          "start": 11.2,
+          "end": 11.32
+        },
+        {
+          "raw": "the",
+          "start": 11.32,
+          "end": 11.48
+        },
+        {
+          "raw": "notion",
+          "start": 11.48,
+          "end": 11.7
+        },
+        {
+          "raw": "of",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "raw": "its",
+          "start": 11.96,
+          "end": 12.1
+        },
+        {
+          "raw": "being",
+          "start": 12.1,
+          "end": 12.32
+        },
+        {
+          "raw": "a",
+          "start": 12.32,
+          "end": 12.54
+        },
+        {
+          "raw": "remedy",
+          "start": 12.54,
+          "end": 12.78
+        },
+        {
+          "raw": "for",
+          "start": 12.78,
+          "end": 13.1
+        },
+        {
+          "raw": "that",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "raw": "Pain.",
+          "start": 13.32,
+          "end": 13.64
+        },
+        {
+          "raw": "These",
+          "start": 14.68,
+          "end": 14.86
+        },
+        {
+          "raw": "remedies,",
+          "start": 14.86,
+          "end": 15.2
+        },
+        {
+          "raw": "moreover,",
+          "start": 15.48,
+          "end": 15.7
+        },
+        {
+          "raw": "come",
+          "start": 16.3,
+          "end": 16.44
+        },
+        {
+          "raw": "to",
+          "start": 16.44,
+          "end": 16.6
+        },
+        {
+          "raw": "be",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "raw": "violent",
+          "start": 16.78,
+          "end": 17.06
+        },
+        {
+          "raw": "ones,",
+          "start": 17.06,
+          "end": 17.52
+        },
+        {
+          "raw": "which",
+          "start": 18.04,
+          "end": 18.18
+        },
+        {
+          "raw": "is",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "raw": "the",
+          "start": 18.34,
+          "end": 18.5
+        },
+        {
+          "raw": "very",
+          "start": 18.5,
+          "end": 18.76
+        },
+        {
+          "raw": "reason",
+          "start": 18.76,
+          "end": 19.18
+        },
+        {
+          "raw": "they",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "raw": "are",
+          "start": 19.4,
+          "end": 19.54
+        },
+        {
+          "raw": "pursued,",
+          "start": 19.54,
+          "end": 19.92
+        },
+        {
+          "raw": "since",
+          "start": 20.44,
+          "end": 20.58
+        },
+        {
+          "raw": "the",
+          "start": 20.58,
+          "end": 20.8
+        },
+        {
+          "raw": "impression",
+          "start": 20.8,
+          "end": 21.14
+        },
+        {
+          "raw": "they",
+          "start": 21.14,
+          "end": 21.48
+        },
+        {
+          "raw": "produce",
+          "start": 21.48,
+          "end": 21.8
+        },
+        {
+          "raw": "on",
+          "start": 21.8,
+          "end": 22.04
+        },
+        {
+          "raw": "the",
+          "start": 22.04,
+          "end": 22.16
+        },
+        {
+          "raw": "mind",
+          "start": 22.16,
+          "end": 22.4
+        },
+        {
+          "raw": "is",
+          "start": 22.4,
+          "end": 22.62
+        },
+        {
+          "raw": "owing",
+          "start": 22.62,
+          "end": 22.9
+        },
+        {
+          "raw": "to",
+          "start": 22.9,
+          "end": 23.16
+        },
+        {
+          "raw": "their",
+          "start": 23.16,
+          "end": 23.3
+        },
+        {
+          "raw": "being",
+          "start": 23.3,
+          "end": 23.5
+        },
+        {
+          "raw": "looked",
+          "start": 23.5,
+          "end": 23.78
+        },
+        {
+          "raw": "at",
+          "start": 23.78,
+          "end": 23.98
+        },
+        {
+          "raw": "side",
+          "start": 23.98,
+          "end": 24.36
+        },
+        {
+          "raw": "by",
+          "start": 24.36,
+          "end": 24.58
+        },
+        {
+          "raw": "side",
+          "start": 24.58,
+          "end": 24.94
+        },
+        {
+          "raw": "with",
+          "start": 24.94,
+          "end": 25.16
+        },
+        {
+          "raw": "their",
+          "start": 25.16,
+          "end": 25.34
+        },
+        {
+          "raw": "contrary.",
+          "start": 25.34,
+          "end": 25.78
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "first",
+        "obvious",
+        "reason",
+        "is,",
+        "that",
+        "bodily",
+        "Pleasure",
+        "drives",
+        "out",
+        "Pain;",
+        "and",
+        "because",
+        "Pain",
+        "is",
+        "felt",
+        "in",
+        "excess",
+        "men",
+        "pursue",
+        "Pleasure",
+        "in",
+        "excess,",
+        "_i.e._",
+        "generally",
+        "bodily",
+        "Pleasure,",
+        "under",
+        "the",
+        "notion",
+        "of",
+        "its",
+        "being",
+        "a",
+        "remedy",
+        "for",
+        "that",
+        "Pain.",
+        "These",
+        "remedies,",
+        "moreover,",
+        "come",
+        "to",
+        "be",
+        "violent",
+        "ones;",
+        "which",
+        "is",
+        "the",
+        "very",
+        "reason",
+        "they",
+        "are",
+        "pursued,",
+        "since",
+        "the",
+        "impression",
+        "they",
+        "produce",
+        "on",
+        "the",
+        "mind",
+        "is",
+        "owing",
+        "to",
+        "their",
+        "being",
+        "looked",
+        "at",
+        "side",
+        "by",
+        "side",
+        "with",
+        "their",
+        "contrary."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "first",
+        "obvious",
+        "reason",
+        "is,",
+        "that",
+        "bodily",
+        "Pleasure",
+        "drives",
+        "out",
+        "Pain;",
+        "and",
+        "because",
+        "Pain",
+        "is",
+        "felt",
+        "in",
+        "excess",
+        "men",
+        "pursue",
+        "Pleasure",
+        "in",
+        "excess,",
+        "_i.e._",
+        "generally",
+        "bodily",
+        "Pleasure,",
+        "under",
+        "the",
+        "notion",
+        "of",
+        "its",
+        "being",
+        "a",
+        "remedy",
+        "for",
+        "that",
+        "Pain.",
+        "These",
+        "remedies,",
+        "moreover,",
+        "come",
+        "to",
+        "be",
+        "violent",
+        "ones;",
+        "which",
+        "is",
+        "the",
+        "very",
+        "reason",
+        "they",
+        "are",
+        "pursued,",
+        "since",
+        "the",
+        "impression",
+        "they",
+        "produce",
+        "on",
+        "the",
+        "mind",
+        "is",
+        "owing",
+        "to",
+        "their",
+        "being",
+        "looked",
+        "at",
+        "side",
+        "by",
+        "side",
+        "with",
+        "their",
+        "contrary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          75,
+          25,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "obvious",
+          "start": 0.8,
+          "end": 1.22,
+          "key": "obvious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 1.22,
+          "end": 1.6,
+          "key": "reason",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bodily",
+          "start": 2.54,
+          "end": 2.9,
+          "key": "bodily",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pleasure",
+          "start": 2.9,
+          "end": 3.36,
+          "key": "pleasure",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drives",
+          "start": 3.36,
+          "end": 3.7,
+          "key": "drives",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "out",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pain,",
+          "start": 3.96,
+          "end": 4.28,
+          "key": "pain",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "because",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Pain",
+          "start": 5.24,
+          "end": 5.54,
+          "key": "pain",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.54,
+          "end": 5.78,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 5.78,
+          "end": 5.98,
+          "key": "felt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.98,
+          "end": 6.2,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "excess",
+          "start": 6.2,
+          "end": 6.58,
+          "key": "excess",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 6.58,
+          "end": 6.94,
+          "key": "men",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pursue",
+          "start": 6.94,
+          "end": 7.28,
+          "key": "pursue",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Pleasure",
+          "start": 7.28,
+          "end": 7.66,
+          "key": "pleasure",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.66,
+          "end": 7.84,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "excess,",
+          "start": 7.84,
+          "end": 8.22,
+          "key": "excess",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 9.06,
+          "end": 9.08,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 9.08,
+          "end": 9.3,
+          "key": "e",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "generally",
+          "start": 9.8,
+          "end": 9.8,
+          "key": "generally",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "bodily",
+          "start": 9.8,
+          "end": 10.14,
+          "key": "bodily",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Pleasure,",
+          "start": 10.14,
+          "end": 10.7,
+          "key": "pleasure",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 11.2,
+          "end": 11.32,
+          "key": "under",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.32,
+          "end": 11.48,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "notion",
+          "start": 11.48,
+          "end": 11.7,
+          "key": "notion",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.7,
+          "end": 11.96,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 11.96,
+          "end": 12.1,
+          "key": "its",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 12.1,
+          "end": 12.32,
+          "key": "being",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.32,
+          "end": 12.54,
+          "key": "a",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "remedy",
+          "start": 12.54,
+          "end": 12.78,
+          "key": "remedy",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 12.78,
+          "end": 13.1,
+          "key": "for",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.1,
+          "end": 13.32,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Pain.",
+          "start": 13.32,
+          "end": 13.64,
+          "key": "pain",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 14.68,
+          "end": 14.86,
+          "key": "these",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "remedies,",
+          "start": 14.86,
+          "end": 15.2,
+          "key": "remedies",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "moreover,",
+          "start": 15.48,
+          "end": 15.7,
+          "key": "moreover",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 16.3,
+          "end": 16.44,
+          "key": "come",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.44,
+          "end": 16.6,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 16.6,
+          "end": 16.78,
+          "key": "be",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "violent",
+          "start": 16.78,
+          "end": 17.06,
+          "key": "violent",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "ones,",
+          "start": 17.06,
+          "end": 17.52,
+          "key": "ones",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 18.04,
+          "end": 18.18,
+          "key": "which",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 18.18,
+          "end": 18.34,
+          "key": "is",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.34,
+          "end": 18.5,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 18.5,
+          "end": 18.76,
+          "key": "very",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 18.76,
+          "end": 19.18,
+          "key": "reason",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 19.18,
+          "end": 19.4,
+          "key": "they",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 19.4,
+          "end": 19.54,
+          "key": "are",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "pursued,",
+          "start": 19.54,
+          "end": 19.92,
+          "key": "pursued",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 20.44,
+          "end": 20.58,
+          "key": "since",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.58,
+          "end": 20.8,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "impression",
+          "start": 20.8,
+          "end": 21.14,
+          "key": "impression",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 21.14,
+          "end": 21.48,
+          "key": "they",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "produce",
+          "start": 21.48,
+          "end": 21.8,
+          "key": "produce",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 21.8,
+          "end": 22.04,
+          "key": "on",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.04,
+          "end": 22.16,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 22.16,
+          "end": 22.4,
+          "key": "mind",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 22.4,
+          "end": 22.62,
+          "key": "is",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "owing",
+          "start": 22.62,
+          "end": 22.9,
+          "key": "owing",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.9,
+          "end": 23.16,
+          "key": "to",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 23.16,
+          "end": 23.3,
+          "key": "their",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 23.3,
+          "end": 23.5,
+          "key": "being",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 23.5,
+          "end": 23.78,
+          "key": "looked",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 23.78,
+          "end": 23.98,
+          "key": "at",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 23.98,
+          "end": 24.36,
+          "key": "side",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 24.36,
+          "end": 24.58,
+          "key": "by",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 24.58,
+          "end": 24.94,
+          "key": "side",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 24.94,
+          "end": 25.16,
+          "key": "with",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 25.16,
+          "end": 25.34,
+          "key": "their",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "contrary.",
+          "start": 25.34,
+          "end": 25.78,
+          "key": "contrary",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "first",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "obvious",
+          "start": 0.8,
+          "end": 1.22
+        },
+        {
+          "text": "reason",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "text": "is,",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "text": "that",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "bodily",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "Pleasure",
+          "start": 2.9,
+          "end": 3.36
+        },
+        {
+          "text": "drives",
+          "start": 3.36,
+          "end": 3.7
+        },
+        {
+          "text": "out",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "Pain;",
+          "start": 3.96,
+          "end": 4.28
+        },
+        {
+          "text": "and",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "because",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "text": "Pain",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "text": "is",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "text": "felt",
+          "start": 5.78,
+          "end": 5.98
+        },
+        {
+          "text": "in",
+          "start": 5.98,
+          "end": 6.2
+        },
+        {
+          "text": "excess",
+          "start": 6.2,
+          "end": 6.58
+        },
+        {
+          "text": "men",
+          "start": 6.58,
+          "end": 6.94
+        },
+        {
+          "text": "pursue",
+          "start": 6.94,
+          "end": 7.28
+        },
+        {
+          "text": "Pleasure",
+          "start": 7.28,
+          "end": 7.66
+        },
+        {
+          "text": "in",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "text": "excess,",
+          "start": 7.84,
+          "end": 8.22
+        },
+        {
+          "text": "_i.e._",
+          "start": 8.22,
+          "end": 9.01
+        },
+        {
+          "text": "generally",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "text": "bodily",
+          "start": 9.8,
+          "end": 10.14
+        },
+        {
+          "text": "Pleasure,",
+          "start": 10.14,
+          "end": 10.7
+        },
+        {
+          "text": "under",
+          "start": 11.2,
+          "end": 11.32
+        },
+        {
+          "text": "the",
+          "start": 11.32,
+          "end": 11.48
+        },
+        {
+          "text": "notion",
+          "start": 11.48,
+          "end": 11.7
+        },
+        {
+          "text": "of",
+          "start": 11.7,
+          "end": 11.96
+        },
+        {
+          "text": "its",
+          "start": 11.96,
+          "end": 12.1
+        },
+        {
+          "text": "being",
+          "start": 12.1,
+          "end": 12.32
+        },
+        {
+          "text": "a",
+          "start": 12.32,
+          "end": 12.54
+        },
+        {
+          "text": "remedy",
+          "start": 12.54,
+          "end": 12.78
+        },
+        {
+          "text": "for",
+          "start": 12.78,
+          "end": 13.1
+        },
+        {
+          "text": "that",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "text": "Pain.",
+          "start": 13.32,
+          "end": 13.64
+        },
+        {
+          "text": "These",
+          "start": 14.68,
+          "end": 14.86
+        },
+        {
+          "text": "remedies,",
+          "start": 14.86,
+          "end": 15.2
+        },
+        {
+          "text": "moreover,",
+          "start": 15.48,
+          "end": 15.7
+        },
+        {
+          "text": "come",
+          "start": 16.3,
+          "end": 16.44
+        },
+        {
+          "text": "to",
+          "start": 16.44,
+          "end": 16.6
+        },
+        {
+          "text": "be",
+          "start": 16.6,
+          "end": 16.78
+        },
+        {
+          "text": "violent",
+          "start": 16.78,
+          "end": 17.06
+        },
+        {
+          "text": "ones;",
+          "start": 17.06,
+          "end": 17.52
+        },
+        {
+          "text": "which",
+          "start": 18.04,
+          "end": 18.18
+        },
+        {
+          "text": "is",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "text": "the",
+          "start": 18.34,
+          "end": 18.5
+        },
+        {
+          "text": "very",
+          "start": 18.5,
+          "end": 18.76
+        },
+        {
+          "text": "reason",
+          "start": 18.76,
+          "end": 19.18
+        },
+        {
+          "text": "they",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "text": "are",
+          "start": 19.4,
+          "end": 19.54
+        },
+        {
+          "text": "pursued,",
+          "start": 19.54,
+          "end": 19.92
+        },
+        {
+          "text": "since",
+          "start": 20.44,
+          "end": 20.58
+        },
+        {
+          "text": "the",
+          "start": 20.58,
+          "end": 20.8
+        },
+        {
+          "text": "impression",
+          "start": 20.8,
+          "end": 21.14
+        },
+        {
+          "text": "they",
+          "start": 21.14,
+          "end": 21.48
+        },
+        {
+          "text": "produce",
+          "start": 21.48,
+          "end": 21.8
+        },
+        {
+          "text": "on",
+          "start": 21.8,
+          "end": 22.04
+        },
+        {
+          "text": "the",
+          "start": 22.04,
+          "end": 22.16
+        },
+        {
+          "text": "mind",
+          "start": 22.16,
+          "end": 22.4
+        },
+        {
+          "text": "is",
+          "start": 22.4,
+          "end": 22.62
+        },
+        {
+          "text": "owing",
+          "start": 22.62,
+          "end": 22.9
+        },
+        {
+          "text": "to",
+          "start": 22.9,
+          "end": 23.16
+        },
+        {
+          "text": "their",
+          "start": 23.16,
+          "end": 23.3
+        },
+        {
+          "text": "being",
+          "start": 23.3,
+          "end": 23.5
+        },
+        {
+          "text": "looked",
+          "start": 23.5,
+          "end": 23.78
+        },
+        {
+          "text": "at",
+          "start": 23.78,
+          "end": 23.98
+        },
+        {
+          "text": "side",
+          "start": 23.98,
+          "end": 24.36
+        },
+        {
+          "text": "by",
+          "start": 24.36,
+          "end": 24.58
+        },
+        {
+          "text": "side",
+          "start": 24.58,
+          "end": 24.94
+        },
+        {
+          "text": "with",
+          "start": 24.94,
+          "end": 25.16
+        },
+        {
+          "text": "their",
+          "start": 25.16,
+          "end": 25.34
+        },
+        {
+          "text": "contrary.",
+          "start": 25.34,
+          "end": 25.78
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 76,
+        "matched_words": 74
+      },
+      "match_ratio": 0.9866666666666667,
+      "rejection_reasons": [],
+      "seconds": 5.610378392000001
+    },
+    {
+      "asr_seconds": 7.225885484000003,
+      "alignment_seconds": 0.004611619000002065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Pleasure, Pain, These"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The first obvious reason is that bodily pleasure drives out pain, and because pain is felt in",
+          "start": 0.02,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8628159165382385
+            },
+            {
+              "text": " first",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.9967998266220093
+            },
+            {
+              "text": " obvious",
+              "start": 0.8,
+              "end": 1.2,
+              "probability": 0.9972647428512573
+            },
+            {
+              "text": " reason",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.998474657535553
+            },
+            {
+              "text": " is",
+              "start": 1.56,
+              "end": 1.98,
+              "probability": 0.9979161620140076
+            },
+            {
+              "text": " that",
+              "start": 1.98,
+              "end": 2.52,
+              "probability": 0.8731078505516052
+            },
+            {
+              "text": " bodily",
+              "start": 2.52,
+              "end": 2.88,
+              "probability": 0.9980423450469971
+            },
+            {
+              "text": " pleasure",
+              "start": 2.88,
+              "end": 3.32,
+              "probability": 0.9944053888320923
+            },
+            {
+              "text": " drives",
+              "start": 3.32,
+              "end": 3.74,
+              "probability": 0.9947423934936523
+            },
+            {
+              "text": " out",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.99673992395401
+            },
+            {
+              "text": " pain,",
+              "start": 3.96,
+              "end": 4.34,
+              "probability": 0.9986668825149536
+            },
+            {
+              "text": " and",
+              "start": 4.66,
+              "end": 5.0,
+              "probability": 0.9904758334159851
+            },
+            {
+              "text": " because",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.9845280051231384
+            },
+            {
+              "text": " pain",
+              "start": 5.24,
+              "end": 5.58,
+              "probability": 0.9990123510360718
+            },
+            {
+              "text": " is",
+              "start": 5.58,
+              "end": 5.76,
+              "probability": 0.9994240999221802
+            },
+            {
+              "text": " felt",
+              "start": 5.76,
+              "end": 6.0,
+              "probability": 0.9994829893112183
+            },
+            {
+              "text": " in",
+              "start": 6.0,
+              "end": 6.18,
+              "probability": 0.9985312223434448
+            }
+          ]
+        },
+        {
+          "text": " excess men pursue pleasure in excess, i.e. generally bodily pleasure, under the notion",
+          "start": 6.18,
+          "end": 11.72,
+          "words": [
+            {
+              "text": " excess",
+              "start": 6.18,
+              "end": 6.6,
+              "probability": 0.9998301267623901
+            },
+            {
+              "text": " men",
+              "start": 6.6,
+              "end": 6.92,
+              "probability": 0.3934139311313629
+            },
+            {
+              "text": " pursue",
+              "start": 6.92,
+              "end": 7.3,
+              "probability": 0.9842360019683838
+            },
+            {
+              "text": " pleasure",
+              "start": 7.3,
+              "end": 7.62,
+              "probability": 0.9971349239349365
+            },
+            {
+              "text": " in",
+              "start": 7.62,
+              "end": 7.82,
+              "probability": 0.9960317015647888
+            },
+            {
+              "text": " excess,",
+              "start": 7.82,
+              "end": 8.28,
+              "probability": 0.9973452687263489
+            },
+            {
+              "text": " i",
+              "start": 9.04,
+              "end": 9.08,
+              "probability": 0.8525914549827576
+            },
+            {
+              "text": ".e.",
+              "start": 9.08,
+              "end": 9.3,
+              "probability": 0.9957212209701538
+            },
+            {
+              "text": " generally",
+              "start": 9.8,
+              "end": 9.8,
+              "probability": 0.9903593063354492
+            },
+            {
+              "text": " bodily",
+              "start": 9.8,
+              "end": 10.14,
+              "probability": 0.9884267449378967
+            },
+            {
+              "text": " pleasure,",
+              "start": 10.14,
+              "end": 10.66,
+              "probability": 0.9974697828292847
+            },
+            {
+              "text": " under",
+              "start": 11.1,
+              "end": 11.34,
+              "probability": 0.9986218214035034
+            },
+            {
+              "text": " the",
+              "start": 11.34,
+              "end": 11.46,
+              "probability": 0.9995003938674927
+            },
+            {
+              "text": " notion",
+              "start": 11.46,
+              "end": 11.72,
+              "probability": 0.9987438321113586
+            }
+          ]
+        },
+        {
+          "text": " of its being a remedy for that pain. These remedies, moreover, come to be violent ones,",
+          "start": 11.72,
+          "end": 17.54,
+          "words": [
+            {
+              "text": " of",
+              "start": 11.72,
+              "end": 11.96,
+              "probability": 0.9947777986526489
+            },
+            {
+              "text": " its",
+              "start": 11.96,
+              "end": 12.1,
+              "probability": 0.9252757430076599
+            },
+            {
+              "text": " being",
+              "start": 12.1,
+              "end": 12.32,
+              "probability": 0.9977633953094482
+            },
+            {
+              "text": " a",
+              "start": 12.32,
+              "end": 12.52,
+              "probability": 0.9970921277999878
+            },
+            {
+              "text": " remedy",
+              "start": 12.52,
+              "end": 12.8,
+              "probability": 0.9812945127487183
+            },
+            {
+              "text": " for",
+              "start": 12.8,
+              "end": 13.1,
+              "probability": 0.9989966750144958
+            },
+            {
+              "text": " that",
+              "start": 13.1,
+              "end": 13.32,
+              "probability": 0.9987990856170654
+            },
+            {
+              "text": " pain.",
+              "start": 13.32,
+              "end": 13.72,
+              "probability": 0.9996180534362793
+            },
+            {
+              "text": " These",
+              "start": 14.62,
+              "end": 14.84,
+              "probability": 0.9957419037818909
+            },
+            {
+              "text": " remedies,",
+              "start": 14.84,
+              "end": 15.22,
+              "probability": 0.9961374402046204
+            },
+            {
+              "text": " moreover,",
+              "start": 15.46,
+              "end": 15.68,
+              "probability": 0.9933517575263977
+            },
+            {
+              "text": " come",
+              "start": 16.28,
+              "end": 16.44,
+              "probability": 0.9972683191299438
+            },
+            {
+              "text": " to",
+              "start": 16.44,
+              "end": 16.6,
+              "probability": 0.9996960163116455
+            },
+            {
+              "text": " be",
+              "start": 16.6,
+              "end": 16.76,
+              "probability": 0.9980048537254333
+            },
+            {
+              "text": " violent",
+              "start": 16.76,
+              "end": 17.1,
+              "probability": 0.9962878227233887
+            },
+            {
+              "text": " ones,",
+              "start": 17.1,
+              "end": 17.54,
+              "probability": 0.9992764592170715
+            }
+          ]
+        },
+        {
+          "text": " which is the very reason they are pursued, since the impression they produce on the mind",
+          "start": 18.02,
+          "end": 22.42,
+          "words": [
+            {
+              "text": " which",
+              "start": 18.02,
+              "end": 18.18,
+              "probability": 0.9993528723716736
+            },
+            {
+              "text": " is",
+              "start": 18.18,
+              "end": 18.34,
+              "probability": 0.9988110065460205
+            },
+            {
+              "text": " the",
+              "start": 18.34,
+              "end": 18.5,
+              "probability": 0.9992032647132874
+            },
+            {
+              "text": " very",
+              "start": 18.5,
+              "end": 18.74,
+              "probability": 0.9993547797203064
+            },
+            {
+              "text": " reason",
+              "start": 18.74,
+              "end": 19.18,
+              "probability": 0.9996339082717896
+            },
+            {
+              "text": " they",
+              "start": 19.18,
+              "end": 19.4,
+              "probability": 0.9978517293930054
+            },
+            {
+              "text": " are",
+              "start": 19.4,
+              "end": 19.54,
+              "probability": 0.9991687536239624
+            },
+            {
+              "text": " pursued,",
+              "start": 19.54,
+              "end": 19.94,
+              "probability": 0.9980702996253967
+            },
+            {
+              "text": " since",
+              "start": 20.42,
+              "end": 20.58,
+              "probability": 0.9986673593521118
+            },
+            {
+              "text": " the",
+              "start": 20.58,
+              "end": 20.78,
+              "probability": 0.9994823932647705
+            },
+            {
+              "text": " impression",
+              "start": 20.78,
+              "end": 21.16,
+              "probability": 0.9972014427185059
+            },
+            {
+              "text": " they",
+              "start": 21.16,
+              "end": 21.48,
+              "probability": 0.9975536465644836
+            },
+            {
+              "text": " produce",
+              "start": 21.48,
+              "end": 21.82,
+              "probability": 0.9993778467178345
+            },
+            {
+              "text": " on",
+              "start": 21.82,
+              "end": 22.02,
+              "probability": 0.998773992061615
+            },
+            {
+              "text": " the",
+              "start": 22.02,
+              "end": 22.14,
+              "probability": 0.9978601336479187
+            },
+            {
+              "text": " mind",
+              "start": 22.14,
+              "end": 22.42,
+              "probability": 0.9988054037094116
+            }
+          ]
+        },
+        {
+          "text": " is owing to their being looked at side by side with their contrary.",
+          "start": 22.42,
+          "end": 25.8,
+          "words": [
+            {
+              "text": " is",
+              "start": 22.42,
+              "end": 22.62,
+              "probability": 0.9306384325027466
+            },
+            {
+              "text": " owing",
+              "start": 22.62,
+              "end": 22.94,
+              "probability": 0.9923785924911499
+            },
+            {
+              "text": " to",
+              "start": 22.94,
+              "end": 23.16,
+              "probability": 0.9992908239364624
+            },
+            {
+              "text": " their",
+              "start": 23.16,
+              "end": 23.3,
+              "probability": 0.9855633974075317
+            },
+            {
+              "text": " being",
+              "start": 23.3,
+              "end": 23.5,
+              "probability": 0.9962918758392334
+            },
+            {
+              "text": " looked",
+              "start": 23.5,
+              "end": 23.78,
+              "probability": 0.9958194494247437
+            },
+            {
+              "text": " at",
+              "start": 23.78,
+              "end": 23.98,
+              "probability": 0.9984397292137146
+            },
+            {
+              "text": " side",
+              "start": 23.98,
+              "end": 24.36,
+              "probability": 0.9920036196708679
+            },
+            {
+              "text": " by",
+              "start": 24.36,
+              "end": 24.58,
+              "probability": 0.8646038770675659
+            },
+            {
+              "text": " side",
+              "start": 24.58,
+              "end": 24.94,
+              "probability": 0.9995552897453308
+            },
+            {
+              "text": " with",
+              "start": 24.94,
+              "end": 25.16,
+              "probability": 0.9983413219451904
+            },
+            {
+              "text": " their",
+              "start": 25.16,
+              "end": 25.32,
+              "probability": 0.999140739440918
+            },
+            {
+              "text": " contrary.",
+              "start": 25.32,
+              "end": 25.8,
+              "probability": 0.9922811388969421
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "first",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "obvious",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "raw": "reason",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "is",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "raw": "that",
+          "start": 1.98,
+          "end": 2.52
+        },
+        {
+          "raw": "bodily",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "raw": "pleasure",
+          "start": 2.88,
+          "end": 3.32
+        },
+        {
+          "raw": "drives",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "raw": "out",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "pain,",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "raw": "because",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "raw": "pain",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "raw": "is",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "raw": "felt",
+          "start": 5.76,
+          "end": 6.0
+        },
+        {
+          "raw": "in",
+          "start": 6.0,
+          "end": 6.18
+        },
+        {
+          "raw": "excess",
+          "start": 6.18,
+          "end": 6.6
+        },
+        {
+          "raw": "men",
+          "start": 6.6,
+          "end": 6.92
+        },
+        {
+          "raw": "pursue",
+          "start": 6.92,
+          "end": 7.3
+        },
+        {
+          "raw": "pleasure",
+          "start": 7.3,
+          "end": 7.62
+        },
+        {
+          "raw": "in",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "raw": "excess,",
+          "start": 7.82,
+          "end": 8.28
+        },
+        {
+          "raw": "i",
+          "start": 9.04,
+          "end": 9.08
+        },
+        {
+          "raw": ".e.",
+          "start": 9.08,
+          "end": 9.3
+        },
+        {
+          "raw": "generally",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "raw": "bodily",
+          "start": 9.8,
+          "end": 10.14
+        },
+        {
+          "raw": "pleasure,",
+          "start": 10.14,
+          "end": 10.66
+        },
+        {
+          "raw": "under",
+          "start": 11.1,
+          "end": 11.34
+        },
+        {
+          "raw": "the",
+          "start": 11.34,
+          "end": 11.46
+        },
+        {
+          "raw": "notion",
+          "start": 11.46,
+          "end": 11.72
+        },
+        {
+          "raw": "of",
+          "start": 11.72,
+          "end": 11.96
+        },
+        {
+          "raw": "its",
+          "start": 11.96,
+          "end": 12.1
+        },
+        {
+          "raw": "being",
+          "start": 12.1,
+          "end": 12.32
+        },
+        {
+          "raw": "a",
+          "start": 12.32,
+          "end": 12.52
+        },
+        {
+          "raw": "remedy",
+          "start": 12.52,
+          "end": 12.8
+        },
+        {
+          "raw": "for",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "raw": "that",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "raw": "pain.",
+          "start": 13.32,
+          "end": 13.72
+        },
+        {
+          "raw": "These",
+          "start": 14.62,
+          "end": 14.84
+        },
+        {
+          "raw": "remedies,",
+          "start": 14.84,
+          "end": 15.22
+        },
+        {
+          "raw": "moreover,",
+          "start": 15.46,
+          "end": 15.68
+        },
+        {
+          "raw": "come",
+          "start": 16.28,
+          "end": 16.44
+        },
+        {
+          "raw": "to",
+          "start": 16.44,
+          "end": 16.6
+        },
+        {
+          "raw": "be",
+          "start": 16.6,
+          "end": 16.76
+        },
+        {
+          "raw": "violent",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "raw": "ones,",
+          "start": 17.1,
+          "end": 17.54
+        },
+        {
+          "raw": "which",
+          "start": 18.02,
+          "end": 18.18
+        },
+        {
+          "raw": "is",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "raw": "the",
+          "start": 18.34,
+          "end": 18.5
+        },
+        {
+          "raw": "very",
+          "start": 18.5,
+          "end": 18.74
+        },
+        {
+          "raw": "reason",
+          "start": 18.74,
+          "end": 19.18
+        },
+        {
+          "raw": "they",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "raw": "are",
+          "start": 19.4,
+          "end": 19.54
+        },
+        {
+          "raw": "pursued,",
+          "start": 19.54,
+          "end": 19.94
+        },
+        {
+          "raw": "since",
+          "start": 20.42,
+          "end": 20.58
+        },
+        {
+          "raw": "the",
+          "start": 20.58,
+          "end": 20.78
+        },
+        {
+          "raw": "impression",
+          "start": 20.78,
+          "end": 21.16
+        },
+        {
+          "raw": "they",
+          "start": 21.16,
+          "end": 21.48
+        },
+        {
+          "raw": "produce",
+          "start": 21.48,
+          "end": 21.82
+        },
+        {
+          "raw": "on",
+          "start": 21.82,
+          "end": 22.02
+        },
+        {
+          "raw": "the",
+          "start": 22.02,
+          "end": 22.14
+        },
+        {
+          "raw": "mind",
+          "start": 22.14,
+          "end": 22.42
+        },
+        {
+          "raw": "is",
+          "start": 22.42,
+          "end": 22.62
+        },
+        {
+          "raw": "owing",
+          "start": 22.62,
+          "end": 22.94
+        },
+        {
+          "raw": "to",
+          "start": 22.94,
+          "end": 23.16
+        },
+        {
+          "raw": "their",
+          "start": 23.16,
+          "end": 23.3
+        },
+        {
+          "raw": "being",
+          "start": 23.3,
+          "end": 23.5
+        },
+        {
+          "raw": "looked",
+          "start": 23.5,
+          "end": 23.78
+        },
+        {
+          "raw": "at",
+          "start": 23.78,
+          "end": 23.98
+        },
+        {
+          "raw": "side",
+          "start": 23.98,
+          "end": 24.36
+        },
+        {
+          "raw": "by",
+          "start": 24.36,
+          "end": 24.58
+        },
+        {
+          "raw": "side",
+          "start": 24.58,
+          "end": 24.94
+        },
+        {
+          "raw": "with",
+          "start": 24.94,
+          "end": 25.16
+        },
+        {
+          "raw": "their",
+          "start": 25.16,
+          "end": 25.32
+        },
+        {
+          "raw": "contrary.",
+          "start": 25.32,
+          "end": 25.8
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "first",
+        "obvious",
+        "reason",
+        "is,",
+        "that",
+        "bodily",
+        "Pleasure",
+        "drives",
+        "out",
+        "Pain;",
+        "and",
+        "because",
+        "Pain",
+        "is",
+        "felt",
+        "in",
+        "excess",
+        "men",
+        "pursue",
+        "Pleasure",
+        "in",
+        "excess,",
+        "_i.e._",
+        "generally",
+        "bodily",
+        "Pleasure,",
+        "under",
+        "the",
+        "notion",
+        "of",
+        "its",
+        "being",
+        "a",
+        "remedy",
+        "for",
+        "that",
+        "Pain.",
+        "These",
+        "remedies,",
+        "moreover,",
+        "come",
+        "to",
+        "be",
+        "violent",
+        "ones;",
+        "which",
+        "is",
+        "the",
+        "very",
+        "reason",
+        "they",
+        "are",
+        "pursued,",
+        "since",
+        "the",
+        "impression",
+        "they",
+        "produce",
+        "on",
+        "the",
+        "mind",
+        "is",
+        "owing",
+        "to",
+        "their",
+        "being",
+        "looked",
+        "at",
+        "side",
+        "by",
+        "side",
+        "with",
+        "their",
+        "contrary."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "first",
+        "obvious",
+        "reason",
+        "is,",
+        "that",
+        "bodily",
+        "Pleasure",
+        "drives",
+        "out",
+        "Pain;",
+        "and",
+        "because",
+        "Pain",
+        "is",
+        "felt",
+        "in",
+        "excess",
+        "men",
+        "pursue",
+        "Pleasure",
+        "in",
+        "excess,",
+        "_i.e._",
+        "generally",
+        "bodily",
+        "Pleasure,",
+        "under",
+        "the",
+        "notion",
+        "of",
+        "its",
+        "being",
+        "a",
+        "remedy",
+        "for",
+        "that",
+        "Pain.",
+        "These",
+        "remedies,",
+        "moreover,",
+        "come",
+        "to",
+        "be",
+        "violent",
+        "ones;",
+        "which",
+        "is",
+        "the",
+        "very",
+        "reason",
+        "they",
+        "are",
+        "pursued,",
+        "since",
+        "the",
+        "impression",
+        "they",
+        "produce",
+        "on",
+        "the",
+        "mind",
+        "is",
+        "owing",
+        "to",
+        "their",
+        "being",
+        "looked",
+        "at",
+        "side",
+        "by",
+        "side",
+        "with",
+        "their",
+        "contrary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          75,
+          25,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "obvious",
+          "start": 0.8,
+          "end": 1.2,
+          "key": "obvious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "reason",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.56,
+          "end": 1.98,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.98,
+          "end": 2.52,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bodily",
+          "start": 2.52,
+          "end": 2.88,
+          "key": "bodily",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pleasure",
+          "start": 2.88,
+          "end": 3.32,
+          "key": "pleasure",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drives",
+          "start": 3.32,
+          "end": 3.74,
+          "key": "drives",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "out",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pain,",
+          "start": 3.96,
+          "end": 4.34,
+          "key": "pain",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 5.0,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "because",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pain",
+          "start": 5.24,
+          "end": 5.58,
+          "key": "pain",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.58,
+          "end": 5.76,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 5.76,
+          "end": 6.0,
+          "key": "felt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.0,
+          "end": 6.18,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "excess",
+          "start": 6.18,
+          "end": 6.6,
+          "key": "excess",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 6.6,
+          "end": 6.92,
+          "key": "men",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pursue",
+          "start": 6.92,
+          "end": 7.3,
+          "key": "pursue",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "pleasure",
+          "start": 7.3,
+          "end": 7.62,
+          "key": "pleasure",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.62,
+          "end": 7.82,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "excess,",
+          "start": 7.82,
+          "end": 8.28,
+          "key": "excess",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 9.04,
+          "end": 9.08,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 9.08,
+          "end": 9.3,
+          "key": "e",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "generally",
+          "start": 9.8,
+          "end": 9.8,
+          "key": "generally",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "bodily",
+          "start": 9.8,
+          "end": 10.14,
+          "key": "bodily",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "pleasure,",
+          "start": 10.14,
+          "end": 10.66,
+          "key": "pleasure",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 11.1,
+          "end": 11.34,
+          "key": "under",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.34,
+          "end": 11.46,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "notion",
+          "start": 11.46,
+          "end": 11.72,
+          "key": "notion",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.72,
+          "end": 11.96,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 11.96,
+          "end": 12.1,
+          "key": "its",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 12.1,
+          "end": 12.32,
+          "key": "being",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.32,
+          "end": 12.52,
+          "key": "a",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "remedy",
+          "start": 12.52,
+          "end": 12.8,
+          "key": "remedy",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 12.8,
+          "end": 13.1,
+          "key": "for",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.1,
+          "end": 13.32,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "pain.",
+          "start": 13.32,
+          "end": 13.72,
+          "key": "pain",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 14.62,
+          "end": 14.84,
+          "key": "these",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "remedies,",
+          "start": 14.84,
+          "end": 15.22,
+          "key": "remedies",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "moreover,",
+          "start": 15.46,
+          "end": 15.68,
+          "key": "moreover",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 16.28,
+          "end": 16.44,
+          "key": "come",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.44,
+          "end": 16.6,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 16.6,
+          "end": 16.76,
+          "key": "be",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "violent",
+          "start": 16.76,
+          "end": 17.1,
+          "key": "violent",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "ones,",
+          "start": 17.1,
+          "end": 17.54,
+          "key": "ones",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 18.02,
+          "end": 18.18,
+          "key": "which",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 18.18,
+          "end": 18.34,
+          "key": "is",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.34,
+          "end": 18.5,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 18.5,
+          "end": 18.74,
+          "key": "very",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 18.74,
+          "end": 19.18,
+          "key": "reason",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 19.18,
+          "end": 19.4,
+          "key": "they",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 19.4,
+          "end": 19.54,
+          "key": "are",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "pursued,",
+          "start": 19.54,
+          "end": 19.94,
+          "key": "pursued",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 20.42,
+          "end": 20.58,
+          "key": "since",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.58,
+          "end": 20.78,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "impression",
+          "start": 20.78,
+          "end": 21.16,
+          "key": "impression",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 21.16,
+          "end": 21.48,
+          "key": "they",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "produce",
+          "start": 21.48,
+          "end": 21.82,
+          "key": "produce",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 21.82,
+          "end": 22.02,
+          "key": "on",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.02,
+          "end": 22.14,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 22.14,
+          "end": 22.42,
+          "key": "mind",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 22.42,
+          "end": 22.62,
+          "key": "is",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "owing",
+          "start": 22.62,
+          "end": 22.94,
+          "key": "owing",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.94,
+          "end": 23.16,
+          "key": "to",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 23.16,
+          "end": 23.3,
+          "key": "their",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 23.3,
+          "end": 23.5,
+          "key": "being",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 23.5,
+          "end": 23.78,
+          "key": "looked",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 23.78,
+          "end": 23.98,
+          "key": "at",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 23.98,
+          "end": 24.36,
+          "key": "side",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 24.36,
+          "end": 24.58,
+          "key": "by",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 24.58,
+          "end": 24.94,
+          "key": "side",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 24.94,
+          "end": 25.16,
+          "key": "with",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 25.16,
+          "end": 25.32,
+          "key": "their",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "contrary.",
+          "start": 25.32,
+          "end": 25.8,
+          "key": "contrary",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "first",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "obvious",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "reason",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "is,",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "text": "that",
+          "start": 1.98,
+          "end": 2.52
+        },
+        {
+          "text": "bodily",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "text": "Pleasure",
+          "start": 2.88,
+          "end": 3.32
+        },
+        {
+          "text": "drives",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "text": "out",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "Pain;",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "text": "and",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "text": "because",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "text": "Pain",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "text": "is",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "text": "felt",
+          "start": 5.76,
+          "end": 6.0
+        },
+        {
+          "text": "in",
+          "start": 6.0,
+          "end": 6.18
+        },
+        {
+          "text": "excess",
+          "start": 6.18,
+          "end": 6.6
+        },
+        {
+          "text": "men",
+          "start": 6.6,
+          "end": 6.92
+        },
+        {
+          "text": "pursue",
+          "start": 6.92,
+          "end": 7.3
+        },
+        {
+          "text": "Pleasure",
+          "start": 7.3,
+          "end": 7.62
+        },
+        {
+          "text": "in",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "text": "excess,",
+          "start": 7.82,
+          "end": 8.28
+        },
+        {
+          "text": "_i.e._",
+          "start": 8.28,
+          "end": 9.04
+        },
+        {
+          "text": "generally",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "text": "bodily",
+          "start": 9.8,
+          "end": 10.14
+        },
+        {
+          "text": "Pleasure,",
+          "start": 10.14,
+          "end": 10.66
+        },
+        {
+          "text": "under",
+          "start": 11.1,
+          "end": 11.34
+        },
+        {
+          "text": "the",
+          "start": 11.34,
+          "end": 11.46
+        },
+        {
+          "text": "notion",
+          "start": 11.46,
+          "end": 11.72
+        },
+        {
+          "text": "of",
+          "start": 11.72,
+          "end": 11.96
+        },
+        {
+          "text": "its",
+          "start": 11.96,
+          "end": 12.1
+        },
+        {
+          "text": "being",
+          "start": 12.1,
+          "end": 12.32
+        },
+        {
+          "text": "a",
+          "start": 12.32,
+          "end": 12.52
+        },
+        {
+          "text": "remedy",
+          "start": 12.52,
+          "end": 12.8
+        },
+        {
+          "text": "for",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "text": "that",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "text": "Pain.",
+          "start": 13.32,
+          "end": 13.72
+        },
+        {
+          "text": "These",
+          "start": 14.62,
+          "end": 14.84
+        },
+        {
+          "text": "remedies,",
+          "start": 14.84,
+          "end": 15.22
+        },
+        {
+          "text": "moreover,",
+          "start": 15.46,
+          "end": 15.68
+        },
+        {
+          "text": "come",
+          "start": 16.28,
+          "end": 16.44
+        },
+        {
+          "text": "to",
+          "start": 16.44,
+          "end": 16.6
+        },
+        {
+          "text": "be",
+          "start": 16.6,
+          "end": 16.76
+        },
+        {
+          "text": "violent",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "text": "ones;",
+          "start": 17.1,
+          "end": 17.54
+        },
+        {
+          "text": "which",
+          "start": 18.02,
+          "end": 18.18
+        },
+        {
+          "text": "is",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "text": "the",
+          "start": 18.34,
+          "end": 18.5
+        },
+        {
+          "text": "very",
+          "start": 18.5,
+          "end": 18.74
+        },
+        {
+          "text": "reason",
+          "start": 18.74,
+          "end": 19.18
+        },
+        {
+          "text": "they",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "text": "are",
+          "start": 19.4,
+          "end": 19.54
+        },
+        {
+          "text": "pursued,",
+          "start": 19.54,
+          "end": 19.94
+        },
+        {
+          "text": "since",
+          "start": 20.42,
+          "end": 20.58
+        },
+        {
+          "text": "the",
+          "start": 20.58,
+          "end": 20.78
+        },
+        {
+          "text": "impression",
+          "start": 20.78,
+          "end": 21.16
+        },
+        {
+          "text": "they",
+          "start": 21.16,
+          "end": 21.48
+        },
+        {
+          "text": "produce",
+          "start": 21.48,
+          "end": 21.82
+        },
+        {
+          "text": "on",
+          "start": 21.82,
+          "end": 22.02
+        },
+        {
+          "text": "the",
+          "start": 22.02,
+          "end": 22.14
+        },
+        {
+          "text": "mind",
+          "start": 22.14,
+          "end": 22.42
+        },
+        {
+          "text": "is",
+          "start": 22.42,
+          "end": 22.62
+        },
+        {
+          "text": "owing",
+          "start": 22.62,
+          "end": 22.94
+        },
+        {
+          "text": "to",
+          "start": 22.94,
+          "end": 23.16
+        },
+        {
+          "text": "their",
+          "start": 23.16,
+          "end": 23.3
+        },
+        {
+          "text": "being",
+          "start": 23.3,
+          "end": 23.5
+        },
+        {
+          "text": "looked",
+          "start": 23.5,
+          "end": 23.78
+        },
+        {
+          "text": "at",
+          "start": 23.78,
+          "end": 23.98
+        },
+        {
+          "text": "side",
+          "start": 23.98,
+          "end": 24.36
+        },
+        {
+          "text": "by",
+          "start": 24.36,
+          "end": 24.58
+        },
+        {
+          "text": "side",
+          "start": 24.58,
+          "end": 24.94
+        },
+        {
+          "text": "with",
+          "start": 24.94,
+          "end": 25.16
+        },
+        {
+          "text": "their",
+          "start": 25.16,
+          "end": 25.32
+        },
+        {
+          "text": "contrary.",
+          "start": 25.32,
+          "end": 25.8
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 76,
+        "matched_words": 74
+      },
+      "match_ratio": 0.9866666666666667,
+      "rejection_reasons": [],
+      "seconds": 7.23064045000001
+    },
+    {
+      "asr_seconds": 7.30482478899998,
+      "alignment_seconds": 0.004734267000003456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The first obvious reason is that bodily pleasure drives out pain, and because pain is felt",
+          "start": 0.02,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8628159165382385
+            },
+            {
+              "text": " first",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.9967998266220093
+            },
+            {
+              "text": " obvious",
+              "start": 0.78,
+              "end": 1.2,
+              "probability": 0.9972647428512573
+            },
+            {
+              "text": " reason",
+              "start": 1.2,
+              "end": 1.56,
+              "probability": 0.998474657535553
+            },
+            {
+              "text": " is",
+              "start": 1.56,
+              "end": 1.98,
+              "probability": 0.9979161620140076
+            },
+            {
+              "text": " that",
+              "start": 1.98,
+              "end": 2.52,
+              "probability": 0.8731078505516052
+            },
+            {
+              "text": " bodily",
+              "start": 2.52,
+              "end": 2.88,
+              "probability": 0.9980423450469971
+            },
+            {
+              "text": " pleasure",
+              "start": 2.88,
+              "end": 3.32,
+              "probability": 0.9944053888320923
+            },
+            {
+              "text": " drives",
+              "start": 3.32,
+              "end": 3.74,
+              "probability": 0.9947423934936523
+            },
+            {
+              "text": " out",
+              "start": 3.74,
+              "end": 3.96,
+              "probability": 0.99673992395401
+            },
+            {
+              "text": " pain,",
+              "start": 3.96,
+              "end": 4.34,
+              "probability": 0.9986668825149536
+            },
+            {
+              "text": " and",
+              "start": 4.66,
+              "end": 5.0,
+              "probability": 0.9904758334159851
+            },
+            {
+              "text": " because",
+              "start": 5.0,
+              "end": 5.24,
+              "probability": 0.9845280051231384
+            },
+            {
+              "text": " pain",
+              "start": 5.24,
+              "end": 5.58,
+              "probability": 0.9990123510360718
+            },
+            {
+              "text": " is",
+              "start": 5.58,
+              "end": 5.76,
+              "probability": 0.9994240999221802
+            },
+            {
+              "text": " felt",
+              "start": 5.76,
+              "end": 6.0,
+              "probability": 0.9994829893112183
+            }
+          ]
+        },
+        {
+          "text": " in excess men pursue pleasure in excess, i.e. generally bodily pleasure, under the notion",
+          "start": 6.0,
+          "end": 11.72,
+          "words": [
+            {
+              "text": " in",
+              "start": 6.0,
+              "end": 6.18,
+              "probability": 0.9985312223434448
+            },
+            {
+              "text": " excess",
+              "start": 6.18,
+              "end": 6.6,
+              "probability": 0.9998301267623901
+            },
+            {
+              "text": " men",
+              "start": 6.6,
+              "end": 6.92,
+              "probability": 0.3934139311313629
+            },
+            {
+              "text": " pursue",
+              "start": 6.92,
+              "end": 7.3,
+              "probability": 0.9842360019683838
+            },
+            {
+              "text": " pleasure",
+              "start": 7.3,
+              "end": 7.62,
+              "probability": 0.9971349239349365
+            },
+            {
+              "text": " in",
+              "start": 7.62,
+              "end": 7.82,
+              "probability": 0.9960317015647888
+            },
+            {
+              "text": " excess,",
+              "start": 7.82,
+              "end": 8.28,
+              "probability": 0.9973452687263489
+            },
+            {
+              "text": " i",
+              "start": 9.04,
+              "end": 9.08,
+              "probability": 0.8525914549827576
+            },
+            {
+              "text": ".e.",
+              "start": 9.08,
+              "end": 9.3,
+              "probability": 0.9957212209701538
+            },
+            {
+              "text": " generally",
+              "start": 9.8,
+              "end": 9.8,
+              "probability": 0.9903593063354492
+            },
+            {
+              "text": " bodily",
+              "start": 9.8,
+              "end": 10.14,
+              "probability": 0.9884267449378967
+            },
+            {
+              "text": " pleasure,",
+              "start": 10.14,
+              "end": 10.66,
+              "probability": 0.9974697828292847
+            },
+            {
+              "text": " under",
+              "start": 11.1,
+              "end": 11.34,
+              "probability": 0.9986218214035034
+            },
+            {
+              "text": " the",
+              "start": 11.34,
+              "end": 11.46,
+              "probability": 0.9995003938674927
+            },
+            {
+              "text": " notion",
+              "start": 11.46,
+              "end": 11.72,
+              "probability": 0.9987438321113586
+            }
+          ]
+        },
+        {
+          "text": " of its being a remedy for that pain.",
+          "start": 11.72,
+          "end": 13.72,
+          "words": [
+            {
+              "text": " of",
+              "start": 11.72,
+              "end": 11.96,
+              "probability": 0.9947777986526489
+            },
+            {
+              "text": " its",
+              "start": 11.96,
+              "end": 12.1,
+              "probability": 0.9252757430076599
+            },
+            {
+              "text": " being",
+              "start": 12.1,
+              "end": 12.32,
+              "probability": 0.9977633953094482
+            },
+            {
+              "text": " a",
+              "start": 12.32,
+              "end": 12.52,
+              "probability": 0.9970921277999878
+            },
+            {
+              "text": " remedy",
+              "start": 12.52,
+              "end": 12.8,
+              "probability": 0.9812945127487183
+            },
+            {
+              "text": " for",
+              "start": 12.8,
+              "end": 13.1,
+              "probability": 0.9989966750144958
+            },
+            {
+              "text": " that",
+              "start": 13.1,
+              "end": 13.32,
+              "probability": 0.9987990856170654
+            },
+            {
+              "text": " pain.",
+              "start": 13.32,
+              "end": 13.72,
+              "probability": 0.9996180534362793
+            }
+          ]
+        },
+        {
+          "text": " These remedies, moreover, come to be violent ones, which is the very reason they are pursued,",
+          "start": 14.62,
+          "end": 19.94,
+          "words": [
+            {
+              "text": " These",
+              "start": 14.62,
+              "end": 14.84,
+              "probability": 0.9957419037818909
+            },
+            {
+              "text": " remedies,",
+              "start": 14.84,
+              "end": 15.22,
+              "probability": 0.9961374402046204
+            },
+            {
+              "text": " moreover,",
+              "start": 15.46,
+              "end": 15.7,
+              "probability": 0.9933517575263977
+            },
+            {
+              "text": " come",
+              "start": 16.28,
+              "end": 16.44,
+              "probability": 0.9972683191299438
+            },
+            {
+              "text": " to",
+              "start": 16.44,
+              "end": 16.6,
+              "probability": 0.9996960163116455
+            },
+            {
+              "text": " be",
+              "start": 16.6,
+              "end": 16.76,
+              "probability": 0.9980048537254333
+            },
+            {
+              "text": " violent",
+              "start": 16.76,
+              "end": 17.1,
+              "probability": 0.9962878227233887
+            },
+            {
+              "text": " ones,",
+              "start": 17.1,
+              "end": 17.54,
+              "probability": 0.9992764592170715
+            },
+            {
+              "text": " which",
+              "start": 18.02,
+              "end": 18.18,
+              "probability": 0.9993528723716736
+            },
+            {
+              "text": " is",
+              "start": 18.18,
+              "end": 18.34,
+              "probability": 0.9988110065460205
+            },
+            {
+              "text": " the",
+              "start": 18.34,
+              "end": 18.5,
+              "probability": 0.9992032647132874
+            },
+            {
+              "text": " very",
+              "start": 18.5,
+              "end": 18.74,
+              "probability": 0.9993547797203064
+            },
+            {
+              "text": " reason",
+              "start": 18.74,
+              "end": 19.18,
+              "probability": 0.9996339082717896
+            },
+            {
+              "text": " they",
+              "start": 19.18,
+              "end": 19.4,
+              "probability": 0.9978517293930054
+            },
+            {
+              "text": " are",
+              "start": 19.4,
+              "end": 19.54,
+              "probability": 0.9991687536239624
+            },
+            {
+              "text": " pursued,",
+              "start": 19.54,
+              "end": 19.94,
+              "probability": 0.9980702996253967
+            }
+          ]
+        },
+        {
+          "text": " since the impression they produce on the mind is owing to their being looked at side by",
+          "start": 20.42,
+          "end": 24.58,
+          "words": [
+            {
+              "text": " since",
+              "start": 20.42,
+              "end": 20.58,
+              "probability": 0.9986673593521118
+            },
+            {
+              "text": " the",
+              "start": 20.58,
+              "end": 20.78,
+              "probability": 0.9994823932647705
+            },
+            {
+              "text": " impression",
+              "start": 20.78,
+              "end": 21.16,
+              "probability": 0.9972014427185059
+            },
+            {
+              "text": " they",
+              "start": 21.16,
+              "end": 21.48,
+              "probability": 0.9975536465644836
+            },
+            {
+              "text": " produce",
+              "start": 21.48,
+              "end": 21.82,
+              "probability": 0.9993778467178345
+            },
+            {
+              "text": " on",
+              "start": 21.82,
+              "end": 22.02,
+              "probability": 0.998773992061615
+            },
+            {
+              "text": " the",
+              "start": 22.02,
+              "end": 22.14,
+              "probability": 0.9978601336479187
+            },
+            {
+              "text": " mind",
+              "start": 22.14,
+              "end": 22.42,
+              "probability": 0.9988054037094116
+            },
+            {
+              "text": " is",
+              "start": 22.42,
+              "end": 22.62,
+              "probability": 0.9985252022743225
+            },
+            {
+              "text": " owing",
+              "start": 22.62,
+              "end": 22.9,
+              "probability": 0.9950968623161316
+            },
+            {
+              "text": " to",
+              "start": 22.9,
+              "end": 23.16,
+              "probability": 0.9992628693580627
+            },
+            {
+              "text": " their",
+              "start": 23.16,
+              "end": 23.3,
+              "probability": 0.9965692758560181
+            },
+            {
+              "text": " being",
+              "start": 23.3,
+              "end": 23.52,
+              "probability": 0.9983127117156982
+            },
+            {
+              "text": " looked",
+              "start": 23.52,
+              "end": 23.78,
+              "probability": 0.993977427482605
+            },
+            {
+              "text": " at",
+              "start": 23.78,
+              "end": 23.98,
+              "probability": 0.9970093369483948
+            },
+            {
+              "text": " side",
+              "start": 23.98,
+              "end": 24.36,
+              "probability": 0.9953243136405945
+            },
+            {
+              "text": " by",
+              "start": 24.36,
+              "end": 24.58,
+              "probability": 0.8387469053268433
+            }
+          ]
+        },
+        {
+          "text": " side with their contrary.",
+          "start": 24.58,
+          "end": 25.78,
+          "words": [
+            {
+              "text": " side",
+              "start": 24.58,
+              "end": 24.96,
+              "probability": 0.5351594686508179
+            },
+            {
+              "text": " with",
+              "start": 24.96,
+              "end": 25.16,
+              "probability": 0.9934316277503967
+            },
+            {
+              "text": " their",
+              "start": 25.16,
+              "end": 25.32,
+              "probability": 0.9966033697128296
+            },
+            {
+              "text": " contrary.",
+              "start": 25.32,
+              "end": 25.78,
+              "probability": 0.9924830794334412
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "first",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "obvious",
+          "start": 0.78,
+          "end": 1.2
+        },
+        {
+          "raw": "reason",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "raw": "is",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "raw": "that",
+          "start": 1.98,
+          "end": 2.52
+        },
+        {
+          "raw": "bodily",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "raw": "pleasure",
+          "start": 2.88,
+          "end": 3.32
+        },
+        {
+          "raw": "drives",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "raw": "out",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "raw": "pain,",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "raw": "because",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "raw": "pain",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "raw": "is",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "raw": "felt",
+          "start": 5.76,
+          "end": 6.0
+        },
+        {
+          "raw": "in",
+          "start": 6.0,
+          "end": 6.18
+        },
+        {
+          "raw": "excess",
+          "start": 6.18,
+          "end": 6.6
+        },
+        {
+          "raw": "men",
+          "start": 6.6,
+          "end": 6.92
+        },
+        {
+          "raw": "pursue",
+          "start": 6.92,
+          "end": 7.3
+        },
+        {
+          "raw": "pleasure",
+          "start": 7.3,
+          "end": 7.62
+        },
+        {
+          "raw": "in",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "raw": "excess,",
+          "start": 7.82,
+          "end": 8.28
+        },
+        {
+          "raw": "i",
+          "start": 9.04,
+          "end": 9.08
+        },
+        {
+          "raw": ".e.",
+          "start": 9.08,
+          "end": 9.3
+        },
+        {
+          "raw": "generally",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "raw": "bodily",
+          "start": 9.8,
+          "end": 10.14
+        },
+        {
+          "raw": "pleasure,",
+          "start": 10.14,
+          "end": 10.66
+        },
+        {
+          "raw": "under",
+          "start": 11.1,
+          "end": 11.34
+        },
+        {
+          "raw": "the",
+          "start": 11.34,
+          "end": 11.46
+        },
+        {
+          "raw": "notion",
+          "start": 11.46,
+          "end": 11.72
+        },
+        {
+          "raw": "of",
+          "start": 11.72,
+          "end": 11.96
+        },
+        {
+          "raw": "its",
+          "start": 11.96,
+          "end": 12.1
+        },
+        {
+          "raw": "being",
+          "start": 12.1,
+          "end": 12.32
+        },
+        {
+          "raw": "a",
+          "start": 12.32,
+          "end": 12.52
+        },
+        {
+          "raw": "remedy",
+          "start": 12.52,
+          "end": 12.8
+        },
+        {
+          "raw": "for",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "raw": "that",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "raw": "pain.",
+          "start": 13.32,
+          "end": 13.72
+        },
+        {
+          "raw": "These",
+          "start": 14.62,
+          "end": 14.84
+        },
+        {
+          "raw": "remedies,",
+          "start": 14.84,
+          "end": 15.22
+        },
+        {
+          "raw": "moreover,",
+          "start": 15.46,
+          "end": 15.7
+        },
+        {
+          "raw": "come",
+          "start": 16.28,
+          "end": 16.44
+        },
+        {
+          "raw": "to",
+          "start": 16.44,
+          "end": 16.6
+        },
+        {
+          "raw": "be",
+          "start": 16.6,
+          "end": 16.76
+        },
+        {
+          "raw": "violent",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "raw": "ones,",
+          "start": 17.1,
+          "end": 17.54
+        },
+        {
+          "raw": "which",
+          "start": 18.02,
+          "end": 18.18
+        },
+        {
+          "raw": "is",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "raw": "the",
+          "start": 18.34,
+          "end": 18.5
+        },
+        {
+          "raw": "very",
+          "start": 18.5,
+          "end": 18.74
+        },
+        {
+          "raw": "reason",
+          "start": 18.74,
+          "end": 19.18
+        },
+        {
+          "raw": "they",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "raw": "are",
+          "start": 19.4,
+          "end": 19.54
+        },
+        {
+          "raw": "pursued,",
+          "start": 19.54,
+          "end": 19.94
+        },
+        {
+          "raw": "since",
+          "start": 20.42,
+          "end": 20.58
+        },
+        {
+          "raw": "the",
+          "start": 20.58,
+          "end": 20.78
+        },
+        {
+          "raw": "impression",
+          "start": 20.78,
+          "end": 21.16
+        },
+        {
+          "raw": "they",
+          "start": 21.16,
+          "end": 21.48
+        },
+        {
+          "raw": "produce",
+          "start": 21.48,
+          "end": 21.82
+        },
+        {
+          "raw": "on",
+          "start": 21.82,
+          "end": 22.02
+        },
+        {
+          "raw": "the",
+          "start": 22.02,
+          "end": 22.14
+        },
+        {
+          "raw": "mind",
+          "start": 22.14,
+          "end": 22.42
+        },
+        {
+          "raw": "is",
+          "start": 22.42,
+          "end": 22.62
+        },
+        {
+          "raw": "owing",
+          "start": 22.62,
+          "end": 22.9
+        },
+        {
+          "raw": "to",
+          "start": 22.9,
+          "end": 23.16
+        },
+        {
+          "raw": "their",
+          "start": 23.16,
+          "end": 23.3
+        },
+        {
+          "raw": "being",
+          "start": 23.3,
+          "end": 23.52
+        },
+        {
+          "raw": "looked",
+          "start": 23.52,
+          "end": 23.78
+        },
+        {
+          "raw": "at",
+          "start": 23.78,
+          "end": 23.98
+        },
+        {
+          "raw": "side",
+          "start": 23.98,
+          "end": 24.36
+        },
+        {
+          "raw": "by",
+          "start": 24.36,
+          "end": 24.58
+        },
+        {
+          "raw": "side",
+          "start": 24.58,
+          "end": 24.96
+        },
+        {
+          "raw": "with",
+          "start": 24.96,
+          "end": 25.16
+        },
+        {
+          "raw": "their",
+          "start": 25.16,
+          "end": 25.32
+        },
+        {
+          "raw": "contrary.",
+          "start": 25.32,
+          "end": 25.78
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "first",
+        "obvious",
+        "reason",
+        "is,",
+        "that",
+        "bodily",
+        "Pleasure",
+        "drives",
+        "out",
+        "Pain;",
+        "and",
+        "because",
+        "Pain",
+        "is",
+        "felt",
+        "in",
+        "excess",
+        "men",
+        "pursue",
+        "Pleasure",
+        "in",
+        "excess,",
+        "_i.e._",
+        "generally",
+        "bodily",
+        "Pleasure,",
+        "under",
+        "the",
+        "notion",
+        "of",
+        "its",
+        "being",
+        "a",
+        "remedy",
+        "for",
+        "that",
+        "Pain.",
+        "These",
+        "remedies,",
+        "moreover,",
+        "come",
+        "to",
+        "be",
+        "violent",
+        "ones;",
+        "which",
+        "is",
+        "the",
+        "very",
+        "reason",
+        "they",
+        "are",
+        "pursued,",
+        "since",
+        "the",
+        "impression",
+        "they",
+        "produce",
+        "on",
+        "the",
+        "mind",
+        "is",
+        "owing",
+        "to",
+        "their",
+        "being",
+        "looked",
+        "at",
+        "side",
+        "by",
+        "side",
+        "with",
+        "their",
+        "contrary."
+      ],
+      "acoustic_expected_tokens": [
+        "The",
+        "first",
+        "obvious",
+        "reason",
+        "is,",
+        "that",
+        "bodily",
+        "Pleasure",
+        "drives",
+        "out",
+        "Pain;",
+        "and",
+        "because",
+        "Pain",
+        "is",
+        "felt",
+        "in",
+        "excess",
+        "men",
+        "pursue",
+        "Pleasure",
+        "in",
+        "excess,",
+        "_i.e._",
+        "generally",
+        "bodily",
+        "Pleasure,",
+        "under",
+        "the",
+        "notion",
+        "of",
+        "its",
+        "being",
+        "a",
+        "remedy",
+        "for",
+        "that",
+        "Pain.",
+        "These",
+        "remedies,",
+        "moreover,",
+        "come",
+        "to",
+        "be",
+        "violent",
+        "ones;",
+        "which",
+        "is",
+        "the",
+        "very",
+        "reason",
+        "they",
+        "are",
+        "pursued,",
+        "since",
+        "the",
+        "impression",
+        "they",
+        "produce",
+        "on",
+        "the",
+        "mind",
+        "is",
+        "owing",
+        "to",
+        "their",
+        "being",
+        "looked",
+        "at",
+        "side",
+        "by",
+        "side",
+        "with",
+        "their",
+        "contrary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          75,
+          25,
+          76
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "obvious",
+          "start": 0.78,
+          "end": 1.2,
+          "key": "obvious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 1.2,
+          "end": 1.56,
+          "key": "reason",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.56,
+          "end": 1.98,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.98,
+          "end": 2.52,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bodily",
+          "start": 2.52,
+          "end": 2.88,
+          "key": "bodily",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pleasure",
+          "start": 2.88,
+          "end": 3.32,
+          "key": "pleasure",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drives",
+          "start": 3.32,
+          "end": 3.74,
+          "key": "drives",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.74,
+          "end": 3.96,
+          "key": "out",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pain,",
+          "start": 3.96,
+          "end": 4.34,
+          "key": "pain",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.66,
+          "end": 5.0,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 5.0,
+          "end": 5.24,
+          "key": "because",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pain",
+          "start": 5.24,
+          "end": 5.58,
+          "key": "pain",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.58,
+          "end": 5.76,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 5.76,
+          "end": 6.0,
+          "key": "felt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.0,
+          "end": 6.18,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "excess",
+          "start": 6.18,
+          "end": 6.6,
+          "key": "excess",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 6.6,
+          "end": 6.92,
+          "key": "men",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pursue",
+          "start": 6.92,
+          "end": 7.3,
+          "key": "pursue",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "pleasure",
+          "start": 7.3,
+          "end": 7.62,
+          "key": "pleasure",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.62,
+          "end": 7.82,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "excess,",
+          "start": 7.82,
+          "end": 8.28,
+          "key": "excess",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 9.04,
+          "end": 9.08,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 9.08,
+          "end": 9.3,
+          "key": "e",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "generally",
+          "start": 9.8,
+          "end": 9.8,
+          "key": "generally",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "bodily",
+          "start": 9.8,
+          "end": 10.14,
+          "key": "bodily",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "pleasure,",
+          "start": 10.14,
+          "end": 10.66,
+          "key": "pleasure",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 11.1,
+          "end": 11.34,
+          "key": "under",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.34,
+          "end": 11.46,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "notion",
+          "start": 11.46,
+          "end": 11.72,
+          "key": "notion",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.72,
+          "end": 11.96,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 11.96,
+          "end": 12.1,
+          "key": "its",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 12.1,
+          "end": 12.32,
+          "key": "being",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.32,
+          "end": 12.52,
+          "key": "a",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "remedy",
+          "start": 12.52,
+          "end": 12.8,
+          "key": "remedy",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 12.8,
+          "end": 13.1,
+          "key": "for",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 13.1,
+          "end": 13.32,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "pain.",
+          "start": 13.32,
+          "end": 13.72,
+          "key": "pain",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 14.62,
+          "end": 14.84,
+          "key": "these",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "remedies,",
+          "start": 14.84,
+          "end": 15.22,
+          "key": "remedies",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "moreover,",
+          "start": 15.46,
+          "end": 15.7,
+          "key": "moreover",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 16.28,
+          "end": 16.44,
+          "key": "come",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.44,
+          "end": 16.6,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 16.6,
+          "end": 16.76,
+          "key": "be",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "violent",
+          "start": 16.76,
+          "end": 17.1,
+          "key": "violent",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "ones,",
+          "start": 17.1,
+          "end": 17.54,
+          "key": "ones",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 18.02,
+          "end": 18.18,
+          "key": "which",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 18.18,
+          "end": 18.34,
+          "key": "is",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.34,
+          "end": 18.5,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 18.5,
+          "end": 18.74,
+          "key": "very",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 18.74,
+          "end": 19.18,
+          "key": "reason",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 19.18,
+          "end": 19.4,
+          "key": "they",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 19.4,
+          "end": 19.54,
+          "key": "are",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "pursued,",
+          "start": 19.54,
+          "end": 19.94,
+          "key": "pursued",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 20.42,
+          "end": 20.58,
+          "key": "since",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.58,
+          "end": 20.78,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "impression",
+          "start": 20.78,
+          "end": 21.16,
+          "key": "impression",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 21.16,
+          "end": 21.48,
+          "key": "they",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "produce",
+          "start": 21.48,
+          "end": 21.82,
+          "key": "produce",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 21.82,
+          "end": 22.02,
+          "key": "on",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.02,
+          "end": 22.14,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 22.14,
+          "end": 22.42,
+          "key": "mind",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 22.42,
+          "end": 22.62,
+          "key": "is",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "owing",
+          "start": 22.62,
+          "end": 22.9,
+          "key": "owing",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 22.9,
+          "end": 23.16,
+          "key": "to",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 23.16,
+          "end": 23.3,
+          "key": "their",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 23.3,
+          "end": 23.52,
+          "key": "being",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 23.52,
+          "end": 23.78,
+          "key": "looked",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 23.78,
+          "end": 23.98,
+          "key": "at",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 23.98,
+          "end": 24.36,
+          "key": "side",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 24.36,
+          "end": 24.58,
+          "key": "by",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 24.58,
+          "end": 24.96,
+          "key": "side",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 24.96,
+          "end": 25.16,
+          "key": "with",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 25.16,
+          "end": 25.32,
+          "key": "their",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "contrary.",
+          "start": 25.32,
+          "end": 25.78,
+          "key": "contrary",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "first",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "obvious",
+          "start": 0.78,
+          "end": 1.2
+        },
+        {
+          "text": "reason",
+          "start": 1.2,
+          "end": 1.56
+        },
+        {
+          "text": "is,",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "text": "that",
+          "start": 1.98,
+          "end": 2.52
+        },
+        {
+          "text": "bodily",
+          "start": 2.52,
+          "end": 2.88
+        },
+        {
+          "text": "Pleasure",
+          "start": 2.88,
+          "end": 3.32
+        },
+        {
+          "text": "drives",
+          "start": 3.32,
+          "end": 3.74
+        },
+        {
+          "text": "out",
+          "start": 3.74,
+          "end": 3.96
+        },
+        {
+          "text": "Pain;",
+          "start": 3.96,
+          "end": 4.34
+        },
+        {
+          "text": "and",
+          "start": 4.66,
+          "end": 5.0
+        },
+        {
+          "text": "because",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "text": "Pain",
+          "start": 5.24,
+          "end": 5.58
+        },
+        {
+          "text": "is",
+          "start": 5.58,
+          "end": 5.76
+        },
+        {
+          "text": "felt",
+          "start": 5.76,
+          "end": 6.0
+        },
+        {
+          "text": "in",
+          "start": 6.0,
+          "end": 6.18
+        },
+        {
+          "text": "excess",
+          "start": 6.18,
+          "end": 6.6
+        },
+        {
+          "text": "men",
+          "start": 6.6,
+          "end": 6.92
+        },
+        {
+          "text": "pursue",
+          "start": 6.92,
+          "end": 7.3
+        },
+        {
+          "text": "Pleasure",
+          "start": 7.3,
+          "end": 7.62
+        },
+        {
+          "text": "in",
+          "start": 7.62,
+          "end": 7.82
+        },
+        {
+          "text": "excess,",
+          "start": 7.82,
+          "end": 8.28
+        },
+        {
+          "text": "_i.e._",
+          "start": 8.28,
+          "end": 9.04
+        },
+        {
+          "text": "generally",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "text": "bodily",
+          "start": 9.8,
+          "end": 10.14
+        },
+        {
+          "text": "Pleasure,",
+          "start": 10.14,
+          "end": 10.66
+        },
+        {
+          "text": "under",
+          "start": 11.1,
+          "end": 11.34
+        },
+        {
+          "text": "the",
+          "start": 11.34,
+          "end": 11.46
+        },
+        {
+          "text": "notion",
+          "start": 11.46,
+          "end": 11.72
+        },
+        {
+          "text": "of",
+          "start": 11.72,
+          "end": 11.96
+        },
+        {
+          "text": "its",
+          "start": 11.96,
+          "end": 12.1
+        },
+        {
+          "text": "being",
+          "start": 12.1,
+          "end": 12.32
+        },
+        {
+          "text": "a",
+          "start": 12.32,
+          "end": 12.52
+        },
+        {
+          "text": "remedy",
+          "start": 12.52,
+          "end": 12.8
+        },
+        {
+          "text": "for",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "text": "that",
+          "start": 13.1,
+          "end": 13.32
+        },
+        {
+          "text": "Pain.",
+          "start": 13.32,
+          "end": 13.72
+        },
+        {
+          "text": "These",
+          "start": 14.62,
+          "end": 14.84
+        },
+        {
+          "text": "remedies,",
+          "start": 14.84,
+          "end": 15.22
+        },
+        {
+          "text": "moreover,",
+          "start": 15.46,
+          "end": 15.7
+        },
+        {
+          "text": "come",
+          "start": 16.28,
+          "end": 16.44
+        },
+        {
+          "text": "to",
+          "start": 16.44,
+          "end": 16.6
+        },
+        {
+          "text": "be",
+          "start": 16.6,
+          "end": 16.76
+        },
+        {
+          "text": "violent",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "text": "ones;",
+          "start": 17.1,
+          "end": 17.54
+        },
+        {
+          "text": "which",
+          "start": 18.02,
+          "end": 18.18
+        },
+        {
+          "text": "is",
+          "start": 18.18,
+          "end": 18.34
+        },
+        {
+          "text": "the",
+          "start": 18.34,
+          "end": 18.5
+        },
+        {
+          "text": "very",
+          "start": 18.5,
+          "end": 18.74
+        },
+        {
+          "text": "reason",
+          "start": 18.74,
+          "end": 19.18
+        },
+        {
+          "text": "they",
+          "start": 19.18,
+          "end": 19.4
+        },
+        {
+          "text": "are",
+          "start": 19.4,
+          "end": 19.54
+        },
+        {
+          "text": "pursued,",
+          "start": 19.54,
+          "end": 19.94
+        },
+        {
+          "text": "since",
+          "start": 20.42,
+          "end": 20.58
+        },
+        {
+          "text": "the",
+          "start": 20.58,
+          "end": 20.78
+        },
+        {
+          "text": "impression",
+          "start": 20.78,
+          "end": 21.16
+        },
+        {
+          "text": "they",
+          "start": 21.16,
+          "end": 21.48
+        },
+        {
+          "text": "produce",
+          "start": 21.48,
+          "end": 21.82
+        },
+        {
+          "text": "on",
+          "start": 21.82,
+          "end": 22.02
+        },
+        {
+          "text": "the",
+          "start": 22.02,
+          "end": 22.14
+        },
+        {
+          "text": "mind",
+          "start": 22.14,
+          "end": 22.42
+        },
+        {
+          "text": "is",
+          "start": 22.42,
+          "end": 22.62
+        },
+        {
+          "text": "owing",
+          "start": 22.62,
+          "end": 22.9
+        },
+        {
+          "text": "to",
+          "start": 22.9,
+          "end": 23.16
+        },
+        {
+          "text": "their",
+          "start": 23.16,
+          "end": 23.3
+        },
+        {
+          "text": "being",
+          "start": 23.3,
+          "end": 23.52
+        },
+        {
+          "text": "looked",
+          "start": 23.52,
+          "end": 23.78
+        },
+        {
+          "text": "at",
+          "start": 23.78,
+          "end": 23.98
+        },
+        {
+          "text": "side",
+          "start": 23.98,
+          "end": 24.36
+        },
+        {
+          "text": "by",
+          "start": 24.36,
+          "end": 24.58
+        },
+        {
+          "text": "side",
+          "start": 24.58,
+          "end": 24.96
+        },
+        {
+          "text": "with",
+          "start": 24.96,
+          "end": 25.16
+        },
+        {
+          "text": "their",
+          "start": 25.16,
+          "end": 25.32
+        },
+        {
+          "text": "contrary.",
+          "start": 25.32,
+          "end": 25.78
+        }
+      ],
+      "stats": {
+        "expected_words": 75,
+        "heard_words": 76,
+        "matched_words": 74
+      },
+      "match_ratio": 0.9866666666666667,
+      "rejection_reasons": [],
+      "seconds": 7.3096849599999985
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "31bddc0261a3f371e13bb8d66c82ccc8562eec8a6d955900ac57bc65e3bb4c27",
+  "selected_reasons": []
+}

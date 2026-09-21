@@ -1,0 +1,823 @@
+{
+  "complete": true,
+  "signature": "c65f4d235ee8e1310618b59d240181e9675def0b7a98f7e47a2737d0fdcd293a",
+  "attempts": [
+    {
+      "asr_seconds": 3.4344393179999315,
+      "alignment_seconds": 0.0011831259998871246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Next. \"The man of Perfected Self-Mastery avoids Pleasures.\" \"The man of Practical Wisdom aims at escaping Pain rather than at attaining Pleasure.\"",
+        "hotwords": "Next, The, Perfected, Self-Mastery, Pleasures, Practical, Wisdom, Pain, Pleasure"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Next. The man of Perfected Self-Mastery avoids Pleasures. The man of Practical Wisdom aims",
+          "start": 0.05,
+          "end": 6.81,
+          "words": [
+            {
+              "text": " Next.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.9110825061798096
+            },
+            {
+              "text": " The",
+              "start": 1.33,
+              "end": 1.35,
+              "probability": 0.9447026252746582
+            },
+            {
+              "text": " man",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.9447158575057983
+            },
+            {
+              "text": " of",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.9976674914360046
+            },
+            {
+              "text": " Perfected",
+              "start": 1.71,
+              "end": 2.19,
+              "probability": 0.4976724707521498
+            },
+            {
+              "text": " Self",
+              "start": 2.19,
+              "end": 2.45,
+              "probability": 0.9382123351097107
+            },
+            {
+              "text": "-Mastery",
+              "start": 2.45,
+              "end": 3.17,
+              "probability": 0.5818399488925934
+            },
+            {
+              "text": " avoids",
+              "start": 3.17,
+              "end": 3.55,
+              "probability": 0.9878222346305847
+            },
+            {
+              "text": " Pleasures.",
+              "start": 3.55,
+              "end": 4.13,
+              "probability": 0.498845174908638
+            },
+            {
+              "text": " The",
+              "start": 4.95,
+              "end": 4.97,
+              "probability": 0.983761727809906
+            },
+            {
+              "text": " man",
+              "start": 4.97,
+              "end": 5.17,
+              "probability": 0.9551617503166199
+            },
+            {
+              "text": " of",
+              "start": 5.17,
+              "end": 5.33,
+              "probability": 0.9973089694976807
+            },
+            {
+              "text": " Practical",
+              "start": 5.33,
+              "end": 5.81,
+              "probability": 0.8430346846580505
+            },
+            {
+              "text": " Wisdom",
+              "start": 5.81,
+              "end": 6.23,
+              "probability": 0.9866368174552917
+            },
+            {
+              "text": " aims",
+              "start": 6.23,
+              "end": 6.81,
+              "probability": 0.962889552116394
+            }
+          ]
+        },
+        {
+          "text": " at escaping Pain rather than at attaining Pleasure.",
+          "start": 6.81,
+          "end": 9.61,
+          "words": [
+            {
+              "text": " at",
+              "start": 6.81,
+              "end": 7.01,
+              "probability": 0.9969155788421631
+            },
+            {
+              "text": " escaping",
+              "start": 7.01,
+              "end": 7.41,
+              "probability": 0.816822350025177
+            },
+            {
+              "text": " Pain",
+              "start": 7.41,
+              "end": 7.87,
+              "probability": 0.05474003031849861
+            },
+            {
+              "text": " rather",
+              "start": 7.87,
+              "end": 8.29,
+              "probability": 0.8519352674484253
+            },
+            {
+              "text": " than",
+              "start": 8.29,
+              "end": 8.59,
+              "probability": 0.9673354029655457
+            },
+            {
+              "text": " at",
+              "start": 8.59,
+              "end": 8.71,
+              "probability": 0.8314384818077087
+            },
+            {
+              "text": " attaining",
+              "start": 8.71,
+              "end": 9.09,
+              "probability": 0.8377428352832794
+            },
+            {
+              "text": " Pleasure.",
+              "start": 9.09,
+              "end": 9.61,
+              "probability": 0.7425336837768555
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Next.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "The",
+          "start": 1.33,
+          "end": 1.35
+        },
+        {
+          "raw": "man",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "of",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "Perfected",
+          "start": 1.71,
+          "end": 2.19
+        },
+        {
+          "raw": "Self",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "raw": "-Mastery",
+          "start": 2.45,
+          "end": 3.17
+        },
+        {
+          "raw": "avoids",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "raw": "Pleasures.",
+          "start": 3.55,
+          "end": 4.13
+        },
+        {
+          "raw": "The",
+          "start": 4.95,
+          "end": 4.97
+        },
+        {
+          "raw": "man",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "raw": "of",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "raw": "Practical",
+          "start": 5.33,
+          "end": 5.81
+        },
+        {
+          "raw": "Wisdom",
+          "start": 5.81,
+          "end": 6.23
+        },
+        {
+          "raw": "aims",
+          "start": 6.23,
+          "end": 6.81
+        },
+        {
+          "raw": "at",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "raw": "escaping",
+          "start": 7.01,
+          "end": 7.41
+        },
+        {
+          "raw": "Pain",
+          "start": 7.41,
+          "end": 7.87
+        },
+        {
+          "raw": "rather",
+          "start": 7.87,
+          "end": 8.29
+        },
+        {
+          "raw": "than",
+          "start": 8.29,
+          "end": 8.59
+        },
+        {
+          "raw": "at",
+          "start": 8.59,
+          "end": 8.71
+        },
+        {
+          "raw": "attaining",
+          "start": 8.71,
+          "end": 9.09
+        },
+        {
+          "raw": "Pleasure.",
+          "start": 9.09,
+          "end": 9.61
+        }
+      ],
+      "expected_tokens": [
+        "Next.",
+        "“The",
+        "man",
+        "of",
+        "Perfected",
+        "Self-Mastery",
+        "avoids",
+        "Pleasures.”",
+        "“The",
+        "man",
+        "of",
+        "Practical",
+        "Wisdom",
+        "aims",
+        "at",
+        "escaping",
+        "Pain",
+        "rather",
+        "than",
+        "at",
+        "attaining",
+        "Pleasure.”"
+      ],
+      "acoustic_expected_tokens": [
+        "Next.",
+        "\"The",
+        "man",
+        "of",
+        "Perfected",
+        "Self-Mastery",
+        "avoids",
+        "Pleasures.\"",
+        "\"The",
+        "man",
+        "of",
+        "Practical",
+        "Wisdom",
+        "aims",
+        "at",
+        "escaping",
+        "Pain",
+        "rather",
+        "than",
+        "at",
+        "attaining",
+        "Pleasure.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Next.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "next",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.33,
+          "end": 1.35,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Perfected",
+          "start": 1.71,
+          "end": 2.19,
+          "key": "perfected",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Self -Mastery",
+          "start": 2.19,
+          "end": 3.17,
+          "key": "selfmastery",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "avoids",
+          "start": 3.17,
+          "end": 3.55,
+          "key": "avoids",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Pleasures.",
+          "start": 3.55,
+          "end": 4.13,
+          "key": "pleasures",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.95,
+          "end": 4.97,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.97,
+          "end": 5.17,
+          "key": "man",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.17,
+          "end": 5.33,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Practical",
+          "start": 5.33,
+          "end": 5.81,
+          "key": "practical",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Wisdom",
+          "start": 5.81,
+          "end": 6.23,
+          "key": "wisdom",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "aims",
+          "start": 6.23,
+          "end": 6.81,
+          "key": "aims",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.81,
+          "end": 7.01,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "escaping",
+          "start": 7.01,
+          "end": 7.41,
+          "key": "escaping",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Pain",
+          "start": 7.41,
+          "end": 7.87,
+          "key": "pain",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 7.87,
+          "end": 8.29,
+          "key": "rather",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 8.29,
+          "end": 8.59,
+          "key": "than",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.59,
+          "end": 8.71,
+          "key": "at",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "attaining",
+          "start": 8.71,
+          "end": 9.09,
+          "key": "attaining",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Pleasure.",
+          "start": 9.09,
+          "end": 9.61,
+          "key": "pleasure",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "Self-Mastery",
+          "heard": "Self -Mastery",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 2.19,
+          "end": 3.17
+        }
+      ],
+      "groups": [],
+      "observed_prefix_restored": 0,
+      "candidate_words": [
+        {
+          "text": "Next.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "“The",
+          "start": 1.33,
+          "end": 1.35
+        },
+        {
+          "text": "man",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "of",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "Perfected",
+          "start": 1.71,
+          "end": 2.19
+        },
+        {
+          "text": "Self-Mastery",
+          "start": 2.19,
+          "end": 3.17
+        },
+        {
+          "text": "avoids",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "text": "Pleasures.”",
+          "start": 3.55,
+          "end": 4.13
+        },
+        {
+          "text": "“The",
+          "start": 4.95,
+          "end": 4.97
+        },
+        {
+          "text": "man",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "text": "of",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "text": "Practical",
+          "start": 5.33,
+          "end": 5.81
+        },
+        {
+          "text": "Wisdom",
+          "start": 5.81,
+          "end": 6.23
+        },
+        {
+          "text": "aims",
+          "start": 6.23,
+          "end": 6.81
+        },
+        {
+          "text": "at",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "text": "escaping",
+          "start": 7.01,
+          "end": 7.41
+        },
+        {
+          "text": "Pain",
+          "start": 7.41,
+          "end": 7.87
+        },
+        {
+          "text": "rather",
+          "start": 7.87,
+          "end": 8.29
+        },
+        {
+          "text": "than",
+          "start": 8.29,
+          "end": 8.59
+        },
+        {
+          "text": "at",
+          "start": 8.59,
+          "end": 8.71
+        },
+        {
+          "text": "attaining",
+          "start": 8.71,
+          "end": 9.09
+        },
+        {
+          "text": "Pleasure.”",
+          "start": 9.09,
+          "end": 9.61
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.435668622999856
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c9ca6860208539a248a24edfc58592b8bf0e7031fbab405888d7229d56ddab1",
+  "selected_reasons": []
+}
