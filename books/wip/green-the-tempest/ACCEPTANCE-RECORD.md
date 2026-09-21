@@ -2,17 +2,29 @@
 
 **Book id:** `the-tempest`
 **Edition:** `modern-en`
-**Accepted (round 1, pending independent verification):** 2026-09-21
+**Status: NOT ACCEPTED — PARKED 2/3 after independent round-2
+verification (2026-09-21).** See `PARKED.md`. No acceptance hash, no
+`accepted-paragraph-hashes.tsv`, no release packet. A correction round
+(3 of 3) is required. Round 1's verdict below is superseded and is
+retained only as the record of what that round did.
 
 **Model note.**
 - Round 1 (blind accessibility review, fidelity review, fixes, whole-book
-  re-read, this record): **Claude Sonnet 5** (`claude-sonnet-5`). Artifacts:
-  `accessibility-review-1.md`, `fidelity-review-1.md`.
-- No independent adversarial round has run yet. Per this task's
-  instructions, a separate Opus verification pass runs after this dispatch
-  and will produce its own record (`RELEASE-PACKET.md` and
-  `accepted-paragraph-hashes.tsv` are intentionally NOT written here —
-  they are that pass's responsibility).
+  re-read, the round-1 record below): **Claude Sonnet 5**
+  (`claude-sonnet-5`). Artifacts: `accessibility-review-1.md`,
+  `fidelity-review-1.md`.
+- Round 2 (independent adversarial fidelity verification, source-based,
+  no reuse of round 1's word/character lists): **Claude Opus**
+  (`claude-opus-5`). Artifact: `PARKED.md`. Confirmed round 1's structure
+  claim and all 14 of its fixes, then found **15 further blocking defects
+  across 5 classes** on its first independent pass — including two
+  mythological proper nouns dropped at locations where a count-based diff
+  cannot see them (Jove 2.53, Neptune 9.11), a plot-fact inversion
+  (Claribel "far away in Italy", 3.72), erasure of Stephano's `Coragio` /
+  `bully-monster` (9.74), and a silent standardization of the source's
+  printed "you god" → "you gods" (9.53) that contradicts round 1's own
+  accepted "My mistress" ruling. `candidate.json` was not modified by
+  round 2.
 
 **Staged files:** `books/wip/green-the-tempest/source.json` (unmodified,
 locked, never edited), `books/wip/green-the-tempest/candidate.json` (round-1
@@ -156,7 +168,7 @@ rendering defect; the masque scene names several classical figures without
 inline glosses, consistent with not inventing interpretation the source
 doesn't supply).
 
-## Verdict
+## Verdict (round 1 — SUPERSEDED by round 2, see PARKED.md)
 
 **READY FOR INDEPENDENT VERIFICATION.**
 
