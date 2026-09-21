@@ -59,7 +59,7 @@ HELPER = os.environ.get("TINCT_HELPER", "v7")
 ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "pinned_words_sidecar_lib_v2.py",
                  "pinned_words_sidecar_lib_v3.py", "pinned_words_sidecar_lib_v4.py",
                  "pinned_words_sidecar_lib_v5.py", "pinned_words_sidecar_lib_v6.py", "pinned_words_sidecar_lib_v7.py",
-                 "spoken_policy.py", "cloud_cohort.py", "cloud_probe.py", "bella_gpu_review.py", "observed_prefix_repair.py", "citation_equivalence.py"]
+                 "spoken_policy.py", "cloud_cohort.py", "cloud_probe.py", "bella_gpu_review.py", "observed_prefix_repair.py", "citation_equivalence.py", "remap_gpu_cohort.py"]
 
 STATE: dict = {"phase": "booting", "started": time.time(), "setup": {}, "job": {}, "log": []}
 LOCK = threading.Lock()
@@ -167,7 +167,7 @@ def job() -> None:
         record.update(started=time.time(), targets=len(targets))
         save_state()
         with (ROOT / "cohort.log").open("w") as handle:
-            code = subprocess.call([sys.executable, str(tools / "aligner" / "cloud_cohort.py"), "--targets",
+            code = subprocess.call([sys.executable, str(tools / "aligner" / "remap_gpu_cohort.py"), "--targets",
                                     str(ROOT / "targets.json"), "--out", str(cohort_dir), "--workers", "6"],
                                    stdout=handle, stderr=subprocess.STDOUT)
         record["cohort_exit"] = code

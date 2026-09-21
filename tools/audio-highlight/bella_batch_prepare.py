@@ -1,5 +1,23 @@
-import json
+import json,urllib.request,sys,collections
 from pathlib import Path
-root=Path("artifacts/bella-completion-retry02-2026-09-21");root.mkdir(parents=True,exist_ok=True)
-(root/"batch.json").write_text("[\n {\n  \"bookId\": \"merchant-of-venice\",\n  \"edition\": \"original-en\",\n  \"chapter\": 4\n },\n {\n  \"bookId\": \"merchant-of-venice\",\n  \"edition\": \"original-en\",\n  \"chapter\": 11\n },\n {\n  \"bookId\": \"as-you-like-it\",\n  \"edition\": \"original-en\",\n  \"chapter\": 6\n },\n {\n  \"bookId\": \"war-and-peace\",\n  \"edition\": \"original-en\",\n  \"chapter\": 337\n },\n {\n  \"bookId\": \"war-and-peace\",\n  \"edition\": \"original-en\",\n  \"chapter\": 312\n },\n {\n  \"bookId\": \"war-and-peace\",\n  \"edition\": \"original-en\",\n  \"chapter\": 91\n },\n {\n  \"bookId\": \"war-and-peace\",\n  \"edition\": \"original-en\",\n  \"chapter\": 297\n },\n {\n  \"bookId\": \"merchant-of-venice\",\n  \"edition\": \"original-en\",\n  \"chapter\": 10\n },\n {\n  \"bookId\": \"war-and-peace\",\n  \"edition\": \"original-en\",\n  \"chapter\": 316\n },\n {\n  \"bookId\": \"war-and-peace\",\n  \"edition\": \"original-en\",\n  \"chapter\": 213\n },\n {\n  \"bookId\": \"bible\",\n  \"edition\": \"web-en\",\n  \"chapter\": 976\n }\n]")
-print(11,"failed chapters retried with stronger recognition and proven prefix fix")
+sys.path.insert(0,"tools/audio-highlight")
+import prodapi
+root=Path("artifacts/bella-remap-wave02-2026-09-21");root.mkdir(parents=True,exist_ok=True)
+targets=[]
+for book in ["essays-montaigne","merry-wives-of-windsor","measure-for-measure"]:
+ data=json.load(urllib.request.urlopen(f"https://raw.githubusercontent.com/anderskhv/tinct/codex/bella-source-map-20260921/artifacts/bella-source-map-2026-09-21/{book}.json"))
+ groups=collections.defaultdict(list)
+ for p in data["paragraphs"]:groups[p["chapter"]].append(p)
+ for ch,rows in groups.items():
+  if all(p.get("source") and p["source"]["structuralSourceMatch"] for p in rows):
+   targets.append(dict(bookId=book,edition="original-en",chapter=ch,words=sum(len(p["text"].split()) for p in rows)))
+chosen=[];words=0
+for row in sorted(targets,key=lambda x:x["words"]):
+ if len(chosen)>=40:break
+ if words+row["words"]>30000:continue
+ key=f'{row["bookId"]}/{row["edition"]}/ch{row["chapter"]}'
+ if prodapi.audio_object_size(key+"/words.json")[0]!=404:continue
+ chosen.append({k:row[k] for k in ("bookId","edition","chapter")});words+=row["words"]
+(root/"batch.json").write_text(json.dumps(chosen,indent=1))
+print(len(chosen),"mapped chapters",words,"words",flush=True)
+if not chosen:raise SystemExit("No mapped chapters")
