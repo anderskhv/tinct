@@ -60,7 +60,7 @@ place as book #10.
 | 3 | The Comedy of Errors | `comedy-of-errors` | **Text accepted** | freed | Full round history in `books/wip/green-comedy-of-errors/ACCEPTANCE-RECORD.md`. Final accepted sha256 `5d00ae65df86709d93c51a10f8d6643a29344641ec467f421e7bf69df7574bcd` (2026-09-21). One blocking defect found and fixed (a directional joke-inversion in a Dromio line). **Ready for publication handoff** — release packet not yet prepared. |
 | 4 | Candide | `candide` | **Text accepted** | freed | Full round history in `books/wip/green-candide/ACCEPTANCE-RECORD.md`. Final accepted sha256 `a32b255597e5f0df7809c2a573a205f7b7dcd113276570abbdddb4e735deb641` (2026-09-21). No `candide-original-fr.json` exists — English-translation source used as sole fidelity anchor per non-English-source rule (noted for Anders, not a defect). **Ready for publication handoff** — release packet not yet prepared. |
 | 5 | The Prince | `the-prince` | Screening done | queued | ch22p8 gate flag resolved as false positive |
-| 6 | Oedipus Rex | `oedipus-rex` | Screening done | queued | |
+| 6 | Oedipus Rex | `oedipus-rex` | **Text accepted** | freed | Full round history in `books/wip/green-oedipus-rex/ACCEPTANCE-RECORD.md`. Final accepted sha256 `0d6ab07adf4ef49de09d9ae8234b9be973568c55400ab06a83c91a67e80f9998` (2026-09-21). Zero blocking defects at any round; accessibility fixes concentrated in choral-ode mythological glossing. **Ready for publication handoff** — release packet not yet prepared. |
 | 7 | Oedipus at Colonus | `oedipus-at-colonus` | Screening done | queued | |
 | 8 | Antigone | `antigone` | Screening done | queued | |
 | 9 | The Sorrows of Young Werther | `werther` | Screening done | queued | |
