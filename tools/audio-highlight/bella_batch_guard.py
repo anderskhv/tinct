@@ -8,7 +8,7 @@ prefix="tinct-bella-completion-"+rid
 key=os.environ["RUNPOD_API_KEY"]
 start=time.monotonic();journal=[]
 while time.monotonic()-start<45*60:
- r=subprocess.run([sys.executable,"tools/audio-highlight/runpod_guard.py","enforce","--owner-prefix",prefix,"--budget","15","--spent","2.20","--max-rate","1","--max-minutes","35","--json-out",str(root/"guard.json"),"--apply"],capture_output=True,text=True)
+ r=subprocess.run([sys.executable,"tools/audio-highlight/runpod_guard.py","enforce","--owner-prefix",prefix,"--budget","15","--spent","2.24","--max-rate","1","--max-minutes","35","--json-out",str(root/"guard.json"),"--apply"],capture_output=True,text=True)
  print(r.stdout,flush=True)
  if r.returncode:print("guard poll failed",r.returncode,flush=True)
  req=urllib.request.Request(f"https://api.github.com/repos/anderskhv/tinct/actions/runs/{rid}/jobs",headers={"Authorization":"Bearer "+os.environ["GITHUB_TOKEN"],"User-Agent":"tinct-guard"})

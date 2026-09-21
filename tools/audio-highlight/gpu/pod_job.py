@@ -59,7 +59,7 @@ HELPER = os.environ.get("TINCT_HELPER", "v7")
 ALIGNER_FILES = ["trial.py", "pinned_words_sidecar_lib.py", "pinned_words_sidecar_lib_v2.py",
                  "pinned_words_sidecar_lib_v3.py", "pinned_words_sidecar_lib_v4.py",
                  "pinned_words_sidecar_lib_v5.py", "pinned_words_sidecar_lib_v6.py", "pinned_words_sidecar_lib_v7.py",
-                 "spoken_policy.py", "cloud_cohort.py"]
+                 "spoken_policy.py", "cloud_cohort.py", "cloud_probe.py", "bella_gpu_review.py"]
 
 STATE: dict = {"phase": "booting", "started": time.time(), "setup": {}, "job": {}, "log": []}
 LOCK = threading.Lock()
@@ -100,7 +100,7 @@ def setup() -> Path:
     STATE["phase"] = "deps"
     save_state()
     pip = subprocess.run([sys.executable, "-m", "pip", "install", "-q", "faster-whisper==1.2.1",
-                          "ctranslate2==4.8.2", "av", "huggingface_hub"], capture_output=True, text=True)
+                          "ctranslate2==4.8.2", "av==18.1.0", "huggingface_hub", "openai-whisper==20250625"], capture_output=True, text=True)
     if pip.returncode != 0:
         raise RuntimeError("pip failed: " + pip.stderr[-2000:])
     import importlib.metadata as metadata
@@ -198,7 +198,13 @@ def job() -> None:
         record["align_seconds"] = round(time.time() - record["align_started"], 1)
         run_json = out_dir / "run.json"
         record["run_status"] = json.loads(run_json.read_text()).get("status") if run_json.exists() else None
-        STATE["phase"] = "done" if code == 0 else "done-with-errors"
+        STATE["phase"] = "acoustic-review"
+        save_state()
+        with (out_dir / "acoustic-review.log").open("w") as handle:
+            review_code = subprocess.call([sys.executable, str(tools / "aligner" / "bella_gpu_review.py"),
+                                          str(cohort_dir),str(out_dir)],stdout=handle,stderr=subprocess.STDOUT)
+        record["review_exit"]=review_code
+        STATE["phase"] = "done" if code == 0 and review_code == 0 else "done-with-errors"
     except Exception as error:  # noqa: BLE001
         record["error"] = f"{type(error).__name__}: {error}"
         record["traceback"] = traceback.format_exc()[-3000:]
