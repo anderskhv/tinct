@@ -17,6 +17,8 @@ function connected(callbacks: Partial<VoiceSessionCallbacks> = {}, input: Partia
   const audio = { pausePlayback: () => null, resumePlayback: vi.fn() }
   Object.assign(controller, {
     socket,
+    // Protocol tests do not open a microphone; capture has its own lifecycle tests.
+    startCapture: vi.fn(),
     input: { authToken: 't', isAnonymous: false, context, audio, wasPlaying: false, ...input } as StartVoiceSessionInput,
     ui: { ...controller.getSnapshot(), isActive: true, connection: 'connecting', activity: 'connecting' },
   })
@@ -316,5 +318,49 @@ describe('pcm helpers', () => {
     decoded.forEach((value, index) => expect(Math.abs(value - samples[index])).toBeLessThan(1e-3))
     expect(resampleFloat(new Float32Array(480), 48000, 24000)).toHaveLength(240)
     expect(resampleFloat(new Float32Array(441), 44100, 24000)).toHaveLength(240)
+  })
+})
+
+describe('microphone and response recovery', () => {
+  it('ignores completion and audio from an older cancelled response', () => {
+    const onTurn = vi.fn()
+    const { controller } = connected({ onTurn })
+    controller.handleEvent({ type: 'response.created', response: { id: 'old' } })
+    controller.handleEvent({ type: 'input_audio_buffer.speech_started' })
+    controller.handleEvent({ type: 'response.created', response: { id: 'new' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', response_id: 'old', delta: 'discard me' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'old', status: 'cancelled' } })
+    controller.handleEvent({ type: 'response.output_audio_transcript.delta', response_id: 'new', delta: 'The new answer.' })
+    controller.handleEvent({ type: 'response.done', response: { id: 'new', status: 'completed' } })
+    expect(onTurn).toHaveBeenCalledWith('assistant', 'The new answer.', undefined)
+    expect(onTurn).toHaveBeenCalledTimes(1)
+  })
+
+  it('ends a failed session so Reconnect can actually start again', () => {
+    const { controller } = connected()
+    controller.handleEvent({ type: 'session.updated' })
+    controller.handleEvent({ type: 'error', error: { message: 'upstream transport failed' } })
+    expect(controller.getSnapshot()).toMatchObject({ isActive: false, connection: 'disconnected', error: 'upstream transport failed' })
+  })
+
+  it('detects a dead capture graph and releases the mic instead of staying Listening', () => {
+    vi.useFakeTimers()
+    const controller = new GrokVoiceSessionController({ onSnapshot: vi.fn(), onTurn: vi.fn() })
+    const node = { connect: vi.fn(), disconnect: vi.fn(), onaudioprocess: null as any }
+    const gain = { gain: { value: 1 }, connect: vi.fn(), disconnect: vi.fn() }
+    const track = { stop: vi.fn(), onended: null, readyState: 'live' }
+    const context = { state: 'running', sampleRate: 48000, destination: {},
+      createMediaStreamSource: () => node, createScriptProcessor: () => node, createGain: () => gain }
+    vi.stubGlobal('AudioContext', vi.fn())
+    Object.assign(controller, { context, stream: { getAudioTracks: () => [track], getTracks: () => [track] },
+      ui: { ...controller.getSnapshot(), isActive: true, activity: 'listening' } })
+    ;(controller as any).startCapture()
+    expect(gain.gain.value).toBe(0)
+    vi.advanceTimersByTime(5200)
+    expect(controller.getSnapshot()).toMatchObject({ isActive: false, connection: 'disconnected' })
+    expect(controller.getSnapshot().error).toMatch(/Microphone audio stopped/)
+    expect(track.stop).toHaveBeenCalledOnce()
+    expect(node.disconnect).toHaveBeenCalled()
+    vi.unstubAllGlobals()
   })
 })

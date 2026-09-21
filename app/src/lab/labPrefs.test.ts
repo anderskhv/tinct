@@ -2,6 +2,7 @@
 
 import { afterEach, describe, expect, it } from 'vitest'
 import {
+  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   labCompactFootProgress,
   DEFAULT_LAB_PREFS,
   LAB_ACCOUNT_URL,
@@ -400,4 +401,15 @@ describe('explicit audiobook choice', () => {
     writeLabPrefs({ ...DEFAULT_LAB_PREFS, primaryEdition: 'modern-en', audioEdition: 'original-en', audioFollowsPrimary: false }, 'phone')
     expect(readLabPrefs('desktop')).toMatchObject({ audioEdition: 'original-en', audioFollowsPrimary: false })
   })
+})
+
+it('round-trips bounded layout values and restores appearance without changing editions', () => {
+  const prefs = { ...DEFAULT_LAB_PREFS, lineSpacing: 1.57, margins: 1.12, paragraphSpacing: .41, primaryEdition: 'kjv-en', compareEdition: 'web-en' }
+  writeLabPrefs(prefs, 'desktop')
+  const saved = readLabPrefs('desktop')
+  expect([labLineHeight(saved.lineSpacing), labMarginScale(saved.margins), labParagraphGap(saved.paragraphSpacing)]).toEqual([1.57, 1.12, .41])
+  const restored = restoreLabAppearance(saved)
+  expect(restored.primaryEdition).toBe('kjv-en')
+  expect(restored.compareEdition).toBe('web-en')
+  expect([labLineHeight(restored.lineSpacing), labMarginScale(restored.margins), labParagraphGap(restored.paragraphSpacing)]).toEqual([1.48, 1, .28])
 })

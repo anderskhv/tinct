@@ -118,21 +118,22 @@ describe('advanced settings', () => {
     expect(screen.getByTestId('lab-v2-sheet').querySelector('.lab-passage')).toBeNull()
   })
 
-  it('moves each scale a step at a time and names the step it lands on', () => {
+  it('accepts continuous spacing, decimal commas, and bounded numeric values', () => {
     openSheet()
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
-    fireEvent.change(screen.getByTestId('lab-v2-line-spacing'), { target: { value: '2' } })
-    expect(readLabPrefs().lineSpacing).toBe('open')
-    expect(screen.getByTestId('lab-v2-sheet').textContent).toContain(labLineSpacingValue('open'))
-
-    fireEvent.change(screen.getByTestId('lab-v2-margins'), { target: { value: '0' } })
-    expect(readLabPrefs().margins).toBe('narrow')
-    expect(screen.getByTestId('lab-v2-sheet').textContent).toContain(labMarginsValue('narrow'))
-
-    fireEvent.change(screen.getByTestId('lab-v2-paragraph-spacing'), { target: { value: '2' } })
-    expect(readLabPrefs().paragraphSpacing).toBe('generous')
-    expect(screen.getByTestId('lab-v2-sheet').textContent).toContain(labParagraphSpacingValue('generous'))
-
+    fireEvent.change(screen.getByTestId('lab-v2-line-spacing'), { target: { value: '1.57' } })
+    expect(readLabPrefs().lineSpacing).toBe(1.57)
+    const lineValue = screen.getByRole('textbox', { name: 'Line spacing value' })
+    fireEvent.change(lineValue, { target: { value: '1,63' } })
+    fireEvent.blur(lineValue)
+    expect(readLabPrefs().lineSpacing).toBe(1.63)
+    fireEvent.change(lineValue, { target: { value: '99' } })
+    fireEvent.blur(lineValue)
+    expect(readLabPrefs().lineSpacing).toBe(1.9)
+    fireEvent.change(screen.getByTestId('lab-v2-margins'), { target: { value: '0.85' } })
+    expect(readLabPrefs().margins).toBe(0.85)
+    fireEvent.change(screen.getByTestId('lab-v2-paragraph-spacing'), { target: { value: '0.42' } })
+    expect(readLabPrefs().paragraphSpacing).toBe(0.42)
     fireEvent.change(screen.getByTestId('lab-v2-alignment'), { target: { value: 'left' } })
     expect(readLabPrefs().alignment).toBe('left')
     expect(screen.getByTestId('lab-v2-sheet').textContent).toContain(labAlignmentValue('left'))

@@ -11,6 +11,7 @@ import {
   VoiceReconnectIcon,
 } from './LabVoiceIcons'
 import { VoiceOrb } from './VoiceOrb'
+import { useReaderWindow } from './useReaderWindow'
 import { useDraggableSurface } from './useDraggableSurface'
 
 /**
@@ -98,6 +99,7 @@ export function LabVoiceDesktopPanel({
   onReconnect,
   onMinimize,
 }: LabVoiceDesktopPanelProps) {
+  const windowRef = useReaderWindow<HTMLElement>('talk')
   const threadRef = useRef<HTMLDivElement | null>(null)
   const followRef = useRef(true)
   const lastTurn = turns[turns.length - 1]
@@ -120,13 +122,16 @@ export function LabVoiceDesktopPanel({
   const motion = reducedMotion ? 'still' : view.motion
   return (
     <aside
+      ref={windowRef}
       className={`lab-voice-panel is-${view.status}`}
       data-testid="lab-voice-panel"
       data-status={view.status}
       data-connection={view.connected ? 'connected' : view.showReconnect ? 'lost' : 'connecting'}
       aria-label={LAB_CALL_COPY.callLabel}
     >
-      <div className="lab-voice-panel-head">
+      <button type="button" data-reader-window-resize aria-label="Resize voice panel" />
+      <div className="lab-voice-panel-head" data-reader-window-handle>
+        <strong>Talk</strong>
         <button
           type="button"
           className="lab-voice-panel-minimize"

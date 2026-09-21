@@ -161,7 +161,9 @@ describe('compact selection popup', () => {
     render(<SelectionPopup {...input} />)
     expect(screen.queryByText(/No definition found/)).toBeNull()
     await screen.findByText(/Gennesaret is a plain/)
-    expect(request).toHaveBeenCalledWith(expect.any(Function), 'Gennesaret')
+    expect(request).toHaveBeenCalledWith(expect.any(Function), 'Gennesaret', 'define')
+    expect(screen.getByText('AI definition')).toBeTruthy()
+    expect(document.querySelector('.lab-contextual-explain')).toBeNull()
   })
 
   it('keeps the plain not-found line when there is no explanation to fall back to', () => {
@@ -211,4 +213,12 @@ it('keeps the palette compact until Add note and sends Ask to the composer', () 
   expect(screen.queryByText('Copy')).toBeNull()
   fireEvent.click(screen.getByRole('button',{name:'Add note'}))
   expect(input.onRequestNote).toHaveBeenCalledOnce()
+})
+
+it('offers a definition retry when the provider returns no text', async () => {
+  const request = vi.fn().mockResolvedValueOnce(' ').mockResolvedValueOnce('verb. To look for.')
+  render(<SelectionPopup {...props({ lab: true, popupMode: 'define', defineQuery: 'seeketh', defineLoading: false, defineNotFound: true, onRequestExplanation: request })} />)
+  fireEvent.click(await screen.findByRole('button', { name: 'Try again' }))
+  await screen.findByText('verb. To look for.')
+  expect(request).toHaveBeenCalledTimes(2)
 })

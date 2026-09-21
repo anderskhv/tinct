@@ -1,10 +1,12 @@
 import { useEffect, useState, type ReactNode } from 'react'
+import { useReaderWindow } from './useReaderWindow'
 import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import type { Edition } from '../types'
 import type { NarrationPilotInfo } from './labNarration'
 import { useAuth } from '../hooks/useAuth'
 import { useBalance } from '../hooks/useBalance'
 import {
+  labLineHeight, labMarginScale, labParagraphGap, restoreLabAppearance,
   LAB_MAX_FONT_SIZE,
   LAB_MIN_FONT_SIZE,
   labAccountUrl,
@@ -17,18 +19,10 @@ import {
 } from './labPrefs'
 import {
   LAB_FONT_PICKER_GROUPS,
-  LAB_LINE_SPACINGS,
-  LAB_MARGIN_STEPS,
-  LAB_PARAGRAPH_SPACINGS,
   LAB_V2_SHEET_TITLES,
   LAB_V2_THEMES,
   labAlignmentValue,
   labFontValue,
-  labLineSpacingValue,
-  labMarginsValue,
-  labParagraphSpacingValue,
-  labStepAt,
-  labStepIndex,
   type LabV2SheetLayer,
 } from './labV2Sheet'
 
@@ -96,29 +90,28 @@ function SelectRow({
   )
 }
 
-/** A row whose value is a step on a short scale. */
-function StepRow({
-  label, icon, steps, value, onChange, display, testId,
-}: {
-  label: string
-  icon: ReactNode
-  steps: readonly string[]
-  value: string
-  onChange: (value: string) => void
-  display: string
-  testId?: string
+/** The editable value and slider share the same bounded numeric preference. */
+function LayoutSlider({ label, icon, value, min, max, step, onChange, testId }: {
+  label: string; icon: ReactNode; value: number; min: number; max: number; step: number;
+  onChange: (value: number) => void; testId: string
 }) {
-  const index = labStepIndex(steps as string[], value)
-  return (
-    <div className="lab-v2-row is-step">
-      <span className="lab-v2-row-icon" aria-hidden="true">{icon}</span>
-      <select className="lab-v2-step-select" aria-label={label} data-testid={testId} value={index}
-        onChange={event => onChange(labStepAt(steps as string[], Number(event.target.value)))}>
-        {steps.map((step, i) => <option key={step} value={i}>{step[0].toUpperCase() + step.slice(1)}</option>)}
-      </select>
-      <span className="lab-v2-step-value">{display}</span>
-    </div>
-  )
+  const [draft, setDraft] = useState(String(value))
+  useEffect(() => setDraft(String(value)), [value])
+  const commit = () => {
+    const parsed = Number(draft.trim().replace(',', '.'))
+    if (!draft.trim() || !Number.isFinite(parsed)) { setDraft(String(value)); return }
+    const next = Math.round(Math.max(min, Math.min(max, parsed)) / step) * step
+    const rounded = Number(next.toFixed(2))
+    setDraft(String(rounded)); onChange(rounded)
+  }
+  return <div className="lab-v2-layout-slider">
+    <span aria-hidden="true">{icon}</span>
+    <input type="range" className="lab-v2-slider" aria-label={label} data-testid={testId}
+      min={min} max={max} step={step} value={value} onChange={event => onChange(Number(event.target.value))} />
+    <input className="lab-v2-layout-value" inputMode="decimal" aria-label={label + ' value'}
+      value={draft} onChange={event => setDraft(event.target.value)} onBlur={commit}
+      onKeyDown={event => { if (event.key === 'Enter') { commit(); event.currentTarget.blur() } }} />
+  </div>
 }
 
 function Group({ label, children }: { label?: string; children: ReactNode }) {
@@ -172,6 +165,7 @@ const TuneIcon = () => (
  * through it while a setting is being changed.
  */
 export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions, compare = matchingAudioEditions(prefs.primaryEdition, editions), narrationPilot = null, returnTo }: LabV2SheetProps) {
+  const windowRef = useReaderWindow<HTMLElement>('settings', !!layer)
   const auth = useAuth()
   const balance = useBalance(auth.session, auth.profile, auth.user, {
     authLoading: auth.isLoading,
@@ -193,17 +187,17 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
   if (!layer) return null
 
   const font = labReadingFont(prefs.fontFamily, true)
-  const editionOptions = editions.map(edition => ({ value: edition.key, label: edition.label }))
+  const editionOptions = editions.map(edition => ({ value: edition.key, label: edition.label.replace(/^Modern English$/i, 'Tinct Modern English') }))
 
   const head = layer === 'reading' || layer === 'account'
     ? (
-      <div className="lab-v2-head is-titled">
+      <div className="lab-v2-head is-titled" data-reader-window-handle>
         <h2 className="lab-v2-title">{LAB_V2_SHEET_TITLES[layer]}</h2>
         <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
       </div>
     )
     : (
-      <div className="lab-v2-head is-centred">
+      <div className="lab-v2-head is-centred" data-reader-window-handle>
         {layer === 'font' ? (
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('advanced')}>‹ Advanced</button>
         ) : (
@@ -224,6 +218,7 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
         onClick={onClose}
       />
       <section
+        ref={windowRef}
         className="lab-v2-sheet"
         data-testid="lab-v2-sheet"
         data-layer={layer}
@@ -357,37 +352,19 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                 </div>
               </Group>
               <Group label="Line spacing">
-                <StepRow
-                  label="Line spacing"
-                  testId="lab-v2-line-spacing"
-                  icon={<LineIcon />}
-                  steps={LAB_LINE_SPACINGS}
-                  value={prefs.lineSpacing}
-                  display={labLineSpacingValue(prefs.lineSpacing)}
-                  onChange={value => onPrefs({ ...prefs, lineSpacing: value as LabPrefs['lineSpacing'] })}
-                />
+                <LayoutSlider label="Line spacing" testId="lab-v2-line-spacing" icon={<LineIcon />}
+                  value={labLineHeight(prefs.lineSpacing)} min={1.25} max={1.9} step={.01}
+                  onChange={value => onPrefs({ ...prefs, lineSpacing: value })} />
               </Group>
               <Group label="Paragraph spacing">
-                <StepRow
-                  label="Paragraph spacing"
-                  testId="lab-v2-paragraph-spacing"
-                  icon={<ParagraphIcon />}
-                  steps={LAB_PARAGRAPH_SPACINGS}
-                  value={prefs.paragraphSpacing}
-                  display={labParagraphSpacingValue(prefs.paragraphSpacing)}
-                  onChange={value => onPrefs({ ...prefs, paragraphSpacing: value as LabPrefs['paragraphSpacing'] })}
-                />
+                <LayoutSlider label="Paragraph spacing" testId="lab-v2-paragraph-spacing" icon={<ParagraphIcon />}
+                  value={labParagraphGap(prefs.paragraphSpacing)} min={.08} max={.8} step={.01}
+                  onChange={value => onPrefs({ ...prefs, paragraphSpacing: value })} />
               </Group>
               <Group label="Margins">
-                <StepRow
-                  label="Margins"
-                  testId="lab-v2-margins"
-                  icon={<MarginIcon />}
-                  steps={LAB_MARGIN_STEPS}
-                  value={prefs.margins}
-                  display={labMarginsValue(prefs.margins)}
-                  onChange={value => onPrefs({ ...prefs, margins: value as LabPrefs['margins'] })}
-                />
+                <LayoutSlider label="Margins" testId="lab-v2-margins" icon={<MarginIcon />}
+                  value={labMarginScale(prefs.margins)} min={.7} max={1.45} step={.01}
+                  onChange={value => onPrefs({ ...prefs, margins: value })} />
               </Group>
             </>
           )}
@@ -413,7 +390,7 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
                   ))}
                 </Group>
               ))}
-              <p className="lab-v2-note">Each name is set in its own face. The page behind changes as you pick.</p>
+
             </>
           )}
 
@@ -467,6 +444,7 @@ export function LabV2Sheet({ layer, onLayer, onClose, prefs, onPrefs, editions, 
               {resetStatus && <p className="lab-v2-note" role="status">{resetStatus}</p>}
             </>
           )}
+          {(layer === 'reading' || layer === 'advanced') && <button type="button" className="lab-v2-restore" onClick={() => onPrefs(restoreLabAppearance(prefs))}>Restore defaults</button>}
         </div>
       </section>
     </div>

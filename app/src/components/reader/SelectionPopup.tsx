@@ -1,9 +1,11 @@
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import type { CharacterSelection } from '../../services/characters/characterCards'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
 import type { SelectionSegment } from './selectionGeometry'
 import { defaultPopupMode, type SelectionPopupHomeMode } from './selectionPopupMode'
+import { DefinitionFallback } from './DefinitionFallback'
+import { useReaderWindow } from '../../lab/useReaderWindow'
 import { ContextualExplainCard } from './ContextualExplainCard'
 
 export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'character' | 'gallery' | 'explain'
@@ -60,7 +62,7 @@ export interface SelectionPopupProps {
   onTalkExplanation?: (answer: string) => void
   onExplain: (answer?: string) => void
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
-  onRequestExplanation?: (onDelta: (text: string) => void, text?: string) => Promise<string>
+  onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define') => Promise<string>
   onCopy: () => void
   onShare?: (text: string) => void
   onDeleteHighlight?: (id: string) => void
@@ -156,6 +158,8 @@ export function SelectionPopup({
   dismissPopup,
   lab = false,
 }: SelectionPopupProps) {
+  const windowRef = useReaderWindow<HTMLDivElement>(popupMode === 'define' ? 'define' : 'explain', lab && (popupMode === 'explain' || popupMode === 'define'))
+  const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
   const contextualExplain = lab && !!onRequestExplanation
   const [explainPlacement, setExplainPlacement] = useState({ edge: 'bottom', available: 520 })
   const openContextualExplanation = () => {
@@ -259,7 +263,7 @@ export function SelectionPopup({
 
   return (
     <div
-      ref={popupRef}
+      ref={combinedRef}
       tabIndex={-1}
       role={character || popupMode === 'explain' ? 'dialog' : undefined}
       aria-label={popupMode === 'explain' ? 'Explain this passage' : character ? 'People at this passage' : undefined}
@@ -291,8 +295,9 @@ export function SelectionPopup({
       onTouchEnd={e => e.stopPropagation()}
     >
       {contextualExplain && popupMode === 'explain' && (
-        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} onClose={dismissPopup} />
+        <ContextualExplainCard passage={selection.text} request={onRequestExplanation} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} onClose={dismissPopup} onHighlight={() => setPopupMode('colors')} />
       )}
+      {lab && (popupMode === 'define' || popupMode === 'explain') && <button type="button" data-reader-window-resize aria-label="Resize panel" />}
       {character && (popupMode === 'character' || popupMode === 'gallery') && (
         <div className="popup-character">
           <div className="popup-character-heading"><small>At this passage</small><button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button></div>
@@ -318,7 +323,11 @@ export function SelectionPopup({
       {character && popupMode === 'define' && <button className="popup-button" onClick={() => { setGalleryId(null); setPopupMode('character') }}>Back to character</button>}
       {showDefinePanel && (
         <div className="popup-define">
-          <button className="popup-more" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button>
+          <header className="lab-reader-window-head" data-reader-window-handle>
+            <span className="lab-reader-window-title">Define</span>
+            <button className="lab-window-control" type="button" onClick={() => setPopupMode('main')} aria-label="More actions"><MoreIcon /></button>
+            {lab && <button className="lab-window-control" type="button" aria-label="Close definition" onClick={dismissPopup}>×</button>}
+          </header>
           {showDefineInput ? (
             <div className="popup-define-head">
               <input
@@ -348,8 +357,7 @@ export function SelectionPopup({
             </div>
           )}
           {!defineLoading && defineNotFound && contextualExplain && (typeof navigator === 'undefined' || navigator.onLine !== false) ? (
-            // A dictionary miss is not a dead end: the same card explains the word in its place.
-            <ContextualExplainCard passage={defineQuery} request={onDelta => onRequestExplanation!(onDelta, defineQuery)} onAsk={onExplain} onTalk={onTalkExplanation} onReady={onExplanationReady} />
+            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.

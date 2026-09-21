@@ -62,9 +62,9 @@ export function labReadingFont(family: LabFontFamily | null, chromeV2: boolean):
 
 export type LabTheme = 'system' | 'light' | 'dark' | 'book'
 export type LabTextAlignment = 'left' | 'justify'
-export type LabLineSpacing = 'compact' | 'comfortable' | 'open'
-export type LabMargins = 'narrow' | 'medium' | 'wide'
-export type LabParagraphSpacing = 'compact' | 'standard' | 'generous'
+export type LabLineSpacing = 'compact' | 'comfortable' | 'open' | number
+export type LabMargins = 'narrow' | 'medium' | 'wide' | number
+export type LabParagraphSpacing = 'compact' | 'standard' | 'generous' | number
 export type LabAppearanceProfile = 'phone' | 'desktop'
 
 export interface LabAppearancePrefs {
@@ -285,13 +285,13 @@ function parseAppearance(
     fontFamily: isFamily(src.fontFamily) ? src.fontFamily : fallback.fontFamily,
     fontSize,
     alignment: src.alignment === 'left' || src.alignment === 'justify' ? src.alignment : fallback.alignment,
-    lineSpacing: src.lineSpacing === 'compact' || src.lineSpacing === 'open'
+    lineSpacing: typeof src.lineSpacing === 'number' && Number.isFinite(src.lineSpacing) ? Math.max(1.25, Math.min(1.9, src.lineSpacing)) : src.lineSpacing === 'compact' || src.lineSpacing === 'open'
       ? src.lineSpacing
       : fallback.lineSpacing,
-    margins: src.margins === 'narrow' || src.margins === 'wide' || src.margins === 'medium'
+    margins: typeof src.margins === 'number' && Number.isFinite(src.margins) ? Math.max(.7, Math.min(1.45, src.margins)) : src.margins === 'narrow' || src.margins === 'wide' || src.margins === 'medium'
       ? src.margins
       : fallback.margins,
-    paragraphSpacing: src.paragraphSpacing === 'compact' || src.paragraphSpacing === 'generous'
+    paragraphSpacing: typeof src.paragraphSpacing === 'number' && Number.isFinite(src.paragraphSpacing) ? Math.max(.08, Math.min(.8, src.paragraphSpacing)) : src.paragraphSpacing === 'compact' || src.paragraphSpacing === 'generous'
       ? src.paragraphSpacing
       : fallback.paragraphSpacing,
     progressDisplay: {
@@ -617,4 +617,20 @@ export function labReaderProgressLabel(input: {
 
 export function editionLabelFor(key: string, editions: Edition[]): string {
   return editions.find(edition => edition.key === key)?.label || key
+}
+
+/** Numeric layout controls preserve the existing named presets on read. */
+export function labLineHeight(value: LabLineSpacing): number {
+  return typeof value === 'number' ? value : value === 'compact' ? 1.34 : value === 'open' ? 1.62 : 1.48
+}
+export function labMarginScale(value: LabMargins): number {
+  return typeof value === 'number' ? value : value === 'narrow' ? .7 : value === 'wide' ? 1.45 : 1
+}
+export function labParagraphGap(value: LabParagraphSpacing): number {
+  return typeof value === 'number' ? value : value === 'compact' ? .08 : value === 'generous' ? .55 : .28
+}
+export function restoreLabAppearance(prefs: LabPrefs): LabPrefs {
+  return { ...prefs, theme: DEFAULT_LAB_PREFS.theme, darkMode: DEFAULT_LAB_PREFS.theme === 'dark',
+    fontFamily: null, fontSize: DEFAULT_LAB_PREFS.fontSize, alignment: DEFAULT_LAB_PREFS.alignment,
+    lineSpacing: 'comfortable', margins: 'medium', paragraphSpacing: 'standard' }
 }

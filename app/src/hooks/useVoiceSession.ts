@@ -114,7 +114,10 @@ export function useVoiceSession(options: UseVoiceSessionOptions) {
       },
     })
     controllerRef.current = controller
+    const debugHost = window as Window & { __tinctVoiceCapture?: () => unknown }
+    debugHost.__tinctVoiceCapture = () => controller.getCaptureDiagnostics()
     return () => {
+      delete debugHost.__tinctVoiceCapture
       controller.dispose()
       controllerRef.current = null
     }
