@@ -19,6 +19,7 @@ def main():
     runs=json.loads(gh("actions/runs?branch=codex%2Faudio-canary-run-20260916&per_page=100"))["workflow_runs"]
     runs=[r for r in runs if r["name"]=="audio-align-canary" and r["conclusion"]=="success"][:20]
     reports=[]; staged=[];seen=set()
+    holds={f"{r[\'bookId\']}/{r[\'edition\']}/ch{r[\'chapter\']}" for r in json.loads(Path("artifacts/audio-highlight-cloud-resume-2026-09-16/quarantine.json").read_text())["chapters"] if r.get("hold")=="content"}
     for run in runs:
         artifacts=json.loads(gh(f"actions/runs/{run['id']}/artifacts"))["artifacts"]
         for a in artifacts:
@@ -68,8 +69,8 @@ def main():
                 destination=OUT/"candidates"/key/row["arm"];destination.mkdir(parents=True,exist_ok=True)
                 (destination/"words.json").write_bytes(raw)
                 (destination/"cohort.json").write_text(json.dumps(co,indent=1))
-                row["state"]="recovered-needs-acoustic-review"
-                staged.append({"bookId":book,"edition":edition,"chapter":ch,"path":str(destination/"words.json")})
+                row["state"]="held-content" if key in holds else "recovered-needs-acoustic-review"
+                if key not in holds: staged.append({"bookId":book,"edition":edition,"chapter":ch,"path":str(destination/"words.json")})
                 reports.append(row)
             print("recovered run",run["id"],"reports",len(reports),flush=True)
     (OUT/"report.json").write_text(json.dumps(reports,indent=1))
