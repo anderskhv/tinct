@@ -1,0 +1,47 @@
+name: bella-focused-short-clips
+on:
+  push:
+    branches: ['codex/bella-focused-short-clips-20260921']
+    paths: ['tools/audio-highlight/bella_focused_short_clips.py', '.github/workflows/bella-focused-short-clips.yml']
+permissions:
+  contents: write
+jobs:
+  clips:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [0,1]
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper==20250625 faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0
+      - run: python3 tools/audio-highlight/bella_focused_short_clips.py ${{ matrix.target }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: focused-short-${{ matrix.target }}
+          path: artifacts/bella-focused-short-clips-2026-09-21
+  preserve:
+    needs: clips
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: focused-short-*
+          merge-multiple: true
+          path: artifacts/bella-focused-short-clips-2026-09-21
+      - run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add -f artifacts/bella-focused-short-clips-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve short-clip repair and independently measured timing agreement [skip ci]"
+          git push origin HEAD:codex/bella-focused-short-clips-20260921
