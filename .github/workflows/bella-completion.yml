@@ -1,0 +1,57 @@
+name: bella-completion-escalation
+on:
+  push:
+    branches: ['codex/bella-sync-completion-20260921']
+    paths: ['tools/audio-highlight/bella_completion.py', '.github/workflows/bella-completion.yml']
+permissions:
+  contents: write
+concurrency:
+  group: bella-completion
+  cancel-in-progress: false
+jobs:
+  escalation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing audio tooling dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install openai-whisper faster-whisper==1.2.1 ctranslate2==4.8.2 av==18.1.0 huggingface-hub
+      - name: Verify existing helper regressions
+        run: |
+          git fetch --no-tags origin f5b23de7795e73983edf55d922d0801d57d61287
+          python3 -m unittest discover -s tools/audio-highlight/aligner -p 'test_*.py'
+      - name: Freeze source and all recordings
+        run: |
+          python3 tools/audio-highlight/aligner/cloud_cohort.py --targets artifacts/bella-completion-2026-09-21/targets.json --out /tmp/bella-cohort --workers 2
+          cp /tmp/bella-cohort/cohort*.json artifacts/bella-completion-2026-09-21/
+      - name: Fetch stronger pinned recognizer
+        run: |
+          python3 - <<'PY'
+          from huggingface_hub import snapshot_download
+          snapshot_download("Systran/faster-whisper-medium.en",revision="a29b04bd15381511a9af671baec01072039215e3",local_dir="/tmp/bella-medium")
+          PY
+      - name: Diagnose and retry failed chapters with stronger model
+        timeout-minutes: 60
+        run: python3 tools/audio-highlight/bella_completion.py
+      - name: Preserve every completed result
+        if: always()
+        run: |
+          git config user.name tinct-audit
+          git config user.email tinct-audit@users.noreply.github.com
+          git add artifacts/bella-completion-2026-09-21
+          git diff --cached --quiet && exit 0
+          git commit -m "Preserve stronger-model Bella repair results [skip ci]"
+          git push origin HEAD:codex/bella-sync-completion-20260921
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bella-completion
+          path: artifacts/bella-completion-2026-09-21
+          retention-days: 30
