@@ -64,7 +64,7 @@ place as book #10.
 | 7 | Oedipus at Colonus | `oedipus-at-colonus` | Screening done | queued | |
 | 8 | Antigone | `antigone` | Screening done | queued | |
 | 9 | The Sorrows of Young Werther | `werther` | Screening done | queued | |
-| 10 | Crito | `crito` | Reviewing (round 1, fix pass dispatched) | Lane C | substitute for Apology (which substituted for Meditations). Accessibility round 1: needs targeted fixes, localized only. Fidelity round 1: ACCEPT WITH FIXES REQUIRED — 2 blocking (2.9 dropped/duplicated paragraph — same failure family as Apology but isolated to one spot, not systemic; 2.6 dropped conditional/reproach/certainty), 11 should-fix, 1 policy call (Jowett editorial cross-refs). Fix pass dispatched |
+| 10 | Crito | `crito` | **Text accepted** | Lane C (freed) | substitute for Apology (which substituted for Meditations). Full round history in `books/wip/green-crito/ACCEPTANCE-RECORD.md`. Final accepted sha256 `511340f43167c290d35cfe89618a07a3afca812412b6b7eefcd69b67f8012ac5` (2026-09-21). Notable: fidelity review caught one isolated instance of the same dropped/duplicated-paragraph defect family that disqualified Apology (2.9), but a full chapter-level recheck confirmed it was NOT systemic — fixed and reverified. **Ready for publication handoff** — release packet not yet prepared. |
 
 ## Deferred (separate lane, not started, not filling quota)
 
