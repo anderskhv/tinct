@@ -160,7 +160,27 @@ content from scratch.
 Every reviewer stated exact coverage in their own file. No reviewer
 sampled a full chapter without saying so.
 
+**Post-acceptance verification gap, found and closed.** One edit (the
+full D9 fix, broadening the "economy" gloss) was made *after*
+`fidelity-review-final.md` had already returned ACCEPT AS-IS — a
+"trivial" one-clause edit that had never itself been independently
+checked. Closed with a dedicated verification pass,
+`fidelity-review-D9-verification.md`: paragraph 3 (the edited paragraph)
+plus paragraphs 2 and 4 (neighboring context) independently re-checked
+against source on the full fidelity checklist. Verdict: the edit
+strictly *improved* fidelity (removed a partial narrowing toward
+finance that the earlier wording had introduced) and created no new
+defect; both neighboring paragraphs confirmed byte-identical to their
+already-reviewed state and still consistent across the boundary
+(general/special contrast with paragraph 2, "first"/"Second" enumeration
+with paragraph 4). The file's hash was unchanged by this pass (no
+further edit was needed) but is now genuinely pinned to a
+fully-verified final state, not just the state before the last edit.
+
 ## Status
 
 Nothing has been published. `leviathan-ch24-final.json` is a staged
-candidate only, not copied into any live edition file.
+candidate only, not copied into any live edition file. Verified final
+hash (confirmed identical for both `candidate-sonnet.json` and
+`leviathan-ch24-final.json`):
+`791e117aa5ef698e7cc7ef87b4a0ecf0eaeaa48f9f280518c2b7bed98b8abd68`.

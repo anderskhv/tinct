@@ -167,7 +167,7 @@ Anti-truncation checks (things to watch for, not a required rewrite ratio):
 
 ## Acceptance Procedure
 
-Every `modern-en` chapter goes through the two-reviewer procedure in [`TRANSLATION_PROTOCOL.md`](TRANSLATION_PROTOCOL.md) before it counts as repaired/accepted: (A) a fresh accessibility reviewer blind to the source, (B) a separate fidelity reviewer working the source in small packets with neighboring context, (C) a whole-chapter re-read for cross-boundary issues, (D) fixes verified in the actual final file with the review artifact regenerated and pinned to that file's hash. The drafter's own self-check never substitutes for step B. A reviewer must state exactly what they read; a sampled review does not certify a whole batch.
+Every `modern-en` chapter goes through the two-reviewer procedure in [`TRANSLATION_PROTOCOL.md`](TRANSLATION_PROTOCOL.md) before it counts as repaired/accepted: (A) a fresh accessibility reviewer blind to the source, (B) a separate fidelity reviewer working the source in small packets with neighboring context, (C) a whole-chapter re-read for cross-boundary issues, (D) fixes verified in the actual final file with the review artifact regenerated and pinned to that file's hash. The drafter's own self-check never substitutes for step B. A reviewer must state exactly what they read; a sampled review does not certify a whole batch. When applying corrections during step D, use `books/content_edit_helpers.py` (exact-match paragraph replacement, structure validation, before/after diffing) and follow `TRANSLATION_PROTOCOL.md`'s "Applying corrections without introducing new defects" section — this is what caught two real regressions in the Leviathan pilot and is not optional polish.
 
 ## QA Gates
 

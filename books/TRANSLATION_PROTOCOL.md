@@ -88,6 +88,52 @@ regenerate the review artifact against that final version, and record the
 file's hash alongside the acceptance verdict. An acceptance record that
 doesn't name the exact file/hash it covers does not count.
 
+### Applying corrections without introducing new defects
+
+Two real regressions in the Leviathan pilot — a content-loss bug (a
+scripting mistake silently deleted two-thirds of a paragraph) and an
+actor-misattribution bug (a sentence restructuring made the wrong party
+say something) — were both introduced by *revision* edits, not the
+original draft, and both slipped past a round that trusted a "these
+fixes were applied" summary instead of re-deriving the file's content.
+This is now a mandatory part of step D, not optional cleanup:
+
+- **Edit paragraphs with exact, scoped replacements, never whole-paragraph
+  reassignment.** Use `books/content_edit_helpers.py`'s `safe_replace()`
+  (or an equivalent exact-match-and-replace pattern) for every in-script
+  edit: it fails loudly if the expected old wording is missing *or*
+  ambiguous (appears more than once), instead of silently doing the wrong
+  thing. Never write `paragraphs[i] = new_text` when the intent is to
+  change one sentence within a paragraph — that discards everything else
+  in the paragraph.
+- **Compare the actual before/after files, not the edit's own claim about
+  itself.** `content_edit_helpers.diff_report()` reports exactly which
+  paragraph indices changed; check that set against what the edit was
+  supposed to touch (`assert_only_changed()` raises if they don't match).
+  Every intended correction must actually appear, and no paragraph outside
+  the intended scope may have changed.
+- **Validate structure after every edit round:** chapter number, paragraph
+  count and order, JSON validity, no empty/whitespace-only paragraph.
+  `content_edit_helpers.validate_structure()` does this in one call.
+- **Use word-count ratio changes as a tripwire for inspection, never as an
+  acceptance threshold.** A ratio outlier (see the helper's `RATIO_LOW`/
+  `RATIO_HIGH`) means "a human or independent reviewer should read this
+  paragraph," not "this paragraph is wrong" and not "this paragraph is
+  fine because the ratio looks normal" — a ratio inside the normal range
+  does not by itself prove the content is correct (a wrong-but-similar-
+  length replacement would pass the ratio check and still be wrong).
+- **Every changed paragraph gets an independent read with neighboring
+  context**, checking actors, causality, negation, conditions, omissions,
+  additions, and terminology consistency — the same checklist as a first
+  fidelity pass, applied to the diff rather than the whole chapter, unless
+  the whole chapter hasn't had an independent pass yet.
+- **An edit made after a chapter's acceptance verdict is not exempt from
+  this, no matter how small.** Re-run the affected paragraph(s) (plus
+  neighboring context) through independent review before treating the
+  file as final. Only pin the acceptance hash to the file's state *after*
+  its last edit and *after* that edit's verification — a hash computed
+  before a subsequent "trivial" fix does not cover what actually shipped.
+
 ### Rules for reviewers
 
 - Reviewers must state exactly what they read — which paragraphs, in full
